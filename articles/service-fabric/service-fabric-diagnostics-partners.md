@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 43b7b2e7b4f4da4939e08a68bc2ac7ea0a2c2a6b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459045"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974411"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric Monitoring partner
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur en kan övervaka sina Service Fabric-program, kluste
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Vår integrering med Dynatrace tillhandahåller många utanför rutan funktionerna för att övervaka dina Service Fabric-kluster. Installera Dynatrace OneAgent på dina skalningsuppsättningsinstanser ger du prestandaräknare och en topologi för distributionen av Service Fabric App-nivå. Dynatrace är också ett bra alternativ för lokal övervakning. Kolla in flera av de funktioner som visas i den [meddelandet](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) och [instruktioner](https://www.dynatrace.com/support/help/cloud-platforms/azure/how-do-i-monitor-azure-service-fabric-applications/) att aktivera Dynatrace på ditt kluster. 
+Vår integrering med Dynatrace tillhandahåller många utanför rutan funktionerna för att övervaka dina Service Fabric-kluster. Installera Dynatrace OneAgent på dina skalningsuppsättningsinstanser ger du prestandaräknare och en topologi för distributionen av Service Fabric App-nivå. Dynatrace är också ett bra alternativ för lokal övervakning. Kolla in flera av de funktioner som visas i den [meddelandet](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) och [instruktioner](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) att aktivera Dynatrace på ditt kluster. 
 
 ## <a name="datadog"></a>Datadog
 

@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271053"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603448"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Prestandarekommendationer för SQL-databas
 
 Azure SQL Database lärdomar och tips med ditt program. Det ger anpassade rekommendationer som hjälper dig att maximera prestanda i dina SQL-databaser. SQL Database utvärderar kontinuerligt och analyserar användningshistorik för dina SQL-databaser. Rekommendationer som tillhandahålls är baserade på databasen unika arbetsbelastningmönster och hjälp oss att förbättra prestanda.
 
 > [!TIP]
-> [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för prestandajustering. [Intelligent Insights](sql-database-intelligent-insights.md) är den rekommenderade metoden för övervakning av prestanda. 
+> [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för att justera några av de vanligaste prestandaproblemen för databasen. [Fråga Prestandainsikter](sql-database-query-performance.md) är den rekommenderade metoden för grundläggande Azure SQL Database prestandaövervakningsbehov. [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) är den rekommenderade metoden för avancerad övervakning av databasprestanda i skala, med inbyggd intelligens för prestandafelsökning av automatiserade.
 >
 
 ## <a name="create-index-recommendations"></a>Skapa indexrekommendationer

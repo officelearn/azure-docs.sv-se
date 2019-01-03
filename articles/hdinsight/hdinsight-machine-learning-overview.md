@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437205"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743008"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
 
-HDInsight gör det möjligt för machine learning med big data, vilket ger möjlighet att få värdefulla insikter från stora mängder (petabyte eller även exabyte) strukturerade och Ostrukturerade, och snabbrörliga data. Det finns flera machine learning-alternativ i HDInsight:  SparkML och MLlib, R, Apache Hive och Microsoft Cognitive Toolkit.
+HDInsight gör det möjligt för machine learning med big data, vilket ger möjlighet att få värdefulla insikter från stora mängder (petabyte eller även exabyte) strukturerade och Ostrukturerade, och snabbrörliga data. Det finns flera machine learning-alternativ i HDInsight:  SparkML och Apache Spark MLlib, R, Apache Hive och Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML och MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Apache Spark](http://spark.apache.org/), en enhetlig öppen källkod, ett parallellt databearbetningsramverk som stöder intern bearbetning för att höja analyser av stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. Det finns två skalbar machine learning-bibliotek som få algoritmiska modelleringsfunktioner till den här distribuerad miljö: MLlib och SparkML. MLlib innehåller den ursprungliga API som byggts ovanpå rdd-datauppsättningar. SparkML är ett nyare paket som innehåller en högre nivå API som bygger på dataramar för att konstruera ML pipelines. SparkML stöder ännu inte alla funktioner i MLlib, men ersätter MLlib som Spark's standard machine learning-biblioteket.
+[HDInsight Spark](spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Apache Spark](https://spark.apache.org/), en enhetlig öppen källkod, ett parallellt databearbetningsramverk som stöder intern bearbetning för att höja analyser av stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. Det finns två skalbar machine learning-bibliotek som få algoritmiska modelleringsfunktioner till den här distribuerad miljö: MLlib och SparkML. MLlib innehåller den ursprungliga API som byggts ovanpå rdd-datauppsättningar. SparkML är ett nyare paket som innehåller en högre nivå API som bygger på dataramar för att konstruera ML pipelines. SparkML stöder ännu inte alla funktioner i MLlib, men ersätter MLlib som Spark's standard machine learning-biblioteket.
 
 Microsoft Machine Learning-biblioteket för Apache Spark [MMLSpark](https://github.com/Azure/mmlspark). Det här biblioteket är utformad för att göra dataexperter mer produktiva i Spark, öka frekvensen för experimentering och utnyttja banbrytande machine learning-tekniker, inklusive djupinlärning på mycket stora datauppsättningar. MMLSpark ger ett lager ovanpå Sparkmls på låg nivå API: er när du bygger skalbara ML-modeller, t.ex indexering strängar coercing data i en layout som förväntas av machine learning-algoritmer och montera funktionen vektorer. MMLSpark-bibliotek förenklar dessa och andra vanliga aktiviteter för att skapa modeller i PySpark.
 

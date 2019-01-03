@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890559"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811026"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -35,13 +35,13 @@ I den här artikeln beskrivs registrera integrerade Azure Stack-system med Azure
 
 Du behöver följande för på plats innan du registrerar:
 
- - Verifiera dina autentiseringsuppgifter
+ - Ange autentiseringsuppgifterna
  - Ange språkläge PowerShell
  - Installera PowerShell för Azure Stack
  - Ladda ned Azure Stack-verktyg
  - Fastställa din registrering-scenario
 
-### <a name="verify-your-credentials"></a>Verifiera dina autentiseringsuppgifter
+### <a name="verify-your-credentials"></a>Ange autentiseringsuppgifterna
 
 Innan du registrerar Azure Stack med Azure, måste du ha:
 
@@ -300,15 +300,15 @@ Du kan även använda cmdleten Get-innehåll för att den pekar på en fil som i
 
 ## <a name="verify-azure-stack-registration"></a>Verifiera Azure Stack-registrering
 
-Följ dessa steg för att verifiera att Azure Stack har registrerats med Azure.
+Du kan använda den **regionshantering** panelen för att kontrollera att Azure Stack-registreringen har lyckats. Den här panelen är tillgänglig på standardinstrumentpanelen i administratörsportalen. Status kan vara registrerad eller inte registrerad. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure-Stack tillsammans med resursgruppen för registrering och namn.
 
-1. Logga in på Azure Stack [administrationsportalen](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;region >. &lt;fqdn >*.
-2. Välj **alla tjänster**, och sedan under den **ADMINISTRATION** kategori, väljer **Marketplace management** > **Lägg till från Azure**.
+1. Logga in på den [Azure Stack-administrationsportalen](https://adminportal.local.azurestack.external).
 
-Om du ser en lista med objekt som är tillgängliga från Azure (till exempel WordPress) lyckades aktiveringen. Men i frånkopplade miljöer visas inte Azure marketplace-objekt i Azure Stack marketplace.
+2. Från instrumentpanelen väljer **regionshantering**.
 
-> [!Note]  
-> När registreringen är klar, visas inte längre den aktiva varningen för att inte registrera.
+    [ ![Panelen för hantering av region](media/azure-stack-registration/admin1sm.png "panelen för hantering av Region") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Välj **egenskaper**. Det här bladet visar status och information om din miljö. Statusen kan vara **registrerad** eller **inte registrerad**. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure Stack, tillsammans med resursgruppen för registrering och namn.
 
 ## <a name="renew-or-change-registration"></a>Förnya eller ändra registrering
 
@@ -434,7 +434,7 @@ Om du vill köra cmdleten, behöver du:
 | AzureContext | PSObject |  |
 | ResourceGroupName | Sträng |  |
 | ResourceGroupLocation | Sträng |  |
-| BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: kapacitet, PayAsYouUse och utveckling. |
+| BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
 | MarketplaceSyndicationEnabled | SANT/FALSKT | Anger huruvida hanteringsfunktionen marketplace är tillgängligt i portalen. Ange som SANT om registrering med Internetanslutning. Inställt på falskt om registrering i frånkopplade miljöer. För frånkopplade registreringar den [offline syndikering verktyget](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan användas för att ladda ned marketplace-objekt. |
 | UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: SANT, FALSKT. |
 | AgreementNumber | Sträng |  |
@@ -456,7 +456,7 @@ Get-AzsRegistrationToken genererar en registreringstoken från indataparametrarn
 | AzureContext | PSObject |  |
 | ResourceGroupName | Sträng |  |
 | ResourceGroupLocation | Sträng |  |
-| BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: kapacitet, PayAsYouUse och utveckling. |
+| BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
 | MarketplaceSyndicationEnabled | SANT/FALSKT |  |
 | UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: SANT, FALSKT. |
 | AgreementNumber | Sträng |  |

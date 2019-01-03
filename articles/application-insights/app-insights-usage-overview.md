@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 48432b4a415c0c544c4a64444c89cf818fa00e1f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955437"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972436"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -28,17 +28,28 @@ Vilka funktioner för webb- eller mobilappen som är mest populära? Användarna
 
 Den bästa upplevelsen hämtas genom att installera Application Insights både i serverkoden app och i dina webbsidor. Klient- och komponenterna i din app skickar telemetri till Azure-portalen för analys.
 
-1. **Serverkoden:** installera modulen lämpliga för din [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), eller [andra](app-insights-platforms.md) app.
+1. **Kod:** Installera modulen lämpliga för din [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](app-insights-nodejs.md), eller [andra](app-insights-platforms.md) App.
 
     * *Vill du installera serverkoden inte? Bara [skapa en Azure Application Insights-resurs](app-insights-create-new-resource.md).*
 
-2. **Webbsidans kod:** öppna den [Azure-portalen](https://portal.azure.com), öppna Application Insights-resurs för din app och öppna sedan **komma igång > övervaka och diagnostisera klientsidan**. 
+2. **Webbsidans kod:** Lägga till följande skript på din webbsida före avslutande ``</head>``. Ersätt instrumenteringsnyckeln med lämpligt värde för Application Insights-resursen:
 
-    ![Kopiera skriptet till chefen för din huvudwebbsidan.](./media/app-insights-usage-overview/02-monitor-web-page.png)
+   ```javascript
+      <script type="text/javascript">
+        var appInsights=window.appInsights||function(a){
+            function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+        }({
+            instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+        });
+        
+        window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+    </script>
+    ```
+    Om du vill lära dig mer om avancerade konfigurationer för att övervaka webbplatser kan du läsa [JavaScript SDK API-referensen](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-3. **Mobil Appkod:** använda App Center SDK för att samla in händelser från din app och sedan skicka kopior av dessa händelser till Application Insights för analys av [följer den här guiden](app-insights-mobile-center-quickstart.md).
+3. **Kod för mobilapp:** Använda App Center SDK för att samla in händelser från din app och sedan skicka kopior av dessa händelser till Application Insights för analys av [följer den här guiden](app-insights-mobile-center-quickstart.md).
 
-4. **Hämta telemetri:** köra projektet i felsökningsläge i några minuter och sedan leta efter resultat i bladet översikt i Application Insights.
+4. **Hämta telemetri:** Köra projektet i felsökningsläge i några minuter och sedan leta efter resultat i bladet översikt i Application Insights.
 
     Publicera din app för att övervaka appens prestanda och ta reda på vad användarna gör med din app.
 
@@ -103,7 +114,7 @@ Eller från serversidan:
 
 Du kan koppla egenskapsvärden till dessa händelser så att du kan filtrera eller dela upp händelser när du inspektera dem i portalen. Dessutom kan är en standarduppsättning egenskaper kopplat till varje händelse, till exempel anonyma användar-ID, vilket gör att du kan spåra sekvensen av aktiviteter för en enskild användare.
 
-Läs mer om [anpassade händelser](app-insights-api-custom-events-metrics.md#trackevent) och [egenskaper](app-insights-api-custom-events-metrics.md#properties).
+Läs mer om [anpassade händelser](../azure-monitor/app/api-custom-events-metrics.md#trackevent) och [egenskaper](../azure-monitor/app/api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Rapportanvändarna händelser
 
@@ -121,7 +132,7 @@ För den här tekniken koppla distinkta egenskapsvärden till all telemetri som 
 
 Filtrera och dela dina data på egenskapsvärden för att jämföra olika versioner i Application Insights-portalen.
 
-Gör [ställa in en telemetri-initierare](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
+Gör [ställa in en telemetri-initierare](../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```csharp
 

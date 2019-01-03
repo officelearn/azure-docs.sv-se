@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901489"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727098"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Säkerhetspositionen för Azure Stack-infrastruktur
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Säkerhetsöverväganden och kompatibilitetsföreskrifter är bland de viktigaste drivrutinerna för att använda hybridmoln. Azure Stack är utformat för dessa scenarier. Den här artikeln beskriver säkerhetskontrollerna för Azure Stack.
 
@@ -40,7 +40,7 @@ Eftersom infrastrukturen körs på väldefinierad maskinvara och programvara, Az
 Eftersom Azure Stack levereras som ett integrerat system, har säkerhetspositionen för Azure Stack-infrastruktur definierats av Microsoft. Precis som i Azure ansvarar klienter för att definiera säkerhetspositionen för sina klienternas arbetsbelastningar. Det här dokumentet innehåller grundläggande kunskaper om säkerhetspositionen för Azure Stack-infrastruktur.
 
 ## <a name="data-at-rest-encryption"></a>Data för kryptering av vilande data
-Alla Azure Stack-infrastruktur- och klienttrafik data krypteras i vila med Bitlocker. Den här krypteringen skyddar mot fysisk förlust eller stöld av Azure Stack lagringskomponenter. 
+Alla Azure Stack-infrastruktur- och klienttrafik data krypteras i vila med Bitlocker. Den här krypteringen skyddar mot fysisk förlust eller stöld av Azure Stack lagringskomponenter. Mer information finns i [data kryptering av vilande data i Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Data i rörelse kryptering
 Azure Stack-infrastrukturkomponenter kommunicera med kanaler som krypterats med TLS 1.2. Krypteringscertifikat hanteras själva av infrastrukturen. 

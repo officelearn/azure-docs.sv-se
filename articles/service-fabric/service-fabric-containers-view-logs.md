@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299086"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993812"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggar för en tjänst för Service Fabric-behållare
 Azure Service Fabric är en orkestrerare för behållare och stöder både [Linux och Windows-behållare](service-fabric-containers-overview.md).  Den här artikeln beskriver hur du visar behållarloggarna av en pågående container-tjänst eller en döda behållare så att du kan diagnostisera och felsöka problem.
@@ -64,10 +64,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Använd den [sfctl get-container-tjänstloggar](service-fabric-sfctl-service.md) kommando för att hämta loggarna för en krasch behållare.  Ange namnet på den nod som behållaren körs på, programnamn, manifest tjänstnamn och paketnamnet kod. Ange den `-previous` flaggan.  Svaret innehåller behållarloggarna för obeställbara kod paketet instans-behållaren.
+Använd den [sfctl get-container-tjänstloggar](service-fabric-sfctl-service.md) kommando för att hämta loggarna för en krasch behållare.  Ange namnet på den nod som behållaren körs på, programnamn, manifest tjänstnamn och paketnamnet kod. Ange den `--previous` flaggan.  Svaret innehåller behållarloggarna för obeställbara kod paketet instans-behållaren.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Svar:
 ```json

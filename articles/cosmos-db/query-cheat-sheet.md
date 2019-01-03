@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05361867ddbbefd31e72abeca10a9282ae702d1c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138151"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810482"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Facit för Azure Cosmos DB-fråga
 
-Den **facit för Azure Cosmos DB-fråga** hjälper dig att snabbt skriva frågor för dina data genom att visa vanliga databasfrågor, åtgärder, funktioner och operatorer i enkel till utskrift PDF referens blad. Facit innehåller referensinformation för SQL-API, API för MongoDB, tabell-API och Gremlin-API. 
+Den **facit för Azure Cosmos DB-fråga** hjälper dig att snabbt skriva frågor för dina data genom att visa vanliga databasfrågor, åtgärder, funktioner och operatorer i enkel till utskrift PDF referens blad. Facit innehåller referensinformation för SQL, MongoDB, Table och Gremlin-API: er. 
 
 Välj bland en nedladdning Letter eller A3-storlek. 
 
@@ -25,18 +25,16 @@ Välj bland en nedladdning Letter eller A3-storlek.
 
 Ladda ned den [facit för Azure Cosmos DB-a4-fråga](https://go.microsoft.com/fwlink/?LinkId=623215) om du ska skriva ut på a4-papper (8,5 ”x 11”).
 
-![Azure Cosmos DB-fråga facit - a4-, med SQL API-, JavaScript, MongoDB-API, Gremlin-API och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+![Azure Cosmos DB-fråga facit - a4-, med SQL API-, JavaScript, MongoDB, Gremlin och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
 ## <a name="oversized-cheat-sheets"></a>Stora facit
 Ladda ned den [facit för Azure Cosmos DB A3-storlek fråga](https://go.microsoft.com/fwlink/?linkid=870413) om du vill skriva ut adressen med hjälp av en plotter eller storskaliga skrivare på papper A3-storlek (11,7 ”x 16,5”).
 
-![Azure Cosmos DB-fråga-facit - A3-storlek, med SQL API-, JavaScript, MongoDB-API, Gremlin-API och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+![Azure Cosmos DB-fråga-facit - A3-storlek, med SQL API-, JavaScript, MongoDB, Gremlin och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer hjälp skriver frågor finns i följande artiklar:
 * SQL API-frågor finns i [frågar med SQL API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](how-to-sql-query.md), och [referens för SQL-syntax](sql-api-query-reference.md)
-* MongoDB-frågor finns i [frågar med hjälp av MongoDB API](tutorial-query-mongodb.md) och [MongoDB API-stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md)
+* MongoDB-frågor finns i [ställa frågor med Azure Cosmos DB API för MongoDB](tutorial-query-mongodb.md) och [Azure Cosmos DB-API för MongoDB funktioner som stöds och syntax](mongodb-feature-support.md)
 * Gremlin-API-frågor finns i [fråga med hjälp av Gremlin-API](tutorial-query-graph.md) och [grafstöd för Azure Cosmos DB Gremlin](gremlin-support.md)
 * Tabell-API-frågor finns [ställa frågor med tabell-API](tutorial-query-table.md)
-
-

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8a8b1e29a6504c725e244efa1ae8c37a9a0d8420
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0d673ee9d316f14f95f6924929ad319eae13efcc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726278"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973323"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Programinsikter] [ start] är mätvärden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera problem med prestanda och se trender i hur ditt program används. Det finns en mängd olika standardmått och du kan också skapa egna anpassade mått och händelser.
@@ -140,7 +140,7 @@ Du kan också filtrera efter **källa för syntetisk trafik**.
 ### <a name="to-add-properties-to-the-filter-list"></a>Att lägga till egenskaper i filterlistan
 Vill du filtrera telemetri på en kategori för en egen? Till exempel kanske du dela upp användarna i olika kategorier och du vill segmentera dina data med dessa kategorier.
 
-[Skapa din egen egenskap](app-insights-api-custom-events-metrics.md#properties). Ange den i en [Telemetriinitieraren](app-insights-api-custom-events-metrics.md#defaults) så att det visas i all telemetri – inklusive standard telemetri som skickas av olika SDK-moduler.
+[Skapa din egen egenskap](../azure-monitor/app/api-custom-events-metrics.md#properties). Ange den i en [Telemetriinitieraren](../azure-monitor/app/api-custom-events-metrics.md#defaults) så att det visas i all telemetri – inklusive standard telemetri som skickas av olika SDK-moduler.
 
 ## <a name="edit-the-chart-type"></a>Redigera diagramtyp
 Observera att du kan växla mellan rutnät och diagram:
@@ -176,13 +176,13 @@ Lägg till en avisering om du vill meddelas via e-post med ovanliga värden för
 
 
 ## <a name="continuous-export"></a>Kontinuerlig export
-Om du vill data kontinuerligt exporteras så att du kan bearbeta externt, bör du använda [löpande export](app-insights-export-telemetry.md).
+Om du vill data kontinuerligt exporteras så att du kan bearbeta externt, bör du använda [löpande export](../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Om du vill att ännu bättre vyer över dina data, kan du [exportera till Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analytics
-[Analytics](app-insights-analytics.md) är ett mer flexibelt sätt att analysera din telemetri med hjälp av ett kraftfullt frågespråk. Använd det om du vill kombinera compute resultaten från mått eller utför en detaljerad förklaring av appens senaste prestanda. 
+[Analytics](../azure-monitor/app/analytics.md) är ett mer flexibelt sätt att analysera din telemetri med hjälp av ett kraftfullt frågespråk. Använd det om du vill kombinera compute resultaten från mått eller utför en detaljerad förklaring av appens senaste prestanda. 
 
 Du kan klicka på ikonen Analytics för att komma direkt till motsvarande Analytics-frågan från ett måttdiagram.
 
@@ -193,7 +193,7 @@ Du kan klicka på ikonen Analytics för att komma direkt till motsvarande Analyt
 
     Om du vill definiera olika filter för olika diagram, skapa dem i olika bladen kan du spara dem som separata Favoriter. Om du vill kan fästa du dem på instrumentpanelen så att du kan se dem tillsammans med varandra.
 * Om du grupperar ett diagram av en egenskap som inte har definierats för måttet kan sedan debiteras ingenting i diagrammet. Försök rensa ”Gruppera efter” eller välj en egenskap för olika grupperingsnivåer.
-* Prestandadata (CPU, IO-frekvens och så vidare) är tillgängligt för Java-webbtjänster, Windows-skrivbordsappar, [IIS webbprogram och tjänster om du installerar statusövervakaren](app-insights-monitor-performance-live-website-now.md), och [Azure Cloud Services](app-insights-overview.md). Det är inte tillgängligt för Azure-webbplatser.
+* Prestandadata (CPU, IO-frekvens och så vidare) är tillgängligt för Java-webbtjänster, Windows-skrivbordsappar, [IIS webbprogram och tjänster om du installerar statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md), och [Azure Cloud Services](app-insights-overview.md). Det är inte tillgängligt för Azure-webbplatser.
 
 ## <a name="video"></a>Video
 
@@ -201,10 +201,10 @@ Du kan klicka på ikonen Analytics för att komma direkt till motsvarande Analyt
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervakning med Application Insights](app-insights-usage-overview.md)
-* [Med hjälp av Diagnostiksökning](app-insights-diagnostic-search.md)
+* [Med hjälp av Diagnostiksökning](../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
-[alerts]: app-insights-alerts.md
+[alerts]: ../azure-monitor/app/alerts.md
 [start]: app-insights-overview.md
-[track]: app-insights-api-custom-events-metrics.md
+[track]: ../azure-monitor/app/api-custom-events-metrics.md

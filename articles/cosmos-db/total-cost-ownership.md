@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263967"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555463"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Totalkostnaden för Ownership(TCO) med Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Den serverfria etableringsmodellen hos Azure Cosmos DB eliminerar behovet av att
 
 * **Bra värde för pris:** Marknaden analytiker, kunder och partner har bekräftat ett större värde för alla funktioner som Azure Cosmos DB erbjuder till ett mycket lägre pris jämfört med vad kunder får när du implementerar dessa lösningar på egen hand eller via andra leverantörer. Databasen har sådana global distribution, flera huvudservrar, väldefinierade och intuitiv konsekvensmodeller, automatisk indexering är avsevärt förenklad med Azure Cosmos DB utan komplexitet, arbete, eller driftstopp.
 
-* **Det krävs ingen NoSQL devops-administration:** En behöver inte använda devops utföra underhåll, skala eller patch om du vill hantera distributioner med Azure Cosmos DB. Du kan köra de alla arbetsbelastningar som du gör med OSS NoSQL kluster som finns lokalt eller i molninfrastruktur.
+* **Det krävs ingen NoSQL DevOps-administration:** En behöver inte använda DevOps utföra underhåll, skala eller patch om du vill hantera distributioner med Azure Cosmos DB. Du kan köra de alla arbetsbelastningar som du gör med OSS NoSQL kluster som finns lokalt eller i molninfrastruktur.
 
 ![Azure Cosmos DB i ägandekostnad](./media/total-cost-ownership/tco.png)
 
@@ -37,7 +37,7 @@ Den serverfria etableringsmodellen hos Azure Cosmos DB eliminerar behovet av att
 
 * **Optimerad för molnet:** Azure Cosmos DB har utformats från grunden med detaljerade isolering för flera innehavare och prestanda. Det möjliggör optimalt placera, köra och belastningsutjämning tusentals olika klienter och sina arbetsbelastningar över kluster och datacenter. Däremot fungera den nuvarande generationen OSS NoSQL-databaser på plats med hela den virtuella datorn antas för att köra en enda klient arbetsbelastningen. Dessa databaser är också inte utformade för att använda en molnleverantör infrastruktur och maskinvara som helt. Till exempel en OSS NoSQL databasmotor är inte medvetna om skillnaderna mellan en virtuell dator som ned Vs en rutinmässig avbildning uppgradera eller faktumet att premium-disken är redan trevägs replikeras. Den kan inte dra nytta av dessa förmåner och skicka om fördelar och besparingar för kunder.
 
-* **Du betalar per timme:** För storskaliga arbetsbelastningar som behöver skala vid någon tidpunkt endast debiteras per timme. Arbetsbelastningar på ett program som vanligtvis varierar mellan olika tidpunkter på året och data som det efterfrågas. Med Azure Cosmos DB kan skala du upp eller ned när du behöver och betala bara för vad du behöver. Med en lokal eller IaaS-värd system, kan inte du matcha den här modellen eftersom det inte är ett sätt att inaktivera maskinvaran varje timme. I sådana fall kan spara du eventuellt mellan 10 till 14 gånger på ett genomsnitt med Azure Cosmos DB.
+* **Du betalar per timme:** För storskaliga arbetsbelastningar som behöver skala när som helst i tid kan debiteras du bara per timme. Arbetsbelastningar på ett program varierar vanligtvis över tid på året och av de data som efterfrågas. Med Azure Cosmos DB kan skala du upp eller ned när du behöver och betala bara för vad du behöver. Med en lokal eller IaaS-värd system, kan inte du matcha den här modellen eftersom det inte är ett sätt att inaktivera maskinvaran varje timme. I sådana fall kan spara du eventuellt mellan 10 till 14 gånger på ett genomsnitt med Azure Cosmos DB.
 
 * **Du får ett stort antal funktioner kostnadsfritt:** Skriva arbetsbelastningar med avsevärt billigare alternativ databastjänster i Azure Cosmos DB. Dessutom Azure Cosmos DB erbjuder funktioner som till exempel [automatisk indexering](indexing-policies.md), [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) och andra utan ytterligare avgifter, något som oftast debiterar andra databastjänster.
 

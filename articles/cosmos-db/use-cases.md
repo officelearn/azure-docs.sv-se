@@ -7,12 +7,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: f49f56d57de6cdcb7c5e9b557ed897d17a6bf7fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c93b53a78891eaf46e5455bd13198f7b9bd90903
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079185"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808024"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en startpunkt när du utvecklar ditt program med Cosmos DB.   
@@ -27,7 +27,7 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 ## <a name="introduction"></a>Introduktion
 [Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databastjänst. Tjänsten är utformad att ge kunderna möjlighet att (skala Elastiskt och oberoende) dataflöde och lagring över valfritt antal geografiska regioner. Azure Cosmos DB är den första globalt distribuerade databastjänsten på marknaden idag som erbjuder omfattande [serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) omfattar dataflöde, svarstider, tillgänglighet och konsekvens. 
 
-Azure Cosmos DB är en globalt distribuerad databas som används i en mängd olika program och användningsfall. Det är ett bra val för någon [serverlös](https://azure.com/serverless) program som behöver korta svarstider ordning millisekunder och behöver skalas globalt och snabbt. Det har stöd för flera datamodeller (nyckelvärde, dokument, diagram och kolumner) och många API: er för data kan komma åt, inklusive [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin-API](graph-introduction.md), och [ Tabeller API](table-introduction.md) internt och på ett utökningsbart sätt. 
+Azure Cosmos DB är en globalt distribuerad databas som används i en mängd olika program och användningsfall. Det är ett bra val för någon [serverlös](https://azure.com/serverless) program som behöver korta svarstider ordning millisekunder och behöver skalas globalt och snabbt. Det har stöd för flera datamodeller (nyckelvärde, dokument, diagram och kolumner) och många API: er för data kan komma åt, inklusive [Azure Cosmos DB-API för MongoDB](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin-API](graph-introduction.md), och [API: T Tables](table-introduction.md) internt och på ett utökningsbart sätt. 
 
 Här följer några attribut för Azure Cosmos DB som gör att den passar bra för program med höga prestanda med globala ambitionsnivå.
 
@@ -69,7 +69,7 @@ Data som lagras i Azure Cosmos DB kan dessutom integreras med HDInsight för ana
 ## <a name="gaming"></a>Spel
 Databasnivån är en fundamental komponent i spelappar. Moderna spel utföra grafiska bearbetning av klienter för mobila/konsolen, men förlitar sig på molnet för att leverera anpassade och personligt anpassad innehåll som statistik i spelet, integrering av sociala media och hög Poängrekord. Spel kräver ofta svarstider på ensiffriga millisekunder för läsningar och skrivningar för att tillhandahålla en engagerande i spelet upplevelse. En game databasen måste vara snabba och att kunna hantera massiva tillfälliga trafiktopparna vid begäranhastigheter när nya spel startar och funktionsuppdateringar.
 
-Azure Cosmos DB används av spel som [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) av [Next Games](https://www.nextgames.com/), och [Halo 5: Skyddarna](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB ger följande fördelar för spelutvecklare:
+Azure Cosmos DB används av spel som [The Walking Dead: NO Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) av [Next Games](https://www.nextgames.com/), och [Halo 5: Skyddarna](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB ger följande fördelar för spelutvecklare:
 
 * Azure Cosmos DB kan prestanda kan skalas upp eller ned Elastiskt. På så sätt kan spel att hantera uppdatering profil och statistik från flera miljoner samtidiga spelare genom att göra en enda API-anrop.
 * Azure Cosmos DB stöder millisekund läsningar och skrivningar för att undvika eventuella beräkningstider under spelet.
@@ -115,7 +115,7 @@ Eller, om du vill läsa mer om kunder som använder Cosmos DB, följande kundber
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha använder Azure Cosmos DB för att ansluta kunder och företag i Indien.
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit tar flygning med Azure Cosmos DB.
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio byter från AWS till Azure Cosmos DB för att dra nytta av sociala data i skala.
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land spel som tar sig till #1 stöds av Azure Cosmos DB.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: Spelet No Man's Land tar sig till #1 stöds av Azure Cosmos DB.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Så implementerade Halo 5 sociala spelupplevelser med Azure Cosmos DB.
 * [Cortana Analytics-galleriet](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics-galleriet – en skalbar community-webbplatsen på Azure Cosmos DB.
 * [Enkelt](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Inledande Integrator ger multinationella företag globala insikt på bara några minuter med flexibla tekniker.

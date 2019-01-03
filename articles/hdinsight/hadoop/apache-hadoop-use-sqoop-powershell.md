@@ -9,30 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23dae8a6f0651ee6b753c4b29112eb733103b9e1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c3b7695b7a67a33df93b0216cfd02f762e412158
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631452"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635722"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Kör Apache Sqoop jobb med hjälp av Azure PowerShell för Apache Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Lär dig hur du använder Azure PowerShell för att köra Apache Sqoop jobb i Azure HDInsight för att importera och exportera mellan ett HDInsight-kluster och en Azure SQL database eller SQL Server-databas.
 
-> [!NOTE]
+> [!NOTE]  
 > Men du kan använda procedurerna i den här artikeln med antingen ett Windows- eller Linux-baserade HDInsight-kluster, fungerar de bara från en Windows-klient. Använd flikväljaren överst i den här artikeln om du vill välja andra metoder. 
-> 
-> 
 
-### <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förutsättningar 
 Innan du börjar den här självstudiekursen behöver du följande:
 
 * En arbetsstation med Azure PowerShell.
-* Ett Hadoop-kluster i HDInsight. Mer information finns i [skapa klustret och SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Ett Apache Hadoop-kluster i HDInsight. Mer information finns i [skapa klustret och SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-by-using-powershell"></a>Köra Sqoop med hjälp av PowerShell
+## <a name="run-apache-sqoop-by-using-powershell"></a>Kör Apache Sqoop med hjälp av PowerShell
 Följande PowerShell-skript före bearbetar källfilen och exporterar den till en Azure SQL database:
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -160,15 +158,15 @@ Följande PowerShell-skript före bearbetar källfilen och exporterar den till e
 ## <a name="limitations"></a>Begränsningar
 Linux-baserade HDInsight visar följande begränsningar:
 
-* Massexport: The Sqoop koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
+* Massexport: Sqoop-koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
 
-* Batchbearbetning: med hjälp av den `-batch` växla när den utför infogningar, Sqoop utför flera infogningar i stället för batchbearbetning insert-åtgärder. 
+* Batchbearbetning: Med hjälp av den `-batch` växla när den utför infogningar, Sqoop utför flera infogningar i stället för batchbearbetning insert-åtgärder. 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
-* [Använda Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
-* [Analysera flygförseningsdata med hjälp av HDInsight](../hdinsight-analyze-flight-delay-data.md): använda Hive för att analysera flygning fördröjning data och Använd sedan Sqoop för att exportera data till en Azure SQL database.
-* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): hitta andra metoder för att överföra data till HDInsight eller Azure Blob storage.
+* [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
+* [Analysera flygförseningsdata med hjälp av HDInsight](../hdinsight-analyze-flight-delay-data.md): Använda Apache Hive för att analysera flygförseningsdata och Använd sedan Sqoop för att exportera data till en Azure SQL database.
+* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): Hitta andra metoder för att överföra data till HDInsight eller Azure Blob storage.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

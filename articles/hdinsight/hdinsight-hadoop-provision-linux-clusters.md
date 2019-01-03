@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386884"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790851"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -107,12 +107,12 @@ Du behöver inte ange klusterplatsen uttryckligen: Klustret är på samma plats 
 
 ## <a name="storage-endpoints-for-clusters"></a>Storage-slutpunkter för kluster
 
-Även om en lokal installation av Hadoop använder Hadoop Distributed File System (HDFS) för lagring på klustret, i molnet använder storage-slutpunkter som är anslutna till klustret. HDInsight-kluster använder antingen [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) eller [blobar i Azure Storage](hdinsight-hadoop-use-blob-storage.md). Azure Storage eller Azure Data Lake Store innebär att du kan ta bort HDInsight-kluster som används för beräkning utan att försämra dina data. 
+Även om en lokal installation av Hadoop använder Hadoop Distributed File System (HDFS) för lagring på klustret, i molnet använder storage-slutpunkter som är anslutna till klustret. HDInsight-kluster använder antingen [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) eller [blobar i Azure Storage](hdinsight-hadoop-use-blob-storage.md). Azure Storage eller Azure Data Lake Storage innebär att du kan ta bort HDInsight-kluster som används för beräkning utan att försämra dina data. 
 
 > [!WARNING]  
 > Med ett annat lagringskonto i en annan plats än HDInsight-kluster stöds inte.
 
-Under konfigurationen för lagringsslutpunkten standard anger du en blobbehållare för ett Azure Storage-konto eller ett Data Lake Store. Standardlagring innehåller program- och loggar. Alternativt kan du ange ytterligare länkade Azure Storage-konton och Data Lake Store-konton som har åtkomst till klustret. HDInsight-kluster och beroende storage-konton måste vara i samma Azure-plats.
+Under konfigurationen för lagringsslutpunkten standard anger du en blobbehållare av ett Azure Storage-konto eller ett Data Lake Storage. Standardlagring innehåller program- och loggar. Alternativt kan du ange ytterligare länkade Azure Storage-konton och Data Lake Storage-konton som har åtkomst till klustret. HDInsight-kluster och beroende storage-konton måste vara i samma Azure-plats.
 
 ![Inställningarna för klustret: HDFS-kompatibla lagringsutrymmet slutpunkter](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ Ett exempel på hur du använder två klustertyper inom en Azure-nätverk finns 
 
 ## <a name="troubleshoot-access-control-issues"></a>Felsöka åtkomstproblem för kontroll
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

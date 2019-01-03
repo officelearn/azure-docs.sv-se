@@ -1,5 +1,5 @@
 ---
-title: Förbereda Azure Stack Public Key Infrastructure-certifikat för distribution av integrerade Azure Stack-system | Microsoft Docs
+title: Förbered Azure Stack Public Key Infrastructure-certifikat för distribution av integrerade Azure Stack-system eller Hemlig rotation | Microsoft Docs
 description: Beskriver hur du förbereder Azure Stack PKI-certifikat för integrerade Azure Stack-system.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972045"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631489"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Förbereda Azure Stack PKI-certifikat för distribution
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Förbereda Azure Stack PKI-certifikat för användning i distributionen eller rotation
 Certifikatdatabasen [hämtas från din Certifikatutfärdare valfri](azure-stack-get-pki-certs.md) måste importeras och exporteras med egenskaper som matchar certifikatkrav för Azure Stack.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>Förbereda certifikat för distribution
-Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat: 
+Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat som ska användas för att distribuera en ny Azure Stack-miljö eller för att rotera hemligheter i en befintlig Azure Stack-miljö: 
 
 ### <a name="import-the-certificate"></a>Importera certifikatet
 

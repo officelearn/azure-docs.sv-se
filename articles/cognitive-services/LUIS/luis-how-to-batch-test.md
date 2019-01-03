@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 340805e668190fedc7df047b66bec710d7e726c7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086406"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992982"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testa med en uppsättning exempel yttranden batch
 
- Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. 
+ Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. Datauppsättningar som används för att testa batch får inte innehålla exempel yttranden i avsikter eller yttranden togs emot från slutpunkten för förutsägelse runtime. 
 
 <a name="batch-testing"></a>
 
@@ -65,9 +65,6 @@ Nedladdningsbara datauppsättningen är samma fil som har överförts för att t
 Om du vill granska resultaten av batch, Välj **se resultat**.
 
 ![Testresultat för batch](./media/luis-how-to-batch-test/run-test-results.png)
-
-<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
-
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 

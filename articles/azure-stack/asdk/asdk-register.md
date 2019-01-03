@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962655"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807218"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering rekommenderas eftersom det gör att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -69,7 +69,7 @@ Följ dessa steg för att registrera ASDK med Azure.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. När skriptet har slutförts bör du se det här meddelandet: **miljön är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
+3. När skriptet har slutförts bör du se det här meddelandet: **Din miljö är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
 
     ![Din miljö är nu registrerad](media/asdk-register/1.PNG)
 
@@ -201,21 +201,21 @@ Du kan också använda den **Get-innehåll** cmdlet för att peka på en fil som
 När aktiveringen är klar bör du se ett meddelande som liknar **miljön har slutfört registreringen och aktiveringen processen.**
 
 ## <a name="verify-the-registration-was-successful"></a>Kontrollera registreringen har lyckats
-Följ dessa steg för att kontrollera att ASDK registreringen med Azure **i anslutna miljöer** lyckades.
+
+Du kan använda den **regionshantering** panelen för att kontrollera att Azure Stack-registreringen har lyckats. Den här panelen är tillgänglig på standardinstrumentpanelen i administratörsportalen.
 
 1. Logga in på den [Azure Stack-administrationsportalen](https://adminportal.local.azurestack.external).
 
-2. Klicka på **Marketplace Management** > **Lägg till från Azure**.
+2. Från instrumentpanelen väljer **regionshantering**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![Panelen för hantering av region](media/asdk-register/admin1sm.png "panelen för hantering av Region") ](media/asdk-register/admin1.png#lightbox)
 
-3. Om du ser en lista med objekt som är tillgängliga från Azure lyckades aktiveringen.
-
-    ![](media/asdk-register/3.PNG)
+3. Välj **egenskaper**. Det här bladet visar status och information om din miljö. Statusen kan vara **registrerad** eller **inte registrerad**. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure Stack, tillsammans med resursgruppen för registrering och namn.
 
 ## <a name="move-a-registration-resource"></a>Flytta en resurs för registrering
 En registrering resurs flyttas mellan resursgrupper i samma prenumeration **är** stöds. Läs mer om hur du flyttar resurser till en ny resursgrupp, [flytta resurser till ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Lägg till ett Azure Stack marketplace-objekt](../azure-stack-marketplace.md)
+
+- [Lägg till ett Azure Stack marketplace-objekt](../azure-stack-marketplace.md)

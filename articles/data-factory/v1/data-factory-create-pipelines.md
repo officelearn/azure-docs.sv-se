@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09fd2f38c3746cf92d576325058dc36221ae50cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c31c57cc28b1e817cbb772154cfb2f04ff349640
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668035"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973714"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -95,7 +95,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 
 | Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstav, en siffra eller ett understreck (_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
+| namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | beskrivning | Ange texten som beskriver vad pipeline används till. |Ja |
 | activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om aktiviteter JSON-element. | Ja |  
 | start | Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`”, vilket är 6 AM uppskattad<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzureRmDataFactoryPipelineActivePeriod senare. |
@@ -133,7 +133,7 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
 | Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstav, en siffra eller ett understreck (_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
+| namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | beskrivning | Text som beskriver vad aktiviteten används till |Ja |
 | typ | Typ av aktivitet. Se den [Dataförflyttningsaktiviteter](#data-movement-activities) och [Datatransformeringsaktiviteter](#data-transformation-activities) avsnitten om olika typer av aktiviteter. |Ja |
 | inmatningar |Inkommande tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Ja |
@@ -154,7 +154,7 @@ Principer påverkar körningsbeteende för en aktivitet, särskilt när sektorn 
 | retry |Integer<br/><br/>Max-värdet kan vara 10 |0 |Antal försök innan databearbetningen för sektorn har markerats som ett fel. Körningsmiljön för aktiviteten för en datasektor göras upp till det angivna antalet återförsök. Återförsök sker så snart som möjligt efter felet. |
 | timeout |Tidsintervall |00:00:00 |Tidsgränsen för aktiviteten. Exempel: 00:10:00 (inbegriper timeout 10 minuter)<br/><br/>Om ett värde inte har angetts eller är 0, är tidsgränsen oändliga.<br/><br/>Om bearbetningstiden som data på en sektor överskrider timeout-värdet, den avbryts och försöker systemet att försök bearbetningen. Antal återförsök beror på egenskapen försök igen. När timeout uppstår är status nådde sin tidsgräns. |
 | fördröjning |Tidsintervall |00:00:00 |Ange fördröjning före databearbetningen av sektorn startar.<br/><br/>Körningen av aktiviteten för en datasektor startas när fördröjningen har passerat den förväntade tiden för körningen.<br/><br/>Exempel: 00:10:00 (inbegriper fördröjning på 10 minuter) |
-| longRetry |Integer<br/><br/>Maxvärde: 10 |1 |Antal långt återförsök innan sektorn körningen misslyckades.<br/><br/>longRetry försök är fördelade av longRetryInterval. Så om du vill ange en tid mellan nya försök använda longRetry. Om både återförsök och longRetry anges varje longRetry försök återförsök det maximala antalet försök används och försök igen * longRetry.<br/><br/>Till exempel, om vi har följande inställningar i aktivitetsprincipen:<br/>Försök: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det finns endast en sektor att köra (status väntar) och körningsmiljön för aktiviteten misslyckas varje gång. Det skulle ursprungligen vara 3 körning av på varandra följande försök. Efter varje försök är statusen för sektorn försök igen. När det är första 3 försök över kan är statusen för sektorn LongRetry.<br/><br/>Efter en timme (det vill säga Longretryinteval's värde), skulle det finnas en annan uppsättning 3 körning av på varandra följande försök. Efter det skulle vara misslyckades sektorstatus och inga fler försök skulle göras. Därför har övergripande 6 försök gjorts.<br/><br/>Om alla körningen lyckades visas statusen för sektorn är klar och inga fler försök kommer att göras.<br/><br/>longRetry kan användas i situationer där beroende data kommer till icke-deterministisk gånger eller den övergripande miljön är flaky under vilken databearbetningen sker. I sådana fall kan göra återförsök efter varandra inte kan hjälpa och gör det när du har ett intervall på tid du leder till önskade utdata.<br/><br/>Liten varning: anger inte hög värden för longRetry eller longRetryInterval. Vanligtvis en högre värden andra systemfel problem. |
+| longRetry |Integer<br/><br/>Maxvärde: 10 |1 |Antal långt återförsök innan sektorn körningen misslyckades.<br/><br/>longRetry försök är fördelade av longRetryInterval. Så om du vill ange en tid mellan nya försök använda longRetry. Om både återförsök och longRetry anges varje longRetry försök återförsök det maximala antalet försök används och försök igen * longRetry.<br/><br/>Till exempel, om vi har följande inställningar i aktivitetsprincipen:<br/>Gör om: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det finns endast en sektor att köra (status väntar) och körningsmiljön för aktiviteten misslyckas varje gång. Det skulle ursprungligen vara 3 körning av på varandra följande försök. Efter varje försök är statusen för sektorn försök igen. När det är första 3 försök över kan är statusen för sektorn LongRetry.<br/><br/>Efter en timme (det vill säga Longretryinteval's värde), skulle det finnas en annan uppsättning 3 körning av på varandra följande försök. Efter det skulle vara misslyckades sektorstatus och inga fler försök skulle göras. Därför har övergripande 6 försök gjorts.<br/><br/>Om alla körningen lyckades visas statusen för sektorn är klar och inga fler försök kommer att göras.<br/><br/>longRetry kan användas i situationer där beroende data kommer till icke-deterministisk gånger eller den övergripande miljön är flaky under vilken databearbetningen sker. I sådana fall kan göra återförsök efter varandra inte kan hjälpa och gör det när du har ett intervall på tid du leder till önskade utdata.<br/><br/>Liten varning: anger inte hög värden för longRetry eller longRetryInterval. Vanligtvis en högre värden andra systemfel problem. |
 | longRetryInterval |Tidsintervall |00:00:00 |Fördröjningen mellan långt återförsök |
 
 ## <a name="sample-copy-pipeline"></a>Exempel på kopieringspipeline
@@ -209,7 +209,7 @@ Observera följande punkter:
 * Indata för aktiviteten är inställd på **InputDataset** och utdata för aktiviteten är inställd på **OutputDataset**. I artikeln [Datauppsättningar](data-factory-create-datasets.md) finns information om hur du definierar datauppsättningar i JSON. 
 * I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. I den [dataförflyttningsaktiviteter](#data-movement-activities) klickar du på de datalager som du vill använda som källa eller mottagare att lära dig mer om att flytta data till/från det datalagringen. 
 
-En fullständig genomgång för att skapa denna pipeline finns i [självstudie: kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+En fullständig genomgång för att skapa denna pipeline finns i [självstudien: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ## <a name="sample-transformation-pipeline"></a>Exempel på transfomeringspipeline
 I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive** i avsnittet **activities**. I det här exemplet transformerar [HDInsight Hive-aktiviteten](data-factory-hive-activity.md) data från Azure Blob Storage genom att köra en Hive-skriptfil på ett Azure HDInsight Hadoop-kluster. 
@@ -262,12 +262,12 @@ I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive
 Observera följande punkter: 
 
 * I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
-* Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i behållaren **adfgetstarted**.
+* Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i containern **adfgetstarted**.
 * Den `defines` används för att ange körningsinställningar som skickas till hive-skriptet som Hive-konfigurationsvärden (t.ex `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Mer information om egenskaper som stöds för en transformeringsaktivitet, klickar du på transformeringsaktivitet i den [datatransformeringsaktiviteter](#data-transformation-activities) tabell. 
 
-En fullständig genomgång för att skapa denna pipeline finns i [självstudie: skapa din första pipeline för att bearbeta data med Hadoop-kluster](data-factory-build-your-first-pipeline.md). 
+En fullständig genomgång för att skapa denna pipeline finns i [självstudien: Skapa din första pipeline för att bearbeta data med Hadoop-kluster](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Flera aktiviteter i en pipeline
 De två föregående exemplen innehåller bara en aktivitet. Du kan fler än en aktivitet i en pipeline.  
@@ -278,7 +278,7 @@ Du kan länka två aktiviteter genom att låta datauppsättningen för utdata f�
 
 ![Länkning av aktiviteter i samma pipelinen](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-I det här exemplet pipelinen har två aktiviteter: Activity1 och Activity2. Activity1 tar Dataset1 som indata och producerar utdata Dataset2. Aktiviteten tar Dataset2 som indata och producerar utdata Dataset3. Sedan utdata från Activity1 (Dataset2) är inmatning av Activity2, Activity2 körs endast när aktiviteten har slutförts och producerade sektorn Dataset2. Om Activity1 av någon anledning misslyckas och genererar inte Dataset2 sektorn, aktivitet 2 fungerar inte för den sektorn (till exempel: 9: 00 till 10 AM). 
+I det här exemplet har pipelinen två aktiviteter: Activity1 och Activity2. Activity1 tar Dataset1 som indata och producerar utdata Dataset2. Aktiviteten tar Dataset2 som indata och producerar utdata Dataset3. Sedan utdata från Activity1 (Dataset2) är inmatning av Activity2, Activity2 körs endast när aktiviteten har slutförts och producerade sektorn Dataset2. Om Activity1 av någon anledning misslyckas och genererar inte Dataset2 sektorn, aktivitet 2 fungerar inte för den sektorn (till exempel: 9 är till 10 AM). 
 
 Du kan också länka aktiviteter som finns i olika pipelines.
 

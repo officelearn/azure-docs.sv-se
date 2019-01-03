@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3f31fa8d26b0fb5f247a0b4c8c65abd50c5bc1e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5602e68e546c59e3ee43442fdf0cdf33b9cf6a29
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865309"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975040"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysisk server till Azure disaster recovery-arkitekturen
 
@@ -63,15 +63,15 @@ När replikering har ställts in och du har kört ett programåterställningstes
 - Du etablerar den för att få åtkomst till arbetsbelastningen från den virtuella Azure-datorer efter första redundansen.
 - När din primära lokala plats är tillgänglig igen, kan du återställa dit.
 - Du måste konfigurera en infrastruktur för återställning efter fel, inklusive:
-    - **Tillfällig processerver i Azure**: Om du vill redundansväxla från Azure, du har konfigurerat en Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
-    - **VPN-anslutningen**: Om du vill återställa dit du behöver en VPN-anslutning (eller Azure ExpressRoute) från Azure-nätverket till den lokala platsen.
-    - **Separat huvudmålserver**: som standard som installerades med konfigurationsservern på en lokal VMware VM, huvudmålservern hanterar återställning efter fel. Men om du vill växla tillbaka stora mängder trafik kan bör du ställa in en separat lokal huvudmålserver för detta ändamål.
-    - **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en återställningsprincip. Detta skapades automatiskt när du skapade din replikeringsprincip från en lokal plats till Azure.
-    - **VMware-infrastruktur**: du behöver en VMware-infrastruktur för återställning efter fel. Du kan inte växla tillbaka till en fysisk server.
+    - **Tillfällig processerver i Azure**: Om du vill redundansväxla från Azure ställa du in en Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
+    - **VPN-anslutningen**: För att återställa, behöver du en VPN-anslutning (eller Azure ExpressRoute) från Azure-nätverket till den lokala platsen.
+    - **Separat huvudmålserver**: Som standard hanterar som installerades med konfigurationsservern på en lokal VMware VM, huvudmålservern återställning efter fel. Men om du vill växla tillbaka stora mängder trafik kan bör du ställa in en separat lokal huvudmålserver för detta ändamål.
+    - **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en princip för återställning efter fel. Detta skapades automatiskt när du skapade din replikeringsprincip från en lokal plats till Azure.
+    - **VMware-infrastruktur**: Du behöver en VMware-infrastruktur för återställning efter fel. Du kan inte växla tillbaka till en fysisk server.
 - När komponenterna är på plats så utförs återställning efter fel i tre steg:
     - Steg 1: Återaktivera skyddet av virtuella Azure-datorer så att de replikera från Azure till lokala VMware-datorer.
     - Steg 2: Kör en redundansväxling till den lokala platsen.
-    - Steg 3: När arbetsbelastningar har återställts du återaktivera replikering.
+    - Steg 3: När arbetsbelastningar har återställts återaktivera replikering.
 
 **VMware återställning efter fel från Azure**
 

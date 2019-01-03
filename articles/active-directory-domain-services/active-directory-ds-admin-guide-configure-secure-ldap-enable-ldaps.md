@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 74d6748a4d595e330103497dcc97ac57e01db250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1cfecca7d7b8a3f554466d95c666e2cbddbffde
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158626"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975686"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Aktivera säkert LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -51,7 +51,7 @@ Utför följande konfigurationssteg för att aktivera säkert LDAP:
 5. Som standard inaktiveras åtkomst med säkert LDAP till din hanterade domän via internet. Visa/dölj **Tillåt åtkomst med säkert LDAP över internet** till **aktivera**, om du behöver.
 
     > [!WARNING]
-    > När du aktiverar åtkomst med säkert LDAP via internet, är din domän sårbara för råstyrkeattacker för lösenord via internet. Därför rekommenderar vi att konfigurera en NSG för att låsa åtkomst till nödvändiga käll-IP-adressintervall. Se anvisningarna för att [låsa LDAPS åtkomst till din hanterade domän via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
+    > När du aktiverar åtkomst med säkert LDAP via internet, är din domän sårbara för råstyrkeattacker för lösenord via internet. Därför rekommenderar vi att konfigurera en NSG för att låsa åtkomst till nödvändiga käll-IP-adressintervall. Se anvisningarna för att [låsa LDAPS åtkomst till din hanterade domän via internet](active-directory-ds-ldaps-bind-lockdown.md#task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Klickar du på mappen ikonen **. PFX-filen med certifikatet för säkert LDAP**. Ange sökvägen till PFX-filen med certifikatet för åtkomst med säkert LDAP till den hanterade domänen.

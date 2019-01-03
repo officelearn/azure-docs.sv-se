@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098108"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754551"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Den här artikeln beskriver innehållet i 1808 uppdateringspaketet. Uppdateringspaketet innehåller förbättringar, korrigeringar och kända problem för den här versionen av Azure Stack. Den här artikeln innehåller också en länk så att du kan ladda ned uppdateringen. Kända problem är indelade i problem direkt relaterade till uppdateringsprocessen och problem med build (efter installationen).
 
@@ -43,7 +43,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - **Alla miljöer i Azure Stack kan nu använda formatet tidszon Coordinated Universal Time (UTC).**  Alla loggdata och relaterad information nu visas i UTC-format. Om du uppdaterar från en tidigare version som inte har installerats med hjälp av UTC, uppdateras din miljö för att använda UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Hanterade diskar stöds.** Du kan nu använda Managed Disks i Azure Stack virtuella datorer och VM-skalningsuppsättningar. Mer information finns i [Azure Stack Managed Disks: skillnader och överväganden](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+- **Hanterade diskar stöds.** Du kan nu använda Managed Disks i Azure Stack virtuella datorer och VM-skalningsuppsättningar. Mer information finns i [Azure Stack Managed Disks: Skillnader och överväganden](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
 <!-- 2563799  | IS  ASDK --> 
 - **Azure Monitor**. Som Azure Monitor på Azure ger Azure Monitor på Azure Stack beroende på infrastruktur-mått och loggar för de flesta tjänster. Mer information finns i [Azure Monitor på Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
@@ -226,16 +226,16 @@ Här följer efter installation kända problem för den här build-versionen.
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
 
    Avisera #1:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
+   - NAMN:  Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: Varning
+   - KOMPONENT: Hälsotillstånd controller
+   - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
 
   Avisera #2:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
+   - NAMN:  Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: Varning
+   - KOMPONENT: Hälsotillstånd controller
+   - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
 
   Båda aviseringarna kan ignoreras och de stängs automatiskt över tid.  
 
@@ -244,15 +244,14 @@ Här följer efter installation kända problem för den här build-versionen.
 - Du kan se en avisering för **Storage** komponent som innehåller följande information:
 
    - NAMN: Internt kommunikationsfel vid lagring  
-   - ALLVARLIGHETSGRAD: kritisk  
+   - ALLVARLIGHETSGRAD: Kritisk  
    - KOMPONENT: Storage  
-   - Beskrivning: Storage internt kommunikationsfel inträffade när begäranden skickas till följande noder.  
+   - DESCRIPTION (BESKRIVNING): Storage-tjänsten internt kommunikationsfel inträffade när begäranden skickas till följande noder.  
 
     Aviseringen kan ignoreras, men du måste stänga aviseringen manuellt.
 
 <!-- 2368581 - IS. ASDK --> 
 - Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en **fel vid skapande av Fabric VM**, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
-
 
 ### <a name="compute"></a>Compute
 
@@ -283,17 +282,17 @@ Användningsrapporter som genereras från API: er för Azure Stack-användning v
    - Om du uppdaterar kvotvärdet till 0, motsvarar det att standardvärdet 2 048 GiB. Som en lösning kan du ange kvotvärdet till 1.
 
 <!-- 2869209 – IS, ASDK --> 
-- När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 
+- När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan misslyckas cmdleten med följande fel: *Tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 
 
 <!--  2966665 – IS, ASDK --> 
-- Koppla datadiskar som SSD till premium storlek managed disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckas med felmeddelandet: *gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: begärda åtgärden inte kan utföras eftersom lagringskontot typ ' Premium_LRS' stöds inte för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*
+- Koppla SSD managed datadiskar till premium storlek disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckas med felmeddelandet:  *Det gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: Begärt inte kan utföra åtgärden eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*
 
    Undvik problemet genom att använda *Standard_LRS* datadiskar i stället för *Premium_LRS diskar*. Användning av *Standard_LRS* datadiskar ändras inte IOPs eller fakturering kostnaden. 
 
 <!--  2795678 – IS, ASDK --> 
 - När du använder portalen för att skapa virtuella datorer (VM) i en premium VM-storlek (DS, Ds_v2, FS, FSv2), skapas den virtuella datorn i ett standardlagringskonto. Du skapar i ett standardlagringskonto påverkar inte samma funktioner, IOPs, eller fakturering. 
 
-   Du kan ignorera varningen där det står: *du har valt att använda en standardisk med en storlek som har stöd för premiumdiskar. Detta kan påverka operativsystemets prestanda och rekommenderas inte. Överväg att använda premium storage (SSD) i stället.*
+   Du kan ignorera varningen där det står: *Du har valt att använda en standardisk med en storlek som har stöd för premiumdiskar. Detta kan påverka operativsystemets prestanda och rekommenderas inte. Överväg att använda premium storage (SSD) i stället.*
 
 <!-- 2967447 - IS, ASDK --> 
 - Virtuella datorns skalningsuppsättning (VMSS) skapa upplevelse ger 7.2 CentOS-baserade som ett alternativ för distribution. Välj en annan OS för din distribution eller använder en Azure Resource Manager-mall som anger en annan CentOS-avbildning som har hämtats innan den distribueras från marketplace av operatorn eftersom avbildningen inte är tillgänglig på Azure Stack.  
@@ -315,7 +314,7 @@ Användningsrapporter som genereras från API: er för Azure Stack-användning v
 
    För att hitta diagrammet CPU-procent för den virtuella datorn, gå till den **mått** gästen mått bladet och visa alla Windows-VM som stöds.
 
-
+- En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för att logga in. Som en lösning kan du använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
 
 ### <a name="networking"></a>Nätverk  
 
@@ -361,8 +360,10 @@ Användningsrapporter som genereras från API: er för Azure Stack-användning v
 
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
-Du kan ladda ned Azure Stack 1808 uppdateringspaketet från [här](https://aka.ms/azurestackupdatedownload).
-  
+
+Du kan ladda ned Azure Stack 1808 uppdateringspaketet från [här](https://aka.ms/azurestackupdatedownload). 
+
+I anslutna scenarier, Azure Stack-distributioner Kontrollera regelbundet en säker slutpunkt och meddela automatiskt dig om en uppdatering är tillgänglig för ditt moln. Mer information finns i [hantering av uppdateringar för Azure Stack](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - Underhåll principen för integrerade Azure Stack-system och vad du måste göra för att behålla ditt system i ett läge som stöds finns i [Azure Stack hanteringsprincip](azure-stack-servicing-policy.md).  

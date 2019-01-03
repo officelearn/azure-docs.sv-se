@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499147"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653738"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimera Apache Spark-jobb
 
@@ -27,41 +27,41 @@ I följande avsnitt beskrivs vanliga optimeringar för Spark-jobb och rekommenda
 Spark-1.x använder rdd-datauppsättningar till abstrakta data och sedan Spark 2.x introducerades dataramar och datauppsättningar. Överväg följande eller nackdelar:
 
 * **Dataramar**
-    * Bäst i de flesta situationer
-    * Tillhandahåller Frågeoptimeringen via Catalyst
-    * Hela steg kodgenerering
-    * Direkt minnesåtkomst
-    * Liten overhead skräpinsamling (GC)
-    * Inte så utvecklarvänliga som datauppsättningar, eftersom det finns inga kompileringstid kontroller eller domän objektet programmering
+    * Bästa val i de flesta situationer.
+    * Innehåller Frågeoptimeringen via Catalyst.
+    * Hela steg kodgenerering.
+    * Direkt minnesåtkomst.
+    * Liten skräpinsamling (GC) overhead.
+    * Inte så utvecklarvänliga som datauppsättningar, eftersom det finns inga kompileringstid kontroller eller domän objektet programmering.
 * **Datauppsättningar**
-    * Bra i komplexa ETL-pipelines som där denna påverkan inte är godkänd
-    * Inte bra i aggregeringar där prestandapåverkan kan vara betydande
-    * Tillhandahåller Frågeoptimeringen via Catalyst
-    * Utvecklarvänliga genom att tillhandahålla objektet programmeringsspråk och kompileringstid domänkontrollen
-    * Lägger till serialisering/deserialisering kostnader
-    * Hög GC-kostnader
-    * Delar upp hela steg kodgenerering
+    * Bra i komplexa ETL-pipelines som där prestandapåverkan som är godtagbart.
+    * Inte bra i aggregeringar där prestandapåverkan kan vara betydande.
+    * Innehåller Frågeoptimeringen via Catalyst.
+    * Utvecklarvänliga genom att tillhandahålla objektet programmeringsspråk och kompileringstid domänkontrollen.
+    * Lägger till serialisering/deserialisering kostnader.
+    * Hög GC-kostnader.
+    * Delar upp hela steg kodgenerering.
 * **Rdd-datauppsättningar**
-    * I Spark 2.x kan du inte behöver använda rdd-datauppsättningar, såvida du inte behöver skapa en ny anpassad RDD
-    * Inga Frågeoptimeringen via Catalyst
-    * Inga hela steg kodgenerering
-    * Hög GC-kostnader
-    * Använda Spark 1.x äldre API: er
+    * I Spark 2.x kan du inte behöver använda rdd-datauppsättningar, såvida du inte behöver skapa en ny anpassad RDD.
+    * Inga Frågeoptimeringen via Catalyst.
+    * Inga hela steg kodgenerering.
+    * Hög GC-kostnader.
+    * Använda Spark 1.x äldre API: er.
 
 ## <a name="use-optimal-data-format"></a>Använda optimala dataformat
 
-Spark har stöd för många format, till exempel csv, json, xml, parquet, orc och avro. Spark kan utökas för att hantera många fler format med externa datakällor - mer information finns i [Spark-paket](https://spark-packages.org).
+Spark har stöd för många format, till exempel csv, json, xml, parquet, orc och avro. Spark kan utökas för att hantera många fler format med externa datakällor - mer information finns i [Apache Spark-paket](https://spark-packages.org).
 
 Det bästa formatet för prestanda är parquet med *snappy komprimering*, vilket är standard i Spark 2.x. Parquet lagrar data i kolumnformat och är optimerade i Spark.
 
 ## <a name="select-default-storage"></a>Välj standardlagring
 
-När du skapar ett nytt Spark-kluster har möjlighet att välja Azure Blob Storage eller Azure Data Lake Store som standardlagringsutrymme för ditt kluster. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster, så att dina data inte automatiskt tas bort när du tar bort ditt kluster. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
+När du skapar ett nytt Spark-kluster har möjlighet att välja Azure Blob Storage eller Azure Data Lake Storage som standard klusterlagringen. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster, så att dina data inte automatiskt tas bort när du tar bort ditt kluster. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
 
 | Store-typ | Filsystem | Hastighet | Tillfälligt | Användningsfall |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Standard** | Ja | Tillfälliga kluster |
-| Azure Data Lake Store | **ADL:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
+| Azure Data Lake Storage | **ADL:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
 | Lokala HDFS | **hdfs:**//url/ | **Snabbaste** | Nej | Interaktiv 24/7-kluster |
 
 ## <a name="use-the-cache"></a>Använda cache
@@ -73,7 +73,7 @@ Spark tillhandahåller sin egen interna cachelagring mekanismer som kan använda
     * Fungerar inte med partitionering, som kan ändras i framtida versioner av Spark.
 
 * Lagring på cachelagring (rekommenderas)
-    * Kan implementeras med hjälp av [Alluxio](http://www.alluxio.org/).
+    * Kan implementeras med hjälp av [Alluxio](https://www.alluxio.org/).
     * Använder i minnet och cachelagring i SSD.
 
 * Lokala HDFS (rekommenderas)
@@ -119,9 +119,9 @@ Bucket liknar Datapartitionering, men varje bucket kan innehålla en uppsättnin
 
 Vissa avancerade bucket funktioner är:
 
-* Frågeoptimeringen baserat på bucket metainformation
-* Optimerad aggregeringar
-* Optimerad kopplingar
+* Frågeoptimeringen baserat på bucket metainformation.
+* Optimerad aggregeringar.
+* Optimerad kopplingar.
 
 Du kan använda partitionering och bucket på samma gång.
 
@@ -202,7 +202,7 @@ När du kör samtidiga frågor, Tänk på följande:
 Övervaka ditt jobb som körs för prestandaproblem med jämna mellanrum. Om du behöver mer information om vissa problem med, bör du något av följande prestanda profilering verktyg:
 
 * [Intel PAL verktyget](https://github.com/intel-hadoop/PAT) övervakar CPU-, lagrings- och bandbreddsanvändningen i nätverket.
-* [Oracle Java 8 Verksamhetskontroll](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiler Spark och executor kod.
+* [Oracle Java 8 Verksamhetskontroll](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiler Spark och executor kod.
 
 Nyckeln till Spark 2.x frågeprestanda är volfram-motorn, vilket beror på hela steg kodgenerering. I vissa fall kan inaktiveras hela steg kodgenerering. Exempel: Om du använder en icke avstängningsbara typ (`string`) i uttrycket aggregering `SortAggregate` visas i stället för `HashAggregate`. Till exempel för bättre prestanda, provar du följande och sedan återaktivera kodgenerering:
 

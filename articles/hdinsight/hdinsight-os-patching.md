@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434053"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741597"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 Som en hanterad Apache Hadoop-tjänst hand HDInsight tar om uppdatering av Operativsystemet för de underliggande virtuella datorer som används av HDInsight-kluster. Från och med 1 augusti 2016, har vi ändrat guest OS uppdatering principen för Linux-baserade HDInsight-kluster (version 3.4 och senare). Målet med den nya principen är att avsevärt minska antalet omstarter på grund av korrigeringar. Den nya principen fortsätter att korrigera virtuella datorer (VM) i Linux-kluster varje måndag eller torsdag kl. 12: 00 UTC på ett successiva sätt över noder i alla kluster. En viss virtuell dator startas dock endast högst en gång var 30: e dag på grund av guest OS-korrigering. Dessutom kan sker den första omstarten för ett nyskapat kluster inte tidigare än 30 dagar från det datum då skapa klustret. Korrigeringar börjar gälla när de virtuella datorerna startas om.
@@ -33,7 +33,6 @@ Med skriptåtgärd som beskrivs i den här artikeln kan ändra du den OS-korrige
 
 > [!NOTE]  
 > Den här skriptåtgärden fungerar endast med Linux-baserade HDInsight-kluster som skapats efter den 1 augusti 2016. Korrigeringar träder endast när virtuella datorer startas om. 
->
 
 ## <a name="how-to-use-the-script"></a>Hur du använder skriptet 
 

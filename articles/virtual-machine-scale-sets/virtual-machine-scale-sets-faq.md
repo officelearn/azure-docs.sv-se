@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cd84704c7926bfa9ace0d801b2532d2c77296075
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139375"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810516"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -167,48 +167,16 @@ Koden har stöd för Windows och Linux.
 Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificate"></a>Exempel på självsignerat certifikat
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Exempel på självsignerade certifikat som tillhandahållits för Azure Service Fabric-kluster.
+Senaste exempel användning finns på följande azure CLI-instruktionen i azure shell Service fabric CLI-modulen exempeldokumentationen som ska skrivas till stdout:
 
-1.  Skapa ett självsignerat certifikat i key vault.
+```bash
+az sf cluster create -h
+```
 
-    Använd följande PowerShell-kommandon:
+Granska keyvaults dokumentationen för de senaste certifikatåtgärder för API som stöds i Azure.
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-    Connect-AzureRmAccount
-
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    Det här kommandot ger dig indata för Azure Resource Manager-mallen.
-
-    Ett exempel på hur du skapar ett självsignerat certifikat i key vault finns i [säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
-
-2.  Ändra Resource Manager-mallen.
-
-    Lägg till den här egenskapen till **virtualMachineProfile**, som en del av den virtuella datorn scale Sets resurs:
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+Självsignerade certifikat kan inte användas för distribuerade förtroende som tillhandahålls av en certifikatutfärdare och ska inte användas för alla Service Fabric-kluster som är avsedda att värden företagslösningar till produktion; för ytterligare hjälp med Service Fabric-säkerhet, granska [Azure Service Fabric säkerhetsmetoder](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) och [säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan jag ange en SSH-nyckelpar ska användas för SSH-autentisering med en Linux VM-skalningsuppsättning från en mall i Resource Manager?  
@@ -510,7 +478,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Jag vill köra ett anpassat skript som finns i ett privat storage-konto. Skriptet körts har när lagringen är offentlig, men när jag försöker använda en signatur för delad åtkomst (SAS), misslyckas. Detta meddelande visas: ”saknas obligatoriska parametrar för giltig signatur för delad åtkomst”. Länken + SAS fungerar bra från min lokala webbläsare.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Jag vill köra ett anpassat skript som finns i ett privat storage-konto. Skriptet körts har när lagringen är offentlig, men när jag försöker använda en signatur för delad åtkomst (SAS), misslyckas. Det här meddelandet visas: ”Obligatoriska parametrar saknas för giltig signatur för delad åtkomst”. Länken + SAS fungerar bra från min lokala webbläsare.
 
 Ställa in skyddade inställningarna med storage-kontonyckel och namn för att köra ett anpassat skript som finns i ett privat storage-konto. Mer information finns i [anpassade skript-tillägget för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
@@ -559,7 +527,7 @@ Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättni
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Hur gör jag en VIP-växling för skalningsuppsättningar för virtuella datorer i samma prenumeration och samma region?
 
-Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Du kan också hantera ditt program med [Azure App service](https://azure.microsoft.com/services/app-service/) som ger stöd för att snabbt växla mellan mellanlagring och produktion.
+Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: Blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Du kan också hantera ditt program med [Azure App service](https://azure.microsoft.com/services/app-service/) som ger stöd för att snabbt växla mellan mellanlagring och produktion.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Hur jag för att ange ett intervall med privata IP-adresser som ska användas för statiska privata IP-adressallokering?
 
@@ -573,7 +541,7 @@ Om du vill distribuera en VM-skalningsuppsättning till en befintlig Azure-nätv
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hur gör jag för att lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall?
 
-Om du vill lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall, se [Azure Resource Manager: Get VM scale sets för privata IP-adresser](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Om du vill lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall, se [Azure Resource Manager: Hämta VM scale sets för privata IP-adresser](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan jag använda skalningsuppsättningar med Accelererat nätverk?
 
@@ -746,7 +714,7 @@ Om du vill ha information om egenskaper för varje virtuell dator utan att göra
 
 Nej, du kan inte skicka annat tillägg argument till olika virtuella datorer i en skalningsuppsättning för virtuell dator. Tillägg kan dock fungera baserat på unika egenskaper för den virtuella datorn som de körs på, till exempel som på namnet på datorn. Tillägg också kan fråga instans metadata på http://169.254.169.254 vill ha mer information om den virtuella datorn.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det glapp mellan Mina VM scale set VM datornamn och VM-ID: N? Till exempel: 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det glapp mellan Mina VM scale set VM datornamn och VM-ID: N? Exempel: 0, 1, 3...
 
 Det finns glapp mellan dina VM scale set VM datornamn och VM-ID: N eftersom din VM-skalningsuppsättningen **overprovision** egenskapen är inställd på standardvärdet **SANT**. Om överetablering anges till **SANT**, fler virtuella datorer än vad som begärts skapas. Extra virtuella datorerna tas sedan bort. I detta fall använder du få ökad distributionstillförlitlighet, men på bekostnad av sammanhängande namngivning och sammanhängande Network adress Translation (NAT) regler. 
 

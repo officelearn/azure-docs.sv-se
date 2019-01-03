@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238540"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973969"
 ---
 # <a name="part-of-speech-tagging"></a>En del av tal-märkning
 
 > [!IMPORTANT]
-> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
+> Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 ## <a name="background-and-motivation"></a>Bakgrund och motivationen
 
@@ -46,7 +46,7 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 | DT | determiner |en på en alla båda varken|
 | T.EX. | existentiell där | Det |
 | VB | främmande ord | enfant terrible hoi polloi je ne sais quoi |
-| INDIEN | preposition eller underordna tillsammans| i inuti om vid om |
+| IN | preposition eller underordna tillsammans| i inuti om vid om |
 | JJ | adjektiv eller siffror, ordningstal | nionde ganska execrable multimodal |
 | JJR | adjektiv, jämförande | bättre snabbare billigare |
 | JJS | adjektiv, superlative | bästa snabbaste billigaste |
@@ -80,4 +80,4 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 
 ## <a name="specification"></a>Specifikationen
 
-För tokenisering, vi förlitar sig på specifikation från den [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+För tokenisering, vi förlitar sig på specifikation från den [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

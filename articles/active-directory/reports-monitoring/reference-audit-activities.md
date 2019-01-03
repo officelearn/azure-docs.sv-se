@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622882"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971383"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -227,9 +227,9 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Auktorisering|Uppdatera princip|
 |Auktorisering|Uppdatera användarattribut|
 |Auktorisering|Ladda upp en CPIM-krypterad nyckel|
-|Auktorisering|Användarautentisering: API är inaktiverat för klient-featureset|
-|Auktorisering|Användarautentisering: Användaren beviljas åtkomst som ”innehavaradministratör”|
-|Auktorisering|Användarautentisering: Användare beviljas behörighet för åtkomst som ”behöriga användare”|
+|Auktorisering|Användarauktorisering: API är inaktiverat för klient-featureset|
+|Auktorisering|Användarauktorisering: Användaren beviljas åtkomst som ”Innehavaradministratör”|
+|Auktorisering|Användarauktorisering: En användare har beviljats behörighet för autentiserade användare|
 |Auktorisering|Kontrollera om B2C-funktionen är aktiverad|
 |Auktorisering|Kontrollera om funktionen är aktiverad|
 |Auktorisering|Skapa program|
@@ -515,10 +515,10 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Grupphantering|Granska begäran om godkännande|
 |Grupphantering|Uppdatera åtkomstgranskning|
 |Grupphantering|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
-|Grupphantering|Uppdatera inställningen för antal upprepningar vid åtkomstgranskning|
-|Grupphantering|Uppdatera inställningen för varaktigheten i dagar för upprepning vid åtkomstgranskning|
-|Användarhantering|Uppdatera inställningen för sluttypen för upprepningar vid åtkomstgranskning|
-|Användarhantering|Uppdatera inställningen för typen av upprepning vid åtkomstgranskning|
+|Grupphantering|Uppdatera inställningen för upprepningsantal för åtkomstgranskning|
+|Grupphantering|Uppdatera inställningen för varaktigheten i dagar för upprepning av åtkomstgranskning|
+|Användarhantering|Uppdatera inställningen för sluttyp för åtkomstgranskning|
+|Användarhantering|Uppdatera inställningen för upprepningstyp för åtkomstgranskning|
 
 
 

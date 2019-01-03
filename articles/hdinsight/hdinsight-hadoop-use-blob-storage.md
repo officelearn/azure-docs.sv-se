@@ -1,6 +1,6 @@
 ---
 title: Fråga efter data i HDFS-kompatibelt Azure-lagringsutrymme – Azure HDInsight
-description: Lär dig mer om hur du frågar efter data från Azure Storage och Azure Data Lake Store för att lagra resultatet av dina analyser.
+description: Lär dig mer om att fråga efter data från Azure storage och Azure Data Lake Storage för att lagra resultatet av dina analyser.
 services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 359cfd5b0eba25de25ce4200a61b0103a3d0fade
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 7513ce90437ebf3d06d4ceb0ea5a83610db5f7dd
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384810"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742702"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
 Om du vill analysera data i HDInsight-kluster kan du lagra data i Azure Storage, [Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen2] eller båda. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
-Apache Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under skapandeprocessen för HDInsight-kluster kan du ange en blobbehållare i Azure Storage som standardfilsystemet eller med HDInsight 3.6, kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen 1 / Azure Data Lake Store Gen 2 som standardfiler system med några undantag. Support för att använda Data Lake Storage Gen 1 som både standardwebbplatsen och den länkade storage, se [tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under skapandeprocessen för HDInsight-kluster kan du ange en blobbehållare i Azure Storage som standardfilsystemet eller med HDInsight 3.6, kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen 2 som standardfiler system med några undantag. Support för att använda Data Lake Storage Gen 1 som både standardwebbplatsen och den länkade storage, se [tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Läs hur Data Lake Storage Gen 1 fungerar med HDInsight-kluster i [Använd Azure Data Lake Store med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Läs hur Data Lake Storage Gen 1 fungerar med HDInsight-kluster i [använda Azure Data Lake Storage med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. HDInsight kan använda en blobcontainer i Azure Storage som standardfilsystem för klustret. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data som har lagrats som blobar.
 
@@ -97,7 +97,7 @@ Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
-När du skapar ett HDInsight-kluster från portalen kan du använda ett befintligt lagringskonto (enligt nedan) och ange uppgifterna för lagringskontot. Du kan även ange om du vill att ett konto med ytterligare lagringsutrymme som är associerade med klustret och välj i så fall från Data Lake Store eller en annan Azure Storage-blob som ytterligare lagringsutrymme.
+När du skapar ett HDInsight-kluster från portalen kan du använda ett befintligt lagringskonto (enligt nedan) och ange uppgifterna för lagringskontot. Du kan också ange om du vill att ett annat lagringskonto som är associerade med klustret och i så fall, Välj Data Lake-lagring eller en annan Azure Storage-blob som ytterligare lagringsutrymme.
 
 ![HDInsight hadoop, skapa datakälla](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -330,7 +330,7 @@ I den här artikeln fick du lära dig hur du använder det HDFS-kompatibla Azure
 Mer information finns i:
 
 * [Kom igång med Azure HDInsight][hdinsight-get-started]
-* [Kom igång med Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Kom igång med Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Överföra data till HDInsight][hdinsight-upload-data]
 * [Använda Apache Hive med HDInsight][hdinsight-use-hive]
 * [Använda Apache Hive med HDInsight][hdinsight-use-pig]

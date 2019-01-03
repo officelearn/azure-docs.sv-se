@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 12/12/2018
-ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314405"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789915"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -135,9 +135,8 @@ Andra felsökning WMI-artiklar hittades i följande artiklar.
 
 ## <a name="unsupported-operating-systems"></a>Operativsystem som stöds inte
 
-En annan vanligaste orsaken till felet kan bero på operativsystem som inte stöds. Se till att du är på den operativsystem/Kernel-versionen som stöds för installation av mobilitetstjänsten.
-
-Läs om vilka operativsystem som stöds av Azure Site Recovery, vår [matris stöddokument](vmware-physical-azure-support-matrix.md#replicated-machines).
+En annan vanligaste orsaken till felet kan bero på operativsystem som inte stöds. Se till att du är på den operativsystem/Kernel-versionen som stöds för installation av mobilitetstjänsten. Undvik att användningen av privata patch.
+Om du vill visa listan över operativsystem och kernel-versioner som stöds av Azure Site Recovery, referera till vår [matris stöddokument](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Start- och systempartitionerna / volymerna inte finns på samma disk (samtalsstatus: 95309)
 
@@ -146,6 +145,10 @@ Innan du 9.20 version, Start- och systempartitionerna / volymerna på olika disk
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Systempartitionen på flera diskar (samtalsstatus: 95313)
 
 Har en konfiguration som inte stöds före 9.20 version rotpartitionen eller volymen utspridd på flera diskar. Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), den här konfigurationen stöds. Använd senaste versionen för det här.
+
+## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID-fel (samtalsstatus: 95320)
+
+Om källdatorns GRUB använder enhetsnamnet istället för UUID, misslyckas mobility agent-installationen. Nå till system-administratören att göra ändringarna till GRUB-fil.
 
 ## <a name="lvm-support-from-920-version"></a>LVM stöd från 9.20 version
 

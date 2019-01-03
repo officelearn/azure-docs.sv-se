@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 957100e042da1d41fb7c8fa27a5663cf99a41c20
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093943"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794013"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
 
@@ -55,6 +55,9 @@ Här är en lista över typerna som stöds för Data Box-enhet.
 | Klassisk | Standard |
 | Generellt syfte  |Standard. både V1 och V2 stöds. |
 | Blob |Frekvent och lågfrekvent stöds. |
+
+>[!NOTE]
+> Azure Data Lake Storage Gen 2-konton stöds inte.
 
 
 ### <a name="supported-storage-types"></a>Lagringstyper som stöds

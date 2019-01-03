@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495144"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787554"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -31,8 +31,8 @@ Om du vill följa anvisningarna i den här artikeln behöver du:
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 En Resource Manager-mallen gör det enkelt att skapa följande resoruces för ditt program i en enda, samordnad åtgärd:
-* HDInsight-kluster och deras beroende resurser (till exempel standardkontot för lagring)
-* Andra resurser (till exempel Azure SQL Database för att använda [Apache Sqoop](http://sqoop.apache.org/))
+* HDInsight-kluster och deras beroende resurser (till exempel standardkontot för lagring).
+* Andra resurser (till exempel Azure SQL Database för att använda [Apache Sqoop](https://sqoop.apache.org/)).
 
 I mallen definierar du de resurser som behövs för programmet. Du kan även ange distributionsparametrarna för att ange värden för olika miljöer. Mallen består av JSON och uttryck som används för att skapa värden för din distribution.
 
@@ -47,9 +47,9 @@ Mer information om Resource Manager-mallar finns i följande artiklar:
 
 Resource Manager kan du exportera en Resource Manager-mall från befintliga resurser i din prenumeration med hjälp av olika verktyg. Du kan använda mallen som genereras för att lära dig mer om mallsyntaxen eller för att automatisera omdistributionen av din lösning om det behövs.
 
-- Azure-portalen: se [exportera en Azure Resource Manager-mall från befintliga resurser](../azure-resource-manager/resource-manager-export-template.md).
+- Azure-portalen: Se [exportera en Azure Resource Manager-mall från befintliga resurser](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Se [exportera Azure Resource Manager-mallar med PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Klassisk Azure CLI: Se [exportera Azure Resource Manager-mallar med klassiska Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Klassiska Azure CLI: Se [exportera Azure Resource Manager-mallar med klassiska Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Distribuera med hjälp av portalen
@@ -74,14 +74,14 @@ En introduktion till Visual Studio med resursgrupper, se [skapa och distribuera 
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera olika sätt. Mer information finns i följande artiklar:
 
 * Fler HDInsight relaterade mallar finns i [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Ett exempel för att distribuera resurser via .NET-klientbiblioteket finns i [distribuera resurser med hjälp av .NET-bibliotek och en mall](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Ett djupgående exempel för att distribuera ett program finns i [etablera och distribuera mikrotjänster förutsägbart i Azure](../app-service/app-service-deploy-complex-application-predictably.md).
+* Ett djupgående exempel för att distribuera ett program finns i [etablera och distribuera mikrotjänster förutsägbart i Azure](../app-service/deploy-complex-application-predictably.md).
 * Information om hur du distribuerar lösningen till olika miljöer finns i [Utvecklings- och testmiljöer i Microsoft Azure](../solution-dev-test-environments.md).
 * Läs om hur du delar av Azure Resource Manager-mallen i [Webbsidemallar](../azure-resource-manager/resource-group-authoring-templates.md).
 * En lista över de funktioner du kan använda i en Azure Resource Manager-mall finns i [Mallfunktioner](../azure-resource-manager/resource-group-template-functions.md).

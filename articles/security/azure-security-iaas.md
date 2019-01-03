@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321468"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540296"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -137,7 +137,7 @@ Resursen missbruk kan vara ett problem när VM-processer använder fler resurser
 
 Vi rekommenderar att du använder [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) att få insyn i resursens hälsotillstånd. Azure Monitor-funktioner:
 
-- [Diagnostiklogg resursfiler](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Övervakar dina VM-resurser och identifierar potentiella problem som kan påverka datorns prestanda och tillgänglighet.
+- [Diagnostiklogg resursfiler](../azure-monitor/platform/diagnostic-logs-overview.md): Övervakar dina VM-resurser och identifierar potentiella problem som kan påverka datorns prestanda och tillgänglighet.
 - [Azure Diagnostics-tillägg](../azure-monitor/platform/diagnostics-extension-overview.md): Tillhandahåller funktioner för övervakning och diagnostik på virtuella Windows-datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Organisationer som inte övervakar prestanda för virtuella datorer kan inte avgöra om vissa ändringar i prestandamönster är normal eller onormalt. En attack från en extern resurs eller en komprometterad process som körs på den virtuella datorn kan tyda på en virtuell dator som använder fler resurser än normalt.

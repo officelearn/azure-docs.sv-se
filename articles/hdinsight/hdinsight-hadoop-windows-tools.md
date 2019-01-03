@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385031"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744878"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop-ekosystemet i HDInsight från en Windows-dator
 
@@ -26,9 +26,9 @@ Azure PowerShell är en skriptmiljö som du kan använda för att styra och auto
 
 Exempel på uppgifter som du kan göra med PowerShell:
 
-* [Skapa kluster med hjälp av PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Hantera kluster med PowerShell](hdinsight-administer-use-powershell.md)
+* [Skapa kluster med hjälp av PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* [Kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+* [Hantera kluster med PowerShell](hdinsight-administer-use-powershell.md).
 
 Följ stegen för att [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) att hämta den senaste versionen. Om du har skript som behöver ändras för att använda de nya cmdletarna för Azure Resource Manager kan du läsa [migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
@@ -54,11 +54,11 @@ Exempel på uppgifter som du kan göra med Visual Studio och Data Lake Tools fö
 Du kan använda Visual Studio med .NET SDK för att hantera kluster och utveckla big data-program. Du kan använda andra IDE: er för följande uppgifter, men exempel visas i Visual Studio.
 
 Exempel på uppgifter som du kan göra med .NET SDK i Visual Studio:
-* [Skapa kluster och fungerar med HDInsight från .NET Framework-program](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [Kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Skapa kluster och fungerar med HDInsight från .NET Framework-program](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* [Kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+* [Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> TIPS   
+> [!TIP]
 > Om du kör .NET-lösningar med Windows-baserade HDInsight-kluster, är det dags att planera en migrering till Linux-baserade kluster. Mer information finns i [migrera .NET-lösningen för Windows-baserade HDInsight till Linux-baserade HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA och Eclipse IDE för Spark-kluster
@@ -85,7 +85,7 @@ Om det uppstår en situation där du måste använda ett verktyg eller en teknik
 
 * **Bash (beta) i Windows 10** ger ett undersystem för Linux på Windows. Bash kan du direkt köra Linux-verktyg utan att behöva underhålla en dedikerad Linux-installation. [Installera och köra betaversionen av Bash på Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Docker för Windows** ger åtkomst till många Linux-baserade verktyg och kan köras direkt från Windows. Du kan till exempel använda Docker för att köra klienten Beeline för Hive direkt från Windows. Du kan också använda Docker för att köra en lokal Jupyter notebook och fjärransluta till Spark i HDInsight. [Kom igång med Docker för Windows](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)**  kan du bläddra grafiskt filsystemet klustret via en SSH-anslutning.
+* **[MobaXTerm](https://mobaxterm.mobatek.net/)**  kan du bläddra grafiskt filsystemet klustret via en SSH-anslutning.
 
 ## <a name="next-steps"></a>Nästa steg
 Om du inte har arbetat i Linux-baserade kluster finns i följande artiklar:

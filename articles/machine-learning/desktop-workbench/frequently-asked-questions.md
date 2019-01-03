@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f573cda9f06837bf44ee39a680b207af1ba0fe07
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313953"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973238"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Machine Learning
 
@@ -55,18 +55,17 @@ De två första användarna som är associerade med din Azure Machine Learning E
 
 **Kommer jag att debiteras baserat på hur många experiment jag kör?**
 
-Nej, i experimentering kan många experiment som du behöver och debiteras endast utifrån antalet användare. Beräkningsresurser för Experimentering debiteras separat. Vi rekommenderar att du kan köra flera experiment så att du kan hitta det bästa passning modell för din lösning.   
+Nej, i experimentering kan många experiment som du behöver och debiteras endast utifrån antalet användare. Beräkningsresurser för Experimentering debiteras separat. Vi rekommenderar att du kan köra flera experiment så att du kan hitta det bästa passning modell för din lösning.
 
 **Vilken specifik typ av beräknings- och lagringsresurser kan jag använda?**
 
-Tjänsten experimentering kan köra dina experiment på lokala datorer (direkt eller dockerbaserade), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), och [HDInsight](https://azure.microsoft.com/services/hdinsight/). Tjänsten har också åtkomst till en [Azure Storage](https://azure.microsoft.com/services/storage/) för lagring av utdata från körningen och kan utnyttja en [Visual Studio Team Service](https://azure.microsoft.com/services/visual-studio-team-services/) konto för versionskontroll och Git-lagring. Observera att du faktureras separat för alla förbrukade beräknings- och lagringsresurser, baserat på den individuella prissättningen.  
-
+Tjänsten experimentering kan köra dina experiment på lokala datorer (direkt eller dockerbaserade), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), och [HDInsight](https://azure.microsoft.com/services/hdinsight/). Tjänsten har också åtkomst till en [Azure Storage](https://azure.microsoft.com/services/storage/) för lagring av utdata från körningen och kan utnyttja en [Azure DevOps](https://azure.microsoft.com/services/devops/) konto för versionskontroll och Git-lagring. Observera att du faktureras separat för alla förbrukade beräknings- och lagringsresurser, baserat på den individuella prissättningen.
 
 ## <a name="model-management"></a>Modellhantering
 
 **Vad är Azure Machine Learning-modellhantering?**
 
-Azure Machine Learning-modellhantering är en hanterad Azure-tjänst som gör att forskare och devops-team distribuera prediktiva modeller på ett tillförlitligt sätt i en mängd olika miljöer. Git-lagringsplatser och Docker-behållare ger spårbarhet och repeterbarhet. Modeller kan distribueras på ett tillförlitligt sätt i molnet, lokalt eller edge. En gång i produktion, du kan hantera modellprestanda och proaktivt tränar om prestanda försämras. Du kan distribuera modeller på lokala datorer till [virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/), Spark i [HDInsight](https://azure.microsoft.com/services/hdinsight/) eller Kubernetes-dirigerad [Azure Container Service](https://azure.microsoft.com/services/container-service/) kluster.  
+Azure Machine Learning-modellhantering är en hanterad Azure-tjänst som gör att forskare och devops-team distribuera prediktiva modeller på ett tillförlitligt sätt i en mängd olika miljöer. Git-lagringsplatser och Docker-behållare ger spårbarhet och repeterbarhet. Modeller kan distribueras på ett tillförlitligt sätt i molnet, lokalt eller edge. En gång i produktion, du kan hantera modellprestanda och proaktivt tränar om prestanda försämras. Du kan distribuera modeller på lokala datorer till [virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/), Spark i [HDInsight](https://azure.microsoft.com/services/hdinsight/) eller Kubernetes-dirigerad [Azure Container Service](https://azure.microsoft.com/services/container-service/) kluster.
 
 **Vad är en ”modell”?**
 
@@ -78,11 +77,11 @@ En modell är utdata från en träningsprocess och resultatet när en algoritm f
  
 **Vad är ”distribution”?**
 
-Modellhantering kan du distribuera modeller som paketerade webbtjänstbehållare i Azure. Dessa webbtjänster kan anropas med hjälp av REST API: er. Varje webbtjänst räknas som en distribution och det totala antalet aktiva distributioner räknas av mot ditt abonnemang. Med hjälp av försäljningsprognoser till exempel när du distribuerar modellen med bäst resultat, ökas din plan med en distribution. Om du sedan tränar om och distribuera en annan version, har du två distributioner. Om du anser att den nya modellen är bättre och ta bort ursprungligt antalet minskas med ett.  
+Modellhantering kan du distribuera modeller som paketerade webbtjänstbehållare i Azure. Dessa webbtjänster kan anropas med hjälp av REST API: er. Varje webbtjänst räknas som en distribution och det totala antalet aktiva distributioner räknas av mot ditt abonnemang. Med hjälp av försäljningsprognoser till exempel när du distribuerar modellen med bäst resultat, ökas din plan med en distribution. Om du sedan tränar om och distribuera en annan version, har du två distributioner. Om du anser att den nya modellen är bättre och ta bort ursprungligt antalet minskas med ett.
 
 **Vilka specifika beräkningsresurser är tillgängliga för Mina distributioner?** 
 
-Modellhantering kan köra dina distributioner som dockerbehållare registrerad [Azure Container Service](https://azure.microsoft.com/services/container-service/), som [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), eller på lokala datorer. Ytterligare distributionskanaler läggs snart. Observera att du faktureras separat för alla beräkningsresurser du förbrukar baserat på den individuella prissättningen.     
+Modellhantering kan köra dina distributioner som dockerbehållare registrerad [Azure Container Service](https://azure.microsoft.com/services/container-service/), som [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), eller på lokala datorer. Ytterligare distributionskanaler läggs snart. Observera att du faktureras separat för alla beräkningsresurser du förbrukar baserat på den individuella prissättningen.
 
 **Kan jag använda Azure Machine Learning-modellhantering till att distribuera modeller som byggts med andra verktyg än tjänsten experimentering?**
 
@@ -108,15 +107,15 @@ Ja, du kan distribuera flera versioner av samma modell. Modellhantering stöder 
 
 **Vad är Azure Machine Learning Workbench?**
 
-Azure Machine Learning Workbench är ett tillhörande program som byggts för datatekniker. Är tillgängligt för Windows och Mac, Machine Learning Workbench tillhandahåller översikt, hantering och kontroll för machine learning-lösningar. Machine Learning Workbench ger åtkomst till banbrytande AI-ramverk från både Microsoft och communityn för öppen källkod. Vi har inkluderat mest populära data science verktyg, inklusive TensorFlow, Microsoft Cognitive Toolkit, Spark ML och scikit-Lär dig och mycket mer. Vi har också aktiverat integrering med populära datavetenskaps IDE: er, till exempel Jupyter notebooks, pycharm med Visual Studio Code. Machine Learning Workbench har inbyggda funktioner för förberedelse av snabbt exempel, förstå och förbereda data, strukturerade och Ostrukturerade. Vår nya förberedelseverktyget för data, kallas [PROSE](https://microsoft.github.io/prose/), bygger på den senaste tekniken från Microsoft Research.  
+Azure Machine Learning Workbench är ett tillhörande program som byggts för datatekniker. Är tillgängligt för Windows och Mac, Machine Learning Workbench tillhandahåller översikt, hantering och kontroll för machine learning-lösningar. Machine Learning Workbench ger åtkomst till banbrytande AI-ramverk från både Microsoft och communityn för öppen källkod. Vi har inkluderat mest populära data science verktyg, inklusive TensorFlow, Microsoft Cognitive Toolkit, Spark ML och scikit-Lär dig och mycket mer. Vi har också aktiverat integrering med populära datavetenskaps IDE: er, till exempel Jupyter notebooks, pycharm med Visual Studio Code. Machine Learning Workbench har inbyggda funktioner för förberedelse av snabbt exempel, förstå och förbereda data, strukturerade och Ostrukturerade. Vår nya förberedelseverktyget för data, kallas [PROSE](https://microsoft.github.io/prose/), bygger på den senaste tekniken från Microsoft Research.
 
 **Är Workbench en IDE-miljö?**
 
-Nej. Machine Learning Workbench har utformats som avsett för populära IDE: er som Jupyter Notebooks, Visual Studio Code och PyCharm men det är inte en komplett IDE. Machine Learning Workbench erbjuder vissa grundläggande text redigeringsfunktioner, men felsökning, intellisense och andra ofta använda IDE-funktioner inte stöds. Vi rekommenderar att du använder din favorit-IDE för kodutveckling, redigering och felsökning. Du kanske också vill prova [Visual Studio Code Tools för AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+Nej. Machine Learning Workbench har utformats som avsett för populära IDE: er som Jupyter Notebooks, Visual Studio Code och PyCharm men det är inte en komplett IDE. Machine Learning Workbench erbjuder vissa grundläggande text redigeringsfunktioner, men felsökning, intellisense och andra ofta använda IDE-funktioner inte stöds. Vi rekommenderar att du använder din favorit-IDE för kodutveckling, redigering och felsökning. Du kanske också vill prova [Visual Studio Code Tools för AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 **Finns det några avgifter för användning av Azure Machine Learning Workbench?**
 
-Nej. Azure Machine Learning Workbench är ett kostnadsfritt program. Du kan ladda ned det till så många datorer och användare som behövs. Du måste ha ett konto för Experimentering när du ska använda Azure Machine Learning Workbench. .  
+Nej. Azure Machine Learning Workbench är ett kostnadsfritt program. Du kan ladda ned det till så många datorer och användare som behövs. Du måste ha ett konto för Experimentering när du ska använda Azure Machine Learning Workbench.
 
 **Finns det stöd för funktioner?**
 
@@ -138,7 +137,7 @@ Den aktuella versionen av Jupyter som ingår i Workbench startar en Python 3-ker
 **Vilka filformat som stöds för närvarande för datainmatning i Workbench?**
 
 Verktygen för förberedelse av data i Workbench stöder för närvarande inmatning från följande format: 
-- Avgränsade filer CSV, TVS, t.ex.  
+- Avgränsade filer CSV, TVS, t.ex.
 - Filer med fast bredd
 - Filer med oformaterad text
 - Excel (.xls/xlsx)
@@ -157,7 +156,7 @@ Offentliga förhandsversionen stöder Workbench datainmatning från:
 
 **Vilka typer av Datatransformering, förberedelser och transformationer är tillgängliga?**
 
-Offentliga förhandsversionen stöder Workbench ”Härled kolumn genom att exempel”, ”dela kolumn genom att exempel”, ”kluster Text”, ”hantera saknas Values” och mycket mer.  Workbench stöder också datatypskonvertering Datasammanställning (antal, medelvärde, varians osv.) och komplexa kopplingar. En fullständig lista över funktioner som stöds finns i produktdokumentationen för. 
+Offentliga förhandsversionen stöder Workbench ”Härled kolumn genom att exempel”, ”dela kolumn genom att exempel”, ”kluster Text”, ”hantera saknas Values” och mycket mer. Workbench stöder också datatypskonvertering Datasammanställning (antal, medelvärde, varians osv.) och komplexa kopplingar. En fullständig lista över funktioner som stöds finns i produktdokumentationen för. 
 
 **Finns det några begränsningar för meddelandestorlek som tillämpas av Azure Machine Learning Workbench, experimentering och modellhantering?**
 

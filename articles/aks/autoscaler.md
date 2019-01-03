@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713103"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975142"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Autoskalningen-kluster på Azure Kubernetes Service (AKS) – förhandsversion
 
@@ -113,7 +113,7 @@ Hämta sedan namnet på noden poolen genom att köra följande kommando.
 $ kubectl get nodes --show-labels
 ```
 
-Resultat:
+Utdata:
 
 ```console
 NAME                       STATUS    ROLES     AGE       VERSION   LABELS
@@ -382,7 +382,7 @@ Events:  <none>
 Autoskalningen klusterstatus kan du se status för autoskalningen kluster på två olika nivåer: hela och inom varje nodgrupp. Eftersom AKS stöder för närvarande endast en nodpool, är desamma i de här måtten.
 
 * Hälsotillstånd anger den övergripande hälsan för noderna. Om klustret autoskalningen struggles du skapar eller tar bort noder i klustret, ändras den här statusen till ”inte felfri”. Det finns också en detaljerad analys av status för olika noder:
-    * ”Klar” syftar på en nod är klara att ha poddar som schemalagts på den.
+    * ”Klar” syftar på en nod är redo att ha poddar som schemalagts på den.
     * ”Unready” innebär att en nod som delades upp när den startats.
     * ”Ej startad” innebär att en nod inte är fullständigt startat ännu.
     * ”LongNotStarted” innebär att en nod inte kunde starta inom en rimlig tidsgräns.
@@ -398,7 +398,7 @@ Autoskalningen klusterstatus kan du se status för autoskalningen kluster på tv
     * En kandidat för skala ned är en nod har fastställt att klustret autoskalningen kan tas bort utan att påverka klustrets förmåga att hantera belastningen. 
     * De tid som anges visar senast checkades klustret för att skala ned kandidater och dess senaste övergångstid.
 
-Slutligen under händelser kan du få upp alla skalor eller skala ned händelser, misslyckad eller lyckad, och deras tider som klustret autoskalningen utfört.
+Under händelser kan du slutligen finns i valfri skala upp eller skala ned händelser, misslyckad eller lyckad, och deras tider som klustret autoskalningen utfört.
 
 ## <a name="next-steps"></a>Nästa steg
 

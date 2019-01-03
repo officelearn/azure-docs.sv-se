@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e9ba42e33fb763256cd31c255ea42593146dfb7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724085"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969326"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Prestandaövervakning av program med Application Insights för SCOM
-Om du använder System Center Operations Manager (SCOM) för att hantera dina servrar kan du övervaka prestanda och diagnostisera prestandaproblem med hjälp av [Azure Application Insights](app-insights-asp-net.md). Application Insights övervakar ditt webbprogram inkommande begäranden, utgående REST och SQL-anrop, undantag och loggspårningar. Den tillhandahåller instrumentpaneler med diagram med mätvärden och smart aviseringar, samt kraftfulla diagnostiksökning och analytiska frågor över den här telemetrin. 
+Om du använder System Center Operations Manager (SCOM) för att hantera dina servrar kan du övervaka prestanda och diagnostisera prestandaproblem med hjälp av [Azure Application Insights](../azure-monitor/app/asp-net.md). Application Insights övervakar ditt webbprogram inkommande begäranden, utgående REST och SQL-anrop, undantag och loggspårningar. Den tillhandahåller instrumentpaneler med diagram med mätvärden och smart aviseringar, samt kraftfulla diagnostiksökning och analytiska frågor över den här telemetrin. 
 
 Du kan växla på Application Insights-övervakning med hjälp av en SCOM-hanteringspaketet.
 
@@ -35,7 +35,7 @@ Vi förutsätter:
 * App framework-version är .NET 4.5 eller senare.
 * Du har åtkomst till en prenumeration i [Microsoft Azure](https://azure.com) och kan logga in på den [Azure-portalen](https://portal.azure.com). Din organisation kan ha en prenumeration och kan lägga till ditt Microsoft-konto till den.
 
-(Utvecklingsteamet kan bygga den [Application Insights SDK](app-insights-asp-net.md) till webbappen. Den här byggning instrumentation ger dem större flexibilitet i att skriva anpassad telemetri. Men det spelar ingen roll: du kan följa stegen som beskrivs här med eller utan SDK: N inbyggd.)
+(Utvecklingsteamet kan bygga den [Application Insights SDK](../azure-monitor/app/asp-net.md) till webbappen. Den här byggning instrumentation ger dem större flexibilitet i att skriva anpassad telemetri. Men det spelar ingen roll: du kan följa stegen som beskrivs här med eller utan SDK: N inbyggd.)
 
 ## <a name="one-time-install-application-insights-management-pack"></a>(En gång) Installera Application Insights management pack
 På den dator där du kör Operations Manager:
@@ -92,13 +92,13 @@ Du kan kontrollera vilka av instanser av appen har identifierats:
 ![Öppna Application Insights i övervakning](./media/app-insights-scom/100.png)
 
 ## <a name="view-telemetry-in-application-insights"></a>Visa telemetri i Application Insights
-I den [Azure-portalen](https://portal.azure.com), bläddra till resursen för din app. Du [Visa diagram som visar telemetri](app-insights-dashboards.md) från din app. (Om den inte visas på huvudsidan ännu, klickar du på Live Metrics Stream).
+I den [Azure-portalen](https://portal.azure.com), bläddra till resursen för din app. Du [Visa diagram som visar telemetri](../azure-monitor/app/app-insights-dashboards.md) från din app. (Om den inte visas på huvudsidan ännu, klickar du på Live Metrics Stream).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Ställa in en instrumentpanel](app-insights-dashboards.md) samla de viktigaste diagrammen övervaka detta och andra appar.
+* [Ställa in en instrumentpanel](../azure-monitor/app/app-insights-dashboards.md) samla de viktigaste diagrammen övervaka detta och andra appar.
 * [Läs mer om värden](app-insights-metrics-explorer.md)
-* [Ställa in aviseringar](app-insights-alerts.md)
-* [Diagnostisera prestandaproblem](app-insights-detect-triage-diagnose.md)
-* [Kraftfulla Analytics-frågor](app-insights-analytics.md)
-* [Webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md)
+* [Ställa in aviseringar](../azure-monitor/app/alerts.md)
+* [Diagnostisera prestandaproblem](../azure-monitor/app/detect-triage-diagnose.md)
+* [Kraftfulla Analytics-frågor](../azure-monitor/app/analytics.md)
+* [Webbtester för tillgänglighet](../azure-monitor/app/monitor-web-app-availability.md)
 

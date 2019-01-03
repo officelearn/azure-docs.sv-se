@@ -1,6 +1,6 @@
 ---
 title: Åtgärda 502 Felaktig gateway, 503 tjänsten otillgänglig fel – Azure App Service | Microsoft Docs
-description: Felsöka 502 Felaktig gateway- och 503-tjänsten inte tillgänglig fel i webbappen i Azure App Service.
+description: Felsöka 502 Felaktig gateway- och 503-tjänsten inte tillgänglig fel i din app i Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -17,20 +17,20 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 71842f9dbc8d0454da1847c956dea3b063208836
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389122"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652582"
 ---
-# <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Felsöka HTTP-fel ”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” i Azure web apps
-”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” är vanliga fel i din webbapp på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här artikeln hjälper dig att felsöka de här felen.
+# <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Felsöka HTTP-fel ”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” i Azure App Service
+”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” är vanliga fel i din app som finns på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här artikeln hjälper dig att felsöka de här felen.
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [Azure MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan alternativt kan du även skicka en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och klicka på **få Support**.
 
 ## <a name="symptom"></a>Symtom
-När du bläddrar till webbappen, returneras ett HTTP ”502 felaktig Gateway” fel eller en HTTP-fel ”503 tjänsten är inte tillgänglig”.
+När du bläddrar till appen, returneras ett HTTP ”502 felaktig Gateway” fel eller en HTTP-fel ”503 tjänsten är inte tillgänglig”.
 
 ## <a name="cause"></a>Orsak
 Det här problemet beror ofta på nivån programfel, till exempel:
@@ -46,7 +46,7 @@ Felsökning kan delas in i tre olika uppgifter i sekventiell ordning:
 2. [Samla in data](#collect)
 3. [Åtgärda problemet](#mitigate)
 
-[App Service Web Apps](app-service-web-overview.md) ger dig olika alternativ i varje steg.
+[App Service](overview.md) ger dig olika alternativ i varje steg.
 
 <a name="observe" />
 
@@ -54,10 +54,10 @@ Felsökning kan delas in i tre olika uppgifter i sekventiell ordning:
 #### <a name="track-service-health"></a>Spåra tjänstehälsa
 Microsoft Azure publicizes varje gång som en försämring av tjänsten avbrott eller prestanda. Du kan spåra hälsotillståndet för tjänsten på den [Azure-portalen](https://portal.azure.com/). Mer information finns i [spåra tjänstehälsa](../monitoring-and-diagnostics/insights-service-health.md).
 
-#### <a name="monitor-your-web-app"></a>Övervaka din webbapp
-Det här alternativet kan du ta reda på om ditt program är har problem. I din webbapps blad klickar du på den **förfrågningar och fel** panelen. Den **mått** bladet visar alla mått som du kan lägga till.
+#### <a name="monitor-your-app"></a>Övervaka din app
+Det här alternativet kan du ta reda på om ditt program är har problem. Appens bladet klickar du på den **förfrågningar och fel** panelen. Den **mått** bladet visar alla mått som du kan lägga till.
 
-Några av de mått som du kan övervaka för din webbapp
+Några av de mått som du kan övervaka för din app
 
 * Genomsnittligt arbetsminne
 * Genomsnittlig svarstid
@@ -65,23 +65,23 @@ Några av de mått som du kan övervaka för din webbapp
 * Arbetsminne
 * Begäranden
 
-![övervaka webbapp kan lösa HTTP-fel 502 Felaktig gateway-och 503 tjänsten ej tillgänglig](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![övervaka app kan lösa HTTP-fel 502 Felaktig gateway-och 503 tjänsten ej tillgänglig](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 Mer information finns i:
 
-* [Övervaka Webbappar i Azure App Service](web-sites-monitor.md)
+* [Övervaka appar i Azure App Service](web-sites-monitor.md)
 * [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Samla in data
 #### <a name="use-the-diagnostics-tool"></a>Använda diagnostikverktyget för
-App Service tillhandahåller en intelligent och interaktiv upplevelse för att hjälpa dig att felsöka ditt webbprogram med krävs ingen konfiguration. När du stöter på problem med ditt webbprogram, påpeka diagnostikverktyget fel att guida dig till rätt information för att enkelt och snabbt felsöka och lösa problemet.
+App Service tillhandahåller en intelligent och interaktiv upplevelse för att hjälpa dig att felsöka din app med krävs ingen konfiguration. När du stöter på problem med din app, påpeka diagnostikverktyget fel att guida dig till rätt information för att enkelt och snabbt felsöka och lösa problemet.
 
 Om du vill få åtkomst till App Service-diagnostik, navigera till din App Service-app eller en App Service Environment i den [Azure-portalen](https://portal.azure.com). I det vänstra navigeringsfönstret klickar du på **diagnostisera och lösa problem**.
 
 #### <a name="use-the-kudu-debug-console"></a>Använda Kudu-Felsökningskonsolen
-Web Apps levereras med ett Felsökningskonsolen som du kan använda för felsökning, utforska, ladda upp filer, samt JSON-slutpunkter för att hämta information om din miljö. Detta kallas den *Kudu-konsolen* eller *instrumentpanelen SCM* för din webbapp.
+App Service levereras med ett Felsökningskonsolen som du kan använda för felsökning, utforska, ladda upp filer, samt JSON-slutpunkter för att hämta information om din miljö. Detta kallas den *Kudu-konsolen* eller *instrumentpanelen SCM* för din app.
 
 Du kan komma åt den här instrumentpanelen genom att gå till länken **https://&lt;ditt appnamn >.scm.azurewebsites.net/**.
 
@@ -92,31 +92,31 @@ Några av de saker som Kudu tillhandahåller är:
 * diagnostiska dump
 * Felsök konsolen där du kan köra Powershell-cmdlets och grundläggande DOS-kommandon.
 
-En annan bra funktion i Kudu är att, om ditt program som utlöste första chansen-undantag, du kan använda Kudu och verktyget SysInternals Procdump skapa minne minnesdumpar. Dessa minnesdumpar är ögonblicksbilder av processen och ofta kan hjälpa dig att felsöka mer komplicerade problem med ditt webbprogram.
+En annan bra funktion i Kudu är att, om ditt program som utlöste första chansen-undantag, du kan använda Kudu och verktyget SysInternals Procdump skapa minne minnesdumpar. Dessa minnesdumpar är ögonblicksbilder av processen och ofta kan hjälpa dig att felsöka mer komplicerade problem med din app.
 
 Läs mer om funktioner som är tillgängliga i Kudu [Azure Websites online-verktyg som du bör känna till om](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
 ### <a name="3-mitigate-the-issue"></a>3. Åtgärda problemet
-#### <a name="scale-the-web-app"></a>Skala webbappen
-I Azure App Service kan för bättre prestanda och dataflöde, du justera skalan där du kör ditt program. Skala upp en webbapp omfattar två relaterade åtgärder: Om du ändrar din App Service-plan till en högre prisnivå och konfigurera vissa inställningar när du har växlat till högre prisnivå.
+#### <a name="scale-the-app"></a>Skala appen
+I Azure App Service kan för bättre prestanda och dataflöde, du justera skalan där du kör ditt program. Skala upp en app omfattar två relaterade åtgärder: Om du ändrar din App Service-plan till en högre prisnivå och konfigurera vissa inställningar när du har växlat till högre prisnivå.
 
-Läs mer om att skala [skala en webbapp i Azure App Service](web-sites-scale.md).
+Läs mer om att skala [skala en app i Azure App Service](web-sites-scale.md).
 
 Dessutom kan du välja att köra programmet i fler än en instans. Detta inte bara får du fler funktioner för bearbetning, men ger dig även vissa delar av feltolerans. Om processen stängs av på en instans, fortsätter fortfarande den andra instansen begäranhantering.
 
 Du kan ange skalning för att vara manuell eller automatisk.
 
 #### <a name="use-autoheal"></a>Använd AutoHeal
-AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om webbappen från direkt i Azure Portal, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din webbapp. Observera att de här inställningarna skulle fungerar på samma sätt, även om ditt program inte är en .net något.
+AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om appen direkt i Azure Portal, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din app. Observera att de här inställningarna skulle fungerar på samma sätt, även om ditt program inte är en .net något.
 
 Mer information finns i [automatisk återställning Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
-#### <a name="restart-the-web-app"></a>Starta om webbappen
-Det här är ofta det enklaste sättet att återställa efter engångshändelser. På den [Azure-portalen](https://portal.azure.com/), på din webbapps blad, har du alternativ för att stoppa eller starta om din app.
+#### <a name="restart-the-app"></a>Starta om appen
+Det här är ofta det enklaste sättet att återställa efter engångshändelser. På den [Azure-portalen](https://portal.azure.com/), appbladet, har du alternativ för att stoppa eller starta om din app.
 
  ![Starta om appen för att lösa HTTP-fel 502 Felaktig gateway-och 503 tjänsten ej tillgänglig](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Du kan också hantera webbappen med hjälp av Azure Powershell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Du kan också hantera din app med Azure Powershell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 

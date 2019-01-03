@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969965"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726620"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -128,7 +128,6 @@ Använd följande steg för att ansluta till Azure Stack:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. Att registrera den *användaren* miljö, Använd:
 
       ```azurecli
@@ -151,9 +150,22 @@ Använd följande steg för att ansluta till Azure Stack:
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. För att registrera användaren i en AD FS-miljön, använder du:
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. Konfigurera active miljön med hjälp av följande kommandon.
-
+   
    a. För den *molnet administrativa* miljö, Använd:
 
       ```azurecli
@@ -180,8 +192,8 @@ Använd följande steg för att ansluta till Azure Stack:
 
 1. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-    * AAD-miljöer
-      * Logga in som en *användaren*: du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Du måste göra det senare om ditt konto har aktiverat multifaktorautentisering.
+    * Azure AD-miljöer
+      * Logga in som en *användaren*: Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Du måste göra det senare om ditt konto har aktiverat multifaktorautentisering.
 
       ```azurecli
       az login \
@@ -192,9 +204,9 @@ Använd följande steg för att ansluta till Azure Stack:
       > [!NOTE]
       > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login command` utan att ange den `-u` parametern. Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
    
-      * Logga in som en *tjänstens huvudnamn*: innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
+      * Logga in som en *tjänstens huvudnamn*: Innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,20 +215,33 @@ Använd följande steg för att ansluta till Azure Stack:
       ```
     * AD FS-miljöer
 
-        * Logga in som en *tjänstens huvudnamn*: 
-          1.    Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
-                * På klientdatorn där huvudkontot som har skapats, exportera tjänstobjektscertifikatet som en pfx med den privata nyckeln (finns på cert: \CurrentUser\My; cert-namnet har samma namn som huvudnamnet).
+        * Logga in som en användare som använder en webbläsare:  
+              ```azurecli  
+              az login
+              ```
+        * Logga in som en användare som använder en webbläsare med en kod för enheten:  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
 
-                *   Konvertera pfx till pem (Använd OpenSSL Utility).
+        * Logga in som ett huvudnamn för tjänsten:
+        
+          1. Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
 
-          1.    Logga in på CLI. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * På klientdatorn där huvudkontot som har skapats, exportera tjänstobjektscertifikatet som en pfx med den privata nyckeln (finns på `cert:\CurrentUser\My;` cert-namnet har samma namn som huvudnamnet).
+        
+            * Konvertera pfx till pem (Använd OpenSSL Utility).
+
+          2.  Logga in på CLI:
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>Testa anslutningen
 

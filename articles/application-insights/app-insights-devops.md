@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e9c3f9018965908ae065cedb63149190080d7f07
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994428"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970244"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -25,7 +25,7 @@ Application Insights övervakar webbappen som körs. Det finns information om fe
 
 ![Aspekter av komplexiteten med att leverera webbappar](./media/app-insights-devops/010.png)
 
-Det är viktigt att övervaka ett modernt program när den körs. Det viktigaste är att du vill upptäcka fel innan de flesta av dina kunder gör. Du också vill identifiera och åtgärda problem med prestanda, medan inte oåterkalleligt, kanske saker går långsammare eller orsaka vissa besvär för användarna. Och när systemet fungerar tills du är nöjd, du vill veta vad användarna gör med det: de använder den senaste funktionen? De lyckas med den?
+Det är viktigt att övervaka ett modernt program när den körs. Det viktigaste är att du vill upptäcka fel innan de flesta av dina kunder gör. Du också vill identifiera och åtgärda problem med prestanda, medan inte oåterkalleligt, kanske saker går långsammare eller orsaka vissa besvär för användarna. Och när systemet fungerar tills du är nöjd, du vill veta vad användarna gör med den: Använder de senaste funktionen? De lyckas med den?
 
 Moderna webbprogram har utvecklats i en cykel för kontinuerlig leverans av: levererar en ny funktion eller en förbättring; Se hur väl den fungerar för användarna. Planera steg utveckling baserat på denna kunskap. En viktig del av den här cykeln är Fjärrvisning-fasen. Application Insights erbjuder verktyg för att övervaka ett webbprogram för prestanda och användning.
 
@@ -79,7 +79,7 @@ Huvudkategorier av data är:
 * Loggspårningar som används för felsökning.
 
 ## <a name="case-study-real-madrid-fc"></a>Fallstudie: Real Madrid F.C.
-Webbtjänst [Real Madrid Football Club](https://www.realmadrid.com/) fungerar ungefär 450 miljoner fans över hela världen. Fans komma åt det både via webbläsare och den Club mobila appar. Fans kan inte bara boka biljetter, men också komma åt information och video klipp på resultat, spelare och kommande spel. De kan söka med filter som antal mål poängsätts. Det finns också länkar till sociala medier. Användarupplevelsen är mycket personlig och är utformad som en dubbelriktad kommunikation för att engagera fans.
+Webbtjänst [Real Madrid Football Club](https://www.realmadrid.com/) fungerar ungefär 450 miljoner fans över hela världen. Fans komma åt det både via webbläsare och den Club mobila appar. Fans kan inte bara boken biljetter, men också komma åt information och video klipp på resultat, spelare och kommande spel. De kan söka med filter som antal mål poängsätts. Det finns också länkar till sociala medier. Användarupplevelsen är mycket personlig och är utformad som en dubbelriktad kommunikation för att engagera fans.
 
 Lösningen [är ett system med tjänster och program på Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Skalbarhet är ett krav: trafik variabel och kan nå mycket stora volymer under och runt matchningar.
 
@@ -102,28 +102,28 @@ I båda fallen anger aviseringen inte bara symptomen den identifieras, men ger d
 
 ![E-post från proaktiv diagnostik](./media/app-insights-devops/030.png)
 
-Kunden Samtec SA: ”under de senaste funktionen startpunkt, påträffades en under skalade-databas som nått sin resursgränser och orsakar timeout. Proaktiv identifiering aviseringar Kom bokstavligen som vi sorterar problemet, mycket nära realtid som annonseras. Den här aviseringen i kombination med Azure-plattformen aviseringar hjälpte oss att nästan omedelbart åtgärda problemet. Total nedtid < 10 minuter ”.
+Kunden Samtec SA: ”Under de senaste funktionen startpunkt påträffades en under skalade-databas som nått sin resursgränser och orsakar timeout. Proaktiv identifiering aviseringar Kom bokstavligen som vi sorterar problemet, mycket nära realtid som annonseras. Den här aviseringen i kombination med Azure-plattformen aviseringar hjälpte oss att nästan omedelbart åtgärda problemet. Total nedtid < 10 minuter ”.
 
 ## <a name="live-metrics-stream"></a>Live Metrics Stream
 Distribuera den senaste versionen kan det vara en dig bekymrad upplevelse. Om det finns några problem, vill du veta om dem direkt, så att du kan säkerhetskopiera reda på om det behövs. Live Metrics Stream ger dig viktiga mått med en fördröjning på ca en sekund.
 
-![Livemått](./media/app-insights-devops/040.png)
+![Livemått](./media/app-insights-devops/0040.png)
 
 Och du kan inspektera omedelbart ett exempel på eventuella fel eller undantag.
 
-![Live felhändelser](./media/app-insights-devops/live-stream-failures.png)
+![Live felhändelser](./media/app-insights-devops/002-live-stream-failures.png)
 
 ## <a name="application-map"></a>Programkarta
 Programavbildning identifierar automatiskt programtopologin, om prestandainformation ovanpå den, så att du enkelt identifiera flaskhalsar i prestanda och problematiska flöden i miljön distribuerade. Det kan du identifiera programberoenden på Azure-tjänster. Du kan sortera problemet genom att förstå om det är kodrelaterade eller beroende relaterade och från en enda plats detaljerat relaterade diagnostik uppleva. Ditt program kan till exempel att misslyckas på grund av prestandaförsämring i SQL-nivå. Med programkartan kan du se den omedelbart och öka detaljnivån i SQL Index Advisor eller Frågeinsikter upplevelse.
 
-![Programkarta](./media/app-insights-devops/050.png)
+![Programkarta](./media/app-insights-devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
-Med [Analytics](app-insights-analytics.md), du kan skriva godtyckliga frågor i ett kraftfullt SQL-liknande språk.  Det blir enkelt att diagnostisera i hela appen stack som ansluter olika perspektiv och du kan ställa rätt frågor och korrelera tjänstens prestanda med affärsmått och kundupplevelsen. 
+Med [Analytics](../azure-monitor/app/analytics.md), du kan skriva godtyckliga frågor i ett kraftfullt SQL-liknande språk.  Det blir enkelt att diagnostisera i hela appen stack som ansluter olika perspektiv och du kan ställa rätt frågor och korrelera tjänstens prestanda med affärsmått och kundupplevelsen. 
 
 Du kan fråga din telemetri-instans och mått rådata som lagras i portalen. Språket innehåller filter, koppling, sammanställning och andra åtgärder. Du kan beräkna fält och utföra statistiska analyser. Det finns både tabellmodeller och grafiska visualiseringar.
 
-![Analytics-fråga och resultatet diagram](./media/app-insights-devops/025.png)
+![Analytics-fråga och resultatet diagram](./media/app-insights-devops/0025.png)
 
 Till exempel är det enkelt att:
 
@@ -150,16 +150,11 @@ Och när Application Insights loggar ett undantag, du kan visa datapunkten i Vis
 
 Vid felsökning, har du alternativet att behålla telemetri på utvecklingsdatorn, visar den i Visual Studio, men utan att skicka den till portalen. Det här alternativet för lokal undviker blanda felsöka med telemetri för produktion.
 
-### <a name="build-annotations"></a>Skapa anteckningar
-Om du använder Azure DevOps för att skapa och distribuera din app, utvecklingsanteckningar som visas i diagram i portalen. Om den senaste versionen har haft någon effekt på mått, blir det tydligare.
-
-![Skapa anteckningar](./media/app-insights-devops/070.png)
-
 ### <a name="work-items"></a>Arbetsobjekt
 När en avisering utlöses kan Application Insights automatiskt skapa ett arbetsobjekt i ditt arbete spårningssystemet.
 
 ## <a name="but-what-about"></a>Men vad gäller...?
-* [Sekretess- och storage](app-insights-data-retention-privacy.md) -telemetrin sparas på Azure säkra servrar.
+* [Sekretess- och storage](../azure-monitor/app/data-retention-privacy.md) -telemetrin sparas på Azure säkra servrar.
 * Prestanda - effekten är mycket låg. Telemetri är batchar.
 * [Priser](app-insights-pricing.md) – du kan komma igång utan kostnad och som fortsätter när du använder låg volym.
 
@@ -171,7 +166,7 @@ När en avisering utlöses kan Application Insights automatiskt skapa ett arbets
 ## <a name="next-steps"></a>Nästa steg
 Det är enkelt att komma igång med Application Insights. De viktigaste alternativen är:
 
-* Instrumentera en webbapp redan körs. Detta ger dig all den inbyggda telemetrin. Det finns för [Java](app-insights-java-live.md) och [IIS-servrar](app-insights-monitor-performance-live-website-now.md), och även för [Azure-webbappar](app-insights-overview.md).
-* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](app-insights-asp-net.md) eller [Java](app-insights-java-get-started.md) appar, samt [Node.js](app-insights-nodejs.md) och en mängd [andra typer](app-insights-platforms.md). 
-* Instrumentera [en webbsida](app-insights-javascript.md) genom att lägga till ett kort kodfragment.
+* Instrumentera en webbapp redan körs. Detta ger dig all den inbyggda telemetrin. Det finns för [Java](../azure-monitor/app/java-live.md) och [IIS-servrar](../azure-monitor/app/monitor-performance-live-website-now.md), och även för [Azure App Service](app-insights-overview.md).
+* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](../azure-monitor/app/asp-net.md) eller [Java](../azure-monitor/app/java-get-started.md) appar, samt [Node.js](app-insights-nodejs.md) och en mängd [andra typer](app-insights-platforms.md). 
+* Instrumentera [en webbsida](../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
 

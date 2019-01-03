@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5b21ec36215dfde964b845a1ee28c02b562e1dd7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4e136d4a0a60838af7d2b1a111982b0c16b06dd2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340682"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975159"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Virtual network-integration för Azure-tjänster
 
 Integrera Azure-tjänster till ett Azure-nätverk kan privat åtkomst till tjänsten från virtuella datorer eller beräkningsresurser i det virtuella nätverket.
-Du kan integrera Azure-tjänster i ditt virtuella nätverk med följande alternativ: Distribuera direkt dedikerade instanser av tjänsten till ett virtuellt nätverk. Tjänsterna kan sedan användas privat i det virtuella nätverket och från lokala nätverk.
-Genom att utöka ett virtuellt nätverk till tjänsten via tjänstslutpunkter. Tjänstslutpunkter kan enskilda tjänstresurser skyddas till det virtuella nätverket.
+Du kan integrera Azure-tjänster i ditt virtuella nätverk med följande alternativ:
+- Distribuera dedikerade instanser av tjänsten till ett virtuellt nätverk. Tjänsterna kan sedan användas privat i det virtuella nätverket och från lokala nätverk.
+- Utöka ett virtuellt nätverk till tjänsten via tjänstslutpunkter. Tjänstslutpunkter kan enskilda tjänstresurser skyddas till det virtuella nätverket.
 
 Du kan kombinera en eller flera av mönster som ovan för att integrera flera Azure-tjänster till ditt virtuella nätverk. Du kan till exempel distribuera HDInsight i ditt virtuella nätverk och skydda ett lagringskonto till HDInsight-undernätet via tjänstslutpunkter.
  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2188451e987aad7e4edfaa2097a828ab9714d706
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138352"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793792"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -56,14 +56,14 @@ Referera till Application Insights från ditt .NET-program med hjälp av den **M
 
 ## <a name="instrument-your-code"></a>Instrumentera din kod
 
-Din lösning för att instrumentera din kod, som behövs för att skapa en Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). I det här exemplet läser TelemetryClient konfigurationen från den [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) fil. Se till att uppdatera ApplicationInsights.config i följande projekt med din Application Insights-instrumenteringsnyckeln: Microsoft.Azure.Batch.Samples.TelemetryStartTask och TopNWordsSample.
+Din lösning för att instrumentera din kod, som behövs för att skapa en Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). I det här exemplet läser TelemetryClient konfigurationen från den [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) fil. Tänk på att uppdatera ApplicationInsights.config i följande projekt med din Application Insights-instrumenteringsnyckeln: Microsoft.Azure.Batch.Samples.TelemetryStartTask och TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Lägg även till instrumenteringsnyckeln i filen TopNWords.cs.
 
-I exemplet i TopNWords.cs använder följande [instrumentation anrop](../application-insights/app-insights-api-custom-events-metrics.md) från Application Insights-API:
+I exemplet i TopNWords.cs använder följande [instrumentation anrop](../azure-monitor/app/api-custom-events-metrics.md) från Application Insights-API:
 * `TrackMetric()` -Spårar hur länge, i genomsnitt en beräkningsnod tar att ladda ned nödvändiga textfilen.
 * `TrackTrace()` -Lägger till felsökning anrop till din kod.
 * `TrackEvent()` -Spår intressanta händelser för att samla in.
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch telemetri-initierare helper
-Om du rapporterar telemetri för en viss server och instans, använder Application Insights Azure VM-roll och VM-namn för standardvärden. I samband med Azure Batch visas i exempel hur du använder poolnamnet och compute nodnamnet i stället. Använd en [telemetriinitieraren](../application-insights/app-insights-api-filtering-sampling.md#add-properties) åsidosätta standardvärdena. 
+Om du rapporterar telemetri för en viss server och instans, använder Application Insights Azure VM-roll och VM-namn för standardvärden. I samband med Azure Batch visas i exempel hur du använder poolnamnet och compute nodnamnet i stället. Använd en [telemetriinitieraren](../azure-monitor/app/api-filtering-sampling.md#add-properties) åsidosätta standardvärdena. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;

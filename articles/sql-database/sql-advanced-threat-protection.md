@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997597"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538624"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Avancerat skydd för Azure SQL Database
 
@@ -30,7 +30,7 @@ SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancera
 - [Vulnerability Assessment](sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera och som kan identifiera, spåra och hjälpa dig att åtgärda eventuella säkerhetsrisker i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
 - [Threat Detection](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Threat Detection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
 
-Aktivera SQL ATP när om du vill aktivera alla dessa funktioner som ingår. Med en enda klickning kan du aktivera ATP för hela databasservern och använda det för alla databaser på servern. 
+Aktivera SQL ATP när om du vill aktivera alla dessa funktioner som ingår. Med en enda klickning kan du aktivera ATP för hela databasservern och använda det för alla databaser på servern. Aktivera eller hantera ATP-inställningar kräver tillhör den [SQL-säkerhetsansvarig](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rollen, administratörsroll för SQL database eller SQL server-administratörsroll. 
 
 Priser för ATP överensstämmer med Azure Security Center standard-nivån, där varje skyddad SQL Database-server räknas som en nod. Nyligen skyddade resurser kvalificera dig för en kostnadsfri utvärderingsversion av Security Center standard-nivån. Mer information finns i den [sidan med priser för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

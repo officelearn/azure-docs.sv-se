@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864986"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726552"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Saker att tänka på för Azure Stack-distribution
 Innan du distribuerar Azure Stack Development Kit (ASDK) måste du kontrollera att värddatorn development kit uppfyller kraven som beskrivs i den här artikeln.
@@ -29,17 +29,17 @@ Innan du distribuerar Azure Stack Development Kit (ASDK) måste du kontrollera a
 ## <a name="hardware"></a>Maskinvara
 | Komponent | Minimum | Rekommenderas |
 | --- | --- | --- |
-| Diskenheter: operativsystem |1 OS-disk med minst 200 GB tillgängligt för systempartitionering (SSD och HDD) |1 OS-disk med minst 200 GB tillgängligt för systempartitionering (SSD och HDD) |
-| Diskenheter: allmänna development kit data<sup>*</sup>  |4 diskar. Varje disk innehåller minst 140 GB kapacitet (SSD och HDD). Alla tillgängliga diskar används. |4 diskar. Varje disk innehåller minst 250 GB kapacitet (SSD eller HDD). Alla tillgängliga diskar används. |
-| Beräkna: CPU |Dubbla uttag: 12 fysiska kärnor (totalt) |Dubbla uttag: 16 fysiska kärnor (totalt) |
-| Beräkna: minne |96 GB RAM-minne |128 GB RAM-minne (detta är minimum för PaaS-resursprovidrar.)|
+| Diskenheter: Operativsystem |1 operativsystemdisk med minst 200 GB tillgängligt för systempartitionering (SSD och HDD) |1 OS-disk med minst 200 GB tillgängligt för systempartitionering (SSD och HDD) |
+| Diskenheter: Allmän development kit data<sup>*</sup>  |4 diskar. Varje disk innehåller minst 240 GB kapacitet (SSD och HDD). Alla tillgängliga diskar används. |4 diskar. Varje disk innehåller minst 400 GB kapacitet (SSD och HDD). Alla tillgängliga diskar används. |
+| Beräkna: Processor |Dubbla uttag: 16 fysiska kärnor (totalt) |Dubbla uttag: 20 fysiska kärnor (totalt) |
+| Beräkna: Minne |192 GB RAM-MINNE |256 GB RAM-MINNE |
 | Beräkna: BIOS |Hyper-V aktiverat (med stöd för SLAT) |Hyper-V aktiverat (med stöd för SLAT) |
-| Nätverk: NIC |Windows Server 2012 R2-certifiering krävs för NIC, inga specialfunktioner krävs |Windows Server 2012 R2-certifiering krävs för NIC, inga specialfunktioner krävs |
+| Nätverk: Nätverkskort |Windows Server 2012 R2-certifiering. Inga specialfunktioner krävs |Windows Server 2012 R2-certifiering. Inga specialfunktioner krävs |
 | HW-logotypcertifiering |[Certifierat för Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifierade för Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Du behöver fler än det rekommenderade kapacitet om du planerar att lägga till många av de [marketplace-objekt](asdk-marketplace-item.md) från Azure.
 
-**Konfiguration av datadiskenhet:** alla dataenheter måste vara av samma typ (alla SAS, SATA eller alla NVMe) och kapacitet. Om SAS-hårddiskar används måste diskenheter kopplas via en enskild sökväg (inga MPIO, stöd för flera sökvägar, tillhandahålls).
+**Konfiguration av datadiskenhet:** Alla dataenheter måste vara av samma typ (alla SAS, SATA eller alla NVMe) och kapacitet. Om SAS-hårddiskar används måste diskenheter kopplas via en enskild sökväg (inga MPIO, stöd för flera sökvägar, tillhandahålls).
 
 **HBA-konfigurationsalternativ**
 
@@ -59,7 +59,7 @@ Innan du distribuerar Azure Stack Development Kit (ASDK) måste du kontrollera a
 
 <sup>*</sup> RAID-styrenheter utan genomströmningskapacitet kan inte identifiera medietyp. Sådana styrenheter markerar både HDD och SSD som ospecificerade. I så fall används SSD som beständig lagring i stället för cachelagringsenheter. Därför kan du distribuera development kit på dessa SSD-enheter.
 
-**Exempel på HBA**: LSI 9207-8i, LSI-9300-8i eller LSI-9265-8i i genomströmningsläge (pass-through)
+**Exempel på HBA**: LSI 9207-8i, LSI-9300-8i eller LSI-9265-8i i genomströmningsläge
 
 Det finns tillgängliga exempel på OEM-konfigurationer.
 

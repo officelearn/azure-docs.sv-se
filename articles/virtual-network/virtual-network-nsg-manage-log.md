@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 383c870148193f4831f06d75aba241e827af9006
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384997"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543367"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en grupp
 
@@ -31,7 +31,7 @@ En nätverkssäkerhetsgrupp (NSG) innehåller regler som tillåter eller nekar t
 
 Diagnostikloggar är bara tillgängliga för NSG: er som distribueras via Azure Resource Manager-distributionsmodellen. Du kan inte aktivera Diagnostisk loggning för NSG: er som distribueras via den klassiska distributionsmodellen. En bättre förståelse av de två modellerna, finns i [förstå Azure-distributionsmodellerna](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Diagnostisk loggning aktiveras separat för *varje* NSG som du vill samla in diagnostikdata för. Om du är intresserad av driftdatabasen, eller aktivitet, loggas i stället kan du läsa Azure [aktivitetsloggning](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Diagnostisk loggning aktiveras separat för *varje* NSG som du vill samla in diagnostikdata för. Om du är intresserad av driftdatabasen, eller aktivitet, loggas i stället kan du läsa Azure [aktivitetsloggning](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-Om du bara vill logga data för en kategori eller den andra, snarare än både lägger du till den `-Categories` möjlighet att föregående kommando, följt av *NetworkSecurityGroupEvent* eller *NetworkSecurityGroupRuleCounter*. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Om du bara vill logga data för en kategori eller den andra, snarare än både lägger du till den `-Categories` möjlighet att föregående kommando, följt av *NetworkSecurityGroupEvent* eller *NetworkSecurityGroupRuleCounter*. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Visa och analysera loggar. Mer information finns i [visa och analysera loggar](#view-and-analyze-logs).
 
@@ -123,7 +123,7 @@ az monitor diagnostic-settings create \
 
 Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för. 
 
-Ta bort den kategori som du inte vill logga data för i det föregående kommandot om du bara vill logga data i en kategori eller den andra. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Ta bort den kategori som du inte vill logga data för i det föregående kommandot om du bara vill logga data i en kategori eller den andra. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Visa och analysera loggar. Mer information finns i [visa och analysera loggar](#view-and-analyze-logs).
 
@@ -131,7 +131,7 @@ Visa och analysera loggar. Mer information finns i [visa och analysera loggar](#
 
 Diagnostics-data kan vara:
 - [Skrivs till ett Azure Storage-konto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av resursdiagnostikinställningar.
-- [Strömma till en Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ska matas in av en tjänst från tredje part eller anpassade analytics-lösning, t.ex Power BI.
+- [Strömma till en Event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ska matas in av en tjänst från tredje part eller anpassade analytics-lösning, t.ex Power BI.
 - [Skrivs till Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Loggkategorier
@@ -198,7 +198,7 @@ Regeln räknarloggen innehåller information om varje regel tillämpas på resur
 
 ## <a name="view-and-analyze-logs"></a>Visa och analysera loggar
 
-Läs hur du visar diagnostiklogg data i [översikt över Azure-diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du skickar diagnostikdata:
+Läs hur du visar diagnostiklogg data i [översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du skickar diagnostikdata:
 - **Log Analytics**: Du kan använda den [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) lösning för bättre information. Lösningen innehåller visualiseringar för NSG-regler som tillåter eller nekar trafik per MAC-adressen för nätverksgränssnittet i en virtuell dator.
 - **Azure Storage-konto**: Data skrivs till en pt1h.JSON. Du hittar den:
@@ -207,7 +207,7 @@ Läs hur du visar diagnostiklogg data i [översikt över Azure-diagnostikloggar]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [aktivitetsloggning](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), tidigare känd som gransknings- eller driftloggar. Aktivitetsloggning är aktiverat som standard för NSG: er som skapats via antingen Azure-distributionsmodellen. För att avgöra vilka åtgärder har slutförts på NSG: er i aktivitetsloggen, Sök efter poster som innehåller följande resurstyper:
+- Läs mer om [aktivitetsloggning](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), tidigare känd som gransknings- eller driftloggar. Aktivitetsloggning är aktiverat som standard för NSG: er som skapats via antingen Azure-distributionsmodellen. För att avgöra vilka åtgärder har slutförts på NSG: er i aktivitetsloggen, Sök efter poster som innehåller följande resurstyper:
     - Microsoft.ClassicNetwork/networkSecurityGroups
     - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
     - Microsoft.Network/networkSecurityGroups

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313402"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633035"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
@@ -156,7 +156,7 @@ Du kan även ordna indexeraren ska köras regelbundet enligt ett schema. Gör de
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-Den **intervall** parametern är obligatorisk. Intervallet avser tiden mellan början av två på varandra följande indexeraren körningar. Minsta tillåtna intervall är 5 minuter. den längsta är en dag. Den måste vara formaterad som en XSD-värde för ”dayTimeDuration” (en begränsad delmängd av en [varaktighet i ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värde). Mönstret för det här är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för varje kvart `PT2H` för varannan timme.
+Den **intervall** parametern är obligatorisk. Intervallet avser tiden mellan början av två på varandra följande indexeraren körningar. Minsta tillåtna intervall är 5 minuter. den längsta är en dag. Den måste vara formaterad som en XSD-värde för ”dayTimeDuration” (en begränsad delmängd av en [varaktighet i ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värde). Mönstret för det här är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för varje kvart `PT2H` för varannan timme.
 
 Den valfria **startTime** anger när den schemalagda körningar ska påbörjas. Om det utelämnas används den aktuella UTC-tiden. Nu kan vara i det förflutna – om den första körningen har schemalagts som om indexeraren har körts sedan startTime oavbrutet.  
 

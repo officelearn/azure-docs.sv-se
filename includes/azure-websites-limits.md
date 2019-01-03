@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 515aeac3531a45080824df126ad674353f70cdb8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 6bb7db5d57508d448f88a30623b7f30e88a0a821
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279965"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736903"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Webb-, Mobil- eller API apps](https://azure.microsoft.com/services/app-service/) per [apptjänstplan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup>|
-| [App Service-plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per region |10 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp|
+| [Webb-, Mobil- eller API apps](https://azure.microsoft.com/services/app-service/) per [apptjänstplan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup>|
+| [App Service-plan](../articles/app-service/overview-hosting-plans.md) |1 per region |10 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp|
 | Beräkning instanstyp |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
 | [Skala ut](../articles/app-service/web-sites-scale.md) (max. instanser) |1 delad |1 delad |3 dedikerade<sup>3</sup> |10 dedikerade<sup>3</sup> |20 dedikerade<sup>3</sup>|100 dedikerade<sup>4</sup>|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
@@ -24,18 +24,18 @@ ms.locfileid: "52279965"
 | Bandbredd |165 MB |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
 | Web Sockets per instans<sup>7</sup> |5 |35 |350 |Obegränsat |Obegränsat |Obegränsat |
-| Samtidiga [felsökning av anslutningar](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
+| Samtidiga [felsökning av anslutningar](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
 | App Service Certificate per prenumeration<sup>10</sup>| Stöds inte | Stöds inte |10 |10 |10 |10 |
 | Anpassade domäner per app</a> |0 (endast azurewebsites.net underdomän)|500 |500 |500 |500 |500 |
 | Anpassad domän [SSL-stöd](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Stöds ej. Jokerteckencertifikat för *. azurewebsites.net som är tillgängliga som standard.|Stöds ej. Jokerteckencertifikat för *. azurewebsites.net som är tillgängliga som standard.|Obegränsade SNI SSL-anslutningar |Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår|
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>9</sup> |
 | [Alltid på](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
-| [Schemalagda säkerhetskopieringar](../articles/app-service/web-sites-backup.md) | | | | Schemalagda säkerhetskopieringar varannan timme, maximalt 12 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) |
+| [Schemalagda säkerhetskopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhetskopieringar varannan timme, maximalt 12 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) |
 | [Automatisk skalning](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |X |
+| [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) stöd | |X |X |X |X |X |
 | [Slutpunktsövervakning](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
-| [Mellanlagringsplatser](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
+| [Mellanlagringsplatser](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | SLA | |  |99,9 % |99,95 %|99,95 %|99,95 %|  
 
 <sup>1</sup> appar och lagringskvoter är per App Service-plan om inget annat anges.  

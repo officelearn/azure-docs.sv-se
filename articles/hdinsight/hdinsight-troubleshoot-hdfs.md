@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fca763d04cc8cbf22d1578b18d504ec3ce9656d9
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407062"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993033"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Felsöka HDFS för Apache Hadoop med Azure HDInsight
 
@@ -23,7 +23,7 @@ Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Hado
 
 ### <a name="issue"></a>Problem
 
-Åtkomst till ditt lokala HDFS från kommandoraden och programkod i stället för med hjälp av Azure Blob storage eller Azure Data Lake Store från i HDInsight-kluster.   
+Åtkomst till ditt lokala HDFS från kommandoraden och programkod i stället för med hjälp av Azure Blob storage eller Azure Data Lake Storage från i HDInsight-kluster.   
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 

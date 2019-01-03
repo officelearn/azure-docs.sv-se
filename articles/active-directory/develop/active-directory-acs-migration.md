@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 01781725e3224e2cab49a5e7cc7dcc33030ce9fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015780"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971560"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Anvisningar: Migrera från Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för befintliga kunder som du planerar att inaktualisera din användning av Access Control. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
 
@@ -113,9 +113,9 @@ Från och med November 2017 är alla komponenter i Access Control fullständigt 
 
 Här är schemat för avvecklar Access Control-komponenter:
 
-- **November 2017**: Azure AD-administratören användarupplevelsen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true`. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du vill.
-- **Den 2 april 2018**: Azure klassiska portal helt dras tillbaka, vilket innebär att hantering av åtkomstkontroll namnområden är inte längre tillgänglig via alla URL: er. Du kan nu inaktivera eller aktivera, ta bort eller räkna upp dina Access Control-namnområden. Access Control-hanteringsportalen kommer dock att helt funktionella och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att fungera normalt.
-- **7 november 2018**: alla åtkomstkontroll komponenter permanent stänga. Detta inkluderar Access Control-hanteringsportalen, management-tjänsten, STS och token omvandling regeln motorn. Nu kan alla förfrågningar som skickas till Access Control (finns på \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker bra före denna tidpunkt.
+- **November 2017**:  Azure AD-administratören användarupplevelsen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true`. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du vill.
+- **Den 2 april 2018**: Den klassiska Azure-portalen helt dras tillbaka, vilket innebär att hantering av åtkomstkontroll namnområden är inte längre tillgänglig via alla URL: er. Du kan nu inaktivera eller aktivera, ta bort eller räkna upp dina Access Control-namnområden. Access Control-hanteringsportalen kommer dock att helt funktionella och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att fungera normalt.
+- **7 november 2018**: Alla komponenter i Access Control är permanent stänga av. Detta inkluderar Access Control-hanteringsportalen, management-tjänsten, STS och token omvandling regeln motorn. Nu kan alla förfrågningar som skickas till Access Control (finns på \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker bra före denna tidpunkt.
 
 > [!NOTE]
 > En princip inaktiverar namnområden som inte har begärt en token för en viss tidsperiod. Från och med tidig September 2018 denna tidsperiod är för närvarande på 14 dagar av inaktivitet, men detta kommer att förkortas till 7 dagars inaktivitet under de kommande veckorna. Om du har Access Control-namnområden som för tillfället är inaktiverade, kan du [ladda ned och installera ACS PowerShell](#download-and-install-acs-powershell) återaktivera namespace(s).
@@ -151,7 +151,7 @@ SharePoint 2013, 2016 och SharePoint Online-kunder har länge använt ACS för a
 
 | Funktion | Riktlinjer |
 | ------- | -------- |
-| Autentisera användare från Azure AD | Tidigare Azure AD har stöd inte för SAML 1.1-tokens som krävs för SharePoint för autentisering och ACS användes som en mellanhand som gjort SharePoint-kompatibelt med Azure AD-token formaterar. Nu kan du [ansluta SharePoint direkt till Azure AD med Azure AD-Appgalleriet SharePoint på lokala app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Autentisera användare från Azure AD | Tidigare Azure AD har stöd inte för SAML 1.1-tokens som krävs för SharePoint för autentisering och ACS användes som en mellanhand som gjorts SharePoint kompatibelt med Azure AD-token format. Nu kan du [ansluta SharePoint direkt till Azure AD med Azure AD-Appgalleriet SharePoint på lokala app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Appautentisering & server-till-server-autentisering i SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. | 
 | [Låg förtroende auktorisering för SharePoint-tillägg (värd-providern och SharePoint som värd)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. |
@@ -163,7 +163,7 @@ För webbprogram som använder åtkomstkontroll för autentisering av användare
 - Djupgående integrering med Windows Identity Foundation (WIF).
 - Federation med Google, Facebook, Yahoo, Azure Active Directory och AD FS-konton och Microsoft-konton.
 - Stöd för följande autentiseringsprotokoll: OAuth 2.0-utkast 13, WS-Trust och Web Services Federation (WS-Federation).
-- Stöd för följande token format: JSON Web Token (JWT), SAML 1.1, SAML 2.0 och Simple Web Token (SWT).
+- Stöd för följande token format: JSON-Webbtoken (JWT), SAML 1.1, SAML 2.0 och Simple Web Token (SWT).
 - En startsfär affärsanalyser, integrerade i WIF, som tillåter användare att välja den typ av konto som de använder för att logga in. Den här upplevelsen är värd för webbprogrammet och är helt anpassningsbar.
 - Token omvandling som tillåter omfattande anpassning av anspråk som tas emot av webbprogrammet från Access Control, inklusive:
     - Passera anspråk från identitetsleverantörer.

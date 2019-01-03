@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165347"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790902"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -30,7 +30,7 @@ När en producent skickar ett meddelande i en kö, sker det vanligtvis i omfång
 Microsoft Azure Service Bus-meddelanden har definierat nyttolast-egenskaper som producenter och konsumenter som ska använda för att skicka sådana spår kontext.
 Protokollet som baseras på den [korrelation av HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Egenskapsnamn        | Beskrivning                                                 |
+| Namn på egenskap        | Beskrivning                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostik-Id       | Unik identifierare för ett externt anrop från producent till kön. Referera till [Request-Id i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) för sker, överväganden och format |
 |  Korrelations-kontexten | Åtgärden kontext som sprids över alla tjänster som ingår i åtgärden utförs. Mer information finns i [Korrelations-kontexten i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -45,9 +45,9 @@ Instrumentationen kan spåra alla anrop till Service Bus messaging-tjänsten fr�
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) tillhandahåller omfattande funktioner, inklusive automagical begäran och beroendespårning för prestandaövervakning.
 
 Beroende på din projekttyp installerar du Application Insights SDK:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) – installera version 2.5-beta2 eller högre
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) – installera version 2.2.0-beta2 eller högre.
-Dessa länkar innehåller detaljerad information om att installera SDK: N, skapa resurser och konfigurera SDK (vid behov). Icke-ASP.NET-program finns i [Azure Application Insights för konsolprogram](../application-insights/application-insights-console.md) artikeln.
+- [ASP.NET](../azure-monitor/app/asp-net.md) – installera version 2.5-beta2 eller högre
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) – installera version 2.2.0-beta2 eller högre.
+Dessa länkar innehåller detaljerad information om att installera SDK: N, skapa resurser och konfigurera SDK (vid behov). Icke-ASP.NET-program finns i [Azure Application Insights för konsolprogram](../azure-monitor/app/console.md) artikeln.
 
 Om du använder [hanteraren meddelandemönstret](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) för att bearbeta meddelanden du är klar: alla Service Bus-anrop som görs av din tjänst spåras automatiskt och med andra telemetri-objekt. Annars finns i följande exempel för manuell meddelandebehandling spårning.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 I det här exemplet `RequestTelemetry` rapporteras för varje bearbetade meddelande med en tidsstämpel, varaktighet och resultatet (lyckades). Telemetri har också en uppsättning korrelation egenskaper.
 Kapslade spårningar och undantag som har rapporterat under meddelandebehandling också stämplad med Korrelations-egenskaper som representerar dem som underordnade om du till den `RequestTelemetry`.
 
-Om du göra anrop till externa komponenter som stöds under behandlingen av meddelandet är de också automatiskt spåras och korrelerade. Referera till [spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md) för manuell spårning och korrelation.
+Om du göra anrop till externa komponenter som stöds under behandlingen av meddelandet är de också automatiskt spåras och korrelerade. Referera till [spåra anpassade åtgärder med Application Insights SDK för .NET](../azure-monitor/app/custom-operations-tracking.md) för manuell spårning och korrelation.
 
 ### <a name="tracking-without-tracing-system"></a>Spåra utan spårningssystemet
 Om din spårningssystemet inte stöder automatisk Service Bus-anrop spårning kan till exempel se till att lägga till stödet till ett spårningssystem eller till ditt program. Det här avsnittet beskrivs diagnostikhändelser som skickas av Service Bus .NET-klient.  
@@ -141,7 +141,7 @@ I det här exemplet loggar lyssnare varaktighet, resultatet, unik identifierare 
 
 #### <a name="events"></a>Händelser
 
-För varje åtgärd, två händelser skickas: ”Start” och ”stoppa”. Du är mest förmodligen bara intresserad ”stoppa” händelser. De ger resultatet av åtgärden, samt starttid och varaktighet som Aktivitetsegenskaper för en.
+För varje åtgärd skickas två händelser: ”Start” och ”stoppa”. Du är mest förmodligen bara intresserad ”stoppa” händelser. De ger resultatet av åtgärden, samt starttid och varaktighet som Aktivitetsegenskaper för en.
 
 Händelsenyttolast innehåller en lyssnare med kontexten för åtgärden, den replikerar inkommande parametrar för API: et och returnerar värdet. ”Stoppa” händelsenyttolast har alla egenskaper för ”Start” händelsenyttolast så att du kan ignorera ”Start” händelse helt.
 
@@ -227,6 +227,6 @@ I förekomsten av flera `DiagnosticSource` lyssnare för samma källa, det är b
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Application Insights korrelation](../application-insights/application-insights-correlation.md)
-* [Application Insights övervaka beroenden](../application-insights/app-insights-asp-net-dependencies.md) att se om REST, SQL eller andra externa resurser gör systemet långsammare.
-* [Spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md)
+* [Application Insights korrelation](../azure-monitor/app/correlation.md)
+* [Application Insights övervaka beroenden](../azure-monitor/app/asp-net-dependencies.md) att se om REST, SQL eller andra externa resurser gör systemet långsammare.
+* [Spåra anpassade åtgärder med Application Insights SDK för .NET](../azure-monitor/app/custom-operations-tracking.md)

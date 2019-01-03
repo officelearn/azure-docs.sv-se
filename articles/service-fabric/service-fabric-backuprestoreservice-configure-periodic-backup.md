@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722385"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794251"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå periodiska konfiguration av säkerhetskopiering i Azure Service Fabric
 
 Konfigurera regelbunden säkerhetskopiering av din tillförlitliga tillståndskänsliga tjänster eller Reliable Actors består av följande steg:
 
-1. **Skapa principer för säkerhetskopiering**: I det här steget en eller flera principer för säkerhetskopiering skapas beroende på kraven.
+1. **Skapa principer för säkerhetskopiering**: I det här steget skapas en eller flera principer för säkerhetskopiering beroende på kraven.
 
-2. **Aktivera säkerhetskopiering**: I det här steget ska du associera principer för säkerhetskopiering som skapats i **steg 1** till nödvändiga entiteter _programmet_, _Service_, eller en  _Partitionen_.
+2. **Aktivera säkerhetskopiering**: I det här steget ska du associera principer för säkerhetskopiering som skapats i **steg 1** till nödvändiga entiteter _programmet_, _Service_, eller en _Partition_.
 
 ## <a name="create-backup-policy"></a>Skapa säkerhetskopieringsprincip
 
@@ -35,7 +35,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
 
 * **Automatisk återställning på dataförlust**: Anger om du vill aktivera återställning som automatiskt med den senaste tillgängliga säkerhetskopian om partitionen påträffar en dataförlust inträffat.
 
-* **Max inkrementella säkerhetskopieringar**: definierar det maximala antalet säkerhetskopior som ska utföras mellan två fullständiga säkerhetskopieringar. Max inkrementella säkerhetskopior anger den övre gränsen. En fullständig säkerhetskopiering kan vidtas innan angivet antal inkrementella säkerhetskopieringar har utförts på något av följande villkor
+* **Max inkrementella säkerhetskopieringar**: Definierar det maximala antalet säkerhetskopior som ska utföras mellan två fullständiga säkerhetskopieringar. Max inkrementella säkerhetskopior anger den övre gränsen. En fullständig säkerhetskopiering kan vidtas innan angivet antal inkrementella säkerhetskopieringar har utförts på något av följande villkor
 
     1. Repliken har aldrig tagit en fullständig säkerhetskopiering eftersom det har blivit primära.
 
@@ -43,9 +43,9 @@ En princip för säkerhetskopiering består av följande konfigurationer:
 
     3. Repliken har godkänts MaxAccumulatedBackupLogSizeInMB gränsen.
 
-* **Schema för säkerhetskopiering**: tidpunkt eller frekvens som du vill göra regelbundna säkerhetskopior. En kan schemalägga säkerhetskopieringar så att återkomma med angivna intervall eller på en fast tidpunkt varje dag / vecka.
+* **Schema för säkerhetskopiering**: Den tidpunkt eller frekvens som du vill göra regelbundna säkerhetskopior. En kan schemalägga säkerhetskopieringar så att återkomma med angivna intervall eller på en fast tidpunkt varje dag / vecka.
 
-    1. **Frekvensbaserad Säkerhetskopieringsschemat**: den här schematypen ska användas om behovet av att säkerhetskopiera data med jämna tidsintervall. Önskat tidsintervall mellan två på varandra följande säkerhetskopior har definierats använder ISO8601-format. Frekvensbaserad schema för säkerhetskopiering har stöd för intervall lösning till och minut.
+    1. **Frekvensbaserad Säkerhetskopieringsschemat**: Den här schematypen bör användas om behovet av att säkerhetskopiera data med jämna tidsintervall. Önskat tidsintervall mellan två på varandra följande säkerhetskopior har definierats använder ISO8601-format. Frekvensbaserad schema för säkerhetskopiering har stöd för intervall lösning till och minut.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,8 +53,8 @@ En princip för säkerhetskopiering består av följande konfigurationer:
         }
         ```
 
-    2. **Tidsbaserade Säkerhetskopieringsschemat**: den här schematypen ska användas om behovet av att säkerhetskopiera data vid specifika tidpunkter på dagen eller veckan. Frekvens schematyp kan antingen vara dagliga och veckovisa.
-        1. **_Dagliga_ tidsbaserade Säkerhetskopieringsschemat**: den här schematypen ska användas om behovet av id som ska ta säkerhetskopiering av data vid specifika tidpunkter på dagen. För att ange detta `ScheduleFrequencyType` till _dagliga_; och ange `RunTimes` till listan över önskade helst under dagen i ISO8601-format, datum som har angetts tillsammans med tiden kommer att ignoreras. Till exempel `0001-01-01T18:00:00` representerar _18:00:00_ varje dag, ignorerar DatumDel _0001-01-01_. Exemplet nedan visar att konfigurationen ska utlösaren daglig säkerhetskopiering på _9.00_ och _18:00:00_ varje dag.
+    2. **Tidsbaserade Säkerhetskopieringsschemat**: Den här schematypen bör användas om behovet av att säkerhetskopiera data vid specifika tidpunkter på dagen eller veckan. Frekvens schematyp kan antingen vara dagliga och veckovisa.
+        1. **_Dagliga_ tidsbaserade Säkerhetskopieringsschemat**: Den här schematypen ska användas om behovet av id som ska ta säkerhetskopiering av data vid specifika tidpunkter på dagen. För att ange detta `ScheduleFrequencyType` till _dagliga_; och ange `RunTimes` till listan över önskade helst under dagen i ISO8601-format, datum som har angetts tillsammans med tiden kommer att ignoreras. Till exempel `0001-01-01T18:00:00` representerar _18:00:00_ varje dag, ignorerar DatumDel _0001-01-01_. Exemplet nedan visar att konfigurationen ska utlösaren daglig säkerhetskopiering på _9.00_ och _18:00:00_ varje dag.
 
             ```json
             {
@@ -67,7 +67,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
             }
             ```
 
-        2. **_Varje vecka_ tidsbaserade Säkerhetskopieringsschemat**: den här schematypen ska användas om behovet av id som ska ta säkerhetskopiering av data vid specifika tidpunkter på dagen. För att ange detta `ScheduleFrequencyType` till _veckovisa_; set `RunDays` till listan över dagar i veckan när säkerhetskopiering behöver utlöses och ange `RunTimes` till listan över önskade helst under dagen i ISO8601-format, datum anges tillsammans med tid kommer att ignoreras. Lista över de dagar i veckan när du ska aktivera regelbunden säkerhetskopiering. Exemplet nedan visar att konfigurationen ska utlösaren daglig säkerhetskopiering på _9.00_ och _18:00:00_ under måndag-fredag.
+        2. **_Varje vecka_ tidsbaserade Säkerhetskopieringsschemat**: Den här schematypen ska användas om behovet av id som ska ta säkerhetskopiering av data vid specifika tidpunkter på dagen. För att ange detta `ScheduleFrequencyType` till _veckovisa_; set `RunDays` till listan över dagar i veckan när säkerhetskopiering behöver utlöses och ange `RunTimes` till listan över önskade helst under dagen i ISO8601-format, datum anges tillsammans med tid kommer att ignoreras. Lista över de dagar i veckan när du ska aktivera regelbunden säkerhetskopiering. Exemplet nedan visar att konfigurationen ska utlösaren daglig säkerhetskopiering på _9.00_ och _18:00:00_ under måndag-fredag.
 
             ```json
             {
@@ -88,7 +88,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
             ```
 
 * **Lagring för säkerhetskopior**: Anger platsen för att ladda upp säkerhetskopior. Storage kan antingen Azure-blobblagring eller filresurs.
-    1. **Azure-blobblagring**: den här lagringstyp som ska väljas när behovet av att lagra genereras säkerhetskopior i Azure. Båda _fristående_ och _Azure-baserade_ kluster kan använda den här typen av lagring. Beskrivning för den här lagringstyp kräver anslutningssträng och namnet på behållaren där säkerhetskopieringar ska överföras. Om behållaren med det angivna namnet inte är tillgängligt, skapas det vid uppladdning av en säkerhetskopia.
+    1. **Azure-blobblagring**: Den här typen av lagring måste väljas när behovet av att lagra genereras säkerhetskopior i Azure. Båda _fristående_ och _Azure-baserade_ kluster kan använda den här typen av lagring. Beskrivning för den här lagringstyp kräver anslutningssträng och namnet på behållaren där säkerhetskopieringar ska överföras. Om behållaren med det angivna namnet inte är tillgängligt, skapas det vid uppladdning av en säkerhetskopia.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -98,7 +98,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
         }
         ```
 
-    2. **Filresurs**: den här typen av lagring måste väljas för _fristående_ kluster när behovet av att lagra data för säkerhetskopiering på plats. Beskrivning för den här lagringstyp kräver sökvägen till filresursen där säkerhetskopieringar ska överföras. Åtkomst till filresursen kan konfigureras med någon av följande alternativ
+    2. **Filresurs**: Den här typen av lagring måste väljas för _fristående_ kluster när behovet av att lagra data för säkerhetskopiering på plats. Beskrivning för den här lagringstyp kräver sökvägen till filresursen där säkerhetskopieringar ska överföras. Åtkomst till filresursen kan konfigureras med någon av följande alternativ
         1. _Integrerad Windows-autentisering_, där åtkomst till filresursen har angetts för alla datorer som hör till Service Fabric-klustret. I så fall, ange följande fält att konfigurera _filresursen_ baserat lagring av säkerhetskopior.
 
             ```json
@@ -128,7 +128,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
 >
 
 * **Bevarandeprincip**: Anger principen om du vill behålla säkerhetskopior i det konfigurerade lagringsutrymmet. Endast grundläggande bevarandeprincip stöds.
-    1. **Grundläggande bevarandeprincip**: den här bevarandeprincip som tillåter för att säkerställa optimal lagringsanvändning genom att ta bort säkerhetskopior som krävs inga fler. `RetentionDuration` Du kan ange att ange det tidsintervall som krävs säkerhetskopior ska behållas i lagringen. `MinimumNumberOfBackups` är en valfri parameter som kan anges för att se till att det angivna antalet säkerhetskopior bevaras alltid oavsett den `RetentionDuration`. Exemplet nedan visar konfigurationen om du vill behålla säkerhetskopior under _10_ dagar och tillåter inte antalet säkerhetskopieringar under _20_.
+    1. **Grundläggande bevarandeprincip**: Den här bevarandeprincip tillåter för att säkerställa optimal lagringsanvändning genom att ta bort säkerhetskopior som krävs inga fler. `RetentionDuration` Du kan ange att ange det tidsintervall som krävs säkerhetskopior ska behållas i lagringen. `MinimumNumberOfBackups` är en valfri parameter som kan anges för att se till att det angivna antalet säkerhetskopior bevaras alltid oavsett den `RetentionDuration`. Exemplet nedan visar konfigurationen om du vill behålla säkerhetskopior under _10_ dagar och tillåter inte antalet säkerhetskopieringar under _20_.
 
         ```json
         {
@@ -137,6 +137,9 @@ En princip för säkerhetskopiering består av följande konfigurationer:
             "MinimumNumberOfBackups": 20
         }
         ```
+
+> [!IMPORTANT]
+> Se till att kvarhållningsvaraktighetens i bevarandeprincipen är konfigurerad för att vara mindre än 24 dagar eller be om det skulle resultera i Backup Restore-tjänsten för att gå till kvorum förlust efter replikeringsredundans på grund av ett problem i körningen.
 
 ## <a name="enable-periodic-backup"></a>Aktivera regelbunden säkerhetskopiering
 När du har definierat principen för säkerhetskopiering för att uppfylla krav för säkerhetskopiering av data, principen för säkerhetskopiering ska kopplas korrekt antingen en _programmet_, eller _service_, eller en _partition_.
@@ -215,6 +218,11 @@ När behovet av inaktiveringen är klar kan sedan säkerhetskopieringen periodis
 
 * Om inaktivering har tillämpats på en _Partition_, och sedan återupptas med [återuppta Partition säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
+### <a name="difference-between-suspend-and-disable-backups"></a>Skillnaden mellan att pausa och inaktivera säkerhetskopiering
+Inaktivera backup bör användas när säkerhetskopieringar inte längre behövs för ett visst program, tjänst eller partition. En kan infact anropa inaktivera backup begäran tillsammans med ren säkerhetskopior parameter ska vara sant vilket betyder att alla befintliga säkerhetskopior tas bort. Dock pausa ska användas i situationer där en vill inaktivera säkerhetskopior tillfälligt som när lokal disk blir full eller ladda upp säkerhetskopiering misslyckas på grund av kända nätverksproblem osv. 
+
+Medan inaktivera kan anropas endast på en nivå som har tidigare aktiverats för säkerhetskopiering explicilty men inaktivering kan tillämpas på vilken nivå som har aktiverats för säkerhetskopiering antingen direkt eller via arv / hierarki. Om säkerhetskopiering aktiveras på programnivå, en till exempel anropa inaktivera endast på programnivå men pausa anropas på program, tjänster eller partition under programmet. 
+
 ## <a name="auto-restore-on-data-loss"></a>Automatisk återställning på dataförlust
 Tjänsten partitionen kan förlora data på grund av oväntade fel. Disk för två av tre repliker för en partition (inklusive den primära repliken) hämtar skadad eller rensas.
 
@@ -237,11 +245,11 @@ Dessa API: er har också stöd för sidbrytning av resultaten när _MaxResults_ 
 
 Följande är kort information om stöds varianter.
 
-- [Hämta lista över program Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-program.
+- [Hämta säkerhetskopiering programlista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-program.
 
-- [Hämta Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-tjänst.
+- [Hämta Service säkerhetskopiering lista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): Returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-tjänst.
  
-- [Hämta Backup Partitionslista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för den angivna partitionen.
+- [Hämta säkerhetskopiering Partitionslista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Returnerar en lista över säkerhetskopior som är tillgängliga för den angivna partitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 - [REST API-referens för Backup restore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633103"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713467"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
-Den här artikeln beskrivs vanliga scenarier som användare har uppstått i området för övervakning och diagnostik med Service Fabric. De scenarier som visas omfattar alla 3 nivåer av service fabric: program, kluster och infrastruktur. Varje lösning använder Application Insights och Log Analytics, Azure övervakningsverktyg för att slutföra varje scenario. Stegen i varje lösning ger användarna en introduktion för hur du använder Application Insights och Log Analytics i samband med Service Fabric.
+Den här artikeln beskrivs vanliga scenarier som användare har uppstått i området för övervakning och diagnostik med Service Fabric. De scenarier som visas omfattar alla 3 nivåer av service fabric: Program, kluster och infrastruktur. Varje lösning använder Application Insights och Log Analytics, Azure övervakningsverktyg för att slutföra varje scenario. Stegen i varje lösning ger användarna en introduktion för hur du använder Application Insights och Log Analytics i samband med Service Fabric.
 
 ## <a name="prerequisites-and-recommendations"></a>Krav och rekommendationer
 
@@ -56,7 +56,7 @@ Lösningar i den här artikeln använder följande verktyg. Vi rekommenderar att
 
     ![Nu visas Programkartan med AI-bladet](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI Programkarta](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Mer information om programkartan finns i [Programkartan dokumentation](../application-insights/app-insights-app-map.md)
+    Mer information om programkartan finns i [Programkartan dokumentation](../azure-monitor/app/app-map.md)
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Hur skapar jag en avisering när en nod stängs av
 
@@ -139,7 +139,7 @@ Kontrollera dessa länkar för en fullständig lista över prestandaräknare på
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera aviseringar i AI](../application-insights/app-insights-alerts.md) meddelas om ändringar i prestanda och användning
+* [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) meddelas om ändringar i prestanda och användning
 * [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI att varna dig om potentiella prestandaproblem
 * Läs mer om Log Analytics [avisering](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
 * Log Analytics tillhandahåller en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md)

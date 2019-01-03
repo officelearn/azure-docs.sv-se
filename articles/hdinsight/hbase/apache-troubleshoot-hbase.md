@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014682"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651613"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Felsöka Apache HBase med Azure HDInsight
 
@@ -288,7 +288,7 @@ Ingen serveradress visas i *hbase: meta* för region xxx.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
-Du kan se ett meddelande på din Linux-kluster som indikerar att den *hbase: meta* tabellen är inte online. Kör `hbck` kan rapportera som ”hbase: metadata tabell replicaId 0 finns inte på valfri region”. Problemet kan vara att HMaster inte kunde initieras när du har startat om HBase. I HMaster-loggar kan du se meddelandet ”: ingen serveradress visas i hbase: metadata för region hbase: säkerhetskopiering \<Regionsnamn\>”.  
+Du kan se ett meddelande på din Linux-kluster som indikerar att den *hbase: meta* tabellen är inte online. Kör `hbck` kan rapportera som ”hbase: metadata tabell replicaId 0 finns inte på valfri region”. Problemet kan vara att HMaster inte kunde initieras när du har startat om HBase. Du kan se meddelandet i HMaster-loggar: ”Ingen serveradress visas i hbase: metadata för region hbase: säkerhetskopiering \<Regionsnamn\>”.  
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
@@ -314,12 +314,12 @@ Du kan se ett meddelande på din Linux-kluster som indikerar att den *hbase: met
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Det går inte att bearbeta HBase-tabellen](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Det går inte att bearbeta HBase-tabellen](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Fel
 
-HMaster tidsgränsen uppnås med ett allvarligt undantagsfel av typen ”java.io.IOException: tidsgräns nådd 300000ms väntar på att namnområdet tabell som ska tilldelas”.
+HMaster tidsgränsen uppnås med ett allvarligt undantagsfel av typen ”java.io.IOException: Nådde sin tidsgräns 300000ms väntar på att namnområdet tabell som ska tilldelas ”.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
@@ -344,7 +344,7 @@ Det här är ett känt problem med tjänsten HMaster. Allmän kluster startåtg�
 
 ### <a name="issue"></a>Problem
 
-En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: hur du kan förbättra Apache HBase-kluster omstart tid genom att rensa tabellerna](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: Hur vi kan förbättra Apache HBase-kluster omstart tid genom att rensa tabellerna](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Om du har initierat omstarten på HBase regionservrar från Apache Ambari UI kan se du direkt att regionservrar fungerar korrekt, men de inte startas om direkt. 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: alkohli
-ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091937"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723460"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box-gränser
 
@@ -22,7 +22,6 @@ ms.locfileid: "49091937"
 
 ## <a name="data-box-service-limits"></a>Data Box-tjänstbegränsningar
 
- - Data Box-tjänsten är tillgänglig endast inom USA alls den [Azure-regioner för offentliga Azure-molnet](https://azure.microsoft.com/regions/).
  - Om du använder flera lagringskonton med Data Box-tjänsten, måste alla lagringskonton tillhöra samma Azure-region endast.
  - Vi rekommenderar att du använder mer än tre lagringskonton. Använda flera konton kan potentiellt påverka prestandan.
 
@@ -79,5 +78,5 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Namn på behållare för blockblob och page blob | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
 | Resursnamn för Azure files                  | Samma som ovan                                                                                                                                                                                                                                                                                                             |
-| Katalog- och filnamn för Azure files     |<li> Bevara, skiftlägesokänslig och får inte överstiga 255 tecken långt. </li><li> Får inte sluta med snedstreck (/). </li><li>Om det tas automatiskt bort. </li><li> Följande tecken är inte tillåtna: ' ”\ /: | < > * ”?</li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Ogiltiga tecken i URL-sökväg är inte tillåtna. Kodpunkter som \uE000 är inte giltig Unicode-tecken. Vissa ASCII eller Unicode-tecken som kontrolltecken (0x00 0x1F, \u0081 etc.), också är inte tillåtna. Regler för att styra Unicode strängar i HTTP/1.1 finns i RFC 2616 avsnittet 2.2: grundläggande regler och RFC 3987. </li><li> Följande fil är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punkt (.), och två punkter tecken (.).</li>|
+| Katalog- och filnamn för Azure files     |<li> Bevara, skiftlägesokänslig och får inte överstiga 255 tecken långt. </li><li> Får inte sluta med snedstreck (/). </li><li>Om det tas automatiskt bort. </li><li> Följande tecken är inte tillåtna: ' ”\ /: | < > * ”?</li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Ogiltiga tecken i URL-sökväg är inte tillåtna. Kodpunkter som \uE000 är inte giltig Unicode-tecken. Vissa ASCII eller Unicode-tecken som kontrolltecken (0x00 0x1F, \u0081 etc.), också är inte tillåtna. Regler för att styra Unicode strängar i HTTP/1.1 finns i RFC 2616 avsnittet 2.2: Grundläggande regler och RFC 3987. </li><li> Följande filnamn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punkt (.), och två punkter tecken (.).</li>|
 | Blobnamn för blockblobar och sidblobar      | </li><li>Blobnamn är skiftlägeskänsliga och kan innehålla valfri kombination av tecken. </li><li>Ett blobnamn måste vara mellan 1 och 1 024 tecken långt. </li><li>Reserverade URL-tecken måste undantas korrekt. </li><li>Antalet sökvägssegment som blobnamnet består av får inte överskrida 254. Ett segment är strängen mellan avgränsningstecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog.</li> |

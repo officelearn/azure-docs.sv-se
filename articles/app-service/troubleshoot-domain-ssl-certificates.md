@@ -1,6 +1,6 @@
 ---
 title: Felsöka domän och SSL - certifikat i Azure App Service | Microsoft Docs
-description: Felsöka domän och SSL-certifikat problem i Azure web apps
+description: Felsöka domän och SSL-certifikat problem i Azure App Service
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389217"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653670"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Felsöka domän och SSL-certifikat problem i Azure web apps
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsöka domän och SSL-certifikat problem i Azure App Service
 
-Den här artikeln innehåller vanliga problem som kan uppstå när du konfigurerar en domän eller SSL-certifikat för Azure web apps. Här beskrivs också möjliga orsaker och lösningar för dessa problem.
+Den här artikeln innehåller vanliga problem som kan uppstå när du konfigurerar en domän eller SSL-certifikat för web apps i Azure App Service. Här beskrivs också möjliga orsaker och lösningar för dessa problem.
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **få Support**.
 
 ## <a name="certificate-problems"></a>Problem med säkerhetscertifikat
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>Du kan inte lägga till en SSL-certifikat-bindning till en webbapp 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Du kan inte lägga till en SSL-certifikat-bindning till en app 
 
 #### <a name="symptom"></a>Symtom
 
@@ -40,13 +40,13 @@ När du lägger till en SSL-bindning, visas följande felmeddelande visas:
 
 #### <a name="cause"></a>Orsak
 
-Det här problemet kan inträffa om du har flera IP-baserad SSL-bindningar för samma IP-adress på flera web apps. Webbapp A har exempelvis en IP-baserad SSL med ett gammalt certifikat. Webbapp B har en IP-baserad SSL med ett nytt certifikat för samma IP-adress. När du uppdaterar SSL-bindning web app med det nya certifikatet, misslyckas med felet eftersom samma IP-adress som används för en annan app. 
+Det här problemet kan inträffa om du har flera IP-baserad SSL-bindningar för samma IP-adress över flera appar. Till exempel har app A en IP-baserad SSL med ett gammalt certifikat. App B har en IP-baserad SSL med ett nytt certifikat för samma IP-adress. När du uppdaterar appen SSL-bindning med det nya certifikatet, misslyckas med felet eftersom samma IP-adress som används för en annan app. 
 
 #### <a name="solution"></a>Lösning 
 
 Använd någon av följande metoder för att åtgärda problemet:
 
-- Ta bort IP-baserad SSL-bindning på webbappen som använder det äldre certifikatet. 
+- Ta bort IP-baserad SSL-bindning på den app som använder det äldre certifikatet. 
 - Skapa en ny IP-baserad SSL-bindning som använder det nya certifikatet.
 
 ### <a name="you-cant-delete-a-certificate"></a>Du kan inte ta bort ett certifikat 
@@ -59,11 +59,11 @@ När du försöker ta bort ett certifikat, visas följande felmeddelande visas:
 
 #### <a name="cause"></a>Orsak
 
-Det här problemet kan inträffa om en annan webbapp använder certifikatet.
+Det här problemet kan inträffa om en annan app använder certifikatet.
 
 #### <a name="solution"></a>Lösning
 
-Ta bort SSL-bindning för det certifikatet från web apps. Försök att ta bort certifikatet. Om du fortfarande inte kan ta bort certifikatet Rensa webbläsarcachen för internet och öppna Azure-portalen i ett nytt webbläsarfönster. Försök att ta bort certifikatet.
+Ta bort SSL-bindning för det certifikatet från apparna. Försök att ta bort certifikatet. Om du fortfarande inte kan ta bort certifikatet Rensa webbläsarcachen för internet och öppna Azure-portalen i ett nytt webbläsarfönster. Försök att ta bort certifikatet.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Du kan inte köpa ett certifikat för App Service 
 
@@ -75,7 +75,7 @@ Det här problemet kan inträffa för någon av följande orsaker:
 
 - App Service-planen är kostnadsfri eller delad. De här prisnivåerna stöder inte SSL. 
 
-    **Lösningen**: Uppgradera App Service-plan för webbappen till Standard.
+    **Lösningen**: Uppgradera App Service-plan för appen till Standard.
 
 - Prenumerationen har inte ett giltigt kreditkort.
 
@@ -110,14 +110,14 @@ Ta bort certifikatet och sedan köpa ett nytt certifikat.
 
 Om det aktuella certifikatet som använder fel domän är i tillståndet ”utfärdat”, kommer du även att faktureras för det certifikatet. App Service-certifikat är inte återbetalningsbar, men du kan kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att se om det finns andra alternativ. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>En App Service-certifikat har förnyats, men appen visar det gamla certifikatet 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>En App Service-certifikat har förnyats, men appen visar det gamla certifikatet 
 
 #### <a name="symptom"></a>Symtom
 
-App Service certificate har förnyats, men den webbapp som använder App Service certificate fortfarande använder det äldre certifikatet. Dessutom kan du fått en varning att HTTPS-protokollet krävs.
+App Service certificate har förnyats, men den app som använder App Service certificate fortfarande använder det äldre certifikatet. Dessutom kan du fått en varning att HTTPS-protokollet krävs.
 
 #### <a name="cause"></a>Orsak 
-Funktionen Web Apps i Azure App Service och kör ett bakgrundsjobb var åttonde timme och synkroniserar certifikat-resurs om det finns några ändringar. När du roterar eller uppdaterar ett certifikat, hämtas ibland programmet fortfarande det gamla certifikatet och inte det uppdaterade certifikatet. Det beror på att jobbet att synkronisera certifikatresursen inte har körts ännu. 
+Azure App Service och kör ett bakgrundsjobb var åttonde timme och synkroniserar certifikat-resurs om det finns några ändringar. När du roterar eller uppdaterar ett certifikat, hämtas ibland programmet fortfarande det gamla certifikatet och inte det uppdaterade certifikatet. Det beror på att jobbet att synkronisera certifikatresursen inte har körts ännu. 
  
 #### <a name="solution"></a>Lösning
 
@@ -156,7 +156,7 @@ Till exempel om du köper ett standardcertifikat för azure.com med domain verif
 ### <a name="you-cant-purchase-a-domain"></a>Du kan inte köpa en domän
 
 #### <a name="symptom"></a>Symtom
-Du kan köpa en domän från Web Apps och App Service-domänen i Azure-portalen.
+Du kan köpa en App Service-domän i Azure-portalen.
 
 #### <a name="cause-and-solution"></a>Orsak och lösning
 
@@ -176,7 +176,7 @@ Det här problemet beror på något av följande orsaker:
 
     **Lösningen**: Uppgradera din Azure-prenumeration till en annan prenumerationstyp, till exempel en betala per användning-prenumeration.
 
-### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Du kan inte lägga till ett värdnamn till en webbapp 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>Du kan inte lägga till ett värdnamn i en app 
 
 #### <a name="symptom"></a>Symtom
 
@@ -191,11 +191,11 @@ Det här problemet beror på något av följande orsaker:
     **Lösningen**: Kontakta prenumerationsadministratören för att ge dig behörighet att lägga till ett värdnamn.
 - Det gick inte att verifiera domänägarskapet.
 
-    **Lösningen**: Kontrollera att din CNAME-post eller en post har konfigurerats korrekt. Skapa en CNAME-post eller en A-post för att mappa en anpassad domän till webbapp. Om du vill använda en rotdomän måste du använda A- och TXT-poster:
+    **Lösningen**: Kontrollera att din CNAME-post eller en post har konfigurerats korrekt. Skapa en CNAME-post eller en A-post för att mappa en anpassad domän till en app. Om du vill använda en rotdomän måste du använda A- och TXT-poster:
 
     |Posttyp|Värd|Peka på|
     |------|------|-----|
-    |A|@|IP-adressen för en webbapp|
+    |A|@|IP-adress för en app|
     |TXT|@|< appnamn >. azurewebsites.net|
     |CNAME|www|< appnamn >. azurewebsites.net|
 
@@ -216,7 +216,7 @@ Det här problemet beror på något av följande orsaker:
 #### <a name="solution"></a>Lösning
 - Vänta tills 48 timmar innan det här problemet löser sig.
 - Om du kan ändra TTL-inställningen i din DNS-konfiguration, ändrar du värdet 5 minuter för att se om det löser problemet.
-- Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar på webbappens IP-adress. Om inte kan konfigurera A-post till rätt IP-adressen för webbappen.
+- Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar till appens IP-adress. Om inte kan konfigurera A-post till rätt IP-adressen för appen.
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>Du behöver återställa en borttagen domän 
 
@@ -247,7 +247,7 @@ Den anpassade domänen som du har konfigurerat saknar en CNAME-post eller en pos
 **Lösning för orsak 1**
 
 - Om du lagt till en A-post, se till att läggs också en TXT-post. Mer information finns i [skapa A-posten](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Om du inte behöver använda rotdomänen för din webbapp, rekommenderar vi att du använder en CNAME-post i stället för en A-post.
+- Om du inte behöver använda rotdomänen för din app, rekommenderar vi att du använder en CNAME-post i stället för en A-post.
 - Använd inte både en CNAME-post och en A-post för samma domän. Detta kan orsaka en konflikt och förhindra att domänen som matchas. 
 
 **Orsak 2** 
@@ -256,18 +256,18 @@ Webbläsaren kan fortfarande cachelagring den gamla IP-adressen för din domän.
 
 **Lösning för orsak 2**
 
-Rensa webbläsaren. För Windows-enheter, kan du köra kommandot `ipconfig /flushdns`. Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar på webbappens IP-adress. 
+Rensa webbläsaren. För Windows-enheter, kan du köra kommandot `ipconfig /flushdns`. Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar till appens IP-adress. 
 
 ### <a name="you-cant-add-a-subdomain"></a>Du kan inte lägga till en underdomän 
 
 #### <a name="symptom"></a>Symtom
 
-Du kan inte lägga till ett nytt värdnamn till en webbapp för att tilldela en underdomän.
+Du kan inte lägga till ett nytt värdnamn till en app att tilldela en underdomän.
 
 #### <a name="solution"></a>Lösning
 
-- Kontakta prenumerationsadministratören för att se till att du har behörighet att lägga till ett värdnamn till webbappen.
-- Om du behöver mer underdomäner, rekommenderar vi att du ändrar domänvärdar till Azure DNS. Genom att använda Azure DNS kan du lägga till 500 värdnamn till din webbapp. Mer information finns i [Lägg till en underdomän](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Kontakta prenumerationsadministratören för att se till att du har behörighet att lägga till ett värdnamn till appen.
+- Om du behöver mer underdomäner, rekommenderar vi att du ändrar domänvärdar till Azure DNS. Genom att använda Azure DNS kan du lägga till 500 värdnamn till din app. Mer information finns i [Lägg till en underdomän](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 
 

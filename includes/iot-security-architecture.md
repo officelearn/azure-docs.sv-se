@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51293201"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995790"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Säkerhetsarkitektur för Internet of Things (IoT)
 
@@ -169,15 +169,15 @@ Det här avsnittet utforskar arkitekturen som beskrivs tidigare instrumentpanel 
 
 Det här exemplet försöker åtgärda ett antal olika hot i olika faser data/information finns i i var och en av de kategorier som beskrivs i Azure IoT-arkitektur: processen, kommunikation och lagring. Nedan följer en översikt över vanligaste för kategorin ”process” följt av en översikt över hur dessa hot kan undvikas bäst:
 
-**(S)-förfalskning**: en angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på nivån programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från. En bra bild är fjärrkontroller som kan använda valfri TV samt som är populära prankster verktyg.
+**(S)-förfalskning**: En angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från. En bra bild är fjärrkontroller som kan använda valfri TV samt som är populära prankster verktyg.
 
-**Datorn av tjänsten (D)**: en enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
+**Denial of Service (D)**: En enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
 
-**Manipulering (T)**: en angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran kan utnyttja äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller nyckeln material som var tillgängliga för olaglig programmet. En angripare kan till exempel använda extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
+**Manipulering (T)**: En angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran du använder äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller viktiga material var tillgängliga för den olaglig program. En angripare kan till exempel använda extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
 
-**Avslöjande av information (I)**: om enheten kör behandlas för programvara, sådan behandlas för programvara potentiellt kan läcka data till obehöriga personer. En angripare kan till exempel använda extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
+**Avslöjande av information (I)**: Om enheten kör behandlas för programvara, kan programvaran behandlas potentiellt läcka data till obehöriga personer. En angripare kan till exempel använda extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
 
-**Höjning av privilegier (E)**: en enhet som har en specifik funktion kan tvingas att göra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
+**Rättighetsökning (E)**: En enhet som har en specifik funktion kan tvingas att göra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
 
 | **Komponent** | **Hot** | **Problemlösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
@@ -190,33 +190,33 @@ Det här exemplet försöker åtgärda ett antal olika hot i olika faser data/in
 
 Här följer några exempel på hot i den här kategorin:
 
-**Förfalskning**: en angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på nivån programvara eller maskinvara och därefter har åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial tagits från.
+**Förfalskning**: En angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från.
 
-**DOS-attack**: en enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
+**Denial of Service**: En enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
 
-**Manipulering**: en angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran kan utnyttja äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller nyckeln material som var tillgängliga för olaglig programmet.
+**Manipulering**: En angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran du använder äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller viktiga material var tillgängliga för den olaglig program.
 
-**Manipulering**: övervakning kamera som visar en synliga spektrumet bild av en tom Hall kan syfta till ett foto av sådana Hall. En rök eller fire-sensor kunde rapporterar någon håller en ljusare under den. I båda fallen enheten kanske tekniskt fullständigt betrodd för systemet, men den rapporterar behandlas för information.
+**Manipulering**: En kamera för övervakning som visar en synliga spektrumet bild av en tom Hall kan syfta ett foto av sådana Hall. En rök eller fire-sensor kunde rapporterar någon håller en ljusare under den. I båda fallen enheten kanske tekniskt fullständigt betrodd för systemet, men den rapporterar behandlas för information.
 
-**Manipulering**: en angripare kan utnyttja extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
+**Manipulering**: En angripare kan utnyttja extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
 
-**Manipulering**: en angripare kan helt eller delvis ersätta den programvara som körs på enheten, så att ersatta programvaran du använder äkta identiteten för enheten om potentiellt nyckelmaterial eller kryptografiska funktioner håller viktiga material var tillgängliga för olaglig programmet.
+**Manipulering**: En angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran du använder äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller viktiga material var tillgängliga olaglig programmet.
 
-**Avslöjande av information**: om enheten kör behandlas för programvara, sådan behandlas för programvara potentiellt kan läcka data till obehöriga personer.
+**Avslöjande av information**: Om enheten kör behandlas för programvara, kan programvaran behandlas potentiellt läcka data till obehöriga personer.
 
-**Avslöjande av information**: en angripare kan utnyttja extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
+**Avslöjande av information**: En angripare kan utnyttja extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
 
-**DOS-attack**: enheten kan vara avstängd eller aktiverat i ett läge där kommunikation är inte möjlig (vilket är avsiktlig i många industriella datorer).
+**Denial of Service**: Enheten kan vara avstängd eller aktiverat i ett läge där kommunikation är inte möjlig (vilket är avsiktlig i många industriella datorer).
 
-**Manipulering**: enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därmed tillhandahåller data som kan tolkas
+**Manipulering**: Enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därmed tillhandahåller data som kan tolkas
 
-**Rättighetsökning**: en enhet som har en specifik funktion kan tvingas att göra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
+**Rättighetsökning**: En enhet som har en specifik funktion kan tvingas att göra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
 
-**DOS-attack**: enheten kan omvandlas till ett tillstånd där kommunikation inte är möjlig.
+**Denial of Service**: Enheten kan omvandlas till ett tillstånd där kommunikation inte är möjlig.
 
-**Manipulering**: enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därmed tillhandahåller data som kan tolkas.
+**Manipulering**: Enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därmed tillhandahåller data som kan tolkas.
 
-**Förfalskning/Tampering/Repudiation**: om inte skyddad (vilket är sällan vad gäller konsument fjärrkontroller), en angripare kan manipulera tillståndet för en enhet anonymt. En bra bild är fjärrkontroller som kan använda valfri TV samt som är populära prankster verktyg.
+**Förfalskning/manipulering/Repudiation**: Om inte skyddad (vilket är sällan vad gäller konsument fjärrkontroller), en angripare kan manipulera tillståndet för en enhet anonymt. En bra bild är fjärrkontroller som kan använda valfri TV samt som är populära prankster verktyg.
 
 #### <a name="communication"></a>Kommunikation
 
@@ -232,9 +232,9 @@ Hot runt kommunikationsvägen mellan enheter, enheter och fält-gateways och gat
 
 Här följer några exempel på hot i den här kategorin:
 
-**DOS-attack**: begränsad enheter är Allmänt under DoS-hot när de aktivt lyssna efter inkommande anslutningar eller oombedda datagram i ett nätverk, eftersom en angripare inte kan öppna många anslutningar parallellt och tjänsten dem eller -tjänst dem långsamt, eller enheten kan vara svämmar över med oönskad trafik. I båda fallen återges enheten effektivt inte fungerar alls i nätverket.
+**Denial of Service**: Begränsad enheter är Allmänt under DoS-hot när de aktivt lyssna efter inkommande anslutningar eller oombedda datagram i ett nätverk, eftersom en angripare inte kan öppna många anslutningar parallellt och tjänsten dem eller tjänsten dem långsamt eller enheten kan vara översvämmas med oönskad trafik. I båda fallen återges enheten effektivt inte fungerar alls i nätverket.
 
-**Förfalskning, avslöjande av Information**: begränsad enheter och enheter för särskilda ändamål har ofta en för alla säkerhet anläggningar som lösenord eller PIN-kod protection eller helt företagen betrodda nätverk, vilket innebär att de beviljar åtkomst till information om när en enhet är i samma nätverk och nätverket är ofta bara skyddas av en delad nyckel. Det innebär att när den delade hemligheten till enheten eller nätverk lämnas, det är möjligt att styra enheten och Observera data som sänts ut från enheten.  
+**Förfalskning, avslöjande av Information**: Begränsad enheter och enheter för särskilda ändamål har ofta en för alla säkerhet anläggningar som lösenord eller PIN-kod protection eller att de helt beroende av betrodda nätverk, vilket innebär att de beviljar åtkomst till information när en enhet är på samma nätverk och nätverket skyddas ofta bara av en delad nyckel. Det innebär att när den delade hemligheten till enheten eller nätverk lämnas, det är möjligt att styra enheten och Observera data som sänts ut från enheten.  
 
 **Förfalskning**: en angripare kan komma åt eller delvis åsidosätta sändningen och förfalska avsändaren (mannen i mitten)
 
@@ -263,7 +263,7 @@ Molngatewayen är främst anpassade inbyggda del av programvaran som körs som e
 
 Ett kontrollsystem (eller domänkontrollant) är en programvarulösning som har kontakt med en enhet eller en fält-gateway eller molngatewayen i syfte att kontrollera en eller flera enheter och/eller för att samla in och/eller lagra och/eller analysera enhetsdata för presentation eller efterföljande kontroll syften. Kontrollsystem finns endast enheter i omfånget för den här diskussionen som kan underlätta interaktion med personer direkt. Undantagen är mellanliggande fysisk kontroll ytor på enheter som en växel som gör att en person att Stäng av enheten eller ändra andra egenskaper och för vilket det finns ingen funktionell motsvarande som kan nås digitalt.
 
-Mellanliggande fysisk kontroll ytor är sådana där reglerar logic avgränsar funktionen av fysiska yta så att en motsvarande funktion kan initieras via fjärranslutning eller indata är i konflikt med remote indata kan undvikas – till exempel intermediated kontrollen ytor är begreppsmässigt kopplade till ett lokalt system som använder samma underliggande funktioner som alla andra fjärrstyrning system som enheten kan kopplas till parallellt. Största hot till molnbaserad databehandling kan vara läsa vid från [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) sidan.
+Mellanliggande fysisk kontroll ytor är sådana där reglerar logic avgränsar funktionen av fysiska yta så att en motsvarande funktion kan initieras via fjärranslutning eller indata är i konflikt med remote indata kan undvikas – till exempel intermediated kontrollen ytor är begreppsmässigt kopplade till ett lokalt system som använder samma underliggande funktioner som alla andra fjärrstyrning system som enheten kan kopplas till parallellt. Största hot till molnbaserad databehandling kan vara läsa vid från [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) sidan.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

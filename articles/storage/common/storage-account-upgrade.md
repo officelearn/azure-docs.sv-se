@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637609"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631447"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
@@ -34,12 +34,14 @@ Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller
 
 ## <a name="upgrade-with-powershell"></a>Uppgradera med PowerShell
 
-Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med hjälp av PowerShell, först uppdatera PowerShell om du vill använda den senaste versionen av den **AzureRm.Storage** modulen. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med hjälp av PowerShell, först uppdatera PowerShell om du vill använda den senaste versionen av den **Az.Storage** modulen. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
 
 Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>Uppgradera med Azure CLI
@@ -56,7 +58,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Gpv2-konton stöder alla Azure-lagringstjänster och dataobjekt, men åtkomstnivåerna är endast tillgängligt för blockblobbar i Blob storage. När du uppgraderar till ett gpv2-lagringskonto kan du ange åtkomstnivå för blob-data. 
 
-Åtkomstnivåer kan du välja den mest kostnadseffektiva lagring baserat på ditt förväntade användningsmönster. Blockblob-objekt kan lagras i en frekvent, lågfrekvent eller Arkiv-nivå. Läs mer på åtkomstnivåerna [Azure Blob storage: frekvent, lågfrekvent, och Arkivlagringsnivån](../blobs/storage-blob-storage-tiers.md).
+Åtkomstnivåer kan du välja den mest kostnadseffektiva lagring baserat på ditt förväntade användningsmönster. Blockblob-objekt kan lagras i en frekvent, lågfrekvent eller Arkiv-nivå. Läs mer på åtkomstnivåerna [Azure Blob storage: Frekvent, lågfrekvent, och Arkivlagringsnivån](../blobs/storage-blob-storage-tiers.md).
 
 Som standard skapas ett nytt lagringskonto i frekvent åtkomstnivå och ett lagringskonto i allmänna v1 uppgraderas till frekvent åtkomstnivå. Överväg att ditt scenario om du utforskar vilken åtkomstnivå som ska användas för efter datauppgraderingen. Det finns två vanliga scenarier för att migrera till ett gpv2-konto:
 
@@ -69,17 +71,17 @@ I båda fallen är högsta prioritet att beräkna kostnaden för lagring, åtkom
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 
-* **Lagringskostnader**: Utöver mängden data som lagras varierar lagringskostnaden beroende på lagringsnivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
+* **Lagringskostnader**: Utöver mängden data som lagras, kostnaden för att lagra data som varierar beroende på lagringsnivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
 
-* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data på den lågfrekventa- och arkivlagringsnivån debiteras du en åtkomstavgift per gigabyte för läsningar.
+* **Kostnader för dataåtkomst**: Öka kostnaderna för dataåtkomst när nivån blir mer lågfrekvent. För data på den lågfrekventa- och arkivlagringsnivån debiteras du en åtkomstavgift per gigabyte för läsningar.
 
-* **Transaktionskostnader**: Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
+* **Transaktionskostnader**: Det finns en kostnad för alla nivåer per transaktion som ökar när nivån blir mer lågfrekvent.
 
-* **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
+* **Dataöverföringskostnader för GEO-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
 
-* **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
+* **Kostnaderna för utgående dataöverföring**: Utgående dataöverföringar (data som överförs från en Azure-region) debiteras för bandbreddsanvändning regelbundet per gigabyte, konsekvent med allmänna lagringskonton.
 
-* **Ändring av lagringsnivå**: Om du byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data på lagringskontot. Om du byter lagringskontonivå från frekvent till lågfrekvent utgår dock en avgift som motsvarar skrivningen av alla data till den lågfrekventa nivån (gäller endast GPv2-konton).
+* **Ändringar av lagringsnivån**: Byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data i lagringskontot. Om du byter lagringskontonivå från frekvent till lågfrekvent utgår dock en avgift som motsvarar skrivningen av alla data till den lågfrekventa nivån (gäller endast GPv2-konton).
 
 > [!NOTE]
 > Mer information om prissättningen för lagringskonton finns på sidan [Pris för Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).

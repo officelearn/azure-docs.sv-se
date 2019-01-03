@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260760"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971536"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
@@ -82,8 +82,8 @@ Frågor och svar i det här avsnittet beskriver vanliga övervakning och felsök
 ## <a name="prior-cache-offering-faqs"></a>Vanliga frågor och svar tidigare Cache-erbjudande
 * [Vilket Azure Cache-erbjudande är bäst för mig?](#which-azure-cache-offering-is-right-for-me)
 
-### <a name="what-is-azure-cache-for-redis"></a>Vad är Azure Cache för Redis?
-Azure Redis-Cache är baserad på den populära öppna källkoden [Azure Cache för Redis](http://redis.io). Det ger dig åtkomst till en säker, dedikerad Azure Cache för Redis, hanteras av Microsoft och kan nås från alla program i Azure. En mer detaljerad översikt finns i den [Azure Cache för Redis](https://azure.microsoft.com/services/cache/) produktsidan på Azure.com.
+### <a name="what-is-azure-cache-for-redis"></a>Vad är Azure Cache for Redis?
+Azure Redis-Cache är baserad på populära öppenkällkodsprogram [Redis](https://redis.io/). Det ger dig åtkomst till en säker, dedikerad Azure Cache för Redis, hanteras av Microsoft och kan nås från alla program i Azure. En mer detaljerad översikt finns i den [Azure Cache för Redis](https://azure.microsoft.com/services/cache/) produktsidan på Azure.com.
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Hur kan jag komma igång med Azure Cache för Redis?
 Det finns flera sätt du kan komma igång med Azure Cache för Redis.
@@ -174,7 +174,7 @@ Ja, Azure Cache för Redis är tillgängliga i Azure Government-molnet, Azure Ki
 Se följande länkar för mer information om överväganden när du använder Azure Cache för Redis med andra moln.
 
 - [Azure Government-databaser – Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure Kina-molnet – Azure Redis-Cache](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
+- [Azure Kina-molnet – Azure Redis-Cache](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
 
 Information om hur du använder Azure Cache Redis med PowerShell i Azure Government-molnet, Azure Kina-molnet och Microsoft Azure Germany finns i [hur du ansluter till andra moln – Azure Cache för Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).

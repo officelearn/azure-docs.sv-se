@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408909"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994393"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -58,7 +58,7 @@ Arbetsflödet som används i det här dokumentet innehåller två åtgärder. Å
 
 2. En åtgärd som Sqoop exporterar innehållet i den nya Hive-tabellen till en tabell som skapats i Azure SQL Database. Läs mer om Sqoop [Använd Apache Sqoop med HDInsight][hdinsight-use-sqoop].
 
-> [!NOTE]
+> [!NOTE]  
 > Versioner som stöds Oozie på HDInsight-kluster, se [Nyheter i Hadoop-klusterversionerna från HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Skapa arbetskatalogen
@@ -301,7 +301,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
     ```
 
     > [!NOTE]  
-    > Om HDInsight-klustret använder Azure Storage som standardlagring, den `<value>` elementet innehållet börjar med `wasb://`. Om Azure Data Lake Store används i stället, den börjar med `adl://`.
+    > Om HDInsight-klustret använder Azure Storage som standardlagring, den `<value>` elementet innehållet börjar med `wasb://`. Om Azure Data Lake Storage används i stället, den börjar med `adl://`.
 
     Spara innehållet i den `<value>` elementet, eftersom den används i nästa steg.
 
@@ -576,7 +576,7 @@ Du kan använda koordinatorn för att ange en start och slut förekomsten frekve
     </coordinator-app>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Den `${...}` variabler ersätts med värden i jobbdefinitionen vid körning. Variablerna är:
     >
     > * `${coordFrequency}`: Tiden mellan instanser av jobbet körs.
@@ -737,7 +737,7 @@ I den här självstudien får du har lärt dig hur du definierar ett Oozie-arbet
 * [Använda Apache Pig med Apache Hadoop på HDInsight][hdinsight-use-pig]
 * [Utveckla Java MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
@@ -757,12 +757,12 @@ I den här självstudien får du har lärt dig hur du definierar ett Oozie-arbet
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
@@ -773,4 +773,4 @@ I den här självstudien får du har lärt dig hur du definierar ett Oozie-arbet
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185439"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606800"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrera SIM-data i lösningen för fjärrövervakning
 
 IoT-enheter ansluter ofta till molnet med ett SIM-kort som gör att de kan skicka dataströmmar från var som helst. Azure IoT av lösningen för fjärrövervakning tillåter integrering av IoT hanteras anslutningsdata, så att operatörer kan också spåra hälsotillståndet för enheten via data från IoT SIM.
 
-Fjärrövervakning ger från box-integrering med Telefónica IoT-anslutning, vilket gör att kunder som använder sin anslutning IoT-plattform synkronisera sina enheter anslutningsdata för SIM-kort i sina lösningar. Den här lösningen kan utökas för att stödja andra IoT-anslutningsleverantörer via GitHub [databasen](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+Fjärrövervakning ger från box-integrering med Telefónica IoT-anslutning, vilket gör att kunder som använder sin anslutning IoT-plattform synkronisera sina enheter anslutningsdata för SIM-kort i sina lösningar. Den här lösningen kan utökas för att stödja andra IoT-anslutningsleverantörer via GitHub [databasen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
 I den här guiden får du lära dig att:
 

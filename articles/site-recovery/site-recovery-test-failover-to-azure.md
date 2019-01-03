@@ -3,16 +3,17 @@ title: Kör ett programåterställningstest till Azure med Azure Site Recovery |
 description: Lär dig mer om hur du kör ett programåterställningstest från lokala till Azure med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844693"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976570"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure 
 
@@ -30,12 +31,12 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 
 1. I Site Recovery i Azure portal, klickar du på **Återställningsplaner** > *recoveryplan_name* > **Redundanstest**.
 2. Välj en **återställningspunkt** som att redundansväxla. Du kan välja något av följande alternativ:
-    - **Senaste bearbetade**: det här alternativet redundansväxlar alla virtuella datorer i planerna på att den senaste återställningspunkten som bearbetats av Site Recovery. Om du vill se den senaste återställningspunkten för en specifik virtuell dator, kontrollera **senaste återställningspunkter** i inställningarna för virtuella datorer. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
-    - **Senaste appkonsekventa**: det här alternativet redundansväxlar alla virtuella datorer i planerna på att den senaste programkonsekventa återställningspunkten som bearbetats av Site Recovery. Om du vill se den senaste återställningspunkten för en specifik virtuell dator, kontrollera **senaste återställningspunkter** i inställningarna för virtuella datorer.
-    - **Senaste**: det här alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan växling till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter redundans har alla data som replikeras till Site Recovery när redundansen utlöstes.
-    - **Senaste multi-VM bearbetas**: det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer med inställningen aktiverad växlar över till den senaste vanliga Konsekvens programkonsekvent återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.  
-    - **Senaste multi-VM appkonsekvent**: det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga Konsekvens programkonsekventa återställningspunkten. Andra virtuella datorer som växlar över till sina senaste programkonsekventa återställningspunkten.
-    - **Anpassad**: Använd det här alternativet för att växla över en specifik virtuell dator till en specifik återställningspunkt.
+    - **Senaste bearbetade**: Det här alternativet redundansväxlar alla virtuella datorer i planerna på att den senaste återställningspunkten som bearbetats av Site Recovery. Om du vill se den senaste återställningspunkten för en specifik virtuell dator, kontrollera **senaste återställningspunkter** i inställningarna för virtuella datorer. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
+    - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer i planerna på att den senaste programkonsekventa återställningspunkten som bearbetats av Site Recovery. Om du vill se den senaste återställningspunkten för en specifik virtuell dator, kontrollera **senaste återställningspunkter** i inställningarna för virtuella datorer.
+    - **Senaste**: Det här alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan växling till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter redundans har alla data som replikeras till Site Recovery när redundansen utlöstes.
+    - **Senaste multi-VM bearbetas**: Det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer med inställningen aktiverad växlar över till den senaste vanliga Konsekvens programkonsekvent återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.  
+    - **Senaste multi-VM appkonsekvent**: Det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga Konsekvens programkonsekventa återställningspunkten. Andra virtuella datorer som växlar över till sina senaste programkonsekventa återställningspunkten.
+    - **Anpassad**: Använd det här alternativet om du vill redundansväxla en specifik virtuell dator till en specifik återställningspunkt.
 3. Välj Azure-nätverk där test virtuella datorer kommer att skapas.
 
     - Site Recovery försöker skapa testa virtuella datorer i ett undernät med samma namn och samma IP-adress som anges i den **beräkning och nätverk** inställningarna för den virtuella datorn.
@@ -52,10 +53,10 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 
 När ett redundanstest utlöses, inträffar följande:
 
-1. **Krav**: en kravkontroll körs för att se till att alla villkor som krävs för redundans är uppfyllda.
-2. **Redundans**: redundansen bearbetar och förberett data, så att en virtuell Azure-dator kan skapas från den.
-3. **Senaste**: Om du har valt den senaste återställningspunkten, skapa en återställningspunkt från data som skickas till tjänsten.
-4. **Starta**: det här steget skapar en Azure virtuell dator med hjälp av data som behandlas i föregående steg.
+1. **Krav för**: En kravkontroll körs för att se till att alla villkor som krävs för redundans är uppfyllda.
+2. **Redundans**: Redundansen bearbetar och förbereds data, så att en virtuell Azure-dator kan skapas från den.
+3. **Senaste**: Om du har valt den senaste återställningspunkten skapas en återställningspunkt från data som skickas till tjänsten.
+4. **Starta**: Det här steget skapar en Azure virtuell dator med hjälp av data som behandlas i föregående steg.
 
 ### <a name="failover-timing"></a>Tidsinställningen för redundans
 

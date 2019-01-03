@@ -9,17 +9,42 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250857"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744249"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
 Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Windows-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. Förutom felsökningsstegen i den här artikeln, du kan också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) så att Windows klientmiljö har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller stegen för att hjälpa dig med problem som ansluter/mappning/montera Azure Files delar.
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fel 5 när du monterar en Azure-filresurs
+
+När du försöker montera en filresurs kan du få följande fel:
+
+- Systemfel 5 har uppstått. Åtkomst nekad.
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: Okrypterade kommunikationskanalen
+
+Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om de [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. En krypterade kommunikationskanaler tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
+
+Windows 8, Windows Server 2012 och senare versioner av varje system att förhandla begäranden som innehåller SMB 3.0, som stöder kryptering.
+
+### <a name="solution-for-cause-1"></a>Lösning för orsak 1
+
+1. Ansluta från en klient som stöder SMB-kryptering (Windows 8, Windows Server 2012 eller senare) eller ansluta från en virtuell dator i samma datacenter som Azure storage-kontot som används för Azure-filresursen.
+2. Kontrollera den [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på storage-konto om klienten inte har stöd för SMB-kryptering.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: Virtuella nätverk eller brandvägg regler har aktiverats för lagringskontot 
+
+Om virtuella nätverk (VNET) och brandväggsregler har konfigurerats på lagringskontot, nekas nätverkstrafik åtkomst om inte klientens IP-adress eller virtuella nätverk har åtkomst.
+
+### <a name="solution-for-cause-2"></a>Lösning för orsak 2
+
+Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggen regler som orsakar problemet tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Fel 53 eller fel 67 fel 87 när du montera eller demontera en Azure-filresurs
@@ -30,39 +55,47 @@ När du försöker montera en filresurs från en lokal plats eller från ett ann
 - Systemfel 67 har uppstått. Nätverksnamnet kan inte hittas.
 - Systemfel 87 har uppstått. Parametern är felaktig.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: Okrypterade kommunikationskanalen
-
-Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om de [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. Kommunikation kanalkrypteringen tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
-
-Windows 8, Windows Server 2012 och senare versioner av varje system att förhandla begäranden som innehåller SMB 3.0, som stöder kryptering.
-
-### <a name="solution-for-cause-1"></a>Lösning för orsak 1
-
-1. Kontrollera den [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot.
-2. Ansluta från en klient som gör något av följande:
-
-    - Uppfyller kraven för Windows 8 och Windows Server 2012 eller senare versioner
-    - Ansluter från en virtuell dator i samma datacenter som Azure storage-kontot som används för Azure-filresursen
-
-### <a name="cause-2-port-445-is-blocked"></a>Orsak 2: Port 445 blockeras
+### <a name="cause-1-port-445-is-blocked"></a>Orsak 1: Port 445 blockeras
 
 Systemfel 53 eller fel 67 kan inträffa om port 445 utgående kommunikation till ett datacenter för Azure Files är blockerad. Om du vill visa en sammanfattning av Internet-leverantörer som Tillåt eller neka åtkomst från port 445, gå till [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-För att förstå om det här är anledningen till meddelandet ”Systemfel 53”, kan du använda Portqry för att fråga TCP:445 slutpunkten. Om TCP:445 slutpunkten är visas som filtrerad är är TCP-port blockerad. Här är en exempelfråga:
+För att kontrollera om din brandvägg eller Internetleverantören blockerar port 445, använda den [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) verktyget eller `Test-NetConnection` cmdlet. 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
 
-Om TCP-port 445 blockeras av en regel längs nätverkssökvägen ser du följande utdata:
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-Mer information om hur du använder Portqry finns i [beskrivningen av kommandoradsverktyget Portqry.exe](https://support.microsoft.com/help/310099).
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+Om en anslutning upprättades bör du se följande utdata:
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>Lösning för orsak 2
+> [!Note]  
+> Ovanstående kommando returnerar den aktuella IP-adressen för lagringskontot. Det är inte säkert att IP-adressen förblir densamma, och den kan ändras när som helst. Hårdkoda inte den här IP-adressen i några skript eller i en brandväggskonfiguration.
+
+### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
 Arbeta med din IT-avdelning öppna port 445 utgående till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>Orsak 3: NTLMv1 är aktiverat
+### <a name="cause-2-ntlmv1-is-enabled"></a>Orsak 2: NTLMv1 är aktiverat
 
 Systemfel 53 eller systemfel 87 kan inträffa om NTLMv1 kommunikation är aktiverad på klienten. Azure Files stöder endast NTLMv2-autentisering. Att ha aktiverat NTLMv1 skapar en mindre säkra klient. Därför blockeras kommunikation för Azure Files. 
 
@@ -72,7 +105,7 @@ Kontrollera att följande registerundernyckel är inställd på värdet 3 för a
 
 Mer information finns i den [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) artikeln på TechNet.
 
-### <a name="solution-for-cause-3"></a>Lösning för orsak 3
+### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
 Återställ den **LmCompatibilityLevel** värdet till standardvärdet 3 i följande registerundernyckel:
 
@@ -88,6 +121,27 @@ Fel 1816 händer när du når den övre gränsen för samtidiga öppna referense
 ### <a name="solution"></a>Lösning
 
 Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [checklista för prestanda och skalbarhet i Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Felet ”Åtkomst nekad” när du går till en Azure-filresurs i portalen
+
+När du bläddrar till en Azure-filresurs i portalen kan du få följande fel:
+
+Åtkomst nekad  
+Du saknar åtkomst  
+Det verkar som om du inte har åtkomst till det här innehållet. Kontakta ägaren för att få åtkomst.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: Ditt användarkonto har inte åtkomst till lagringskontot
+
+### <a name="solution-for-cause-1"></a>Lösning för orsak 1
+
+Bläddra till det lagringskonto där Azure-filresursen är placerad, klicka på **åtkomstkontroll (IAM)** och verifiera ditt konto har åtkomst till lagringskontot. Mer information finns i [hur du skyddar ditt lagringskonto med rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: Virtuella nätverk eller brandvägg regler har aktiverats för lagringskontot
+
+### <a name="solution-for-cause-2"></a>Lösning för orsak 2
+
+Verifiera virtuella nätverk och brandvägg regler har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggen regler som orsakar problemet tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Långsam filkopieringen till och från Azure Files i Windows
@@ -168,12 +222,12 @@ Använd någon av följande lösningar:
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-När du har följt de här instruktionerna kan du får följande felmeddelande när du kör net används för system/nätverkstjänstkontot: ”systemfel 1312 har uppstått. En angiven inloggningssession finns inte. Det kanske redan har avslutats ”. Om detta inträffar kan du se till att användarnamnet som skickades till net Använd inkluderar domäninformation (till exempel ”: [lagringskontonamn]. file.core.windows .net”).
+När du har följt de här instruktionerna kan du få följande felmeddelande när du kör net används för system/nätverkstjänstkontot: ”Systemfel 1312 har uppstått. En angiven inloggningssession finns inte. Det kanske redan har avslutats ”. Om detta inträffar kan du se till att användarnamnet som skickades till net Använd inkluderar domäninformation (till exempel ”: [lagringskontonamn]. file.core.windows .net”).
 
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>Felet ”du kopierar en fil till ett mål som inte stöder kryptering”
 
-När en fil kopieras över nätverket, är filen dekrypteras på källdatorn, skickas i klartext och krypteras igen vid målet. Men du kan se följande fel när du försöker att kopiera en krypterad fil: ”du kopierar filen till ett mål som inte stöder kryptering”.
+När en fil kopieras över nätverket, är filen dekrypteras på källdatorn, skickas i klartext och krypteras igen vid målet. Följande fel kan dock uppstå när du försöker att kopiera en krypterad fil: ”Du kopierar filen till ett mål som inte stöder kryptering”.
 
 ### <a name="cause"></a>Orsak
 Det här problemet kan inträffa om du använder EFS (ENCRYPTING File System). BitLocker-krypterade filer kan kopieras till Azure Files. Azure Files stöder dock inte NTFS EFS.

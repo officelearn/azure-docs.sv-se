@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316979"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629910"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Vi använde följande programvara när vi skapade och testade det här exemplet:
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Om de data som används
-Det här exempelprogrammet använder data från [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
+Det här exempelprogrammet använder data från [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
 
 I det här programmet bygger och läser programmet **SearchServlet.java** in indexet med hjälp av en [indexeringskonstruktion](https://msdn.microsoft.com/library/azure/dn798918.aspx) och hämtar den filtrerade USGS-datauppsättningen från en offentlig Azure SQL-databas. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
 
@@ -87,7 +87,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 ## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och API-nyckel
 1. I **Project Explorer** dubbelklickar du på **config.properties** för att redigera konfigurationsinställningarna som innehåller servernamnet och API-nyckeln.
 2. Följ stegen ovan i den här artikeln, där du letade upp tjänstens URL och API-nyckeln på [Azure Portal](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
-3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Nästa, tjänstens namn (den första delen av URL: en http://servicename.search.windows.net) ersätter ”service name” i samma fil.
+3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Nästa, tjänstens namn (den första delen av URL: en https://servicename.search.windows.net) ersätter ”service name” i samma fil.
    
     ![][5]
 

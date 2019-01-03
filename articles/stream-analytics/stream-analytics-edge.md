@@ -9,26 +9,26 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141959"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994988"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
-Med hjälp av Azure Stream Analytics (ASA) på IoT Edge kan utvecklare distribuera nära realtid analytisk intelligens närmare IoT-enheter så att de kan låsa upp hela värdet av data som genereras av enheten. Azure Stream Analytics har utformats för låg latens, elasticitet och effektiv användning av bandbredd och efterlevnad. Företag kan nu distribuera logik nära industriell verksamhet och komplettera analyser av Stordata i molnet.  
+Med hjälp av Azure Stream Analytics (ASA) på IoT Edge kan utvecklare distribuera nära realtid analytisk intelligens närmare IoT-enheter så att de kan låsa upp hela värdet av data som genereras av enheten. Azure Stream Analytics har utformats för korta svarstider, hög elasticitet, effektiv bandbreddsanvändning och bra efterlevnad. Företag kan nu distribuera logik nära industriell verksamhet och komplettera analyser av Stordata i molnet.  
 
 Azure Stream Analytics på IoT Edge som körs inom den [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. När jobbet har skapats i ASA, kan du distribuera och hantera den med hjälp av IoT Hub.
 
 ## <a name="scenarios"></a>Scenarier
 ![Översiktsdiagram över IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **Låg latens kommando och kontroll**: till exempel tillverkar säkerhetssystem måste besvara driftdata med extremt låg latens. Du kan analysera sensor data i realtid och skicka kommandon när du upptäcker avvikelser för att stoppa en virtuell dator eller utlösa aviseringar med ASA på IoT Edge.
-*   **Begränsad anslutning till molnet**: uppdragskritiska kritiska system som fjärranslutna utvinningsstrukturen utrustning, anslutna fartyg eller öppet hav Detaljgranskning måste du analysera och reagera på data även om molnet anslutningen bryts. Strömmande logik körs oberoende av nätverksanslutningen med ASA, och du kan välja vad du skickar till molnet för vidare bearbetning eller lagring.
-* **Begränsad bandbredd**: mängden data som produceras av jet motorer eller anslutna bilar kan vara så stora data måste vara filtreras eller bearbetas före innan de skickas till molnet. Med ASA, kan du filtrera eller aggregera data som måste skickas till molnet.
-* **Efterlevnad**: regelefterlevnad kan kräva att vissa data lokalt anonyma eller aggregeras innan den skickas till molnet.
+* **Låg latens kommando och kontroll**: Till exempel måste tillverkar säkerhetssystem svara på driftdata med extremt låg latens. Du kan analysera sensor data i realtid och skicka kommandon när du upptäcker avvikelser för att stoppa en virtuell dator eller utlösa aviseringar med ASA på IoT Edge.
+*   **Begränsad anslutning till molnet**: Uppdragskritiska kritiska system som fjärranslutna utvinningsstrukturen utrustning, anslutna fartyg eller öppet hav Detaljgranskning måste du analysera och reagera på data även om molnet anslutningen bryts. Strömmande logik körs oberoende av nätverksanslutningen med ASA, och du kan välja vad du skickar till molnet för vidare bearbetning eller lagring.
+* **Begränsad bandbredd**: Mängden data som produceras av jet motorer eller anslutna bilar kan vara så stora data måste vara filtreras eller bearbetas före innan de skickas till molnet. Med ASA, kan du filtrera eller aggregera data som måste skickas till molnet.
+* **Efterlevnad**: Regelefterlevnad kan kräva vissa data lokalt anonyma eller aggregeras innan den skickas till molnet.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Edge-jobb i Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Vad är ett ”edge”-jobb?
@@ -144,7 +144,7 @@ Det här exemplet definierar följande vägar:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Aktuella begränsningar för IoT Edge-jobb jämfört med molnjobb
 Målet är att har paritet mellan IoT Edge-jobb och molnjobb. De flesta SQL query language-funktioner stöds redan.
 Men de följande funktionerna stöds inte ännu för edge-jobb:
-* Användardefinierade funktioner (UDF) i JavaScript. UDF är tillgängliga i [ C# för IoT Edge-jobb](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (förhandsversion).
+* Användardefinierade funktioner (UDF) i JavaScript. UDF är tillgängliga i [ C# för IoT Edge-jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (förhandsversion).
 * Användardefinierade aggregeringar (UDA).
 * Azure ML-funktioner
 * Med hjälp av mer än 14 aggregat i ett enda steg.
@@ -167,7 +167,7 @@ Om du vill köra ASA på IoT Edge, behöver du enheter som kan köra [Azure IoT 
 
 ASA och Azure IoT Edge använder **Docker** behållare för att tillhandahålla en bärbar lösning som körs på flera värd-operativsystem (Windows, Linux).
 
-ASA på IoT Edge är tillgänglig som Windows och Linux-avbildningar, som körs på både x86 64- eller Azure Resource Manager-arkitekturer. 
+ASA på IoT Edge är tillgänglig som Windows och Linux-avbildningar, som körs på både x86 64- eller ARM (Advanced RISC datorer) arkitekturer. 
 
 
 ### <a name="input-and-output"></a>Indata och utdata

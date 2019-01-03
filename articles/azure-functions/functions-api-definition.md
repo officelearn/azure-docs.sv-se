@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999926"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606222"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2.0-metadata i Azure Functions (förhandsversion)
 OpenAPI 2.0 (tidigare Swagger) metadata stöds i Azure Functions är en förhandsgranskningsfunktion som du kan använda för att skriva en definition för OpenAPI 2.0 i en funktionsapp. Du kan sedan ha filen med hjälp av funktionsappen.
@@ -23,7 +23,7 @@ OpenAPI 2.0 (tidigare Swagger) metadata stöds i Azure Functions är en förhand
 > [!IMPORTANT]
 > Förhandsgranskningsfunktionen OpenAPI är i dag endast tillgänglig i 1.x-körningen. Information om hur du skapar en 1.x-funktionsapp [hittar du här](./functions-versions.md#creating-1x-apps).
 
-[OpenAPI-metadata](https://swagger.io/) gör en funktion som är värd för en REST-API för att användas av en stor mängd annan programvara. Den här programvaran innehåller Microsoft-erbjudanden som PowerApps och [API Apps-funktionen i Azure App Service](../app-service/app-service-web-overview.md), utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger), och [många andra paket](https://swagger.io/tools/).
+[OpenAPI-metadata](https://swagger.io/) gör en funktion som är värd för en REST-API för att användas av en stor mängd annan programvara. Den här programvaran innehåller Microsoft-erbjudanden som PowerApps och [API Apps-funktionen i Azure App Service](../app-service/overview.md), utvecklingsverktyg från tredje part som [Postman](https://www.getpostman.com/docs/importing_swagger), och [många andra paket](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -56,8 +56,8 @@ I följande tabell representerar inställningar för Azure portal och motsvarand
 |Swagger.JSON|Portalens användargränssnitt|Function.JSON|
 |:----|:-----|:-----|
 |[Värd](https://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **App Service-inställningarna** > **översikt** > **URL**|*Finns inte*
-|[Sökvägar](https://swagger.io/specification/#paths-object-29)|**Integrera** > **valda HTTP-metoder**|Bindningar: väg
-|[Sökväg till objekt](https://swagger.io/specification/#path-item-object-32)|**Integrera** > **flödesmallen**|Bindningar: metoder
+|[Sökvägar](https://swagger.io/specification/#paths-object-29)|**Integrera** > **valda HTTP-metoder**|Bindningar: Routa
+|[Sökväg till objekt](https://swagger.io/specification/#path-item-object-32)|**Integrera** > **flödesmallen**|Bindningar: Metoder
 |[Säkerhet](https://swagger.io/specification/#security-scheme-object-112)|**nycklar**|*Finns inte*|
 |operationID*|**Väg + tillåtna verb**|Väg + tillåtna verb|
 

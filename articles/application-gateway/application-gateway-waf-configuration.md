@@ -7,19 +7,16 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036725"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752732"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Storleksgränser för Web application firewall begäran- och uteslutningsprinciperna visar (offentlig förhandsversion)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Storleksgränser för Web application firewall begäran och undantagslistor
 
 Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Den här artikeln beskriver storleksgränser för WAF-begäran och undantag visar konfigurationen.
-
-> [!IMPORTANT]
-> Konfiguration av WAF storleksgränser för begäran och undantagslistor är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="waf-request-size-limits"></a>Storleksgränser för WAF-begäran
 
@@ -52,10 +49,10 @@ Du kan ange en exakt begärandehuvudet body, cookie eller fråga för attributet
 
 Här följer stöds matchning kriterier operatorer:
 
-- **Är lika med**: den här operatorn används efter en exakt matchning. Till exempel för att välja en rubrik med namnet **bearerToken**, använda equals-operatorn med väljaren som **bearerToken**.
-- **Börjar med**: den här operatorn matchar alla fält som börjar med det angivna väljarvärdet.
-- **Slutar med**: den här operatorn matchar alla fält i begäran som slutar med det angivna väljarvärdet.
-- **Innehåller**: den här operatorn matchar alla fält i begäran som innehåller det angivna väljarvärdet.
+- **Är lika med**:  Den här operatorn används efter en exakt matchning. Till exempel för att välja en rubrik med namnet **bearerToken**, använda equals-operatorn med väljaren som **bearerToken**.
+- **Börjar med**: Den här operatorn matchar alla fält som börjar med det angivna väljarvärdet.
+- **Slutar med**:  Den här operatorn matchar alla fält i begäran som slutar med det angivna väljarvärdet.
+- **Innehåller**: Den här operatorn matchar alla fält i begäran som innehåller det angivna väljarvärdet.
 
 I samtliga fall matchar är skiftlägeskänsligt och reguljära uttryck tillåts inte som väljare.
 

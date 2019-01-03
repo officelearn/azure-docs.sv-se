@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 1bcd9dfe2d7a846dd040944509be916c1964ba48
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420395"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994410"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data kryptering vid vila
 
@@ -104,7 +104,7 @@ För kryptering av klientsidan, Tänk på följande:
 - Kunder hantera och lagra nycklar på lokalt (eller skydda butiker i andra). Nycklarna är inte tillgängliga för Azure-tjänster
 - Minskad molnfunktioner
 
-Kryptering stöds-modeller i Azure som delas upp i två grupper: ”klient” och ”serversidan kryptering” som tidigare nämnts. Oberoende av kryptering i rest-modellen används, Azure-tjänster som alltid rekommenderar användning av en säker transport, till exempel TLS- eller HTTPS. Därför bör åtgärdas av transportprotokollet kryptering i transport och får inte vara en viktig faktor avgöra vilken kryptering i rest-modell ska använda.
+Kryptering stöds modeller i Azure som delas upp i två grupper: ”Klient” och ”serversidan kryptering” som tidigare nämnts. Oberoende av kryptering i rest-modellen används, Azure-tjänster som alltid rekommenderar användning av en säker transport, till exempel TLS- eller HTTPS. Därför bör åtgärdas av transportprotokollet kryptering i transport och får inte vara en viktig faktor avgöra vilken kryptering i rest-modell ska använda.
 
 ### <a name="client-encryption-model"></a>Klientmodell för kryptering
 
@@ -262,6 +262,7 @@ Klientsidan kryptering av data som Azure SQL Database stöds via den [Always Enc
 | Disk (IaaS)                      | -                  | Ja, RSA 2048-bitars  | -                  |
 | SQLServer (IaaS)                | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure SQL (databas/Data Warehouse) | Ja                | Ja, RSA 2048-bitars  | Ja                |
+| Azure SQL (Database Managed Instance) | Ja                | Förhandsgranskning, RSA 2048-bitars  | Ja                |
 | Azure Storage (Block/Sidblob) | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure Storage (filer)            | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Azure Storage (tabeller, köer)   | Ja                | -                  | Ja                |

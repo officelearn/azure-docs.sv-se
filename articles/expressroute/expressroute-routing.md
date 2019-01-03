@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406563"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994589"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -120,7 +120,7 @@ Routningsutbytet kommer att ske via EBGP-protokollet. EBGP-sessioner upprättas 
 ## <a name="autonomous-system-numbers"></a>Autonoma systemnummer
 Microsoft använder AS 12076 för offentliga Azure, privata Azure och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds.
 
-Det finns inga krav på symmetri vid dataöverföring. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från någon av sidorna över flera kretspar som du äger. Vägmåtten behöver inte vara identiska.
+Det finns inga krav på symmetri vid dataöverföring. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från antingen sidor över flera kretspar som du. Vägmåtten behöver inte vara identiska.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Vägsammanställning och begränsningar för prefix
 Vi stöder upp till 4 000 prefix som annonseras till oss via Azures privata peering. Detta kan utökas upp till 10 000 prefix om ExpressRoute-premiumtillägget är aktiverat. Vi kan acceptera upp till 200 prefix per BGP-session för Azures offentliga och Microsofts peering. 
@@ -135,7 +135,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 
  Om du vill aktivera anslutningar till andra Azure-tjänster och infrastrukturtjänster, måste något av följande objekt finnas på plats:
 
-* Azures offentliga peering ska vara aktiverad för att dirigera trafiken till offentliga slutpunkter
+* Azures offentliga peering är aktiverat för att dirigera trafik till offentliga slutpunkter.
 * Du använder användardefinierad routning för att tillåta anslutning till Internet för varje undernät som kräver Internetanslutning.
 
 > [!NOTE]
@@ -215,7 +215,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | Azure Global Services * | 12076:5050 |
 | Andra Office 365 Online-tjänster | 12076:5100 |
 
-***Azure globala tjänster inkluderar Azure DevOps**\**
+***Azure globala tjänster inkluderar Azure DevOps**
 
 
 > [!NOTE]

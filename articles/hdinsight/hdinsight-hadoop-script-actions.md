@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384075"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720194"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärder skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärd för HDInsight. Information om hur du använder skriptåtgärd skript finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster finns i [utveckla skriptåtgärder skript till HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,8 +32,6 @@ Skriptåtgärd kan användas för att installera ytterligare programvara som kö
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: Termen ”spara HDIFile' identifieras inte som namnet på en cmdlet, funktion, skriptfil eller ett körbart program. Kontrollera stavningen av namnet, eller om en sökväg har inkluderats, kontrollera att sökvägen är korrekt och försök igen.
 > 
 > Det beror på att du skickat helper-metoder.  Se [hjälpkomponentmetoder för anpassade skript](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
->
->
 
 ## <a name="sample-scripts"></a>Exempelskript
 För att skapa HDInsight-kluster på Windows-operativsystem, är den skriptåtgärd Azure PowerShell-skript. Följande skript är ett exempel för att konfigurera site konfigurationsfiler:

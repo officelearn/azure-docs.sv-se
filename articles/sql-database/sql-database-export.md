@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 2d881b9dbc20dbbf95491d023b859a20815091d3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311209"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651053"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportera en Azure SQL-databas till en BACPAC-fil
 
@@ -98,6 +98,7 @@ $exportStatus
 - Mer information om långsiktig kvarhållning av säkerhetskopior av en Azure SQL database-säkerhetskopia som ett alternativ till exporterade en databas för att se [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 - En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
 - Läs om hur du importerar en BACPAC till en SQL Server-databas i [importera en BACPCAC till en SQL Server-databas](https://msdn.microsoft.com/library/hh710052.aspx).
-- Läs om hur du exporterar en BACPAC från en SQL Server-databas i [exportera ett Dataskiktsprogram](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) och [migrera din första databas](sql-database-migrate-your-sql-server-database.md).
+- Läs om hur du exporterar en BACPAC från en SQL Server-databas i [exporterar en Data-tier-program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+- Läs om hur du använder Data Migration Service för att migrera en databas i [migrera SQL Server till Azure SQL Database med DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 - Om du exporterar från SQL Server som en prelude till migrering till Azure SQL Database, se [migrera en SQL Server-databas till Azure SQL Database](sql-database-cloud-migrate.md).
 - Lär dig hur du hantera och dela lagringsnycklar och delad åtkomst signaturer på ett säkert sätt, finns i [säkerhetsguiden för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

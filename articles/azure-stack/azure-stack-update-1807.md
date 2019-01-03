@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260592"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714993"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Den här artikeln beskriver innehållet i 1807 uppdateringspaketet. Den här uppdateringen innehåller förbättringar, korrigeringar och kända problem för den här versionen av Azure Stack och var du kan hämta uppdateringen. Kända problem är indelade i problem direkt relaterade till uppdateringsprocessen och problem med build (efter installationen).
 
@@ -162,9 +162,8 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Installera Azure Stack [1805 uppdatera](azure-stack-update-1805.md) innan du installerar Azure Stack 1807 uppdateringen.  Det fanns ingen uppdatering 1806.  
-
-- Installera den senaste tillgängliga [uppdatering eller snabbkorrigering för version 1805](azure-stack-update-1805.md#post-update-steps).  
+- Installera Azure Stack [1805 uppdatera](azure-stack-update-1805.md) innan du installerar Azure Stack 1807 uppdateringen. Det fanns ingen uppdatering 1806.  
+ 
   > [!TIP]  
   > Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -244,16 +243,16 @@ Här följer efter installation kända problem för den här build-versionen.
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
 
    Avisera #1:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
+   - NAMN:  Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: Varning
+   - KOMPONENT: Hälsotillstånd controller
+   - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
 
   Avisera #2:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
+   - NAMN:  Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: Varning
+   - KOMPONENT: Hälsotillstånd controller
+   - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
 
   Båda aviseringarna kan ignoreras och de stängs automatiskt över tid.  
 
@@ -262,9 +261,9 @@ Här följer efter installation kända problem för den här build-versionen.
 - Du kan se en avisering för **Storage** komponent som har följande information:
 
    - NAMN: Internt kommunikationsfel vid lagring  
-   - ALLVARLIGHETSGRAD: kritisk  
+   - ALLVARLIGHETSGRAD: Kritisk  
    - KOMPONENT: Storage  
-   - Beskrivning: Storage internt kommunikationsfel inträffade när begäranden skickas till följande noder.  
+   - DESCRIPTION (BESKRIVNING): Storage-tjänsten internt kommunikationsfel inträffade när begäranden skickas till följande noder.  
 
     Aviseringen kan ignoreras, men du måste stänga aviseringen manuellt.
 
@@ -281,7 +280,7 @@ Här följer efter installation kända problem för den här build-versionen.
 - När du väljer en VM-storlek för en distribution av virtuella datorer, vissa F-seriens storlekar visas inte som en del av storlek Väljaren när du skapar en virtuell dator. Storlek på följande Virtuella datorer visas inte i Väljaren: *F8s_v2*, *F16s_v2*, *F32s_v2*, och *F64s_v2*.  
   Som en lösning kan du använda en av följande metoder för att distribuera en virtuell dator. Du måste ange VM-storlek som du vill använda i varje metod.
 
-  - **Azure Resource Manager-mall:** när du använder en mall kan du ange den *vmSize* i mallen ska vara lika med storleken som du vill använda. Till exempel följande post används för att distribuera en virtuell dator som använder den *F32s_v2* storlek:  
+  - **Azure Resource Manager-mall:** När du använder en mall kan du ange den *vmSize* i mallen ska vara lika med storleken som du vill använda. Till exempel följande post används för att distribuera en virtuell dator som använder den *F32s_v2* storlek:  
 
     ```
         "properties": {
@@ -289,9 +288,9 @@ Här följer efter installation kända problem för den här build-versionen.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** du kan använda den [az vm skapa](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) kommandot och ange virtuella datorstorlek som en parameter, liknar `--size "Standard_F32s_v2"`.
+  - **Azure CLI:** Du kan använda den [az vm skapa](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) kommandot och ange virtuella datorstorlek som en parameter, liknar `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** med PowerShell som du kan använda [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) med parametern som anger virtuella datorns storlek, liknar `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** Med PowerShell kan du använda [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) med parametern som anger virtuella datorns storlek, liknar `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 

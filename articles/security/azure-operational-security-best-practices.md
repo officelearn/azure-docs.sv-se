@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853628"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725328"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metodtips för Azure driftsäkerhet
 Azure driftsäkerhet refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Azure. Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som funktioner som är unika för Microsoft, inklusive den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programmet och djup medvetenhet om hotlandskapet.
@@ -55,38 +55,38 @@ Kunder skapar en slutpunkt till slutpunkt-nätverk i Azure genom att kombinera n
 
 Här följer bästa praxis för verktyg för övervakning och tillgänglig.
 
-**Bästa praxis**: automatisera övervakning av fjärrnätverk med infångade paket.  
-**Information om**: övervaka och diagnostisera nätverksproblem utan att logga in till dina virtuella datorer med hjälp av Network Watcher. Utlösaren [paketfångsten](../network-watcher/network-watcher-alert-triggered-packet-capture.md) genom att konfigurera aviseringar och få åtkomst till prestandainformation i realtid på paketnivå. När du ser ett problem kan du undersöka i detalj för att få bättre diagnoser.
+**Bästa praxis**: Automatisera övervakning av fjärrnätverk med infångade paket.  
+**Information om**: Övervaka och diagnostisera nätverksproblem utan att logga in till dina virtuella datorer med hjälp av Network Watcher. Utlösaren [paketfångsten](../network-watcher/network-watcher-alert-triggered-packet-capture.md) genom att konfigurera aviseringar och få åtkomst till prestandainformation i realtid på paketnivå. När du ser ett problem kan du undersöka i detalj för att få bättre diagnoser.
 
-**Bästa praxis**: få insikt i din nätverkstrafik med flödesloggar.  
-**Information om**: skapa trafikmönster för en djupare förståelse för nätverket med hjälp av [network flödesloggar för nätverkssäkerhetsgruppen](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informationen i flödesloggar kan du samla in data för efterlevnad, granskning och övervakning av din nätverkssäkerhetsprofil.
+**Bästa praxis**: Få insikt i din nätverkstrafik med flödesloggar.  
+**Information om**: Skapa trafikmönster för en djupare förståelse för nätverket med hjälp av [network flödesloggar för nätverkssäkerhetsgruppen](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informationen i flödesloggar kan du samla in data för efterlevnad, granskning och övervakning av din nätverkssäkerhetsprofil.
 
-**Bästa praxis**: diagnostisera VPN-anslutningsproblem.  
-**Information om**: Använd Network Watcher till [diagnostisera dina vanligaste problem för VPN-Gateway och anslutning](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Du kan inte bara identifiera problemet, men också använda detaljerade loggar för att undersöka.
+**Bästa praxis**: Diagnostisera VPN-anslutningsproblem.  
+**Information om**: Använda Network Watcher till [diagnostisera dina vanligaste problem för VPN-Gateway och anslutning](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Du kan inte bara identifiera problemet, men också använda detaljerade loggar för att undersöka.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Skydda distributionen genom att använda beprövade DevOps-verktyg
 Använd följande säkerhetsmetoder för DevOps för att säkerställa att ditt företag och team är produktiva och effektiv.
 
-**Bästa praxis**: automatisera skapande och distribution av tjänster.  
-**Information om**: [infrastruktur som kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) är en uppsättning tekniker och metoder som hjälper IT-proffs kan du ta bort arbetet med dagliga build och hantering av modulära infrastrukturen. Det gör att IT-proffs att skapa och underhålla sina moderna server-miljö på ett sätt som liknar hur programvaruutvecklare att bygga och underhålla programkod.
+**Bästa praxis**: Automatisera skapande och distribution av tjänster.  
+**Information om**: [Infrastruktur som kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) är en uppsättning tekniker och metoder som hjälper IT-proffs kan du ta bort arbetet med dagliga build och hantering av modulära infrastrukturen. Det gör att IT-proffs att skapa och underhålla sina moderna server-miljö på ett sätt som liknar hur programvaruutvecklare att bygga och underhålla programkod.
 
 Du kan använda [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du kan använda samma mall för att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
 
-**Bästa praxis**: automatiskt skapa och distribuera till Azure-webbappar eller molntjänster.  
-**Information om**: du kan använda Azure Pipelines och [automatiskt skapa och distribuera](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) till Azure-webbappar eller molntjänster. Azure Pipelines automatiskt distribuerar binärfilerna när du har gjort en version till Azure efter varje checkar in ny kod. Paketet skapandeprocessen motsvarar kommandot paketet i Visual Studio och publicera stegen är likvärdiga med kommandot Publicera i Visual Studio.
+**Bästa praxis**: Automatiskt skapa och distribuera till Azure-webbappar eller molntjänster.  
+**Information om**: Du kan använda Azure Pipelines och [automatiskt skapa och distribuera](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) till Azure-webbappar eller molntjänster. Azure Pipelines automatiskt distribuerar binärfilerna när du har gjort en version till Azure efter varje checkar in ny kod. Paketet skapandeprocessen motsvarar kommandot paketet i Visual Studio och publicera stegen är likvärdiga med kommandot Publicera i Visual Studio.
 
-**Bästa praxis**: Använd kontinuerlig distribution.  
+**Bästa praxis**: Använda kontinuerlig distribution.  
 **Information om**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) är en lösning för att automatisera distribution av flera steg och hantera lanseringsprocessen. Skapa hanterade kontinuerlig distribution pipelines Frigör snabbt, enkelt och ofta. Med Azure Pipelines, kan du automatisera din lanseringsprocessen och du kan ha fördefinierade godkännandearbetsflöden. Distribuera lokalt till molnet, utöka och anpassa efter behov.
 
 **Bästa praxis**: Kontrollera din Apps prestanda innan du startar den eller distribuera uppdateringar till produktion.  
-**Information om**: kör molnbaserade [belastningstester](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) med hjälp av Azure Test planerar att:
+**Information om**: Kör molnbaserade [belastningstester](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) med hjälp av Azure Test planerar att:
 
 - Hitta prestandaproblem i din app.
 - Förbättra kvaliteten i distributionen.
 - Se till att dina appar alltid är tillgängliga.
 - Se till att din app kan hantera trafik för nästa start eller marknadsföring kampanjen.
 
-**Bästa praxis**: övervaka programmets prestanda.  
+**Bästa praxis**: Övervaka programmets prestanda.  
 **Information om**: [Azure Application Insights](../application-insights/app-insights-overview.md) är en utökningsbar (APM) Hanteringstjänst för programprestanda för webbutvecklare på flera plattformar. Du kan använda Application Insights för att övervaka ditt webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller analysverktyg för att hjälpa dig att diagnostisera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Minimera och skydda mot DDoS
@@ -96,20 +96,20 @@ Utforma och skapa DDoS-skydd kräver planering och design för en mängd olika f
 
 Följande är rekommenderade metoder för att skapa DDoS anpassningsbara tjänster i Azure.
 
-**Bästa praxis**: se till att säkerhet är en prioritet under hela livscykeln för ett program, från design och implementering till distribution och drift. Program kan ha buggar som gör att en relativt låg volym av begäranden om att använda en massa resurser, vilket resulterar i avbrott i tjänsten.  
-**Information om**: för att skydda en tjänst som körs på Microsoft Azure, bör du ha en god förståelse av programarkitekturen och fokusera på den [fem grundpelare för programkvalitet](https://docs.microsoft.com/azure/architecture/guide/pillars). Du bör känna till vanliga trafikvolymer modellen anslutning mellan programmet och andra program och Tjänsteslutpunkter som exponeras för det offentliga internet.
+**Bästa praxis**: Kontrollera att säkerhet är en prioritet under hela livscykeln för ett program, från design och implementering till distribution och drift. Program kan ha buggar som gör att en relativt låg volym av begäranden om att använda en massa resurser, vilket resulterar i avbrott i tjänsten.  
+**Information om**: För att skydda en tjänst som körs på Microsoft Azure, bör du ha en god förståelse av programarkitekturen och fokusera på den [fem grundpelare för programkvalitet](https://docs.microsoft.com/azure/architecture/guide/pillars). Du bör känna till vanliga trafikvolymer modellen anslutning mellan programmet och andra program och Tjänsteslutpunkter som exponeras för det offentliga internet.
 
 Se till att ett program är tillräckligt flexibel för att hantera DOS-attacker som riktas mot själva programmet är viktigast. Säkerhet och sekretess är inbyggt i Azure-plattformen, från och med den [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). SDL-processen hanterar säkerheten i varje utvecklingsfas och ser till att Azure uppdateras ständigt för att göra det ännu säkrare.
 
-**Bästa praxis**: programmen utformas för [skala horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att uppfylla behovet av en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst, skapas en enskild felpunkt. Etablering av flera instanser kan systemet mer skalbart och återhämtningsbart mer.  
-**Information om**: för [Azure App Service](../app-service/app-service-value-prop-what-is.md)väljer en [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) som erbjuder flera instanser.
+**Bästa praxis**: Programmen utformas för [skala horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att uppfylla behovet av en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst, skapas en enskild felpunkt. Etablering av flera instanser kan systemet mer skalbart och återhämtningsbart mer.  
+**Information om**: För [Azure App Service](../app-service/app-service-value-prop-what-is.md)väljer en [App Service-plan](../app-service/overview-hosting-plans.md) som erbjuder flera instanser.
 
 Konfigurera var och en av dina roller att använda för Azure Cloud Services, [flera instanser](../cloud-services/cloud-services-choose-me.md).
 
 För [Azure Virtual Machines](../virtual-machines/windows/overview.md), se till att din VM-arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighetsuppsättning](../virtual-machines/virtual-machines-windows-manage-availability.md). Vi rekommenderar att du använder virtuella skalningsuppsättningar för funktioner för automatisk skalning.
 
 **Bästa praxis**: Skikta säkerhetsskyddet i ett program minskar risken för angrepp. Implementera säkra utformning för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.  
-**Information om**: risken för angrepp ökar i storlek (ytan) av programmet. Du kan minska ytan med hjälp av listan över tillåtna program ska stänga exponerade IP-adressutrymmet och lyssningsportar som inte behövs på belastningsutjämnarna ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
+**Information om**: Risken för angrepp ökar i storlek (ytan) av programmet. Du kan minska ytan med hjälp av listan över tillåtna program ska stänga exponerade IP-adressutrymmet och lyssningsportar som inte behövs på belastningsutjämnarna ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
 
 [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) är ett annat sätt att minska risken för angrepp. Du kan använda [tjänsttaggar](../virtual-network/security-overview.md#service-tags) och [programsäkerhetsgrupper](../virtual-network/security-overview.md#application-security-groups) att minska komplexiteten för att skapa säkerhetsregler och konfigurera nätverkssäkerhet, som en naturlig förlängning av ett programs struktur.
 

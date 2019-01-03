@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622981"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651460"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Hur du använder Azure Active Directory Power BI-innehållspaket
 
@@ -32,7 +32,7 @@ Power BI content pack för Azure Active Directory (Azure AD) innehåller fördef
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Azure AD premium (P1/P2) licens att använda Innehållspaketet. 
+Du behöver en Azure AD premium (P1/P2) licens att använda Innehållspaketet. Se [komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) att uppgradera din Azure Active Directory-version.
 
 ## <a name="install-the-content-pack"></a>Installera Innehållspaketet
 
@@ -42,9 +42,9 @@ Kolla in den [snabbstarten](quickstart-install-power-bi-content-pack.md) att ins
 
 Följande rapporter ingår i Azure AD Power BI-Innehållspaketet. Rapporterna innehåller data från den **senaste 30 dagarna**.
 
-**Användning och trender rapporten**: den här rapporten ger dig insikt i de program som används i din organisation. Du kan hämta en lista över de mest populära programmen eller förstå hur ett program som du nyligen distribuerade i din organisation används. På så sätt kan du spåra och förbättra användning över tid.
+**Användning och trender rapporten**:  Den här rapporten ger dig insikt i de program som används i din organisation. Du kan hämta en lista över de mest populära programmen eller förstå hur ett program som du nyligen distribuerade i din organisation används. På så sätt kan du spåra och förbättra användning över tid.
 
-**Inloggningar efter plats och användare**: den här rapporten innehåller data om alla inloggningar utförs med hjälp av Azure Identity. Med den här rapporten kan du öka detaljnivån till enskilda inloggningar och besvara frågor som:
+**Inloggningar efter plats och användare**: Den här rapporten innehåller data om alla inloggningar utförs med hjälp av Azure Identity. Med den här rapporten kan du öka detaljnivån till enskilda inloggningar och besvara frågor som:
 
 - Där den här användaren logga in från?
 - Vilken användare har flest inloggningar och varifrån loggade användaren in? 
@@ -52,34 +52,34 @@ Följande rapporter ingår i Azure AD Power BI-Innehållspaketet. Rapporterna in
  
 Du kan också filtrera resultaten genom att välja ett visst datum eller plats.
 
-**Unika användare per app**: den här rapporten ger en överblick över alla unika användare som använder en viss app. Den innehåller endast användare som har ”*har*” loggat in på ett program.
+**Unika användare per app**:  Den här rapporten ger en överblick över alla unika användare som använder en viss app. Den innehåller endast användare som har ”*har*” loggat in på ett program.
 
-**Enhetsinloggningar**: den här rapporten hjälper dig att förstå de olika enhetsprofiler som används inom organisationen och bestämma principer för enheter baserat på användning. Den tillhandahåller data om vilken typ av operativsystem och webbläsare som används för att logga in på program, tillsammans med detaljerad information om användarna som omfattar:
+**Enhetsinloggningar**: Den här rapporten hjälper dig att förstå de olika enhetsprofiler som används inom organisationen och bestämma principer för enheter baserat på användning. Den tillhandahåller data om vilken typ av operativsystem och webbläsare som används för att logga in på program, tillsammans med detaljerad information om användarna som omfattar:
 
 - Användarnamn
 - IP-adress
 - Plats 
 - Inloggningsstatus 
 
-**SSPR-tratt**: den här rapporten hjälper dig att förstå hur SSPR-verktyget används inom organisationen. Du kan visa hur många lösenordsåterställningar som försökte utföras via SSPR-verktyget och hur många av dem lyckades. Du kan också gå på djupet återställer Lösenordsfel och förstå varför vissa fel uppstod. 
+**SSPR-tratt**: Den här rapporten hjälper dig att förstå hur SSPR-verktyget används inom organisationen. Du kan visa hur många lösenordsåterställningar som försökte utföras via SSPR-verktyget och hur många av dem lyckades. Du kan också gå på djupet återställer Lösenordsfel och förstå varför vissa fel uppstod. 
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Anpassa Innehållspaketet för Azure AD-aktivitet
 
-**Ändra visualisering**: Du kan ändra ett visuellt objekt i en rapport genom att klicka på **Redigera rapport** och välja det önskade visuella objektet.
+**Ändra visualisering**:  Du kan ändra ett visuellt objekt genom att klicka på **Redigera rapport** och välj visualiseringen som du vill.
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/09.png) 
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/10.png) 
 
-**Ta med ytterligare fält**: Du kan lägga till ett fält i rapporten eller ta bort det genom att välja det visuella objekt som du vill lägga till/ta bort från fältet. Du kan till exempel lägga till fältet ”inloggningsstatus” i tabellvyn enligt nedan. 
+**Ta med ytterligare fält**:  Du kan lägga till ett fält i rapporten eller ta bort den genom att välja det visuella objektet som du vill lägga till/ta bort fältet. Du kan till exempel lägga till fältet ”inloggningsstatus” i tabellvyn enligt nedan. 
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/11.png) 
 
-**Fästa visualiseringar på instrumentpanelen**: du kan anpassa din instrumentpanel genom att inkludera egna visuella objekt i rapporten och fästa den på instrumentpanelen. 
+**Fästa visualiseringar på instrumentpanelen**:  Du kan anpassa din instrumentpanel genom att inkludera egna visuella objekt i rapporten och fästa den på instrumentpanelen. 
 
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/13.png) 
  
-**Dela instrumentpanelen**: du kan också dela instrumentpanelen med användare i din organisation. När du delar rapporten kan kan användarna se de fält du har valt i rapporten.
+**Dela instrumentpanelen**: Du kan också dela instrumentpanelen med användare i din organisation. När du delar rapporten kan kan användarna se de fält du har valt i rapporten.
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/14.png) 
 

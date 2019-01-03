@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79921a3adc043dd84317b7613286ec5cdc460bde
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f6ce470399540f6d8cf00d404d658cb3da345ad
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993761"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974528"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
-Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schema](app-insights-pricing.md), och skapa andra Azure-resurser .
+Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](../azure-monitor/app/monitor-web-app-availability.md), Ställ in [aviseringar](../azure-monitor/app/alerts.md), ange den [priser schema](app-insights-pricing.md), och skapa andra Azure-resurser .
 
 Nyckeln till att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Kortfattat, proceduren är: ladda ned JSON-definitioner av befintliga resurser. Parameterisera vissa värden, till exempel namn. och kör sedan mallen när du vill skapa en ny resurs. Du kan paketera flera resurser tillsammans, skapa dem på en go - exempel: en app Övervakare med tillgänglighetstester, aviseringar och lagring för löpande export. Det finns vissa nyanser till vissa av parameterizations som beskrivs här.
 

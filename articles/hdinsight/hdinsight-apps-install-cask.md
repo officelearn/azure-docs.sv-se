@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 715e536d7356a4e37f512027a23236b1fd37cbac
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499325"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651307"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Installera publicerad program – Cask Data Application Platform (CDAP)
 
-Den här artikeln beskrivs hur du installerar och kör den [CDAP](http://cask.co/products/cdap/) publicerade [Apache Hadoop](https://hadoop.apache.org/) på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [CDAP](https://cask.co/products/cdap/) publicerade [Apache Hadoop](https://hadoop.apache.org/) på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-cdap"></a>Om CDAP
 
@@ -30,7 +30,7 @@ Cask Data Application Platform (CDAP) är en integreringsplattform för Stordata
 
 CDAP använder avancerade begrepp och abstraktioner som är vanlig för utvecklare. Dessa abstraktioner dölja komplexiteten i interna system och uppmuntra återanvändning av lösningar.
 
-Filtillägget CDAP kallas [Cask Hydrator](http://cask.co/products/hydrator/) innehåller ett användargränssnitt för att utveckla och hantera datapipelines. En datapipeline består av olika * plugin-program som utför uppgifter som datainsamling, transformation, analys och efter kör åtgärder.
+Filtillägget CDAP kallas [Cask Hydrator](https://cask.co/products/hydrator/) innehåller ett användargränssnitt för att utveckla och hantera datapipelines. En datapipeline består av olika * plugin-program som utför uppgifter som datainsamling, transformation, analys och efter kör åtgärder.
 
 Varje CDAP plugin-programmet har en väldefinierad gränssnitt så att utvärdera olika tekniker är bara ersätta ett plugin-program med en annan, utan att behöva röra resten av programmet.
 
@@ -42,7 +42,7 @@ Följande exempel visar en datapipeline matar in twitter-data i realtid och filt
 
 Denna slutpunkt till slutpunkt-pipeline har skapats med den **Cask Hydrator UI**, med hjälp av dess plugin-programmet gränssnitt och dra och släpp funktioner till formuläret anslutningar mellan varje steg. Du kan isolera och ändra funktionen för varje plugin-programmet oberoende av varandra. Med hjälp av CDAP, kan liknande pipelines byggas och verifieras i timmar. I vanliga Hadoop-världen, kan det ta flera dagar att konstruera sådana lösningar.
 
-CDAP innehåller också ett tillägg som kallas [Cask spåraren](http://cask.co/products/tracker/) att visuellt spårningsdata som den förs vidare via programmet. Cask spåraren lägger till *datastyrning* i systemet så att datatillgångar hanteras formellt i hela programmet. Du kan spåra varje datapunkt härkomst, samla in relevanta mått och granskningslogg data under hela processen.
+CDAP innehåller också ett tillägg som kallas [Cask spåraren](https://cask.co/products/tracker/) att visuellt spårningsdata som den förs vidare via programmet. Cask spåraren lägger till *datastyrning* i systemet så att datatillgångar hanteras formellt i hela programmet. Du kan spåra varje datapunkt härkomst, samla in relevanta mått och granskningslogg data under hela processen.
 
 Här är en illustration av hur data flödar i ovanstående pipelinen:
 
@@ -126,9 +126,9 @@ Stegvisa instruktioner om hur du installerar det här och andra tillgängliga IS
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Cask dokumentation](http://cask.co/resources/documentation/).
+* [Cask dokumentation](https://cask.co/resources/documentation/).
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
-* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
-* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
-* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
+* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): Lär dig hur du publicerar dina anpassade HDInsight-program på Azure Marketplace.
+* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Lär dig hur du definierar HDInsight-program.
+* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd för att installera fler program.
 * [Använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom edge-nod för att komma åt HDInsight-kluster och för testning och som är värd för HDInsight-program.

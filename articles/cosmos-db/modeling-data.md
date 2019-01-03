@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0197c11673f49214dc2cea09b53290993a00c6b3
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166650"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744946"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelleringsdokumentdata för NoSQL-databaser
 
@@ -71,7 +71,7 @@ Nu ska vi ta en titt på hur vi skulle modeller för samma data som en friståen
         ] 
     }
 
-Med hjälp av metoden ovan har vi nu **Avnormaliserade** personen som registrerar var vi **embedded** all information som rör till den här personen som deras kontaktuppgifter och adresser, i en enda JSON dokumentet.
+Med hjälp av metoden ovan har vi nu **Avnormaliserade** personen som registrerar var vi **embedded** all information som är relaterad till den här personen som deras kontaktuppgifter och adresser, till ett enda JSON dokumentet.
 Vi har också möjlighet att göra saker som att ha kontaktinformation på olika former helt eftersom vi inte är begränsad till ett fast schema. 
 
 Hämta en fullständig personpost från databasen är nu en enda Läsåtgärd mot en enda samling och för ett enskilt dokument. Uppdatera en personpost med deras kontaktuppgifter och adresser, är också en enskild skrivåtgärd mot ett enskilt dokument.
@@ -172,7 +172,7 @@ Ta det här JSON-kodfragmentet.
         ]
     }
 
-Detta kan vara en persons portfölj. Vi har valt att bädda in lagerartiklar informationen i varje portfölj dokumentet. I en miljö där relaterade data ändras ofta, kommer som aktier handel med program, bädda in data som ändras ofta att innebära att du hela tiden uppdaterar dokumenten portfölj varje gång aktier säljs.
+Detta kan vara en persons portfölj. Vi har valt att bädda in lagerartiklar informationen till varje portfölj dokument. I en miljö där relaterade data ändras ofta, kommer som aktier handel med program, bädda in data som ändras ofta att innebära att du hela tiden uppdaterar dokumenten portfölj varje gång aktier säljs.
 
 Lager *zaza* får säljas flera hundra gånger under en enda dag och tusentals användare kan ha *zaza* deras portfölj. Med en datamodell som ovanstående vi skulle behöva uppdatera flera tusen portfölj dokument många gånger varje dag som leder till ett system som inte bra med skalning. 
 
@@ -259,7 +259,7 @@ Om vi tittar på JSON nedan som modeller utgivare och böcker.
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 Om antal böcker per utgivaren är litet med begränsad möjlighet att växa, kan det vara praktiskt att lagra boken referensen i publisher-dokument. Men om antal böcker per utgivaren är obegränsade, skulle sedan den här datamodellen leda till föränderligt och växande matriser, som i ovanstående exempel publisher dokumentet. 
 
@@ -278,7 +278,7 @@ Växla runt lite skulle resultera i en modell som fortfarande representerar samm
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 Vi har släppt obundna samlingen för utgivaren-dokument i exemplet ovan. I stället ha vi bara en referens till utgivaren på varje bokdokument.
 
@@ -298,7 +298,7 @@ Du kanske att tro att replikera samma sak med hjälp av dokument och skapa en da
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -319,7 +319,7 @@ Tänk på följande.
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 Nu om jag har haft en författare, jag vet omedelbart vilka böcker som de har skrivit och omvänt om jag hade ett boken dokument som är inlästa jag skulle känner till ID: n innehålla. Detta sparar den mellanliggande frågor mot en anslutning till tabellen minska antalet servrar nätverksförfrågningar programmet måste göra. 
 

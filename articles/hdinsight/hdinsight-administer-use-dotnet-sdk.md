@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 26aeb5641533125dcd909ae96d28c8274677cf30
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013449"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788811"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -135,10 +135,8 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ## <a name="scale-clusters"></a>Skala kluster
 Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av ett kluster som körs i Azure HDInsight utan att behöva återskapa klustret.
 
-> [!NOTE]
-> Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-> 
-> 
+> [!NOTE]  
+> Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](hdinsight-administer-use-portal-linux.md#showClusters).
 
 Effekten av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
 
@@ -165,7 +163,7 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
   * Storm-Webbgränssnittet
   * Verktyget kommandoradsgränssnittet (CLI)
     
-    Finns det [Apache Storm-dokumentationen](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
+    Finns det [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
     
     Storm-webbgränssnittet finns på HDInsight-klustret:
     
@@ -220,10 +218,8 @@ var httpParams = new HttpSettingsParameters
 _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Genom att bevilja/återkalla åtkomst, ska du återställa klustret användarnamn och lösenord.
-> 
-> 
 
 Detta kan även göras via portalen. Se [administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal].
 
@@ -242,9 +238,9 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Skicka jobb
-**Skicka Apache Hadoop MapReduce-jobb**
+**Att skicka MapReduce-jobb**
 
-Se [kör Apache Hadoop MapReduce-exempel i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Se [kör MapReduce-exemplen i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Att skicka Apache Hive-jobb** 
 

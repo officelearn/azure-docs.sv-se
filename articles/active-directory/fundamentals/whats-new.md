@@ -15,12 +15,12 @@ ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 3021b919a83d7d5822f2ed5758e7e39cc76663d5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9453ceb143201e2b66604c0833d6b35dd2d2ad49
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312882"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995192"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -38,6 +38,30 @@ Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. O
 
 ---
 ## <a name="novemberdecember-2018"></a>November/December 2018
+
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Ta bort användare från synkronisering omfång någon längre växel till molnbaserad konton
+
+**Typ:** Korrigerat  
+**Tjänstekategori:** Användarhantering  
+**Produkten kapacitet:** Katalog
+
+Vi har ett fel har åtgärdats där flaggan DirSyncEnabled för en användare skulle bytas felaktigt en uppmaning till **FALSKT** när Active Directory Domain Services (AD DS)-objektet har undantas från omfånget för synkronisering och sedan flyttades till Papperskorgen i Azure AD på följande synkroniseringscykel. Till följd av denna snabbkorrigering om användaren uteslutas från synkronisering av omfång och därefter återställts från Azure AD-Papperskorgen, användarkontot är kvar som synkroniseras från en lokal AD, som förväntat och kan inte hanteras i molnet eftersom dess auktoritetskälla (SoA) finns kvar som lokala AD.
+
+Innan den här snabbkorrigeringen uppstod ett problem när flaggan DirSyncEnabled har växlats till False. Denna lösning gav fel intryck av att dessa konton har omvandlats till molnbaserad objekt och att konton som kan hanteras i molnet. Dock konton fortfarande kvar sina SoA som lokalt och alla synkroniserade egenskaper (shadow attribut) kommer från lokala AD. Det här tillståndet orsakade flera problem i Azure AD och andra arbetsbelastningar i molnet (till exempel Exchange Online) som förväntas hantera dessa konton som synkroniseras från AD, men har nu fungerar, t.ex. molnbaserad konton.
+
+För tillfället är det enda sättet att verkligen konvertera ett synkroniserad från AD-konto till molnbaserad konto genom att inaktivera DirSync på klientnivån, vilket då även utlöser en backend-åtgärder för att överföra SoA. Den här typen av SoA ändring kräver (men är inte begränsat till) rensar alla lokala relaterade attribut (till exempel LastDirSyncTime och shadow attribut) och skicka en signal till andra arbetsbelastningar att ha sitt respektive objekt konverteras till ett endast molnbaserat konto för .
+
+Den här snabbkorrigeringen förhindrar därför direkt uppdateringar på attributet ImmutableID för en användare som synkroniseras från AD, vilket i vissa scenarier tidigare krävdes. Avsiktligt är ImmutableID för ett objekt i Azure AD som namnet antyder avsedd att vara inte kan ändras. Nya funktioner som implementeras i Azure AD Connect Health och Azure AD Connect-synkronisering klienten är tillgängliga för att bemöta sådana scenarier:
+
+- **Storskaliga ImmutableID uppdateringar för många användare i en bild**
+
+  Till exempel när du implementerar Azure AD Connect du gör ett misstag och nu behöver du ändra SourceAnchor-attribut. Lösning: Inaktivera DirSync på klientnivån och rensa alla ogiltiga ImmutableID-värden. Mer information finns i [stänga av katalogsynkronisering för Office 365](/office365/enterprise/turn-off-directory-synchronization).
+
+- **Uppdatering av storskaliga ImmutableID för många användare i en stegvis metod**
+  
+  Exempelvis kan behöva du göra en långa migrering för AD DS-skog. Lösning: Använda Azure AD Connect till **konfigurera Källankare** och när du migrerar kopierar du befintliga ImmutableID värden från Azure AD till den lokala AD DS-användarens ms-DS-konsekvens-Guid-attribut för den nya skogen. Mer information finns i [med ms-DS-ConsistencyGuid som sourceAnchor](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
+
+- **Rematch lokala användare med en befintlig användare i Azure AD** exempelvis kan en användare som har varit återskapas i AD DS genererar en dubblett i Azure AD-konto i stället för rematching med ett befintligt Azure AD-konto (överblivna objekt). Lösning: Använda Azure AD Connect Health i Azure-portalen för att mappa om källan ankare/ImmutableID. Mer information finns i [Orphaned objekt scenariot](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
 
 ### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Icke-bakåtkompatibel ändring: Uppdateringar av gransknings- och logga in loggar schema via Azure Monitor
 
@@ -103,7 +127,7 @@ Azure AD-administratörer kan nu återställa sina egna lösenord med meddelande
 
 - Textmeddelande
 
-Läs mer om hur du använder Microsoft Authenticator-appen för att återställa lösenord, [Azure AD lösenordsåterställning via självbetjäning - mobilappen och SSPR (förhandsversion)](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
+Läs mer om hur du använder Microsoft Authenticator-appen för att återställa lösenord, [Azure AD lösenordsåterställning via självbetjäning - mobilappen och SSPR (förhandsversion)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
 
 ---
 
@@ -218,7 +242,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 ## <a name="october-2018"></a>Oktober 2018
 
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD-loggar nu arbeta med Azure Log Analytics (förhandsversion)
+### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD loggar nu arbete med Azure Log Analytics (allmänt tillgänglig förhandsversion)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Rapportering  
@@ -228,7 +252,7 @@ Vi är glada att kunna meddela att du nu kan vidarebefordra dina loggar med Azur
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - oktober 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Nya federerade appar är tillgängliga i Azure AD-appgalleriet – oktober 2018
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -242,7 +266,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 ---
 
-### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services e-postaviseringar
+### <a name="azure-ad-domain-services-email-notifications"></a>E-postmeddelanden för Azure AD Domain Services
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Azure AD Domain Services  
@@ -256,7 +280,7 @@ Mer information finns i [meddelandeinställningar i Azure AD Domain Services](ht
 
 ---
 
-### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Azure AD-portalen stöder användning av ForceDelete domänen API att ta bort anpassade domäner 
+### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Azure AD-portalen stöder användning av domän-API:et ForceDelete för att bort anpassade domäner 
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Kataloghantering  
@@ -274,7 +298,7 @@ Mer information finns i [ta bort ett anpassat domännamn](https://docs.microsoft
  
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Uppdaterade rolladministratörsbehörigheter för dynamiska grupper
 
-**Typ:** Åtgärdat  
+**Typ:** Korrigerat  
 **Tjänstekategori:** Grupphantering  
 **Produkten kapacitet:** Samarbete
 
@@ -310,7 +334,7 @@ Om du vill börja använda den här upplevelsen med ett klick, går du till den 
 
 ---
 
-### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory – var finns dina data? sidan
+### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory – Sidan Var finns dina data?
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Annat  
@@ -449,7 +473,7 @@ Som en del av vår uppdaterade SAML-baserad konfiguration av Användargränssnit
 
 - Ett sätt att ange NameID-Format för SAML-appar och ett sätt att ange NameID-värde som Katalogtillägg.
 
-Om du vill aktivera den här uppdaterade vyn klickar du på den **testa vår nya upplevelsen** länken högst upp på den **enkel inloggning** sidan. Mer information finns i [självstudien: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
+Om du vill aktivera den här uppdaterade vyn klickar du på den **testa vår nya upplevelsen** länken högst upp på den **enkel inloggning** sidan. Mer information finns i [Självstudie: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
 
 ---
 

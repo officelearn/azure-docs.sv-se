@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a152efb3979b4ffe3402ed668c0f683f5e9cc651
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337163"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651070"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Statisk IP-begränsningar för Azure App Service #
 
 IP-restriktioner kan du definiera en prioritet sorterade tillåta/Neka lista med IP-adresser som ska kunna komma åt din app. Listan över tillåtna kan innehålla IPv4 och IPv6-adresser. När det finns en eller flera poster, är det en implicit neka allt som finns i slutet av listan. 
 
-Begränsningar för IP-funktionen fungerar med alla App Service finns arbetsbelastningar, bland annat; webbappar, api-appar, linux-appar, appar i linux-behållaren och funktioner. 
+Begränsningar för IP-funktionen fungerar med alla App Service finns arbetsbelastningar, bland annat; webbappar, API-appar, Linux-appar, appar i Linux-behållaren och funktioner. 
 
 När en begäran skickas till din app, utvärderas från IP-adress mot listan över IP-begränsningar. Om adressen inte är tillåten åtkomst baserat på reglerna i listan, tjänsten svarar den med en [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuskod.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842347"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993339"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Felsöka problem med pågående replikering för Azure till Azure VM
 
@@ -22,13 +22,13 @@ Den här artikeln beskriver vanliga problem i Azure Site Recovery när replikera
 
 ## <a name="recovery-points-not-getting-generated"></a>Återställningspunkter som är inte en aviseringsstorm Generera
 
-FELMEDDELANDE: Ingen kraschkonsekventa återställningspunkten är tillgängliga för den virtuella datorn under de senaste 60 minuterna.</br>
+FELMEDDELANDE: Inga kraschkonsekventa återställningspunkten är tillgängliga för den virtuella datorn under de senaste 60 minuterna.</br>
 FEL-ID: 153007 </br>
 
 Azure Site Recovery replikerar data från källregionen till regionen disaster recovery konsekvent och skapar kraschkonsekvent återställningspunkt var femte minut. Om Site Recovery är det går inte att skapa återställningspunkter i 60 minuter, varnar användare. Här följer orsaker som kan resultera i det här felet:
 
-**Orsak 1: [hög dataändringshastighet på den virtuella källdatorn](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Orsak 2: [nätverksanslutningsfel ](#Network-connectivity-issue)**
+**Orsak 1: [Hög dataändringshastigheten på den virtuella källdatorn](#high-data-change-rate-on-the-source-virtal-machine)**    
+**Orsak 2: [Problem med nätverksanslutningen ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 
@@ -68,18 +68,18 @@ Att hitta dataändringshastighet på den berörda virtuella datorn. Gå till den
 
 I de här fallen ovan om det är en databearbetning burst och förändringstakten för data är större än 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) under en viss tid och kommer nedåt ska replikering fånga upp. Men om omsättningen är långt utöver gränsen som stöds i de flesta fall, sedan bör du överväga någon av de nedan alternativet om möjligt:
 
-**Alternativ 1:** undanta en disk som orsakar hög dataändringshastigheten: </br>
+**Alternativ 1:** Undanta en disk som orsakar hög dataändringshastigheten: </br>
 Du kan för närvarande undanta en disk med hjälp av [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
 
-**Alternativ 2:** ändra disaster recovery lagringsnivå disk: </br>
+**Alternativ 2:** Ändra disaster recovery lagringsnivå disk: </br>
 Det här alternativet är endast möjligt om dataomsättningen för disken är mindre än 10 MB/s. Låt anta att en virtuell dator med P10 har disken en dataomsättning som är större än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda P30-disk för mållagring vid skydd, kan problemet lösas.
 
 ### <a name="Network-connectivity-issue"></a>Problem med nätverksanslutningen
 
 #### <a name="network-latency-to-cache-storage-account-"></a>Svarstid för nätverk till cachelagringskontot:
  Site Recovery skickar replikerade data till cachelagringskontot och problemet kan inträffa om dataöverföringen från den virtuella datorn till cachelagringskontot är långsammare den 4 MB i 3 sekunder. Att kontrollera om det finns några problem som rör svarstid Använd [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) att överföra data från den virtuella datorn till cachelagringskontot.<br>
-Om svarstiden är hög, kontrollerar du om du använder en virtuell nätverksutrustning för att styra utgående nätverkstrafik från virtuella datorer. Installationen kan begränsas om all replikeringstrafik som passerar genom NVA. Vi rekommenderar att du skapar en tjänstslutpunkt för nätverk i ditt virtuella nätverk för ”Storage” så att replikeringstrafiken inte går att NVA. Se [nätverkskonfiguration för virtuell installation](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Om svarstiden är hög, kontrollerar du om du använder en virtuell nätverksutrustning för att styra utgående nätverkstrafik från virtuella datorer. Installationen kan begränsas om all replikeringstrafik som passerar genom NVA. Vi rekommenderar att du skapar en tjänstslutpunkt för nätverk i ditt virtuella nätverk för ”Storage” så att replikeringstrafiken inte går att NVA. Se [nätverkskonfiguration för virtuell installation](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
 
 #### <a name="network-connectivity"></a>Nätverksanslutning
 För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn finns bakom en brandvägg eller använder regler för nätverkssäkerhetsgrupper (NSG) för att styra utgående anslutningar, kan du står inför ett av de här problemen.</br>
-Referera till [utgående anslutning för Site Recovery-webbadresser](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) att kontrollera att alla URL: er är anslutna 
+Referera till [utgående anslutning för Site Recovery-webbadresser](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) att kontrollera att alla URL: er är anslutna 

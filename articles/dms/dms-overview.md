@@ -4,18 +4,18 @@ description: Översikt över Azure Database Migration Service, som ger sömlös 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
+manager: craigg
 ms.reviewer: douglasl
-ms.service: database-migration
+ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/12/2018
-ms.openlocfilehash: b3509917f0473795ec204c6672a630b2857ff37c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/19/2018
+ms.openlocfilehash: 68fb6497141d79dc721af7dfa5a8f69102c7e239
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343929"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722208"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
 Azure Database Migration Service är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid (online migreringar).
@@ -24,7 +24,7 @@ Azure Database Migration Service är en helt hanterad tjänst som utformats för
 Azure Database Migration Service integrerar några av funktionerna i vår befintliga verktyg och tjänster. Tjänsten ger kunderna med en omfattande lösning med hög tillgänglighet. Tjänsten använder den [Data Migration Assistant](https://aka.ms/dma) att generera bedömningsrapporter som ger rekommendationer att guida dig genom de ändringar som krävs innan du utför en migrering. Det är upp till du kan utföra alla åtgärder som krävs. När du är redo att påbörja migreringsprocessen utför Azure Database Migration Service alla nödvändiga steg. Du kan utlöses och Glöm ditt migreringsprojekt med tryggheten att veta att processen drar nytta av bästa praxis enligt Microsofts bedömning.
 
 > [!NOTE]
-> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserat på prisnivån Premium (förhandsversion).
+> Med hjälp av Azure Database Migration Service för att utföra en online-migrering måste du skapa en instans baserat på premiumprisnivån.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 Uppdaterad information om regional tillgänglighet för Azure Database Migration Service finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef914318174ee3ce738769fcae910c82b35b21b4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0c70d3b5166b0e3719aa621091920d2c91696bf1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998557"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973544"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor (och svar FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -91,7 +91,7 @@ För virtuella datorer och fysiska servrar stöds replikerar mellan lokala plats
 Azure Site Recovery replikerar data till ett Azure storage-konto via en offentlig slutpunkt. Replikering är inte via ett plats-till-plats-VPN. Du kan skapa en plats-till-plats-VPN, med ett Azure-nätverk. Detta stör inte Site Recovery-replikering.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Kan jag använda ExpressRoute för att replikera virtuella datorer till Azure?
-Ja, [ExpressRoute kan användas för](concepts-expressroute-with-site-recovery.md) att replikera lokala virtuella datorer till Azure. Azure Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. När de virtuella datorerna har redundansväxlats till en Azure-nätverk kan du komma åt dem med hjälp av den [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installation med virtuella Azure-nätverket. Replikering stöds inte över privat peering.
+Ja, [ExpressRoute kan användas för](concepts-expressroute-with-site-recovery.md) att replikera lokala virtuella datorer till Azure. Azure Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. Se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. När de virtuella datorerna har redundansväxlats till en Azure-nätverk kan du komma åt dem med hjälp av den [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installation med virtuella Azure-nätverket. Replikering stöds inte över privat peering.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Finns det några krav för att replikera virtuella datorer till Azure?
 [Virtuella VMware-datorer](vmware-physical-azure-support-matrix.md#replicated-machines) och [Hyper-V-datorer](hyper-v-azure-support-matrix.md#replicated-vms) du vill replikera till Azure måste uppfylla kraven för Azure.
@@ -116,7 +116,7 @@ Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina d
 
 ### <a name="how-often-can-i-replicate-data"></a>Hur ofta kan jag replikera data?
 * **Hyper-V:** Hyper-V-datorer kan replikeras var 30 sekunder (förutom för premium-lagring), 5 minuter eller 15 minuter. Om du har konfigurerat SAN-replikering är replikeringen synkron.
-* **Azure VM: ar, VMware och fysiska servrar:** en replikeringsfrekvensen är irrelevant här. Replikeringen är kontinuerlig.
+* **Azure VM: ar, VMware och fysiska servrar:** En replikeringsfrekvensen är irrelevant här. Replikeringen är kontinuerlig.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Kan jag utöka replikeringen från den befintliga återställningsplatsen till en annan tertiär plats?
 Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).

@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971529"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973218"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -175,13 +175,15 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
 
 Med geo-replikerade databaser när du aktiverar granskning på den primära databasen har den sekundära databasen en identisk granskningsprincip. Det är också möjligt att ställa in granskning på den sekundära databasen genom att aktivera granskning på **sekundär server**, oberoende av den primära databasen.
 
-- På servernivå (**rekommenderas**): aktivera granskning på både den **primärservern** samt de **sekundär server** -primära och sekundära databaserna var granskas oberoende av varandra utifrån deras respektive princip på servernivå.
-- Databasnivå: Databasnivå granskning för sekundära databaser kan bara konfigureras från den primära databasen granskningsinställningar.
+- På servernivå (**rekommenderas**): Aktivera granskning på både den **primärservern** samt de **sekundär server** -primära och sekundära databaserna var granskas oberoende baserat på deras respektive princip på servernivå.
+- På databasnivå: Granskning databasnivå för sekundära databaser kan bara konfigureras från den primära databasen granskningsinställningar.
   - Granskning måste vara aktiverat på den *primära databasen själva*, inte på servern.
   - När granskning har aktiverats på den primära databasen kan aktiveras det också på den sekundära databasen.
 
     >[!IMPORTANT]
     >Med granskning på databasnivå, ska lagringsinställningarna för den sekundära databasen vara identiskt för den primära databasen orsakar tvärregional trafik. Vi rekommenderar att du aktiverar endast serverniv och lämna granskning på databasnivå inaktiverad för alla databaser.
+    > [!WARNING]
+    > Med hjälp av event hub eller log analytics som mål för granskningsloggar på servernivå stöds för närvarande inte för sekundär geo-replikerade databaser.
 
 ### <a id="subheading-6">Storage åtkomstnyckeln återskapades</a>
 
@@ -220,12 +222,12 @@ I produktion förmodligen du uppdatera dina storage-nycklar med jämna mellanrum
 
 ## <a id="subheading-7"></a>Hantera SQL database-granskning med Azure PowerShell
 
-**PowerShell-cmdletar**:
+**PowerShell-cmdletar (inklusive WHERE-satsen stöd för ytterligare filtrering)**:
 
-- [Skapa eller uppdatera databasen Blob granskningsprincip (Set-AzureRMSqlDatabaseAuditing)][105]
-- [Skapa eller uppdatera Server Blob granskningsprincip (Set-AzureRMSqlServerAuditing)][106]
-- [Hämta databasen granskningsprincip (Get-AzureRMSqlDatabaseAuditing)][101]
-- [Hämta Server Blob granskningsprincip (Get-AzureRMSqlServerAuditing)][102]
+- [Skapa eller uppdatera databasen Blob granskningsprincip (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Skapa eller uppdatera Server Blob granskningsprincip (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Hämta databasen granskningsprincip (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Hämta Server Blob granskningsprincip (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 Ett skript-exempel finns i [konfigurera granskning och hotidentifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -245,6 +247,14 @@ Utökade princip med där satsen stöd för ytterligare filtrering:
 - [Hämta databas *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Hämta Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>Hantera SQL database-granskning med hjälp av ARM-mallar
+
+Du kan hantera Azure SQL database-granskning med hjälp av [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) mallar, som visas i följande exempel:
+
+- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Azure blob storage-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ Utökade princip med där satsen stöd för ytterligare filtrering:
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ Utökade princip med där satsen stöd för ytterligare filtrering:
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

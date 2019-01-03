@@ -3,15 +3,16 @@ title: VMware till Azure disaster recovery-arkitekturen i Azure Site Recovery | 
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 962ced808f97dd1fea3805fa8c953e6d7563cd17
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1c47f9d511cd6461ef5a31f308669eba751d1de4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871752"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976009"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware till Azure disaster recovery-arkitekturen
 
@@ -25,7 +26,7 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 **Azure** | En Azure-prenumeration, Azure Storage-konto och Azure-nätverk. | Replikerade data från lokala virtuella datorer lagras i lagringskontot. Virtuella Azure-datorer skapas med replikerad data när du kör en redundans från lokalt till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**Configuration server-dator** | En enda lokal dator. Vi rekommenderar att du ska köra den som en VMware-VM som kan distribueras från en nedladdade OVF-mall.<br/><br/> Datorn kör alla lokala Site Recovery-komponenter, bland annat konfigurationsservern, processervern och huvudmålservern. | **Konfigurationsservern**: samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering.<br/><br/> **Processervern**: installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Processervern installerar också Azure Site Recovery-Mobilitetstjänsten på virtuella datorer du vill replikera, samt utför automatisk identifiering av lokala datorer. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.<br/><br/> **Huvudmålservern**: installeras som standard på konfigurationsservern. Den hanterar replikeringsdata vid återställning från Azure. För stora distributioner, kan du lägga till en ytterligare, separat huvudmålserver för återställning efter fel.
+**Configuration server-dator** | En enda lokal dator. Vi rekommenderar att du ska köra den som en VMware-VM som kan distribueras från en nedladdade OVF-mall.<br/><br/> Datorn kör alla lokala Site Recovery-komponenter, bland annat konfigurationsservern, processervern och huvudmålservern. | **Konfigurationsservern**: Samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering.<br/><br/> **Processerver**: Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Processervern installerar också Azure Site Recovery-Mobilitetstjänsten på virtuella datorer du vill replikera, samt utför automatisk identifiering av lokala datorer. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.<br/><br/> **Huvudmålservern**: Installeras som standard på konfigurationsservern. Den hanterar replikeringsdata vid återställning från Azure. För stora distributioner, kan du lägga till en ytterligare, separat huvudmålserver för återställning efter fel.
 **VMware-servrar** | Virtuella VMware-datorer finns på den lokala vSphere ESXi-servrar. Vi rekommenderar en vCenter-server hanterar värdarna. | Under distributionen av Site Recovery måste du lägga till VMware-servrar till Recovery Services-valvet.
 **Replikerade datorer** | Mobilitetstjänsten installeras på varje VMware VM som du replikerar. | Vi rekommenderar att du tillåter automatisk installation från processervern. Du kan också installera tjänsten manuellt eller använda en metod för automatisk distribution, till exempel System Center Configuration Manager.
 
@@ -70,15 +71,15 @@ När replikering har ställts in och du kör ett programåterställningstest (te
 2. Du etablerar den för att få åtkomst till arbetsbelastningen från den virtuella Azure-datorer efter första redundansen.
 3. När din primära lokala plats är tillgänglig igen, kan du förbereda för återställning vid fel. För att kunna återställa dit du behöva ställa in en infrastruktur för återställning efter fel, inklusive:
 
-    * **Tillfällig processerver i Azure**: Om du vill redundansväxla från Azure, du har konfigurerat en Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
-    * **VPN-anslutningen**: för att återställa, du behöver en VPN-anslutning (eller ExpressRoute) från Azure-nätverket till den lokala platsen.
-    * **Separat huvudmålserver**: som standard som installerades med konfigurationsservern på en lokal VMware VM huvudmålservern hanterar återställning efter fel. Om du vill växla tillbaka stora mängder trafik kan du konfigurera en separat lokal huvudmålserver för detta ändamål.
-    * **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en återställningsprincip. Den här principen skapas automatiskt när du skapar en replikeringsprincip från en lokal plats till Azure.
+    * **Tillfällig processerver i Azure**: Om du vill redundansväxla från Azure ställa du in en Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
+    * **VPN-anslutningen**: För att återställa, behöver du en VPN-anslutning (eller ExpressRoute) från Azure-nätverket till den lokala platsen.
+    * **Separat huvudmålserver**: Som standard hanterar som installerades med konfigurationsservern på en lokal VMware VM huvudmålservern återställning efter fel. Om du vill växla tillbaka stora mängder trafik kan du konfigurera en separat lokal huvudmålserver för detta ändamål.
+    * **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en princip för återställning efter fel. Den här principen skapas automatiskt när du skapar en replikeringsprincip från en lokal plats till Azure.
 4. När komponenterna är på plats så utförs återställning efter fel i tre åtgärder:
 
     - Steg 1: Återaktivera skyddet av virtuella Azure-datorer så att de replikera från Azure till lokala VMware-datorer.
     -  Steg 2: Kör en redundansväxling till den lokala platsen.
-    - Steg 3: När arbetsbelastningar har återställts du återaktivera replikering för de lokala virtuella datorerna.
+    - Steg 3: När arbetsbelastningar har återställts återaktivera replikering för de lokala virtuella datorerna.
     
  
 **VMware återställning efter fel från Azure**

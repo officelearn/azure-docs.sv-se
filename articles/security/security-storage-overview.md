@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259147"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973136"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
@@ -67,11 +67,11 @@ Kryptering under överföring är en mekanism för att skydda data när de skick
 Läs mer om client side encryption:
 
 * [Client Side Encryption för Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Molnsäkerhet styr serien: kryptera Data under överföring](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Molnsäkerhet styr serien: Krypterar Data under överföring](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Vilande kryptering
 
-Många organisationer [datakryptering i viloläge](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot att sekretess, efterlevnad och datasuveränitet. Tre funktioner i Azure tillhandahåller kryptering av data som är vilande:
+Många organisationer [datakryptering i viloläge](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot att sekretess, efterlevnad och datasuveränitet. Tre funktioner i Azure tillhandahåller kryptering av data som är vilande:
 
 * [Kryptering av lagringstjänst](../storage/common/storage-security-guide.md#encryption-at-rest) kan du begära att lagringstjänsten automatiskt kryptera data när du skriver den till Azure Storage.
 * [Client side encryption](../storage/common/storage-security-guide.md#client-side-encryption) tillhandahåller även funktionen för kryptering i vila.

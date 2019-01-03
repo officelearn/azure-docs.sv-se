@@ -1,7 +1,7 @@
 ---
 title: Som beskriver bilder - visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för som beskriver bilder med hjälp av den API för visuellt innehåll.
+description: Begrepp för funktionen bild beskrivning av den API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342423"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583416"
 ---
-# <a name="describing-images"></a>Beskriva bilder
+# <a name="describe-images-with-human-readable-language"></a>Beskriv bilder med läsbara språk
 
-Datorn Vision algoritmer analysera innehållet i en bild. Den här analysen utgör grunden för en ”beskrivning” visas som läsbara språk i fullständiga meningar. Beskrivningen sammanfattar vad som finns i bild. Datorn Vision algoritmer generera olika beskrivningar baserat på visuella funktioner som identifierats i avbildningen. Varje beskrivning utvärderas och ett förtroenderesultat genereras. Sedan returneras en lista som är sorterad efter högsta till lägsta förtroendepoäng.
+Datorn Vision algoritmer analysera innehållet i en bild. Denna analys utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor i fullständiga meningar. Beskrivningen sammanfattar vad som finns i bilden. Datorn Vision algoritmer generera olika beskrivningar baserat på visuella funktioner som identifierats i avbildningen. Varje beskrivning utvärderas och ett förtroenderesultat genereras. Sedan returneras en lista som är sorterad efter högsta till lägsta förtroendepoäng.
 
 ## <a name="image-description-example"></a>Exempel på Programbeskrivning bild
 
 Följande JSON-svar visar vad för visuellt innehåll returnerar att beskriva exempelbild baserat på dess visuella funktioner.
 
-![B & W byggnader](./Images/bw_buildings.png)
+![En svart och bild av byggnader i Manhattan](./Images/bw_buildings.png)
 
 ```json
 {

@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132890"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729415"
 ---
 1. Logga in på [Azure Portal].
 2. Välj **+ ny** > **webb + mobilt** > **Mobilapp**, och sedan ange ett namn för Mobile Apps-serverdel.
 3. För **resursgrupp**, Välj en befintlig resursgrupp eller skapa en ny (med samma namn som din app). 
 4. För **apptjänstplan**, standardplanen (i den [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) är markerad. Du kan också välja en annan plan eller [skapa en ny](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   App Service-planens inställningar avgör den [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som är associerade med din app. Mer information om App Service-planer och hur du skapar en ny plan i en annan prisnivå nivå och på din önskade plats finns i [Azure App Service-planer djupgående översikt över](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+   App Service-planens inställningar avgör den [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som är associerade med din app. Mer information om App Service-planer och hur du skapar en ny plan i en annan prisnivå nivå och på din önskade plats finns i [Azure App Service-planer djupgående översikt över](../articles/app-service/overview-hosting-plans.md).
    
 5. Välj **Skapa**. Det här steget skapar Mobile Apps-serverdel. 
 6. I den **inställningar** för nya Mobile Apps serverdel, väljer **Snabbstart** > din klientapplattform > **Anslut en databas**. 

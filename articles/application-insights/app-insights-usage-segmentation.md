@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 16795ce1fd53b9634dbc2ff7513d1c39752b8848
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720158"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974598"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Användare, sessioner och händelser analys i Application Insights
 
@@ -34,11 +34,11 @@ Om du ännu inte visas data i användare, sessioner eller händelser bladen i Ap
 
 Tre av bladen användning använder du samma verktyg rapportanvändarna telemetri från ditt program från tre perspektiv. Genom att filtrera och dela data, kan du få insikter om den relativa användningen av olika sidor och funktioner.
 
-* **Användarverktyget**: hur många som används för din app och dess funktioner.  Användare räknas med hjälp av anonym ID som finns lagrade i cookies. En enskild person som använder olika webbläsare eller datorer räknas som flera användare.
-* **Sessionsverktyget**: hur många sessioner av användaraktivitet har inkluderat vissa sidor och funktioner i din app. En session räknas efter en halvtimme av användaren inaktivitet eller efter 24 timmar kontinuerlig användning.
-* **Händelseverktyget**: hur ofta vissa sidor och funktioner i din app används. En Sidvisning räknas när en webbläsare läser en sida från din app, förutsatt att du har [instrumenterats den](app-insights-javascript.md). 
+* **Användarverktyget**: Hur många som används för din app och dess funktioner.  Användare räknas med hjälp av anonym ID som finns lagrade i cookies. En enskild person som använder olika webbläsare eller datorer räknas som flera användare.
+* **Sessionsverktyget**: Hur många sessioner av användaraktivitet har inkluderat vissa sidor och funktioner i din app. En session räknas efter en halvtimme av användaren inaktivitet eller efter 24 timmar kontinuerlig användning.
+* **Händelseverktyget**: Hur ofta vissa sidor och funktioner i din app används. En Sidvisning räknas när en webbläsare läser en sida från din app, förutsatt att du har [instrumenterats den](../azure-monitor/app/javascript.md). 
 
-    En anpassad händelse representerar en förekomst av något händer i din app, ofta någon interaktion från användaren som en knapp klickar du på eller slutförandet av en uppgift. Du infoga kod i din app till [generera anpassade händelser](app-insights-api-custom-events-metrics.md#trackevent).
+    En anpassad händelse representerar en förekomst av något händer i din app, ofta någon interaktion från användaren som en knapp klickar du på eller slutförandet av en uppgift. Du infoga kod i din app till [generera anpassade händelser](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Fråga efter för vissa användare
 
@@ -47,7 +47,7 @@ Utforska olika grupper av användare genom att justera frågealternativ överst 
 * Visa: Välj en kohort för användare att analysera.
 * Som används: Välj anpassade händelser och sidvisningar.
 * Under: Välj ett tidsintervall.
-* Genom: Välj hur du bucket data, antingen av en viss tid eller efter en annan egenskap, till exempel webbläsare eller ort.
+* Genom att: Välj hur du bucket data, antingen av en viss tid eller efter en annan egenskap, till exempel webbläsare eller ort.
 * Dela efter: Välj en egenskap som att dela eller segment data. 
 * Lägg till filter: Begränsa frågan till vissa användare, sessioner eller händelser utifrån deras egenskaper, till exempel webbläsare eller ort. 
  

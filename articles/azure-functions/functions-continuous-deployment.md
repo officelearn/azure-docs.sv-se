@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301556"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548603"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 Azure Functions gör det enkelt att distribuera funktionsappen med kontinuerlig integrering för App Service. Functions kan integreras med BitBucket, Dropbox, GitHub och Azure DevOps. På så sätt kan ett arbetsflöde där Funktionskoden uppdaterar genom att använda en av dessa integrerade tjänster utlösaren distribution till Azure. Om du är nybörjare på Azure Functions, börja med [översikt över Azure Functions](functions-overview.md).
@@ -26,7 +26,7 @@ Kontinuerlig distribution är ett bra alternativ för projekt där flera och oft
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Extern lagringsplats (Git- eller Mercurial)
-* [Lokal Git-lagringsplats](../app-service/app-service-deploy-local-git.md)
+* [Lokal Git-lagringsplats](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps-tjänsterna](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Använd den här proceduren för att konfigurera kontinuerlig distribution för 
  
     ![Konfigurera kontinuerlig distribution](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. I den **distributionskälla** bladet klickar du på **Välj källa**och fyller sedan i informationen för din valda distributionskälla Klicka **OK**.
+3. I den **distributionskälla** bladet klickar du på **Välj källa**och fyller sedan i informationen för din valda distributionskälla Klicka **OK**.
    
     ![Välj distributionskälla](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -93,12 +93,12 @@ När du har befintliga funktioner som du har skapat och underhålls i portalen, 
 > [!NOTE]
 > När du konfigurerar kontinuerlig integrering, kommer du inte längre att kunna redigera källfilerna i Functions-portalen.
 
-- [Så här: Konfigurera autentiseringsuppgifter för distribution](#credentials)
-- [Så här: hämta filer med FTP](#downftp)
-- [Så här: ladda ned filer med hjälp av den lokala Git-lagringsplatsen](#downgit)
+- [Hur: Konfigurera autentiseringsuppgifter för distribution](#credentials)
+- [Hur: Ladda ned filer med FTP](#downftp)
+- [Hur: Ladda ned filer med hjälp av den lokala Git-lagringsplatsen](#downgit)
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Så här: Konfigurera autentiseringsuppgifter för distribution
+#### <a name="how-to-configure-deployment-credentials"></a>Anvisningar: Konfigurera autentiseringsuppgifter för distribution
 Innan du kan ladda ned filer från din funktionsapp med FTP eller lokal Git-lagringsplats, måste du konfigurera dina autentiseringsuppgifter för att komma åt webbplatsen. Autentiseringsuppgifterna är inställda på funktionen app-nivå. Använd följande steg för att ange autentiseringsuppgifter för distribution i Azure portal:
 
 1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **distributionsbehörigheterna**.
@@ -108,7 +108,7 @@ Innan du kan ladda ned filer från din funktionsapp med FTP eller lokal Git-lagr
 2. Ange ett användarnamn och lösenord och klicka sedan på **spara**. Du kan nu använda dessa autentiseringsuppgifter för åtkomst till din funktionsapp från FTP- eller inbyggd Git-lagringsplats.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Så här: hämta filer med FTP
+#### <a name="how-to-download-files-using-ftp"></a>Anvisningar: Ladda ned filer med FTP
 
 1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **egenskaper**, kopiera värdena för **FTP/Distributionsanvändare**, **FTP-värdnamn**, och **FTPS-värdnamn**.  
 
@@ -119,7 +119,7 @@ Innan du kan ladda ned filer från din funktionsapp med FTP eller lokal Git-lagr
 2. Från FTP-klienten använder du informationen du samlade in för att ansluta till din app och ladda ned källfilerna för dina funktioner.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Så här: ladda ned filer med hjälp av en lokal Git-lagringsplats
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Anvisningar: Ladda ned filer med hjälp av en lokal Git-lagringsplats
 
 1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **distributionsalternativ**. 
    

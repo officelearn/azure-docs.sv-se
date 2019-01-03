@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012002"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789237"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-scheman för Media Services-händelser
 
@@ -28,7 +28,7 @@ En lista över exempel på skript och självstudier finns i [medietjänster hän
 
 ### <a name="job-related-event-types"></a>Jobbet relaterade händelsetyper
 
-Media Services genererar den **jobbet** relaterade händelsetyper som beskrivs nedan. Det finns två kategorier för de **jobbet** relaterade händelser: ”Monitoring jobbet tillståndsändringar” och ”övervakning jobbet utdata tillståndsändringar”. 
+Media Services genererar den **jobbet** relaterade händelsetyper som beskrivs nedan. Det finns två kategorier för de **jobbet** relaterade händelser: ”Övervakning jobbets status ändras” och ”övervakning jobbets utdata status ändras”. 
 
 Du kan registrera dig för alla händelser genom att prenumerera på händelsen JobStateChange. Eller så kan du prenumerera på specifika händelser endast (till exempel sluttillstånd som JobErrored, JobFinished och JobCanceled). 
 
@@ -112,9 +112,9 @@ Dataobjektet har följande egenskaper:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | previousState | sträng | Status för jobbet innan händelsen. |
-| state | sträng | Det nya läget för jobbet som ett meddelande i den här händelsen. Till exempel ”schemalagd: jobbet är redo att börja” eller ”slutfört: jobbet har slutförts”.|
+| state | sträng | Det nya läget för jobbet som ett meddelande i den här händelsen. Till exempel ”schemalagd: Jobbet är redo att börja ”eller” slutfört: Jobbet har slutförts ”.|
 
-Där jobbets status kan vara något av värdena: *i kö*, *schemalagd*, *bearbetning*, *slutfört*, *fel*, *Har avbrutits*, *avbryts*
+Där jobbets status kan vara något av värdena: *I kö*, *schemalagda*, *bearbetning*, *klar*, *fel*, *har avbrutits*, *Avbryts*
 
 > [!NOTE]
 > *I kö* endast kommer att finnas i den **previousState** egenskapen men inte i den **tillstånd** egenskapen.
@@ -134,7 +134,7 @@ För varje-slutlig jobbet tillståndsändring (till exempel JobScheduled, JobPro
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ För varje sista tillståndsändring jobb (till exempel JobFinished, JobCanceled
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ I följande exempel visas schemat för den **JobOutputStateChange** händelse:
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ För varje JobOutput i tillståndsändring ut exempel schemat ungefär så här:
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ I följande exempel visas schemat för den **LiveEventConnectionRejected** händ
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -394,14 +395,15 @@ I följande exempel visas schemat för den **LiveEventIncomingDataChunkDropped**
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -413,8 +415,8 @@ Dataobjektet har följande egenskaper:
 | TrackType | sträng | Typ av spåret (ljud / Video). |
 | TrackName | sträng | Namnet på kursen. |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| Tidsstämpel | sträng | Tidsstämpel datagruppen släppts. |
-| Tidsskala | sträng | Tidsskalan för tidsstämpeln. |
+| tidsstämpel | sträng | Tidsstämpel datagruppen släppts. |
+| tidsskalan | sträng | Tidsskalan för tidsstämpeln. |
 | Resultatkod | sträng | Orsaken till i listrutan för data-segmentet. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -456,8 +458,8 @@ Dataobjektet har följande egenskaper:
 | IngestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
 | EncoderIp | sträng  | IP-Adressen för kodaren. |
 | EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
-| Tidsstämpel | sträng | Första tidsstämpel datagruppen som tagits emot. |
-| Tidsskala | sträng | Tidsskalan där timestamp representeras. |
+| tidsstämpel | sträng | Första tidsstämpel datagruppen som tagits emot. |
+| tidsskalan | sträng | Tidsskalan där timestamp representeras. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -509,13 +511,14 @@ I följande exempel visas schemat för den **LiveEventIncomingVideoStreamsOutOfS
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -528,7 +531,7 @@ Dataobjektet har följande egenskaper:
 | FirstDuration | sträng | Varaktighet datagruppen med första tidsstämpel. |
 | SecondTimestamp | sträng  | Tidsstämpel som togs emot för vissa andra spåra/kvalitetsnivå av typen video. |
 | SecondDuration | sträng | Varaktighet datagruppen med andra tidsstämpel. |
-| Tidsskala | sträng | Tidsskalan tidsstämplar och varaktighet.|
+| tidsskalan | sträng | Tidsskalan tidsstämplar och varaktighet.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -571,13 +574,13 @@ Dataobjektet har följande egenskaper:
 | Bithastighet | heltal | Bithastighet av kursen. |
 | IncomingBitrate | heltal | Beräknad bithastighet baserat på datasegment som kommer från kodaren. |
 | LastTimestamp | sträng | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
-| Tidsskala | sträng | Tidsskalan där tidsstämplar uttrycks. |
+| tidsskalan | sträng | Tidsskalan där tidsstämplar uttrycks. |
 | OverlapCount | heltal | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
 | DiscontinuityCount | heltal | Antal avbrott som observerats under de senaste 20 sekunder. |
 | NonIncreasingCount | heltal | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
-| UnexpectedBitrate | Bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, IncomingBitrate > = 2 * bithastighet eller IncomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
-| Status | sträng | Status för live-händelse. |
-| Felfri | Bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
+| UnexpectedBitrate | Bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
+| state | sträng | Status för live-händelse. |
+| felfri | Bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -616,7 +619,7 @@ Dataobjektet har följande egenskaper:
 | PreviousTimestamp | sträng | Tidsstämpel för det föregående fragmentet. |
 | NewTimestamp | sträng | Tidsstämpel för det aktuella fragmentet. |
 | DiscontinuityGap | sträng | Mellanrummet mellan ovan två tidsstämplar. |
-| Tidsskala | sträng | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
+| tidsskalan | sträng | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
 
 ### <a name="common-event-properties"></a>Gemensamma händelseegenskaper
 

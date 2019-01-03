@@ -1,19 +1,20 @@
 ---
 title: Så här konfigurerar du övervakning i Azure Digital Twins | Microsoft Docs
-description: Så här konfigurerar du övervakning i Azure Digital Twins
+description: Så här konfigurerar du övervakning i Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
-ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.custom: seodec18
+ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945832"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807592"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Så här konfigurerar du övervakning i Azure Digital Twins
 
@@ -23,7 +24,7 @@ Den här artikeln sammanfattas loggning och övervakning alternativ och hur du k
 
 ## <a name="review-activity-logs"></a>Granska aktivitetsloggar
 
-Azure [aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ge snabba insikter om prenumerationsnivå händelse och Åtgärd Historik för varje Azure-tjänst-instans.
+Azure [aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md) ge snabba insikter om prenumerationsnivå händelse och Åtgärd Historik för varje Azure-tjänst-instans.
 
 Händelser på prenumerationsnivå är:
 
@@ -54,7 +55,7 @@ För avancerade aktivitetsloggning:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Aktivera diagnostikloggar för kunden
 
-Azure [diagnostikinställningar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) kan anges för varje Azure-instans som komplement aktivitetsloggning. Aktivitetsloggar hör till händelser på prenumerationsnivå, ger diagnostisk loggning insikter om operativa historiken för själva resurserna.
+Azure [diagnostikinställningar](../azure-monitor/platform/diagnostic-logs-overview.md) kan anges för varje Azure-instans som komplement aktivitetsloggning. Aktivitetsloggar hör till händelser på prenumerationsnivå, ger diagnostisk loggning insikter om operativa historiken för själva resurserna.
 
 Exempel på Diagnostisk loggning:
 
@@ -74,7 +75,7 @@ Aktivera diagnostikloggar för en instans:
 
     ![Diagnostikinställningar för två][5]
 
-    Diagnostikloggar sparas ofta med hjälp av [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) och som delas med [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Du kan välja båda alternativen.
+    Diagnostikloggar sparas ofta med hjälp av [Azure File Storage](../storage/files/storage-files-deployment-guide.md) och som delas med [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Du kan välja båda alternativen.
 
 >[!TIP]
 >Använd **diagnostikloggar** för insikter om resursåtgärder.
@@ -91,7 +92,7 @@ Exempel på användning:
 * Se loggar för flera användardefinierade funktioner
 * Visa loggar för två eller flera tjänster inom en viss tidsperiod
 
-Fullständig log fråga är tillgängligt via [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Du ställer in de här kraftfulla funktioner:
+Fullständig log fråga är tillgängligt via [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Du ställer in de här kraftfulla funktioner:
 
 1. Sök efter **Log Analytics** i Azure-portalen.
 1. Du kommer att se din tillgängliga **Log Analytics** instanser. Välj en och välj **loggar** till fråga:
@@ -106,7 +107,7 @@ När din **Log Analytics** instansen finns, men du kan använda kraftfulla fråg
 
    ![Logghantering][8]
 
-Läs mer om kraftfulla frågeåtgärder [komma igång med frågor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Läs mer om kraftfulla frågeåtgärder [komma igång med frågor](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Det uppstår en fördröjning i 5 minuter när du skickar händelser till **Log Analytics** för första gången.
@@ -120,15 +121,15 @@ Azure Log Analytics erbjuder även kraftfulla fel och avisering om tjänster, so
 
 ## <a name="other-options"></a>Andra alternativ
 
-Azure Digital Twins stöder också programspecifika loggning och säkerhetsgranskning. En omfattande översikt över alla Azure-loggningsalternativ som är tillgängliga för din Azure Digital Twins-instans finns i den [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) artikeln.
+Azure Digital Twins stöder också programspecifika loggning och säkerhetsgranskning. En omfattande översikt över alla Azure-loggningsalternativ som är tillgängliga för din Azure Digital Twins-instans finns i den [Azure log audit](../security/azure-log-audit.md) artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure [aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).
+- Läs mer om Azure [aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md).
 
-Genomgång av djupare Azure diagnostikinställningar genom att läsa en [översikt över diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Genomgång av djupare Azure diagnostikinställningar genom att läsa en [översikt över diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Läs mer om [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
+- Läs mer om [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

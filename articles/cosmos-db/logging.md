@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d91c1e99a04f6fdbc6422aa18504625471d0f0d1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438514"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810499"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
@@ -75,13 +75,13 @@ Om du vill aktivera Diagnostisk loggning i Azure-portalen, gör du följande:
 
 2. I den **diagnostikinställningar** gör du följande steg: 
 
-    * **Namn på**: Ange ett namn att skapa loggarna.
+    * **Namn**: Ange ett namn att skapa loggarna.
 
     * **Arkivera till ett lagringskonto**: Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portal, [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) och följ anvisningarna för att skapa en Azure Resource Manager, Allmänt konto. Gå sedan tillbaka till den här sidan i portalen för att välja ett lagringskonto. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Stream till en händelsehubb**: Om du vill använda det här alternativet behöver du en befintlig Event Hubs-namnområde och event hub att ansluta till. Om du vill skapa ett namnområde för Event Hubs [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återvänd sedan till den här sidan i portalen för att välja Event Hubs-namnområde och principen.
     * **Skicka till Log Analytics**: Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Log Analytics finns i [visa loggar i Log Analytics](#view-in-loganalytics).
     * **Logga DataPlaneRequests**: Välj det här alternativet för att logga backend-begäranden från Azure Cosmos DB underliggande distribuerad plattform för SQL, diagram, MongoDB, Cassandra och tabell-API-konton. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
-    * **Logga MongoRequests**: Välj det här alternativet för att logga användarinitierad begäranden från klientdelen för Azure Cosmos DB för att betjäna MongoDB API-konton. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
+    * **Logga MongoRequests**: Välj det här alternativet för att logga användarinitierad begäranden från klientdelen för Azure Cosmos DB för att betjäna Cosmos-konton som konfigurerats med Azure Cosmos DB API för MongoDB. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
     * **Metrisk begäranden**: Välj det här alternativet för att lagra utförliga data i [Azure-mått](../azure-monitor/platform/metrics-supported.md). Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
 
 3. Välj **Spara**.
@@ -459,7 +459,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill lära dig mer om att aktivera loggning och mått och loggfiler kategorier som stöds av olika Azure-tjänster kan läsa både den [översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) och [översikt över Azure diagnostikloggar ](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artiklar.
+- Om du vill lära dig mer om att aktivera loggning och mått och loggfiler kategorier som stöds av olika Azure-tjänster kan läsa både den [översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) och [översikt över Azure diagnostikloggar ](../azure-monitor/platform/diagnostic-logs-overview.md) artiklar.
 - Läs de här artiklarna om du vill veta mer om event hubs:
    - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

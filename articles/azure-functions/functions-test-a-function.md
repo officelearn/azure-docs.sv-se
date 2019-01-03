@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408042"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993458"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -29,7 +29,7 @@ Det innehåll som följer är uppdelad i två olika delar som är avsedd att fok
 - [C#i Visual Studio med xUnit](#c-in-visual-studio)
 - [JavaScript i VS Code med Jest](#javascript-in-vs-code)
 
-På lagringsplatsen för exemplet finns på [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+Exempellagringsplatsen är tillgänglig på [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C#i Visual Studio
 I följande exempel beskriver hur du skapar en C# Funktionsapp i Visual Studio och kör och testar med [xUnit](https://xunit.github.io).
@@ -43,8 +43,9 @@ Skapa en funktion för att konfigurera din miljö och testa appen. Följande ste
 1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och ge den namnet *funktioner*
 2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet *HttpTrigger*.
 3. [Skapa en timerfunktion från mallen](./functions-create-scheduled-function.md) och ge den namnet *TimerTrigger*.
-4. [Skapa en app för Test av xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) och ge den namnet *Functions.Test*.
-5. [Referens för den *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *Functions.Test* app.
+4. [Skapa en app för Test av xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i Visual Studio genom att klicka på **fil > Nytt > Projekt > Visual C# > .NET Core > xUnit testprojekt** och ge den namnet *Functions.Test*. 
+5. Använd Nuget för att lägga till en referenser från att testa appen [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) och [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Referens för den *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *Functions.Test* app.
 
 ### <a name="create-test-classes"></a>Skapa test-klasser
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274147"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721469"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
-Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/app-service-web-overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](web-sites-backup.md)). Du kan återställa appen med dess länkade databaser på begäran till ett tidigare tillstånd eller skapa en ny app utifrån en säkerhetskopia av den ursprungliga appen. Azure App Service stöder följande databaser för säkerhetskopiering och återställning:
+Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa appen med dess länkade databaser på begäran till ett tidigare tillstånd eller skapa en ny app utifrån en säkerhetskopia av den ursprungliga appen. Azure App Service stöder följande databaser för säkerhetskopiering och återställning:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
@@ -91,8 +91,8 @@ Du kan automatisera hantering av säkerhetskopiering med skript med hjälp av de
 
 Exempel finns här:
 
-- [Azure CLI-exempel](app-service-cli-samples.md)
-- [Exempel för Azure PowerShell](app-service-powershell-samples.md)
+- [Azure CLI-exempel](samples-cli.md)
+- [Exempel för Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

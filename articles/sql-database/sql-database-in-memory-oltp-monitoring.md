@@ -7,17 +7,17 @@ ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: juliemsft
+ms.author: jrasnick
 ms.reviewer: genemi
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ac7b568d95b9a2c382b1c167965942f0733012c4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c41420e46a0bd4afbaed96da0e2fb9775d49c6fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874931"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606545"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Övervaka Minnesintern OLTP-lagring
 När du använder [In-Memory OLTP](sql-database-in-memory.md), finns data i minnesoptimerade tabeller och tabellvariabler i InMemory-OLTP-lagring. Varje Premium och affärskritisk tjänstenivå har en maximal storlek för In-Memory OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).

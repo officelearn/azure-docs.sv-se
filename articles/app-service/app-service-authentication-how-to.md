@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409759"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722659"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
-Den här artikeln visar hur du anpassar inbyggt [autentisering och auktorisering i Apptjänst](app-service-authentication-overview.md), och för att hantera identitet från ditt program. 
+Den här artikeln visar hur du anpassar inbyggt [autentisering och auktorisering i Apptjänst](overview-authentication-authorization.md), och för att hantera identitet från ditt program. 
 
 Om du vill komma igång snabbt, finns i följande Självstudier:
 
-* [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
+* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](configure-authentication-provider-aad.md)
 * [Så här konfigurerar du din app för att använda Facebook-inloggning](configure-authentication-provider-facebook.md)
 * [Så här konfigurerar du din app för att använda Google-inloggning](configure-authentication-provider-google.md)
@@ -37,13 +37,13 @@ Om du vill komma igång snabbt, finns i följande Självstudier:
 
 ## <a name="use-multiple-sign-in-providers"></a>Använda flera inloggning-providers
 
-Ett NYCKELFÄRDIGT sätt att presentera flera inloggning providers för dina användare (till exempel både Facebook och Twitter) omfattas inte av Portalkonfiguration. Men det är inte svårt att lägga till funktioner till din webbapp. Stegen beskrivs i följande:
+Ett NYCKELFÄRDIGT sätt att presentera flera inloggning providers för dina användare (till exempel både Facebook och Twitter) omfattas inte av Portalkonfiguration. Men det är inte svårt att lägga till funktioner till din app. Stegen beskrivs i följande:
 
 Först i den **autentisering / auktorisering** i Azure-portalen kan konfigurera var och en för den identitetsprovider som du vill aktivera.
 
 I **åtgärd att vidta när begäran inte har autentiserats**väljer **Tillåt anonyma förfrågningar (ingen åtgärd)**.
 
-På sidan logga in eller navigeringsfältet eller någon annan plats på din webbapp, lägga till en inloggning länk var och en av de leverantörer som du har aktiverat (`/.auth/login/<provider>`). Exempel:
+På sidan logga in eller navigeringsfältet, eller någon annan plats för din app kan lägga till en inloggning länk var och en av de leverantörer som du har aktiverat (`/.auth/login/<provider>`). Exempel:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -63,7 +63,7 @@ För att omdirigera användaren efter-registrerings-modulen till en anpassad URL
 
 ## <a name="validate-tokens-from-providers"></a>Validera token från leverantörer
 
-I en klient-riktade inloggning, programmet loggar in användaren till providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering (se [autentiseringsflödet](app-service-authentication-overview.md#authentication-flow)). Den här verifieringen själva ger inte faktiskt dig tillgång till önskad appresurser, men en lyckad validering ger dig en sessionstoken som du kan använda för att komma åt resurser i appen. 
+I en klient-riktade inloggning, programmet loggar in användaren till providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering (se [autentiseringsflödet](overview-authentication-authorization.md#authentication-flow)). Den här verifieringen själva ger inte faktiskt dig tillgång till önskad appresurser, men en lyckad validering ger dig en sessionstoken som du kan använda för att komma åt resurser i appen. 
 
 För att validera token provider, konfigureras App Service-app först med den önskade providern. Vid körning, när du hämtar autentiseringstoken från leverantören, publicera denna token till `/.auth/login/<provider>` för verifiering. Exempel: 
 
@@ -186,15 +186,15 @@ När din provider åtkomst-token upphör att gälla måste autentiseras använda
 - **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](configure-authentication-provider-microsoft.md)väljer den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
     1. Längst ned på sidan Välj **Läs/Skriv**.
-    1. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 
-    1. Klicka på **Redigera**.
-    1. Ändra följande egenskaper. Ersätt  _\<app\_id >_ med Azure Active Directory-program-ID för tjänsten som du vill komma åt.
+    2. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 
+    3. Klicka på **Redigera**.
+    4. Ändra följande egenskaper. Ersätt  _\<app\_id >_ med Azure Active Directory-program-ID för tjänsten som du vill komma åt.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Klicka på **placera**. 
+    5. Klicka på **placera**. 
 
 När din provider har konfigurerats, kan du [hitta uppdateringstoken och förfallotid för åtkomsttoken](#retrieve-tokens-in-app-code) i arkivet för token. 
 
@@ -243,5 +243,5 @@ Klicka på **redigera**, ändra egenskapen följande och klickar sedan på **pla
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
 > [självstudien: Autentisera och auktorisera användare slutpunkt till slutpunkt (Linux)](containers/tutorial-auth-aad.md)

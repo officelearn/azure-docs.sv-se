@@ -2,17 +2,18 @@
 title: Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du konfigurerar den lokala konfigurationsservern för haveriberedskap för lokala fysiska servrar till Azure.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: raynew
-ms.openlocfilehash: 04d080d9acd74bea128c0e101165031119900dd1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: ramamill
+ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848416"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976808"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure
 
@@ -35,7 +36,7 @@ I följande tabell visas de minimikraven på maskinvara, programvara och nätver
 ## <a name="choose-your-protection-goals"></a>Välja skyddsmål
 
 1. I Azure-portalen går du till den **återställningstjänster** valv bladet och välj ditt valv.
-2. I den **Resource** menyn för valvet klickar du på **komma igång** > **Site Recovery** > **steg 1: Förbered infrastrukturen**   >  **Skyddsmål**.
+2. I den **Resource** menyn för valvet klickar du på **komma igång** > **Site Recovery** > **steg 1: Förbereda infrastrukturen** > **skyddsmål**.
 
     ![Välja mål](./media/physical-azure-set-up-source/choose-goals.png)
 3. I **skyddsmål**väljer **till Azure** och **inte virtualiserad/övrigt**, och klicka sedan på **OK**.

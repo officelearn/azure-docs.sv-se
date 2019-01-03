@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833955"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633018"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-st
 
 Med hjälp av funktionen sida Användargränssnittet anpassning, kan du anpassa utseendet och känslan av en anpassad princip. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
 
-Så här fungerar det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Först måste ange du en URL i den anpassade principen med anpassade HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
+Så fungerar här det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Först måste ange du en URL i den anpassade principen med anpassade HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
 
 ## <a name="create-your-html5-content"></a>Skapa din HTML5 innehåll
 
@@ -50,9 +50,6 @@ Skapa HTML innehåll med varumärke Produktnamn i rubriken.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Användning av JavaScript är för närvarande blockerad för anpassning av säkerhetsskäl.
 
 2. Klistra in det kopierade kodfragmentet i en textredigerare och spara filen som *anpassa ui.html*.
 
@@ -124,7 +121,7 @@ Om du vill konfigurera anpassningar du kopiera den **ContentDefinition** och des
 3. Öppna tilläggsfilen. Till exempel *TrustFrameworkExtensions.xml*. Sök efter den **BuildingBlocks** element. Om elementet inte finns kan du lägga till den.
 4. Klistra in hela innehållet i den **ContentDefinitions** element som du kopierade som underordnad till den **BuildingBlocks** element. 
 5. Sök efter den **ContentDefinition** element som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
-6. Ändra värdet för **LoadUri** till Webbadressen för HTML-fil som du laddade upp till lagring. Till exempel ”https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Ändra värdet för **LoadUri** till Webbadressen för HTML-fil som du laddade upp till lagring. Till exempel https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     En anpassad princip bör se ut så här:
 

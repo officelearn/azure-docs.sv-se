@@ -196,10 +196,6 @@
 #### [fliken Butiksinformation](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [Publicera ett konsulttjänsterbjudande](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
-## [Hantera utgivarprofil](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Hantera användare](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR-efterlevnad](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
-
 ## Test Drive
 ### [Vad är Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
 ### [Azure Resource Manager Test Drive](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740adefbb8bfa53e96b5ed0e1c7181abf22f1490
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274935"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580287"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Konfigurera aviseringar om hälsotillståndet för befintliga problem system med en webhook
 
@@ -119,5 +119,5 @@ Detta visar att det finns problem med ”aviseringar och mått” i både Austra
 
 ## <a name="next-steps"></a>Nästa steg
 - Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Lär dig mer om [service health meddelanden](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Lär dig mer om [service health meddelanden](../azure-monitor/platform/service-notifications.md).
 - Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).

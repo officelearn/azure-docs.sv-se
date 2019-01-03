@@ -4,93 +4,120 @@ description: Svar på vanliga frågor om hur virtuell Azure-säkerhetskopiering 
 services: backup
 author: trinadhk
 manager: shreeshd
-keywords: säkerhetskopiering av virtuella datorer i azure, återställning av virtuell dator i azure, säkerhetskopieringspolicy
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 6ec178a8cb457973f39ea2dd929a3486a7696c55
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753975"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972200"
 ---
-# <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
-Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="frequently-asked-questions-azure-backup"></a>Vanliga frågor – Azure Backup
 
-## <a name="configure-backup"></a>Konfigurera säkerhetskopiering
-### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Stöder Recovery Services-valv klassiska virtuella datorer eller Resource Manager-baserade virtuella datorer? <br/>
-Recovery Services-valv stöder båda modellerna.  Du kan säkerhetskopiera en klassisk virtuell dator eller en Resource Manager-VM till ett Recovery Services-valv.
+Den här artikeln innehåller vanliga frågor och svar om den [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
-### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Vilka konfigurationer stöds inte av virtuell Azure-säkerhetskopiering?
-Gå igenom [operativsystem som stöds](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) och [begränsningar för säkerhetskopiering](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+## <a name="general-questions"></a>Allmänna frågor
 
-### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Varför kan jag inte se min virtuella dator i guiden Konfigurera säkerhetskopiering?
-I guiden Konfigurera säkerhetskopiering visar Azure Backup endast virtuella datorer som är:
-  * Du kan inte redan skyddas för att kontrollera status för säkerhetskopiering av en virtuell dator genom att gå till VM-bladet och kontrollera status för säkerhetskopiering från menyn Inställningar. Lär dig mer om att [Kontrollera status för säkerhetskopiering av en virtuell dator](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
-  * Tillhör samma region som den virtuella datorn
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Vilka virtuella datorer i Azure kan du säkerhetskopiera med hjälp av Azure Backup?
+[Granska](backup-azure-arm-vms-prepare.md#before-you-start) operativsystem och begränsningar som stöds.
+
+
 
 ## <a name="backup"></a>Backup
-### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>Kommer säkerhetskopiering på begäran att följa samma kvarhållningsschema som schemalagda säkerhetskopieringar?
+
+### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Använder en säkerhetskopiering på begäran samma kvarhållningsschema som schemalagda säkerhetskopieringar?
 Nej. Du måste ange kvarhållningsintervallet för en säkerhetskopiering på begäran. Som standard den finns kvar i 30 dagar när den utlöses från portalen.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Jag nyligen har aktiverat Azure Disk Encryption på vissa virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
-Du måste ge behörigheterna för Azure Backup-tjänsten för att få åtkomst till nyckelvalvet. Du kan ange dessa behörigheter i PowerShell med hjälp av anvisningarna i avsnittet *Aktivera säkerhetskopiering* i [PowerShell](backup-azure-vms-automation.md)-dokumentationen.
+Du måste ange behörigheter för Azure Backup för att få åtkomst till Key Vault. Ange behörigheter i PowerShell enligt beskrivningen i den **Aktivera säkerhetskopiering** i avsnittet den [Azure Backup PowerShell](backup-azure-vms-automation.md) dokumentation.
 
-### <a name="i-migrated-disks-of-a-vm-to-managed-disks-will-my-backups-continue-to-work"></a>Jag har migrerat diskar på en virtuell dator till hanterade diskar. Kommer mina säkerhetskopior att fungera även i fortsättningen?
-Ja, säkerhetskopieringen fungerar smidigt och du behöver inte konfigurera om säkerhetskopieringen.
+### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Jag har migrerat Virtuella datordiskar till hanterade diskar. Kommer mina säkerhetskopior att fungera även i fortsättningen?
+Ja, säkerhetskopieringen fungerar smidigt. Det finns inget behov att konfigurera om vad som helst.
+
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Varför kan jag inte se min virtuella dator i guiden Konfigurera säkerhetskopiering?
+Guiden visar endast virtuella datorer i samma region som valvet och som inte redan som säkerhetskopieras.
+
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Den virtuella datorn är avstängd. Kommer en på begäran eller arbete med en schemalagd säkerhetskopiering?
-Ja. Även om en dator är avstängd säkerhetskopieringen fungerar och återställningspunkten är markerad som krascher konsekvent. Mer information finns i avsnittet data konsekvens i [i den här artikeln](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+Ja. Säkerhetskopieringar som körs när en dator är avstängd. Återställningspunkten har markerats som krascher konsekvent.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag säga upp en pågående säkerhetskopiering?
-Ja. Du kan avbryta jobbet om den finns i ”att möjliggöra ögonblicksbilder” fas. **Du kan inte avbryta ett jobb om dataöverföringar från ögonblicksbild håller på att**.
+Ja. Du kan avbryta säkerhetskopieringsjobbet på en **tar ögonblicksbild** tillstånd. Du kan inte avbryta ett jobb om dataöverföring från ögonblicksbilden håller på att skapas.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Jag har aktiverat resursgrupp lås på mitt säkerhetskopierade hanterade diskar för virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
-Om användaren låser resursgruppen, kan Backup-tjänsten inte ta bort äldre återställningspunkter. På grund av detta nya säkerhetskopior börjar misslyckas eftersom det finns en gräns för maximal 18 återställningspunkter som införts från serverdelen. Om säkerhetskopieringarna misslyckas med ett internt fel när RG-lås, följer du dessa [steg för att ta bort återställningen samlingen med återställningspunkter](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Jag har aktiverat grupp resurslås på mitt säkerhetskopierade hanterade diskar för virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
+Om du låser resursgruppen, Azure Backup-tjänsten kan inte ta bort äldre återställningspunkter.
+- Nya säkerhetskopior börjar misslyckas eftersom det inte finns en maxgräns på 18 återställningspunkter.
+- Om säkerhetskopieringen misslyckas med ett internt fel när lås, [gör så här](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) att ta bort samlingen med återställningspunkter.
 
-### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Tar säkerhetskopieringspolicyn sommartid sparar Time(DST) hänsyn?
-Nej. Tänk på att datum och tid på den lokala datorn visas i din lokala tid och med din aktuella sommartid. Så kan den konfigurera tiden för schemalagda säkerhetskopieringar skilja sig från din lokala tid på grund av Sommartid.
+### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>Betraktar säkerhetskopieringspolicyn sommartid (DST)?
+Nej. Datum och tid på den lokala datorn är lokal med aktuella sommartid används. Den tid som angetts för schemalagda säkerhetskopieringar kan skilja sig från den lokala tiden på grund av Sommartid.
 
-### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Högst hur många datadiskar kan jag ansluta till en virtuell dator som ska säkerhetskopieras av Azure Backup?
-Azure Backup har nu stöd för säkerhetskopiering av virtuella datorer med upp till 16 diskar. Att få stöd för 16 diskar [uppgradera till säkerhetskopiering för Azure stack V2](backup-upgrade-to-vm-backup-stack-v2.md). Få kommer stöd för alla virtuella datorer att aktivera skydd som startar 24 september 2018.
+### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Hur många datadiskar kan jag ansluta till en virtuell dator som backas upp av Azure Backup?
+Azure Backup kan säkerhetskopiera virtuella datorer med upp till 16 diskar. Stöd för 16 diskar finns i den [senaste versionen](backup-upgrade-to-vm-backup-stack-v2.md) för säkerhetskopiering av virtuella datorer i Azure stack V2.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure stöd för säkerhetskopiering Standard SSD hanterad disk?
-Azure Backup stöder [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), en ny typ av beständig lagring för Microsoft Azure virtuella datorer. Det finns stöd för hanterade diskar på [säkerhetskopiering för Azure stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
+### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Har Azure stöd för säkerhetskopiering SSD hanterade standarddiskar?
+Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks ger en ny typ av beständig lagring för virtuella Azure-datorer. Stöd för SSD hanterade diskar finns i den [senaste versionen](backup-upgrade-to-vm-backup-stack-v2.md) för säkerhetskopiering av virtuella datorer i Azure stack V2.
+
+### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en WA Write Accelerator-aktiverade disk?
+Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia. Disk-undantag för virtuella datorer med WA-aktiverade diskar stöds endast för prenumerationer som uppgraderas till säkerhetskopiering för Azure stack V2. Om du vill uppgradera till Azure VM Backup-stacken V2, finns i den här [artikeln](backup-upgrade-to-vm-backup-stack-v2.md). Den här funktionen är för närvarande tillgängligt i östra Japan, Norra Europa, Asien, sydöstra, USA, östra, USA, västra 2, Europa, västra och östra usa2.
+
+
+### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Jag har en virtuell dator med Write Accelerator (WA) diskar och SAP HANA installerad. Hur kan jag säkerhetskopiera?
+Azure Backup kan inte säkerhetskopiera disken WA-aktiverade men kan undanta den från en säkerhetskopia. Säkerhetskopian Ange inte dock databaskonsekvens eftersom informationen på WA-aktiverade inte har säkerhetskopierats. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill att operativsystemdisken, och säkerhetskopiering av diskar som inte är WA-aktiverade.
+
+Vi har en privat förhandsgranskning för en SAP HANA-säkerhetskopia med ett Återställningspunktmål på 15 minuter. Den bygger på ett liknande sätt till SQL DB-säkerhetskopiering och använder gränssnittet backInt för lösningar från tredje part som certifierats av SAP HANA. Om du är intresserad av den privata förhandsgranskningen kan du maila ` AskAzureBackupTeam@microsoft.com ` med ämnet **registrera dig för privat förhandsgranskning för säkerhetskopiering av SAP HANA på Azure virtuella datorer i**.
+
 
 ## <a name="restore"></a>Återställ
-### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Hur gör jag för att välja mellan diskåterställning och fullständig återställning av en virtuell dator?
-Tänk på Azure fullständig återställning av virtuella datorer som ett alternativ för Snabbregistrering. Återställ VM alternativet ändringar namnen på diskar, behållare som används av dessa diskar, offentliga IP-adresser och namn för nätverksgränssnitt. Ändringen krävs för att upprätthålla unikhet för resurser som skapades under skapandet av VM. Men det kommer inte att lägga till den virtuella datorn i tillgänglighetsuppsättningen.
 
-Använd återställningsdiskar för att göra följande:
-  * Anpassa den virtuella datorn som skapas från tidpunktskonfigurationen som ändrar storlek på
-  * Lägg till konfigurationer som inte är tillgängliga vid tidpunkten för säkerhetskopieringen
-  * Kontrollen namngivningskonventionen för resurser som skapas
-  * Lägg till virtuell dator i tillgänglighetsuppsättningen
-  * För en annan konfiguration som kan uppnås endast med hjälp av PowerShell/en deklarativ malldefinition
+### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Hur avgör jag om du vill återställa endast diskar eller en fullständig virtuell dator?
+Tänk på en återställning av virtuella datorer som ett alternativ för Snabbregistrering för en Azure virtuell dator. Det här alternativet ändras disk namn, behållare som används av diskar, offentliga IP-adresser och namn för nätverksgränssnitt. Ändringen har unika resurser när en virtuell dator skapas. Den virtuella datorn inte har lagts till i en tillgänglighetsuppsättning.
 
-### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Kan jag använda säkerhetskopior av ohanterad disk VM för att återställa efter att jag uppgradera min diskar till managed disks?
-Ja, du kan använda de säkerhetskopior som har gjorts innan du migrerar diskar från ohanterade till hanterade. Som standard skapar VM återställningsjobbet en virtuell dator med ohanterade diskar. Du kan använda diskar återställningsfunktionen för att återställa diskar och använda dem för att skapa en virtuell dator på hanterade diskar.
+Återställ disk alternativ om du vill:
+  * Anpassa den virtuella datorn som skapas. Till exempel ändra storlek.
+  * Lägg till konfigurationsinställningar som inte var det vid tidpunkten för säkerhetskopiering
+  * Kontrollen Namngivningskonventionen för resurser som skapas.
+  * Lägg till den virtuella datorn i en tillgänglighetsuppsättning.
+  * Lägga till någon annan inställning som måste konfigureras med PowerShell eller en mall.  W
 
-### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Vad är proceduren för att återställa en virtuell dator till en återställningspunkt som vidtas innan konverteringen från ohanterade till hanterade diskar har utförts för en virtuell dator?
-I det här scenariot skapar som standard VM återställningsjobbet en virtuell dator med ohanterade diskar. Skapa en virtuell dator med hanterade diskar:
-1. [Återställa till ohanterade diskar](tutorial-restore-disk.md#restore-a-vm-disk)
-2. [Konvertera de återställda diskarna till managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
-3. [Skapa en virtuell dator med hanterade diskar](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
-PowerShell-cmdletar finns [här](backup-azure-vms-automation.md#restore-an-azure-vm).
+### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Kan jag återställa säkerhetskopior av ohanterade Virtuella datordiskar efter uppgraderingen till managed disks?
+Ja, du kan använda säkerhetskopior som har gjorts innan diskar har migrerats från ohanterade till hanterade.
+- Som standard skapar en ohanterad virtuell dator i en virtuell dator återställningsjobbet.
+- Du kan dock återställa diskar och använda dem för att skapa en hanterad virtuell dator.
 
-### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>Kan jag återställa den virtuella datorn om den virtuella datorn tas bort?
-Ja. Livscykel för den virtuella datorn och dess motsvarande säkerhetskopieringsobjekt är olika. Så även om du tar bort den virtuella datorn går du till motsvarande Säkerhetskopiera objekt i Recovery Services-valvet och aktivera en återställning med någon av återställningspunkterna.
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hur återställer jag en virtuell dator till en återställningspunkt innan den virtuella datorn har migrerats till managed disks?
+Som standard skapar en virtuell dator med ohanterade diskar i en virtuell dator återställningsjobbet. Skapa en virtuell dator med hanterade diskar:
+1. [Återställa till ohanterade diskar](tutorial-restore-disk.md#restore-a-vm-disk).
+2. [Konvertera de återställda diskarna till managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
+3. [Skapa en virtuell dator med hanterade diskar](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+
+[Läs mer](backup-azure-vms-automation.md#restore-an-azure-vm) om hur du gör detta i PowerShell.
+
+### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Kan jag återställa den virtuella datorn som har tagits bort?
+Ja. Även om du tar bort den virtuella datorn går du till motsvarande säkerhetskopiering objektet i valvet och återställa från en återställningspunkt.
+
+### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>Hur du återställer en virtuell dator med samma tillgänglighetsuppsättningar?
+När du återställer till tillgänglighetsuppsättningar är aktiverat för hanterad Disk Azure-dator, genom att tillhandahålla ett alternativ i mallen vid återställning som hanterade diskar. Den här mallen har den indataparameter med namnet **tillgänglighetsuppsättningar**.
+
+### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställning prestanda?
+För snabbare återställningsprestanda rekommenderar vi att du flyttar till VM-säkerhetskopieringsstack V2 och använda [omedelbar RP funktionen](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
-### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Vad händer om jag ändrar en säkerhetskopieringspolicy på virtuella datorer?
-När en ny princip har tillämpats på virtuella datorer följs schemat för och kvarhållningen av den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
 
-### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hur kan jag flytta en virtuell dator har registrerats i Azure backup mellan resursgrupper?
-Följ de nedanstående steg för att flytta den säkerhetskopierade virtuella datorn till målresursgruppen
-1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
-2. Flytta den virtuella datorn till målresursgruppen
-3. Skydda den igen med samma/nytt valv
+### <a name="what-happens-if-i-modify-a-backup-policy"></a>Vad händer om jag ändrar en princip för säkerhetskopiering?
+Den virtuella datorn säkerhetskopieras med schema och kvarhållning inställningarna i den ändrade eller nya principen.
 
-Användare kan återställa från tillgängliga återställningspunkter som skapats före flyttåtgärden.
+- Om kvarhållningen utökas markeras befintliga återställningspunkter och sparas i enlighet med den nya principen.
+- Om kvarhållningen minskar är återställningspunkter markerad för rensning under nästa rensningsjobb och tas sedan bort.
+
+### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>Hur gör jag för att flytta en virtuell dator som backas upp av Azure Backup till en annan resursgrupp?
+
+1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data.
+2. Flytta den virtuella datorn till målresursgruppen.
+3. Reenabled säkerhetskopiering i samma eller ett nytt valv.
+
+Du kan återställa den virtuella datorn från tillgängliga återställningspunkter som skapades innan åtgärden för att flytta.

@@ -4,19 +4,19 @@ description: Läs mer om begränsningar för kända problem/migrering med online
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282884"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724155"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för PostgreSQL
 
@@ -76,22 +76,22 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
 
 ## <a name="datatype-limitations"></a>DataType-begränsningar
 
-- **Begränsningen**: om det finns en ENUM-datatyp i källdatabasen för PostgreSQL, misslyckas migreringen under kontinuerlig synkronisering.
+- **Begränsningen**: Om det finns en ENUM-datatyp i källdatabasen för PostgreSQL, misslyckas migreringen under kontinuerlig synkronisering.
 
-    **Lösning**: ändra ENUM datatype till tecknet varierande i Azure Database för PostgreSQL.
+    **Lösning**: Ändra ENUM datatype till tecknet varierande i Azure Database för PostgreSQL.
 
-- **Begränsningen**: om det finns ingen primärnyckel i tabeller, kontinuerlig synkronisering misslyckas.
+- **Begränsningen**: Om det finns ingen primärnyckel i tabeller, misslyckas kontinuerlig synkronisering.
 
-    **Lösning**: tillfälligt Ange primärnyckel för tabellen för migrering att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: Ange tillfälligt primärnyckel för tabellen för migrering att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="lob-limitations"></a>LOB-begränsningar
 Stora objekt (LOB)-kolumner är kolumner som kan växa. För PostgreSQL är exempel på LOB-datatyper XML, JSON, bild, TEXT osv.
 
-- **Begränsningen**: om LOB-datatyper används som primärnyckel för, misslyckas migreringen.
+- **Begränsningen**: Om LOB-datatyper används som primärnyckel för, misslyckas migreringen.
 
     **Lösning**: Ersätt primärnyckel med andra datatyper eller kolumner som inte är LOB.
 
-- **Begränsningen**: om längden på kolumnen för stora objekt (LOB) är större än 32 KB, data kan trunkeras på angivna. Du kan kontrollera längden på LOB-kolumn med hjälp av den här frågan:
+- **Begränsningen**: Om längden på kolumnen för stora objekt (LOB) är större än 32 KB, kan data trunkeras på angivna. Du kan kontrollera längden på LOB-kolumn med hjälp av den här frågan:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
@@ -99,9 +99,9 @@ Stora objekt (LOB)-kolumner är kolumner som kan växa. För PostgreSQL är exem
 
     **Lösning**: Om du har LOB-objekt som är större än 32 KB, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
 
-- **Begränsningen**: om det finns LOB-kolumner i tabellen och det finns inga primära nyckeluppsättning för tabellen, data kan migreras inte för den här tabellen.
+- **Begränsningen**: Om det finns LOB-kolumner i tabellen och det finns inga primära nyckeluppsättning för tabellen, kan det inte att migrera data för den här tabellen.
 
-    **Lösning**: tillfälligt Ange primärnyckel för tabellen för migrering att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: Ange tillfälligt primärnyckel för tabellen för migrering att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10 lösning
 PostgreSQL 10.x ändrar olika pg_xlog mappnamn och kan därför orsaka migrering inte körs som förväntat. Om du migrerar från PostgreSQL 10.x till Azure Database för PostgreSQL 10.3, kör följande skript på PostgreSQL källdatabasen för att skapa funktionen omslutning runt pg_xlog funktioner.

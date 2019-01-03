@@ -12,17 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/21/2018
 ms.author: juliako
-ms.openlocfilehash: b1166c34f1a0ce3f3e9be932eb6d7fb9d76389ec
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c0c7e2b8962cb757141b654c2956ed3ff5600c88
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665765"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787655"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Så här konfigurerar du lokala kodare med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 Det här avsnittet innehåller en lokal livekodare som du kan använda för att spara din live-händelser och skicka en direktsänd dataström med enkel bithastighet till AMS-kanaler (som är direktsänd kodning aktiverat) för vidare bearbetning. Avsnittet innehåller också länkar till självstudier om hur du konfigurerar listade kodare.
+
+> [!NOTE]
+> När strömmande via RTMP, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående TCP-portarna 1935 och 1936 är öppna.
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
 Information om hur du konfigurerar den [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) att skicka en direktsänd dataström med enkel bithastighet till en kanal för AMS finns i [konfigurera FMLE](media-services-configure-fmle-live-encoder.md).
@@ -45,6 +48,7 @@ Mer information finns i [Elemental Live](http://www.elementaltechnologies.com/pr
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
+
 [Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter](media-services-manage-live-encoder-enabled-channels.md).
 

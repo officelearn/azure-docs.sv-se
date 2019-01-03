@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b9f7a1144be21b425ff0bed9e2e6cb47315c13a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0b171c7ed13eab84d84bb797e154a3acec8fbac7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974901"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633688"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster
 
@@ -63,17 +63,17 @@ Den medförande prestandakostnaden för att inte samplacera beräkningskluster o
 
 Det finns flera fördelar med att lagra data i Azure Storage i stället för i HDFS:
 
-* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Storage kan antingen nås via HDFS-API:erna eller via [REST-API:erna för Blob Storage][blob-storage-restAPI]. Därmed kan en större grupp program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
+* **Data återanvändning och delning av:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Storage kan antingen nås via HDFS-API:erna eller via [REST-API:erna för Blob Storage][blob-storage-restAPI]. Därmed kan en större grupp program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
 
-* **Dataarkivering:** Om data lagras i Azure Storage kan de HDInsight-kluster som används för beräkning tryggt tas bort utan att användardata går förlorade.
+* **Dataarkivering:** Lagra data i Azure storage kan de HDInsight-kluster som används för beräkning tryggt tas bort utan att förlora användardata.
 
-* **Kostnad för datalagring:** lagrar data i den interna HDFS på lång sikt är dyrare än att lagra data i Azure storage eftersom kostnaden för ett beräkningskluster är högre än kostnaden för Azure storage. Eftersom data inte behöver läsas in på nytt för varje generation av beräkningskluster sparar du dessutom kostnader för datainläsning.
+* **Kostnad för datalagring:** Lagra data i den interna HDFS långsiktigt är dyrare än att lagra data i Azure storage eftersom kostnaden för ett beräkningskluster är högre än kostnaden för Azure storage. Eftersom data inte behöver läsas in på nytt för varje generation av beräkningskluster sparar du dessutom kostnader för datainläsning.
 
-* **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem bestäms skalan av antalet noder som du skapar för klustret. Att ändra skala med HDFS kan vara en mer komplicerad process än att använda de elastiska skalningsfunktionerna som du automatiskt har tillgång till i Azure Storage.
+* **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem, bestäms skalan av antalet noder som du skapar för klustret. Att ändra skala med HDFS kan vara en mer komplicerad process än att använda de elastiska skalningsfunktionerna som du automatiskt har tillgång till i Azure Storage.
 
-* **GEO-replikering:** dina Azure storage-data kan vara geo-replikerade. Även om den här möjligheten ger dig geografisk återställning och dataredundans, stöder en växling till den geo-replikerade platsen kraftigt försämring av prestandan och kan resultera i ytterligare kostnader. Därför väljer geo-replikering noggrant och bara om värdet av data är den extra kostnaden.
+* **GEO-replikering:** Azure storage-data kan vara geo-replikerade. Även om den här möjligheten ger dig geografisk återställning och dataredundans, stöder en växling till den geo-replikerade platsen kraftigt försämring av prestandan och kan resultera i ytterligare kostnader. Därför väljer geo-replikering noggrant och bara om värdet av data är den extra kostnaden.
 
-* **Hanteringen av datalivscykeln:** alla data i alla filsystem genomgår en egen livscykel. Data börjar ofta uppskattar och används ofta, övergår till att mindre värdefulla och kräver mindre åtkomst och slutligen kräver Arkiv eller tas bort. Azure Storage tillhandahåller data lagringsnivåer och livscykelhantering hanteringsprinciper som delar data på rätt sätt under dess livscykelfas.
+* **Hanteringen av datalivscykeln:** Alla data i alla filsystem går igenom en egen livscykel. Data börjar ofta uppskattar och används ofta, övergår till att mindre värdefulla och kräver mindre åtkomst och slutligen kräver Arkiv eller tas bort. Azure Storage tillhandahåller data lagringsnivåer och livscykelhantering hanteringsprinciper som delar data på rätt sätt under dess livscykelfas.
 
 Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen vill lagra i Azure Storage. I så fall kan du välja att lagra data i ditt lokala HDFS. I själva verket använder HDInsight den interna HDFS-implementeringen (som kallas DFS) för flera av dessa mellanresultat i Hive-jobb och andra processer.
 
@@ -101,35 +101,39 @@ När du skapar ett HDInsight-kluster från portalen kan behöva du alternativen 
 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Om du [installerat och konfigurerat Azure PowerShell][powershell-install], du kan använda följande kod från Azure PowerShell-prompten för att skapa ett lagringskonto och en behållare:
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-    $SubscriptionID = "<Your Azure Subscription ID>"
-    $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "WEST US 2"
+```azurepowershell
+$SubscriptionID = "<Your Azure Subscription ID>"
+$ResourceGroupName = "<New Azure Resource Group Name>"
+$Location = "WEST US 2"
 
-    $StorageAccountName = "<New Azure Storage Account Name>"
-    $containerName = "<New Azure Blob Container Name>"
+$StorageAccountName = "<New Azure Storage Account Name>"
+$containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $SubscriptionID
 
-    # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+# Create resource group
+New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
-    # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
-      -Name StorageAccountName `
-      -Location $Location `
-      -SkuName Standard_LRS `
-      -Kind StorageV2 
-      -HierarchialNamespace $True
+# Create default storage account
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
+  -Name StorageAccountName `
+  -Location $Location `
+  -SkuName Standard_LRS `
+  -Kind StorageV2 
+  -HierarchialNamespace $True
 
-    # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+# Create default blob containers
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+New-AzStorageContainer -Name $containerName -Context $destContext
+```
 
 > [!NOTE]
 > Skapa en behållare är synonyma med att skapa ett filsystem i Data Lake Storage Gen2.
@@ -209,7 +213,7 @@ Mer information finns i:
 * [Ställ in HDInsight-kluster med hjälp av Azure Data Lake Storage Gen2 med Hadoop, Spark, Kafka med mera](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Mata in data till Azure Data Lake Storage Gen2 använda distcp](data-lake-storage-use-distcp.md)
 
-[powershell-install]: /powershell/azureps-cmdlets-docs
+[powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx

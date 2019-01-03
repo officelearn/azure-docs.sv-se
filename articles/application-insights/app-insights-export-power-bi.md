@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993367"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808392"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.locfileid: "52993367"
 Det finns tre metoder för att exportera Application Insights-data till Power BI:
 
 * [**Exportera analysfrågor**](#export-analytics-queries). Det här är den bästa metoden. Skriva någon fråga som du vill och exportera den till Power BI. Du kan placera den här frågan på en instrumentpanel, tillsammans med andra data.
-* [**Löpande export och Azure Stream Analytics**](app-insights-export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under långa tidsperioder. Om du inte har ett krav för kvarhållning av utökade data kan du använda metoden export analytics fråga. Löpande export och Stream Analytics omfattar mer arbete att ställa in och kostnader för ytterligare lagringsutrymme.
+* [**Löpande export och Azure Stream Analytics**](../azure-monitor/app/export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under långa tidsperioder. Om du inte har ett krav för kvarhållning av utökade data kan du använda metoden export analytics fråga. Löpande export och Stream Analytics omfattar mer arbete att ställa in och kostnader för ytterligare lagringsutrymme.
 * [**Power BI nätverkskort**](#power-pi-adapter). Uppsättningen diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
 
 > [!NOTE]
@@ -119,7 +119,7 @@ Om du minskar den datauppsättning som kommer från analysfråga som inte uppfyl
  ```
 
 ## <a name="about-sampling"></a>Om sampling
-Om ditt program skickar stora mängder data, kan du använda funktionen Adaptiv sampling som skickar bara en del av din telemetri. Detsamma gäller om du har ställt in manuellt sampling i SDK: N eller på inmatning. [Läs mer om sampling](app-insights-sampling.md).
+Beroende på mängden data som skickas av programmet, kan du använda funktionen Adaptiv sampling som skickar bara en del av din telemetri. Detsamma gäller om du har ställt in manuellt sampling i SDK: N eller på inmatning. [Läs mer om sampling](app-insights-sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI-kort (inaktuell)
 Den här metoden skapar en fullständig telemetri-instrumentpanel. Den initiala datauppsättningen är fördefinierad, men du kan lägga till mer data till den.

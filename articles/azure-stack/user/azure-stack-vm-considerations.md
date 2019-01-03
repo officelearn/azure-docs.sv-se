@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847532"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651511"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Att tänka på när virtuella datorer i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack-datorer tillhandahåller behovsbaserade och skalbara datorresurser. Innan du distribuerar virtuella datorer (VM), måste du förstå skillnaderna mellan VM-funktionerna i Azure Stack och Microsoft Azure. Den här artikeln beskriver skillnaderna och identifierar viktiga överväganden för planering av distributioner av virtuella datorer. Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
 
@@ -35,10 +35,11 @@ Azure Stack-datorer tillhandahåller behovsbaserade och skalbara datorresurser. 
 | Storlekar för virtuella datorer | Azure stöder en mängd olika storlekar för virtuella datorer. Mer information om tillgängliga storlekar och alternativ, som avser den [Windows storlekar på virtuella datorer](../../virtual-machines/virtual-machines-windows-sizes.md) och [storlekar för Linux virtuella datorer](../../virtual-machines/linux/sizes.md) ämnen. | Azure Stack har stöd för en delmängd av storlekar för virtuella datorer som är tillgängliga i Azure. Om du vill visa en lista med storlekar som stöds, referera till den [storlekar för virtuella datorer](#virtual-machine-sizes) i den här artikeln. |
 | Kvoter för virtuell dator | [Kvotgränser](../../azure-subscription-service-limits.md#service-specific-limits) ställs in med Microsoft | Administratör för Azure Stack-moln måste tilldela kvoter innan de erbjuder virtuella datorer till sina användare. |
 | Tillägg för virtuell dator |Azure stöder en mängd olika tillägg för virtuell dator. Mer information om tillgängliga tillägg, referera till den [virtuella datorer, tillägg och funktioner](../../virtual-machines/windows/extensions-features.md) artikeln.| Azure Stack stöd för en delmängd av tillägg som är tillgängliga i Azure och var och en av tillägget har specifika versioner. Administratör för Azure Stack-moln kan välja vilka tillägg som ska göras tillgänglig för för sina användare. Om du vill visa en lista över tillägg som stöds, referera till den [tillägg för virtuell dator](#virtual-machine-extensions) i den här artikeln. |
-| Nätverk för virtuella datorer | Offentliga IP-adresser som tilldelats virtuella dator är tillgängliga via Internet.<br><br><br>Azure-datorer har en fast DNS-namn | Offentliga IP-adresser som tilldelats en virtuell klientdator är tillgängliga i Azure Stack Development Kit-miljön. En användare måste ha åtkomst till Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) eller [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta till en virtuell dator som har skapats i Azure Stack.<br><br>Virtuella datorer som skapats i en specifik Azure Stack-instans har ett DNS-namn som baseras på värdet som har konfigurerats av molnadministratören. |
+| Virtuellt datornätverk | Offentliga IP-adresser som tilldelats virtuella dator är tillgängliga via Internet.<br><br><br>Azure-datorer har en fast DNS-namn | Offentliga IP-adresser som tilldelats en virtuell klientdator är tillgängliga i Azure Stack Development Kit-miljön. En användare måste ha åtkomst till Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) eller [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta till en virtuell dator som har skapats i Azure Stack.<br><br>Virtuella datorer som skapats i en specifik Azure Stack-instans har ett DNS-namn som baseras på värdet som har konfigurerats av molnadministratören. |
 | Lagring för virtuell dator | Stöder [hanterade diskar.](../../virtual-machines/windows/managed-disks-overview.md) | Hanterade diskar stöds i Azure Stack med version 1808 och senare. |
 | Prestanda för virtuella datorer-diskar | Beror på disktyp och storlek. | Beror på storleken på virtuella datorer som diskarna som är kopplade till, referera till den [VM-storlekar som stöds i Azure Stack](azure-stack-vm-sizes.md) artikeln.
 | API-versioner | Azure har alltid de senaste API-versionerna för alla VM-funktioner. | Azure Stack har stöd för specifika Azure-tjänster och specifika API-versioner för dessa tjänster. Om du vill visa listan över API-versioner som stöds, referera till den [API-versioner](#api-versions) i den här artikeln. |
+| Azure Instance Metadata service | Azure Instance Metadata Service innehåller information om hur du kör instanser av virtuella datorer som kan användas för att hantera och konfigurera dina virtuella datorer.  | Instance metadata service stöds inte på Azure Stack. |
 |Tillgänglighetsuppsättningar för virtuella datorer|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner<br>Hanterade disksupport|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner (upp till 20)<br>Inget stöd för hanterad disk|
 |Skalningsuppsättningar för virtuella datorer|Automatisk skalning som stöds|Automatisk skalning inte stöds.<br>Lägga till fler instanser i en skalningsuppsättning med portalen, Resource Manager-mallar eller PowerShell.
 

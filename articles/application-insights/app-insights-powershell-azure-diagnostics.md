@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: e8fafbe1c5fafd338009b1bdd8c5d838c3fac726
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 4b1ae3f3e256a87a78ac95b89b98d59c7924b7a7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323294"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791004"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Ställa in Application Insights i en Azure-webbapp med hjälp av PowerShell
 [Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) till [Azure Application Insights](app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
@@ -134,7 +134,7 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 
 
 ## <a name="see-also"></a>Se också
-* [Övervaka Azure Cloud Services-appar med Application Insights](app-insights-cloudservices.md)
+* [Övervaka Azure Cloud Services-appar med Application Insights](../azure-monitor/app/cloudservices.md)
 * [Skicka Azure Diagnostics-data till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatisera konfigurationen av aviseringar](app-insights-powershell-alerts.md)
 

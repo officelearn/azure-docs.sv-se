@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379612"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717729"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersätt en maskinvarukomponent på Azure Stack skala enhet nod
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
-Den här artikeln beskrivs den allmänna processen för att ersätta de komponenter som är icke växlas. Faktiska ersättning åtgärder som behövs varierar baserat på din maskinvaruleverantör för OEM-tillverkare (original equipment manufacturer). Se dokumentationen från leverantören fältet replaceable enhet (FRU) för detaljerade anvisningar som är specifika för integrerade Azure Stack-system.
+Den här artikeln beskrivs den allmänna processen för att ersätta de komponenter som är icke växlas. Faktiska ersättning åtgärder som behövs varierar baserat på din maskinvaruleverantör för OEM-tillverkare (original equipment manufacturer). Detaljerade steg som är specifika för ditt integrerade Azure Stack-system finns i maskinvaruleverantörens dokumentation om utbytbara enheter och komponenter.
 
 Följande är icke växlas komponenter:
 
@@ -42,7 +42,7 @@ Följande flöde diagram visar den allmänna FRU-processen för att ersätta en 
 
 ![Flow diagram som visar komponenten ersättning flöde](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-* Den här åtgärden kan inte krävas baserat på fysiska villkoret för maskinvaran.
+* Den här åtgärden krävas inte baserat på fysiska villkoret för maskinvaran.
 
 ** Om maskinvaruleverantören OEM utför utbyte av komponenter och den inbyggda programvaran kan variera uppdateringar baserat på ditt supportkontrakt för.
 
@@ -54,21 +54,23 @@ Azure Stack-hälsa och övervakningssystem spåra hälsotillståndet för nätve
 
 I följande steg finns en översikt över processen för komponenten ersättning. Följ inte stegen utan att referera till OEM-tillverkarens FRU-dokumentationen.
 
-1. Använd den [tömma](azure-stack-node-actions.md#scale-unit-node-actions) åtgärden att placera noden skala enhet i underhållsläge. Den här åtgärden krävas inte baserat på fysiska villkoret för maskinvaran.
+1. Använd avstängningsåtgärden till stängs noden skala enhet. Den här åtgärden krävas inte baserat på fysiska villkoret för maskinvaran.
 
-   > [!NOTE]
-   > Dock endast en nod kan tömda och stängts av på samma gång utan att spräcka S2D (Storage Spaces Direct).
+2. I en förmodan avstängningsåtgärden misslyckas, använder den [tömma](azure-stack-node-actions.md#drain) åtgärden att placera noden skala enhet i underhållsläge. Den här åtgärden krävas inte baserat på fysiska villkoret för maskinvaran.
 
-2. När noden skala enhet är i underhållsläge, använda den [stängs av](azure-stack-node-actions.md#scale-unit-node-actions) åtgärd. Den här åtgärden krävas inte baserat på fysiska villkoret för maskinvaran.
+   > [!NOTE]  
+   > Dock endast en nod kan inaktiveras och avstängd samtidigt utan att spräcka S2D (Storage Spaces Direct).
 
-   > [!NOTE]
+3. När noden skala enhet är i underhållsläge, använda den [stängs av](azure-stack-node-actions.md#scale-unit-node-actions) åtgärd. Den här åtgärden krävas inte baserat på fysiska villkoret för maskinvaran.
+
+   > [!NOTE]  
    > Använd Webbgränssnitt för baseboard management controller (BMC) i stället förmodan att Stäng av åtgärden inte fungerar.
 
-3. Ersätt den skadade maskinvarukomponenten. Om din maskinvaruleverantör för OEM utför ersättningen komponent kan variera beroende på ditt supportkontrakt för.  
-4. Uppdatera den inbyggda programvaran. Följ dina leverantörsspecifika uppdateringsprocessen använda maskinvara livscykel värden och kontrollera att den ersatta maskinvarukomponenten har den godkända av inbyggd programvara som har använts. Om din maskinvaruleverantör för OEM utför det här steget kan variera beroende på ditt supportkontrakt för.  
-5. Använd den [reparera](azure-stack-node-actions.md#scale-unit-node-actions) åtgärder för att se noden skala enhet till skalningsenheten.
-6. Använda privileged slutpunkten till [Kontrollera status för virtuell disk reparera](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Med nya enheter, en fullständig storage reparera jobbet kan ta flera timmar beroende på systembelastning och Förbrukat utrymme.
-7. När reparationsåtgärden har slutförts verifierar du att alla aktiva aviseringar har stängts automatiskt.
+4. Ersätt den skadade maskinvarukomponenten. Om din maskinvaruleverantör för OEM utför ersättningen komponent kan variera beroende på ditt supportkontrakt för.  
+5. Uppdatera den inbyggda programvaran. Följ dina leverantörsspecifika uppdateringsprocessen använda maskinvara livscykel värden och kontrollera att den ersatta maskinvarukomponenten har den godkända av inbyggd programvara som har använts. Om din maskinvaruleverantör för OEM utför det här steget kan variera beroende på ditt supportkontrakt för.  
+6. Använd den [reparera](azure-stack-node-actions.md#scale-unit-node-actions) åtgärder för att se noden skala enhet till skalningsenheten.
+7. Använda privileged slutpunkten till [Kontrollera status för virtuell disk reparera](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Med nya enheter, en fullständig storage reparera jobbet kan ta flera timmar beroende på systembelastning och Förbrukat utrymme.
+8. När reparationsåtgärden har slutförts verifierar du att alla aktiva aviseringar har stängts automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,24 +9,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3498deb85b84c9c47544be1d8c3709c9fc78ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100271"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974380"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
-*Det här avsnittet avser följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [filsystem](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), och [SFTP](connector-sftp.md).*
+*Det här avsnittet gäller för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Filsystem](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), och [SFTP](connector-sftp.md).*
 
 Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). Om du vill **parsa eller generera filer med ett visst format**, Azure Data Factory stöder följande filtyper format:
 
 * [Textformat](#text-format)
 * [JSON-format](#json-format)
-* [Avro-format](#avro-format)
-* [ORC-format](#orc-format)
 * [Parquet-format](#parquet-format)
+* [ORC-format](#orc-format)
+* [Avro-format](#avro-format)
 
 > [!TIP]
 > Lär dig hur kopieringsaktiviteten mappar dina källdata till mottagare från [schemamappning i kopieringsaktiviteten](copy-activity-schema-and-type-mapping.md), inklusive hur metadata bestäms utifrån din filformatinställningar och tips om när du ska ange den [datauppsättning `structure` ](concepts-datasets-linked-services.md#dataset-structure) avsnittet.
@@ -39,7 +39,7 @@ Om du vill läsa från en textfil eller skriva till en textfil, anger den `type`
 | --- | --- | --- | --- |
 | columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga för att använda ett sällsynt icke utskrivbart tecken som inte kan finnas i dina data. Ange till exempel ”\u0001” som representerar Start av rubriken (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken, som avser [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) att hämta motsvarande kod för den. |Nej |
 | rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
-| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: Om du använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel: "Hello, world") kan du definiera "$" som escape-tecken och använda strängen "$Hello, world" i källan. |Nej |
+| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: Om du använder kommatecken (”,) som kolumnavgränsare, men du vill använda ett kommatecken i texten (exempel: ”Hello, world”), kan du definiera ”$” som escape-tecken och använda strängen ”$hello, world” i källan. |Nej |
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
 | nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
 | encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
@@ -78,7 +78,7 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Användningsscenarier för firstRowAsHeader och skipLineCount
 
-* Du kopierar från en källa som inte är filbaserad till en textfil och vill lägga till en rubrikrad som innehåller schemametadata (till exempel: SQL-schema). Ange `firstRowAsHeader` som true i utdatauppsättningen för det här scenariot.
+* Du kopierar från en källa inte är filbaserad till en textfil och vill lägga till en rubrikrad som innehåller schemametadata (till exempel: SQL-schemat). Ange `firstRowAsHeader` som true i utdatauppsättningen för det här scenariot.
 * Du kopierar från en textfil som innehåller en rubrikrad till en mottagare som inte är filbaserad och vill ignorera raden. Ange `firstRowAsHeader` som true i indatauppsättningen.
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
@@ -91,9 +91,9 @@ Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
-| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data från JSON-filer. | Nej |
-| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data från JSON-filer, och du kan extrahera data från objekt eller matriser. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
-| encodingName |Ange kodningsnamnet. En lista över giltiga kodningsnamn finns i avsnittet om egenskapen [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
+| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | Nej |
+| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer, och du kan extrahera data från objekt eller matriser. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
+| encodingName |Ange kodningsnamnet. Lista över giltiga kodningsnamn finns i: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) egenskapen. Exempel: windows-1250 or shift_jis. Den **standard** värdet är: **UTF-8**. |Nej |
 | nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
@@ -190,8 +190,6 @@ Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
 ### <a name="jsonformat-example"></a>JsonFormat-exempel
 
 **Fall 1: Kopiera data från JSON-filer**
-
-Se följande två exempel när du kopierar data från JSON-filer. Punkter att notera:
 
 **Exempel 1: hämta data från objektet och matrisen**
 
@@ -405,67 +403,6 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 }
 ```
 
-## <a name="avro-format"></a>AVRO-format
-
-Om du vill parsa Avro-filerna eller skriva data i Avro-format anger du egenskapen `format` `type` till **AvroFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
-
-```json
-"format":
-{
-    "type": "AvroFormat",
-}
-```
-
-Om du vill använda Avro-formatet i en Hive-tabell går du [självstudiekursen om Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-Observera följande punkter:
-
-* [Komplexa datatyper](http://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, mappningar, unioner, och fasta).
-
-## <a name="orc-format"></a>ORC-format
-
-Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `format` `type` till **OrcFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
-
-```json
-"format":
-{
-    "type": "OrcFormat"
-}
-```
-
-> [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
-Observera följande punkter:
-
-* Komplexa datatyper stöds inte (STRUCT, MAP, LIST, UNION)
-* ORC-filen har tre [komprimeringsrelaterade alternativ](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB och SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
-
-### <a name="data-type-mapping-for-orc-files"></a>Datatypen mappning för ORC-filer
-
-| Data factory tillfälliga datatyp | ORC-typer |
-|:--- |:--- |
-| Boolesk | Boolesk |
-| SByte | Byte |
-| Byte | Kort |
-| Int16 | Kort |
-| UInt16 | Int |
-| Int32 | Int |
-| UInt32 | Lång |
-| Int64 | Lång |
-| UInt64 | Sträng |
-| Enkel | Flyttal |
-| Double-värde | Double-värde |
-| decimaltal | decimaltal |
-| Sträng | Sträng |
-| DateTime | Tidsstämpel |
-| DateTimeOffset | Tidsstämpel |
-| Tidsintervall | Tidsstämpel |
-| ByteArray | Binär |
-| GUID | Sträng |
-| Char | Char(1) |
-
 ## <a name="parquet-format"></a>Parquet-format
 
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
@@ -483,8 +420,9 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 
 Observera följande punkter:
 
-* Komplexa datatyper stöds inte (MAP, LIST)
-* Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från Parquet-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+* Komplexa typer stöds inte (MAP, LIST).
+* Tomt utrymme i kolumnnamn stöds inte.
+* Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från Parquet-filer i någon av dessa komprimerade format utom LZO – den använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Datatypen mappning för Parquet-filer
 
@@ -510,6 +448,68 @@ Observera följande punkter:
 | GUID | Binär | Utf8 | Utf8 |
 | Char | Binär | Utf8 | Utf8 |
 | CharArray | Stöds inte | Gäller inte | Gäller inte |
+
+## <a name="orc-format"></a>ORC-format
+
+Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `format` `type` till **OrcFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
+
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
+
+> [!IMPORTANT]
+> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605).
+>
+
+Observera följande punkter:
+
+* Komplexa typer stöds inte (STRUCT, MAP, LIST, UNION).
+* Tomt utrymme i kolumnnamn stöds inte.
+* ORC-filen har tre [komprimeringsrelaterade alternativ](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB OCH SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+
+### <a name="data-type-mapping-for-orc-files"></a>Datatypen mappning för ORC-filer
+
+| Data factory tillfälliga datatyp | ORC-typer |
+|:--- |:--- |
+| Boolesk | Boolesk |
+| SByte | Byte |
+| Byte | Kort |
+| Int16 | Kort |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Lång |
+| Int64 | Lång |
+| UInt64 | Sträng |
+| Enkel | Flyttal |
+| Double-värde | Double-värde |
+| decimaltal | decimaltal |
+| Sträng | Sträng |
+| DateTime | Tidsstämpel |
+| DateTimeOffset | Tidsstämpel |
+| Tidsintervall | Tidsstämpel |
+| ByteArray | Binär |
+| GUID | Sträng |
+| Char | Char(1) |
+
+## <a name="avro-format"></a>AVRO-format
+
+Om du vill parsa Avro-filerna eller skriva data i Avro-format anger du egenskapen `format` `type` till **AvroFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
+
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
+
+Om du vill använda Avro-formatet i en Hive-tabell går du [självstudiekursen om Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+Observera följande punkter:
+
+* [Komplexa datatyper](http://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, mappningar, unioner, och fasta).
 
 ## <a name="compression-support"></a>Komprimeringsstöd för
 
@@ -551,8 +551,8 @@ Den **komprimering** avsnittet har två egenskaper:
 * **Typ:** komprimerings-codec som kan vara **GZIP**, **Deflate**, **BZIP2**, eller **ZipDeflate**.
 * **Nivå:** komprimeringsförhållandet, vilket kan vara **Optimal** eller **snabbast**.
 
-  * **Snabbaste:** komprimeringsåtgärden bör slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.
-  * **Optimal**: komprimeringsåtgärden ska optimalt komprimeras, även om åtgärden tar längre tid att slutföra.
+  * **Snabbaste:** Komprimeringsåtgärden ska slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.
+  * **Optimal**: Komprimeringsåtgärden ska komprimeras optimalt, även om åtgärden tar längre tid att slutföra.
 
     Mer information finns i [komprimeringsnivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) avsnittet.
 

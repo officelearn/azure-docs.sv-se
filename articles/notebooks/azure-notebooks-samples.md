@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 8ba94cd94003ee51a621923d3b1dbf2a402c5cfb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082344"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971724"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Identifiera och använda exempelanteckningsböcker
 
@@ -37,11 +37,11 @@ När du har identifierat en bärbar dator som du vill utforska, är här några 
 - [Galleri med intressanta anteckningsböcker](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-projekt på GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fysik instruktion från den [fysik-avdelningen på brittiska College London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Exempel för Azure Machine Learning-komma igång](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
+- [Exempel för Azure Machine Learning-komma igång](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: arbeta med filer](work-with-project-data-files.md)
-- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
-- [Så här: använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Hur: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Hur: Arbeta med filer](work-with-project-data-files.md)
+- [Hur: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Hur: Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

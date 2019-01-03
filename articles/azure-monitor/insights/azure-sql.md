@@ -7,22 +7,22 @@ ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/26/2018
-ms.author: v-daljep
-ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/17/2018
+ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341634"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546732"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
 ![Azure SQL Analytics-symbol](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics är ett moln som övervakningslösning för övervakning av prestanda för Azure SQL-databaser, elastiska pooler och instanser som hanteras i stor skala och över flera prenumerationer via ett fönster för alla. Den samlar in och visar viktiga mått för Azure SQL Database-prestanda med inbyggd intelligens för prestandafelsökning av.
+Azure SQL Analytics är en avancerad övervakningslösning för övervakning av prestanda för Azure SQL-databaser, elastiska pooler och instanser som hanteras i stor skala och över flera prenumerationer via ett fönster för alla. Den samlar in och visar viktiga mått för Azure SQL Database-prestanda med inbyggd intelligens för prestandafelsökning av.
 
 Genom att använda mått som du samlar in med lösningen kan skapa du anpassade regler för övervakning och aviseringar. Lösningen hjälper dig att identifiera problem på varje lager i din programstack. Azure diagnostikmått tillsammans med vyer för Log Analytics används för att presentera data om alla dina Azure SQL-databaser, elastiska pooler och databaser i hanterade instanser i en enda Log Analytics-arbetsyta. Log Analytics hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
 

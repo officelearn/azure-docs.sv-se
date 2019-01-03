@@ -4,15 +4,16 @@ description: Den här artikeln sammanfattas vanliga frågor när du konfigurerar
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 12/11/2018
+services: site-recovery
+ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: rayne
+ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256526"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974700"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -74,7 +75,7 @@ Du kan replikera en app eller arbetsbelastning som körs på en VMware-VM som up
 Site Recovery replikerar data från en lokal plats till Azure storage via en offentlig slutpunkt eller med offentlig peering i ExpressRoute. Replikering via ett plats-till-plats VPN-nätverk stöds inte.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan jag replikera till Azure med ExpressRoute?
-Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt och du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) för Site Recovery-replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. Se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
@@ -108,7 +109,7 @@ Ja, kan du lägga till nya virtuella datorer till en befintlig replikeringsgrupp
 
 Du kan ändra diskens storlek för VMware-replikering till Azure. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
 
-## <a name="configuration-server"></a>Konfigurationsservern
+## <a name="configuration-server"></a>Konfigurationsserver
 
 ### <a name="what-does-the-configuration-server-do"></a>Vad gör configuration server?
 Konfigurationsservern körs lokalt Site Recovery-komponenter, inklusive:

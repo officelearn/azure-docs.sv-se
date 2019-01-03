@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f50767ad4fc979962968c32bbe972e28d93cce88
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166412"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652703"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
@@ -57,9 +57,9 @@ Lär dig mer om att bearbeta och analysera JavaScript Object Notation (JSON) fil
 }
 ```
 
-Filen finns på **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Mer information om hur du använder Azure Blob storage med HDInsight finns i [Använd HDFS-kompatibla Azure Blob storage med Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standardbehållare på klustret.
+Filen finns på **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Mer information om hur du använder Azure Blob storage med HDInsight finns i [Använd HDFS-kompatibla Azure Blob storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standardbehållare på klustret.
 
-I den här självstudien använder du Hive-konsolen. Anvisningar för hur du öppnar konsolen Hive finns i [använda Hive med Hadoop i HDInsight med fjärrskrivbord](apache-hadoop-use-hive-remote-desktop.md).
+I den här självstudien använder du Apache Hive-konsolen. Anvisningar för hur du öppnar konsolen Hive finns i [använda Apache Hive med Apache Hadoop i HDInsight med fjärrskrivbord](apache-hadoop-use-hive-remote-desktop.md).
 
 ## <a name="flatten-json-documents"></a>Förenkla JSON-dokument
 De metoder som anges i nästa avsnitt kräver att JSON-dokumentet består av en enskild rad. Därför måste du förenkla JSON-dokumentet till en sträng. Om JSON-dokumentet redan förenklas du hoppa över det här steget och gå direkt till nästa avsnitt om hur du analyserar JSON-data. Kör följande skript för att platta ut JSON-dokumentet:
@@ -101,7 +101,7 @@ Hive tillhandahåller tre olika sätt för att köra frågor i JSON-dokument, el
 * Använd get_json_object användardefinierad funktion (UDF).
 * Använd json_tuple UDF.
 * Använd anpassade serialiserare/Deserialiserare (SerDe).
-* Skriv din egen UDF med hjälp av Python eller andra språk. Läs mer om hur du kör din egen kod för Python med Hive [Python-UDF med Apache Hive och Pig][hdinsight-python].
+* Skriv din egen UDF med hjälp av Python eller andra språk. Läs mer om hur du kör din egen kod för Python med Hive [Python-UDF med Apache Hive och Apache Pig][hdinsight-python].
 
 ### <a name="use-the-getjsonobject-udf"></a>Använd get_json_object UDF
 Hive innehåller en inbyggd UDF kallas [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) som kan utföra JSON frågor under körning. Den här metoden tar två argument--tabellnamnet och metodnamnet som har Flat JSON-dokumentet och som krävs för att parsa JSON-fältet. Nu ska vi titta på ett exempel och se hur den här UDF fungerar.
@@ -152,9 +152,9 @@ Sammanfattningsvis beror typ av JSON-operator i Hive som du väljer på ditt sce
 
 Relaterade artiklar finns här:
 
-* [Använda Hive och HiveQL med Hadoop i HDInsight för att analysera ett exempel Apache log4j-fil](../hdinsight-use-hive.md)
-* [Analysera flygförseningsdata med hjälp av Hive i HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analysera Twitter-data med Hive i HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Använda Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel Apache log4j-fil](../hdinsight-use-hive.md)
+* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-flight-delay-data.md)
+* [Analysera Twitter-data med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-twitter-data.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

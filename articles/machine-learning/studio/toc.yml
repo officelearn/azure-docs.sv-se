@@ -55,166 +55,18 @@ items:
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
   - name: R-snabbstart
     href: r-quickstart.md
-- name: Gör så här för att
+- name: Exempel
   items:
-  - name: Konfigurera verktyg och hjälpmedel
-    items:
-    - name: Hantera en arbetsyta
-      items:
-      - name: Skapa
-        href: create-workspace.md
-      - name: Hantera
-        href: manage-workspace.md
-      - name: Felsöka
-        href: troubleshooting-creating-ml-workspace.md
-      - name: Distribuera med ARM
-        href: deploy-with-resource-manager-template.md
-      - name: Visa och ta bort Studio-kontodata
-        displayName: export
-        href: export-delete-personal-data-dsr.md
-  - name: Skaffa och förstå data
-    items:
-    - name: Importera utbildningsdata
-      items:
-      - name: Översikt
-        href: import-data.md
-      - name: Från en lokal fil
-        href: import-data-from-local-file.md
-      - name: Från onlinekällor
-        href: import-data-from-online-sources.md
-      - name: Från ett experiment
-        href: import-data-from-an-experiment.md
-      - name: Använda lokal SQL
-        displayName: on-premises
-        href: use-data-from-an-on-premises-sql-server.md
-  - name: Utveckla modeller
-    items:
-    - name: Skapa och träna modeller
-      items:
-      - name: Livscykelhantering för experiment
-        href: version-control.md
-      - name: Hantera experimentupprepningar
-        href: manage-experiment-iterations.md
-      - name: Använda PowerShell för att skapa modeller
-        displayName: endpoint, endpoints
-        href: create-models-and-endpoints-with-powershell.md
-      - name: Välja algoritmer
-        items:
-        - name: Välja algoritmer
-          href: algorithm-choice.md
-        - name: Algoritmfacit
-          href: algorithm-cheat-sheet.md
-        - name: Använda linjär regression
-          href: linear-regression-in-azure.md
-        - name: Använda textanalys
-          href: text-analytics-module-tutorial.md
-      - name: Utvärdera och tolka resultaten
-        items:
-        - name: Utvärdera prestanda
-          href: evaluate-model-performance.md
-        - name: Optimera parametrar
-          displayName: optimization
-          href: algorithm-parameters-optimize.md
-        - name: Tolka resultaten
-          href: interpret-model-results.md
-        - name: Felsökning
-          href: debug-models.md
-      - name: Använd R och Python
-        items:
-        - name: Köra R-skript
-          href: extend-your-experiment-with-r.md
-        - name: Skapa anpassade R-moduler
-          href: custom-r-modules.md
-        - name: Köra Python-skript
-          href: execute-python-scripts.md
-  - name: Operationalisera modeller
-    displayName: deploy
-    items:
-    - name: Översikt
-      displayName: deploy, consume, web service
-      href: deploy-consume-web-service-guide.md
-    - name: Distribuera modeller
-      items:
-      - name: Distribuera en webbtjänst
-        displayName: publish
-        href: publish-a-machine-learning-web-service.md
-      - name: Hur det fungerar
-        href: model-progression-experiment-to-web-service.md
-      - name: Förbereda för distribution
-        href: convert-training-experiment-to-scoring-experiment.md
-      - name: Använda externa data
-        displayName: import, export
-        href: web-services-that-use-import-export-modules.md
-      - name: Distribuera i flera områden
-        displayName: multiple regions
-        href: how-to-deploy-to-multiple-regions.md
-      - name: Använda webbtjänstparametrar
-        href: web-service-parameters.md
-      - name: Aktivera loggning
-        href: web-services-logging.md
-    - name: Hantera webbtjänster
-      items:
-      - name: Använda Web Services-portalen
-        href: manage-new-webservice.md
-      - name: Hantera med API:er
-        displayName: endpoint, endpoints
-        href: manage-web-service-endpoints-using-api-management.md
-      - name: Skapa slutpunkter
-        href: create-endpoint.md
-      - name: Skalning
-        href: scaling-webservice.md
-    - name: Omtrimningsmodeller
-      items:
-      - name: Översikt
-        href: retrain-machine-learning-model.md
-      - name: Omtrimma programmässigt
-        href: retrain-models-programmatically.md
-      - name: Omtrimma en klassisk webbtjänst
-        href: retrain-a-classic-web-service.md
-      - name: Omtrimma med PowerShell
-        href: retrain-new-web-service-using-powershell.md
-      - name: Omtrimma en befintlig webbtjänst
-        href: retrain-existing-resource-manager-based-web-service.md
-      - name: Felsöka
-        href: troubleshooting-retraining-models.md
-    - name: Förbrukningsmodeller
-      items:
-      - name: Översikt
-        href: consume-web-services.md
-      - name: Använda Excel
-        href: consuming-from-excel.md
-      - name: Använda Excel-tillägg
-        href: excel-add-in-for-web-services.md
-      - name: Använda en mall för webbappar
-        href: consume-web-service-with-web-app-template.md
-      - name: Använda Batch-pool
-        href: dedicated-capacity-for-bes-jobs.md
-  - name: Exempel
-    items:
-    - name: Exempelexperiment
-      href: sample-experiments.md
-    - name: Exempeldatauppsättningar
-      href: use-sample-datasets.md
-    - name: Kundomsättningsexempel
-      href: azure-ml-customer-churn-scenario.md
-- name: Referens
-  items:
-  - name: Azure PowerShell-modul (ny)
-    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
-  - name: Azure PowerShell-modul (klassisk)
-    href: powershell-module.md
-  - name: Algoritm- och modulreferens
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: 'Hantering av REST API: er'
-    href: /rest/api/machinelearning
-  - name: Felkoder för webbtjänst
-    href: web-service-error-codes.md
-- name: Relaterat
-  items:
+  - name: Exempeldatauppsättningar
+    href: use-sample-datasets.md
+  - name: Kundomsättningsexempel
+    href: azure-ml-customer-churn-scenario.md
   - name: Azure AI-galleriet
     items:
     - name: Översikt
       href: gallery-how-to-use-contribute-publish.md
+    - name: Exempelexperiment
+      href: sample-experiments.md
     - name: Branscher
       href: gallery-industries.md
     - name: Lösningar
@@ -235,6 +87,145 @@ items:
       href: gallery-custom-modules.md
     - name: Visa och ta bort kontodata
       href: ai-gallery-control-personal-data-dsr.md
+- name: Begrepp
+  items:
+  - name: Modellhantering
+    displayName: deploy, consume, web service
+    href: deploy-consume-web-service-guide.md
+- name: Instruktionsguider
+  items:
+  - name: Hantera en arbetsyta
+    items:
+    - name: Skapa
+      href: create-workspace.md
+    - name: Hantera
+      href: manage-workspace.md
+    - name: Felsöka
+      href: troubleshooting-creating-ml-workspace.md
+    - name: Distribuera med ARM
+      href: deploy-with-resource-manager-template.md
+    - name: Visa och ta bort Studio-kontodata
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+  - name: Importera utbildningsdata
+    items:
+    - name: Översikt
+      href: import-data.md
+    - name: Från en lokal fil
+      href: import-data-from-local-file.md
+    - name: Från onlinekällor
+      href: import-data-from-online-sources.md
+    - name: Från ett experiment
+      href: import-data-from-an-experiment.md
+    - name: Använda lokal SQL
+      displayName: on-premises
+      href: use-data-from-an-on-premises-sql-server.md
+  - name: Skapa och träna modeller
+    items:
+    - name: Livscykelhantering för experiment
+      href: version-control.md
+    - name: Hantera experimentupprepningar
+      href: manage-experiment-iterations.md
+    - name: Använda PowerShell för att skapa modeller
+      displayName: endpoint, endpoints
+      href: create-models-and-endpoints-with-powershell.md
+    - name: Välja algoritmer
+      items:
+      - name: Välja algoritmer
+        href: algorithm-choice.md
+      - name: Algoritmfacit
+        href: algorithm-cheat-sheet.md
+      - name: Använda linjär regression
+        href: linear-regression-in-azure.md
+      - name: Använda textanalys
+        href: text-analytics-module-tutorial.md
+    - name: Utvärdera och tolka resultaten
+      items:
+      - name: Utvärdera prestanda
+        href: evaluate-model-performance.md
+      - name: Optimera parametrar
+        displayName: optimization
+        href: algorithm-parameters-optimize.md
+      - name: Tolka resultaten
+        href: interpret-model-results.md
+      - name: Felsökning
+        href: debug-models.md
+    - name: Använd R och Python
+      items:
+      - name: Köra R-skript
+        href: extend-your-experiment-with-r.md
+      - name: Skapa anpassade R-moduler
+        href: custom-r-modules.md
+      - name: Köra Python-skript
+        href: execute-python-scripts.md
+  - name: Distribuera modeller
+    items:
+    - name: Distribuera en webbtjänst
+      displayName: publish
+      href: publish-a-machine-learning-web-service.md
+    - name: Hur det fungerar
+      href: model-progression-experiment-to-web-service.md
+    - name: Förbereda för distribution
+      href: convert-training-experiment-to-scoring-experiment.md
+    - name: Använda externa data
+      displayName: import, export
+      href: web-services-that-use-import-export-modules.md
+    - name: Distribuera i flera områden
+      displayName: multiple regions
+      href: how-to-deploy-to-multiple-regions.md
+    - name: Använda webbtjänstparametrar
+      href: web-service-parameters.md
+    - name: Aktivera loggning
+      href: web-services-logging.md
+  - name: Hantera webbtjänster
+    items:
+    - name: Använda Web Services-portalen
+      href: manage-new-webservice.md
+    - name: Hantera med API:er
+      displayName: endpoint, endpoints
+      href: manage-web-service-endpoints-using-api-management.md
+    - name: Skapa slutpunkter
+      href: create-endpoint.md
+    - name: Skalning
+      href: scaling-webservice.md
+  - name: Omtrimningsmodeller
+    items:
+    - name: Översikt
+      href: retrain-machine-learning-model.md
+    - name: Omtrimma programmässigt
+      href: retrain-models-programmatically.md
+    - name: Omtrimma en klassisk webbtjänst
+      href: retrain-a-classic-web-service.md
+    - name: Omtrimma med PowerShell
+      href: retrain-new-web-service-using-powershell.md
+    - name: Omtrimma en befintlig webbtjänst
+      href: retrain-existing-resource-manager-based-web-service.md
+    - name: Felsöka
+      href: troubleshooting-retraining-models.md
+  - name: Förbrukningsmodeller
+    items:
+    - name: Översikt
+      href: consume-web-services.md
+    - name: Använda Excel
+      href: consuming-from-excel.md
+    - name: Använda Excel-tillägg
+      href: excel-add-in-for-web-services.md
+    - name: Använda en mall för webbappar
+      href: consume-web-service-with-web-app-template.md
+    - name: Använda Batch-pool
+      href: dedicated-capacity-for-bes-jobs.md
+- name: Referens
+  items:
+  - name: Azure PowerShell-modul (ny)
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
+  - name: Azure PowerShell-modul (klassisk)
+    href: powershell-module.md
+  - name: Algoritm- och modulreferens
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: 'Hantering av REST API: er'
+    href: /rest/api/machinelearning
+  - name: Felkoder för webbtjänst
+    href: web-service-error-codes.md
 - name: Resurser
   items:
   - name: Prissättning
@@ -249,9 +240,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Utvecklarguide för R
     href: ../r-developers-guide.md
-ms.openlocfilehash: 8aaf830dc13919a664a931b5d08a11c817e8dc51
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 16c610345c063be9149d841c71d27f73e22d143d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628314"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974123"

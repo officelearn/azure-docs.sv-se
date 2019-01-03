@@ -14,16 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223080"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753973"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace och AppSource publiceringsguide
 
 Publiceringsguide för Marketplace är utformat för att hjälpa nya och befintliga utgivare Lär dig hur du använder butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) att öka sin verksamhet i samarbete med Microsoft genom att ange program och tjänster.
+
+>[!Note]
+>Marknaden här refererar till både Azure Marketplace och AppSource.  Se [en Marketplace, två butikerna gör](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) för mer information.
 
 Den här guiden innehåller följande avsnitt: 
 *   Vad Marketplace är och hur det fungerar 
@@ -64,7 +67,7 @@ Nya listor i Marketplace är berättigade till ett brett utbud av kostnadsfria f
 
 *   Gemensam marknadsföring: Allt du behöver att starta ditt erbjudande. Få åtkomst till kostnadsfria Microsoft Go-To-Market starta grunderna för att starta och flytta upp din lösning. Du kan också vara berättigade till ytterligare Microsoft marketing campaign inkluderings- och möjligheter att att synas i Marketplace.
 
-*   Samarbetsmöjligheter: Börjar eller gör din resa till sälja med Microsoft via Marketplace. Åtkomst till program och gemensamma ökar försäljningen med Microsoft teams-supporten.
+*   Samarbetsmöjligheter: Börja eller gör din resa till sälja med Microsoft via Marketplace. Åtkomst till program och gemensamma ökar försäljningen med Microsoft teams-supporten.
 
 När du [skicka din lösning](https://azuremarketplace.microsoft.com/sell/signup) på Marketplace kontaktar vårt registreringsteam dig för att stödja din publiceringsupplevelse.
 

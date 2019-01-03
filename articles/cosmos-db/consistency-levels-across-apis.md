@@ -1,5 +1,5 @@
 ---
-title: 'Konsekvensnivåer och Azure Cosmos DB API: er'
+title: Konsekvensnivåer och API:er för Azure Cosmos DB
 description: 'För att förstå konsekvensnivåerna i API: er i Azure Cosmos DB.'
 keywords: konsekvens, azure cosmos db, azure, modeller, mongodb, cassandra, diagram, tabell, Microsoft azure
 services: cosmos-db
@@ -8,14 +8,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 277a064d93e2ebcea82f3909b3fd16328a775105
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2fde29111ae1a95aec0cfef93762d3ae4f0e0dd0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832504"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809394"
 ---
-# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och Azure Cosmos DB API: er
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
 
 Fem konsekvensmodeller erbjuds av Azure Cosmos DB stöds internt av Azure Cosmos DB SQL API. När du använder Azure Cosmos DB är SQL API standardinställningen. 
 
@@ -50,5 +50,5 @@ I följande tabell visas ”Läs funderingar” mappningen mellan MongoDB 3.4 oc
 Läs mer om konsekvensnivåer och kompatibiliteten mellan Azure Cosmos DB API: er med öppen källkod-API: er. Se följande artiklar:
 
 * [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
-* [MongoDB-funktioner som stöds av Azure Cosmos DB MongoDB API](mongodb-feature-support.md)
+* [MongoDB-funktioner som stöds av Azure Cosmos DB: s API för MongoDB](mongodb-feature-support.md)
 * [Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API](cassandra-support.md)

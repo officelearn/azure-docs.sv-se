@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b2399e47c9071bac159f407deac9755606763a67
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326373"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788505"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights
 Molntjänster, virtuella datorer, Virtual Machine Scale Sets och Service Fabric alla Använd Azure Diagnostics-tillägget för att samla in data.  Azure-diagnostik skickar data till Azure Storage-tabeller.  Du kan dock också pipe alla eller en delmängd av data till andra platser med hjälp av Azure-diagnostiktillägget 1.5 eller senare.
@@ -62,7 +62,7 @@ Exempel konfigurationen av en mottagare för Application Insights:
 
 - Den **ApplicationInsights** elementet anger instrumenteringsnyckeln för Application insights-resurs där Azure diagnostics-data skickas.
     - Om du inte har en befintlig Application Insights-resurs kan du läsa [skapa en ny Application Insights-resurs](../../application-insights/app-insights-create-new-resource.md) mer information om att skapa en resurs och komma instrumenteringsnyckeln.
-    - Om du utvecklar en molntjänst med Azure SDK 2.8 och senare, fylls instrumentationsnyckeln i automatiskt. Värdet är baserad på den **APPINSIGHTS_INSTRUMENTATIONKEY** konfigurationsinställning för tjänst när paketering Cloud Service-projekt. Se [använda Application Insights med molntjänster](../../application-insights/app-insights-cloudservices.md).
+    - Om du utvecklar en molntjänst med Azure SDK 2.8 och senare, fylls instrumentationsnyckeln i automatiskt. Värdet är baserad på den **APPINSIGHTS_INSTRUMENTATIONKEY** konfigurationsinställning för tjänst när paketering Cloud Service-projekt. Se [använda Application Insights med molntjänster](../../azure-monitor/app/cloudservices.md).
 
 - Den **kanaler** elementet innehåller ett eller flera **kanal** element.
     - Den *namn* attributet unikt refererar till kanalen.

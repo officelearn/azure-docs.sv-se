@@ -13,22 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 217f19b02ccd5561ee499388bb62d5a6639086ac
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: cccc42cd925c123b52c0f2416599bb989ce44d8a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436202"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713505"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Azure Monitor från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-<<<<<<< HEAD [Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen i Azure Monitor för att analysera dem med loggdata från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+
+[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen i Azure Monitor för att analysera dem med loggdata från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
 
 > [!NOTE]
 > [Aviseringar som skapats av Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) lagras separat från loggdata och inte kan nås från loggfrågor.
-=======
-[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](../../azure-monitor/platform/alerts-overview.md).  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+
  
 ## <a name="prerequisites"></a>Förutsättningar
 Samla in varningar från Nagios versionen har stöd för Log Analytics-agenten för Linux 4.2.x och Zabbix upp till version 2.x.

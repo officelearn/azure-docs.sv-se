@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 20fe724d32e31e1bacbad024cc934f89af12f112
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139936"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993220"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
  [Uppdateringsinfrastruktur för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att cloud-leverantörer, till exempel Azure för spegling av Red Hat-värdbaserade databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
 
 Red Hat Enterprise Linux (RHEL) betala per användning (PAYG) avbildningar kommer förkonfigurerade för att komma åt Azure RHUI. Ingen ytterligare konfiguration krävs. För att få de senaste uppdateringarna, köra `sudo yum update` när din RHEL-instans är klar. Den här tjänsten ingår som en del av RHEL PAYG-programvaruavgifter.
+
+Mer information om RHEL-avbildningar i Azure, inklusive publicering och principer för kvarhållning är tillgänglig [här](./rhel-images.md).
 
 ## <a name="important-information-about-azure-rhui"></a>Viktig information om Azure RHUI
 * Azure RHUI stöder för närvarande endast den senaste mindre versionen i varje RHEL-serien (RHEL6 eller RHEL7). Om du vill uppgradera en RHEL VM-instans som är anslutna till RHUI till den senaste minor-versionen, kör `sudo yum update`.
@@ -35,9 +37,37 @@ Red Hat Enterprise Linux (RHEL) betala per användning (PAYG) avbildningar komme
 
 * Åtkomst till Azure som värd-RHUI ingår i priset för RHEL PAYG-avbildningen. Om du avregistrerar en PAYG RHEL virtuell dator från Azure som värd-RHUI konverterar som den virtuella datorn inte till en bring-your-own-license (BYOL) typ av virtuell dator. Om du har registrerat samma virtuella dator med en annan källa för uppdateringar kan roamingavgifter _indirekt_ dubbelklicka avgifter. Du debiteras för första gången för avgiften för Azure RHEL-programvara. Du debiteras den andra gången för Red Hat-prenumerationer som köpts tidigare. Om du behöver konsekvent att använda en uppdateringsinfrastruktur än Azure-värdbaserade RHUI kan du skapa och distribuera dina egna avbildningar (BYOL-typ). Den här processen beskrivs i [skapa och ladda upp en Red Hat-baserad virtuell dator för Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Två klasser av RHEL PAYG-avbildningar i Azure (RHEL for SAP HANA) och RHEL for SAP Business Applications är anslutna till RHUI kanaler som finns kvar på den specifika RHEL lägre versionen som krävs för SAP-certifiering.
+* RHEL SAP PAYG-avbildningar i Azure (RHEL for SAP, RHEL for SAP HANA och RHEL for SAP Business Applications) är anslutna till RHUI kanaler som finns kvar på den specifika RHEL lägre versionen som krävs för SAP-certifiering.
 
 * Åtkomst till Azure-värdbaserade RHUI är begränsad till de virtuella datorerna inom de [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Om du är proxy är alla VM-trafik via en lokal nätverksinfrastruktur, du kan behöva konfigurera användardefinierade vägar för RHEL PAYG virtuella datorer till Azure-RHUI.
+
+### <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEl EUS och version-låsning RHEL-datorer
+Vissa kunder vill låsa sin virtuella RHEL-datorer till en viss RHEL mindre version. Du kan version Lås din RHEL VM till en viss mindre version genom att uppdatera databaser så att den pekar till stöd för utökat-databaser. Använd följande instruktioner för att låsa en RHEL VM till en viss mindre version:
+
+>[!NOTE]
+> Detta gäller endast för RHEL 7.2 7.5
+
+1. Inaktivera lagringsplatser för icke-EUS:
+    ```
+    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    ```
+
+1. Lägg till EUS lagringsplatser:
+    ```
+    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    ```
+
+1. Lås releasever variabeln:
+    ```
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > Instruktionen ovan låses den mindre RHEL-versionen till den aktuella lägre versionen. Ange en specifik mindre version om du vill uppgradera och låsa till en senare mindre version som inte är senast. Till exempel `echo 7.5 > /etc/yum/vars/releasever` låser den RHEL-versionen med RHEL 7.5
+1. Uppdatera din virtuella RHEL-dator
+    ```bash
+    sudo yum update
+    ```
 
 ### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>IP-adresser för servrarna som RHUI
 
@@ -70,13 +100,19 @@ De nya Azure RHUI-servrarna distribueras med [Azure Traffic Manager](https://azu
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Uppdatera har upphört att gälla RHUI-klientcertifikat på en virtuell dator
 
-Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7.4 (bild-URN: `RedHat:RHEL:7.4:7.4.2018010506`), du kommer att uppleva anslutningsproblem till RHUI på grund av ett utgångna (på Nov 21 2018) SSL-klientcertifikat. Om du vill lösa det här problemet, uppdatera RHUI-klientpaketet på den virtuella datorn med följande kommando
+Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7.4 (bild-URN: `RedHat:RHEL:7.4:7.4.2018010506`), du kommer att uppleva anslutningsproblem till RHUI på grund av ett utgångna (på Nov 21 2018) SSL-klientcertifikat. Uppdatera RHUI-klientpaketet på den virtuella datorn med följande kommando för att lösa problemet:
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
 ```
 
-Du kan också köra `sudo yum update` uppdaterar även det här paketet trots ”utgånget SSL-certifikat” fel visas för andra databaser. Efter uppdateringen, normal anslutning till andra RHUI-databaser ska återställas.
+Om din RHEL VM i molnet för amerikanska myndigheter, använder du följande kommando:
+```bash
+sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+```
+
+Du kan också köra `sudo yum update` uppdaterar även klientpaketet för certifikatet trots ”utgånget SSL-certifikat” fel visas för andra databaser. Efter uppdateringen, normal anslutning till andra RHUI-databaser ska återställas så att du kommer att kunna köra `sudo yum update` har.
+
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Felsök anslutningsproblem till Azure RHUI
 Om du får problem med att ansluta till Azure RHUI från Azure RHEL PAYG-VM, gör du följande:
@@ -179,5 +215,6 @@ Den här proceduren tillhandahålls endast för referens. RHEL PAYG-avbildningar
 1. När du är klar kan du kontrollera att du kan komma åt Azure RHUI från den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
-Skapar en Red Hat Enterprise Linux virtuell dator från en Azure Marketplace PAYG-avbildning och kan använda Azure-värdbaserade RHUI går du till den [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Skapar en Red Hat Enterprise Linux virtuell dator från en Azure Marketplace PAYG-avbildning och kan använda Azure-värdbaserade RHUI går du till den [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Om du vill veta mer om Red Hat-bilder i Azure kan du gå till den [dokumentationssidan](./rhel-images.md).
 

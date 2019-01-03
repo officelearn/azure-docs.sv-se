@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9dd4ca4b4f156823aff3b8a475e06ea63f98be6c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260558"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975312"
 ---
 # <a name="aerial-image-classification"></a>Klassificering av Flygfoto
 
@@ -174,7 +174,7 @@ Våra rekommenderade metoden för att skapa ett HDInsight-kluster använder HDIn
 
 1. HDInsight Spark-kluster-mallen är filen ”template.json” under undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet. Som standard skapar mallen ett Spark-kluster med 40 arbetsnoder. Om du måste justera det numret, öppna mallen i valfri textredigerare och Ersätt alla instanser av ”40” med worker noden antalet ditt val.
     - Minnet är slut fel kan inträffa senare om antalet arbetsnoder som du väljer är mindre. För att bekämpa minnesfel kan du köra skripten utbildnings- och driftsättning för en delmängd av alla tillgängliga data som beskrivs senare i det här dokumentet.
-2. Välj ett unikt namn och lösenord för HDInsight-kluster och skriva dem där det anges i följande kommando: skapa klustret genom att utfärda kommandon:
+2. Välj ett unikt namn och lösenord för HDInsight-kluster och skriva dem där det anges i följande kommando: Sedan skapar du klustret genom att utfärda kommandon:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -332,7 +332,7 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 
 ## <a name="data-acquisition-and-understanding"></a>Förvärv och förståelse av data
 
-Det här scenariot använder offentligt tillgängliga Flygfoto bilder data från den [nationella jordbruk bilder programmet](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) med 1-mätaren upplösning. Vi har genererat filuppsättningar 224 pixel x 224 pixel PNG beskärs från den ursprungliga NAIP informationen och sorterade enligt mark Använd etiketter från den [nationella mark täcker Database](https://www.mrlc.gov/nlcd2011.php). En exempelbild med etiketten ”utvecklade” visas i full storlek:
+Det här scenariot använder offentligt tillgängliga Flygfoto bilder data från den [nationella jordbruk bilder programmet](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) med 1-mätaren upplösning. Vi har genererat filuppsättningar 224 pixel x 224 pixel PNG beskärs från den ursprungliga NAIP informationen och sorterade enligt mark Använd etiketter från den [nationella mark täcker Database](https://www.mrlc.gov/data/references/national-land-cover-database-2011-nlcd2011). En exempelbild med etiketten ”utvecklade” visas i full storlek:
 
 ![En exempel-panel utvecklade mark](media/scenario-aerial-image-classification/sample-tile-developed.png)
 

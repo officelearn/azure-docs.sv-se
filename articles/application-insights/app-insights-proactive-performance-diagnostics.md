@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bd7b4bd2e1c3116f2a722b0a06d24ecc43e6ccb2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864969"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975009"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
 [Application Insights](app-insights-overview.md) analyseras prestanda för ditt webbprogram automatiskt och kan varna dig om potentiella problem. Du kan vara att läsa det eftersom du har en av våra smart identifiering meddelanden.
 
-Den här funktionen kräver några särskilda inställningar, förutom att konfigurera din app för Application Insights (på [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), eller [Node.js](app-insights-nodejs.md), och i [webbsida kod](app-insights-javascript.md)). Den är aktiv när din app genererar mycket telemetri.
+Den här funktionen kräver några särskilda inställningar, förutom att konfigurera din app för Application Insights (på [ASP.NET](../azure-monitor/app/asp-net.md), [Java](../azure-monitor/app/java-get-started.md), eller [Node.js](app-insights-nodejs.md), och i [webbsida kod](../azure-monitor/app/javascript.md)). Den är aktiv när din app genererar mycket telemetri.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>När ska jag får ett meddelande för smart identifiering?
 
@@ -69,22 +69,22 @@ E-post om identifieringar Smart prestandaavvikelser är begränsade till en e-po
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 * *Det Microsoft-Personal titta på Mina data?*
-  * Nej. Tjänsten är helt automatisk. Du får endast meddelanden. Dina data är [privata](app-insights-data-retention-privacy.md).
+  * Nej. Tjänsten är helt automatisk. Du får endast meddelanden. Dina data är [privata](../azure-monitor/app/data-retention-privacy.md).
 * *Du analysera alla data som samlas in av Application Insights?*
   * Inte för närvarande. För närvarande kan analysera vi begäran svarstid, svarstid för beroende och sidan kan du läsa in tid. Analys av ytterligare mått är på våra återstående uppgifter som vi ser fram emot.
 
 * Vilka typer av programmet fungerar detta för?
-  * Dessa försämringar identifieras i alla program som genererar den lämpliga telemetrin. Om du har installerat Application Insights i din webbapp, sedan spåras begäranden och beroenden automatiskt. Men i backend-tjänster eller andra appar, om du har infogat anrop till [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) eller [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), Smart identifiering fungerar på samma sätt.
+  * Dessa försämringar identifieras i alla program som genererar den lämpliga telemetrin. Om du har installerat Application Insights i din webbapp, sedan spåras begäranden och beroenden automatiskt. Men i backend-tjänster eller andra appar, om du har infogat anrop till [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency](../azure-monitor/app/api-custom-events-metrics.md#trackdependency), Smart identifiering fungerar på samma sätt.
 
 * *Kan jag skapa min egen avvikelseidentifiering regler för identifiering eller anpassa befintliga regler?*
 
   * Inte ännu, men du kan:
-    * [Ställa in aviseringar](app-insights-alerts.md) som talar om när ett mått överskrider ett tröskelvärde.
-    * [Exportera telemetri](app-insights-export-telemetry.md) till en [databasen](app-insights-code-sample-export-sql-stream-analytics.md) eller [till PowerBI](app-insights-export-power-bi.md), där du kan analysera dem själv.
+    * [Ställa in aviseringar](../azure-monitor/app/alerts.md) som talar om när ett mått överskrider ett tröskelvärde.
+    * [Exportera telemetri](../azure-monitor/app/export-telemetry.md) till en [databasen](../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till PowerBI](app-insights-export-power-bi.md), där du kan analysera dem själv.
 * *Hur ofta utförs analysen?*
 
   * Analys körs dagligen på telemetri från föregående dag (hel dag i UTC-tidszonen).
-* *Det gör även detta ersätta [måttaviseringar](app-insights-alerts.md)?*
+* *Det gör även detta ersätta [måttaviseringar](../azure-monitor/app/alerts.md)?*
   * Nej.  Vi arbetar inte för att identifiera varje beteenden som du kan överväga att onormalt.
 
 
@@ -101,7 +101,7 @@ Först, spelar det någon roll? Om en sida är alltid långsamt att läsa, men e
 
 Använda instruktionen påverkan (berörda användare eller % av trafiken) som en allmän vägledning, men tänk på att det inte är hela artikeln. Samla in andra bevis på att bekräfta.
 
-Överväg att parametrarna för problemet. Om det är beroende av geografiskt område, ställa in [tillgänglighetstester](app-insights-monitor-web-app-availability.md) inklusive regionen: Det kan bara finnas nätverksproblem i det området.
+Överväg att parametrarna för problemet. Om det är beroende av geografiskt område, ställa in [tillgänglighetstester](../azure-monitor/app/monitor-web-app-availability.md) inklusive regionen: Det kan bara finnas nätverksproblem i det området.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsamma sidinläsningar
 Var finns problemet? Långsamt servern svarar, är sidan som är mycket långa eller har webbläsaren att göra mycket arbete att visa den?
@@ -109,15 +109,15 @@ Var finns problemet? Långsamt servern svarar, är sidan som är mycket långa e
 Öppna bladet webbläsare mått. Segmenterade visningen av webbläsare sidan belastningen tid visar vart tiden är på väg. 
 
 * Om **skicka begärandetid** är hög, antingen servern svarar långsamt eller begäran finns ett inlägg med stora mängder data. Titta på den [prestandamått](app-insights-web-monitor-performance.md#metrics) att undersöka svarstider.
-* Konfigurera [beroendespårning](app-insights-asp-net-dependencies.md) att se om långsamhet beror på att externa tjänster eller din databas.
-* Om **ta emot svar** är dominerande, sidan och dess beroende delar – JavaScript, CSS, bilder och så vidare (men inte asynkront inlästa data) är långa. Konfigurera en [tillgänglighetstestet](app-insights-monitor-web-app-availability.md), och se till att ställa in alternativet för att läsa in beroende delar. När du får några resultat, öppna informationen om ett resultat och expandera den för att se inläsningstider olika filer.
+* Konfigurera [beroendespårning](../azure-monitor/app/asp-net-dependencies.md) att se om långsamhet beror på att externa tjänster eller din databas.
+* Om **ta emot svar** är dominerande, sidan och dess beroende delar – JavaScript, CSS, bilder och så vidare (men inte asynkront inlästa data) är långa. Konfigurera en [tillgänglighetstestet](../azure-monitor/app/monitor-web-app-availability.md), och se till att ställa in alternativet för att läsa in beroende delar. När du får några resultat, öppna informationen om ett resultat och expandera den för att se inläsningstider olika filer.
 * Hög **klienten bearbetningstid** föreslår skript körs långsamt. Om orsaken till inte visas, Överväg att lägga till kod tidsinställning och sändtider i trackMetric anrop.
 
 ### <a name="improve-slow-pages"></a>Förbättra långsamma sidor
 Det finns en webbplats som är fulla av råd om att förbättra dina serversvar och sidinläsningstider, så att vi inte försöka Upprepa det allt här. Här följer några tips som du förmodligen redan vet om, bara för att få funderar du:
 
-* Långsam inläsning av på grund av stora filer: läsa in skripten och andra delar asynkront. Använd skriptet paketering. Bryt huvudsidan i widgetar som läses in sina data separat. Skicka inte vanlig gamla HTML för långa tabeller: använda ett skript för att begära data som JSON eller andra kompakt format och sedan fylla i tabell på plats. Det är bra ramverk som behövs för att hjälpa dig med allt detta. (De också kan medföra big skript naturligtvis.)
-* Långsam serverberoenden: Överväg att de geografiska platserna av dina komponenter. Till exempel om du använder Azure, se till webbservern och databasen är i samma region. Frågorna hämtar mer än de behöver? Skulle cachelagring eller batchbearbetning hjälp?
+* Långsam inläsning på grund av stora filer: Läsa in skripten och andra delar asynkront. Använd skriptet paketering. Bryt huvudsidan i widgetar som läses in sina data separat. Skicka inte vanlig gamla HTML för långa tabeller: använda ett skript för att begära data som JSON eller andra kompakt format och sedan fylla i tabell på plats. Det är bra ramverk som behövs för att hjälpa dig med allt detta. (De också kan medföra big skript naturligtvis.)
+* Långsamma beroenden: Överväg att de geografiska platserna av dina komponenter. Till exempel om du använder Azure, se till webbservern och databasen är i samma region. Frågorna hämtar mer än de behöver? Skulle cachelagring eller batchbearbetning hjälp?
 * Kapacitet problem: Titta på servermått för svarstider och antalet begäranden. Om svarstider högsta oproportionerligt toppar i antalet förfrågningar, är det troligt att dina servrar sträcks ut.
 
 
@@ -185,9 +185,9 @@ Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 * [Profiler](app-insights-profiler.md) 
 * [Felsökning av ögonblicksbild](app-insights-snapshot-debugger.md)
 * [Analys](../azure-monitor/log-query/get-started-portal.md)
-* [Analytics smart diagnostik](app-insights-analytics.md)
+* [Analytics smart diagnostik](../azure-monitor/app/analytics.md)
 
 Smart identifieringar är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 
-* [Manuellt konfigurerade måttaviseringar](app-insights-alerts.md)
-* [Webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md)
+* [Manuellt konfigurerade måttaviseringar](../azure-monitor/app/alerts.md)
+* [Webbtester för tillgänglighet](../azure-monitor/app/monitor-web-app-availability.md)

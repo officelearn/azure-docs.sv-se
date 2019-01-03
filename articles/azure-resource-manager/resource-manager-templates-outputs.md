@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140463"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725821"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Outputs-avsnittet i Azure Resource Manager-mallar
 I Outputs-avsnittet anger du värden som returneras från distributionen. Du kan till exempel returnera URI: N för att komma åt en distribuerad resurs.
@@ -81,25 +81,8 @@ I följande exempel visar strukturen för en utdata-definition:
 | typ |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. |
 | värde |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
 
-## <a name="recommendations"></a>Rekommendationer
-
-Om du använder en mall för att skapa offentliga IP-adresser kan innehålla en outputs-avsnittet som returnerar information om IP-adressen och det fullständigt kvalificerade domännamnet (FQDN). Du kan använda utdatavärden för att enkelt hämta information om offentliga IP-adresser och FQDN efter distributionen.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="example-templates"></a>Exempel på mallar
-
 
 |Mall  |Beskrivning  |
 |---------|---------|
@@ -111,5 +94,4 @@ Om du använder en mall för att skapa offentliga IP-adresser kan innehålla en 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 * Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
-* Om du vill kombinera flera mallar under distributionen, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Du kan behöva använda resurser som finns i en annan resursgrupp. Det här scenariot är vanligt när du arbetar med lagringskonton eller virtuella nätverk som delas mellan flera resursgrupper. Mer information finns i den [resourceId funktionen](resource-group-template-functions-resource.md#resourceid).
+* Rekommendationer om hur du skapar mallar finns i [Metodtips för Azure Resource Manager-mall](template-best-practices.md).

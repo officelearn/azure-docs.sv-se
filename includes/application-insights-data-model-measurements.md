@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572772"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728990"
 ---
 Samling med anpassade mått. Använd den här samlingen i rapport med namnet mätning som är associerade med objektet telemetri. Vanliga användningsområden är:
 - storleken på Beroendetelemetri nyttolast
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Anpassade mått är associerade med telemetriobjekt som de tillhör. De är föremål för sampling med telemetriobjekt som innehåller dessa mätningar. Om du vill spåra ett mått som har ett värde som är oberoende av andra typer av telemetri, använda [mått telemetri](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Anpassade mått är associerade med telemetriobjekt som de tillhör. De är föremål för sampling med telemetriobjekt som innehåller dessa mätningar. Om du vill spåra ett mått som har ett värde som är oberoende av andra typer av telemetri, använda [mått telemetri](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
 Maximal nyckellängd: 150

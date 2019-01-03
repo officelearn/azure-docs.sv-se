@@ -1,36 +1,36 @@
 ---
-title: 'Företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner | Microsoft Docs'
+title: 'Företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner | Microsoft Docs'
 description: Läs mer om Azure regional länkning, för att säkerställa att programmen är elastisk vid data center haverier.
 author: rayne-wiselman
 ms.service: multiple
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 12/23/2018
 ms.author: raynew
-ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954828"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792330"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner
 
 ## <a name="what-are-paired-regions"></a>Vad är länkade regioner?
 
 Azure körs på flera geografiska områden runtom i världen. En Azure geografiskt område är en definierad del av världen som innehåller minst en Azure-Region. En Azure-region är ett område inom ett geografiskt område som innehåller ett eller flera datacenter.
 
-Varje Azure-region är kopplad till en annan region inom samma geografiska område, tillsammans att göra en regionala par. Undantaget är södra Brasilien, som är kopplad till en region utanför dess geografisk plats. Över regionpar Azure att serialisera uppdaterar plattform (planerat underhåll) så att endast en parad region kommer att uppdateras i taget. Vid ett eventuellt strömavbrott påverkar flera regioner kommer dessutom minst en region i varje par prioriteras för återställning.
+Varje Azure-region är kopplad till en annan region inom samma geografiska område, tillsammans att göra en regionala par. Undantaget är södra Brasilien, som är kopplad till en region utanför dess geografisk plats. I regionpar Serialiserar Azure platform uppdateringar (planerat underhåll), så att endast en länkad region uppdateras samtidigt. Vid ett eventuellt strömavbrott påverkar flera områden, prioriteras minst en region i varje par för återställning.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
 Bild 1 – Azure regionala par
 
-| Geografisk plats | Länkade regioner |  |
+| Geografi | Länkade regioner |  |
 |:--- |:--- |:--- |
 | Asien |Östasien |Sydostasien |
 | Australien |Östra Australien |Sydöstra Australien |
 | Australien |Australien, centrala |Australien, centrala 2 |
-| Brasilien |Brasilien, södra 2 |Södra centrala USA |
+| Brasilien |Södra Brasilien |Södra centrala USA |
 | Kanada |Centrala Kanada |Östra Kanada |
 | Kina |Norra Kina |Östra Kina|
 | Kina |Kina, norra 2 |Kina, östra 2|
@@ -38,7 +38,7 @@ Bild 1 – Azure regionala par
 | Frankrike |Centrala Frankrike|Frankrike, södra|
 | Tyskland |Centrala Tyskland |Nordöstra Tyskland |
 | Indien |Indien, centrala |Södra Indien |
-| Indien |Västra Indien (1) |Södra Indien |
+| Indien |Indien, västra |Södra Indien |
 | Japan |Östra Japan |Västra Japan |
 | Korea |Sydkorea, centrala |Sydkorea, södra |
 | Nordamerika |Östra USA |Västra USA |
@@ -48,15 +48,15 @@ Bild 1 – Azure regionala par
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | USA:s försvarsdepartement |US DoD, östra |US DoD, centrala |
 | Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |
-| Amerikanska myndigheter |USA Gov Iowa (3) |Virginia (USA-förvaltad region) |
-| Amerikanska myndigheter |Virginia (USA-förvaltad region) (4) |Texas (USA-förvaltad region) |
+| Amerikanska myndigheter |US Gov, Iowa |Virginia (USA-förvaltad region) |
+| Amerikanska myndigheter |Virginia (USA-förvaltad region) |Texas (USA-förvaltad region) |
 
 Tabell 1 - mappning av Azure regionala par
 
-- (1) västra Indien skiljer sig eftersom den är kopplad till en annan region i en riktning. Västra Indien sekundär region är södra Indien, men södra Indien sekundär region är centrala Indien.
-- (2) södra Brasilien är unikt eftersom den är kopplad till en region utanför sin egen geografi. Södra Brasilien sekundär region är USA, södra centrala och södra centrala USA sekundär region inte södra Brasilien.
-- (3) USA Gov Iowa sekundär region är Virginia (USA-förvaltad region), men USA-förvaltad region Virginia sekundära regionen är inte Iowa (USA-förvaltad region).
-- (4) USA-förvaltad region Virginia sekundär region är US Gov Texas men US Gov Texas sekundära regionen är inte Virginia (USA-förvaltad region).
+- Västra Indien skiljer sig eftersom den är kopplad till en annan region i en riktning. Västra Indien sekundär region är södra Indien, men södra Indien sekundär region är centrala Indien.
+- Södra Brasilien är unikt eftersom den är kopplad till en region utanför sin egen geografi. Södra Brasilien sekundär region är USA, södra centrala och södra centrala USA sekundär region inte södra Brasilien.
+- USA Gov Iowa sekundär region är Virginia (USA-förvaltad region), men USA-förvaltad region Virginia sekundära regionen är inte Iowa (USA-förvaltad region).
+- USA-förvaltad region Virginia sekundär region är US Gov Texas men US Gov Texas sekundära regionen är inte Virginia (USA-förvaltad region).
 
 
 Vi rekommenderar att du konfigurerar kontinuitet för företag-haveriberedskap (BCDR) över regionala par kan dra nytta av Azures principer för isolering och tillgänglighet. För program som stöder flera aktiva regioner, bör du använda båda regionerna i regionparet där det är möjligt. Det säkerställer optimala tillgänglighet för program och minimerade återställningstid vid ett haveri. 
@@ -77,7 +77,7 @@ Enligt figur 2.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – med Azure SQL Database Geo-replikering, kan du konfigurera asynkron replikering av transaktioner till alla regioner i världen; men vi rekommenderar att du distribuerar dessa resurser i en länkad region för de flesta scenarier med haveriberedskap. Mer information finns i [Geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager tillhandahåller sin natur logisk avgränsning av service management-komponenter i olika regioner. Det innebär att logiska fel i en region är mindre troligt att påverka en annan.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager tillhandahåller sin natur logisk isolering av komponenter i olika regioner. Det innebär att logiska fel i en region är mindre troligt att påverka en annan.
 
 ## <a name="benefits-of-paired-regions"></a>Fördelarna med länkade regioner
 Enligt figur 2.  

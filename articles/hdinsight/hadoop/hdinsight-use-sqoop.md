@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011750"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652498"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Använda Sqoop med Hadoop i HDInsight
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använd Apache Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Lär dig hur du använder Apache Sqoop i HDInsight för att importera och exportera mellan HDInsight-kluster och Azure SQL database eller SQL Server-databas.
 
 Även om Apache Hadoop är det naturliga valet för att bearbeta Ostrukturerade och semistrukturerade data, till exempel loggar och filer, kan det också vara nödvändigt att bearbeta strukturerade data som lagras i relationsdatabaser.
 
-[Apache Sqoop] [ sqoop-user-guide-1.4.4] är ett verktyg som utformats för att överföra data mellan Hadoop-kluster och relationsdatabaser. Du kan använda den för att importera data från ett hanteringssystem för relationsdatabaser (RDBMS) som SQL Server, MySQL eller Oracle i Hadoop distributed file system (HDFS), transformera data i Hadoop MapReduce eller Hive och sedan exportera data tillbaka till en RDBMS. I den här självstudien får använder du en SQL Server-databas för din relationsdatabas.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] är ett verktyg som utformats för att överföra data mellan Hadoop-kluster och relationsdatabaser. Du kan använda den för att importera data från ett hanteringssystem för relationsdatabaser (RDBMS) som SQL Server, MySQL eller Oracle i Hadoop distributed file system (HDFS), transformera data i Hadoop MapReduce eller Apache Hive och sedan exportera data tillbaka till en RDBMS . I den här självstudien får använder du en SQL Server-databas för din relationsdatabas.
 
 Sqoop-versioner som stöds i HDInsight-kluster, se [vad är nytt i klusterversionerna från HDInsight?][hdinsight-versions]
 
@@ -31,7 +31,7 @@ Sqoop-versioner som stöds i HDInsight-kluster, se [vad är nytt i klusterversio
 
 HDInsight-kluster levereras med exempeldata. Du kan använda följande två exempel:
 
-* En log4j-loggfil som finns i */example/data/sample.log*. Följande loggar extraheras från filen:
+* En Apache Log4j-loggfil som finns i */example/data/sample.log*. Följande loggar extraheras från filen:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -65,7 +65,7 @@ Det här avsnittet visar hur du skapar ett kluster, en SQL-databas och SQL datab
 
 Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-databasen, se [bilaga A](#appendix-a---a-powershell-sample).
 
-> [!NOTE]
+> [!NOTE]  
 > Importera med hjälp av en mall eller Azure-portalen stöder bara importera en BACPAC-fil från Azure blob storage.
 
 **Konfigurera miljön med en resource management-mall**
@@ -76,14 +76,14 @@ Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-da
 2. Ange följande egenskaper:
 
     - **Prenumeration**: Ange din Azure-prenumeration.
-    - **Resursgrupp**: skapa en ny Azure-resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är för hantering av ändamål.  Det är en behållare för objekt.
+    - **Resursgrupp**: Skapa en ny Azure-resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är för hantering av ändamål.  Det är en behållare för objekt.
     - **Plats**: Välj en region.
-    - **Klusternamn**: Ange ett namn för Hadoop-kluster.
-    - **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
+    - **Klusternamn**: Ange ett namn för Hadoop-klustret.
+    - **Klustrets inloggningsnamn och lösenord**: Standardinloggningsnamnet är admin.
     - **SSH-användarnamn och lösenord**.
     - **SQL-databas serverns inloggningsnamn och lösenord**.
     - **_artifacts plats**: Använd standardvärdet om du inte vill använda din egen backpac-fil på en annan plats.
-    - **_artifacts plats Sas-Token**: lämna det tomt.
+    - **Sas-Token för _artifacts plats**: Lämna tomt.
     - **Bacpac filnamn**: Använd standardvärdet om du inte vill använda din egen backpac-fil.
      
         Följande värden är hårdkodad i variables-avsnittet:
@@ -99,34 +99,31 @@ Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-da
 
 Om du väljer att använda befintliga Azure SQL-databas eller Microsoft SQL Server
 
-* **Azure SQL-databas**: du måste konfigurera en brandväggsregel för Azure SQL database-server att tillåta åtkomst från din arbetsstation. Mer information om att skapa en Azure SQL-databas och konfigurerar brandväggen finns i [komma igång med Azure SQL-databas][sqldatabase-get-started]. 
+* **Azure SQL-databas**: Du måste konfigurera en brandväggsregel för Azure SQL database-server att tillåta åtkomst från din arbetsstation. Mer information om att skapa en Azure SQL-databas och konfigurerar brandväggen finns i [komma igång med Azure SQL-databas][sqldatabase-get-started]. 
   
-  > [!NOTE]
+  > [!NOTE]  
   > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure-portalen. Anvisningar om att skapa en Azure SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-create-configure].
-  > 
-  > 
-* **SQL Server**: om ditt HDInsight-kluster finns på samma virtuella nätverk i Azure som SQL Server, du kan använda stegen i den här artikeln för att importera och exportera data till en SQL Server-databas.
+
+* **SQLServer**: Om ditt HDInsight-kluster finns på samma virtuella nätverk i Azure som SQL Server, kan du använda stegen i den här artikeln för att importera och exportera data till en SQL Server-databas.
   
-  > [!NOTE]
+  > [!NOTE]  
   > HDInsight stöder platsbaserad endast till virtuella nätverk och det för närvarande fungerar inte med tillhörighetsgrupp-baserade virtuella nätverk.
-  > 
-  > 
+
   
   * För att skapa och konfigurera ett virtuellt nätverk, se [skapa ett virtuellt nätverk med Azure portal](../../virtual-network/quick-create-portal.md).
     
     * När du använder SQL Server i ditt datacenter, måste du konfigurera det virtuella nätverket som *plats-till-plats* eller *punkt-till-plats*.
       
-      > [!NOTE]
+      > [!NOTE]  
       > För **punkt-till-plats** virtuella nätverk, SQL Server måste köra den VPN-klienten configuration program, som är tillgängliga från den **instrumentpanelen** av din konfiguration för Azure-nätverk.
-      > 
-      > 
+
+
     * När du använder SQL Server på virtuella Azure-datorer, kan konfiguration av virtuellt nätverk användas om den virtuella datorn som är värd för SQL Server är medlem i samma virtuella nätverk som HDInsight.
-  * Om du vill skapa ett HDInsight-kluster i ett virtuellt nätverk, se [skapa Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md)
+  * Om du vill skapa ett HDInsight-kluster i ett virtuellt nätverk, se [skapa Apache Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md)
     
-    > [!NOTE]
+    > [!NOTE]  
     > SQL Server måste även tillåta autentisering. Du måste använda en SQL Server-inloggning för att slutföra stegen i den här artikeln.
-    > 
-    > 
+
 
 **Verifiera konfigurationen**
 
@@ -158,9 +155,9 @@ HDInsight kan köra Sqoop-jobb med hjälp av olika metoder. Använd följande ta
 ## <a name="next-steps"></a>Nästa steg
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
-* [Använda Hive med HDInsight](../hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](../hdinsight-use-pig.md)
-* [Ladda upp data till HDInsight][hdinsight-upload-data]: hitta andra metoder för att ladda upp data till HDInsight/Azure Blob storage.
+* [Använda Apache Hive med HDInsight](../hdinsight-use-hive.md)
+* [Använda Apache Pig med HDInsight](../hdinsight-use-pig.md)
+* [Ladda upp data till HDInsight][hdinsight-upload-data]: Hitta andra metoder för att ladda upp data till HDInsight/Azure Blob storage.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Bilaga A – ett PowerShell-exempel
 PowerShell-exemplet utför följande steg:
@@ -211,12 +208,12 @@ PowerShell-exemplet utför följande steg:
    
     Källfilen är tutorials/usesqoop/data/sample.log. Tabellen som data exporteras till kallas log4jlogs.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Förutom informationen i anslutningssträngen, bör stegen i det här avsnittet fungera för en Azure SQL database eller SQL Server. Dessa steg har testats med följande konfiguration:
    > 
-   > * **Punkt-till-plats-konfiguration för Azure-nätverk**: ett virtuellt nätverk är anslutna i HDInsight-klustret till en SQL-Server i ett privat datacenter. Se [konfigurera en punkt-till-plats-VPN i hanteringsportalen](../../vpn-gateway/vpn-gateway-point-to-site-create.md) för mer information.
-   > * **Azure HDInsight**: se [skapa Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md) information om hur du skapar ett kluster i ett virtuellt nätverk.
-   > * **SQL Server 2014**: konfigurerad att tillåta autentisering och köra den VPN-klienten konfigurationspaketet för att ansluta säkert till det virtuella nätverket.
+   > * **Punkt-till-plats-konfiguration för Azure-nätverk**: Ett virtuellt nätverk är anslutna i HDInsight-klustret till en SQL-Server i ett privat datacenter. Se [konfigurera en punkt-till-plats-VPN i hanteringsportalen](../../vpn-gateway/vpn-gateway-point-to-site-create.md) för mer information.
+   > * **Azure HDInsight**: Se [skapa Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md) information om hur du skapar ett kluster i ett virtuellt nätverk.
+   > * **SQLServer 2014**: Konfigurerad för att tillåta autentisering och köra den VPN-klienten konfigurationspaketet för att ansluta säkert till det virtuella nätverket.
    > 
    > 
 7. Exportera en Hive-tabell till Azure SQL-databasen.
@@ -260,7 +257,7 @@ $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.wind
 $sqlDatabaseMaxSizeGB = 10
 
 # Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$ipAddressRestService = "https://bot.whatismyipaddress.com"
 $fireWallRuleName = "UseSqoop"
 
 # Used for creating tables and clustered indexes

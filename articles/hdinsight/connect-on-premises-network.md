@@ -6,25 +6,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496123"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975431"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
 Lär dig mer om att ansluta HDInsight till det lokala nätverket med hjälp av Azure-nätverk och en VPN-gateway. Det här dokumentet innehåller planeringsinformation om:
 
 * Använda HDInsight i ett virtuellt Azure-nätverk som ansluter till ditt lokala nätverk.
-
 * Konfigurera DNS-namnmatchningen mellan det virtuella nätverket och ditt lokala nätverk.
-
 * Konfigurerar nätverkssäkerhetsgrupper för att begränsa internet-åtkomst till HDInsight.
-
 * Portar som tillhandahålls av HDInsight i det virtuella nätverket.
 
 ## <a name="create-the-virtual-network-configuration"></a>Skapa den virtuella nätverkskonfigurationen
@@ -32,9 +29,7 @@ Lär dig mer om att ansluta HDInsight till det lokala nätverket med hjälp av A
 Använd följande dokument för att lära dig hur du skapar ett virtuellt Azure-nätverk som är ansluten till ditt lokala nätverk:
     
 * [Använd Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-
 * [Använda Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-
 * [Använda Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 ## <a name="configure-name-resolution"></a>Konfigurera namnmatchning
@@ -42,15 +37,12 @@ Använd följande dokument för att lära dig hur du skapar ett virtuellt Azure-
 Om du vill tillåta HDInsight och resurser i anslutna nätverk för att kommunicera med namn, måste du utföra följande åtgärder:
 
 * Skapa en anpassad DNS-server i Azure-nätverk.
-
 * Konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för standard Azure rekursiva matchare.
-
 * Konfigurera vidarebefordran mellan anpassade DNS-servern och den lokala DNS-servern.
 
 Den här konfigurationen gör på följande:
 
 * Begäranden för fullständigt kvalificerade domännamn som har DNS-suffixet __för det virtuella nätverket__ vidarebefordras till den anpassa DNS-servern. Den anpassa DNS-servern vidarebefordrar sedan dessa begäranden till Azure rekursiva matchare, som returnerar IP-adressen.
-
 * Alla övriga förfrågningar vidarebefordras till den lokala DNS-servern. Även begäranden för offentliga internet-resurser, till exempel microsoft.com vidarebefordras till den lokala DNS-server för namnmatchning.
 
 I följande diagram är gröna linjer begäranden för resurser som slutar med DNS-suffixet för det virtuella nätverket. Blå linjer är begäranden för resurser i det lokala nätverket eller på internet.
@@ -62,49 +54,61 @@ I följande diagram är gröna linjer begäranden för resurser som slutar med D
 > [!IMPORTANT]
 > Du måste skapa och konfigurera DNS-servern innan du installerar HDInsight till det virtuella nätverket.
 
-Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bind/) DNS-programvara, Använd följande steg:
+De här stegen används den [Azure-portalen](https://portal.azure.com) att skapa en Azure virtuell dator. Andra sätt att skapa en virtuell dator, se [skapa VM – Azure CLI](../virtual-machines/linux/quick-create-cli.md) och [skapa VM – Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).  Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bind/) DNS-programvara, Använd följande steg:
 
-> [!NOTE]
-> I följande anvisningar används den [Azure-portalen](https://portal.azure.com) att skapa en Azure virtuell dator. Andra sätt att skapa en virtuell dator finns i följande dokument:
->
-> * [Skapa VM – Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-> * [Skapa VM – Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
+  
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+  
+1. I den vänstra menyn, Välj **+ skapa en resurs**.
+ 
+1. Välj **Compute**.
 
-1. Från den [Azure-portalen](https://portal.azure.com)väljer __+__, __Compute__, och __Ubuntu Server 16.04 LTS__.
+1. Välj **Ubuntu Server 18.04 LTS**.<br />  
 
     ![Skapa en Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Ange följande information i avsnittet __Grundläggande inställningar__:
-
-    * __Namn på__: ett eget namn som identifierar den här virtuella datorn. Till exempel __DNSProxy__.
-    * __Användarnamnet__: namnet på SSH-kontot.
-    * __Offentlig SSH-nyckel__ eller __lösenord__: autentiseringsmetod för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar som de är säkrare. Mer information finns i den [skapa och använda SSH-nycklar för Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) dokumentet.
-    * __Resursgrupp__: Välj __Använd befintlig__, och välj sedan den resursgrupp som innehåller det virtuella nätverket som skapades tidigare.
-    * __Plats__: Välj platsen som det virtuella nätverket.
+1. Från den __grunderna__ ange följande information:  
+  
+    | Fält | Värde |
+    | --- | --- |
+    |Prenumeration |Välj din rätt prenumeration.|
+    |Resursgrupp |Välj den resursgrupp som innehåller det virtuella nätverket som skapades tidigare.|
+    |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. Det här exemplet används **DNSProxy**.|
+    |Region | Välj samma region som det virtuella nätverket som skapades tidigare.  Inte alla VM-storlekar är tillgängliga i alla regioner.  |
+    |Alternativ för tillgänglighet |  Välj din önskade nivå för tillgänglighet.  Azure erbjuder en mängd alternativ för att hantera tillgänglighet och återhämtningskapacitet för dina program.  Skapa din lösning om du vill använda replikerade virtuella datorerna i Tillgänglighetszoner eller Tillgänglighetsuppsättningar för att skydda dina appar och data från avbrott i datacentret och underhåll. Det här exemplet används **ingen redundans för infrastruktur som krävs för**. |
+    |Bild | Välj det grundläggande operativsystemet eller programmet för den virtuella datorn.  I det här exemplet använder du alternativet minsta och lägsta kostnaden. |
+    |Autentiseringstyp | __Lösenordet__ eller __offentlig SSH-nyckel__: Autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar som de är säkrare. Det här exemplet används en offentlig nyckel.  Mer information finns i den [skapa och använda SSH-nycklar för Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) dokumentet.|
+    |Användarnamn |Ange administratörens användarnamn för den virtuella datorn.  Det här exemplet används **sshuser**.|
+    |Lösenordet eller SSH offentlig nyckel | Fältet bestäms av valet du gjorde för **autentiseringstyp**.  Ange lämpligt värde.|
+    |||
 
     ![Grundläggande konfiguration av virtuell dator](./media/connect-on-premises-network/vm-basics.png)
 
-    Andra poster lämnas kvar standardvärdena och välj sedan __OK__.
+    Andra poster lämnas kvar standardvärdena och välj sedan den **nätverk** fliken.
 
-3. Från den __väljer du en storlek__ väljer du virtuella datorstorlek. Välj alternativet minsta och lägsta kostnaden för den här självstudiekursen. För att fortsätta använda den __Välj__ knappen.
+1. Från den **nätverk** ange följande information: 
 
-4. Från den __inställningar__ anger följande information:
-
-    * __Virtuellt nätverk__: Välj det virtuella nätverk som du skapade tidigare.
-
-    * __Undernät__: Välj standardundernät för det virtuella nätverket. Gör __inte__ välja det undernät som används av VPN-gatewayen.
-
-    * __Diagnostiklagringskonto__: Välj ett befintligt lagringskonto eller skapa en ny.
+    | Fält | Värde |
+    | --- | --- |
+    |Virtuellt nätverk | Välj det virtuella nätverket som du skapade tidigare.|
+    |Undernät | Välj standardundernät för det virtuella nätverket som du skapade tidigare. Gör __inte__ välja det undernät som används av VPN-gatewayen.|
+    |Offentlig IP-adress | Använd värdet fylls.  |
 
     ![Inställningar för virtuella nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Lämna de andra posterna på standardvärdet och välj sedan __OK__ att fortsätta.
+    Andra poster lämnas kvar standardvärdena och välj sedan den **granska + skapa**.
 
-5. Från den __köp__ väljer den __köp__ för att skapa den virtuella datorn.
+1. Från den **granska + skapa** fliken **skapa** att skapa den virtuella datorn.
+ 
 
-6. När du har skapat den virtuella datorn, dess __översikt__ avsnittet visas. I listan till vänster väljer __egenskaper__. Spara den __offentliga IP-adressen__ och __privat IP-adress__ värden. Den används i nästa avsnitt.
+### <a name="review-ip-addresses"></a>Granska IP-adresser
+När du har skapat den virtuella datorn får du en **distributionen lyckades** -meddelande med en **gå till resurs** knappen.  Välj **gå till resurs** att gå till din nya virtuella dator.  Följ stegen nedan för att identifiera associerade IP-adresser från standardvyn för din nya virtuella dator:
 
-    ![Offentliga och privata IP-adresser](./media/connect-on-premises-network/vm-ip-addresses.png)
+1. Från **inställningar**väljer **egenskaper**. 
+
+1. Notera värdena för **offentliga IP-adress/DNS-NAMNETIKETTEN** och **privata IP-adress** för senare användning.
+
+   ![Offentliga och privata IP-adresser](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installera och konfigurera bindning (DNS-programvara)
 
@@ -116,7 +120,7 @@ Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bi
 
     Ersätt `sshuser` med SSH-användarkonto som du angav när klustret skapas.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Det finns en mängd olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
@@ -157,7 +161,7 @@ Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bi
                 listen-on { any; };
         };
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ersätt värdena i den `goodclients` avsnitt med IP-adressintervallet för det virtuella nätverket och lokala nätverk. Det här avsnittet definierar de adresser som den här DNS-servern tar emot förfrågningar från.
     >
     > Ersätt den `192.168.0.1` post i den `forwarders` avsnittet med IP-adressen för den lokala DNS-servern. Den här posten dirigerar DNS-förfrågningar till den lokala DNS-servern för matchning.
@@ -190,7 +194,7 @@ Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bi
             forwarders {168.63.129.16;}; # The Azure recursive resolver
         };
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Du måste ersätta det `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` med DNS-suffix som du hämtade tidigare.
 
     Om du vill redigera den här filen använder du följande kommando:
@@ -214,7 +218,7 @@ Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bi
     nslookup dns.mynetwork.net 10.0.0.4
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ersätt `dns.mynetwork.net` med det fullständigt kvalificerade domännamnet (FQDN) för en resurs i ditt lokala nätverk.
     >
     > Ersätt `10.0.0.4` med den __interna IP-adressen__ för din anpassade DNS-server i virtuella nätverk.
@@ -230,11 +234,19 @@ Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bi
 
 ### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Konfigurera det virtuella nätverket för att använda den anpassa DNS-servern
 
-Om du vill konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg:
+Om du vill konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg från den [Azure-portalen](https://portal.azure.com):
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj det virtuella nätverket och välj sedan __DNS-servrar__.
+1. I den vänstra menyn, Välj **alla tjänster**.  
 
-2. Välj __anpassade__, och ange den __interna IP-adressen__ för anpassad DNS-servern. Välj slutligen __spara__.
+1. Under **nätverk**väljer **virtuella nätverk**.  
+
+1. Välj ditt virtuella nätverk i listan, vilket öppnar standardvyn för det virtuella nätverket.  
+
+1. Från standardvyn under **inställningar**väljer **DNS-servrar**.  
+
+1. Välj __anpassade__, och ange den **privata IP-adress** för anpassad DNS-servern.   
+
+1. Välj __Spara__.  <br />  
 
     ![Ange anpassade DNS-servern för det virtuella nätverket](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -267,7 +279,7 @@ Det här exemplet använder den lokala DNS-servern på 196.168.0.4 för att matc
 
 Du kan använda nätverkssäkerhetsgrupper (NSG) eller användardefinierade vägar (UDR) för att kontrollera nätverkstrafik. NSG: er kan du filtrera inkommande och utgående trafik och tillåter eller nekar trafik. Udr: er kan du styra hur trafiken flödar mellan resurser i det virtuella nätverket, internet och det lokala nätverket.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight kräver inkommande åtkomst från specifika IP-adresser i Azure-molnet och obegränsad utgående åtkomst. När du använder NSG: er eller udr: er för att styra trafik, måste du utföra följande steg:
 
 1. Hitta IP-adresser för den plats som innehåller det virtuella nätverket. En lista över nödvändiga IP-adresser efter plats finns i [nödvändiga IP-adresser](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
@@ -281,7 +293,7 @@ Ett exempel på hur du använder Azure PowerShell eller Azure CLI för att skapa
 
 ## <a name="create-the-hdinsight-cluster"></a>Skapa HDInsight-kluster
 
-> [!WARNING]
+> [!WARNING]  
 > Innan du installerar HDInsight i det virtuella nätverket måste du konfigurera den anpassa DNS-servern.
 
 Följ stegen i den [skapar ett HDInsight-kluster med Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md) dokumentet för att skapa ett HDInsight-kluster.
@@ -323,7 +335,7 @@ Om du vill ansluta direkt till HDInsight via det virtuella nätverket, Använd f
 
 2. Information om den port som en tjänst är tillgänglig på finns i [portar som används av Apache Hadoop-tjänster på HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker få åtkomst till en tjänst på en huvudnod och misslyckas, växla till andra huvudnoden.
     >
     > Till exempel är Apache Ambari endast aktiv på en huvudnod i taget. Om du försöker komma åt Ambari på en huvudnod och den returnerar ett 404-fel, körs det på andra huvudnoden.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497365"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994730"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och felsöka installationen av SAP HANA skalbar hög tillgänglighet på SLES 12 SP3 
 
@@ -173,7 +173,7 @@ Den **corosync** config-filen måste vara korrekt på varje nod i klustret, inkl
 
 Innehållet i **corosync.conf** från testet system är ett exempel.
 
-Det första avsnittet är **totem**, enligt beskrivningen i [kluster installation](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), steg 11. Du kan ignorera värdet för **mcastaddr**. Bara behålla den befintliga posten. Poster för **token** och **caiq** måste anges enligt [dokumentation för Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
+Det första avsnittet är **totem**, enligt beskrivningen i [kluster installation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), steg 11. Du kan ignorera värdet för **mcastaddr**. Bara behålla den befintliga posten. Poster för **token** och **caiq** måste anges enligt [dokumentation för Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>Uppstår enhet
 
-Hur du ställer in en uppstår-enhet på en Azure VM beskrivs i [uppstår hägna in](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Hur du ställer in en uppstår-enhet på en Azure VM beskrivs i [uppstår hägna in](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
 Kontrollera först på servern uppstår VM om det finns ACL-posterna för varje nod i klustret. Kör följande kommando på uppstår server-dator:
 
@@ -423,7 +423,7 @@ På målet VM-sida, **hso-hana-vm-s2-2** i det här exemplet hittar du följande
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Kontrollera att posterna i **/etc/sysconfig/sbd** motsvarar beskrivningen i [konfigurerar Pacemaker på SUSE Linux Enterprise Server i Azure](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Kontrollera att start i **/etc/iscsi/iscsid.conf** är inställd på automatik.
+Kontrollera att posterna i **/etc/sysconfig/sbd** motsvarar beskrivningen i [konfigurerar Pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Kontrollera att start i **/etc/iscsi/iscsid.conf** är inställd på automatik.
 
 Följande poster är viktiga i **/etc/sysconfig/sbd**. Anpassa den **id** värdet om det behövs:
 

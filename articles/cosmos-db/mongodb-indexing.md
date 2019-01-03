@@ -1,24 +1,24 @@
 ---
-title: Indexering i Azure Cosmos DB MongoDB API
-description: Visar en översikt över indexeringsfunktionerna i MongoDB-API:t för Azure Cosmos DB.
+title: 'Indexering i Azure Cosmos DB: s API för MongoDB'
+description: Visar en översikt över indexeringsfunktionerna med Azure Cosmos DB API för MongoDB.
 services: cosmos-db
-author: orestis-ms
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875305"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792290"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexering i MongoDB-API:t för Azure Cosmos DB
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexering via Azure Cosmos DB API för MongoDB
 
-MongoDB-API:t för Azure Cosmos DB använder sig av hanteringsfunktionerna i Azure Cosmos DB. Därmed har användarna även åtkomst till standardindexeringsprinciperna i Azure Cosmos DB. Om inga index har definierats av användaren eller om inga index har tagits bort, indexeras alla fält automatiskt när de infogas i samlingen. I de flesta fall bör du använda kontots standardindexeringsprincip.
+Azure Cosmos DB-API för MongoDB använder sig av hanteringsfunktionerna i Cosmos DB. Därför kan har användare åtkomst till standardindexeringsprinciperna i Cosmos DB. Så om inga index har definierats av användaren eller om inga index har tagits bort, indexeras sedan alla fält automatiskt som standard när de infogas i en samling. I de flesta fall bör du använda kontots standardindexeringsprincip.
 
 ## <a name="dropping-the-default-indexes"></a>Ta bort standardindex
 
@@ -97,5 +97,5 @@ Föregående kommando raderar alla dokument i samlingen ```db.coll``` som inte h
 För närvarande går det bara att skapa unika index när samlingen inte innehåller några dokument. Många av de vanligaste migreringsverktygen för MongoDB försöker skapa unika index när du har importerat data. Om du vill kringgå det här problemet rekommenderar vi att användarna manuellt skapar motsvarande samlingar och unika index istället för att låta migreringsverktyget göra detta (för ```mongorestore``` uppnås detta beteende med hjälp av flaggan --noIndexRestore på kommandoraden).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hur fungerar dataindexeringen i Azure Cosmos DB?](../cosmos-db/index-policy.md)
-* [Ta bort data från Azure Cosmos DB-samlingarna automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)
+* [Indexering i Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Ta bort data i Azure Cosmos DB automatiskt med TTL-värde](../cosmos-db/time-to-live.md)

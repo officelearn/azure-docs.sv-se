@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 22dbe9b29059ff351cd1937f72f6dc742b24c690
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685522"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993900"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Skapa en delad lokal integration runtime i Azure Data Factory med PowerShell
 
@@ -33,7 +33,7 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
 
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. 
 
-- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Du kan använda PowerShell för att köra ett skript för att skapa en lokal integration runtime som kan delas med andra datafabriker. 
+- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Du kan använda PowerShell för att köra ett skript för att skapa en lokal integration runtime som kan delas med andra datafabriker. 
 
 > [!NOTE]  
 > Välj de regioner som intresserar dig på en lista över Azure-regioner som Data Factory är för närvarande tillgängligt [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -75,7 +75,7 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
     > [!NOTE]  
     > Det här steget är valfritt. Om du redan har en data factory kan du hoppa över det här steget. 
 
-    Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med hjälp av den [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) kommando. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på WestEurope plats: 
+    Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med hjälp av den [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) kommando. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på WestEurope plats: 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -192,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [integration runtime-koncept i Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
+- Granska [integration runtime-koncept i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
 
-- Lär dig hur du [skapa en lokal integration runtime i Azure-portalen](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).
+- Lär dig hur du [skapa en lokal integration runtime i Azure-portalen](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).

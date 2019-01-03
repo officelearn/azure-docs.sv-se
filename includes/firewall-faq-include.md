@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: b1550fc07ee4edfe98482a2e880f201ceb66705f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413735"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995787"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -54,7 +54,7 @@ Azure-brandväggen har stöd för filtrering av inkommande och utgående. Inkomm
 
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Vilka loggning och Analystjänster stöds av Azure-brandvägg?
 
-Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera loggar från brandväggen. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller genom att olika verktyg som Excel och Power BI. Mer information finns i [självstudien: Övervaka Azure brandväggsloggar](../articles/firewall/tutorial-diagnostics.md).
+Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera loggar från brandväggen. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller genom att olika verktyg som Excel och Power BI. Mer information finns i [Självstudie: Övervaka Azure brandväggsloggar](../articles/firewall/tutorial-diagnostics.md).
 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hur fungerar Azure-brandväggen på olika sätt från befintliga tjänster, till exempel nva: er på marketplace?
 
@@ -92,7 +92,7 @@ Exempel:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
@@ -119,7 +119,7 @@ Ja, du kan använda Azure-brandvägg i en virtuella navnätverket kan dirigera o
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure-brandvägg framåt och filtrera nätverkstrafik mellan undernät i samma virtuella nätverk eller peerkopplade virtuella nätverk?
 
-Trafik mellan undernät i samma virtuella nätverk eller i en direkt peerkopplade virtuella nätverk dirigeras direkt även om UDR pekar på Azure-brandväggen som standard-gateway. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper. Om du vill skicka undernätet till undernätet trafik i brandväggen i det här scenariot, måste UDR innehålla mål nätverk undernätsprefixet uttryckligen på båda undernäten.
+Trafik mellan undernät i samma virtuella nätverk eller i en direkt peerkopplade virtuella nätverk dirigeras direkt även om UDR pekar på Azure-brandväggen som standard-gateway. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper. Om du vill skicka undernätet till undernätstrafik i brandväggen i det här scenariot så måste UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
 

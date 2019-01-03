@@ -3,7 +3,7 @@ title: Azure SQL Database DTU-baserad resurs begränsar elastiska pooler | Micro
 description: Den här sidan beskriver några vanliga DTU-baserade resursbegränsningar för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-poolss
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: a31a2bc3fa1edc0f4424dde4b5c8934e26669fc0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873452"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653059"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen 
 
@@ -28,7 +28,7 @@ DTU-baserade inköpschef modellen resursgränser för enskilda databaser, se [DT
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastisk pool: lagringsstorlekar och storlekar
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastisk pool: Lagringsstorlekar och storlekar
 
 För elastiska pooler i SQL Database, i följande tabeller visar de tillgängliga resurserna på varje tjänstnivå och beräkna storleken. Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
@@ -111,7 +111,7 @@ För elastiska pooler i SQL Database, i följande tabeller visar de tillgänglig
 ||||||||
 
 > [!IMPORTANT]
-> Mer än 1 TB av lagringsutrymmet på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: västra centrala USA, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, Tyskland, nordöstra, USGov Iowa, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: USA, västra centrala, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, Tyskland, nordöstra, USGov Iowa, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Om alla DTU:er för en elastisk pool används får varje databas i poolen lika många resurser för att bearbeta frågor. SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. En rättvis resursdelning i elastiska pooler tillämpas utöver den mängd resurser som varje databas är garanterad om det minsta antalet DTU:er per databas har angetts till ett annat värde än noll.
 

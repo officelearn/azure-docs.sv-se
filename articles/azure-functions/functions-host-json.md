@@ -19,7 +19,7 @@ ms.locfileid: "53413276"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Välj den version av Azure Functions körning du använder: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 

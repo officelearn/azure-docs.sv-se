@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5361c8940c8c7dba5338a3f5a0ed18910f7e45a0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: dcb2d1741a8e62bd317881d3f224d3358cad8778
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410337"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557214"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Migrera från federation till direktautentisering för Azure AD
 Följande dokument innehåller vägledning om hur du flyttar från AD FS till direktautentisering.
@@ -243,7 +243,7 @@ Först måste du ändra inloggnings-metod:
    6. I den **redo att konfigurera** skärmen, se till att **starta synkroniseringsprocessen när konfigurationen är klar** kryssrutan är markerad. Välj sedan **konfigurera**.</br>
    ![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
    7. Öppna den **Azure AD-portalen**väljer **Azure Active Directory**, och välj sedan **Azure AD Connect**.
-   8. Kontrollera att som **Federation inaktiveras** medan **sömlös enkel inloggning på** och **Pass-omfattande autentisering** är **aktiverad**.</br>
+   8. Kontrollera att **Federation inaktiveras** medan **sömlös enkel inloggning på** och **Pass-omfattande autentisering** är **aktiverad**.</br>
    ![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
 
 Därefter måste du distribuera ytterligare autentiseringsmetoder. Öppna den **Azure-portalen**, bläddra till **Azure Active Directory, Azure AD Connect** och klicka på **direktautentisering**.
@@ -324,7 +324,7 @@ Konverteringen utförs med hjälp av Azure AD PowerShell-modulen.
  ```
  
    3. Öppna den **Azure AD-portalen**väljer **Azure Active Directory**, och välj sedan **Azure AD Connect**.  
-   4. När du har konverterat federerade domäner, kontrollerar du att som **Federation inaktiveras** medan **sömlös enkel inloggning** och **direktautentisering** är **Aktiverat**.</br>
+   4. När du har konverterat federerade domäner, kontrollerar du att **Federation inaktiveras** medan **sömlös enkel inloggning** och **direktautentisering** är  **Aktiverad**.</br>
    ![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
 
 ## <a name="testing-and-next-steps"></a>Testning och nästa steg

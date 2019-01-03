@@ -22,7 +22,7 @@ ms.lasthandoff: 01/02/2019
 ms.locfileid: "53973714"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
 > * [Version 1](data-factory-create-pipelines.md)
 > * [Version 2 (aktuell version)](../concepts-pipelines-activities.md)
 

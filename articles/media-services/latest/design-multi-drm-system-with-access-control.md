@@ -4,22 +4,22 @@ description: Läs mer om licensiering av Microsoft Smooth Streaming-klienten por
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: femila
+manager: steveng
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136281"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753497"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Designen av ett system med multi-DRM innehållsskydd med åtkomstkontroll 
 
@@ -29,7 +29,7 @@ Utforma och skapa en Digital Rights Management (DRM)-undersystem för en over-th
 
 Riktade läsare för det här dokumentet är tekniker som arbetar i DRM delsystem av OTT eller strömning flera/skärmar onlinelösningar eller läsare som är intresserade av DRM-undersystem. Antas att läsaren känner till minst en av DRM-tekniker på marknaden, till exempel PlayReady, Widevine, FairPlay eller Adobe åtkomst.
 
-I den här diskussionen av multi-DRM vi tar de 3 DRM: er som stöds av Azure Media Services: gemensam kryptering (CENC) för PlayReady och Widevine, FairPlay samt AES-128 Rensa nyckelkryptering. En större trend i online strömning och OTT-branschen är att använda interna DRM: er på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
+I den här diskussionen av multi-DRM tar vi de 3 DRM: er som stöds av Azure Media Services: Gemensam kryptering (CENC) för PlayReady och Widevine, FairPlay samt AES-128 Rensa nyckelkryptering. En större trend i online strömning och OTT-branschen är att använda interna DRM: er på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
 
 Fördelarna med att använda interna multi-DRM för innehållsskydd är att den:
 
@@ -119,11 +119,11 @@ Varför är detta viktigt?
 
 Om du använder ett offentligt moln för licensleverans har permanent eller ickebeständig licenser en direkt inverkan på licenskostnaden för leverans. Följande två olika design-fall fungerar för att illustrera:
 
-* Månatlig prenumeration: använda en beständig licens och en 1-till-många innehåll nyckeln till tillgången mappning. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
+* Månatlig prenumeration: Använda en beständig licens och en 1-till-många innehåll nyckeln till tillgången mappning. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = 1
 
-* Månatlig prenumeration: använda en ickebeständig licens och 1-till-1-mappning mellan innehållsnyckeln och tillgången. I det här fallet:
+* Månatlig prenumeration: Använd en ickebeständig licens och 1-till-1-mappning mellan innehållsnyckeln och tillgången. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = [antal filmer sett] x [antalet sessioner]
 
@@ -247,7 +247,7 @@ Använd följande felsökningsinformation om du behöver hjälp med problem med 
 
 * Bevilja gruppmedlemskap anspråk privilegier. Kontrollera att följande finns i Azure AD program-manifestfilen: 
 
-    ”groupMembershipClaims”: ”alla” (standardvärdet är null)
+    ”groupMembershipClaims”: ”Alla” (standardvärdet är null)
 
 * Ange rätt TokenType när du skapar begränsning av krav.
 
@@ -327,7 +327,7 @@ För att registrera och konfigurera pekaren-app i Azure AD, gör du följande:
 
 2. Lägg till en ny nyckel för resursappen.
 
-3. Uppdatera manifestfilen app så att groupMembershipClaims-egenskap har värdet ”groupMembershipClaims”: ”alla”.
+3. Uppdatera manifestfilen app så att groupMembershipClaims-egenskap har värdet ”groupMembershipClaims”: ”Alla”.
 
 4. I Azure AD-app som pekar till webbappen player, i avsnittet **behörigheter för andra program**, Lägg till resurs-app som har lagts till i steg 1. Under **delegerad behörighet**väljer **åtkomst [resource_name]**. Det här alternativet ger web appen behörighet att skapa åtkomst-token som har åtkomst till resursappen. Gör detta för både lokala och distribuerade versionen av appen om du utvecklar med Visual Studio och Azure-webbappen.
 
@@ -360,8 +360,8 @@ När du använder en anpassad STS måste två ändras:
 
 Det finns två typer av säkerhetsnycklar:
 
-* Symmetrisk nyckel: samma nyckel används för att generera och verifiera en JWT.
-* Asymmetrisk nyckel: ett offentligt / privat nyckelpar i en X509 används certifikat med en privat nyckel för att kryptera/Generera en JWT och med den offentliga nyckeln för att verifiera token.
+* Symmetrisk nyckel: Samma nyckel används för att skapa och verifiera en JWT.
+* Asymmetrisk nyckel: Ett offentligt / privat nyckelpar i en X509 används certifikat med en privat nyckel för att kryptera/Generera en JWT och med den offentliga nyckeln för att verifiera token.
 
 > [!NOTE]
 > Om du använder .NET Framework / C# som din utvecklingsplattform, X509 certifikatet som används för en asymmetrisk säkerhetsnyckel måste ha en nyckellängd på minst 2 048. Det här är ett krav för System.IdentityModel.Tokens.X509AsymmetricSecurityKey i .NET Framework-klassen. Annars genereras följande undantag:
@@ -400,15 +400,15 @@ Du kan kontakta någon av författarna till ett konto eller har lagts till för 
 
 De följande skärmbilderna visar olika inloggningssidorna används av olika domänkonton:
 
-**Anpassad Azure AD-klient domänkonto**: den anpassade inloggningssidan av anpassade Azure AD-klient domän.
+**Anpassat Azure AD-klient domänkonto**: Den anpassade inloggningssidan av anpassade Azure AD-klient domän.
 
 ![Domänkonto för anpassat Azure AD-klient en](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Microsoft domänkonto med smartkort**: inloggningssidan genom Microsoft företagets IT med tvåfaktorsautentisering.
+**Microsoft domänkonto med smartkort**: Sidan logga in genom Microsoft företagets IT med tvåfaktorsautentisering.
 
 ![Anpassat Azure AD-klient domänkonto två](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft-konto**: inloggningssidan för Microsoft-konto för konsumenter.
+**Microsoft-konto**: På inloggningssidan för Microsoft-konto för konsumenter.
 
 ![Anpassat Azure AD-klient domänkonto tre](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 

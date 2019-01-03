@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163844"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653823"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
 
-Lär dig hur du ställer in [Apache HBase](http://hbase.apache.org/) replikering inom ett virtuellt nätverk eller mellan två virtuella nätverk i Azure.
+Lär dig hur du ställer in [Apache HBase](https://hbase.apache.org/) replikering inom ett virtuellt nätverk eller mellan två virtuella nätverk i Azure.
 
 Kluster-replikering använder en käll-push-metod. Ett HBase-kluster kan vara en källa eller ett mål eller det uppfyller båda rollerna samtidigt. Replikering är asynkrona. Målet för replikering är slutlig konsekvens. När källan får redigerar du en kolumnfamilj när replikering har aktiverats, sprids redigera till alla målkluster. När data replikeras från ett kluster till ett annat, spåras källklustret och alla kluster som redan har förbrukat data, för att förhindra replikering slingor.
 
-I den här självstudien konfigurerar du en källa-mål-replikering. Andra klustertopologier finns i den [referensguiden för Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
+I den här självstudien konfigurerar du en källa-mål-replikering. Andra klustertopologier finns i den [referensguiden för Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Följande är HBase-replikering användning ärenden för ett enda virtuellt nätverk:
 
@@ -121,7 +121,7 @@ Följ anvisningarna nedan om du vill installera bindning:
 
     Ersätt `sshuser` med SSH-användarkonto som du angav när du skapar den virtuella datorn i DNS.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Det finns en mängd olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -162,7 +162,7 @@ Följ anvisningarna nedan om du vill installera bindning:
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ersätt värdena i den `goodclients` avsnittet med IP-adressintervall i de två virtuella nätverken. Det här avsnittet definierar de adresser som den här DNS-servern tar emot förfrågningar från.
 
     Om du vill redigera den här filen använder du följande kommando:
@@ -197,7 +197,7 @@ Följ anvisningarna nedan om du vill installera bindning:
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Du måste ersätta det `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med DNS-suffixet för det virtuella nätverket. Och vidarebefordrare IP-Adressen är den privata IP-adressen för DNS-servern i det virtuella nätverket.
 
     Om du vill redigera den här filen använder du följande kommando:
@@ -221,7 +221,7 @@ Följ anvisningarna nedan om du vill installera bindning:
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ersätt `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` med det fullständigt kvalificerade domännamnet (FQDN) för den virtuella datorn i DNS i andra nätverk.
     >
     > Ersätt `10.2.0.4` med den __interna IP-adressen__ för din anpassade DNS-server i det virtuella nätverket.
@@ -258,7 +258,7 @@ sudo service bind9 status
 
 ## <a name="create-apache-hbase-clusters"></a>Skapa Apache HBase-kluster
 
-Skapa en [Apache HBase](http://hbase.apache.org/) kluster i var och en av de två virtuella nätverk med följande konfiguration:
+Skapa en [Apache HBase](https://hbase.apache.org/) kluster i var och en av de två virtuella nätverk med följande konfiguration:
 
 - **Resursgruppens namn**: Använd samma resursgruppnamn som du skapade de virtuella nätverken.
 - **Typ av kluster**: HBase
@@ -288,15 +288,14 @@ Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-p
 4. Längst ned på sidan Välj **Skicka ny**.
 5. Välj eller ange följande information:
 
-  1. **Namn på**: Ange **Aktivera replikering**.
+  1. **Namn**: Ange **Aktivera replikering**.
   2. **Bash-Webbadress för skript**: Ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
   3.  **HEAD**: Se till att det här alternativet väljs. Ta bort andra nodtyper.
   4. **Parametrar**: Följande exempel parametrar Aktivera replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
+    > [!NOTE]
     > Använd värdnamnet i stället för FQDN för både källa och mål klustrets DNS-namn.
 
 6. Välj **Skapa**. Skriptet kan ta en stund att köra, särskilt när du använder den **- copydata** argumentet.

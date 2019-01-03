@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215809"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604107"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera Postman för Media Services REST API-anrop
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du konfigurerar **Postman** så att den kan använda
 - Få information som behövs för att [åtkomst API: er](access-api-cli-how-to.md)
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
-    Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
+    Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med REST-plugin-programmet eller **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Hämta Postman-filer
 
@@ -75,7 +75,7 @@ Det här avsnittet konfigurerar Postman.
 
 Innan du börjar att manipulera AMS v3 resurser behöver du hämta och ange Azure AD-Token för autentisering av tjänstens huvudnamn.
 
-1. I det vänstra fönstret i Postman, väljer du Steg 1: hämta AAD Auth-token.
+1. I det vänstra fönstret i Postman, Välj ”steg 1: Hämta AAD-autentisering token ”.
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
 3. Tryck på **Skicka**.
 
@@ -85,7 +85,7 @@ Innan du börjar att manipulera AMS v3 resurser behöver du hämta och ange Azur
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. Svaret kommer tillbaka med token och anger miljövariabeln AccessToken till token-värdet. Om du vill se koden som anger AccessToken, klickar du på fliken **Tester**. 
+4. Svaret kommer tillbaka med token och anger miljövariabeln AccessToken till token-värdet.  
 
     ![Hämta AAD-token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

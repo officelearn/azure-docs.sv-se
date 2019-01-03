@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338149"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718104"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service Environment v1
 
@@ -51,7 +51,7 @@ Den här självstudien förutsätter att du har skapat en App Service Environmen
     *Resursgrupper* kan du hantera relaterade Azure-resurser som en enhet och är användbara när upprättar *rollbaserad åtkomstkontroll* (RBAC) regler för dina appar. Mer information finns i [översikt över Azure Resource Manager][ResourceGroups]. 
 4. Välj eller skapa en App Service plan.
    
-    *App Service-planer* är en hanterad uppsättning webbappar.  Normalt när du väljer priser, tillämpas priset till App Service-planen i stället för enskilda appar. I en ase-miljö betalar du för de beräkningsinstanser som allokerats till ASE i stället för att du har angett med ASP.  Om du vill skala upp antalet instanser av en webbapp som du skala upp instanser av din App Service påverkar plan och alla web apps i den här planen.  Vissa funktioner, till exempel plats för webbplatsen eller VNET-integrering har också kvantitet begränsningar i planen.  Mer information finns i [översikt över Azure App Service-planer](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *App Service-planer* är en hanterad uppsättning webbappar.  Normalt när du väljer priser, tillämpas priset till App Service-planen i stället för enskilda appar. I en ase-miljö betalar du för de beräkningsinstanser som allokerats till ASE i stället för att du har angett med ASP.  Om du vill skala upp antalet instanser av en webbapp som du skala upp instanser av din App Service påverkar plan och alla web apps i den här planen.  Vissa funktioner, till exempel plats för webbplatsen eller VNET-integrering har också kvantitet begränsningar i planen.  Mer information finns i [översikt över Azure App Service-planer](../overview-hosting-plans.md)
    
     Du kan identifiera App Service-planerna i din ASE genom att titta på den plats som anges under planens namn.  
    
@@ -108,7 +108,7 @@ När du har skapat din webbapp och App Service-plan är det en bra idé att skal
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md

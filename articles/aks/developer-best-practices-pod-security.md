@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 8acd69480d6cd441c33ccc696794977bbfbfd975
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110210"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559084"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metodtips för pod säkerhet i Azure Kubernetes Service (AKS)
 
-När du utvecklar och kör program i Azure Kubernetes Service (AKS) är en nyckelfaktor säkerheten för dina poddar. Ditt program bör utformas för huvudnamn för minsta antal behörigheter som krävs. Skydda privata data är viktigast för kunder. Du vill inte att autentiseringsuppgifterna som databasanslutningssträngar, nycklar eller hemligheter och certifikat som är exponerade för omvärlden där en angripna kunna dra nytta av dessa hemligheter för skadliga syften. Inte lägga till dem i din kod eller bädda in dem i dina behållaravbildningar. Den här metoden skulle skapa en risk att utsättas och begränsa möjligheten att rotera autentiseringsuppgifterna som behållaravbildningarna måste återskapas.
+När du utvecklar och kör program i Azure Kubernetes Service (AKS) är en nyckelfaktor säkerheten för dina poddar. Ditt program bör utformas för principen om minsta antal behörigheter som krävs. Skydda privata data är viktigast för kunder. Du vill inte att autentiseringsuppgifterna som databasanslutningssträngar, nycklar eller hemligheter och certifikat som är exponerade för omvärlden där en angripare kan dra nytta av dessa hemligheter för skadliga syften. Inte lägga till dem i din kod eller bädda in dem i dina behållaravbildningar. Den här metoden skulle skapa en risk att utsättas och begränsa möjligheten att rotera autentiseringsuppgifterna som behållaravbildningarna måste återskapas.
 
 Den här bästa praxis-artikeln handlar om hur säker poddar i AKS. Lär dig att:
 

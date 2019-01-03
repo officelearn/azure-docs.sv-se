@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271019"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630469"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -59,7 +59,7 @@ Detta gäller om du är på en extern ASE eller på en ILB ASE. Om du använder 
 
 ## <a name="ase-subnet-size"></a>Storleken för ASE-undernätet ##
 
-Kan inte ändras storleken på det undernät som används som värd för en ASE när ASE har distribuerats.  ASE använder en adress för varje infrastrukturrollen samt för varje instans för isolerad App Service-plan.  Det finns dessutom 5 adresser som används av Azure Networking för varje undernät som har skapats.  En ASE med inga App Service-planer använder alls 12 adresser innan du skapar en app.  Om det är en ILB ASE kommer den använda 13-adresser innan du skapar en app i denna ASE. När du skalar ut din ASE läggs infrastrukturroller varje multipel av 15 och 20 i din App Service-planinstanser.
+Storleken på det undernät som används som värd för en ASE kan inte ändras när ASE har distribuerats.  ASE använder en adress för varje infrastrukturrollen samt för varje instans för isolerad App Service-plan.  Det finns dessutom 5 adresser som används av Azure Networking för varje undernät som har skapats.  En ASE med inga App Service-planer använder alls 12 adresser innan du skapar en app.  Om det är en ILB ASE kommer den använda 13-adresser innan du skapar en app i denna ASE. När du skalar ut din ASE läggs infrastrukturroller varje multipel av 15 och 20 i din App Service-planinstanser.
 
    > [!NOTE]
    > Inget annat kan finnas i undernätet men ASE. Var noga med att välja ett adressutrymme som tillåts för framtida tillväxt. Du kan inte ändra den här inställningen senare. Vi rekommenderar en storlek på `/24` med 256-adresser.
@@ -151,7 +151,7 @@ Dessa IP-adresser är väl synlig i en ASEv2 i Azure-portalen från ASE UI. Om d
 
 ### <a name="app-assigned-ip-addresses"></a>App-tilldelad IP-adresser ###
 
-Du kan tilldela IP-adresser till enskilda appar med en extern ASE. Du kan inte göra det med en ILB ASE. Läs mer om hur du konfigurerar din app om du vill ha sin egen IP-adress, [binda ett befintligt anpassat SSL-certifikat till Azure web apps](../app-service-web-tutorial-custom-ssl.md).
+Du kan tilldela IP-adresser till enskilda appar med en extern ASE. Du kan inte göra det med en ILB ASE. Läs mer om hur du konfigurerar din app om du vill ha sin egen IP-adress, [binda ett befintligt anpassat SSL-certifikat till Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
 När en app har sin egen IP-baserad SSL-adress, reserverar ASE två portar för att mappa till IP-adress. En port är för HTTP-trafik, och den andra porten för HTTPS. De portarna som listas i ASE UI i avsnittet IP-adresser. Trafik måste kunna nå dessa portar från VIP eller apparna är otillgängligt. Det här kravet är viktigt att komma ihåg när du konfigurerar Nätverkssäkerhetsgrupper (NSG).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311328"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714363"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -56,7 +56,7 @@ Om du vill att den snabbaste vägen att publicera dina webbaserade projekt kan d
 
 Du kan skapa webbappar, serverdelar för mobilappar och API apps.
 
-Eftersom alla tre apptyperna delar en App Service runtime kan du vara värd för en webbplats, stöd för mobila klienter och exponera dina API: er i Azure, allt från samma projekt eller lösning. Läs mer om App Service i [vad är Azure Web Apps](../../app-service/app-service-web-overview.md).
+Eftersom alla tre apptyperna delar en App Service runtime kan du vara värd för en webbplats, stöd för mobila klienter och exponera dina API: er i Azure, allt från samma projekt eller lösning. Läs mer om App Service i [vad är Azure Web Apps](../../app-service/overview.md).
 
 App Service har utformats med DevOps i åtanke. Det stöder olika verktyg för publicering och kontinuerlig integration distributioner, däribland GitHub webhooks, Jenkins, Azure DevOps, TeamCity och andra.
 
@@ -168,7 +168,7 @@ Det är viktigt att inte bara veta vem som använder dina program utan också f�
 
     >**När du ska använda**: När du vill aktivera autentisering i en App Service-app med hjälp av Azure AD, sociala identitetsleverantörer, eller båda.
 
-    >**Kom igång**: Mer information om autentisering i App Service finns [autentisering och auktorisering i Azure App Service](../../app-service/app-service-authentication-overview.md).
+    >**Kom igång**: Mer information om autentisering i App Service finns [autentisering och auktorisering i Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 Mer information om metodtips för säkerhet i Azure finns [säkerhet i Azure-metodtips och mönster](../../security/security-best-practices-and-patterns.md).
 
@@ -190,7 +190,7 @@ Om den är etablera virtuella datorer eller publicera dina webbprogram med konti
 
 >**Prova nu:** [Prova att använda flera av integrering av DevOps](https://azure.microsoft.com/try/devops/).
 
->**Kom igång**: DevOps-alternativ för en App Service-app finns i [kontinuerlig distribution till Azure App Service](../../app-service/app-service-continuous-deployment.md).
+>**Kom igång**: DevOps-alternativ för en App Service-app finns i [kontinuerlig distribution till Azure App Service](../../app-service/deploy-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Azure-regioner

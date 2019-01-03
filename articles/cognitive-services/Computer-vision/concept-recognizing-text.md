@@ -1,5 +1,5 @@
 ---
-title: 'Känna igen utskrivna och handskriven text: visuellt innehåll'
+title: 'Känner igen utskrivna, handskriven text: visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: Begrepp att känna igen utskrivna och handskriven text i bilder med den API för visuellt innehåll.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: b23140eef4de904fb862253b6511b6fc2b1ce6dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338108"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582277"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
 Visuellt innehåll kan identifiera och extrahera utskrivna eller handskriven text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, bokstäver och whiteboardtavlor.
 
-Textigenkänning sparar tid och arbete. Du kan bli mer produktiva genom att ta en bild av text i stället för att skriva av den. Textigenkänning gör det möjligt att digitalisera anteckningar. Den här digitization kan du implementera snabba och enkla sökningar. Du slipper också den oreda som uppstår när du har för mycket papper omkring dig.
+Textigenkänning sparar tid och arbete. Du kan bli mer produktiva genom att ta en bild av text i stället för att skriva av den. Textigenkänning gör det möjligt att digitalisera anteckningar. Med den här digitaliseringen kan du implementera snabba och enkla sökningar. Du slipper också den oreda som uppstår när du har för mycket papper omkring dig.
 
 ## <a name="text-recognition-requirements"></a>Krav för text
 

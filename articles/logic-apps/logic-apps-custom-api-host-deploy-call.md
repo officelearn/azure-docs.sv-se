@@ -10,22 +10,22 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126576"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606443"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuera och anropa anpassade API: er från arbetsflöden i Azure Logic Apps
 
-När du [skapa anpassade API: er](./logic-apps-create-api-app.md) för användning i logikapparbetsflöden, måste du distribuera dina API: er innan du kan anropa dem. Du kan distribuera dina API: er som [webbappar](../app-service/app-service-web-overview.md), men överväga att distribuera dina API: er som [API apps](../app-service/app-service-web-tutorial-rest-api.md), som gör ditt jobb enklare när du skapar, köra och förbruka API: er i molnet och lokalt. Du behöver ändra någon kod i dina API: er – distribuera bara din kod till en API-app. Du kan vara värd för dina API: er på [Azure App Service](../app-service/app-service-web-overview.md), en platform-as-a-service (PaaS) som tillhandahåller mycket skalbar och enkelt API som är värd för.
+När du [skapa anpassade API: er](./logic-apps-create-api-app.md) för användning i logikapparbetsflöden, måste du distribuera dina API: er innan du kan anropa dem. Du kan distribuera dina API: er som [webbappar](../app-service/overview.md), men överväga att distribuera dina API: er som [API apps](../app-service/app-service-web-tutorial-rest-api.md), som gör ditt jobb enklare när du skapar, köra och förbruka API: er i molnet och lokalt. Du behöver ändra någon kod i dina API: er – distribuera bara din kod till en API-app. Du kan vara värd för dina API: er på [Azure App Service](../app-service/overview.md), en platform-as-a-service (PaaS) som tillhandahåller mycket skalbar och enkelt API som är värd för.
 
 Även om den bästa upplevelsen kan du anropa API: er från en logikapp, lägga till [OpenAPI (tidigare Swagger) metadata](http://swagger.io/specification/) som beskriver ditt API: s åtgärder och parametrar. OpenAPI-filen kan ditt API integrera enkelt och fungerar bättre med logic apps.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Distribuera ditt API som en webbapp eller en API-app
 
-Innan du kan anropa ditt anpassade API från en logikapp måste du distribuera ditt API som en webbapp eller en API-app till Azure App Service. Även om du vill göra OpenAPI fil som kan läsas av Logic Apps Designer, ställer du in egenskaperna för API-definition och aktivera [cross-origin resource sharing (CORS)](../app-service/app-service-web-overview.md) för din webbapp eller API-app.
+Innan du kan anropa ditt anpassade API från en logikapp måste du distribuera ditt API som en webbapp eller en API-app till Azure App Service. Även om du vill göra OpenAPI fil som kan läsas av Logic Apps Designer, ställer du in egenskaperna för API-definition och aktivera [cross-origin resource sharing (CORS)](../app-service/overview.md) för din webbapp eller API-app.
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj din webbapp eller API-app.
 

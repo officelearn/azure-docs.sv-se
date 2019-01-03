@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139326"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808068"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Skapa en virtuell dator och installera ett certifikat som hämtats från ett nyckelvalv för Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Lär dig hur du skapar en Azure Stack-dator (VM) med ett key vault-certifikat installerat.
 
@@ -31,17 +31,17 @@ Lär dig hur du skapar en Azure Stack-dator (VM) med ett key vault-certifikat in
 
 Certifikat används i många scenarier, till exempel autentisering till Active Directory, eller genom att kryptera webbtrafik. Du kan lagra certifikat säkert som hemligheter i ett nyckelvalv för Azure Stack. Fördelarna med att använda Azure Stack Key Vault är:
 
-* Certifikat visas inte i ett skript, kommandoradshistorik eller mall.
+* Certifikat exponeras inte i ett skript, kommandoradshistorik eller mall.
 * Process för hantering av certifikat har effektiviserats.
 * Du har kontroll över de nycklar som kommer åt certifikaten.
 
 ### <a name="process-description"></a>Beskrivning av process
 
-Följande steg beskriver processen som krävs för att skicka ett certifikat på den virtuella datorn:
+Följande steg beskriver processen som krävs för att skicka ett certifikat till den virtuella datorn:
 
 1. Skapa ett Key Vault hemliga.
 2. Uppdatera filen azuredeploy.parameters.JSON.
-3. Distribuera mallen
+3. Distribuera mallen.
 
 > [!NOTE]
 > Du kan använda de här stegen från Azure Stack Development Kit eller från en extern klient om du är ansluten via VPN.
@@ -49,8 +49,8 @@ Följande steg beskriver processen som krävs för att skicka ett certifikat på
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste prenumerera på ett erbjudande som innehåller Key Vault-tjänsten.
-* [Installera PowerShell för Azure Stack.](azure-stack-powershell-install.md)
-* [Konfigurera PowerShell-miljö för Azure Stack-användare](azure-stack-powershell-configure-user.md)
+* [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).
+* [Konfigurera PowerShell-miljö för Azure Stack-användarens](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Skapa ett Key Vault hemliga
 
@@ -60,7 +60,6 @@ Följande skript skapar ett certifikat i PFX-format, skapar ett nyckelvalv och l
 > Du måste använda den `-EnabledForDeployment` parameter när du skapar nyckelvalvet. Den här parametern säkerställer att nyckelvalvet kan refereras från Azure Resource Manager-mallar.
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -117,16 +116,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-När du kör föregående skript innehåller utdata hemliga URI: N. Anteckna denna URI. Du måste referera till den i den [Push-certifikat som Windows Resource Manager-mall](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Ladda ned den [mall för vm-push-certifikat – windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) mapp på din utvecklingsdator. Den här mappen innehåller de `azuredeploy.json` och `azuredeploy.parameters.json` filer som du behöver i nästa steg.
+När du kör föregående skript innehåller utdata hemliga URI: N. Anteckna denna URI. Du måste referera till den i den [Push-certifikat som Windows Resource Manager-mall](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Ladda ned den [vm-push-certifikat – windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) tjänstmall-mapp till din utvecklingsdator. Den här mappen innehåller de `azuredeploy.json` och `azuredeploy.parameters.json` filer som du behöver i nästa steg.
 
-Ändra den `azuredeploy.parameters.json` enligt dina miljövärden. Parametrarna särskilt intressanta är valvnamnet vault-resursgrupp och Hemlig-URI (som genererats med föregående skript). Följande fil är ett exempel på en parameterfil:
+Ändra den `azuredeploy.parameters.json` enligt dina miljövärden. Parametrarna särskilt intressanta är valvnamnet vault-resursgrupp och Hemlig-URI (som genererats med föregående skript). Följande avsnitt visar ett exempel på en parameterfil.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Uppdatera filen azuredeploy.parameters.JSON
 
-Uppdatera filen azuredeploy.parameters.JSON med vaultName, hemliga URI, VmName och andra värden enligt din miljö. Följande JSON-filen visas ett exempel på filen med mallparametrar:
+Uppdatera den `azuredeploy.parameters.json` filen med den `vaultName`, hemliga URI `VmName`, och andra värden enligt din miljö. Följande JSON-filen visas ett exempel på filen med mallparametrar:
 
 ```json
 {
@@ -178,10 +176,10 @@ När mallen har distribuerats, resulterar det i följande utdata:
 
 ![Distribution mallresultat](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Azure Stack skickar certifikatet till den virtuella datorn under distributionen. Certifikatets plats beror på den Virtuella datorns operativsystem:
+Azure Stack skickar certifikatet till den virtuella datorn under distributionen. Certifikatsplats beror på den Virtuella datorns operativsystem:
 
-* I Windows, har certifikatet lagts till LocalMachine certifikatet plats, med det certifikatarkiv som användaren har angett.
-* I Linux, certifikatet placeras under katalogen /var/lib/waagent med filnamnet &lt;UppercaseThumbprint&gt;.crt för X509 certifikatfilen och &lt;UppercaseThumbprint&gt;.prv för den privata nyckeln .
+* I Windows, certifikatet har lagts till i **LocalMachine** certifikatplatsen med det certifikatarkiv som användaren har angett.
+* I Linux, certifikatet placeras den `/var/lib/waagent directory`, med filnamnet &lt;UppercaseThumbprint&gt;.crt för X509 certifikatfilen och &lt;UppercaseThumbprint&gt;.prv för den privata nyckeln.
 
 ## <a name="retire-certificates"></a>Återkalla certifikat
 

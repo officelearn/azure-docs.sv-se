@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 0e7487525dc23482cbd3029b626e7bb30dd51b50
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398568"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633393"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage-blobbar
 Azure Storage erbjuder nu mjuk borttagning för blob-objekt så att du kan enkelt återställa dina data när den är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
@@ -170,26 +170,29 @@ När du ångra borttagning av en blob-ögonblicksbilder, kan du klicka på **bef
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Uppdatera egenskaper för en blob-klient för att aktivera mjuk borttagning. I följande exempel aktiveras mjuk borttagning för en delmängd av konton i en prenumeration:
 
 ```powershell
-Set-AzureRmContext -Subscription "<subscription-name>"
-$MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
-$MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+Set-AzContext -Subscription "<subscription-name>"
+$MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
+$MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 Du kan verifiera den mjuk borttagning har varit påslagen med hjälp av följande kommando:
 
 ```powershell
-$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Om du vill återställa blobbar som tagits bort av misstag, anropar du ångrar borttagningen av dessa blobar. Kom ihåg att anropa **ångra borttagning av Blob**, både på aktiva och ej permanent borttagna blobar, återställs alla associerade ej permanent borttagna ögonblicksbilder som aktiv. I följande exempel anropar ångra borttagning på alla ej permanent borttagna och aktiva blobarna i en behållare:
 ```powershell
 # Create a context by specifying storage account name and key
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Get the blobs in a given container and show their properties
-$Blobs = Get-AzureStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
+$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
 $Blobs.ICloudBlob.Properties
 
 # Undelete the blobs
@@ -198,8 +201,8 @@ $Blobs.ICloudBlob.Undelete()
 För att hitta policyn för datalagring i aktuell mjuk borttagning, använder du följande kommando:
 
 ```azurepowershell-interactive
-   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+   $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
 ### <a name="azure-cli"></a>Azure CLI 

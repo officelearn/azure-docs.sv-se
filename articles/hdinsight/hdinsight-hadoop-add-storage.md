@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015763"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714291"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton till HDInsight
 
 Lär dig hur du använder skriptåtgärder för att lägga till ytterligare Azure storage-konton i HDInsight. Stegen i det här dokumentet för att lägga till ett lagringskonto till ett befintligt Linux-baserade HDInsight-kluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Informationen i det här dokumentet handlar om att lägga till ytterligare lagringsutrymme i ett kluster när den har skapats. Information om att lägga till lagringskonton när klustret skapas finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
 Det här skriptet använder följande parametrar:
 
-* __Azure storage-kontonamn__: namnet på lagringskontot för att lägga till i HDInsight-klustret. När skriptet har körts, HDInsight läser och skriver data lagras i det här lagringskontot.
+* __Azure storage-kontonamn__: Namnet på lagringskontot för att lägga till i HDInsight-klustret. När skriptet har körts, HDInsight läser och skriver data lagras i det här lagringskontot.
 
-* __Azure storage-kontonyckel__: en nyckel som ger åtkomst till lagringskontot.
+* __Azure storage-kontonyckel__: En nyckel som ger åtkomst till lagringskontot.
 
-* __-p__ (valfritt): Om nyckeln är inte krypterat och lagras i filen core-site.xml som oformaterad text.
+* __-p__ (valfritt): Om nyckeln inte är krypterad och lagras i filen core-site.xml som oformaterad text.
 
 Under bearbetning utför skriptet följande åtgärder:
 
@@ -45,7 +45,7 @@ Under bearbetning utför skriptet följande åtgärder:
 
 * Stoppar och startar om den [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), och [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) tjänster. Stoppa och starta dessa tjänster gör att de kan använda det nya lagringskontot.
 
-> [!WARNING]
+> [!WARNING]  
 > Med ett storage-konto i en annan plats än HDInsight-kluster stöds inte.
 
 ## <a name="the-script"></a>Skriptet
@@ -60,7 +60,7 @@ __Krav för__:
 
 Det här skriptet kan användas från Azure-portalen, Azure PowerShell eller den klassiska Azure-CLI. Mer information finns i den [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) dokumentet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > När du använder stegen i dokumentet anpassning, kan du använda följande information för att tillämpa det här skriptet:
 >
 > * Ersätt alla exempel skriptåtgärd URI med URI: N för det här skriptet (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
@@ -85,14 +85,14 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Ange `$clusterName` till namnet på HDInsight-klustret. Ange `$storageAccountName` till namnet på lagringskontot. När du uppmanas ange klusterinloggningen (administratör) och lösenord.
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Ange `$PASSWORD` att lösenordet för klusterinloggning (administratör)-konto. Ange `$CLUSTERNAME` till namnet på HDInsight-klustret. Ange `$STORAGEACCOUNTNAME` till namnet på lagringskontot.
 >
 > Det här exemplet används [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) och [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) att hämta och parsa JSON-data.
@@ -132,14 +132,14 @@ Om du vill undvika det här problemet måste du ta bort den befintliga posten f�
 
 Om lagringskontot är i en annan region än HDInsight-kluster kan uppstå det sämre prestanda. Åtkomst till data i en annan region skickar nätverkstrafik utanför regionala Azure-datacentret och över offentliga internet, vilket kan medföra svarstid.
 
-> [!WARNING]
+> [!WARNING]  
 > Med ett storage-konto i en annan region än HDInsight-kluster stöds inte.
 
 ### <a name="additional-charges"></a>Ytterligare avgifter
 
 Om lagringskontot är i en annan region än HDInsight-kluster kan märka du kostnader för ytterligare utgående trafik på din Azure-fakturering. En utgående avgift tillämpas när data lämnar ett regionala datacenter. Den här avgiften tillämpas även om trafiken som är avsedd för en annan Azure-datacenter i en annan region.
 
-> [!WARNING]
+> [!WARNING]  
 > Med ett storage-konto i en annan region än HDInsight-kluster stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg

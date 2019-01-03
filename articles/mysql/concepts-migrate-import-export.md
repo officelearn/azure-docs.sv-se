@@ -1,20 +1,17 @@
 ---
 title: Importera och exportera i Azure Database for MySQL
 description: Den här artikeln beskriver vanliga sätt att importera och exportera databaser i Azure Database för MySQL med hjälp av verktyg, till exempel MySQL Workbench.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2018
-ms.openlocfilehash: ee291f24a1ad77f84e7cdb8cf4c687af7dfa3f17
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986228"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545526"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera din MySQL-databas med hjälp av importera och exportera
 Den här artikeln beskrivs två vanliga sätt att importera och exportera data till en Azure Database for MySQL-server med MySQL Workbench. 
@@ -93,7 +90,7 @@ I följande exempel importerar tabellen från en CSV-fil:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL-data exportera och importera guider från navigeringsfönstret
 Använd en guide för att exportera eller importera SQL genereras från MySQL Workbench eller genereras från kommandot mysqldump. Komma åt dessa guider från den **Navigator** fönstret eller genom att välja **Server** på huvudmenyn. Välj sedan **dataexport** eller **dataimporten**. 
 
-#### <a name="data-export"></a>Export av data
+#### <a name="data-export"></a>Dataexport
 ![MySQL Workbench data exportera med hjälp av fönstret navigatör](./media/concepts-migrate-import-export/p2.png)
 
 Du kan använda den **dataexport** flik för att exportera dina MySQL-data. 

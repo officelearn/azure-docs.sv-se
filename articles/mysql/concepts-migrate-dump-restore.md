@@ -1,20 +1,17 @@
 ---
 title: Migrera MySQL-databasen med hjälp av dump och Återställ i Azure Database för MySQL
 description: Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure Database för MySQL med hjälp av verktyg som mysqldump, MySQL Workbench och PHPMyAdmin.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/02/2018
-ms.openlocfilehash: f3e38bb3e7e4f2c58f1ae955878747ebc7d386f1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e79c83ecb17c4dcd11f7ccbecded59e7d1d13dfd
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984494"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542469"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera din MySQL-databas till Azure Database för MySQL med säkerhetskopiering och återställning
 Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure Database for MySQL

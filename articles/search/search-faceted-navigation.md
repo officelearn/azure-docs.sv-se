@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313946"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632441"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
@@ -34,7 +34,7 @@ I din programutveckling, skriva kod som skapar frågor som utgör den största d
 ## <a name="sample-code-and-demo"></a>Exempelkod och demo
 Den här artikeln används en jobbet search-portalen som exempel. I exempel implementeras som ett ASP.NET MVC-program.
 
--   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Ladda ned koden från den [lagringsplats för Azure-exempel på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -371,7 +371,7 @@ Du kan hitta filter exemplen i [OData-uttryckssyntax (Azure Search)](https://doc
 ## <a name="try-the-demo"></a>Prova demonstrationen
 Azure Search jobbet Portal Demo innehåller exempel som nämns i den här artikeln.
 
--   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Ladda ned koden från den [lagringsplats för Azure-exempel på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,12 +396,12 @@ Titta på URL: en för ändringar i frågekonstruktion när du arbetar med sökr
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Läs mer
-Titta på [djupdykning i Azure Search](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demo om hur du implementerar fasetter.
+Titta på [djupdykning i Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demo om hur du implementerar fasetter.
 
 För mer information om designprinciper för aspektbaserad navigering rekommenderar vi följande länkar:
 
 * [Designa för Aspektbaserad sökning](http://www.uie.com/articles/faceted_search/)
-* [Designmönster: Aspektbaserad navigering](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Designmönster: Aspektbaserad navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ För mer information om designprinciper för aspektbaserad navigering rekommende
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

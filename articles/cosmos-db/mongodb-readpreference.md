@@ -1,6 +1,6 @@
 ---
-title: Använda läsinställningar för MongoDB med Azure Cosmos DB MongoDB API
-description: Lär dig hur du använder MongoDB läsinställningar med Azure Cosmos DB MongoDB API
+title: 'Använda läsinställningar för MongoDB med Azure Cosmos DB: s API för MongoDB'
+description: 'Lär dig hur du använder MongoDB läsinställningar med Azure Cosmos DB: s API för MongoDB'
 services: cosmos-db
 author: vidhoonv
 ms.author: sclyon
@@ -9,22 +9,22 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.openlocfilehash: 4f40a2dac04102a19be7b3209c6bf37be9252cde
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 25c1872a677b05980899307a8de9f9b51fa749f9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875356"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787852"
 ---
-# <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Hur du distribuerar globalt läser använda läsinställningar med Azure Cosmos DB MongoDB API 
+# <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Hur du distribuerar globalt läser via Azure Cosmos DB API för MongoDB
 
-Den här artikeln visar hur du distribuerar globalt läsåtgärder med [MongoDB läsinställningar](https://docs.mongodb.com/manual/core/read-preference/) inställningar med Azure Cosmos DB MongoDB API. 
+Den här artikeln visar hur du distribuerar globalt läsåtgärder med [MongoDB läsinställningar](https://docs.mongodb.com/manual/core/read-preference/) inställningar med hjälp av Azure Cosmos DB API för MongoDB.
 
 ## <a name="prerequisites"></a>Förutsättningar 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-Referera till denna [snabbstarten](tutorial-global-distribution-mongodb.md) artikeln anvisningar om hur du använder Azure-portalen för att ställa in Azure Cosmos DB-konto med global distribution och sedan ansluta med hjälp av MongoDB API.
+Referera till denna [snabbstarten](tutorial-global-distribution-mongodb.md) artikel för instruktioner om hur du använder Azure-portalen för att ställa in ett Cosmos-konto med global distribution och sedan ansluta till den.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -52,10 +52,10 @@ cd mean
 npm install
 node index.js
 ```
-Programmet försöker ansluta till en MongoDB-källa och misslyckas eftersom anslutningssträngen är ogiltig. Följ stegen i filen viktigt att uppdatera anslutningssträngen `url`. Uppdatera också den `readFromRegion` till en läsregion i ditt Azure Cosmos DB-konto. Följande instruktioner används från NodeJS-exempel:
+Programmet försöker ansluta till en MongoDB-källa och misslyckas eftersom anslutningssträngen är ogiltig. Följ stegen i filen viktigt att uppdatera anslutningssträngen `url`. Uppdatera också den `readFromRegion` till en läsregion i ditt Cosmos-konto. Följande instruktioner används från NodeJS-exempel:
 
 ```
-* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos DB account's values. 
+* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
 ```
 
 När du har följt de här stegen exempelprogrammet körs och i följande utdata:
@@ -74,7 +74,7 @@ readFromSecondaryfunc query completed!
 
 ## <a name="read-using-read-preference-mode"></a>Läsa med läsinställningar läge
 
-MongoDB innehåller följande läsinställningar lägen för klienter att använda:
+MongoDB-protokollet innehåller följande läsinställningar lägen för klienter att använda:
 
 1. PRIMÄRT TELEFONNR
 2. PRIMARY_PREFERRED
@@ -82,7 +82,7 @@ MongoDB innehåller följande läsinställningar lägen för klienter att använ
 4. SECONDARY_PREFERRED
 5. NÄRMASTE
 
-Referera till detaljerade [MongoDB läsinställningar beteende](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) dokumentationen för mer information på beteenden som dessa läsa inställningar lägen. I Azure Cosmos DB mappar primära skrivregionen och sekundära mappar till skrivregion.
+Referera till detaljerade [MongoDB läsinställningar beteende](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) dokumentationen för mer information på beteenden som dessa läsa inställningar lägen. I Cosmos DB mappar primära skrivregionen och sekundära mappar till skrivregion.
 
 Baserat på vanliga scenarier, rekommenderar vi att du använder följande inställningar:
 
@@ -137,7 +137,7 @@ Referera till motsvarande exemplet program-lagringsplatser för andra plattforma
 
 ## <a name="read-using-tags"></a>Läsa med hjälp av taggar
 
-Förutom läsinställningar-läge kan MongoDB du använda taggar för att dirigera läsåtgärder. I Azure Cosmos DB MongoDB API: t, den `region` taggen ingår som standard som en del av den `isMaster` svaret:
+MongoDB-protokollet tillåter användning av taggar för att dirigera läsåtgärder förutom läsinställningar-läge. I Cosmos DB: s API för MongoDB, den `region` taggen ingår som standard som en del av den `isMaster` svaret:
 
 ```json
 "tags": {
@@ -145,7 +145,7 @@ Förutom läsinställningar-läge kan MongoDB du använda taggar för att dirige
       }
 ```
 
-Därför MongoClient kan använda den `region` tagga tillsammans med regionnamn att dirigera läsåtgärder till specifika regioner. För Azure Cosmos DB-konton regionnamn finns i Azure-portalen till vänster under **Inställningar -> replikdata globalt**. Den här inställningen är användbar för att uppnå **läsa isolering** -fall i vilka klientprogram vill dirigera läsåtgärder i en specifik region. Den här inställningen är perfekt för icke-produktion/analytics skriver scenarier som kan köras i bakgrunden och inte är kritiska tjänster i produktion.
+Därför MongoClient kan använda den `region` tagga tillsammans med regionnamn att dirigera läsåtgärder till specifika regioner. För Cosmos-konton regionnamn finns i Azure-portalen till vänster under **Inställningar -> replikdata globalt**. Den här inställningen är användbar för att uppnå **läsa isolering** -fall i vilka klientprogram vill dirigera läsåtgärder i en specifik region. Den här inställningen är perfekt för icke-produktion/analytics skriver scenarier som kan köras i bakgrunden och inte är kritiska tjänster i produktion.
 
 Följande kodavsnitt från exempelprogrammet visar hur du konfigurerar den läsinställningar med taggar i NodeJS:
 
@@ -160,7 +160,7 @@ Följande kodavsnitt från exempelprogrammet visar hur du konfigurerar den läsi
 
 Referera till motsvarande exemplet program-lagringsplatser för andra plattformar, till exempel [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) och [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).
 
-I den här artikeln har du lärt dig hur du distribuerar globalt läsåtgärder använda läsinställningar med Azure Cosmos DB MongoDB API.
+I den här artikeln har du lärt dig hur du distribuerar globalt läsåtgärder använda läsinställningar med Azure Cosmos DB API för MongoDB.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -172,5 +172,5 @@ Om du inte planerar att fortsätta använda den här appen, tar du bort alla res
 ## <a name="next-steps"></a>Nästa steg
 
 * [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
-* [Konfigurera ett globalt replikerade Azure Cosmos DB-konto och Använd det med MongoDB API](tutorial-global-distribution-mongodb.md)
-* [Utveckla lokalt med emulatorn](local-emulator.md)
+* [Konfigurera en globalt distribuerad databas med Azure Cosmos DB API för MongoDB](tutorial-global-distribution-mongodb.md)
+* [Utveckla lokalt med Azure Cosmos DB-emulator](local-emulator.md)

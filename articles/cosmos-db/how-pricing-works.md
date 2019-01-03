@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: rimman
-ms.openlocfilehash: 44c561386b00ca60dc537360145ea62177b6d5d6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5651e7ee8196eec9d1b1bf20e84ed73e484afb4b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263925"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542405"
 ---
 # <a name="pricing-model-of-azure-cosmos-db"></a>Prismodellen för Azure Cosmos DB 
 
@@ -26,11 +26,11 @@ Prismodellen för Azure Cosmos DB förenklar kostnaden hantering och planering. 
 
 Etablerat dataflöde som angetts som [programbegäran](request-units.md) per sekund (RU/s), kan du läsa från eller skriva data i behållare eller databaser. Du kan [etablera dataflöde på en databas eller en behållare](set-throughput.md). Utifrån dina arbetsbelastningsbehov kan skala du dataflöde upp/ned när som helst. Priser för Azure Cosmos DB är Elastiskt och är proportionell mot det dataflöde som du konfigurerar på en databas eller en behållare. Minsta värdena för dataflöde och lagring och skala steg ska du ange en fullständig uppsättning pris jämfört med elasticitet spektrumet till alla segment av kunder, från småskaliga för storskaliga behållare. Varje databas eller en behållare debiteras per timme för etablerat i enheter om 100 RU/s, med ett minimum på 400 RU/s, dataflöde och lagringsutrymme i GB. Till skillnad från etablerat dataflöde debiteras lagring på förbrukning. Det vill säga behöver du reservera all lagring i förväg. Du debiteras bara för den lagring som du förbrukar.
 
-Mer information finns i den [Cosmos DB-sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [förstå din faktura för Cosmos DB](understand-your-bill.md).
+Mer information finns i den [sidan med priser för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) och [förstå din faktura för Azure Cosmos DB](understand-your-bill.md).
 
-Prismodellen i Azure Cosmos DB är konsekvent för alla API: er. Mer information finns i [hur Cosmos DB prismodellen är ett kostnadseffektivt alternativ för kunder](total-cost-ownership.md). Det finns ett minsta dataflöde som krävs på en databas eller en behållare för att säkerställa att serviceavtalen och du kan öka eller minska det etablerade dataflödet med $6 för varje 100 RU/s.
+Prismodellen i Azure Cosmos DB är konsekvent för alla API: er. Mer information finns i [hur Azure Cosmos DB prismodellen är ett kostnadseffektivt alternativ för kunder](total-cost-ownership.md). Det finns ett minsta dataflöde som krävs på en databas eller en behållare för att säkerställa att serviceavtalen och du kan öka eller minska det etablerade dataflödet med $6 för varje 100 RU/s.
 
-Det lägsta priset för både databasen och behållarbaserade dataflödet är för närvarande $24/ månad (se den [Cosmos DB-sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) senaste informationen. Om din arbetsbelastning använder flera behållare, kan den optimeras för kostnad genom att använda databasen på dataflöde eftersom databasen på dataflöde gör att du kan ha valfritt antal behållare i en Databasdelning dataflödet mellan behållarna. I följande tabell sammanfattas etablerat dataflöde och kostnaderna för olika enheter:
+Det lägsta priset för både databasen och behållarbaserade dataflödet är för närvarande $24/ månad (se den [sidan med priser för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) senaste informationen. Om din arbetsbelastning använder flera behållare, kan den optimeras för kostnad genom att använda databasen på dataflöde eftersom databasen på dataflöde gör att du kan ha valfritt antal behållare i en Databasdelning dataflödet mellan behållarna. I följande tabell sammanfattas etablerat dataflöde och kostnaderna för olika enheter:
 
 |**Entitet**  | **Minsta dataflöde & kostnad** |**Skala steg & d** |**Etablering omfång** |
 |---------|---------|---------|-------|
@@ -45,7 +45,7 @@ Azure Cosmos DB erbjuder flera alternativ för utvecklare att det utan kostnad. 
 
 * **Kostnadsfritt Azure-konto**: Azure erbjuder en [kostnadsfria nivån](https://azure.microsoft.com/free/) som ger dig 200 USD i Azure-kredit för de första 30 dagarna och en begränsad mängd kostnadsfria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](../billing/billing-avoid-charges-free-account.md). Azure Cosmos DB är en del av kostnadsfria Azure-konto. Mer specifikt för Azure Cosmos DB erbjuder det här kostnadsfria kontot 5 GB lagringsutrymme och 400 ru: er för etablerat dataflöde för hela året. 
 
-* **Testa Azure Cosmos DB kostnadsfritt**: Azure Cosmos DB erbjuder en tidsbegränsad upplevelse med hjälp av prova Azure Cosmos DB för kostnadsfria konton. Du kan skapa ett Azure Cosmos DB-konto, skapa databas och samlingar och kör ett exempelprogram med hjälp av Snabbstarter och självstudier. Du kan köra exempelprogrammet utan att prenumerera på ett Azure-konto eller använda ditt kreditkort. [Testa Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) erbjuder Azure Cosmos DB för en månad, med möjlighet att förnya ditt konto valfritt antal gånger.
+* **Testa Azure Cosmos DB kostnadsfritt**: Azure Cosmos DB erbjuder en tidsbegränsad upplevelse med hjälp av prova Azure Cosmos DB för kostnadsfria konton. Du kan skapa ett Azure Cosmos DB-konto, skapa databas och samlingar och kör ett exempelprogram med hjälp av Snabbstarter och självstudier. Du kan köra exempelprogrammet utan att prenumerera på ett Azure-konto eller använda ditt kreditkort. [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) erbjuder Azure Cosmos DB för en månad, med möjlighet att förnya ditt konto valfritt antal gånger.
 
 * **Azure Cosmos DB-emulatorn**: Azure Cosmos DB-emulatorn tillhandahåller en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utvecklingsändamål. Emulatorn erbjuds utan kostnad och av hög kvalitet till Molntjänsten. Använder Azure Cosmos DB-emulatorn kan du utveckla och testa dina program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. Du kan utveckla dina program med hjälp av emulatorn lokalt innan du påbörjar produktionen. När du är nöjd med funktioner i programmet mot emulatorn kan du växla till Azure Cosmos DB-konto i molnet och avsevärt spara på kostnaden. Läs mer om emulatorn [med hjälp av Azure Cosmos DB för utveckling och testning](local-emulator.md) nedan för mer information.
 
@@ -60,12 +60,11 @@ Reserverad kapacitet ger en rabatt på fakturering och påverkar inte runtime-ti
 Du kan lära dig mer om hur du optimerar kostnaderna för dina Azure Cosmos DB-resurser i följande artiklar:
 
 * Lär dig mer om [Optimera för utveckling och testning](optimize-dev-test.md)
-
-* Läs mer om [förstå din faktura för Cosmos DB](understand-your-bill.md)
+* Läs mer om [förstå din faktura för Azure Cosmos DB](understand-your-bill.md)
 * Läs mer om [optimera dataflödet kostnad](optimize-cost-throughput.md)
 * Läs mer om [optimera kostnaden för lagring](optimize-cost-storage.md)
 * Läs mer om [optimera kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
 * Läs mer om [optimera kostnaden för frågor](optimize-cost-queries.md)
 * Läs mer om [optimera kostnaden för flera regioner Cosmos-konton](optimize-cost-regions.md)
-* Lär dig mer om [Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)
-* Lär dig mer om [Cosmos DB-emulatorn](local-emulator.md)
+* Lär dig mer om [Azure Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)
+* Lär dig mer om [Azure Cosmos DB-emulatorn](local-emulator.md)

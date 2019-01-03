@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288552"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601159"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker
 
@@ -27,7 +27,7 @@ Om du vill köra lösningsacceleratorn för fjärrövervakning i IDE på din lok
 
 För att distribuera Azure-tjänsterna används av lösningsacceleratorn för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
-Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](http://azure.microsoft.com/pricing/free-trial/).
+Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Dator-installationen
 
@@ -72,11 +72,11 @@ Första gången du kör det här kommandot hämtar Docker mikrotjänst-avbildnin
 > [!TIP]
 > Microsoft publicerar ofta nya Docker-avbildningar med nya funktioner. Du kan använda följande uppsättning kommandon för att rensa dina lokala Docker-behållare och motsvarande bilder innan du hämtar de senaste:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 Du kan använda ett separat gränssnitt för att visa loggar från behållaren. Hitta först ID behållaren med den `docker ps` kommando. Använd sedan `docker logs {container-id} --tail 1000` att visa de senaste 1 000 posterna för den angivna behållaren.
 

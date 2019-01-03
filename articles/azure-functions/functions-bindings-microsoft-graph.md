@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301024"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793996"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -63,7 +63,7 @@ Om du använder Visual Studio kan du hämta tillägg genom att installera [NuGet
 
 ### <a name="configuring-authentication--authorization"></a>Konfigurera autentisering / auktorisering
 
-Bindningar som beskrivs i den här artikeln kräver en identitet som ska användas. På så sätt kan Microsoft Graph att tillämpa behörigheter och granska interaktioner. Identiteten kan vara en användare med åtkomst till programmet eller själva programmet. Om du vill konfigurera den här identiteten, ställa in [App Service-autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) med Azure Active Directory. Du måste också att begära valfri resursbehörighet som dina funktioner kräver.
+Bindningar som beskrivs i den här artikeln kräver en identitet som ska användas. På så sätt kan Microsoft Graph att tillämpa behörigheter och granska interaktioner. Identiteten kan vara en användare med åtkomst till programmet eller själva programmet. Om du vill konfigurera den här identiteten, ställa in [App Service-autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) med Azure Active Directory. Du måste också att begära valfri resursbehörighet som dina funktioner kräver.
 
 > [!Note] 
 > Microsoft Graph-tillägget har endast stöd för Azure AD-autentisering. Användarna måste logga in med ett arbets- eller skolkonto.
@@ -226,7 +226,8 @@ Bindningen själva kräver inte några Azure AD-behörigheter, men beroende på 
 
 Token visas alltid för kod som en sträng.
 
-
+> [!Note]
+> När du utvecklar lokalt med något av `userFromId`, `userFromToken` eller `userFromRequest` alternativ, som kan vara nödvändiga token [fick manuellt](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) och anges i `X-MS-TOKEN-AAD-ID-TOKEN` huvudet i begäran från en anropande klientprogram.
 
 
 <a name="excel-input"></a>

@@ -1,5 +1,5 @@
 ---
-title: Integrera lösningen för fjärrövervakning med Azure Data Lake Store | Microsoft Docs
+title: Integrera lösningen för fjärrövervakning med Data Lake Store – Azure | Microsoft Docs
 description: Lär dig hur du integrerar lösningen för fjärrövervakning med Azure Data Lake Store med hjälp av Azure Stream Analytics-jobb.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188082"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603937"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera lösningen för fjärrövervakning med Azure Data Lake Store
 
@@ -154,7 +154,7 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
 1. Ange anpassad tid att gå tillbaka ett par timmar för att hämta data från när enheten har startats för direktuppspelning.
 
-1. Klicka på **starta**.
+1. Klicka på **Start**.
 
     ![Välj anpassat datum](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

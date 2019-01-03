@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437841"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583518"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka Hybrid Runbook Worker
 
@@ -34,7 +34,7 @@ Runbook-körning inte och följande felmeddelande:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Din runbook pausas strax efter att du försöker köra det tre gånger. Finns det villkor som kan avbryta runbooken slutförs och relaterade felmeddelandet innehåller inte någon ytterligare information som anger varför.
+Din runbook pausas strax efter att den försöker köra det tre gånger. Det finns villkor som kan avbryta runbook från att slutföras. När detta sker får relaterade felmeddelandet inte innehålla ytterligare information som talar om varför.
 
 #### <a name="cause"></a>Orsak
 
@@ -46,17 +46,40 @@ Här följer möjliga orsaker:
 
 * Runbooks inte kan autentiseras med lokala resurser
 
-* Den dator som har utformats för att köra funktionen Hybrid Runbook Worker uppfyller minimikraven på maskinvara.
+* Att datorn konfigureras för att köra funktionen Hybrid Runbook Worker uppfyller minimikraven på maskinvara.
 
 #### <a name="resolution"></a>Lösning
 
 Kontrollera att datorn har utgående åtkomst till *.azure automation.net på port 443.
 
-Datorer som kör Hybrid Runbook Worker ska uppfylla minimikraven för maskinvara innan du utser den som värd för den här funktionen. Annars blir överbelastad orsak datorn beroende på andra bakgrundsprocesser och konkurrens under runbook körning kan Resursanvändning och orsaka förseningar för runbook-jobb eller tidsgränser.
+Datorer som kör Hybrid Runbook Worker ska uppfylla minimikraven för maskinvara innan den är konfigurerad att vara värd för den här funktionen. Runbooks och bakgrundsprocesser som de använder kan orsaka att systemet kan vara överbelastad och orsaka förseningar för runbook-jobb eller tidsgränser.
 
-Bekräfta att den dator som har utformats för att köra funktionen Hybrid Runbook Worker uppfyller minimikraven på maskinvara. I annat fall kan du övervaka användning av processor och minne för att fastställa alla samband mellan prestanda för Hybrid Runbook Worker-processer och Windows. Om det finns minne eller hög CPU-belastning, kan detta tyda på behovet av att uppgradera eller lägga till ytterligare processorer eller öka minne för att åtgärda resource flaskhals och lösa problemet. Även välja en annan beräkningsresurs som stöder de minimikrav och skala när arbetsbelastning visar en ökning krävs.
+Bekräfta att den dator som ska köra Hybrid Runbook Worker-funktionen uppfyller minimikraven på maskinvara. I annat fall använda övervaka CPU och minne för att fastställa alla samband mellan prestanda för Hybrid Runbook Worker-processer och Windows. Om minne eller hög CPU-belastning kan detta tyda på att uppgradera resurser. Du kan också välja en annan beräkningsresurs som stöder de minimikrav och skala när arbetsbelastning visar en ökning krävs.
 
 Kontrollera den **Microsoft SMA** händelseloggen för motsvarande händelse med beskrivningen *Win32 processen avslutades med koden [4294967295]*. Orsaken till felet är du inte har konfigurerat autentisering i dina runbooks eller angivna kör som-autentiseringsuppgifterna för Hybrid worker-gruppen. Granska [Runbook-behörigheter](../automation-hrw-run-runbooks.md#runbook-permissions) att bekräfta att du har korrekt konfigurerat autentisering för dina runbooks.
+
+### <a name="no-cert-found"></a>Scenario: Inget certifikat hittades i certifikatarkivet på Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problem
+
+En runbook som körs på en Hybrid Runbook Worker misslyckas med följande felmeddelande visas:
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår när du försöker använda en [kör som-konto](../manage-runas-account.md) i en runbook som körs på en Hybrid Runbook Worker där certifikatet för Kör som-konto inte är tillgänglig. Hybrid Runbook Worker har inte certifikattillgången lokalt som standard, vilket krävs av kör som-kontot ska fungera korrekt.
+
+#### <a name="resolution"></a>Lösning
+
+Om din Hybrid Runbook Worker är en Azure-dator, kan du använda [hanterade identiteter för Azure-resurser](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) i stället. Det här scenariot kan du autentisera till Azure-resurser med Azure VM hanterad identitet i stället för Kör som-kontot, vilket förenklar autentisering. När Hybrid Runbook Worker är en lokal dator kan behöva du installera certifikatet för Kör som-konto på datorn. Om du vill lära dig mer om att installera certifikatet, se hur du kör den [Export RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
 
 ## <a name="linux"></a>Linux
 
@@ -64,7 +87,8 @@ Linux Hybrid Runbook Worker beror på OMS-agenten för Linux för att kommunicer
 
 ### <a name="oms-agent-not-running"></a>Scenario: OMS-agenten för Linux körs inte
 
-Om OMS-agenten för Linux inte körs, hindrar detta Linux Hybrid Runbook Worker för att kommunicera med Azure Automation. Verifiera agenten körs genom att ange följande kommando: `ps -ef | grep python`. Du bör se utdata som liknar följande, python-processer med **nxautomation** användarkonto. Om hantering av uppdateringar eller Azure Automation-lösningar inte är aktiverad, körs ingen av följande processer.
+
+Om OMS-agenten för Linux inte körs förhindras Linux Hybrid Runbook Worker från att kommunicera med Azure Automation. Verifiera agenten körs genom att ange följande kommando: `ps -ef | grep python`. Du bör se utdata som liknar följande, python-processer med **nxautomation** användarkonto. Om hantering av uppdateringar eller Azure Automation-lösningar inte är aktiverad, körs ingen av följande processer.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -74,11 +98,12 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 I följande lista visas de processer som startas för en Linux Hybrid Runbook Worker. De alla finns i den `/var/opt/microsoft/omsagent/state/automationworker/` directory.
 
-* **OMS.conf** – den här processen är manager arbetsprocessen, den här processen startas direkt från DSC.
+
+* **OMS.conf** – det här värdet är manager arbetsprocessen. Den startas direkt från DSC.
 
 * **Worker.conf** – den här processen är automatiskt registrerad Hybrid arbetsprocessen, den startas av worker-hanteraren. Den här processen används av hantering av uppdateringar och är transparent för användaren. Den här processen är inte tillgänglig om lösningen för uppdateringshantering inte är aktiverad på datorn.
 
-* **diy/Worker.conf** – den här processen är gör det själv hybrid worker-processen. Arbetsprocessen gör det själv hybrid används för att köra runbooks för användaren på den Hybrid Runbook Worker. Det endast skiljer sig från automatiskt registrerad Hybrid worker-processen i de viktiga detaljer som använder en annan konfiguration. Den här processen är inte tillgänglig om Azure Automation-lösningen har inte aktiverats, och gör det själv Linux Hybrid Worker är inte registrerad.
+* **diy/Worker.conf** – den här processen är gör det själv hybrid worker-processen. Arbetsprocessen gör det själv hybrid används för att köra runbooks för användaren på den Hybrid Runbook Worker. Det endast skiljer sig från automatiskt registrerad Hybrid worker-processen i de viktiga detaljer som använder en annan konfiguration. Den här processen är inte tillgänglig om Azure Automation-lösningen är inaktiverad och gör det själv Linux Hybrid Worker är inte registrerad.
 
 Om OMS-agenten för Linux inte körs, kör följande kommando för att starta tjänsten: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -102,7 +127,7 @@ Den `healthservice` tjänst inte körs på den Hybrid Runbook Worker-datorn.
 
 #### <a name="cause"></a>Orsak
 
-Om Microsoft Monitoring Agent-Windows-tjänsten inte körs i det här scenariot förhindrar att Hybrid Runbook Worker från att kommunicera med Azure Automation.
+Om Microsoft Monitoring Agent-Windows-tjänst inte körs, hindrar det här tillståndet Hybrid Runbook Worker för att kommunicera med Azure Automation.
 
 #### <a name="resolution"></a>Lösning
 

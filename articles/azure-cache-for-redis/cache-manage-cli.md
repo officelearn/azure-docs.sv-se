@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 54aa6f12afd83d4fb180b718ed420f62a8663ff6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9b9ad2f4fd3b0ccf928dcec58b7c55778bcbdc95
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019875"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558710"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Hur du skapar och hanterar Azure Cache för Redis med hjälp av den klassiska Azure CLI
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Du måste slutföra följande steg för att skapa och hantera Azure Cache för R
 * Ansluta Azure CLI-installationen med ett personligt konto i Azure, eller med ett arbets eller skolkonto för Azure och logga in från den klassiska CLI med den `azure login` kommando.
 * Innan du kör något av följande kommandon för att växla klassiskt CLI i Resource Manager-läge genom att köra den `azure config mode arm` kommando. Mer information finns i [använda klassiska Azure CLI för att hantera Azure-resurser och resursgrupper](../xplat-cli-azure-resource-manager.md).
 
-## <a name="azure-cache-for-redis-properties"></a>Azure Cache för Redis-egenskaper
+## <a name="azure-cache-for-redis-properties"></a>Egenskaper för Azure Cache for Redis
 Följande egenskaper som används när du skapar och uppdaterar Azure Cache för Redis-instanser.
 
 | Egenskap  | Växel | Beskrivning |
@@ -74,7 +74,7 @@ Om du vill se alla Azure-Cache för Redis-kommandon och deras parametrar, använ
     help:    Delete an existing Azure Cache for Redis
     help:      rediscache delete [--name <name> --resource-group <resource-group> ]
     help:
-    help:    List all Azure Cache for Rediss within your Subscription or Resource Group
+    help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:      rediscache list [options]
     help:
     help:    Show properties of an existing Azure Cache for Redis
@@ -94,7 +94,7 @@ Om du vill se alla Azure-Cache för Redis-kommandon och deras parametrar, använ
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
+## <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache for Redis
 Om du vill skapa en Azure Cache för Redis, använder du följande kommando:
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
@@ -150,15 +150,15 @@ Mer information om det här kommandot Kör den `azure rediscache delete -h` komm
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="list-all-azure-cache-for-rediss-within-your-subscription-or-resource-group"></a>Lista alla Azure-Cache för Rediss inom din prenumeration eller resursgrupp
-Om du vill visa alla Azure-Cache för Rediss inom din prenumeration eller resursgrupp, använder du följande kommando:
+## <a name="list-all-azure-cache-for-redis-within-your-subscription-or-resource-group"></a>Lista alla Azure-Cache för Redis inom din prenumeration eller resursgrupp
+Om du vill visa alla Azure-Cache för Redis inom din prenumeration eller resursgrupp, använder du följande kommando:
 
     azure rediscache list [options]
 
 Mer information om det här kommandot Kör den `azure rediscache list -h` kommando.
 
     C:\>azure rediscache list -h
-    help:    List all Azure Cache for Rediss within your Subscription or Resource Group
+    help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:
     help:    Usage: rediscache list [options]
     help:

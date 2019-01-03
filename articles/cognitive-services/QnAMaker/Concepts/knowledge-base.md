@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 865525d9c978f3168a4c580dec20f0f91f0a0d16
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 62478eed2eb647a2f29e488e60e41dd9ae501273
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074102"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605848"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Vad är en Maker kunskapsbaser?
 
@@ -26,7 +26,7 @@ En kunskapsbas med QnA Maker består av en uppsättning fråga/svar (frågor och
 
 * **Frågor** – en fråga som innehåller text som bäst representerar en användarfråga. 
 * **Svar** -svar är svaret som returneras när en användarfråga matchas med associerade frågan.  
-* **Metadata** -Metadata är taggar som är associerad med ett par frågor och svar och visas i form av nyckel / värde-par. Metadata för att filtrera QnA-par och begränsa de över vilken fråga matchar utförs.
+* **Metadata** -Metadata är taggar som är associerad med ett par frågor och svar och visas i form av nyckel / värde-par. Metadatataggarna används för att filtrera QnA-par och begränsa de över vilken fråga matchar utförs.
 
 En enda QnA som representeras av ett numeriskt QnA-ID har flera varianter av en fråga (alternativa frågor) att mappas till ett enda svar. Varje sådan par kan dessutom ha flera metadatafält som är kopplade till den.
 

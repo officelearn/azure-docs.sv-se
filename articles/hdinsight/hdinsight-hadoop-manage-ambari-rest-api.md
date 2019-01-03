@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384239"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715125"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -26,7 +26,7 @@ Apache Ambari förenklar hantering och övervakning av ett Hadoop-kluster genom 
 
 ## <a id="whatis"></a>Vad är Apache Ambari
 
-[Apache Ambari](http://ambari.apache.org) ger webbgränssnitt som kan användas för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) ger webbgränssnitt som kan användas för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari är som standard med Linux-baserade HDInsight-kluster.
 
@@ -232,7 +232,7 @@ foreach($item in $respObj.items) {
 
 ## <a name="example-get-the-default-storage"></a>Exempel: Hämta standardlagring
 
-När du skapar ett HDInsight-kluster måste du använda ett Azure Storage-konto eller Data Lake Store som standardlagring för klustret. Du kan använda Ambari för att hämta den här informationen när klustret har skapats. Exempel: Om du vill läsa/skriva data till behållaren utanför HDInsight.
+När du skapar ett HDInsight-kluster måste du använda ett Azure Storage-konto eller Data Lake Storage som standardlagring för klustret. Du kan använda Ambari för att hämta den här informationen när klustret har skapats. Exempel: Om du vill läsa/skriva data till behållaren utanför HDInsight.
 
 I följande exempel hämtar standardkonfigurationen för lagring från klustret:
 
@@ -255,9 +255,9 @@ Det returnera värdet är av följande exempel:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – Det här värdet anger att klustret använder ett Azure Storage-konto för standardlagring. Den `ACCOUNTNAME` värdet är namnet på lagringskontot. Den `CONTAINER` delen är namnet på blob-behållare i lagringskontot. Behållaren är roten för HDFS kompatibla lagringsutrymmet för klustret.
 
-* `adl://home` – Det här värdet anger att klustret använder en Azure Data Lake Store för standardlagring.
+* `adl://home` – Det här värdet anger att klustret använder Azure Data Lake Storage för standardlagring.
 
-    Använd följande exempel för att hitta namnet på Data Lake Store-kontot:
+    Använd följande exempel för att hitta namnet på Data Lake Storage-kontot:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -271,9 +271,9 @@ Det returnera värdet är av följande exempel:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    Det returnera värdet liknar `ACCOUNTNAME.azuredatalakestore.net`, där `ACCOUNTNAME` är namnet på Data Lake Store-konto.
+    Det returnera värdet liknar `ACCOUNTNAME.azuredatalakestore.net`, där `ACCOUNTNAME` är namnet på Data Lake Storage-konto.
 
-    Använd följande exempel för att hitta katalogen i Data Lake Store som innehåller lagringsutrymme för klustret:
+    Använd följande exempel för att hitta katalogen i Data Lake Storage som innehåller lagringsutrymme för klustret:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -287,7 +287,7 @@ Det returnera värdet är av följande exempel:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    Det returnera värdet liknar `/clusters/CLUSTERNAME/`. Det här värdet är en sökväg i Data Lake Store-konto. Den här sökvägen är roten för HDFS-kompatibla filsystemets för klustret. 
+    Det returnera värdet liknar `/clusters/CLUSTERNAME/`. Det här värdet är en sökväg i Data Lake Storage-konto. Den här sökvägen är roten för HDFS-kompatibla filsystemets för klustret. 
 
 > [!NOTE]  
 > Den `Get-AzureRmHDInsightCluster` cmdlet som tillhandahålls av [Azure PowerShell](/powershell/azure/overview) också returnerar i informationen för klustret.

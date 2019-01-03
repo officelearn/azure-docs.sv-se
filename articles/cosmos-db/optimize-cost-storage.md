@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 618be936ef0326a1b9f5db426d4c37bb2bd1c760
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263834"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535666"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimera kostnaden för lagring i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Azure Cosmos DB förväntar sig objektets storlek till 2 MB eller mindre för op
 
 ## <a name="optimize-cost-with-indexing"></a>Optimera kostnader med indexering
 
-Som standard indexeras data automatiskt, vilket kan öka det totala lagringsutrymmet som förbrukas. Du kan dock använda anpassade index principer för att minska det här arbetet. Automatisk indexering som inte har aktiverat via Grupprincip är cirka 10-20% av storleken på objektet. Genom att ta bort eller anpassa indexet principer kan du inte betalar extra kostnad för skrivningar och kräver inte ytterligare dataflödeskapacitet. Se [indexering i Cosmos DB](indexing-policies.md) att konfigurera anpassade principer för indexering. Om du har arbetat med relationella databaser tidigare, kan du föreställa dig att ”indexera allt” innebär en fördubbling av lagring eller högre. I Azure Cosmos DB är median om det dock mycket lägre. I Azure Cosmos DB är indexlagring index vanligtvis låg (10-20%) även med automatisk indexering, eftersom det har utformats för ett låga storage-fotavtryck. Du kan styra tillkomsten av index fotavtryck och fråga på ett mer detaljerad sätt genom att hantera indexeringsprincipen.
+Som standard indexeras data automatiskt, vilket kan öka det totala lagringsutrymmet som förbrukas. Du kan dock använda anpassade index principer för att minska det här arbetet. Automatisk indexering som inte har aktiverat via Grupprincip är cirka 10-20% av storleken på objektet. Genom att ta bort eller anpassa indexet principer kan du inte betalar extra kostnad för skrivningar och kräver inte ytterligare dataflödeskapacitet. Se [indexering i Azure Cosmos DB](indexing-policies.md) att konfigurera anpassade principer för indexering. Om du har arbetat med relationella databaser tidigare, kan du föreställa dig att ”indexera allt” innebär en fördubbling av lagring eller högre. I Azure Cosmos DB är median om det dock mycket lägre. I Azure Cosmos DB är indexlagring index vanligtvis låg (10-20%) även med automatisk indexering, eftersom det har utformats för ett låga storage-fotavtryck. Du kan styra tillkomsten av index fotavtryck och fråga på ett mer detaljerad sätt genom att hantera indexeringsprincipen.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Optimera kostnader med live- och ändringsflödet
 

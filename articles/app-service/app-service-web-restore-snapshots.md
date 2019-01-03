@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260046"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726569"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Återställ en app i Azure från en ögonblicksbild
-Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/app-service-web-overview.md) från en ögonblicksbild. Du kan återställa din app till ett tidigare tillstånd, baserat på en av ögonblicksbilder av din app. Du behöver inte aktivera säkerhetskopiering av ögonblicksbilder, plattformen sparas automatiskt en ögonblicksbild av alla appar för dataåterställningsändamål.
+Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) från en ögonblicksbild. Du kan återställa din app till ett tidigare tillstånd, baserat på en av ögonblicksbilder av din app. Du behöver inte aktivera säkerhetskopiering av ögonblicksbilder, plattformen sparas automatiskt en ögonblicksbild av alla appar för dataåterställningsändamål.
 
-Ögonblicksbilder är inkrementell skuggkopior och de erbjuder flera fördelar jämfört med vanliga [säkerhetskopior](web-sites-backup.md):
+Ögonblicksbilder är inkrementell skuggkopior och de erbjuder flera fördelar jämfört med vanliga [säkerhetskopior](manage-backup.md):
 - Filkopieringsfel på grund av fillås.
 - Ingen begränsning för storage storlek.
 - Ingen konfiguration krävs.

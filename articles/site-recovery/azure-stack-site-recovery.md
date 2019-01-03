@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839001"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976587"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
@@ -31,11 +31,11 @@ I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * **Steg 1: Förbereda Azure stack virtuella datorer för replikering**. Kontrollera att virtuella datorer uppfyller kraven för Site Recovery och förbereda för installation av Site Recovery-mobilitetstjänsten. Den här tjänsten installeras på varje virtuell dator som du vill replikera.
-> * **Steg 2: Konfigurera ett Recovery Services-valv**. Ställer in ett valv för Site Recovery och ange vad du vill replikera. Site Recovery-komponenterna och åtgärder som konfigureras och hanteras i valvet.
+> * **Steg 2: Ställer in ett Recovery Services-valv**. Ställer in ett valv för Site Recovery och ange vad du vill replikera. Site Recovery-komponenterna och åtgärder som konfigureras och hanteras i valvet.
 > * **Steg 3: Konfigurera källmiljön för replikering**. Ställ in en konfigurationsserver för Site Recovery. Konfigurationsservern är en virtuell Azure Stack-dator som kör alla komponenter som krävs av Site Recovery. När du har konfigurerat konfigurationsservern kan registrera du den i valvet.
-> * **Steg 4: Konfigurera målmiljön för replikeringen**. Välj din Azure-konto och Azure storage-konto och nätverk som du vill använda. Under replikering kopieras VM-data till Azure storage. Virtuella Azure-datorer är anslutna till det angivna nätverket efter redundansväxlingen.
+> * **Steg 4: Konfigurera målmiljön för replikeringen**. Välj ditt Azure-konto och Azure storage-konto och nätverk som du vill använda. Under replikering kopieras VM-data till Azure storage. Virtuella Azure-datorer är anslutna till det angivna nätverket efter redundansväxlingen.
 > * **Steg 5: Aktivera replikering**. Konfigurera replikeringsinställningar och aktivera replikering för virtuella datorer. Mobilitetstjänsten installeras på en virtuell dator när replikering har aktiverats. Site Recovery fungerar som en inledande replikering av den virtuella datorn och sedan pågående replikeringen påbörjas.
-> * **Steg 6: Kör ett programåterställningstest**: när replikeringen är igång kan du kontrollera att redundansväxlingen fungerar som förväntat genom att köra ett test. För att initiera detaljerade kör du ett redundanstest i Site Recovery. Redundanstestningen påverkar inte din produktionsmiljö.
+> * **Steg 6: Kör ett programåterställningstest**: När replikering är igång kan kontrollera du att redundansväxlingen fungerar som förväntat genom att köra ett test. För att initiera detaljerade kör du ett redundanstest i Site Recovery. Redundanstestningen påverkar inte din produktionsmiljö.
 
 Med de här stegen är klar, kan du sedan kör en fullständig redundans till Azure som och när du behöver.
 
@@ -45,7 +45,7 @@ Med de här stegen är klar, kan du sedan kör en fullständig redundans till Az
 
 **Plats** | **Komponent** |**Detaljer**
 --- | --- | ---
-**Konfigurationsserver** | Körs på en virtuell Azure Stack-dator. | I varje prenumeration konfigurerar du en konfigurationsserver VM. Den här virtuella datorn körs följande Site Recovery-komponenter:<br/><br/> -Konfigurationsservern: samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering. -Processervern: fungerar som en replikeringsgateway. Den tar emot replikeringsdata, optimerar med cachelagring, komprimering och kryptering och skickar dem till Azure storage.<br/><br/> Om virtuella datorer du vill replikera överskrider de gränser som anges nedan, kan du konfigurera en separat fristående processerver. [Läs mer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
+**Konfigurationsserver** | Körs på en virtuell Azure Stack-dator. | I varje prenumeration konfigurerar du en konfigurationsserver VM. Den här virtuella datorn körs följande Site Recovery-komponenter:<br/><br/> -Server konfiguration: Samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering. -Process server: Fungerar som en replikeringsgateway. Den tar emot replikeringsdata, optimerar med cachelagring, komprimering och kryptering och skickar dem till Azure storage.<br/><br/> Om virtuella datorer du vill replikera överskrider de gränser som anges nedan, kan du konfigurera en separat fristående processerver. [Läs mer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **Mobilitetstjänsten** | Installerad på varje virtuell dator som du vill replikera. | I steg i den här artikeln ska förbereda vi ett konto, så att mobilitetstjänsten installeras automatiskt på en virtuell dator när replikering har aktiverats. Om du inte vill installera tjänsten automatiskt, finns det ett antal andra metoder som du kan använda. [Läs mer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
 **Azure** | I Azure behöver du ett Recovery Services-valv, ett lagringskonto och ett virtuellt nätverk. |  Replikerade data lagras i lagringskontot. Virtuella Azure-datorer har lagts till det Azure-nätverket vid redundans. 
 
@@ -78,7 +78,7 @@ Här är vad du behöver att ställa in det här scenariot.
 
 
  
-## <a name="step-1-prepare-azure-stack-vms"></a>Steg 1: Förbereda Azure Stack virtuella datorer
+## <a name="step-1-prepare-azure-stack-vms"></a>Steg 1: Förbereda virtuella datorer i Azure Stack
 
 ### <a name="verify-the-operating-system"></a>Kontrollera operativsystemet
 
@@ -104,7 +104,7 @@ Varje virtuell dator som du vill replikera måste ha mobilitetstjänsten install
     - Om du inte använder ett domänkonto, måste du inaktivera kontroll av åtkomst för fjärranvändare på den virtuella datorn:
         - Skapa DWORD-värde i registret **LocalAccountTokenFilterPolicy** under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
         - Ange värdet till 1.
-        - Om du vill göra detta i Kommandotolken, Skriv följande: **REG Lägg till HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
+        - Om du vill göra detta i Kommandotolken, skriver du följande: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - Tillåt fil- och skrivardelning- och WMI i Windows-brandväggen på den virtuella datorn som du vill replikera.
     - Gör detta genom att köra **wf.msc** att öppna Windows-brandväggens konsol. Högerklicka på **regler för inkommande trafik** > **ny regel**. Välj **fördefinierade**, och välj **fil- och skrivardelning delning** i listan. Slutför guiden, väljer för att tillåta anslutningen > **Slutför**.
     - Du kan använda ett grupprincipobjekt för domänanslutna datorer för att göra detta.
@@ -237,10 +237,10 @@ Kontrollera att du har slutfört alla aktiviteter i [steg 1: Förbered datorn](#
 6. Välj Azure storage-kontot som du vill lagra replikerade data.
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 8. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **konfigurera senare** om du vill välja Azure-nätverket separat för varje dator.
-9. I **fysiska datorer**, klickar du på **+ fysisk dator**. Ange namnet på IP-adressen för varje dator och operativsystem som du vill replikera.
+9. I **fysiska datorer**, klickar du på **+ fysisk dator**. Ange namn, IP-adress och OS-typ för varje dator som du vill replikera.
 
     - Använda interna IP-adressen för datorn.
-    - Om du anger den offentliga IP-adress replikeringen inte kanske fungerar som förväntat.
+    - Om du anger den offentliga IP-adressen kan replikering inte fungerar som förväntat.
 
 10. I **egenskaper** > **konfigurera egenskaper**, väljer du det konto som processervern använder för att automatiskt installera Mobilitetstjänsten på datorn.
 11. I **replikeringsinställningar** > **konfigurera replikeringsinställningar**, kontrollera att rätt replikeringsprincip har valts.
@@ -255,7 +255,7 @@ Kontrollera att du har slutfört alla aktiviteter i [steg 1: Förbered datorn](#
 > Om du vill övervaka de virtuella datorer som du lägger till, kan du se när de senast identifierades i **Konfigurationsservrar** > **Senaste kontakt**. Om du vill lägga till virtuella datorer utan att vänta på den schemalagda identifieringen markerar du konfigurationsservern (välj den inte) och väljer **Uppdatera**.
 
 
-## <a name="step-6-run-a-disaster-recovery-drill"></a>Steg 6: Kör ett programåterställningstest
+## <a name="step-6-run-a-disaster-recovery-drill"></a>Steg 6: Köra ett programåterställningstest
 
 Du kan köra ett redundanstest till Azure för att se till att allt fungerar som förväntat. Den här redundansen påverkar inte din produktionsmiljö.
 
@@ -278,9 +278,9 @@ När du kör ett redundanstest händer följande:
 
 1. En kravkontroll körs för att säkerställa att alla de villkor som krävs för redundans är på plats.
 2. Redundansprocessen bearbetar data med hjälp av den angivna återställningspunkten:
-    - **Senaste bearbetade**: dator växlar över till den senaste återställningspunkten som bearbetats av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt RTO (mål för återställningstid).
-    - **Senaste appkonsekventa**. Datorn flyttas över till den senaste appkonsekventa återställningspunkten.
-    - **Anpassad**. Välj den återställningspunkt som används för redundans.
+    - **Senaste bearbetade**: Datorn flyttas över till den senaste återställningspunkten som bearbetats av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt RTO (mål för återställningstid).
+    - **Senaste appkonsekventa**: Datorn flyttas över till den senaste appkonsekventa återställningspunkten.
+    - **Anpassad**: Välj den återställningspunkt som används för redundans.
 
 3. En Azure-dator skapas med hjälp av bearbetade data.
 4. Testa redundans kan automatiskt Rensa Azure virtuella datorer som skapas under detaljerade.
@@ -314,12 +314,12 @@ Kör en redundans enligt följande:
 7. När du har verifierat den virtuella datorn klickar du på **genomför** att slutföra redundansväxlingen. Detta tar bort alla tillgängliga återställningspunkter.
 
 > [!WARNING]
-> Avbryt inte en pågående redundansväxling: innan redundansen startas så stoppas replikeringen av virtuella datorer. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
+> Avbryt inte en redundansväxling pågår: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
 
 ### <a name="fail-back-to-azure-stack"></a>Växla tillbaka till Azure Stack
 
-När du primära platsen är igång igen kan växla du tillbaka från Azure till Azure Stack. Om du vill göra detta måste du ladda ned VHD: N för Azure VM och överföra den till Azure Stack.
+När den primära platsen är igång igen kan växla du tillbaka från Azure till Azure Stack. Om du vill göra detta måste du ladda ned VHD: N för Azure VM och överföra den till Azure Stack.
 
 1. Stänga av Azure-dator, så att den virtuella Hårddisken kan laddas ned. 
 2. Om du vill börja ladda ned den virtuella Hårddisken, installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
@@ -327,7 +327,7 @@ När du primära platsen är igång igen kan växla du tillbaka från Azure till
 4. I **diskar**klickar du på namnet på disken och samla in inställningar.
 
     - Till exempel VHD-URI som används i vår test: https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd kan delas upp att hämta följande indataparametrar som används för att hämta den virtuella Hårddisken.
-        - Storage-konto: 502055westcentralus
+        - Lagringskonto: 502055westcentralus
         - Behållare: wahv9b8d2ceb284fb59287
         - Namn på virtuell Hårddisk: kopieras-3676553984.vhd
 

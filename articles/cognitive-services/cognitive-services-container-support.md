@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413055"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543928"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -33,8 +33,8 @@ Den [visuellt](Computer-vision/Home.md), [ansikte](Face/Overview.md), [textanaly
 
 - **Kontroll över data**: Att kunderna kan välja var de här Cognitive Services bearbetar data. Detta är nödvändigt för kunder som det går inte att skicka data till molnet men som behöver åtkomst till Cognitive Services-teknik. Stöd konsekvens i hybridmiljöer – över data, hantering, identitet och säkerhet.
 - **Kontroll över modelluppdateringar**: Ger kunderna flexibilitet i versionshantering och uppdatering av modeller som distribuerats i sina lösningar.
-- **Arkitektur för bärbara**: Aktivera skapandet av en bärbar programarkitektur som kan distribueras på Azure, lokalt och gränsen. Behållare kan distribueras direkt till [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](/azure/azure-stack/). Mer information finns i [distribuera Kubernetes i Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Högt dataflöde / låg latens**: Ger kunder möjlighet att skala dataflöden och låg latens krav genom att aktivera Cognitive Services körs fysiskt nära sina programmets logik och data. Behållare cap inte transaktioner per sekund (TPS) och kan göras för att skala både uppåt och utåt för att hantera begäran om du anger nödvändiga maskinvaruresurser.
+- **Arkitektur för bärbara**: Aktivera skapandet av en bärbar programarkitektur som kan distribueras på Azure, lokalt och gränsen. Behållare kan distribueras direkt till [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](../azure-stack/index.yml). Mer information finns i [distribuera Kubernetes i Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Högt dataflöde / låg latens**: Ger kunder möjlighet att skala dataflöden och låg latens krav genom att aktivera Cognitive Services körs fysiskt nära sina programmets logik och data. Behållare cap inte transaktioner per sekund (TPS) och kan göras för att skala både uppåt och utåt för att hantera begäran om du anger nödvändiga maskinvaruresurser. 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Behållare i Azure Cognitive Services
@@ -61,7 +61,7 @@ Azure Cognitive Services-behållare är tillgängliga för allmänheten via din 
 
 Du måste uppfylla följande krav innan du använder Azure Cognitive Services-behållare:
 
-**Docker-motorn**: Du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](/azure/aks/) eller [Azure Container Instances](/azure/container-instances/).
+**Docker-motorn**: Du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](../aks/index.yml) eller [Azure Container Instances](../container-instances/index.yml).
 
 Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure.
 

@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335188"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630333"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Den här artikeln beskrivs viktiga överväganden för distribution av Azure File Sync. Vi rekommenderar att du också läser [planera för distribution av Azure Files](storage-files-planning.md). 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="azure-file-sync-terminology"></a>Azure File Sync-terminologi
 Det är viktigt att du förstår termer som innan du hämtar in information om att planera för distribution av Azure File Sync.
@@ -34,8 +36,8 @@ Registrerad server-objektet representerar en förtroenderelation mellan din serv
 
 ### <a name="azure-file-sync-agent"></a>Azure File Sync-agenten
 Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. Azure File Sync-agenten har tre huvudkomponenter: 
-- **FileSyncSvc.exe**: bakgrunden Windows-tjänst som ansvarar för att övervaka ändringar på server-slutpunkter och för att initiera synkroniseringssessioner till Azure.
-- **StorageSync.sys**: The Azure File Sync filsystemsfilter, som ansvarar för lagringsnivåer filer till Azure Files (när molnet lagringsnivåer är aktiverad).
+- **FileSyncSvc.exe**: Bakgrunden Windows-tjänst som ansvarar för att övervaka ändringar på server-slutpunkter och för att initiera synkroniseringssessioner till Azure.
+- **StorageSync.sys**: Azure File Sync filsystemsfilter, som ansvarar för lagringsnivåer filer till Azure Files (när molnet lagringsnivåer är aktiverad).
 - **PowerShell-cmdletar för hantering av**: PowerShell-cmdletar som används för att interagera med Microsoft.StorageSync Azure-resursprovidern. Du hittar dem på följande platser (standard):
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
@@ -68,7 +70,7 @@ Molnet lagringsnivåer är en valfri funktion i Azure File Sync som ofta öppnad
 Det här avsnittet beskrivs systemkraven för Azure File Sync-agenten och samverkan med Windows Server-funktioner och roller och lösningar från tredje part.
 
 ### <a name="evaluation-tool"></a>Utvärderingsverktyg för
-Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel med ditt system med hjälp av verktyget Azure File Sync-utvärdering. Det här verktyget är ett AzureRM PowerShell-cmdlet som söker efter potentiella problem med ditt filsystem och datauppsättningen, till exempel tecken som inte stöds eller en OS-version som inte stöds. Observera att dess kontroller omfatta de flesta, men inte alla funktioner nedan; Vi rekommenderar att du läser igenom resten av det här avsnittet noga för att se till att distributionen går smidigt. 
+Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel med ditt system med hjälp av verktyget Azure File Sync-utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som söker efter potentiella problem med ditt filsystem och datauppsättningen, till exempel tecken som inte stöds eller en OS-version som inte stöds. Observera att dess kontroller omfatta de flesta, men inte alla funktioner nedan; Vi rekommenderar att du läser igenom resten av det här avsnittet noga för att se till att distributionen går smidigt. 
 
 #### <a name="download-instructions"></a>Hämta anvisningar
 1. Se till att du har den senaste versionen av PackageManagement och PowerShellGet installerat (Detta kan du installera förhandsversionsmoduler)
@@ -82,29 +84,29 @@ Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel 
 3. Installera modulerna
     
     ```PowerShell
-        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Användning  
 Du kan anropa verktyget utvärdering på ett par olika sätt: du kan utföra Systemkontroller, datauppsättning kontroller eller båda. Om du vill utföra både system- och datauppsättningen kontrollerar du: 
 
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Så här testar endast din datauppsättning:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Så här testar endast systemkrav:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Så här visar resultatet i CSV:
 ```PowerShell
-    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
@@ -172,7 +174,7 @@ Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Repl
 
 **DFS-namnområden (DFS-N)**: Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync-agenten på en eller flera DFS-N-medlemmar att synkronisera data mellan slutpunkterna för server och molnslutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Replication (DFS-R)**: eftersom DFS-R- och Azure File Sync är båda replikeringslösningar, i de flesta fall rekommenderar vi ersätta DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R- och Azure File Sync tillsammans:
+**DFS Replication (DFS-R)**: Eftersom DFS-R- och Azure File Sync är båda replikeringslösningar, i de flesta fall rekommenderar vi att ersätta DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R- och Azure File Sync tillsammans:
 
 - Du migrerar från en DFS-R-distribution till en Azure File Sync-distribution. Mer information finns i [migrera en distribution av DFS Replication (DFS-R) till Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Alla lokala servrar som behöver en kopia av filinformationen kan anslutas direkt till internet.

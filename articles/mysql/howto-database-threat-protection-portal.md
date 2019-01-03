@@ -1,19 +1,17 @@
 ---
 title: Avancerat skydd – Azure Database for MySQL | Microsoft Docs
 description: Skydd mot hot identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
-services: mysql
 author: bolzmj
-manager: kfile
-ms.service: mysql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: dfb4d104d3dfdb3e6ae7466fa3776dd5e7155aa7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: 12497f6a5173e2e4ea9c919fb6500c34f85749fa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047911"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534762"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Avancerat skydd för Azure Database for MySQL
 
@@ -22,7 +20,7 @@ Advanced Threat Protection för Azure Database for MySQL identifierar avvikande 
 Avancerat skydd är en del av erbjudandet avancerad säkerhet för Data, vilket är en enhetlig paketet för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via den [Azure-portalen](https://portal.azure.com) och förhandsvisas just nu.
 
 > [!NOTE]
-> Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: USA Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad region Virginia, USA DoD, östra, USA DoD centrala, Tyskland centrala, Tyskland Norra Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
+> Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: US Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad Virginia, USA DoD, östra, US DoD, centrala, Tyskland-centrala, Tyskland Nord, Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
 >
 
 ## <a name="set-up-threat-detection"></a>Konfigurera identifiering av hot

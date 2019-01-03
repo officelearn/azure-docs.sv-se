@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: ddee05fed3112edc6cf1e1261ea06bc2fe864ed3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c0394025fef15b987f0777d157c465e83d860601
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583558"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652140"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använda externa paket med Jupyter notebooks i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
 > * [Med cellfunktioner](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Med skriptåtgärder](apache-spark-python-package-installation.md)
->
->
 
 Lär dig hur du konfigurerar en [Jupyter Notebook](https://jupyter.org/) i Apache Spark-kluster i HDInsight för att använda externa, communityn har bidragit med Apache **maven** paket som inte är inkluderat out-of the box i klustret. 
 
-Du kan söka i [Maven databasen](http://search.maven.org/) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Exempelvis kan en fullständig lista över communityn har bidragit med paket finns på [Spark paket](http://spark-packages.org/).
+Du kan söka i [Maven databasen](https://search.maven.org/) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Exempelvis kan en fullständig lista över communityn har bidragit med paket finns på [Spark paket](https://spark-packages.org/).
 
-I den här artikeln får du lära dig hur du använder den [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paket med Jupyter-anteckningsboken.
+I den här artikeln får du lära dig hur du använder den [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paket med Jupyter-anteckningsboken.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
@@ -39,11 +37,10 @@ Du måste ha följande:
 
 1. Klicka på **Snabblänkar** på Spark-klusterbladet och sedan på **Jupyter Notebook** på **Klusterinstrumentpanel**-bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Du kan också nå Jupyter Notebook för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-    > 
 
 1. Skapa en ny anteckningsbok. Klicka på **New**, och klicka sedan på **Spark**.
    
@@ -55,7 +52,7 @@ Du måste ha följande:
 
 1. Du kommer att använda den `%%configure` magic att konfigurera den för att använda ett externt paket. I anteckningsböcker som använda externa paket, se till att du anropar den `%%configure` magic i den första kodcellen. Detta säkerställer att kerneln är konfigurerad för att använda paketet innan sessionen startar.
 
-    >[!IMPORTANT] 
+    >[!IMPORTANT]  
     >Om du glömmer att konfigurera kerneln i den första cellen, kan du använda den `%%configure` med den `-f` parametern, men som kommer starta om sessionen och alla ändringar går förlorade.
 
     | HDInsight-version | Kommando |
@@ -65,7 +62,7 @@ Du måste ha följande:
 
 1. Fragmentet ovan förväntar sig maven-koordinaterna för det externa paketet i Maven Central Repository. I det här kodfragmentet `com.databricks:spark-csv_2.10:1.4.0` är maven-koordinat för **spark-csv** paketet. Här är hur du konstruerar koordinaterna för ett paket.
    
-    a. Leta upp paketet i Maven-centrallagret. Den här självstudien använder vi [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Leta upp paketet i Maven-centrallagret. Den här självstudien använder vi [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Samla in värden för från databasen, **GroupId**, **ArtifactId**, och **Version**. Kontrollera att de värden som du har samlat in matchar ditt kluster. I det här fallet använder vi en 2.10 Scala och Spark 1.4.0-paket, men du kan behöva välja olika versioner för lämpliga Scala och Spark-version i klustret. Du hittar den Scala-versionen i ditt kluster genom att köra `scala.util.Properties.versionString` på Spark Jupyter-kernel eller på Spark-submit. Du hittar den Spark-versionen i ditt kluster genom att köra `sc.version` i Jupyter-anteckningsböcker.
    
@@ -96,17 +93,17 @@ Du måste ha följande:
         df.select("Time").count()
 
 ## <a name="seealso"></a>Se även
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 

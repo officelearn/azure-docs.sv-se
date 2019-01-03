@@ -3,17 +3,15 @@ title: Serverloggar för Azure Database for MariaDB
 description: Beskriver loggarna som är tillgängliga i Azure-databas för MariaDB, och de tillgängliga parametrarna för att aktivera olika loggningsnivåer.
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d982af64517ed452d907f62a39e975d472951392
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992991"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545186"
 ---
 # <a name="server-logs-in-azure-database-for-mariadb"></a>Serverloggar i Azure Database for MariaDB
 I Azure Database for MariaDB är långsam frågelogg tillgängliga för användare. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning.
@@ -40,7 +38,7 @@ Andra parametrar som du kan justera är:
 - **long_query_time**: om en fråga som tar längre tid än long_query_time (i sekunder) som frågan loggas. Standardvärdet är 10 sekunder.
 - **log_slow_admin_statements**: om vidare innehåller administrativa instruktioner som ALTER_TABLE och ANALYZE_TABLE i instruktionerna som skrivs till slow_query_log.
 - **log_queries_not_using_indexes**: Anger om frågor som inte använder index loggas i slow_query_log
-- **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-index frågor som kan skrivas till långsam frågelogg. Den här parametern träder i kraft när log_queries_not_using_indexes är inställt på på.
+- **log_throttle_queries_not_using_indexes**: Den här parametern begränsar antalet icke-index frågor som kan skrivas till långsam frågelogg. Den här parametern träder i kraft när log_queries_not_using_indexes är inställt på på.
 
 Se MariaDB [långsam fråga log dokumentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) fullständiga beskrivningar av långsam logg Frågeparametrar.
 

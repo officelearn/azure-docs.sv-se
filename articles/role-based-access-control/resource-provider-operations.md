@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410541"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728456"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -1867,12 +1867,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Devices/provisioningServices/certificates/verify/Action | Verifiera certifikat-resurs |
 > | Åtgärd | Microsoft.Devices/provisioningServices/certificates/Write | Skapa eller uppdatera certifikat |
 > | Åtgärd | Microsoft.Devices/provisioningServices/Delete | Ta bort IotDps resurs |
-> | Åtgärd | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Hämtar den diagnostiska inställningen för resursen |
+> | Åtgärd | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Hämta diagnostikinställningen för resursen. Obs: du kan behöva `Microsoft.Insights/diagnosticSettings/read` samt  |
 > | Åtgärd | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Hämta IotDps nycklar efter nyckelnamn |
 > | Åtgärd | Microsoft.Devices/provisioningServices/listkeys/Action | Hämta alla IotDps nycklar |
-> | Åtgärd | Microsoft.Devices/provisioningServices/logDefinitions/read | Hämtar tillgängliga Loggdefinitioner för Etableringstjänsten |
-> | Åtgärd | Microsoft.Devices/provisioningServices/metricDefinitions/read | Hämtar tillgängliga mått för etableringstjänsten |
+> | Åtgärd | Microsoft.Devices/provisioningServices/logDefinitions/read | Hämtar tillgängliga Loggdefinitioner för Etableringstjänsten. Obs: du kan behöva `Microsoft.Insights/logDefinitions/read` samt |
+> | Åtgärd | Microsoft.Devices/provisioningServices/metricDefinitions/read | Hämtar tillgängliga mått för etableringstjänsten. Obs: du kan behöva `Microsoft.Insights/metricDefinitions/read` samt |
 > | Åtgärd | Microsoft.Devices/provisioningServices/operationresults/Read | Hämta Åtgärdsresultat för DPS |
 > | Åtgärd | Microsoft.Devices/provisioningServices/Read | Hämta IotDps resursen |
 > | Åtgärd | Microsoft.Devices/provisioningServices/skus/Read | Hämta giltiga IotDps Skus |

@@ -10,18 +10,22 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030973"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629946"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>Uppgradera din QnA Maker-tjänst
 Du kan välja att uppgradera enskilda komponenter i QnA Maker-stacken efter att. Se information om beroende komponenter och SKU-markering [här](https://aka.ms/qnamaker-docs-capacity).
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Uppgradera QnA Maker Management SKU
+
+När du har fler frågor och svar i kunskapsbasen, uppgradera din prisnivå QnA Maker-tjänsten utanför din aktuella nivån. 
+
 Så här uppgraderar du QnA Maker management SKU:
+
 1. Gå till QnA Maker-resursen i Azure-portalen och välj **prisnivå**.
 
     ![QnA Maker-resurs](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
@@ -31,6 +35,9 @@ Så här uppgraderar du QnA Maker management SKU:
     ![Priser för QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## <a name="upgrade-app-service"></a>Uppgradera App service
+
+ När din kunskapsbas behöver hantera flera begäranden från klientappen, uppgradera din app service-prisnivå.
+
 Du kan [skala upp](https://docs.microsoft.com/azure/app-service/web-sites-scale) eller skala ned App service.
 
 1. Gå till service-appresursen i Azure-portalen och välj **skala upp** eller **Nedskalning** alternativ efter behov.
@@ -38,6 +45,9 @@ Du kan [skala upp](https://docs.microsoft.com/azure/app-service/web-sites-scale)
     ![QnA Maker app service-skala](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ## <a name="upgrade-azure-search-service"></a>Uppgradera Azure Search-tjänst
+
+När du planerar att ha många kunskapsbaser uppgradera prisnivån Azure Search-tjänsten. 
+
 För närvarande går det inte att utföra en på plats uppgradering av Azure Sök SKU. Dock skapa en ny resurs i Azure search med önskad SKU, återställa data till den nya resursen och sedan länka det till QnA Maker-stacken.
 
 1. Skapa en ny resurs i Azure search i Azure-portalen och välj önskad SKU: N.

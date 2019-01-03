@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338574"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809972"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -320,7 +320,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
 |**Sökväg** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). | 
-|**anslutning** | **anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**anslutning** | **Anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -446,7 +446,7 @@ Blob-utlösare används internt, en kö så att det maximala antalet samtidiga f
 
 [Med förbrukningsplanen](functions-scale.md#how-the-consumption-plan-works) begränsar en funktionsapp på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje funktion-instans som körs samtidigt och av funktionskörningen själva. Om en funktion som utlöses av blob läser in hela blob i minnet, maximalt minne som används av funktionen för blobar är 24 * maximala sidblobens storlek. Till exempel en funktionsapp med tre blob-utlösta funktioner och standardinställningarna skulle ha en maximal per VM samtidighet på 3 * 24 = 72 fungera anrop.
 
-JavaScript-funktioner läsa in hela blob i minnet och C#-funktioner göra det om du binder till `string`, `Byte[]`, eller POCO.
+JavaScript och Java läsa in hela blob i minnet, och C# funktioner gör det om du binder till `string`, `Byte[]`, eller POCO.
 
 ## <a name="trigger---polling"></a>Utlösa - avsökning
 
@@ -462,7 +462,7 @@ Se exempel språkspecifika:
 
 * [C#](#input---c-example)
 * [C#-skript (.csx)](#input---c-script-example)
-* [Java](#input---java-example)
+* [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
@@ -630,22 +630,61 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### <a name="input---java-example"></a>Indata - Java-exemplet
+### <a name="input---java-examples"></a>Indata - Java-exempel
 
-I följande exempel är en Java-funktion som använder en kö-utlösare och en indata-blob-bindning. Kömeddelandet innehåller namnet på bloben och funktionen loggar storleken på blobben.
+Det här avsnittet innehåller följande exempel:
+
+* [HTTP-utlösare, leta upp blobnamnet från frågesträng](#http-trigger-look-up-blob-name-from-query-string-java)
+* [Kö utlösaren, ta emot blobnamnet från kömeddelande](#queue-trigger-receive-blob-name-from-queue-message-java)
+
+#### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP-utlösare, leta upp blobnamnet från frågesträngen (Java)
+
+ I följande exempel visas en Java-funktion som använder den ```HttpTrigger``` anteckning att ta emot en parameter med namnet på en fil i ett blob storage-behållare. Den ```BlobInput``` anteckning sedan läser filen och skickar innehållet ska fungera som en ```byte[]```.
 
 ```java
-@FunctionName("getBlobSize")
-@StorageAccount("AzureWebJobsStorage")
-public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
-                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
-       final ExecutionContext context) {
+  @FunctionName("getBlobSizeHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage blobSize(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    final ExecutionContext context) {
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-receive-blob-name-from-queue-message-java"></a>Kö utlösaren, ta emot blobnamnet från kömeddelande (Java)
+
+ I följande exempel visas en Java-funktion som använder den ```QueueTrigger``` kommentar till ett meddelande som innehåller namnet på en fil i ett blob storage-behållare. Den ```BlobInput``` anteckning sedan läser filen och skickar innehållet ska fungera som en ```byte[]```.
+
+```java
+  @FunctionName("getBlobSize")
+  @StorageAccount("Storage_Account_Connection_String")
+  public void blobSize(
+    @QueueTrigger(
+      name = "filename", 
+      queueName = "myqueue-items-sample") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{queueTrigger}") 
+    byte[] content,
+    final ExecutionContext context) {
       context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
- }
- ```
+  }
+```
 
-  I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@BlobInput` anteckning om parametrar vars värde skulle komma från en blob.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av `Optional<T>`.
-
+I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@BlobInput` anteckning om parametrar vars värde skulle komma från en blob.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av `Optional<T>`.
 
 ## <a name="input---attributes"></a>Indata - attribut
 
@@ -690,7 +729,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
 |**Sökväg** |**BlobPath** | Sökvägen till blobben. |
-|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller den [lagringsanslutningssträng](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller den [lagringsanslutningssträng](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -728,7 +767,7 @@ Se exempel språkspecifika:
 
 * [C#](#output---c-example)
 * [C#-skript (.csx)](#output---c-script-example)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -915,23 +954,72 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### <a name="output---java-example"></a>Resultat – Java-exemplet
+### <a name="output---java-examples"></a>Resultat – Java-exempel
 
-I följande exempel visas blob indata och utdatabindningar i en Java-funktion. Funktionen skapar en kopia av en text-blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på blobben att kopiera. Den nya bloben har namnet {originalblobname}-kopia
+Det här avsnittet innehåller följande exempel:
+
+* [HTTP-utlösare, med hjälp av OutputBinding](#http-trigger-using-outputbinding-java)
+* [Köutlösare, med hjälp av funktionsreturvärde](#queue-trigger-using-function-return-value-java)
+
+#### <a name="http-trigger-using-outputbinding-java"></a>HTTP-utlösare, med hjälp av OutputBinding (Java)
+
+ I följande exempel visas en Java-funktion som använder den ```HttpTrigger``` anteckning att ta emot en parameter med namnet på en fil i ett blob storage-behållare. Den ```BlobInput``` anteckning sedan läser filen och skickar innehållet ska fungera som en ```byte[]```. Den ```BlobOutput``` anteckning Binder till ```OutputBinding outputItem```, som sedan används av funktionen för att skriva innehållet i indata-blob till konfigurerade behållaren.
 
 ```java
-@FunctionName("copyTextBlob")
-@StorageAccount("AzureWebJobsStorage")
-@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
-public String blobCopy(
-    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
-    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+  @FunctionName("copyBlobHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage copyBlobHttp(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    @BlobOutput(
+      name = "target", 
+      path = "myblob/{Query.file}-CopyViaHttp")
+    OutputBinding<String> outputItem,
+    final ExecutionContext context) {
+      // Save blob to outputItem
+      outputItem.setValue(new String(content, StandardCharsets.UTF_8));
+
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-using-function-return-value-java"></a>Köutlösare, med hjälp av returvärde för funktion (Java)
+
+ I följande exempel visas en Java-funktion som använder den ```QueueTrigger``` kommentar till ett meddelande som innehåller namnet på en fil i ett blob storage-behållare. Den ```BlobInput``` anteckning sedan läser filen och skickar innehållet ska fungera som en ```byte[]```. Den ```BlobOutput``` anteckning Binder till returvärdet funktionen, som sedan används av körningen för att skriva innehållet i indata-blob till behållaren konfigurerad lagring.
+
+```java
+  @FunctionName("copyBlobQueueTrigger")
+  @StorageAccount("Storage_Account_Connection_String")
+  @BlobOutput(
+    name = "target", 
+    path = "myblob/{queueTrigger}-Copy")
+  public String copyBlobQueue(
+    @QueueTrigger(
+      name = "filename", 
+      dataType = "string",
+      queueName = "myqueue-items") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      path = "samples-workitems/{queueTrigger}") 
+    String content,
+    final ExecutionContext context) {
+      context.getLogger().info("The content of \"" + filename + "\" is: " + content);
       return content;
- }
- ```
+  }
+```
 
- I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@BlobOutput` anteckningen i funktionsparametrar vars värde skulle skrivas till ett objekt i blob storage.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
-
+ I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@BlobOutput` anteckningen i funktionsparametrar vars värde skulle skrivas till ett objekt i blob storage.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typ eller en POJO.
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
@@ -975,7 +1063,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `out` för en utdatabindning. Undantag anges i den [användning](#output---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange `$return` att referera till returvärde för funktion.|
 |**Sökväg** |**BlobPath** | Sökvägen till blobco. |
-|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

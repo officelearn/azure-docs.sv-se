@@ -1,5 +1,5 @@
 ---
-title: Arbetsbelastningar på Azure Batch | Microsoft Docs
+title: Behållararbetsbelastningar – Azure Batch | Microsoft Docs
 description: Lär dig hur du kör program från behållaravbildningar på Azure Batch.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262439"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541004"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör program med behållare på Azure Batch
 
@@ -29,16 +30,16 @@ Med hjälp av behållare ger ett enkelt sätt att köra Batch-aktiviteterna utan
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **SDK-versioner**: The Batch SDK: er stöd behållaravbildningar från och med följande versioner:
+* **SDK-versioner**: Batch-SDK: er stöder behållaravbildningar från och med följande versioner:
     * Batch REST-API version 2017-09-01.6.0
     * Batch .NET SDK version 8.0.0
     * Batch Python SDK version 4.0
     * Batch Java SDK version 3.0
     * Batch Node.js SDK version 3.0
 
-* **Konton**: I Azure-prenumerationen, måste du skapa ett Batch-konto och eventuellt ett Azure Storage-konto.
+* **Konton**: I Azure-prenumerationen måste du skapa ett Batch-konto och eventuellt ett Azure Storage-konto.
 
-* **En VM-avbildning som stöds**: behållare stöds bara i pooler som skapats med konfigurationen av virtuell dator från avbildningar som beskrivs i avsnittet ”stöd för avbildningar av virtuella datorer”. Om du anger en anpassad avbildning finns i överväganden i följande avsnitt och kraven i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer](batch-custom-images.md). 
+* **En VM-avbildning som stöds**: Behållare stöds bara i pooler som skapats med konfigurationen av virtuell dator från avbildningar som beskrivs i avsnittet ”stöd för avbildningar av virtuella datorer”. Om du anger en anpassad avbildning finns i överväganden i följande avsnitt och kraven i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Begränsningar
 

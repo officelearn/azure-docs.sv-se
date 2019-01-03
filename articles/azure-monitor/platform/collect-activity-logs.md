@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184958"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540274"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics
 
 ![Symbolen för Azure-aktivitetsloggar](./media/collect-activity-logs/activity-log-analytics.png)
 
-Activity Log Analytics-lösningen hjälper dig att analysera och söka i [Azure-aktivitetsloggen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) över alla dina Azure-prenumerationer. Azure-aktivitetsloggen är en logg som ger insikt i de åtgärder som utförts på resurser i dina prenumerationer. Aktivitetsloggen kallades tidigare *granskningsloggar* eller *Driftloggar* eftersom den rapporterar händelser för dina prenumerationer.
+Activity Log Analytics-lösningen hjälper dig att analysera och söka i [Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md) över alla dina Azure-prenumerationer. Azure-aktivitetsloggen är en logg som ger insikt i de åtgärder som utförts på resurser i dina prenumerationer. Aktivitetsloggen kallades tidigare *granskningsloggar* eller *Driftloggar* eftersom den rapporterar händelser för dina prenumerationer.
 
 Med aktivitetsloggen kan du fastställa den *vad*, *som*, och *när* för alla skrivåtgärder (PUT, POST, ta bort) för resurser i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET) eller åtgärder för resurser som använder den klassiska distributionsmodellen.
 

@@ -1,102 +1,39 @@
 ---
-title: Lösenordskomplexitet i anpassade principer i Azure Active Directory B2C | Microsoft Docs
-description: Så här konfigurerar du komplexitetskrav för lösenord i anpassad princip.
+title: Konfigurera lösenordskomplexitet med anpassade principer i Azure Active Directory B2C | Microsoft Docs
+description: Hur du konfigurerar kraven på lösenordskomplexitet med en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 74542f86d5114ff57e358db7e239e307059fe5ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848535"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580356"
 ---
-# <a name="configure-password-complexity-in-custom-policies"></a>Konfigurera lösenordskomplexitet i anpassade principer
+# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösenordskomplexitet med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln är en avancerad beskrivning av hur lösenordskomplexitet fungerar och är aktiverat Azure AD B2C anpassade principer.
-
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Konfigurera komplexitetskrav för lösenord
-
-Azure Active Directory B2C (Azure AD B2C) stöder ändring av komplexitetskrav för lösenord som tillhandahålls av en slutanvändare när du skapar ett konto.  Azure AD B2C använder som standard **starka** lösenord.  Azure AD-B2C stöder också alternativ för att styra komplexitet och deras lösenord som kunder kan använda.  Den här artikeln handlar om hur du konfigurerar lösenordskomplexitet i anpassade principer.  Det är också möjligt att använda [konfigurera lösenordskomplexitet i inbyggda principer](active-directory-b2c-reference-password-complexity.md).
+Du kan konfigurera komplexitetskrav för lösenord som tillhandahålls av en användare när du skapar ett konto i Azure Active Directory (Azure AD) B2C. Azure AD B2C använder som standard **starka** lösenord. Den här artikeln visar hur du konfigurerar lösenordskomplexitet i [anpassade principer](active-directory-b2c-overview-custom.md). Det är också möjligt att konfigurera lösenordskomplexitet i [användarflöden](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto registrerings-registreringen/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
+Utför stegen i [Kom igång med anpassade principer i Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="how-to-configure-password-complexity-in-custom-policy"></a>Så här konfigurerar du lösenordskomplexitet i anpassad princip
+## <a name="add-the-elements"></a>Lägg till element
 
-Om du vill konfigurera lösenordskomplexitet i anpassad princip för allmänna strukturen för den anpassade principen måste innehålla en `ClaimsSchema`, `Predicates`, och `InputValidations` -element inuti `BuildingBlocks`.
+1. Kopiera den *SignUpOrSignIn.xml* filen som du hämtade starter-Pack och ge den namnet *SingUpOrSignInPasswordComplexity.xml*.
+2. Öppna den *SingUpOrSignInPasswordComplexity.xml* filen och ändra den **PolicyId** och **PublicPolicyUri** till ett nytt principnamn. Till exempel *B2C_1A_signup_signin_password_complexity*.
+3. Lägg till följande **ClaimType** element med identifierare för `newPassword` och `reenterPassword`:
 
-```XML
-  <BuildingBlocks>
-    <ClaimsSchema>...</ClaimsSchema>
-    <Predicates>...</Predicates>
-    <InputValidations>...</InputValidations>
-  </BuildingBlocks>
-```
-
-Syftet med de här elementen är följande:
-
-- Varje `Predicate` elementet definierar en grundläggande sträng verifieringskontroll som returnerar SANT eller FALSKT.
-- Den `InputValidations` elementet har en eller flera `InputValidation` element.  Varje `InputValidation` skapas med hjälp av en serie `Predicate` element. Det här elementet kan du utföra booleskt aggregeringar (liknar `and` och `or`).
-- Den `ClaimsSchema` definierar vilka anspråk verifieras.  Den definierar vilket sedan `InputValidation` regel används för att verifiera det vidare.
-
-### <a name="defining-a-predicate-element"></a>Definiera ett predikat element
-
-Predikat har två typer: IsLengthRange eller MatchesRegex. Vi ska gå igenom ett exempel på var och en.  Först har vi ett exempel på MatchesRegex som används för att matcha ett reguljärt uttryck.  I det här exemplet matchar den sträng som innehåller tal.
-
-```XML
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-Nästa vi ska gå igenom ett exempel på IsLengthRange.  Den här metoden tar ett lägsta och högsta stränglängden.
-
-```XML
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
-        <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-Använd den `HelpText` attribut för att skapa ett felmeddelande visas för slutanvändare om den inte.  Den här strängen kan lokaliseras med hjälp av den [språkanpassningsfunktionen](active-directory-b2c-reference-language-customization.md).
-
-### <a name="defining-an-inputvalidation-element"></a>Definiera ett InputValidation-element
-
-En `InputValidation` är en sammansättning av `PredicateReferences`. Varje `PredicateReferences` måste vara sant för att den `InputValidation` ska lyckas.  Men i den `PredicateReferences` elementet används ett attribut kallas `MatchAtLeast` att ange hur många `PredicateReference` kontroller måste returnera true.  Du kan också definiera en `HelpText` attribut för att åsidosätta ett felmeddelande som definierats i den `Predicate` element som den refererar till.
-
-```XML
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-```
-
-### <a name="defining-a-claimsschema-element"></a>Definiera ett ClaimsSchema-element
-
-Anspråkstyper `newPassword` och `reenterPassword` betraktas som särskilda så behöver inte ändra namnen.  Användargränssnittet validerar användaren korrekt reentered sitt lösenord när kontot skapas baserat på dessa `ClaimType` element.  Du hittar samma `ClaimType` element, titta i TrustFrameworkBase.xml i din startpaket.  Vad är nytt i det här exemplet är att vi åsidosätta de här elementen att definiera en `InputValidationReference`. Den `ID` attributet för det här nya elementet pekar på den `InputValidation` element som vi definierade.
-
-```XML
+    ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
         <InputValidationReference Id="PasswordValidation" />
@@ -105,78 +42,29 @@ Anspråkstyper `newPassword` och `reenterPassword` betraktas som särskilda så 
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
-```
+    ```
 
-### <a name="putting-it-all-together"></a>Färdigställa allt
+4. [Predikat](predicates.md) har metoden typer av `IsLengthRange` eller `MatchesRegex`. Den `MatchesRegex` typen används för att matcha ett reguljärt uttryck. Den `IsLengthRange` typen tar en lägsta och högsta stränglängden. Lägg till en **predikat** elementet så att den **BuildingBlocks** element om det inte finns med följande **predikat** element:
 
-Det här exemplet visar hur alla delar hänger ihop för att bilda en aktiv princip.  Använda det här exemplet:
-
-1. Följ instruktionerna i uppfyller [komma igång](active-directory-b2c-get-started-custom.md) för att hämta, konfigurera och överföra TrustFrameworkBase.xml och TrustFrameworkExtensions.xml
-1. Skapa en SignUporSignIn.xml-fil med hjälp av exemplen i det här avsnittet.
-1. Uppdatera SignUporSignIn.xml ersätter `yourtenant` med namnet på din Azure AD B2C-klientorganisation.
-1. Ladda upp principfilen som SignUporSignIn.xml senast.
-
-Det här exemplet innehåller en verifiering för PIN-kod lösenord och en för starka lösenord:
-
-- Leta efter `PINpassword`. Detta `InputValidation` elementet verifierar en pinkod som helst.  Den används inte för tillfället eftersom det inte refereras i den `InputValidationReference` -element inuti `ClaimType`. 
-- Leta efter `PasswordValidation`. Detta `InputValidation` elementet verifierar ett lösenord är 8 och 16 tecken och innehåller 3 av 4 i versaler, gemener, siffror eller symboler.  Den refereras i `ClaimType`.  Den här regeln gäller därför i den här principen.
-
-```XML
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="yourtenant.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin"
-  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
- <BasePolicy>
-    <TenantId>yourtenant.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
-  </BasePolicy>
-  <BuildingBlocks>
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    ```XML
     <Predicates>
-      <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
+      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
         <Parameters>
-          <Parameter Id="RegularExpression">[a-z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
-        <Parameters>
-          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
-        <Parameters>
-          <Parameter Id="RegularExpression">[0-9]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
-        <Parameters>
-          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
+          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
         <Parameters>
           <Parameter Id="Minimum">8</Parameter>
           <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
+    ```
+
+5. Varje **InputValidation** elementet skapas med hjälp av det definierade **predikat** element. Det här elementet kan du utföra booleskt aggregeringar som liknar `and` och `or`. Lägg till en **InputValidations** elementet så att den **BuildingBlocks** element om det inte finns med följande **InputValidation** element:
+
+    ```XML
     <InputValidations>
       <InputValidation Id="PasswordValidation">
         <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
@@ -189,30 +77,57 @@ Det här exemplet innehåller en verifiering för PIN-kod lösenord och en för 
           <PredicateReference Id="Symbol" />
         </PredicateReferences>
       </InputValidation>
-      <InputValidation Id="PINpassword">
-        <PredicateReferences Id="PINGroup">
-          <PredicateReference Id="PIN" />
-        </PredicateReferences>
-      </InputValidation>
     </InputValidations>
-  </BuildingBlocks>
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
-```
+    ```
+
+6. Se till att den **PolicyProfile** tekniska profilen innehåller följande element:
+
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect"/>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName"/>
+          <OutputClaim ClaimTypeReferenceId="givenName"/>
+          <OutputClaim ClaimTypeReferenceId="surname"/>
+          <OutputClaim ClaimTypeReferenceId="email"/>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub"/>
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+7. Spara principfilen.
+
+## <a name="test-your-policy"></a>Testa din princip
+
+När du testar dina program i Azure AD B2C kan det vara praktiskt att ha en Azure AD B2C-token som returneras till `https://jwt.ms` för att kunna granska anspråk i den.
+
+### <a name="upload-the-files"></a>Ladda upp filer
+
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. Välj **Identitetsramverk**.
+5. På sidan anpassade principer **ladda upp principen**.
+6. Välj **Skriv över principen om den finns**, och sök sedan efter och välj den *SingUpOrSignInPasswordComplexity.xml* fil.
+7. Klicka på **Överför**.
+
+### <a name="run-the-policy"></a>Kör principen
+
+1. Öppna den princip som du har ändrat. Till exempel *B2C_1A_signup_signin_password_complexity*.
+2. För **programmet**, Välj ditt program som du tidigare har registrerat. Se token i **svars-URL** ska visa `https://jwt.ms`.
+3. Klicka på **Kör nu**.
+4. Välj **registrera dig nu**, ange en e-postadress och ange ett nytt lösenord. Vägledning som visas på begränsningar för lösenord. Användarinformationen är klar och klicka sedan på **skapa**. Du bör se innehållet i den token som returnerades.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Lär dig hur du [konfigurera lösenordsändring med anpassade principer i Azure Active Directory B2C](active-directory-b2c-reference-password-change-custom.md).
+
+

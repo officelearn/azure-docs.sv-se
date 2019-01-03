@@ -4,22 +4,22 @@ description: Läs mer om status för migreringsscenarier som stöds av Azure Dat
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267874"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722098"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
-Azure Database Migration Service är utformad för att stödja olika Migreringsscenarier (källa/mål-par) för både offline (engångs-) och online (kontinuerlig synkronisering) migreringar. Scenario-täcks av Azure Database Migration Service utökas över tid. Nya scenarier läggs regelbundet. Den här artikeln identifierar migreringsscenarier som för närvarande stöds av Azure Database Migration Service och status (privat förhandsversion, offentlig förhandsversion eller allmänt tillgänglig) eller varje scenario.
+Azure Database Migration Service är utformad för att stödja olika Migreringsscenarier (källa/mål-par) för både offline (engångs-) och online (kontinuerlig synkronisering) migreringar. Scenario-täcks av Azure Database Migration Service utökas över tid. Nya scenarier läggs regelbundet. Den här artikeln identifierar migreringsscenarier som stöds av Azure Database Migration Service och status för närvarande (privat [eller begränsad] förhandsversioner, offentlig förhandsversion eller allmänt tillgänglig) eller varje scenario.
 
 ## <a name="offline-versus-online-migrations"></a>Offline och online migreringar
 När du migrerar databaser till Azure med hjälp av Azure Database Migration Service, kan du utföra en offline eller en online-migrering. Med *offline* migreringar, nedtid börjar samtidigt som startar migreringen. För *online* migreringar, avbrottstiden är begränsad till den tid som krävs för att klippa ut över till den nya miljön när migreringen är klar. Vi rekommenderar att du testar en offline-migrering för att avgöra om driftstoppet är okej; Annars kan du utföra en online-migrering.

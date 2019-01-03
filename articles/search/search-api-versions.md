@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311651"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631171"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versioner i Azure Search
 Azure Search sprider funktionsuppdateringar regelbundet. Ibland, men inte alltid kräver dessa uppdateringar en ny version av API för att bevara bakåtkompatibilitet. Publicera en ny version kan du styra när och hur du integrerar du uppdateringar av search service i din kod.
 
 Som en regel publicerar i Azure Search-teamet nya versioner vid behov, eftersom det kan omfatta vissa arbete för att uppgradera din kod för att använda en ny API-version. En ny version krävs endast om någon aspekt av API: et har ändrats på ett sätt som bryter bakåtkompatibilitet. Sådana ändringar kan inträffa på grund av korrigeringar av befintliga funktioner eller på grund av nya funktioner som ändrar befintliga API-ytan.
 
-Samma sak gäller för SDK-uppdateringar. Azure Search SDK följer den [semantiska versionshantering](http://semver.org/) regler, vilket innebär att dess version består av tre delar: större, mindre och build-nummer (till exempel 1.1.0). En ny högre version av SDK släpps endast för ändringar som dela bakåtkompatibilitet. Fast funktionsuppdateringar ökar värdet för den lägre versionen och felkorrigeringar endast ökar build-versionen.
+Samma sak gäller för SDK-uppdateringar. Azure Search SDK följer den [semantiska versionshantering](https://semver.org/) regler, vilket innebär att dess version består av tre delar: större, mindre och build-nummer (till exempel 1.1.0). En ny högre version av SDK släpps endast för ändringar som dela bakåtkompatibilitet. Fast funktionsuppdateringar ökar värdet för den lägre versionen och felkorrigeringar endast ökar build-versionen.
 
 > [!NOTE]
 > Din Azure Search-tjänstinstans har stöd för flera REST API-versioner, inklusive det senaste. Du kan fortsätta att använda en version när den inte längre det senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST API, måste du ange API-versionen i varje begäran via parametern api-versionen. När du använder .NET SDK, avgör version av SDK: N som du använder motsvarande version av REST API. Om du använder en äldre SDK kan fortsätta du att köra koden utan ändringar, även om tjänsten uppgraderas för att stödja en nyare API-version.

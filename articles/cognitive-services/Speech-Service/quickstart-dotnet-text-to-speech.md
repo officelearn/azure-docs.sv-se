@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Konvertera text till tal, .NET Core - Speech Services'
+title: 'Snabbstart: Omvandla text till tal, .NET Core - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att omvandla text till tal med REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089878"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791453"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Konvertera text till tal med .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Omvandla text till tal med .NET Core
 
 I den här snabbstarten du lär dig hur du konverterar text till tal med hjälp av .NET Core- och REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
 
@@ -27,7 +27,7 @@ Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.
 
 För den här snabbstarten krävs:
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
 * En Azure-prenumerationsnyckel för Speech Service
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Mer information om autentisering finns i [så här hämtar du en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Mer information om autentisering finns i [autentisera med åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Hämta en åtkomsttoken och ange URL: Värdadressen
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> Det här exemplet används den `ZiraRUS` rösttyp. En fullständig lista över Microsoft tillhandahålls röster/språk, finns i [språkstöd](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Om du är intresserad av att skapa en unik, identifierbara ton för ditt varumärke, se [skapar anpassade rösttyper](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> Det här exemplet används den `ZiraRUS` rösttyp. En fullständig lista över Microsoft tillhandahålls röster/språk, finns i [språkstöd](language-support.md). Om du är intresserad av att skapa en unik, identifierbara ton för ditt varumärke, se [skapar anpassade rösttyper](how-to-customize-voice-font.md).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>Skapa en instans av klienten, gör en begäran och spara syntetiserade ljud till en fil
 

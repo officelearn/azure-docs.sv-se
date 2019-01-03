@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310403"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716624"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -83,11 +83,11 @@ V3-API: et har följande funktion-avstånd till v2 API: et. De kunskapsluckor ä
     * Överlägg
     * Beskärning
     * Miniatyr spriter
-* LiveEvents med transkodning för närvarande stöder inte bakgrundsbild infogning mitten stream, anpassade förinställningar eller ad-insättning via API-anrop. 
+* LiveEvents med transkodning för närvarande stöder inte bakgrundsbild infogning mitten stream och ad insättning via API-anrop. 
 
 > [!NOTE]
 > Bokmärk den här artikeln och hålla sökning efter uppdateringar.
-
+ 
 ## <a name="code-differences"></a>Kodskillnaderna
 
 I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier.
@@ -108,7 +108,7 @@ I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier
     * Kanaler och program som skapats med v2 (som är mappade till LiveEvents och LiveOutputs i v3) kan inte fortsätta att hanteras med v3. Rekommendationen är att växla till v3 LiveEvents och LiveOutputs vid en lämplig kanal stoppa.<br/>För närvarande kan migrera du inte kanaler som körs kontinuerligt.  
 
 > [!NOTE]
-> Bokmärk den här artikeln och hålla sökning efter uppdateringar.
+> Den här sidan bevaras som Media Services-teamet gör fortsatt förbättringar till v3-API: er och bemöta luckor mellan versionerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

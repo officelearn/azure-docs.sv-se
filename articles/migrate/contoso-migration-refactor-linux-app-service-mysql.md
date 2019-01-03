@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6dd063f8d6520e3ee18dcb3899c1cca16d732707
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093009"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608723"
 ---
-# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso-migrering: omstrukturera en Contoso Linux service desk-app till flera regioner med Azure App Service, Traffic Manager och Azure MySQL
+# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso-migrering: Omstrukturera en Contoso Linux service desk-app till flera regioner med Azure App Service, Traffic Manager och Azure MySQL
 
 Den här artikeln visar hur Contoso omstrukturerar sina lokala Linux service desk app på två nivåer (osTicket) genom att migrera den till Azure App Service med GitHub-integreringen och Azure MySQL.
 
@@ -22,14 +22,14 @@ Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företa
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
+[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
 [Artikel 2: Distribuera Azure-infrastrukturen](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Tillgängligt
 [Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Contoso kör en utvärdering av dess lokal SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Tillgängligt
 [Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel360-app. Contoso migrerar app frontend virtuell dator med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt   
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel360 app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel360-app. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt 
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso har slutförts en lift and shift-migrering av Linux osTicket app på virtuella Azure-datorer med Azure Site Recovery | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Azure Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
+[Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso har slutförts en lift and shift-migrering av Linux osTicket app på virtuella Azure-datorer med Azure Site Recovery | Tillgängligt
+[Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Azure Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar SmartHotel360-app till ett Azure Web Apps och app-databasen har migrerats till en Azure SQL Server-instans med Database Migration Assistant | Tillgängligt
 Artikel 10: Omstrukturera en app för Linux på Azure Web Apps och Azure MySQL | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Den här artikeln
 [Artikel 11: Omstrukturera TFS på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar dess lokal Team Foundation Server-distribution till Azure DevOps-tjänsterna i Azure. | Tillgängligt
@@ -44,11 +44,11 @@ I den här artikeln migrerar Contoso en tvålagers-Linux Apache MySQL PHP (LAMP)
 
 IT-ledning har haft ett nära samarbete med affärspartners att förstå vad de vill uppnå:
 
-- **Åtgärda tillväxten**: Contoso växer och flytta till nya marknader. Den behöver ytterligare customer service agenter. 
-- **Skala**: lösningen bör skapas så att Contoso kan lägga till fler customer service agenter som skalas för företag.
-- **Öka skyddet**: I de tidigare problem med systemet interna användare som påverkas. Med den nya affärsmodellen externa användare kommer att påverkas och Contoso behöver appen igång hela tiden.
+- **Åtgärda tillväxten**: Contoso växer och flyttas till nya marknader. Den behöver ytterligare customer service agenter. 
+- **Skala**: Lösningen ska byggas så att Contoso kan lägga till fler customer service agenter som skalas för företag.
+- **Öka skyddet**:  Påverkas endast interna användare i de tidigare problem med systemet. Med den nya affärsmodellen externa användare kommer att påverkas och Contoso behöver appen igång hela tiden.
 
-## <a name="migration-goals"></a>Mål för migrering
+## <a name="migration-goals"></a>Migreringsmål
 
 Contoso cloud-teamet har fästs ned mål för den här migreringen för att avgöra den bästa migreringsmetoden:
 
@@ -129,12 +129,12 @@ Här är vad som behöver Contoso att köra det här scenariot.
 Här är hur Contoso kommer att slutföra migreringen:
 
 > [!div class="checklist"]
-> * **Steg 1: Etablera Azure-Apptjänster**: Contoso administratörer kommer att etablera Web Apps i de primära och sekundära regionerna.
-> * **Steg 2: Konfigurera Traffic Manager**: de konfigurera Traffic Manager framför webbprogrammen för Routning och belastningsutjämning trafik.
-> * **Steg 3: Etablera MySQL**: I Azure, de etablerar en instans av Azure MySQL-databas.
-> * **Steg 4: Migrera databasen**: de migrera databasen med MySQL Workbench. 
-> * **Steg 5: Konfigurera GitHub**: de har konfigurerat en lokal GitHub-lagringsplats för webbplatser/Appkod.
-> * **Steg 6: Distribuera web apps**: de distribuera webbappar från GitHub.
+> * **Steg 1: Etablera Azure App Services**: Contoso-administratörer kommer att etablera Web Apps i de primära och sekundära regionerna.
+> * **Steg 2: Konfigurera Traffic Manager**: De konfigurera Traffic Manager framför webbprogrammen för Routning och belastningsutjämning trafik.
+> * **Steg 3: Etablera MySQL**: I Azure, kan de etablera en instans av Azure MySQL-databas.
+> * **Steg 4: Migrera databasen**: De migrera databasen med MySQL Workbench. 
+> * **Steg 5: Konfigurera GitHub**: De har konfigurerat en lokal GitHub-lagringsplats för webbplatser/Appkod.
+> * **Steg 6: Distribuera web apps**: De distribuera webbappar från GitHub.
 
 
 
@@ -163,7 +163,7 @@ Contoso-administratörer etablera två webbappar (en i varje region) med hjälp 
 
 **Behöver du mer hjälp?**
 
-- Lär dig mer om [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview).
+- Lär dig mer om [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/overview).
 - Lär dig mer om [Azure App Service i Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 
 

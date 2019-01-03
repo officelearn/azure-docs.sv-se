@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086444"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536550"
 ---
 # <a name="install-and-run-containers"></a>Installera och köra containrar
 
@@ -30,11 +30,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste uppfylla följande krav innan du använder Face-behållaren:
 
-**Docker-motorn**: du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](/azure/azure-stack/). Mer information om hur du distribuerar Kubernetes i Azure Stack finns i [distribuera Kubernetes i Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Docker-motorn**: Du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](../../azure-stack/index.yml). Mer information om hur du distribuerar Kubernetes i Azure Stack finns i [distribuera Kubernetes i Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure.
 
-**Liknar processen med Microsoft Container Registry och Docker**: du bör ha grundläggande kunskaper om både Microsoft Container Registry och Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskap grundläggande `docker` kommandon.  
+**Liknar processen med Microsoft Container Registry och Docker**: Du bör ha grundläggande kunskaper om både Microsoft Container Registry och Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.  
 
 Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -58,7 +58,7 @@ Du måste skapa en Ansikts-resurs i Azure om du vill använda Ansikts-behållare
 Utför följande steg för att skapa och hämta information från en Ansikts-resurs:
 
 1. Skapa en Ansikts-resurs i Azure-portalen.  
-   Om du vill använda Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [Snabbstart: skapa ett Cognitive Services-konto i Azure portal](../cognitive-services-apis-create-account.md).
+   Om du vill använda Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [ Snabbstart: Skapa ett Cognitive Services-konto i Azure portal](../cognitive-services-apis-create-account.md).
 
 1. Hämta slutpunktsnyckeln för URL: en och -prenumeration för Azure-resursen.  
    När Azure-resursen har skapats måste du använda slutpunktsnyckeln för URL: en och -prenumeration från den här resursen för att skapa en instans av motsvarande Ansikts-behållaren. Du kan kopiera URL: en och prenumeration slutpunktsnyckeln från respektive sidorna Snabbstart och nycklar för Ansikts-resursen på Azure-portalen.

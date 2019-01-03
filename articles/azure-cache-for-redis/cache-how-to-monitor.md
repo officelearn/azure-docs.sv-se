@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438308"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582719"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Så här övervakar du Azure Cache för Redis
 Azure Cache för Redis använder [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) tillhandahåller flera alternativ för övervakning av cache-instanser. Du kan visa mått, fästa måttdiagram på startsidan, anpassa intervallet datum och tid för övervakning av diagram, lägga till och ta bort mått från diagrammen och ställa in aviseringar när vissa villkor är uppfyllda. Dessa verktyg kan du övervaka hälsotillståndet för din Azure-Cache för Redis-instanser och hjälper dig att hantera dina cachelagring program.
@@ -79,7 +79,7 @@ Konfigurera ett lagringskonto för cache-mått:
 >
 >
 
-Du kan visa dem i Azure-portalen enligt beskrivningen i den här artikeln för att komma åt dina mått, och du kan också komma åt dem med hjälp av den [Azure Monitor Metrics REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Du kan visa dem i Azure-portalen enligt beskrivningen i den här artikeln för att komma åt dina mått, och du kan också komma åt dem med hjälp av den [Azure Monitor Metrics REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Om du ändrar storage-konton kan data i det tidigare konfigurerade lagringskontot förblir tillgängliga för nedladdning, men visas inte i Azure-portalen.  
@@ -142,7 +142,7 @@ Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-Cache f�
 
 Visa aktivitetsloggar för din cachelagring genom att klicka på **aktivitetsloggar** från den **resursmenyn**.
 
-Läs mer om aktivitetsloggar [översikt över Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Läs mer om aktivitetsloggar [översikt över Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

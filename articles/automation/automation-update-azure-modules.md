@@ -9,16 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f461bc1fd17ee957be5f223de731608011d021f5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a60dd9af60328759e332514c8af061e50382798
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959367"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634872"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
 De vanligaste Azure PowerShell-moduler som tillhandahålls som standard i varje Automation-konto. Azure-teamet uppdaterar regelbundet Azure-moduler. I ditt Automation-konto får du ett sätt att uppdatera moduler i kontot när nya versioner är tillgängliga från portalen.
+
+> [!NOTE]
+> Den nya [Az för Azure PowerShell-modulen](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) stöds inte i Azure Automation.
 
 Eftersom modulerna uppdateras regelbundet av produktgruppen och ändringar som kan uppstå med cmdletarna som ingår. Den här åtgärden kan negativt påverka dina runbooks beroende på vilken typ av ändring, till exempel byta namn på en parameter eller avvecklar en cmdlet helt och hållet. För att undvika att påverka dina runbooks och de processer som de automatisera, testa och verifiera innan du fortsätter. Om du inte har ett särskilt Automation-konto som är avsedd för detta ändamål kan du skapa en så att du kan testa många olika scenarier under utvecklingen av dina runbooks. Detta test bör innehålla iterativ ändringar, till exempel uppdaterar PowerShell-moduler. Om du utvecklar dina skript lokalt bör ha samma modulversioner lokalt som du har i ditt Automation-konto när testning för att se till att du får samma resultat. När resultaten verifieras och du har använt alla ändringar som krävs, kan du flytta ändringarna till produktion.
 

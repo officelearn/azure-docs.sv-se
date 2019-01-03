@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467145"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601053"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 
@@ -55,12 +55,12 @@ En katastrofåterställning kan flytta din SQL Database-server till en annan geo
 
 Följande egenskaper gäller för varje DNS-alias för din SQL Database-server:
 
-- *Unikt namn:* varje aliasnamn som du skapar är unikt i alla Azure SQL Database-servrar, precis som servern är.
-- *Krävs:* A DNS alias kan inte skapas om den refererar till exakt en server och servern måste redan finnas. Uppdaterade alias måste alltid referera till exakt en befintlig server.
+- *Unikt namn:* Varje aliasnamn som du skapar är unikt för alla Azure SQL Database-servrar, precis som servernamn.
+- *Server krävs:* En DNS kan alias inte skapas, såvida inte den refererar till exakt en server och servern måste redan finnas. Uppdaterade alias måste alltid referera till exakt en befintlig server.
   - När du släpper en SQL-databasserver, utelämnar Azure systemet även alla DNS-alias som refererar till servern.
 - *Inte har bundits till alla regioner:* DNS-alias är inte bunden till en region. Andra DNS-alias kan uppdateras för att referera till en Azure SQL Database-server som finns i alla geografiska regioner.
   - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna måste finnas i samma Azure *prenumeration*.
-- *Behörigheter:* för att hantera ett DNS-alias, måste användaren ha *Server-deltagare* behörigheter, eller högre. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
+- *Behörigheter:* För att hantera ett DNS-alias, måste användaren ha *Server-deltagare* behörigheter, eller högre. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Hantera dina DNS-alias
 
@@ -95,10 +95,10 @@ Ett exempel på PowerShell-cmdletar som används för att hantera DNS-alias är 
 
 De cmdletar som används i kodexempel är följande:
 
-- [Ny-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): skapar en ny DNS-alias i systemet för Azure SQL Database-tjänsten. Aliaset som refererar till Azure SQL Database-server 1.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): hämta och visa alla DNS-alias som är kopplade till SQL DB server 1.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): ändrar servernamnet som alias har konfigurerats för att referera till, från 1 till SQL DB server 2-servern.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): ta bort DNS-alias från SQL DB server 2, med hjälp av namnet på aliaset.
+- [Ny-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Skapar en ny DNS-alias i systemet för Azure SQL Database-tjänsten. Aliaset som refererar till Azure SQL Database-server 1.
+- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hämta och visa alla DNS-alias som är kopplade till SQL DB server 1.
+- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ändrar servernamnet som alias har konfigurerats för att referera till, från 1 till SQL DB server 2-servern.
+- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ta bort DNS-alias från SQL DB server 2, med hjälp av namnet på aliaset.
 
 Tidigare cmdletar har lagts till i den **i AzureRM.Sql** modul från och med Modulversion 5.1.1.
 
@@ -106,10 +106,10 @@ Tidigare cmdletar har lagts till i den **i AzureRM.Sql** modul från och med Mod
 
 För närvarande kan har en DNS alias följande begränsningar:
 
-- *Fördröjning på upp till 2 minuter:* tar det upp till 2 minuter för en DNS-alias uppdateras eller tas bort.
+- *Fördröjning på upp till 2 minuter:* Det tar upp till 2 minuter för en DNS-alias uppdateras eller tas bort.
   - Oavsett eventuell fördröjning av kort stoppar aliaset omedelbart refererar klientanslutningar till den gamla servern.
-- *DNS-sökning:* för tillfället endast auktoritativa sätt att kontrollera vilken server som en viss DNS alias refererar till är genom att utföra en [DNS-sökning](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Tabellgranskning stöds inte](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* du kan inte använda en DNS-alias på en Azure SQL Database-server som har *tabellgranskning* aktiverats för en databas.
+- *DNS-sökning:* För tillfället endast auktoritativa sätt att kontrollera vilken server som en viss DNS alias refererar till är genom att utföra en [DNS-sökning](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *[Tabellgranskning stöds inte](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* Du kan inte använda en DNS-alias på en Azure SQL Database-server som har *tabellgranskning* aktiverats för en databas.
   - Tabellgranskning är inaktuell.
   - Vi rekommenderar att du flyttar till [Blobbgranskning](sql-database-auditing.md).
 

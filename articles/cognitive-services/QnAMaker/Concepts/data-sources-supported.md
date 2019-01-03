@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082245"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994138"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -25,9 +25,9 @@ Följande tabell sammanfattar typerna av innehåll och filformat som stöds av Q
 
 |Källtyp|Innehållstyp| Exempel|
 |--|--|--|
-|URL|Vanliga frågor och svar (fast, avsnitt eller med en ämnen startsida)|[Vanlig vanliga frågor och svar](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [vanliga frågor och svar med länkar](https://www.microsoft.com/software-download/faq), [vanliga frågor och svar med ämnen startsida](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOKUMENT|Vanliga frågor och svar, produkt manuell, broschyrer, dokument, flygblad princip, stöd för strukturerade QnA osv.|[Strukturerad QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [exempel produkten Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [exempel halvstrukturerade structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [exempel vit paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Strukturerade QnA-fil (inklusive RTF, HTML stöd)|[Exempel på frågor och svar om FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL|Vanliga frågor och svar<br> (Fast avsnitt eller med en ämnen startsida)<br>Stöd för sidor <br> (En sida instruktionsartiklar, felsökningsartiklar osv.)|[Vanlig vanliga frågor och svar](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Vanliga frågor och svar med länkar](https://www.microsoft.com/software-download/faq),<br> [Vanliga frågor och svar med ämnen startsida](https://support.microsoft.com/products/windows?os=windows-10)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOKUMENT|Vanliga frågor och svar,<br> Produkten manuellt<br> Broschyrer,<br> Dokumentet,<br> Flygblad princip<br> Supportguide,<br> Frågor och svar om strukturerade,<br> Osv.|[Strukturerad QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exempel på produkten Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exempel på halvstrukturerade structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exempel på vit paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Strukturerade QnA-fil<br> (inklusive RTF, HTML stöd)|[Exempel på frågor och svar om FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Strukturerade QnA-fil|[Exemplet chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>Data-källplatser
@@ -36,7 +36,7 @@ Endast offentliga URL: er är giltiga för alla datakällor. Inte in datakällor
 
 ## <a name="faq-urls"></a>Vanliga frågor och svar-URL: er
 
-QnA Maker kan stödja webbsidor för vanliga frågor och svar i 3 olika former: vanlig vanliga frågor och svar-sidor, vanliga frågor och svar sidor med länkar, vanliga frågor och svar sidor med en ämnen startsida.
+QnA Maker kan stödja webbsidor för vanliga frågor och svar i 3 olika former: Vanlig vanliga frågor och svar-sidor, vanliga frågor och svar sidor med länkar, vanliga frågor och svar sidor med en ämnen startsida.
 
 ### <a name="plain-faq-pages"></a>Vanlig vanliga frågor och svar-sidor
 
@@ -65,6 +65,16 @@ Nedan visas ett exempel på en FAQ-sida där en ämnen startsida har länkar til
  ![Vanliga frågor och svar för djuplänk sidan exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
+### <a name="support-urls"></a>Stöd för URL: er
+
+QnA Maker kan bearbeta halvstrukturerade stöd för webbsidor, t.ex web-artiklar som skulle beskriver hur du utför en viss uppgift att diagnostisera och lösa ett givet problem och vilka är de rekommenderade säkerhetsmetoderna för en viss process. Extrahering fungerar bäst för innehåll som har en tydlig struktur med hierarkisk rubriker.
+
+> [!NOTE]
+> Extrahering för artiklar är en ny funktion och är i början. Det fungerar bäst för enkla sidor, som även är strukturerade och inte innehåller komplexa sidhuvuden och sidfötter.
+
+![QnA Maker stöder extrahering från halvstrukturerade webbsidor där en tydlig struktur visas hierarkisk rubriker](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+
+
 ## <a name="pdf-doc-files"></a>PDF / dokumentfiler
 
 QnA Maker kan bearbeta delvis strukturerat innehåll i en PDF- eller DOC-fil och omvandla dem till kunskapsbaser. En bra fil som kan extraheras och är en där innehåll organiseras i någon strukturerade form och representeras i väldefinierade avsnitt. Avsnitten kan ytterligare delas i underavsnitt eller underavsnitt. Extrahering fungerar bäst på dokument som har en tydlig struktur med hierarkisk rubriker.
@@ -84,7 +94,7 @@ Nedan visas ett exempel på en manuell med en indexsida och hierarkisk innehåll
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Broschyrer, riktlinjer, rapporter och andra filer
 
-Många andra typer av dokument kan också bearbetas för att generera QA-par, förutsatt att de har en tydlig struktur och layout. Dessa inkluderar: broschyrer riktlinjer, rapporter, vitt papper, vetenskapliga undersökningar, principer, böcker, osv. Se ett exempel [här](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Många andra typer av dokument kan också bearbetas för att generera QA-par, förutsatt att de har en tydlig struktur och layout. Exempel på dessa är: Broschyrer, riktlinjer, rapporter, white paper-faktablad, vetenskapliga undersökningar, principer, böcker, osv. Se ett exempel [här](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Nedan visas ett exempel på ett halvstrukturerade dokument utan ett index:
 

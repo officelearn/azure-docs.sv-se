@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8be453ae479e88d441a240ce472f3314b3f4de31
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343968"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809751"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliotek för .NET bulk Executor: Hämtningsinformation 
 
@@ -77,7 +77,7 @@ ms.locfileid: "53343968"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Stöd har lagts till för BulkDelete åtgärden för Azure Cosmos DB SQL API-konton.
-* Stöd har lagts till för BulkImport åtgärden för Azure Cosmos DB MongoDB API-konton.
+* Stöd har lagts till för BulkImport åtgärden för konton med Azure Cosmos DB API för MongoDB.
 * Ökar DocumentDB .NET SDK-beroendet till version 2.0.0. 
 
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2

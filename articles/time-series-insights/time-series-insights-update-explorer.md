@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Preview explorer – visualisera data i förhandsversionen av Azure Time Series Insights-Utforskaren | Microsoft Docs
+title: Visualisera data i förhandsversionen av Azure Time Series Insights-Utforskaren | Microsoft Docs
 description: Den här artikeln beskrivs funktioner och alternativ som är tillgängliga i förhandsversionen av Azure Time Series Insights explorer webbapp.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272345"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556653"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualisera data i explorer Preview
 
@@ -25,7 +25,7 @@ Den här artikeln beskrivs funktioner och alternativ som är tillgängliga i fö
 
 Innan du använder förhandsversionen av Azure Time Series Insights explorer måste du:
 
-* Har en Time Series Insights-miljö ställer in. Mer information finns i [självstudien: Förhandsversion av Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+* Har en Time Series Insights-miljö ställer in. Mer information finns i [Självstudie: Förhandsversion av Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 * Tillhandahålla dataåtkomst i Time Series Insights-miljön som du skapade för kontot. Du kan ge åtkomst till andra samt för att själv.
 * Lägga till en händelsekälla till Time Series Insights-miljö för att skicka data till miljön.
 
@@ -189,7 +189,7 @@ I stället för hierarkin visas panelen Time Series Insights villkoren som defin
 
 Time Series Insights Preview redigeraren termpanelen använder följande parametrar:
 
-**Där**: Where sats kan du snabbt filtrera händelser med hjälp av uppsättningen operander visas i följande tabell. Om du gör en sökning genom att välja en operand uppdateras predikatet automatiskt utifrån sökningen. Operandtyperna som stöds är:
+**Where**: Where sats kan du snabbt filtrera händelser med hjälp av uppsättningen operander visas i följande tabell. Om du gör en sökning genom att välja en operand uppdateras predikatet automatiskt utifrån sökningen. Operandtyperna som stöds är:
 
 | Åtgärd | Typer som stöds   | Anteckningar |
 | --- | --- | --- |

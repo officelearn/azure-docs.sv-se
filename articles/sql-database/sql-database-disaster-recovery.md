@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ba462d1c04f9a45932716fe07cbf1b7298d13cdb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268674"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605219"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
@@ -90,7 +90,7 @@ Mer information om hur du ändrar anslutningssträngar finns i lämplig programm
 
 ### <a name="configure-firewall-rules"></a>Konfigurera brandväggsregler
 
-Du måste se till att brandväggsreglerna som konfigurerats på servern och på databasen matchar de som har konfigurerats på den primära servern och den primära databasen. Mer information finns i [så här: Konfigurera brandväggsinställningar (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+Du måste se till att brandväggsreglerna som konfigurerats på servern och på databasen matchar de som har konfigurerats på den primära servern och den primära databasen. Mer information finns i [Gör så här: Konfigurera brandväggsinställningar (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Konfigurera inloggningar och användare
 

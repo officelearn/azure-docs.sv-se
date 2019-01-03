@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409929"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743365"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 
@@ -180,10 +180,10 @@ Ett exempel på hur du skapar ett HDInsight-kluster som använder SAS som ingår
    > [!IMPORTANT]  
    > När du tillfrågas om HTTP/s eller SSH-användarnamn och lösenord, måste du ange ett lösenord som uppfyller följande kriterier:
    >
-   > * Måste vara minst 10 tecken långt
-   > * Måste innehålla minst en siffra
-   > * Måste innehålla minst ett icke-alfanumeriska tecken
-   > * Måste innehålla minst en versal eller gemen bokstav
+   > * Måste vara minst 10 tecken långt.
+   > * Måste innehålla minst en siffra.
+   > * Måste innehålla minst ett icke-alfanumeriska tecken.
+   > * Måste innehålla minst en versal eller gemen bokstav.
 
 Det tar en stund innan det här skriptet att slutföra, vanligen cirka 15 minuter. När skriptet har slutförts utan fel har klustret skapats.
 
@@ -290,10 +290,10 @@ När du är ansluten till klustret, Använd följande steg för att verifiera at
 
 **Lösning**: Använda ett lösenord som uppfyller följande kriterier:
 
-* Måste vara minst 10 tecken långt
-* Måste innehålla minst en siffra
-* Måste innehålla minst ett icke-alfanumeriska tecken
-* Måste innehålla minst en versal eller gemen bokstav
+* Måste vara minst 10 tecken långt.
+* Måste innehålla minst en siffra.
+* Måste innehålla minst ett icke-alfanumeriska tecken.
+* Måste innehålla minst en versal eller gemen bokstav.
 
 ## <a name="next-steps"></a>Nästa steg
 

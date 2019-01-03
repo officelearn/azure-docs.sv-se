@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165559"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536380"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk datamaskning
 
@@ -31,7 +31,7 @@ Till exempel en representant på ett Callcenter kan identifiera anropare genom f
 Du ställer in en dynamisk datamaskning principen i Azure portal genom att välja åtgärden i din SQL Database konfigurationsbladet eller inställningsbladet för dynamisk datamaskning.
 
 ### <a name="dynamic-data-masking-permissions"></a>Dynamiska data maskning behörigheter
-Dynamisk datamaskning kan konfigureras med Azure Database-administratör, serveradministratör eller officer säkerhetsroller.
+Dynamisk datamaskning kan konfigureras med Azure Database-administratör kan-serveradministratören eller [SQL-säkerhetsansvarig](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) roller.
 
 ### <a name="dynamic-data-masking-policy"></a>Dynamiska data maskning princip
 * **SQL-användare uteslutna från maskering** – en uppsättning SQL-användare eller AAD-identiteter som hämtar omaskerat data i SQL-frågeresultat. Användare med administratörsbehörighet är alltid uteslutna från maskering och finns i den ursprungliga informationen utan någon mask.

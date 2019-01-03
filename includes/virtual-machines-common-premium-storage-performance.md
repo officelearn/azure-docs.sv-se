@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678226"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553534"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
 
@@ -35,7 +35,7 @@ Vi har angett dessa riktlinjer specifikt för Premium Storage eftersom arbetsbel
 > Ibland är något som verkar vara problem med prestandan disk faktiskt en flaskhalsar i nätverket. I sådana situationer bör du optimera din [nätverksprestanda](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Om den virtuella datorn har stöd för accelererat nätverk, bör du kontrollera att den är aktiverad. Om den inte har aktiverats måste du aktivera det på redan distribuerade virtuella datorerna på både [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Innan du börjar, om du är nybörjare till Premium Storage, läsa den [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](../articles/virtual-machines/windows/premium-storage.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md)artiklar.
+Innan du börjar, om du är nybörjare till Premium Storage, läsa den [Premium Storage: Lagring med höga prestanda för Azure-Datorbelastningar](../articles/virtual-machines/windows/premium-storage.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md) artiklar.
 
 ## <a name="application-performance-indicators"></a>Nyckeltal för program
 
@@ -66,6 +66,14 @@ Det är därför viktigt att fastställa optimal dataflöde och IOPS-värden som
 Svarstiden är den tid det tar ett program för att ta emot en begäran, skicka den till storage-diskar och skicka svar till klienten. Det här är ett viktigt mått på ett programs prestanda förutom IOPS och dataflöden. Svarstiden för en premium-lagringsdisk är den tid det tar att hämta information för en begäran och kommunicera tillbaka till programmet. Premium Storage erbjuder genomgående korta svarstider. Om du aktiverar cachelagring på premium-lagringsdiskar ReadOnly-värden, får du mycket kortare svarstider för läsning. Vi diskuterar diskcachelagring i detalj i senare avsnitt på *optimera programprestanda*.
 
 När du optimerar ditt program kan få högre IOPS och dataflöde, påverkar svarstiden för programmet. Utvärdera alltid svarstiden för programmet för att undvika oväntade fördröjningar beteende efter justering om programmets prestanda.
+
+Följande kontrollplanåtgärder på hanterade diskar kan omfatta flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
+
+1.  [Uppdatera lagringstyp](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [Koppla från och ansluta en disk från en virtuell dator till en annan](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [Skapa en hanterad Disk från en virtuell Hårddisk](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [Skapa en hanterad Disk från en ögonblicksbild](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [Konvertera ohanterade diskar till Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>Samla in prestanda programkrav
 
@@ -366,7 +374,7 @@ Om du vill följa exemplen nedan, skapa en Standard DS14 virtuell dator och kopp
 *Värmer upp cachen*  
 Disken med ReadOnly värdcachelagring kommer att kunna ge högre IOPS än gränsen på disk. Om du vill ha den här högsta läsprestanda från värd-cachen, måste först du värmt upp cachen för den här disken. Detta säkerställer att läsa IOs vilket benchmarking verktyg kommer att öka på CacheReads volym faktiskt når cachen och inte disken direkt. Cacheträffar resulterar i ytterligare IOPS från enkel cachen aktiverad disk.
 
-> **Viktigt:**  
+> **Viktigt!**  
 > Du måste värmt upp cachen innan du kör prestandamätningar, varje gång virtuella datorn startas om.
 
 #### <a name="iometer"></a>Iometer
@@ -597,7 +605,7 @@ För att få maximalt kombinerade läsa och skriva dataflöde, använda en stör
 
 Läs mer om Azure Premium Storage:
 
-* [Premium Storage: Lagring med höga prestanda för Azure Virtual Machines-arbetsbelastningar](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på Azure virtuella datorer](../articles/virtual-machines/windows/premium-storage.md)  
 
 SQL Server-användare finns i artiklarna på Prestandametodtips för SQL Server:
 

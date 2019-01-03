@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: dbd4634c575fd4f1886d3e7714ef9ddabbde0f8a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 41e8fb40f07a88cb6fa2108a38db7f973fccd2f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341165"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Självstudier: Azure Active Directory-integrering med GitHub
 
@@ -29,7 +29,7 @@ Integrera GitHub med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till GitHub.
 - Du kan aktivera användarna att automatiskt få loggat in på GitHub (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -49,7 +49,8 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
+Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägga till GitHub från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
@@ -59,23 +60,23 @@ För att konfigurera integrering av GitHub i Azure AD, som du behöver lägga ti
 
 **Utför följande steg för att lägga till GitHub från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![image](./media/github-tutorial/selectazuread.png)
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![image](./media/github-tutorial/a_select_app.png)
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![image](./media/github-tutorial/a_new_app.png)
 
 4. I sökrutan skriver **GitHub**väljer **GitHub** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
+    ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med GitHub baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med GitHub, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare i GitHub](#create-a-github-test-user)**  – du har en motsvarighet för Britta Simon i GitHub som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt GitHub-program.
 
@@ -103,13 +104,13 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![image](./media/github-tutorial/b1_b2_saml_sso.png)
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![image](./media/github-tutorial/b1-domains_and_urlsedit.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![image](./media/github-tutorial/tutorial_github_url.png) 
+    ![image](./media/github-tutorial/tutorial_github_url.png)
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://github.com/orgs/<entity-id>/sso`
 
@@ -118,12 +119,12 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE]
     > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Här föreslår vi att du för att använda det unika värdet av strängen i identifierare. Gå till GitHub-administratören att hämta dessa värden.
 
-5. GitHub-program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Klicka på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+5. GitHub-program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Klicka på **redigera** knappen för att öppna **användarattribut** dialogrutan.
 
     ![image](./media/github-tutorial/i3-attribute.png)
 
-6. I den **användaranspråk** avsnittet på den **användarattribut** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-    
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
+
     a. Klicka på **redigera** knappen för att öppna den **hantera användaranspråk** dialogrutan.
 
     ![image](./media/github-tutorial/i2-attribute.png)
@@ -133,20 +134,20 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     b. Från den **källattribut** väljer attributvärdet.
 
     c. Klicka på **Spara**.
- 
+
 7. I den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **certifikat (Base64)** och spara den på din dator.
 
     ![image](./media/github-tutorial/tutorial_github_certficate.png)
 
 8. På den **konfigurera GitHub** avsnittet, kopiera den lämpliga URL enligt dina behov.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Azure AD-ID
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
-    ![image](./media/github-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/github-tutorial/d1_samlsonfigure.png)
 
 9. Logga in på webbplatsen GitHub-organisation som administratör i ett annat webbläsarfönster.
 
@@ -170,8 +171,8 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     d. Klicka på **redigera** ikon för att redigera den **signatur metoden** och **sammanfattad metoden** från **RSA-SHA1** och **SHA1**till **RSA-SHA256** och **SHA256** enligt nedan.
 
-    ![image](./media/github-tutorial/tutorial_github_sha.png) 
-    
+    ![image](./media/github-tutorial/tutorial_github_sha.png)
+
 13. Klicka på **Test SAML-konfiguration** att bekräfta att inga verifieringsfel eller fel under enkel inloggning.
 
     ![Inställningar](./media/github-tutorial/tutorial_github_config_github_06.png)
@@ -179,33 +180,33 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 14. Klicka på **Spara**
 
 > [!NOTE]
-> Enkel inloggning i GitHub autentiserar till en viss organisation i GitHub och ersätter inte autentisering av själva GitHub. Därför om användarens GitHub.com session har upphört att gälla, kan du bli ombedd att autentisera med GitHub-ID/lösenord under processen för enkel inloggning.
+> Enkel inloggning i GitHub autentiserar till en viss organisation i GitHub och ersätter inte autentisering av själva GitHub. Därför om användarens github.com session har upphört att gälla, kan du bli ombedd att autentisera med GitHub-ID/lösenord under processen för enkel inloggning.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![image](./media/github-tutorial/d_users_and_groups.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![image](./media/github-tutorial/d_adduser.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
     ![image](./media/github-tutorial/d_userproperties.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
     d. Välj **Skapa**.
- 
+
 ### <a name="create-a-github-test-user"></a>Skapa en testanvändare i GitHub
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i GitHub. GitHub stödjer automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information om [här](github-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
@@ -247,7 +248,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/github-tutorial/tutorial_github_app.png)
 
-3. I menyn till vänster väljer **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![image](./media/github-tutorial/d_leftpaneusers.png)
 
@@ -255,16 +256,16 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/github-tutorial/d_assign_user.png)
 
-4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
 5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på GitHub-panelen i åtkomstpanelen du bör få automatiskt loggat in på ditt GitHub-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

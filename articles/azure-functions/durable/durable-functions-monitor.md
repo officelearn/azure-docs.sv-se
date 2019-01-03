@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342580"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727045"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenariot i varaktiga funktioner - väder watcher exemplet
 
@@ -175,6 +175,9 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 ## <a name="visual-studio-sample-code"></a>Visual Studio-exempelkod
 
 Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
+
+> [!NOTE]
+> Du måste installera den `Microsoft.Azure.WebJobs.Extensions.Twilio` nuget för att köra exempelkoden nedan.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

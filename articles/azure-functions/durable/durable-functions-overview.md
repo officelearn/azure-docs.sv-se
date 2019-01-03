@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cf643c8c2a0921cfbe1f5599a9e96a27770ef1ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344184"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718596"
 ---
 # <a name="durable-functions-overview"></a>Översikt över varaktiga funktioner
 
-*Varaktiga funktioner* är en utökning av [Azure Functions](../functions-overview.md) och [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) som hjälper dig att skriva tillståndskänsliga funktioner i en serverfri miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter.
+*Varaktiga funktioner* är en utökning av [Azure Functions](../functions-overview.md) och [Azure WebJobs](../../app-service/webjobs-create.md) som hjälper dig att skriva tillståndskänsliga funktioner i en serverfri miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter.
 
 Tillägget kan du definiera tillståndskänsliga arbetsflöden i en ny typ av funktion som kallas en [ *orchestrator-funktion*](durable-functions-types-features-overview.md#orchestrator-functions). Här följer några av fördelarna med orchestrator-funktioner:
 

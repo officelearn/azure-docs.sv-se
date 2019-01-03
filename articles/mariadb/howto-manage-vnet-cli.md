@@ -1,20 +1,18 @@
 ---
 title: Skapa och hantera Azure Database for MariaDB VNet-tjänstslutpunkter och regler med hjälp av Azure CLI | Microsoft Docs
 description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for MariaDB VNet-tjänstslutpunkter och regler med hjälp av Azure CLI-kommandoraden.
-services: mariaDB
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/20/2018
-ms.openlocfilehash: 7f39eb2b3020016d1fb14e8c611ae00dfab07c11
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bfa55c0a91473a4adc6b9fb02ac9697208ef39f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336908"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540069"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure-databas för MariaDB VNet-tjänstslutpunkter med Azure CLI
 
@@ -58,7 +56,7 @@ Lär dig mer om [inbyggda roller](https://docs.microsoft.com/azure/active-direct
 Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om VNet och Azure-tjänstresurser finns i olika prenumerationer bör resurserna finnas under samma Active Directory (AD)-klient.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att den här artikeln om tjänsten endpoint konfigurationer och överväganden innan du konfigurerar tjänstslutpunkter. **Tjänstslutpunkt för virtuellt nätverk:** A [tjänstslutpunkt för virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät som egenskaper innehåller en eller flera formella Azure-tjänst-typnamn. Services-slutpunkter för virtuellt nätverk använder namnet på tjänsten **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsttaggen gäller även för Azure SQL Database, Azure Database for MariaDB, PostgreSQL och MySQL-tjänster. Det är viktigt att tänka på när du använder den **Microsoft.Sql** servicetagg till en VNet-tjänstslutpunkt konfigurerar den för alla Azure Database-tjänster, inklusive Azure SQL Database, Azure Database för PostgreSQL-tjänstens slutpunkt trafik Azure Database for MariaDB och Azure Database för MySQL-servrar i undernät.
+> Vi rekommenderar starkt att den här artikeln om tjänsten endpoint konfigurationer och överväganden innan du konfigurerar tjänstslutpunkter. **Tjänstslutpunkt för virtuellt nätverk:** En [tjänstslutpunkt för virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät som egenskaper innehåller en eller flera formella Azure-tjänst-typnamn. Services-slutpunkter för virtuellt nätverk använder namnet på tjänsten **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsttaggen gäller även för Azure SQL Database, Azure Database for MariaDB, PostgreSQL och MySQL-tjänster. Det är viktigt att tänka på när du använder den **Microsoft.Sql** servicetagg till en VNet-tjänstslutpunkt konfigurerar den för alla Azure Database-tjänster, inklusive Azure SQL Database, Azure Database för PostgreSQL-tjänstens slutpunkt trafik Azure Database for MariaDB och Azure Database för MySQL-servrar i undernät.
 
 ### <a name="sample-script"></a>Exempelskript
 

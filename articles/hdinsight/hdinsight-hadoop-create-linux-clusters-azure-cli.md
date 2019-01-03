@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191588"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792058"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Skapa HDInsight-kluster med den klassiska Azure-CLI
 
@@ -70,7 +70,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
     * Ersätt `storagename` med ett unikt namn för lagringskontot.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Mer information om de parametrar som används i det här kommandot använder `azure storage account create -h` Visa hjälp för det här kommandot.
 
 5. Hämta nyckeln som används för att komma åt lagringskontot.
@@ -90,7 +90,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
     * Ersätt `Hadoop` med den typ av kluster som du vill skapa. Till exempel `Hadoop`, `HBase`, `Kafka`, `Spark`, eller `Storm`.
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > HDInsight kluster finns olika typer, vilket motsvarar arbetsbelastning eller teknik som klustret är anpassad till. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase i ett kluster.
 
     * Ersätt `location` med samma plats som används i föregående steg.
@@ -105,7 +105,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
     * Ersätt `sshuser` och `sshuserpassword` med användarnamnet och lösenordet som du vill använda vid åtkomst till klustret med SSH
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalningsåtgärder. Om du tänker använda mer än 32 arbetsnoder, måste du välja en head nodstorlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnoden storlek med hjälp av den `--headNodeSize` parametern när klustret skapas.
       >
       > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -114,7 +114,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -124,7 +124,7 @@ Nu när du har skapat ett HDInsight-kluster med hjälp av klassiska CLI, Använd
 
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
 * [Använda Apache Pig med HDInsight](hadoop/hdinsight-use-pig.md)
-* [Använda Apache Hadoop MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-kluster
 

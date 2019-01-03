@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e8e81ab81e33302b9a0da3e0230d1366cc90d208
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098622"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635518"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -25,6 +25,8 @@ Ett program som ansluter till ett lagringskonto när Nätverksregler tillämpas 
 > Aktivera brandväggsregler för ditt lagringskonto blockerar inkommande begäranden om data som standard inte begäranden som kommer från en tjänst som körs i Azure Virtual Network (VNet). Begäranden som blockeras är de från andra Azure-tjänster från Azure-portalen från loggning och mått tjänster, och så vidare.
 >
 > Du kan ge åtkomst till Azure-tjänster som fungerar från inom ett virtuellt nätverk genom att tillåta att undernätet för tjänstinstansen. Aktivera ett begränsat antal scenarier via den [undantag](#exceptions) mekanism som beskrivs i följande avsnitt. För att komma åt Azure-portalen, skulle du behöva finnas på en dator i den betrodda gränsen (IP eller virtuellt nätverk) som du har konfigurerat.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -65,24 +67,24 @@ Du kan hantera åtkomstreglerna för standardnätverket för storage-konton via 
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installera den [Azure PowerShell](/powershell/azure/install-azurerm-ps) och [logga in](/powershell/azure/authenticate-azureps).
+1. Installera den [Azure PowerShell](/powershell/azure/install-Az-ps) och [logga in](/powershell/azure/authenticate-azureps).
 
 1. Visa status för Standardregeln för storage-kontot.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. Ange Standardregeln för att neka åtkomst som standard.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. Ange Standardregeln som tillåter åtkomst till nätverket som standard.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
 #### <a name="cliv2"></a>CLIv2
@@ -153,32 +155,32 @@ Du kan hantera virtuella Nätverksregler för lagringskonton via Azure-portalen,
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installera den [Azure PowerShell](/powershell/azure/install-azurerm-ps) och [logga in](/powershell/azure/authenticate-azureps).
+1. Installera den [Azure PowerShell](/powershell/azure/install-Az-ps) och [logga in](/powershell/azure/authenticate-azureps).
 
 1. Lista över virtuella Nätverksregler.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. Aktivera tjänstslutpunkt för Azure Storage på ett befintligt virtuellt nätverk och undernät.
 
     ```PowerShell
-    Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. Lägg till en regel för ett virtuellt nätverk och undernät.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Add-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. Ta bort en regel för ett virtuellt nätverk och undernät.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 > [!IMPORTANT]
@@ -261,36 +263,36 @@ Du kan hantera IP-Nätverksregler för lagringskonton via Azure-portalen, PowerS
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installera den [Azure PowerShell](/powershell/azure/install-azurerm-ps) och [logga in](/powershell/azure/authenticate-azureps).
+1. Installera den [Azure PowerShell](/powershell/azure/install-Az-ps) och [logga in](/powershell/azure/authenticate-azureps).
 
 1. Regler för lista över IP-nätverk.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. Lägg till en regel för en enskild IP-adress.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Lägg till en regel för ett IP-adressintervall.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. Ta bort en regel för en enskild IP-adress.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Ta bort en regel för ett IP-adressintervall.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 > [!IMPORTANT]
@@ -378,24 +380,24 @@ Du kan hantera undantag nätverk via Azure-portalen, PowerShell eller Azure CLI 
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installera den [Azure PowerShell](/powershell/azure/install-azurerm-ps) och [logga in](/powershell/azure/authenticate-azureps).
+1. Installera den [Azure PowerShell](/powershell/azure/install-Az-ps) och [logga in](/powershell/azure/authenticate-azureps).
 
 1. Visa undantag för Nätverksregler för storage-konto.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. Konfigurera undantag för Nätverksregler för storage-konto.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. Ta bort undantagen Nätverksregler för storage-konto.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 
 > [!IMPORTANT]

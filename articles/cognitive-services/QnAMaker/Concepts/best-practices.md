@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d51cbc7bd88fd9f4baf066210e7b7da8cd175cd6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074816"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603131"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar din Kunskapsbas från början till slut. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
@@ -67,8 +67,11 @@ Standard-förtroendepoäng som används som ett tröskelvärde är 50, men du ka
 |Är parkeringssidans tillgängliga?|Har du bil park?|mening struktur|
  |Hej!|Yo<br>Hej det!|Word-format eller slang|
 
-### <a name="use-metadata-filters"></a>Använda filter för filmetadata
-[Metadata](../How-To/edit-knowledge-base.md) lägger till möjligheten att begränsa resultatet av en användarfråga baserat på filter. Kunskapsbas-svar kan variera beroende på metadatataggen, även om frågan är samma. Till exempel *”var är parkering finns”* kan ha olika svar om grenen restaurang finns olika – det vill säga metadata är *plats: Seattle* jämfört med *plats: Redmond*.
+<a name="#use-metadata-filters"></a>
+
+### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Använda metadatataggar om du vill filtrera frågor och svar
+
+[Metadata](../How-To/edit-knowledge-base.md) lägger till möjligheten att begränsa resultatet av en användarfråga baserat på metadatataggar. Kunskapsbas-svar kan variera beroende på metadatataggen, även om frågan är samma. Till exempel *”var är parkering finns”* kan ha olika svar om grenen restaurang finns olika – det vill säga metadata är *plats: Seattle* jämfört med *plats: Redmond*.
 
 ### <a name="use-synonyms"></a>Använda synonymer
 Även om det finns vissa stöd för synonymer i på engelska, [word förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) att lägga till synonymer i nyckelord som tar olika format. Synonymer bör läggas på QnA Maker-tjänstnivå och delas av alla kunskapsbaser i tjänsten.

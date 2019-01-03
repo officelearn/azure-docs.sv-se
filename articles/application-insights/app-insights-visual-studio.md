@@ -15,17 +15,17 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8b0277d1e82e655edd9308f8b8afa7d6dcec434e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723575"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754840"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Felsöka dina program med Azure Application Insights i Visual Studio
 I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem i din ASP.NET-webbapp både när du felsöker och i produktion med hjälp av telemetri från [Azure Application Insights](app-insights-overview.md).
 
-Om du har skapat din ASP.NET-webbapp med Visual Studio 2017 eller senare har den redan Application Insights SDK. I annat fall [lägger du till Application Insights i din app](app-insights-asp-net.md), om du inte redan gjort det.
+Om du har skapat din ASP.NET-webbapp med Visual Studio 2017 eller senare har den redan Application Insights SDK. I annat fall [lägger du till Application Insights i din app](../azure-monitor/app/asp-net.md), om du inte redan gjort det.
 
 När appen är live i produktion visar du normalt Application Insights-telemetrin på [Azure Portal](https://portal.azure.com). Där kan du också ställa in aviseringar och använda kraftfulla övervakningsverktyg. Men när det gäller felsökning kan du också söka efter och analysera telemetri i Visual Studio. Du kan använda Visual Studio för att analysera telemetri både från din produktionsplats och från felsökning körs på utvecklingsdatorn. I det senare fallet kan du analysera felsökningskörningar även om du inte har konfigurerat SDK för att skicka telemetri till Azure Portal ännu. 
 
@@ -60,7 +60,7 @@ Du kan också öppna relaterade objekt för att diagnostisera misslyckade begär
 ![Rulla ned till relaterade artiklar under Information om begäran](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>Visa undantag och misslyckade begäranden
-Undantagsrapporter visas i sökfönstret. (I vissa äldre versioner av ASP.NET måste du [konfigurera undantagsövervakning](app-insights-asp-net-exceptions.md) för att se undantagen som hanteras av ramverket.)
+Undantagsrapporter visas i sökfönstret. (I vissa äldre versioner av ASP.NET måste du [konfigurera undantagsövervakning](../azure-monitor/app/asp-net-exceptions.md) för att se undantagen som hanteras av ramverket.)
 
 Klicka på ett undantag för att visa en stackspårning. Om koden för appen är öppen i Visual Studio kan du klicka dig igenom från stackspårningen till relevant kodrad.
 
@@ -72,7 +72,7 @@ I Codelens-raden ovanför varje ser du antalet begäranden och undantag som logg
 ![Undantag för stackspårning](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> CodeLens visar Application Insights-data endast om du har [konfigurerat appen för att skicka telemetri till Application Insights-portalen](app-insights-asp-net.md).
+> CodeLens visar Application Insights-data endast om du har [konfigurerat appen för att skicka telemetri till Application Insights-portalen](../azure-monitor/app/asp-net.md).
 >
 
 [Läs mer om Application Insights i CodeLens](app-insights-visual-studio-codelens.md)
@@ -93,7 +93,7 @@ För att hitta avvikelser i dina data väljer du ett av avvikelsealternativen i 
 
 Detta är lämpligt om du redan har publicerat en tidigare version av din app. Du vill undvika att telemetri från dina felsökningssessioner blandas med telemetrin på Application Insights-portalen från den publicerade appen.
 
-Det är också användbart om du har [anpassad telemetri](app-insights-api-custom-events-metrics.md) som du vill felsöka innan du skickar telemetri till portalen.
+Det är också användbart om du har [anpassad telemetri](../azure-monitor/app/api-custom-events-metrics.md) som du vill felsöka innan du skickar telemetri till portalen.
 
 * *Först konfigurerade jag Application Insights att skicka telemetrin till portalen. Men nu vill jag bara visa telemetrin i Visual Studio.*
   
@@ -104,6 +104,6 @@ Det är också användbart om du har [anpassad telemetri](app-insights-api-custo
 ## <a name="next-steps"></a>Nästa steg
 |  |  |
 | --- | --- |
-| **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Visa instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, en live beroendekarta för ditt program och exporterade telemetridata. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Lägga till mer information](../azure-monitor/app/asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
+| **[Arbeta med Application Insights-portalen](../azure-monitor/app/app-insights-dashboards.md)**<br/>Visa instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, en live beroendekarta för ditt program och exporterade telemetridata. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 

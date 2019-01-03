@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876527"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753650"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -119,7 +119,7 @@ I [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), 
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-På den [fel](../application-insights/app-insights-asp-net-exceptions.md) fliken kan du skapa diagram och aviseringar som baseras på funktionen fel och server undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera [anpassad telemetri](#custom-telemetry-in-c-functions) för beroenden.
+På den [fel](../azure-monitor/app/asp-net-exceptions.md) fliken kan du skapa diagram och aviseringar som baseras på funktionen fel och server undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera [anpassad telemetri](#custom-telemetry-in-c-functions) för beroenden.
 
 ![Fel](media/functions-monitoring/failures.png)
 
@@ -137,7 +137,7 @@ Den [Live Metrics Stream](../application-insights/app-insights-live-stream.md) f
 
 ## <a name="query-telemetry-data"></a>Telemetridata för fråga
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) ger dig tillgång till alla dessa data i form av tabeller i en databas. Analytics tillhandahåller ett frågespråk för extrahering, manipulera och visualisera dina data.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) ger dig tillgång till alla dessa data i form av tabeller i en databas. Analytics tillhandahåller ett frågespråk för extrahering, manipulera och visualisera dina data.
 
 ![Välj Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -158,7 +158,7 @@ Tabeller som är tillgängliga som visas i den **schemat** fliken i det vänstra
 * **begäranden** – en för varje funktionsanrop.
 * **undantag** – alla undantag från körningen.
 * **customMetrics** -antal lyckade och misslyckade anrop, Slutförandefrekvens, varaktighet.
-* **customEvents** -händelser spåras av körning, till exempel: HTTP-begäranden som utlöser en funktion.
+* **customEvents** -händelser spåras av körning, till exempel:  HTTP-begäranden som utlöser en funktion.
 * **performanceCounters** -information om prestanda för de servrar som funktionerna som körs på.
 
 De andra tabellerna är för tillgänglighetstester och klientwebbläsaren/telemetri. Du kan implementera anpassade telemetri för att lägga till data i dem.
@@ -439,7 +439,7 @@ Den här koden är ett alternativ till att anropa `trackMetric` med [Node.js-SDK
 
 ## <a name="custom-telemetry-in-c-functions"></a>Anpassad telemetri i C#-funktioner
 
-Du kan använda den [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) nuget för att skicka telemetri om anpassade data till Application Insights. Följande C# exemplet används den [telemetri om anpassade API: et](../application-insights/app-insights-api-custom-events-metrics.md). I exemplet avser en .NET-klassbiblioteket, men den Application Insights-koden är detsamma för C#-skript.
+Du kan använda den [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) nuget för att skicka telemetri om anpassade data till Application Insights. Följande C# exemplet används den [telemetri om anpassade API: et](../azure-monitor/app/api-custom-events-metrics.md). I exemplet avser en .NET-klassbiblioteket, men den Application Insights-koden är detsamma för C#-skript.
 
 ### <a name="version-2x"></a>Version 2.x
 
@@ -671,7 +671,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Mer information finns i [så strömma loggar](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+Mer information finns i [så strömma loggar](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### <a name="viewing-log-files-locally"></a>Visa loggfiler lokalt
 

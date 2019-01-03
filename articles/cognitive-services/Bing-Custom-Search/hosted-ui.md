@@ -1,7 +1,7 @@
 ---
-title: Webbplatssökning, använda värdbaserade Gränssnittet Bing Custom Search
+title: Konfigurera en värdbaserad Användargränssnittet för anpassad sökning i Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Beskriver hur du konfigurerar Bing Custom Search finns Användargränssnittet.
+description: Använd den här artikeln för att konfigurera och integrera en värdbaserad Användargränssnittet för anpassad sökning i Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,100 +10,49 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e30c36cbde3bf112b012526e6268dfc4414f64a9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424994"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555480"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera din värdbaserade användargränssnitt
 
-När du har konfigurerat din anpassade Sökinstans, kan du anropa den anpassade API: et Search för att hämta sökresultaten och visa dem i din app. Eller, om din app är en webbapp, kan du använda det värdbaserade användargränssnitt som ger anpassad sökning.   
+Anpassad sökning i Bing tillhandahåller en värdbaserad Användargränssnittet som du kan enkelt integrera i dina webbsidor och web program som ett JavaScript-kodfragment. Du kan med hjälp av Bing Custom Search-portalen för att konfigurera layouten, färg och alternativ för sökning av Användargränssnittet.
 
-## <a name="configure-custom-hosted-ui"></a>Konfigurera anpassat värdbaserade gränssnitt
 
-Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet för din webbapp:
 
-1. Logga in på Custom Search [portal](https://customsearch.ai).  
+## <a name="configure-the-custom-hosted-ui"></a>Konfigurera anpassade värdbaserade Användargränssnittet
+
+Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet för dina webbprogram. När du gör ändringar ger till höger dig en förhandsgranskning av Användargränssnittet. Visade sökresultaten är inte faktiska resultat för din instans.
+
+1. Logga in på Bing Custom Search [portal](https://customsearch.ai).  
   
-2. Klicka på en anpassad Sökinstans. Om du vill skapa en instans, [skapar din första Bing Custom Search-instans](quick-start.md).  
+2. Välj din Bing Custom Search-instans.
 
 3. Klicka på fliken för **värdbaserat användargränssnitt**.  
   
 4. Välj en layout.
-  
-  - Sökfältet och resultat (standard) &mdash; den här layouten är söksidan traditionella med sökrutan och sökresultat.
-  - Resulterar endast &mdash; den här layouten visar endast sökresultat. Den här layouten visas inte en sökruta. Du måste ange sökfrågan genom att lägga till Frågeparametern (& q =\<frågesträng >) till URL: en i JavaScript-kodavsnitt eller HTML-slutpunkt-länk.
-  - POP-over &mdash; den här layouten innehåller en sökruta och visar sökresultatet i ett glidande överlägg.
-      
-5. Välj ett färgtema. Det är möjligt teman: 
-  
-  - Klassisk
-  - Mörk
-  - Skyline blå
 
-  Klicka på alla teman och se vilket tema som fungerar bäst med ditt webbprogram. Om du behöver finjustera färgtemat så att det bättre integrerar med din webbapp klickar du på **Anpassa tema**. Alla färgkonfigurationer finns inte för alla layoutteman. Om du vill ändra en färg anger du färgens RGB HEX-värde (till exempel #366eb8) i motsvarande textruta. Eller, klicka på färgknappen och klickar på nyans som passar dig. 
-  
-  När du har ändrat en färg att se hur ändringen påverkar förhandsversion exemplet till höger. Du kan alltid Klicka **Återställ till standard** att gå tillbaka till sidan för det valda temat.
+    |  |  |
+    |---------|---------|
+    |Sökfältet och resultat (standard)    | Visar en sökruta med sökresultat under den.         |
+    |Endast resultat     | Visar sökresultat, utan en sökruta. När du använder den här layouten, måste du ange sökfrågan (`&q=<query string>`). Lägg till fråga-parametern i fråge-URL i JavaScript-kodavsnitt eller HTML-slutpunkt-länk.        |
+    |POP-over     | Innehåller en sökruta och visar sökresultatet i ett glidande överlägg.        |
+    
+5. Välj ett färgtema. Du kan anpassa färger för att passa ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg, antingen ange färgvärde RGB HEX (till exempel `#366eb8`), eller klicka på förhandsversionen av färg.
+
+  Du kan förhandsgranska dina ändringar på höger sida av portalen. Klicka på **Återställ till standard** återgår ändringarna till sidan för det valda temat.
 
   > [!NOTE]
-  > När du ändrar färgteman överväga hjälpmedel när du väljer färger.
+  > Överväg att hjälpmedel när du väljer färger.
 
-5. Under **ytterligare konfigurationer**, ange värden för din app. De här inställningarna är valfria. Effekten av att använda eller ta bort dem finns i förhandsgranskningsfönstret till höger. Tillgängliga alternativ är:  
-  
-  - Web search konfigurationer:
-    - Webb-resultat aktiverat &mdash; anger om webbsökning är aktiverad (du kommer se en Web-flik längst ned på sidan).
-    - Aktivera automatiska förslag i &mdash; avgör om anpassade automatiska förslag är aktiverad (se [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) ytterligare kostnad).
-    - Webb-resultat per sida &mdash; antalet webbsökningar att visa i taget (det högsta antalet är 50 resultat per sida).
-    - Bildtexten &mdash; avgör om avbildningar visas med sökresultat.
-  
-    Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**.  
-  
-    - Markera ord &mdash; avgör om resultatet visas med sökvillkoren visas med fet stil. 
-    - Länkmål &mdash; anger om webbsidan öppnas i en ny webbläsarflik (tomt) eller samma webbläsarfliken (själv) när användaren klickar på ett sökresultat. 
+6. Under **ytterligare konfigurationer**, ange värden för din app. De här inställningarna är valfria. Effekten av att använda eller ta bort dem finns i förhandsgranskningsfönstret till höger. Tillgängliga alternativ är:  
 
-  - Bild sökkonfigurationer:
-    - Bild resultat aktiverat &mdash; anger om bildsökning är aktiverad (en avbildningar fliken visas överst på sidan).   
-    - Bild resultat per sida &mdash; antalet bildsökningsresultat att visa i taget (det högsta antalet är 150 resultat per sida).  
-  
-    Följande konfiguration visas om du klickar på **visa avancerade konfigurationer**.  
-  
-    - Aktivera filter &mdash; lägger till filter som användaren kan använda för att filtrera bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten för endast animerade GIF-filer.
+7. Ange prenumerationsnyckeln search eller välj en från den nedrullningsbara listan. Den nedrullningsbara listan fylls med nycklar från ditt Azure-konto prenumerationer. Se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-  - Videosökning konfigurationer:
-    - Videoresultat aktiverat &mdash; anger om videosökning är aktiverad (en videor fliken visas överst på sidan).  
-    - Video resultat per sida &mdash; antalet videosökningsresultat att visa i taget (det högsta antalet är 150 resultat per sida).
-  
-    Följande konfiguration visas om du klickar på **visa avancerade konfigurationer**.  
-  
-    - Aktivera filter &mdash; lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en viss upplösning eller videofilmer som har identifierats under de senaste 24 timmarna.
-
-  - Övriga konfigurationer:
-    - Sidtitel &mdash; Text som visas i avsnittet rubriken på sidan med sökresultat (inte för pop över layout).
-    - Verktygsfältet tema &mdash; anger bakgrundsfärgen för rubrikområdet på sökresultatsidan.  
-  
-    Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**.  
-  
-    - Sök textplatshållare &mdash; Text som visas i Sök-rutan innan du börjar indata.
-    - Rubrik länka url &mdash; mål för rubrik-länken.
-    - URL: en logotyp &mdash; bild som visas bredvid rubriken. 
-    - Favicon url &mdash; ikonen som visas i namnlisten i webbläsaren.  
-
-    Följande konfigurationer gäller bara om du använder Användargränssnittet finns via HTML-slutpunkt (de inte gäller om du använder JavaScript-kodavsnitt).
-    
-    - Sidtitel
-    - Verktygsfältet tema
-    - Rubrik-URL för länk
-    - URL: en logotyp
-    - Faviicon URL  
-  
-6. Ange prenumerationsnyckeln search eller välj en från den nedrullningsbara listan. Den nedrullningsbara listan fylls med nycklar från ditt Azure-konto prenumerationer. Se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
-
-7. Om du har aktiverat Automatiska förslag, ange prenumerationsnyckel för automatiska förslag eller välj någon från den nedrullningsbara listan. Den nedrullningsbara listan fylls med nycklar från ditt Azure-konto prenumerationer. Anpassade automatiska förslag kräver en viss prenumeration-nivå, finns i den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
-
-> [!NOTE]
-> När du gör ändringar i anpassade värdbaserade UI-konfigurationen ger till höger en visuell referens för ändringar som görs. Visade sökresultaten är inte faktiska resultat för din instans.
+8. Om du har aktiverat Automatiska förslag, ange prenumerationsnyckel för automatiska förslag eller välj någon från den nedrullningsbara listan. Den nedrullningsbara listan fylls med nycklar från ditt Azure-konto prenumerationer. Anpassade automatiska förslag kräver en viss prenumeration-nivå, finns i den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
@@ -140,6 +89,79 @@ Använda värdbaserad användargränssnitt, antingen:
   > Sidan kan inte visa din sekretesspolicy eller andra meddelanden och villkor. Din lämplighet kan variera.  
 
 För ytterligare information, inklusive anpassade konfigurations-ID går du till **slutpunkter** under den **produktion** fliken.
+
+## <a name="configuration-options"></a>Konfigurationsalternativ
+
+Du kan konfigurera beteendet för värdbaserade Användargränssnittet genom att klicka på **ytterligare konfigurationer**, och att tillhandahålla värden. De här inställningarna är valfria. Effekten av att använda eller ta bort dem finns i förhandsgranskningsfönstret till höger. 
+
+### <a name="web-search-configurations"></a>Web sökkonfigurationer
+
+|  |  |
+|---------|---------|
+|Webbresultat aktiverat    | Anger om webbsökning är aktiverad (du kommer se en Web-flik längst ned på sidan)        |
+|Aktivera automatiska förslag     | Anger om anpassade automatiska förslag är aktiverad (se [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) ytterligare kostnad).        |
+|Webbresultat per sida    | Antal webbsökningar att visa i taget (det högsta antalet är 50 resultat per sida).        |
+|Bildtext   | Avgör om avbildningar visas med sökresultat.|
+
+
+Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**:
+
+
+|  | |
+|---------|---------|
+|Markera ord     | Avgör om resultatet visas med sökvillkoren visas med fet stil.         |
+|Länkmål    |  Anger om webbsidan öppnas i en ny webbläsarflik (tomt) eller samma webbläsarfliken (själv) när användaren klickar på ett sökresultat.        |
+
+### <a name="image-search-configurations"></a>Bild sökkonfigurationer
+
+| | |
+|---------|---------|
+|Bildresultat aktiverat     | Anger om bildsökning är aktiverad (en avbildningar fliken visas överst på sidan).            |
+|Bildresultat per sida     | Antal bildsökningsresultat att visa i taget (det högsta antalet är 150 resultat per sida).          |
+
+Följande konfiguration visas om du klickar på **visa avancerade konfigurationer**.  
+  
+| | |
+|---------|---------|
+| Aktivera filter     | Lägger till filter som användaren kan använda för att filtrera bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten för endast animerade GIF-filer.|
+
+### <a name="video-search-configurations"></a>Videosökning konfigurationer
+
+|  | |
+|---------|---------|
+|Videoresultat aktiverat     | Anger om videosökning är aktiverad (en videor fliken visas överst på sidan).           |
+|Video resultat per sida   | Antal videosökningsresultat att visa i taget (det högsta antalet är 150 resultat per sida).        |
+
+Följande konfiguration visas om du klickar på **visa avancerade konfigurationer**.  
+  
+|  | |
+|---------|---------|
+|Aktivera filter    | Lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en viss upplösning eller videofilmer som har identifierats under de senaste 24 timmarna.          |
+
+### <a name="miscellaneous-configurations"></a>Övriga konfigurationer
+
+
+| |  |
+|---------|---------|
+|Sidtitel   | Text som visas i avsnittet rubriken på sidan med sökresultat (inte för pop över layout).        |
+|Verktygsfältet tema    | Anger bakgrundsfärgen för rubrikområdet på sökresultatsidan. |
+
+Följande konfigurationer visas om du klickar på **visa avancerade konfigurationer**.  
+
+|Kolumn1  |Kolumn2  |
+|---------|---------|
+|Sök textplatshållare   | Text som visas i Sök-rutan innan du börjar indata.        |
+|Rubrik länka url    |Mål för länken rubrik.         |
+|URL: en logotyp     | Bild som visas bredvid rubriken.         |
+|Favicon    | Ikonen som visas i namnlisten i webbläsaren.          |
+
+Följande konfigurationer gäller bara om du använder Användargränssnittet finns via HTML-slutpunkt (de inte gäller om du använder JavaScript-kodavsnitt).
+
+- Sidtitel
+- Verktygsfältet tema
+- Rubrik-URL för länk
+- URL: en logotyp
+- Faviicon URL  
 
 ## <a name="next-steps"></a>Nästa steg
 

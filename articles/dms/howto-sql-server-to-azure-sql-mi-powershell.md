@@ -4,19 +4,19 @@ description: Lär dig hur du migrerar från en lokal SQL Server till Azure SQL D
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247173"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724206"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL Database Managed Instance med Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database Managed Instance med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database Managed Instance med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>Välj inloggningar
-Skapa lista över inloggningar som ska migreras som visas i exemplet nedan: för närvarande Observera DMS stöder migrera SQL-inloggningar. 
+Skapa lista över inloggningar som ska migreras som visas i exemplet nedan:  Observera att för närvarande DMS stöder endast migrera SQL-inloggningar. 
 
 ```powershell
 $selectedLogins = @("user1", "user2")

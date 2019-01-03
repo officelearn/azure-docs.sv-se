@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 8579eccfade83b3b3a016fc84429a914fbccd584
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/14/2018
+ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912279"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545305"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Snabbstart: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från en lokal plats
 
@@ -27,14 +27,14 @@ Den här snabbstarten visar hur du ansluter till en Azure SQL Database Managed I
 
 Den här snabbstarten:
 
-- Använder de resurser som har skapats i följande snabbstart som utgångspunkt: [Skapa en hanterad instans](sql-database-managed-instance-get-started.md).
-- Kräver PowerShell 5.1 och Azure PowerShell 5.4.2 eller högre den lokala klientdatorn.
-- Kräver den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) på den lokala klientdatorn
+- Använder resurserna som du skapade [skapar en hanterad instans](sql-database-managed-instance-get-started.md) som startpunkt.
+- Kräver PowerShell 5.1 och Azure PowerShell 5.4.2 eller senare på den lokala klientdatorn. Om det behövs, se anvisningarna för [installerar Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Kräver den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) på den lokala klientdatorn.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Bifoga en VPN-gateway till det virtuella nätverket för hanterad instans
 
 1. Öppna Powershell på den lokala klientdatorn.
-2. Kopiera och klistra in det här PowerShell-skriptet. Det här skriptet bifogar en VPN-Gateway till det virtuella nätverket för hanterad instans som du skapade i den [skapar en hanterad instans](sql-database-managed-instance-get-started.md) Snabbstart. Det här skriptet utför följande tre steg:
+2. Kopiera följande PowerShell-skript. Det här skriptet bifogar en VPN-Gateway till det virtuella nätverket för hanterad instans som du skapade i den [skapar en hanterad instans](sql-database-managed-instance-get-started.md) Snabbstart. Skriptet gör följande:
 
    - Skapa och installera certifikat på klientdatorn
    - Beräknar framtida VPN-Gateway undernätets IP-intervall
@@ -54,7 +54,7 @@ Den här snabbstarten:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Ange de begärda parametrarna i PowerShell-skript. Värdena för `<subscriptionId>`, `<resourceGroup>` och `<virtualNetworkName>` måste matcha de som används i [skapa Managed Instance](sql-database-managed-instance-get-started.md) Snabbstart. Värdet för `<certificateNamePrefix>` kan vara en sträng med ditt val.
+3. Klistra in skriptet i PowerShell-fönster och ange de obligatoriska parametrarna. Värdena för `<subscriptionId>`, `<resourceGroup>`, och `<virtualNetworkName>` måste matcha de som du använde för den [skapa Managed Instance](sql-database-managed-instance-get-started.md) Snabbstart. Värdet för `<certificateNamePrefix>` kan vara en sträng med ditt val.
 
 4. Kör PowerShell-skript.
 
@@ -62,47 +62,46 @@ Den här snabbstarten:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Öppna resursgruppen där du skapade den virtuella nätverksgatewayen och öppna sedan den virtuella nätverksresursen på en gateway.
-
-    ![gateway-resurs för virtuella nätverk](./media/sql-database-managed-instance-configure-p2s/vnet-gateway.png)  
-
-3. Klicka på **punkt-till-plats-konfiguration** och klicka sedan på **hämta VPN-klient**.
+3. Välj **punkt-till-plats-konfiguration** och välj sedan **hämta VPN-klient**.
 
     ![Ladda ned VPN-klienten](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Extrahera filerna från zip-filen och öppna den extrahera mappen.
-5. Navigera till mappen WindowsAmd64 och öppna den **VpnClientSetupAmd64.exe** fil.
-6. Om du får en **Windows skyddade datorn** klickar du på **mer info** och klicka sedan på **kör ändå**.
+4. Extrahera filerna från zip-filen på din lokala dator och sedan öppna den extrahera mappen.
+5. Öppna mappen WindowsAmd64 och öppna den **VpnClientSetupAmd64.exe** fil.
+6. Om du får en **Windows skyddade datorn** meddelandet markerar **mer info** och välj sedan **kör ändå**.
 
     ![Installera VPN-klienten](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Klicka på **Ja** i dialogrutan User Account Control för att fortsätta.
-8. I dialogrutan MyNewVNet klickar du på **Ja** att installera en Vpn-klient för MyNewVNet.
+7. Välj **Ja** i dialogrutan User Account Control för att fortsätta.
+8. I dialogrutan som refererar till det virtuella nätverket väljer **Ja** att installera VPN-klienten.
 
 ## <a name="connect-to-the-vpn-connection"></a>Ansluta till VPN-anslutningen
 
-1. Gå till VPN-anslutningar på din klientdator och klicka på **MyNewVNet** att upprätta en anslutning till det här virtuella nätverket.
+1. Gå till VPN-anslutningar på din lokala dator och välj ditt virtuella nätverk för hanterad instans att upprätta en anslutning till det här virtuella nätverket. I följande bild, det virtuella nätverket namnet **MyNewVNet**.
 
     ![VPN-anslutning](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. Klicka på **Anslut**.
-3. I dialogrutan MyNewVNet klickar du på **Connect**.
+2. Välj **Anslut**.
+3. I dialogrutan Välj **Connect**.
 
     ![VPN-anslutning](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
-4. När du uppmanas att Anslutningshanteraren behov förhöjda privilegier för att uppdatera din routningstabell, klickar du på **Fortsätt**.
-5. Klicka på **Ja** i dialogrutan User Account Control för att fortsätta.
+4. När du uppmanas att Connection Manager behöver förhöjda privilegier för att uppdatera din routningstabell, Välj **Fortsätt**.
+5. Välj **Ja** i dialogrutan User Account Control för att fortsätta.
+
+   Du har skapat en VPN-anslutning till din hanterade instans i virtuellt nätverk.
 
     ![VPN-anslutning](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
-   Du har skapat en VPN-anslutning till din hanterade instans i virtuellt nätverk.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Använd SSMS för att ansluta till den hanterade instansen
 
 1. Öppna SQL Server Management Studio (SSMS) på den lokala datorn.
-2. I den **Anslut till Server** dialogrutan anger du det fullständiga **värdnamn** för din hanterade instans i den **servernamn** väljer **SQL Server Autentisering**, ange ditt inloggningsnamn och lösenord och klicka sedan på **Connect**.
+2. I den **Anslut till Server** dialogrutan anger du det fullständiga **värdnamn** för din hanterade instans i den **servernamn** box. 
+1. Välj **SQL Server-autentisering**, ange ditt användarnamn och lösenord och välj sedan **Connect**.
 
     ![ssms anslut](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
-När du ansluter kan du visa system- och användardatabaserna i noden för databaser och olika objekt i noderna för säkerhet, server-objekt, replikering, hantering, SQL Server Agent och XEvent Profiler.
+När du ansluter kan kan du visa din system- och användardatabaserna i noden databaser. Du kan också visa olika objekt i noderna säkerhet, Server-objekt, replikering, hantering, SQL Server Agent och XEvent Profiler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En Snabbstart som visar hur du ansluter från en Azure virtuell dator, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md)
-- En översikt över anslutningsalternativen för program finns i [Ansluta dina program till hanterad instans](sql-database-managed-instance-connect-app.md).
-- Om du vill återställa en lokal befintlig SQL Server-databas till en hanterad instans kan du använda [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) till att återställa från en databassäkerhetskopia eller kommandot [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) till att återställa från en databassäkerhetskopia.
+- En Snabbstart som visar hur du ansluter från en Azure virtuell dator, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md).
+- En översikt över anslutningsalternativen för olika program finns i [Ansluta dina program till Managed Instance](sql-database-managed-instance-connect-app.md).
+- Om du vill återställa en befintlig SQL Server-databas från en lokal plats till en hanterad instans, kan du använda den [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) eller [T-SQL RESTORE-kommandot](sql-database-managed-instance-get-started-restore.md) att återställa från en säkerhetskopian av databasfilen.

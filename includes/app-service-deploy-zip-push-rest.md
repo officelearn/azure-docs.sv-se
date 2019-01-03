@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737258"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53551676"
 ---
 ## <a name="rest"></a>Distribuera ZIP-filen med REST API: er 
 
 Du kan använda den [distributionstjänst för REST API: er](https://github.com/projectkudu/kudu/wiki/REST-API) att distribuera .zip-filen till din app i Azure. Om du vill distribuera, skicka en POST-begäran till https://<app_name>.scm.azurewebsites.net/api/zipdeploy. POST-begäran måste innehålla .zip-filen i meddelandetexten. Autentiseringsuppgifterna för distribution för din app tillhandahålls i begäran med hjälp av grundläggande HTTP-autentisering. Mer information finns i den [referens för distribution av .zip-push](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-För grundläggande HTTP-autentisering måste du dina autentiseringsuppgifter för distribution av App Service. Om du vill se hur du anger dina autentiseringsuppgifter för distribution, se [ange och Återställ användarnivå autentiseringsuppgifter](../articles/app-service/app-service-deployment-credentials.md#userscope).
+För grundläggande HTTP-autentisering måste du dina autentiseringsuppgifter för distribution av App Service. Om du vill se hur du anger dina autentiseringsuppgifter för distribution, se [ange och Återställ användarnivå autentiseringsuppgifter](../articles/app-service/deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Med cURL
 

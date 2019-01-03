@@ -1,106 +1,72 @@
 ---
-title: Azure IoT-Lösningsacceleratorer och Azure Active Directory | Microsoft Docs
-description: Beskriver hur Azure IoT-Lösningsacceleratorer använder Azure Active Directory för att hantera behörigheter.
+title: Använda webbplatsen för Azure IoT-lösningar – Azure | Microsoft Docs
+description: Beskriver hur du använder webbplatsen AzureIoTSolutions.com för att distribuera utvecklingsacceleratorn.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713858"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601091"
 ---
-# <a name="permissions-on-the-azureiotsolutionscom-site"></a>Behörigheter på webbplatsen azureiotsolutions.com
+# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Använda azureiotsolutions.com plats för att distribuera din lösningsaccelerator
 
-## <a name="what-happens-when-you-sign-in"></a>Vad händer när du loggar in
+Du kan distribuera Azure IoT-Lösningsacceleratorer till din Azure-prenumeration från [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com är värd för både Microsoft öppen källkod och partner Lösningsacceleratorer. Dessa Lösningsacceleratorer överensstämmer med den [Referensarkitektur för Azure IoT](https://aka.ms/iotrefarchitecture). Du kan använda webbplatsen för att snabbt distribuera en lösningsaccelerator som en demo eller produktion-miljö.
 
-Första gången du loggar in på [azureiotsuite.com][lnk-azureiotsolutions], platsen avgör behörighetsnivåer baserat på de valda Azure Active Directory (AAD)-klient och Azure-prenumeration.
+![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
-1. Först för att fylla i listan över klienter som visas bredvid ditt användarnamn, hittar webbplatsen från Azure vilka AAD-klienter som du tillhör. Platsen kan för närvarande kan bara hämta användartoken för en klient i taget. Därför när du växlar klienter med hjälp av listrutan i det övre högra hörnet loggar platsen du i den klienten att hämta token för den klienten.
+> [!TIP]
+> Om du behöver mer kontroll över distributionsprocessen kan du använda den [CLI för att distribuera en lösningsaccelerator](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-2. Sedan hittar platsen från Azure vilka prenumerationer som du har associerat med den valda klientorganisationen. Du kan se tillgängliga prenumerationer när du skapar en ny lösningsaccelerator.
+Du kan distribuera Lösningsacceleratorer i följande konfigurationer:
 
-3. Slutligen hämtar platsen alla resurserna i prenumerationer och resursgrupper märkts med Lösningsacceleratorer och fyller på panelerna på startsidan.
+* **Standard**: En för utökad infrastrukturdistribution för att utveckla en produktionsmiljö. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-containrar som värdar för enskilda mikrotjänster.
+* **Grundläggande**: En lägre kostnadsversion för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
+* **Lokala**: En lokal datordistribution för testning och utveckling. Den här metoden distribuerar mikrotjänsterna till en lokal Docker-behållare och ansluter till IoT Hub, Azure Cosmos DB och Azure storage-tjänster i molnet.
 
-I följande avsnitt beskrivs de roller som styr åtkomsten till i lösningsacceleratorerna.
+Var och en av Lösningsacceleratorer använder en annan kombination av Azure-tjänster som IoT Hub, Azure Stream Analytics och Cosmos DB. För mer information, besök [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) och välj en lösningsaccelerator.
 
-## <a name="aad-roles"></a>AAD-roller
+## <a name="sign-in-at-azureiotsolutionscom"></a>Logga in på azureiotsolutions.com
 
-AAD-roller styra möjligheten att etablera Lösningsacceleratorer, att hantera användare och vissa Azure-tjänster i en lösningsaccelerator.
+Innan du kan distribuera en lösningsaccelerator, måste du logga in på AzureIoTSolutions.com med hjälp av autentiseringsuppgifter som är associerade med en Azure-prenumeration. Om ditt konto är associerad med fler än en klient i Microsoft Azure Active Directory (AD), kan du använda den **listruta för val av konto** att välja katalog.
 
-Du hittar mer information om administratörsroller i AAD i [Tilldela administratörsroller i Azure AD][lnk-aad-admin]. Den aktuella artikeln fokuserar på de **Global administratör** och **användaren** katalogroller som används av Lösningsacceleratorer.
+Dina behörigheter för att distribuera Lösningsacceleratorer, hantera användare och hantera Azure-tjänster är beroende av din roll i den valda katalogen. Vanliga Azure AD-roller som är associerade med Lösningsacceleratorer är:
 
-### <a name="global-administrator"></a>Global administratör
+* **Global administratör**: Det kan finnas många [globala administratörer](../active-directory/users-groups-roles/directory-assign-admin-roles.md) per Azure AD-klient:
 
-Det kan finnas många globala administratörer per AAD-klient:
+  * När du skapar en Azure AD-klient, är du som standard global administratör för klienten.
+  * Global administratör kan distribuera basic och standard Lösningsacceleratorer.
 
-* När du skapar en AAD-klient, är du som standard global administratör för klienten.
-* Global administratör kan etablera en grundläggande och standard Lösningsacceleratorer (en grundläggande distribution använder en enda Azure-dator).
+* **Domänanvändare**: Det kan finnas många domänanvändare per Azure AD-klient. En domänanvändare kan distribuera en grundläggande lösningsaccelerator.
 
-### <a name="domain-user"></a>Domänanvändare
+* **Gästanvändaren**: Det kan finnas många gästanvändare per Azure AD-klient. Gästanvändare kan inte distribuera en lösningsaccelerator i Azure AD-klient.
 
-Det kan finnas många domänanvändare per AAD-klient:
+Mer information om användare och roller i Azure AD finns i följande resurser:
 
-* En domänanvändare kan etablera en grundläggande lösningsaccelerator via den [azureiotsolutions.com] [ lnk-azureiotsolutions] plats.
-* En domänanvändare kan skapa en grundläggande lösningsaccelerator med hjälp av CLI.
+* [Skapa användare i Azure Active Directory](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+* [Tilldela användare till appar](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="guest-user"></a>Gästanvändare
+## <a name="choose-your-device"></a>Välj din enhet
 
-Det kan finnas många gästanvändare per AAD-klient. Gästanvändare har en begränsad uppsättning rättigheter i AAD-klient. Gästanvändare kan därför kan inte etablera en lösningsaccelerator i AAD-klient.
+Webbplatsen AzureIoTSolutions.com länkar till den [Azure Certified för IoT-enhetskatalog](https://catalog.azureiotsolutions.com/).
 
-Mer information om användare och roller i AAD finns i följande resurser:
+Katalogen innehåller hundratals certifierade IoT-maskinvaruenheter som du kan ansluta till dina Lösningsacceleratorer för att börja skapa din IoT-lösning.
 
-* [Skapa användare i Azure AD][lnk-create-edit-users]
-* [Tilldela användare till appar][lnk-assign-app-roles]
+![Enhetskatalog](media/iot-accelerators-permissions/devicecatalog.png)
 
-## <a name="azure-subscription-administrator-roles"></a>Administratörsroller i Azure-prenumeration
-
-Azure-administratörsroller styra möjligheten att mappa en Azure-prenumeration till en AAD-klient.
-
-Lär dig mer om Azure administratörsroller i artikeln [Lägg till eller ändra Azure-prenumerationsadministratörer][lnk-admin-roles].
-
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Jag är en tjänstadministratör och jag skulle vilja ändra directory mappningen mellan min prenumeration och en specifik AAD-klient. Hur jag för att slutföra den här uppgiften?
-
-Se [att lägga till en befintlig prenumeration i Azure AD-katalogen](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
-
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Jag vill ändra en tjänstadministratör eller delad administratör när du har loggat in med ett organisationskonto
-
-Se supportartikeln [ändra tjänstadministratör och delad administratör när du har loggat in med ett organisationskonto][lnk-service-admins].
-
-### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Varför ser jag det här felet? ”Ditt konto har inte behörighet att skapa en lösning. Kontrollera kontoadministratören eller försök med ett annat konto ”.
-
-Titta på diagrammet nedan anvisningar:
-
-![][img-flowchart]
-
-> [!NOTE]
-> Om du ser felet när du har validerat du är global administratör för AAD-klient och en medadministratör för prenumerationen, har din kontoadministratör tar bort användare och tilldela nödvändiga behörigheter i den här ordningen. Först lägger du till användaren som global administratör och Lägg sedan till användaren som en medadministratör för Azure-prenumerationen. Om problemen kvarstår, kontakta [hjälp och Support][lnk-help-support].
-
-### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Varför ser jag det här felet när jag har en Azure-prenumeration? ”En Azure-prenumeration krävs för att skapa förkonfigurerade lösningar. Du kan skapa ett kostnadsfritt utvärderingskonto på bara några minuter ”.
-
-Om du är säker på att du har en Azure-prenumeration Validera klientmappning för din prenumeration och se till att rätt klient har valts i listrutan. Om du har verifierat den önskade klienten är korrekt, följer du föregående diagram och verifiera mappningen av din prenumeration och AAD-klient.
+Om du är en maskinvarutillverkare, klickar du på **bli en Partner** vill veta mer om partnerskap med Microsoft på Certified for IoT-programmet.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill lära dig mer om IoT-Lösningsacceleratorer, se hur du [anpassar en lösningsaccelerator][lnk-customize].
 
-[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
+Ta en titt på snabbstarterna om du vill prova någon av IoT-lösningsacceleratorerna:
 
-[lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
-[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
-[lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
-[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
-[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
-[lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: iot-accelerators-remote-monitoring-customize.md
+* [Testa en fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md)
+* [Testa en lösning för ansluten fabrik](quickstart-connected-factory-deploy.md)
+* [Testa en lösning för förutsägande underhåll](quickstart-predictive-maintenance-deploy.md)
+* [Testa en enhetssimuleringslösning](quickstart-device-simulation-deploy.md)

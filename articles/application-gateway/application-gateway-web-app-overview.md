@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e5f48e42a2a677622dae0b733f9d5af484d1c51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578440"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605814"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Stöd för serverdelar för flera klientorganisationer i Application Gateway
 
-Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade namn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex. [Azure Web Apps](../app-service/app-service-web-overview.md), som per definition stöder flera klientorganisationer och som kräver en specifik värdrubrik eller ett specifikt SNI-tillägg för att kunna matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-Värdrubriken baserat på backend-HTTP-inställningarna. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för flera klienter backend-fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
+Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade namn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex [Azure App Service](../app-service/overview.md) som är flera klientorganisationer och förlitar sig på en specifik värdrubrik eller ett SNI-tillägg för att matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-Värdrubriken baserat på backend-HTTP-inställningarna. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för flera klienter backend-fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
 
 > [!NOTE]
 > Ställa in autentisering servercertifikat krävs inte för betrodda Azure-tjänster som Azure Web Apps.
@@ -36,4 +36,4 @@ Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du konfigurerar en Programgateway med en webbapp som en medlem i serverdelspoolen genom att besöka: [konfigurera App Service web apps med Application Gateway](application-gateway-web-app-powershell.md)
+Lär dig hur du konfigurerar en Programgateway med en webbapp som medlem backend-poolen genom att gå till: [Konfigurera App Service-webbappar med Application Gateway](application-gateway-web-app-powershell.md)

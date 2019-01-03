@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717882"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: Skillnader och överväganden
 
@@ -34,8 +34,8 @@ Den här artikeln sammanfattas de kända Azure Stack Storage skillnaderna från 
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Molnbaserade SMB-filresurser som stöds|Stöds inte än
-|Azure storage service encryption för vilande data|256-bitars AES-kryptering|BitLocker 128-bitars AES-kryptering
-|Storage Account-typ|Allmänna och Azure blob storage-konton|Allmänna endast.
+|Azure storage service encryption för vilande data|256-bitars AES-kryptering. Stöd för kryptering med Kundhanterade nycklar i Key Vault.|BitLocker 128-bitars AES-kryptering. Kryptering med Kundhanterade nycklar stöds inte.
+|Storage Account-typ|General-Purpose V1, V2 och Blob storage-konton|General-Purpose V1.
 |Replikeringsalternativ|Lokalt redundant lagring, geo-redundant lagring, läsåtkomst till geografiskt redundant lagring och zonredundant lagring|Lokalt redundant lagring.
 |Premium Storage|Stöds fullt ut|Kan tillhandahållas, men ingen prestandagräns eller garanterar.
 |Hanterade diskar|Premium och standard som stöds|Stöds när du använder version 1808 eller senare.
@@ -44,11 +44,14 @@ Den här artikeln sammanfattas de kända Azure Stack Storage skillnaderna från 
 |Kopiering av sidan blob-ögonblicksbild|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än.
 |Sidan kopiering av blob inkrementell ögonblicksbild|Premium och standard Azure sidblobar som stöds|Stöds inte än.
 |Lagringsnivåer för bloblagring|Frekvent, lågfrekvent och arkivlagringsnivå.|Stöds inte än.
-Mjuk borttagning för blob storage|Förhandsversion|Stöds inte än.
+|Mjuk borttagning för blob storage|Allmänt tillgänglig|Stöds inte än.
 |Maximal sidstorlek för blob|8 TB|1 TB
 |Sidan blob sidstorlek|512 byte|4 KB
 |Tabellen partition och radnyckel nyckelstorlek|1 024 tecken (2 048 byte)|400 tecken (800 byte)
-|Blobögonblicksbilden|Det maximala antalet ögonblicksbilder av en blob är inte begränsat.|Det maximala antalet ögonblicksbilder av en blob är 1 000.|
+|Blobögonblicksbilden|Det maximala antalet ögonblicksbilder av en blob är inte begränsat.|Det maximala antalet ögonblicksbilder av en blob är 1 000.
+|Azure AD-autentisering för lagring|Förhandsversion|Stöds inte än.
+|Oföränderlig Blobar|Allmänt tillgänglig|Stöds inte än.
+|Brandvägg och virtuella Nätverksregler för lagring|Allmänt tillgänglig|Stöds inte än.|
 
 Det finns också skillnader med mätvärden i storage:
 
@@ -61,7 +64,17 @@ Följande versioner stöds med Azure Stack-lagring:
 
 Azure Storage services-API: er:
 
-Uppdatera 1802 eller senare:
+1811 uppdatering eller nyare versioner:
+
+ - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+1802 uppdatering till 1809 update:
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ Azure Storage Service management API: er:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+Tidigare versioner:
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>SDK-versioner
 
 Azure Stack-storage stöder följande klientbibliotek:

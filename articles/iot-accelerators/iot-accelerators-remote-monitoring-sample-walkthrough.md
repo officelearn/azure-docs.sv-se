@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316173"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605542"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Remote Monitoring solution accelerator översikt
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn för fjärrövervakning
 
 Den fjärrövervakning [lösningsaccelerator](../iot-accelerators/about-iot-accelerators.md) implementerar en lösning för slutpunkt till slutpunkt-övervakning för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som utgångspunkt för en egen implementering och [anpassa](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) dem efter dina specifika affärskrav.
 
@@ -135,7 +135,7 @@ Den [configuration mikrotjänst](https://github.com/Azure/remote-monitoring-serv
 
 ### <a name="authentication-and-authorization-microservice"></a>Autentisering och auktorisering mikrotjänst
 
-Den [autentisering och auktorisering mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) hanterar de användare som har behörighet att komma åt solution accelerator. Hantering av användare kan göras med hjälp av någon identity-tjänstleverantör som stöder [OpenId Connect](http://openid.net/connect/).
+Den [autentisering och auktorisering mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) hanterar de användare som har behörighet att komma åt solution accelerator. Hantering av användare kan göras med hjälp av någon identity-tjänstleverantör som stöder [OpenId Connect](https://openid.net/connect/).
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 

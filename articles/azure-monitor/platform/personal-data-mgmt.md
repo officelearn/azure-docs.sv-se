@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192438"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810278"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -124,4 +124,4 @@ När de har tilldelats rollen Azure Resource Manager finns två nya API-sökväg
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om hur Log Analytics-data som samlas in, bearbetas och skyddas i [Log Analytics-datasäkerhet](../../azure-monitor/platform/data-security.md).
-- Läs mer om hur Application Insights-data som samlas in, bearbetas och skyddas i [Application Insights datasäkerhet](../../application-insights/app-insights-data-retention-privacy.md).
+- Läs mer om hur Application Insights-data som samlas in, bearbetas och skyddas i [Application Insights datasäkerhet](../../azure-monitor/app/data-retention-privacy.md).

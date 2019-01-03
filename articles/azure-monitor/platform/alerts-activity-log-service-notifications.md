@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343303"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583739"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aviseringar för aktivitetsloggen för tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -69,7 +69,7 @@ Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med
 
 1. Definiera en lista över mottagare genom att tillhandahålla mottagarens:
 
-    a. **Namn på**: Ange mottagarens namn, alias eller identifierare.
+    a. **Namn**: Ange mottagarens namn, alias eller identifierare.
 
     b. **Åtgärdstyp**: Välj SMS, e-post, webhook, Azure-app med mera.
 
@@ -196,7 +196,7 @@ När du skapar en avisering, är det visas i den **aviseringar** delen av **öve
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](../../service-health/service-health-alert-webhook-guide.md).
-- Lär dig mer om [service health meddelanden](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Lär dig mer om [service health meddelanden](../../azure-monitor/platform/service-notifications.md).
 - Lär dig mer om [meddelande hastighetsbegränsning](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Granska den [avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Hämta en [översikt över aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md), och lär dig hur du får aviseringar. 

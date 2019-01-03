@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417777"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722150"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Parameteravsnittet av Azure Resource Manager-mallar
 I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurser. Dessa parametervärden kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö (till exempel utveckling, testning och produktion). Du behöver inte ange parametrar i mallen, men utan parametrar mallen distribuerar alltid samma resurser med samma namn, platser och egenskaper.
@@ -91,8 +91,8 @@ I föregående exempel visade endast vissa av egenskaperna som du kan använda i
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att se till att rätt värde har angetts. |
 | minValue |Nej |Det minsta värdet för parametrar av typen int det här värdet är inkluderande. |
 | maxValue |Nej |Det maximala värdet för parametrar av typen int det här värdet är inkluderande. |
-| minLength |Nej |Den minsta längden för string, securestring och array typparametrar det här värdet är inkluderande. |
-| maxLength |Nej |Den maximala längden för string, securestring och array typparametrar det här värdet är inkluderande. |
+| minLength |Nej |Den minsta längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
+| maxLength |Nej |Den maximala längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
 | beskrivning |Nej |Beskrivning av den parameter som visas för användarna via portalen. |
 
 ## <a name="template-functions-with-parameters"></a>Mallfunktioner med parametrar
@@ -188,74 +188,6 @@ Sedan referera subegenskaper för parametern genom att använda punktoperatorn.
 ]
 ```
 
-## <a name="recommendations"></a>Rekommendationer
-Följande information kan vara till hjälp när du arbetar med parametrar:
-
-* Minimera din användning av parametrar. När det är möjligt använda en variabel eller ett literalvärde. Använda parametrar för endast för dessa scenarier:
-   
-   * Inställningar som du vill använda varianter av enligt miljö (SKU, storlek, kapacitet).
-   * Resursnamn som du vill ange för enkel identifiering.
-   * Värden som du använder ofta att utföra andra åtgärder (till exempel ett administratörsanvändarnamn).
-   * Hemligheter (till exempel lösenord).
-   * Talet eller matris med värden som ska användas när du skapar fler än en instans av en resurstyp.
-* Använd kamelnotation för parameternamn.
-* Ange en beskrivning av varje parameter i metadata:
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Definiera standardvärden för parametrar (förutom för lösenord och SSH-nycklar). Genom att ange ett standardvärde, blir parametern valfritt under distributionen. Standardvärdet kan vara en tom sträng. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Använd **securestring** för alla lösenord och hemligheter. Om du skickar känsliga data i JSON-objektet, använder du den **secureObject** typen. Mallparametrar med securestring eller secureObject typer kan inte läsas efter resursdistributionen. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Använd en parameter för att ange plats och dela det parametervärdet som är så mycket som möjligt med resurser som sannolikt kommer att finnas på samma plats. Denna metod minimerar antalet gånger som användare uppmanas att ange platsinformation. Om en resurstyp som stöds i endast ett begränsat antal platser, kanske du vill ange en giltig plats direkt i mallen eller Lägg till en annan plats-parameter. När en organisation begränsar de tillåtna regionerna för dess användare, den **resourceGroup () .location** uttryck kan förhindra att en användare från att distribuera mallen. Exempelvis kan skapar en användare en resursgrupp i en region. En annan användare måste distribuera till resursgruppen men har inte åtkomst till regionen. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Undvik att använda en parameter eller variabel för API-versionen för en resurstyp. Egenskaper för resursen och värdena kan variera efter versionsnummer. IntelliSense i en Kodredigerare kan inte fastställa rätt schema när API-versionen anges som en parameter eller variabel. I stället hårdkoda API-versionen i mallen.
-* Undvik att ange ett parameternamn i mallen som matchar en parameter i distributionskommandot. Resource Manager löser den här namnkonflikten genom att lägga till postfixen **från mall** mall-parameter. Exempel: Om du inkluderar en parameter med namnet **ResourceGroupName** i mallen, den är i konflikt med den **ResourceGroupName** parametern i den [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Under distributionen kan du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**.
-
 ## <a name="example-templates"></a>Exempel på mallar
 
 Dessa exempel på mallar visar några scenarier för att använda parametrar. Distribuera dem för att testa hur parametrar ska hanteras i olika scenarier.
@@ -269,5 +201,5 @@ Dessa exempel på mallar visar några scenarier för att använda parametrar. Di
 
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 * Att ange parametervärden under distributionen, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md). 
-* Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
+* Rekommendationer om hur du skapar mallar finns i [Metodtips för Azure Resource Manager-mall](template-best-practices.md).
 * Information om hur du använder ett parametern-objekt finns i [använda ett objekt som en parameter i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

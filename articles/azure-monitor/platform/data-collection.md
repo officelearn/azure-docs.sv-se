@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435964"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718970"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -86,7 +86,7 @@ Det finns tre grundläggande källor till mätvärden som samlats in från Azure
 **Mätvärden för Application** skapas av Application Insights för övervakade program och hjälper dig att identifiera problem med prestanda och spåra trender i hur ditt program används. Detta inkluderar sådana värden som _serversvarstid_ och _webbläsarundantag_.
 
 **Anpassade mått** är mått som du definierar förutom standard mått som är automatiskt tillgängliga. Anpassade mått måste skapas mot en enskild resurs i samma region som den här resursen. Du kan skapa anpassade mått med hjälp av följande metoder:
-    - [Definiera anpassade mått i ditt program](../../application-insights/app-insights-api-custom-events-metrics.md) som övervakas av Application Insights. Dessa anges utöver standard av programmått.
+    - [Definiera anpassade mått i ditt program](../../azure-monitor/app/api-custom-events-metrics.md) som övervakas av Application Insights. Dessa anges utöver standard av programmått.
     - Publicera anpassade mått från dina Windows-datorer med hjälp av [Windows diagnostik tillägget SÄKERHETSSPECIFIKA](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publicera anpassade mått från din Linux-datorer med hjälp av [InfluxData Telegraf agenten](https://www.influxdata.com/time-series-platform/telegraf/).
     - Skriva anpassade mått från en Azure-tjänst med hjälp av den anpassade måtten-API.
@@ -100,8 +100,8 @@ Följande: uppgifter som du kan utföra med mått
 - Konfigurera en [måttaviseringsregel](alerts-metric.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när måtten överskrider ett tröskelvärde.
 - Använd [Autoskala](../../azure-monitor/platform/autoscale-overview.md) att öka eller minska resurser baserat på ett mått som korsar ett tröskelvärde.
 - Vägens mått till Log Analytics att analysera måttdata tillsammans med loggdata och för att lagra måttvärden under längre tid än 93 dagar. 
-- Stream mått för att en [Händelsehubb](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) att dirigera dem till [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) eller till externa system.
-- [Arkivera](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline.
+- Stream mått för att en [Händelsehubb](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) att dirigera dem till [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) eller till externa system.
+- [Arkivera](../../azure-monitor/learn/tutorial-archive-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline.
 - Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) eller [REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
@@ -129,7 +129,7 @@ Loggarna är särskilt användbart för att kombinera data från olika källor, 
 ### <a name="sources-of-log-data"></a>Källor för loggdata
 Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala resurser. Källor för loggdata som följande:
 
-- [Aktivitetsloggar](collect-activity-logs.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
+- [Aktivitetsloggar](collect-activity-logs.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) som ger insikt i deras funktion.
 - Agenter på [Windows](agent-windows.md) och [Linux](../learn/quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Azure Monitor enligt [datakällor](data-sources.md) som du konfigurerar.
 - Programdata som samlas in av [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../insights/solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
@@ -156,7 +156,7 @@ Uppgifter som du kan utföra med loggar som följande:
 Alla loggdata i Azure Monitor hämtas med hjälp av en [loggfråga](../log-query/log-query-overview.md) skrivna med den [Datautforskaren frågespråk](../log-query/get-started-queries.md), där du kan snabbt hämta, konsolidera och analysera insamlade data. Använd [Log Analytics](../log-query/portals.md) att skriva och testa frågor i Azure-portalen. Du kan arbeta interaktivt med resultat eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta loggar med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Data från Application Insights lagras i en separat partition än andra loggdata i Azure Monitor. Det ger stöd för samma funktioner som andra loggdata, men du måste använda den [Application Insights-konsolen](/application-insights/app-insights-analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../log-query/cross-workspace-query.md) att analysera programdata tillsammans med andra loggdata.
+> Data från Application Insights lagras i en separat partition än andra loggdata i Azure Monitor. Det ger stöd för samma funktioner som andra loggdata, men du måste använda den [Application Insights-konsolen](/azure-monitor/app/analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../log-query/cross-workspace-query.md) att analysera programdata tillsammans med andra loggdata.
 
 ![Logs](media/data-collection/logs.png)
 
@@ -176,7 +176,7 @@ Förklaring av den här funktionen är tillgänglig på [skapa aviseringar för 
 ## <a name="stream-data-to-external-systems"></a>Stream-data till externa system
 Förutom att använda verktygen i Azure för att analysera övervakningsdata, kan du ha ett krav att vidarebefordra det till ett externt verktyg, till exempel en säkerhetsinformations- och event management (SIEM)-produkt. Den här vidarebefordran normalt görs direkt från övervakade resurser via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
-Du kan få vägledning för de olika typerna av övervakningsdata på [Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Du kan få vägledning för de olika typerna av övervakningsdata på [Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

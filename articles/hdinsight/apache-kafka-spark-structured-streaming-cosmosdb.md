@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014539"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630168"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använda Apache Spark Structured Streaming med Apache Kafka och Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Lär dig hur du använder [Apache Spark](https://spark.apache.org/) [Structured 
 
 Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. Läs mer om Structured Streaming, den [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) på Apache.org.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Det här exemplet används Apache Spark 2.2 på HDInsight 3.6.
 >
 > Stegen i det här dokumentet skapar en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
@@ -37,7 +37,7 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
 
 ![Diagram över Apache Spark- och Kafka-kluster i ett virtuellt Azure-nätverk](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka-tjänsten är begränsad till kommunikation inom det virtuella nätverket. Andra tjänster på klustret, till exempel SSH och Ambari, kan nås via Internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är enklare att använda en Azure Resource Manager-mall. Använd följande steg för att distribuera ett Azure-nätverk, Kafka och Spark-kluster på Azure-prenumerationen.
@@ -58,12 +58,12 @@ Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är e
 
     * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Det virtuella nätverket som skapas av mallen använder adressutrymmet 10.0.0.0/16.
 
     * En Azure Cosmos DB SQL API-databas.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Anteckningsboken för Structured Streaming som används i det här exemplet kräver Apache Spark i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
 
 2. Använd följande information för att fylla i posterna i den **anpassad distribution** avsnittet:
@@ -72,32 +72,32 @@ Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är e
 
     * **Prenumeration**: Välj din Azure-prenumeration.
    
-    * **Resursgrupp**: skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
+    * **Resursgrupp**: Skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
 
     * **Plats**: Välj en plats geografiskt nära dig.
 
-    * **Cosmos DB-kontonamn**: det här värdet används som namn på Cosmos DB-kontot.
+    * **Cosmos DB-kontonamn**: Det här värdet används som namn på Cosmos DB-kontot.
 
-    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet för Spark och Kafka-kluster. Till exempel innebär **myhdi** skapar ett Spark-kluster med namnet __spark-myhdi__ och ett Kafka-kluster med namnet **kafka myhdi**.
+    * **Basera klusternamnet**: Det här värdet används som huvudnamnet för Spark och Kafka-kluster. Till exempel innebär **myhdi** skapar ett Spark-kluster med namnet __spark-myhdi__ och ett Kafka-kluster med namnet **kafka myhdi**.
 
-    * **Cluster Version**: The HDInsight-kluster av version.
+    * **Cluster Version**: HDInsight-klusterversionen.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Det här exemplet har testats med HDInsight 3.6 och kanske inte fungerar med andra klustertyper.
 
-    * **Kluster-användarnamnet för inloggningen**: administratörsanvändarnamn för Spark och Kafka-kluster.
+    * **Kluster-användarnamnet för inloggningen**: Administratörsanvändarnamn för Spark och Kafka-kluster.
 
-    * **Kluster inloggningslösenordet**: ett administratörslösenord för Spark och Kafka-kluster.
+    * **Kluster inloggningslösenordet**: Administratörslösenord för Spark och Kafka-kluster.
 
     * **SSH-användarnamn**: SSH-användaren skapar för Spark och Kafka-kluster.
 
-    * **SSH-lösenord**: lösenordet för SSH-användare för Spark och Kafka-kluster.
+    * **SSH lösenord**: Lösenordet för SSH-användare för Spark och Kafka-kluster.
 
 3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
 4. Välj slutligen **köp**. Det tar cirka 20 minuter för att skapa kluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Det kan ta upp till 45 minuter att skapa kluster, virtuella nätverk och Cosmos DB-konto.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Skapa Cosmos DB-databas och samling
@@ -140,7 +140,7 @@ Dokumentet slutpunkt och primära nyckelinformationen som genereras liknar följ
 "YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Spara slutpunkt och nyckelvärden, eftersom de behövs i Jupyter-anteckningsböcker.
 
 ## <a name="get-the-apache-kafka-brokers"></a>Hämta Apache Kafka-meddelandeköer
@@ -158,7 +158,7 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Bash-exempel förväntar sig `$CLUSTERNAME` som innehåller namnet på Kafka-klustret.
 >
 > Det här exemplet används den [jq](https://stedolan.github.io/jq/) verktyg för att parsa data från JSON-dokumentet.

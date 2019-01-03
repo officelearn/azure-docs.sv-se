@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849504"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723934"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera klienter för VMware fisaster återställning till Azure med CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera klienter för VMware-haveriberedskap till Azure med CSP
 
 [Azure Site Recovery](site-recovery-overview.md) har stöd för flera innehavare miljöer för klient-prenumerationer. Det stöder också flera innehavare för klient-prenumerationer som skapas och hanteras via Microsoft Cloud Solution Provider (CSP)-programmet.
 
@@ -24,11 +24,11 @@ Den här artikeln innehåller en översikt över implementering och hantering av
 
 Det finns tre större modeller för flera innehavare:
 
-* **Delade som är värd för Services Provider (HSP)**: partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
+* **Delade värdbaserade tjänster (HSP)**: Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
 
-* **Dedikerad som är värd för tjänsteleverantör**: partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters fysiska datalager och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga den som en lösning för självbetjäning.
+* **Särskilda tjänster värdleverantör**: Partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters fysiska datalager och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga den som en lösning för självbetjäning.
 
-* **Managed Services Provider (MSP)**: kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
+* **Hanterad Services Provider (MSP)**: Kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Delade tjänster provider (HSP)
 
@@ -46,8 +46,8 @@ I diagrammet har varje kund en separat hanteringsserver. Den här konfiguratione
 
 Kravet på isolering innebär att all infrastrukturinformation som känsliga (till exempel autentiseringsuppgifter) förblir hemlig till klienter. Därför rekommenderar vi att alla komponenter i management-servern är under din kontroll av partnern. Management server-komponenter är:
 
-* Konfigurationsservern
-* Processervern
+* Konfigurationsserver
+* Processerver
 * Huvudmålservern
 
 En sak som skalats ut-server är också under partnerns kontroll.
@@ -56,9 +56,9 @@ En sak som skalats ut-server är också under partnerns kontroll.
 
 Varje konfigurationsservern i scenariot för flera innehavare använder två konton:
 
-- **kontot för vCenter**: det här kontot används för att identifiera virtuella klientdatorer. Den har vCenter åtkomstbehörigheter som är tilldelade till den. För att undvika läckage av åtkomst, rekommenderar vi att partner anger autentiseringsuppgifterna sig själva i konfigurationsverktyget.
+- **kontot för vCenter**: Det här kontot används för att identifiera virtuella klientdatorer. Den har vCenter åtkomstbehörigheter som är tilldelade till den. För att undvika läckage av åtkomst, rekommenderar vi att partner anger autentiseringsuppgifterna sig själva i konfigurationsverktyget.
 
-- **Kontot för virtuell dator**: det här kontot används för att installera tjänsten mobilitetsagenten på klient virtuella datorer, med en automatisk push-installation. Det är vanligtvis ett domänkonto som en klient kan ge en partner eller ett konto som partner kan hantera direkt. Om en klient inte vill dela information med partnern direkt måste ange de autentiseringsuppgifterna via tidsbegränsad åtkomst till konfigurationsservern. Med partners, de kan också installera Mobility service-agenten manuellt.
+- **Kontot för virtuell dator**: Det här kontot används för att installera tjänsten mobilitetsagenten på klient virtuella datorer, med en automatisk push-installation. Det är vanligtvis ett domänkonto som en klient kan ge en partner eller ett konto som partner kan hantera direkt. Om en klient inte vill dela information med partnern direkt måste ange de autentiseringsuppgifterna via tidsbegränsad åtkomst till konfigurationsservern. Med partners, de kan också installera Mobility service-agenten manuellt.
 
 ## <a name="vcenter-account-requirements"></a>vCenter-kontokrav
 
@@ -75,11 +75,11 @@ Konfigurera konfigurationsservern med ett konto som har en särskild roll som ti
 1. Skapa en ny roll genom att klona den fördefinierade *skrivskyddad* roll, och ge den ett praktiskt namn (till exempel Azure_Site_Recovery som visas i det här exemplet).
 2. Tilldela följande behörigheter till den här rollen:
 
-    * **Datalager**: allokera utrymme, bläddra datalagret, filåtgärder, ta bort filen, uppdateringsfiler för virtuell dator
-    * **Nätverk**: Network tilldela
-    * **Resursen**: tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM
+    * **Datalager**: Allokera utrymme, bläddra datalagret, filåtgärder, ta bort filen, uppdateringsfiler för virtuell dator
+    * **Nätverk**: Tilldela nätverk
+    * **Resursen**: Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM
     * **Uppgifter**: Skapa uppgift, uppdatera uppgift
-    * **VM - konfiguration**: alla
+    * **VM - konfiguration**: Alla
     - **VM - interaktion** > besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, starta, installera VMware-verktyg
     - **VM - inventering** > Skapa från befintligt, skapa en ny, registrera, avregistrera
     - **VM - etablering** > Tillåt nedladdning till virtuell dator, Tillåt VM filer uppladdning

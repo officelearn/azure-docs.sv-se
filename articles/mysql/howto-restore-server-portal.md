@@ -1,20 +1,17 @@
 ---
 title: Hur du återställer en Server i Azure Database for MySQL
 description: Den här artikeln beskriver hur du återställer en server i Azure Database for MySQL med Azure-portalen.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138487"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548875"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MySQL med Azure-portalen
 
@@ -67,8 +64,8 @@ Följande steg återställer exempelservern till point-in-time:
    ![Azure Database för MySQL - information för återställningspunkter ](./media/howto-restore-server-portal/3-restore.png)
    - **Återställningspunkt**: Välj du vill återställa till point-in-time.
    - **Målservern**: Ange ett namn för den nya servern.
-   - **Plats**: du kan inte välja region. Som standard är det samma som källservern.
-   - **Prisnivå**: du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
+   - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
+   - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
 
 4. Klicka på **OK** att återställa servern att återställa till point-in-time. 
 

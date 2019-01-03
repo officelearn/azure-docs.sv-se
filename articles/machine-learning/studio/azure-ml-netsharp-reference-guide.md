@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272243"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631133"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
@@ -388,7 +388,7 @@ Exemplet illustrerar några grundläggande kommandon på följande sätt:
 
 + Den första raden definierar inkommande layer (med namnet `Data`). När du använder den `auto` nyckelord, neuralt nätverk automatiskt innehåller alla kolumner i funktionen i indata exemplen. 
 + Den andra raden skapar det dolda lagret. Namnet `H` tilldelas det dolda lagret som har 200 noder. Det här lagret är helt ansluten till inkommande lagret.
-+ Den tredje raden definierar utdata-lagret (med namnet `O`), som innehåller 10 utdata-noder. Om det neurala nätverket används för klassificering, finns det en utdata-nod per klass. Nyckelordet **sigmoid** anger att funktionen utdata tillämpas i utdata-lagret.
++ Den tredje raden definierar utdata-lagret (med namnet `Out`), som innehåller 10 utdata-noder. Om det neurala nätverket används för klassificering, finns det en utdata-nod per klass. Nyckelordet **sigmoid** anger att funktionen utdata tillämpas i utdata-lagret.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Definiera flera dolda lager: datorn vision exempel
 

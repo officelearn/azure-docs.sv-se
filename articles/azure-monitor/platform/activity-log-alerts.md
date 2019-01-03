@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341533"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581444"
 ---
 # <a name="alerts-on-activity-log"></a>Aviseringar för aktivitetsloggen 
 
@@ -28,11 +28,11 @@ Normalt kan du skapa aviseringar för aktivitetsloggen kan ta emot meddelanden n
 * Specifika åtgärder inträffar på resurser i din Azure-prenumeration som omfattar ofta enskilda resursgrupper eller resurser. Du kanske exempelvis vill meddelas när alla virtuella datorer i myProductionResourceGroup tas bort. Eller så kanske du vill få ett meddelande om eventuella nya roller har tilldelats en användare i din prenumeration.
 * En service health-händelse inträffar. Service health-händelser innehåller aviseringar incidenter och underhållshändelser som gäller för resurser i din prenumeration.
 
-En enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure Portal](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen.
+En enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure Portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen.
 
 I båda fallen övervakar en aktivitetsloggavisering endast för händelser i prenumerationen som aviseringen har skapats.
 
-Du kan konfigurera en aktivitetsloggavisering baserat på översta egenskaper i JSON-objekt för en händelse i aktivitetsloggen. Mer information finns i [översikt över Azure-aktivitetsloggen](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log). Läs mer om service health-händelser i [ta emot aviseringar för aktivitetsloggar för tjänstmeddelanden](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+Du kan konfigurera en aktivitetsloggavisering baserat på översta egenskaper i JSON-objekt för en händelse i aktivitetsloggen. Mer information finns i [översikt över Azure-aktivitetsloggen](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Läs mer om service health-händelser i [ta emot aviseringar för aktivitetsloggar för tjänstmeddelanden](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Aktivitetsloggsaviseringar har några vanliga alternativ:
 
@@ -64,5 +64,5 @@ Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure-porta
 - Hämta en [översikt över aviseringar](../../azure-monitor/platform/alerts-overview.md).
 - Lär dig mer om [skapa och ändra aviseringar för aktivitetsloggar](../../azure-monitor/platform/alerts-activity-log.md).
 - Granska den [avisering webhook för aktivitetslogg](activity-log-alerts-webhook.md).
-- Lär dig mer om [service health meddelanden](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Lär dig mer om [service health meddelanden](../../azure-monitor/platform/service-notifications.md).
 

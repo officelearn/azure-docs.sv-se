@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341414"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713239"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostik i varaktiga funktioner (Azure Functions)
 
@@ -25,7 +25,7 @@ Det finns flera alternativ för att diagnostisera problem med [varaktiga funktio
 
 [Application Insights](../../application-insights/app-insights-overview.md) är det rekommendera sättet att göra diagnostik och övervakning i Azure Functions. Samma gäller för varaktiga funktioner. En översikt över hur du kan använda Application Insights i din funktionsapp, se [övervaka Azure Functions](../functions-monitoring.md).
 
-Azure Functions varaktiga Extension genererar även *spårning av händelser* som gör det möjligt att spåra slutpunkt till slutpunkt-körningen av en orkestrering. Dessa kan hittas och fråga med hjälp av den [Application Insights Analytics](../../application-insights/app-insights-analytics.md) verktyg i Azure-portalen.
+Azure Functions varaktiga Extension genererar även *spårning av händelser* som gör det möjligt att spåra slutpunkt till slutpunkt-körningen av en orkestrering. Dessa kan hittas och fråga med hjälp av den [Application Insights Analytics](../../azure-monitor/app/analytics.md) verktyg i Azure-portalen.
 
 ### <a name="tracking-data"></a>Spårningsdata
 
@@ -43,7 +43,7 @@ Varje livscykel händelse av en orchestration-instans orsakar en spårning händ
   * **Slutförts**: Orchestrator har schemalagts för del arbete och väntar tills den avslutats.
   * **Lyssna**: Orchestrator lyssnar på en extern händelsemeddelande.
   * **Slutfört**: Funktionen har slutförts.
-  * **Det gick inte**: Funktionen misslyckades med ett fel.
+  * **Misslyckades**: Funktionen misslyckades med ett fel.
 * **Orsak**: Ytterligare data som är associerade med spårningshändelsen. Om en instans är att en extern händelse-meddelande, visar det här fältet namnet på den händelse som väntar. Om en funktion har misslyckats, innehåller den felinformationen.
 * **isReplay**: Booleskt värde som anger om det är spårningshändelsen för uppspelat körning.
 * **extensionVersion**: Versionen av tillägget varaktiga uppgift. Detta är särskilt viktiga data när reporting möjliga buggar i tillägget. Långvariga instanser kan rapportera flera versioner om en uppdatering inträffar när den körs.

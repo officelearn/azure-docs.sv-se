@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353347"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631523"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Konfigurera App Service Web Apps med Application Gateway
+# <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
-Med Application Gateway kan du konfigurera en Azure-webbapp eller en annan tjänst för flera klientorganisationer som en medlem i en serverdelspool. I den här artikeln lär du dig hur du konfigurerar en Azure-webbapp med Application Gateway. Det första exemplet visar hur du konfigurerar en befintlig programgateway för att använda en webbapp som en medlem i en serverdelspool. Det andra exemplet visar hur du skapar en ny programgateway med en webbapp som en medlem i en serverdelspool.
+Application gateway kan du ha en App Service-app eller andra multiklienttjänst som en medlem i serverdelspoolen. I den här artikeln får du lära dig att konfigurera en App Service-app med Application Gateway. Det första exemplet visar hur du konfigurerar en befintlig programgateway för att använda en webbapp som en medlem i en serverdelspool. Det andra exemplet visar hur du skapar en ny programgateway med en webbapp som en medlem i en serverdelspool.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Konfigurera en webbapp bakom en befintlig programgateway
 
@@ -163,4 +163,4 @@ Ett sätt som du kan begränsa åtkomsten till dina webbprogram är att använda
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar omdirigeringar finns i [Konfigurera omdirigering på Application Gateway med PowerShell](redirect-overview.md).
+Lär dig hur du konfigurerar omdirigeringar finns: [Konfigurera omdirigering på Application Gateway med PowerShell](redirect-overview.md).

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8e651f516254d408b15ab4aeae718861dfc2b3e6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499264"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608297"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-kluster för att läsa och skriva data till Azure SQL database
 
@@ -26,9 +26,9 @@ Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure
 
 * **Azure SQL-databas**. Följ anvisningarna på [skapa en Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Se till att skapa en databas med exemplet **AdventureWorksLT** schema och data. Kontrollera också att du skapar en brandväggsregel på servernivå så att din klients IP-adress att få åtkomst till SQL-databas på servern. Anvisningarna för att lägga till brandväggsregeln är tillgänglig i samma artikel. När du har skapat din Azure SQL-databas, se till att du behåller följande värden till hands. Du behöver dem för att ansluta till databasen från en Spark-kluster.
 
-    * Servernamn som är värd för Azure SQL-databas
-    * Azure SQL-databasnamn
-    * Azure SQL database administratörsanvändarnamn / lösenord
+    * Servernamn som är värd för Azure SQL-databasen.
+    * Azure SQL-databasnamn.
+    * Azure SQL database administratörsanvändarnamn / lösenord.
 
 * **SQL Server Management Studio**. Följ anvisningarna på [Använd SSMS för att ansluta och fråga data](../../sql-database/sql-database-connect-query-ssms.md).
 
@@ -41,12 +41,10 @@ Börja med att skapa en [Jupyter Notebook](https://jupyter.org/) som är associe
 
     ![Jupyter notebook i Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter notebook i Spark")
    
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också nå Jupyter notebook i Spark-kluster genom att öppna följande URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
 1. I Jupyter-anteckningsboken i det övre högra hörnet, klickar du på **New**, och klicka sedan på **Spark** att skapa en Scala-anteckningsbok. Jupyter-anteckningsböcker på HDInsight Spark-kluster tillhandahåller även den **PySpark** kernel för Python2-program och **PySpark3** kärnan i Python3 program. I den här artikeln skapar vi en Scala notebook.
    
@@ -54,9 +52,8 @@ Börja med att skapa en [Jupyter Notebook](https://jupyter.org/) som är associe
 
     Mer information om dessa kernlar finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-   > [!NOTE]
+   > [!NOTE]  
    > I den här artikeln använder vi en Spark (Scala) kernel eftersom strömmande data från Spark i SQL database stöds endast för närvarande i Scala och Java. Trots att läsa från och skriva till SQL kan göras med hjälp av Python, för att få konsekvens i den här artikeln, vi använder Scala för alla tre aktiviteter.
-   >
 
 1. Då öppnas en ny anteckningsbok med ett standardnamn **Namnlös**. Klicka på anteckningsbokens namn och ange ett valfritt namn.
 
@@ -235,6 +232,6 @@ I det här avsnittet ska vi strömma data till den **hvactable** att du redan sk
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd HDInsight Spark-kluster för att analysera data i Data Lake Store](apache-spark-use-with-data-lake-store.md)
+* [Använd HDInsight Spark-kluster för att analysera data i Data Lake Storage](apache-spark-use-with-data-lake-store.md)
 * [Processen strukturerad direktuppspelning av händelser med hjälp av EventHub](apache-spark-eventhub-structured-streaming.md)
 * [Använda Apache Spark Structured Streaming med Apache Kafka på HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

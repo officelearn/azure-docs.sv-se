@@ -3,17 +3,15 @@ title: Anslut program till Azure Database for MariaDB
 description: Det här dokumentet innehåller för närvarande stöds anslutningssträngar att ansluta med Azure Database for MariaDB, inklusive ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python och Ruby-program.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 706bf395df98bd78fa36273a4948a11d4b59067d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 70cd25ff63101fa2a477cde2502d5d286b289366
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967939"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536582"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Så här ansluter du program till Azure Database for MariaDB
 Det här avsnittet innehåller strängen anslutningstyper som stöds av Azure Database for MariaDB, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutningssträngen.
@@ -64,7 +62,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Hämta information om anslutningssträngen från Azure portal
-I den [Azure-portalen](https://portal.azure.com), gå till din Azure Database for MariaDB-server och klicka sedan på **anslutningssträngar** att hämta stränglistan över för din instans: ![Connection strängar fönstret i Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+I den [Azure-portalen](https://portal.azure.com), gå till din Azure Database for MariaDB-server och klicka sedan på **anslutningssträngar** att hämta stränglistan över för din instans: ![Fönstret anslutning strängar i Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 Strängen innehåller information som drivrutinen, server och andra databasen anslutningsparametrar. Ändra de här exemplen för att använda dina egna parametrar, till exempel databasens namn, lösenord och så vidare. Du kan sedan använda den här strängen för att ansluta till servern från din kod och dina program.
 

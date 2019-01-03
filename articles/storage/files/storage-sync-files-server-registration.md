@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1333c8cdb4493530e1e4803192b382720dbfa5ee
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918884"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634413"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
 
 I följande artikel visar hur du kan registrera och hantera en server med en Lagringssynkroniseringstjänst. Se [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md) information om hur du distribuerar Azure File Sync slutpunkt till slutpunkt.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrera/avregistrera en server med Storage Sync-tjänsten
 Registrera en server med Azure File Sync upprättar en förtroenderelation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *serverslutpunkter* på servern, som visar specifika mappar som ska synkroniseras med en Azure-filresurs (även kallat en *Molnets slutpunkt*). 
@@ -33,10 +35,10 @@ Om du vill registrera en server med en Lagringssynkroniseringstjänst, måste du
     
     ![Serverhanteraren UI med den Förbättrad säkerhetskonfiguration markerat](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Kontrollera att AzureRM PowerShell-modulen är installerad på servern. Om servern är medlem i ett redundanskluster, kräver varje nod i klustret AzureRM-modulen. Mer information om hur du installerar AzureRM-modulen kan hittas på den [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Kontrollera att Azure PowerShell-modulen är installerad på servern. Om servern är medlem i ett redundanskluster, kräver varje nod i klustret Az-modulen. Mer information om hur du installerar Az-modulen kan hittas på den [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Vi rekommenderar att du använder den senaste versionen av AzureRM PowerShell-modulen för att registrera/avregistrera en server. Om AzureRM-paketet har installerats tidigare på den här servern (och PowerShell-versionen på den här servern är 5.* eller senare), du kan använda den `Update-Module` cmdlet för att uppdatera det här paketet. 
+    > Vi rekommenderar att du använder den senaste versionen av Az PowerShell-modulen för att registrera/avregistrera en server. Om Az-paketet har installerats tidigare på den här servern (och PowerShell-versionen på den här servern är 5.* eller senare), du kan använda den `Update-Module` cmdlet för att uppdatera det här paketet. 
 * Om du använder en proxyserver i din miljö kan du konfigurera proxyinställningar på servern om sync-agenten ska kunna använda.
     1. Fastställa din IP-adress och port proxynummer
     2. Redigera dessa två filer:
@@ -101,8 +103,8 @@ Du kan också utföra serverregistrering via PowerShell. Det här är det enda s
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Avregistrera den med Storage Sync-tjänsten
@@ -135,15 +137,15 @@ Detta kan också inträffa med ett enkelt PowerShell.skript:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 
-Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
+Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
     $SyncGroup = $_; 
-    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
     } 
 }
 ```

@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 298fb7350ad8bb5029414b63797f62ef292a315e
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 522db1ae01569626bd863f7b072b3e1dfcf800ba
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721637"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755112"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Azure Application Insights](app-insights-overview.md) i ditt program visas telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) – anteckningarna längst upp för varje funktion där du är van att se användbar information som antalet platser som refererar till funktionen, eller den person som senast redigerade den.
@@ -79,6 +79,6 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 |  |  |
 | --- | --- |
 | **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-codelens/34.png) |
-| **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
-| **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
+| **[Lägga till mer information](../azure-monitor/app/asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
+| **[Arbeta med Application Insights-portalen](../azure-monitor/app/app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
 

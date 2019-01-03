@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit för IntelliJ: felsöka program via fjärranslutning i HDInsight Spark '
+title: 'Azure Toolkit för IntelliJ: Felsöka via en fjärranslutning i HDInsight Spark-program '
 description: Lär dig hur använda HDInsight-verktyg i Azure Toolkit för IntelliJ för att felsöka Spark-program som körs på HDInsight-kluster via VPN.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: e973c1895a331969eea9997f7122268a9ff783bd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e57257c6965f0da8c2d6ce990d2425847b73884f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584748"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605802"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Felsöka Apache Spark-program via fjärranslutning i HDInsight via VPN-anslutning med hjälp av Azure Toolkit för IntelliJ
 
@@ -34,10 +34,10 @@ Den här artikeln innehåller stegvisa anvisningar om hur du använder HDInsight
 * **Oracle Java development kit**. Du kan installera det från den [Oracle webbplats](https://aka.ms/azure-jdks).
 * **IntelliJ IDEA**. Den här artikeln använder version 2017.1. Du kan installera det från den [JetBrains webbplats](https://www.jetbrains.com/idea/download/).
 * **HDInsight-verktygen i Azure Toolkit för IntelliJ**. HDInsight tools för IntelliJ är tillgängliga som en del av Azure Toolkit för IntelliJ. Anvisningar om hur du installerar Azure Toolkit finns i [installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
-* **Logga in på Azure-prenumerationen från IntelliJ IDEA**. Följ instruktionerna i [Använd Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
-* **Undantag lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator, kan du få ett undantag. Det här undantaget förklaras i [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en saknad WinUtils.exe-fil i Windows. Du kan undvika det här felet, måste du [ladda ned den körbara filen](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats som **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** miljövariabeln, och ange sedan värdet för variabeln för att **C\WinUtils**.
+* **Logga in på Azure-prenumerationen från IntelliJ IDEA**. Följ instruktionerna i [Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
+* **Undantag lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator, kan du få ett undantag. Det här undantaget förklaras i [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en saknad WinUtils.exe-fil i Windows. Du kan undvika det här felet, måste du [ladda ned den körbara filen](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats som **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** miljövariabeln, och ange sedan värdet för variabeln för att **C\WinUtils**.
 
-## <a name="step-1-create-an-azure-virtual-network"></a>Steg 1: Skapa ett Azure-nätverk
+## <a name="step-1-create-an-azure-virtual-network"></a>Steg 1: Skapa en Azure-nätverk
 Följ instruktionerna från följande länkar för att skapa en Azure-nätverk och kontrollera anslutningen mellan din stationära dator och det virtuella nätverket:
 
 * [Skapa ett VNet med en plats-till-plats VPN-anslutning med Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -259,21 +259,21 @@ Vi rekommenderar att du också skapa ett Apache Spark-kluster i Azure HDInsight 
     ![Konsolutdata](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
 ## <a name="seealso"></a>Nästa steg
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
-* Skapa Scala-projekt (video): [skapa Apache Spark Scala-appar](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Fjärrfelsök (video): [Använd Azure Toolkit för IntelliJ för att felsöka Apache Spark-program via fjärranslutning på ett HDInsight-kluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Skapa Scala-projekt (video): [Skapa Apache Spark Scala-appar](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Fjärrfelsök (video): [Felsöka Apache Spark-program via fjärranslutning på ett HDInsight-kluster med hjälp av Azure Toolkit för IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md)

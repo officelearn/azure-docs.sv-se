@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495372"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653925"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
 Du kan installera ett Azure HDInsight-program på ett Linux-baserade HDInsight-kluster. I den här artikeln lär du dig hur du publicerar ett HDInsight-program på Azure Marketplace. Allmän information om hur du publicerar på Azure Marketplace finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -53,7 +53,7 @@ Två steg vid publicering av program på Marketplace. Definiera först en *creat
 ## <a name="application-installation-script"></a>Installationsskriptet för programmet
 När ett program har installerats på ett kluster (antingen på ett befintligt kluster eller på en ny) skapas en kantnod. Installationsskriptet för program som körs på gränsnoden.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Namnet på installationsskriptet för programmet måste vara unikt för ett specifikt kluster. Namnet på skriptet måste ha följande format:
   > 
   > ”name” ”: [concat ('hue-install-v0 ','-', uniquestring('applicationName')]”
@@ -81,9 +81,8 @@ Skapa en ZIP-fil som innehåller alla filer som krävs för att installera progr
 * mainTemplate.json (ett exempel finns [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).)
 * Alla nödvändiga skript
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan ha programfilerna (inklusive eventuella web app-filer) på valfri offentligt tillgänglig slutpunkt.
-> 
 
 ## <a name="publish-the-application"></a>Publicera programmet
 Publicera ett HDInsight-program:

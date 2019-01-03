@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212972"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790341"
 ---
 <a name="saas-sell-through-azure---apis"></a>SaaS-sälj via Azure - API: er
 ==============================
@@ -62,13 +62,13 @@ Utför följande steg för att registrera ett nytt program med Azure portal:
     ![SaaS AD App-registreringar](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
 
 4.  Ange ditt program på sidan Skapa\'s registreringsinformation:
-    -   **Namn på**: Ange ett beskrivande namn
+    -   **Namn**: Ange ett beskrivande namn
     -   **Programtyp**: 
         - Välj **Internt** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
         - Välj **webbapp / API** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar-agent-baserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Samma program kan även visa både en klient och resurs/API.
-    -   **Inloggnings-URL**: för Web app/API-program, ange den grundläggande Webbadressen för din app. Till exempel **http://localhost:31544** kanske URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder sedan denna URL för att logga in till ett webbprogram för klienten.
-    -   **Omdirigerings-URI**: för interna program ange den URI som används av Azure AD för att returnera tokensvar. Ange ett specifikt värde till ditt program, till exempel **http://MyFirstAADApp**.
+    -   **Inloggnings-URL**: För Web app/API-program, anger du den grundläggande Webbadressen för din app. Till exempel **http://localhost:31544** kanske URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder sedan denna URL för att logga in till ett webbprogram för klienten.
+    -   **Omdirigerings-URI**: Ange den URI som används av Azure AD för att returnera tokensvar för interna program. Ange ett specifikt värde till ditt program, till exempel **http://MyFirstAADApp**.
 
         ![SaaS AD App-registreringar](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) för specifika exempel på webbprogram eller interna program, Kolla in snabbstarten guidad inställningar som är tillgängliga i avsnittet komma igång i den [Utvecklarguiden för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
@@ -103,7 +103,7 @@ HTTP-metod
 
 |  **Rubriknamn**  | **Krävs** |  **Beskrivning**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Innehållstyp     | True         | Innehållstyp som är associerade med begäran. Standardvärdet är `application/x-www-form-urlencoded`.  |
+|  Content-Type     | True         | Innehållstyp som är associerade med begäran. Standardvärdet är `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -136,7 +136,7 @@ Exemplet svarstoken:
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ Den aktuella API-versionen är `api-version=2017-04-15`.
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Detta kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | innehållstyp       | Ja          | `application/json`                                        |
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
-| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs:** URL avkoda token-värde från webbläsaren innan du använder den.|
+| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs!** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ Den aktuella API-versionen är `api-version=2017-04-15`.
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token som lösta.                                                            |
-| 400                  | `BadRequest`         | Antingen måste rubriker saknas eller en ogiltig api-version anges. Det gick inte att matcha token eftersom antingen token är felaktigt eller har upphört att gälla. |
+| 400                  | `BadRequest`         | Antingen måste rubriker saknas eller en ogiltig api-version anges. Det gick inte att matcha token eftersom antingen token är felaktigt eller har upphört att gälla (token är endast giltig för 1 timme när åtkomstprinciepn har skapats). |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                                 |
 | 429                  | `RequestThrottleId`  | Tjänsten är upptagen begäranden, försök igen senare.                                |
 | 503                  | `ServiceUnavailable` | Tjänsten är ned tillfälligt, försök igen senare.                                        |
@@ -513,7 +513,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 | offerId                | Sträng        | Erbjudande-ID som du prenumererar.         |
 | planId                 | Sträng        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | Sträng        | Namnet på SaaS-prenumeration.                |
-| saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`: Azure-prenumeration har inaktiverats.  |
+| saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
 | skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
 | senast ändrad           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
 |  |  |  |
@@ -587,7 +587,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | offerId                | Sträng        | Erbjudande-ID som du prenumererar.         |
 | planId                 | Sträng        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | Sträng        | Namnet på SaaS-prenumeration.                |
-| saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`: Azure-prenumeration har inaktiverats.  |
+| saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
 | skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
 | senast ändrad           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
 |  |  |  |
@@ -612,4 +612,36 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | x-ms-correlationid | Ja          | Korrelations-ID är om skickades av klienten, annars detta server Korrelations-ID.                   |
 | x-ms-activityid    | Ja          | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning. |
 | Återförsök        | Nej           | Intervall med vilken klient kan kontrollera status.                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>SaaS-Webhook
+
+En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. Det här INLÄGGET API förväntas vara icke-autentiserade och kommer att anropas av tjänsten Microsoft. SaaS-tjänsten förväntas du anropar API för att validera och auktorisera innan åtgärd vidtas på webhook-meddelandet. 
+
+
+*Brödtext*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
+|------------------------|---------------|-----------------------------------------------|
+| id  | Sträng       | Unikt ID för den åtgärd som utlöste.                |
+| Aktivitets-ID   | Sträng        | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning.               |
+| subscriptionId                     | Sträng        | ID för SaaS-prenumeration-resurs i Azure.    |
+| offerId                | Sträng        | Erbjudande-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.        |
+| publisherId                | Sträng        | Publicerings-ID för SaaS-erbjudande         |
+| planId                 | Sträng        | Plan-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.          |
+| åtgärd                 | Sträng        | Den åtgärd som utlösa det här meddelandet. Möjliga värden – aktivera, radera, inaktivera, återställa, uppdatera          |
+| Tidsstämpel                 | Sträng        | Tidsstämpelvärde i UTC när den här aviseringen utlöstes.          |
 |  |  |  |

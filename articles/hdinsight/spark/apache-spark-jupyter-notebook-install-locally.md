@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163386"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598829"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter notebook på datorn och ansluta till Apache Spark i HDInsight
 
@@ -22,9 +22,9 @@ I den här artikeln lär du dig hur du installerar Jupyter-anteckningsbok med an
 
 Det finns tre viktiga steg när du installerar Jupyter- och Spark-magic på datorn.
 
-* Installera Jupyter-anteckningsbok
-* Installera dessa kernlar PySpark och Spark med Spark-magic
-* Konfigurera Spark magic för att komma åt Spark-kluster i HDInsight
+* Installera Jupyter-anteckningsboken.
+* Installera dessa kernlar PySpark och Spark med Spark-magic.
+* Konfigurera Spark magic för att komma åt Spark-kluster i HDInsight.
 
 Mer information om anpassade kernlar och den Spark magin som är tillgängliga för Jupyter-anteckningsböcker med HDInsight-kluster finns i [Kernlar som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
@@ -43,7 +43,7 @@ Du måste installera Python innan du kan installera Jupyter-anteckningsböcker. 
 
         conda install jupyter
 
-    Läs mer om hur du installerar Jupyter [installera Jupyter med Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
+    Läs mer om hur du installerar Jupyter [installera Jupyter med Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Installera kernlar och Spark magic
 
@@ -100,7 +100,7 @@ I det här avsnittet kan du konfigurera Spark-magic som du har installerat tidig
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[!TIP]
+    >[!TIP]  
     >Det sänds pulsslag för att säkerställa att sessioner inte sprids. När en dator försätts i viloläge eller är avstängd, sänds pulsslag, vilket resulterar i sessionen som rensas. För kluster v3.4 om du vill inaktivera den här funktionen kan du ange Livy-config `livy.server.interactive.heartbeat.timeout` till `0` från Ambari UI. För kluster v3.5, om du inte anger 3,5 konfigurationen ovan tas sessionen inte bort.
 
 1. Starta Jupyter. Använd följande kommando i Kommandotolken.
@@ -120,7 +120,7 @@ I det här avsnittet kan du konfigurera Spark-magic som du har installerat tidig
 
     Om du har hämta utdata, testas din anslutning till HDInsight-kluster.
 
-    >[!TIP]
+    >[!TIP]  
     >Om du vill uppdatera konfigurationen av anteckningsboken för att ansluta till ett annat kluster måste du uppdatera config.json med den nya uppsättningen värden, som visas i steg3 ovan.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Varför bör jag installera Jupyter på datorn?
@@ -132,7 +132,7 @@ Det kan finnas flera skäl till varför du kanske vill installera Jupyter på da
 * Du kan arbeta med bärbara datorer lokalt utan även att ett kluster. Du behöver bara ett kluster att testa dina anteckningsböcker mot, inte för att manuellt hantera dina anteckningsböcker eller en utvecklingsmiljö.
 * Det kan vara enklare att konfigurera din egen lokala utvecklingsmiljö än att konfigurera Jupyter-installationen på klustret.  Du kan dra nytta av all programvara som du har installerat lokalt utan att konfigurera ett eller flera fjärranslutna kluster.
 
-> [!WARNING]
+> [!WARNING]  
 > Med Jupyter installerat på din lokala dator, kan flera användare köra samma anteckningsbok i samma Spark-klustret på samma gång. I detta fall skapas flera Livy-sessioner. Om du får problem och vill felsöka det blir en komplicerad uppgift att spåra vilken Livy-session som hör till vilken användare.
 >
 >

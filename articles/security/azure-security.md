@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567170"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714244"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -53,7 +53,7 @@ Det här dokumentet beskriver Microsofts strategi för säkerhet i Microsoft Azu
 ## <a name="summary-azure-security-capabilities"></a>Översikt över säkerhetsfunktionerna i Azure
 Följande tabell ger en kort beskrivning av säkerhetsfunktioner som implementeras av Microsoft för att skydda Azure-infrastrukturen, kunddata och säkra program.
 ### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Säkerhetsfunktioner för att skydda Azure-plattformen:
-De funktioner som visas i följande är funktioner som du kan granska för att tillhandahålla säker på att Azure-plattformen hanteras på ett säkert sätt. Länkar har angetts för ytterligare gå nedåt i hur Microsoft behandlar kundfrågor förtroende i fyra områden: säker plattform, sekretess och kontroller, efterlevnad och transparens.
+De funktioner som visas i följande är funktioner som du kan granska för att tillhandahålla säker på att Azure-plattformen hanteras på ett säkert sätt. Länkar har angetts för ytterligare gå nedåt i hur Microsoft behandlar kundfrågor förtroende i fyra områden: Säker plattform, sekretess och kontroller, efterlevnad och transparens.
 
 
 | [Säker plattform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Sekretess och kontroller](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Efterlevnad](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparens](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
@@ -69,7 +69,7 @@ De funktioner som visas i följande är funktioner som du kan granska för att t
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Säkerhetsfunktioner som erbjuds av Azure för att skydda Data och program
 Beroende på tjänsten molnmodell finns variabeln ansvar för vem som ansvarar för att hantera säkerheten för programmet eller tjänsten. Det finns funktioner som är tillgängliga i Azure-plattformen för att hjälpa dig att uppfylla dessa uppgifter via de inbyggda funktionerna och via partnerlösningar som kan distribueras till en Azure-prenumeration.
 
-De inbyggda funktionerna ordnas i sex (6) funktionsområden: åtgärder, program, lagring, nätverk, beräkning och identitet. Mer information om hur funktionerna och egenskaperna som är tillgängliga i Azure-plattformen inom följande områden med sex (6) sker via sammanfattningsinformation.
+De inbyggda funktionerna ordnas i sex (6) huvudområden: Åtgärder, program, lagring, nätverk, beräkning och identitet. Mer information om hur funktionerna och egenskaperna som är tillgängliga i Azure-plattformen inom följande områden med sex (6) sker via sammanfattningsinformation.
 
 ## <a name="operations"></a>Åtgärder
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhetsåtgärder och översiktlig information om dessa funktioner.
@@ -106,11 +106,11 @@ Log Analytics kan vara användbart i kriminaltekniska och andra säkerhetsanalys
 Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Dessutom hjälper Azure Security Center med säkerhetsåtgärder genom att ge dig en enda instrumentpanel som hämtar aviseringar och rekommendationer som kan åtgärdas omedelbart. Ofta kan du åtgärda problem med ett enda klick i Azure Security Center-konsolen.
-## <a name="applications"></a>Program
+## <a name="applications"></a>Appar
 Avsnittet innehåller ytterligare information om viktiga funktioner i programmet säkerhets- och sammanfattning information om dessa funktioner.
 
 ### <a name="web-application-vulnerability-scanning"></a>Web Application granskar säkerhetsrisker
-En av de enklaste sätten att komma igång med testa efter säkerhetsrisker på din [App Service-app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) är att använda den [integrering med Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) att utföra ett klick granskar säkerhetsrisker i din app. Du kan visa testresultaten i en rapport som lätt att förstå och lär dig att åtgärda sårbarheten med stegvisa instruktioner.
+En av de enklaste sätten att komma igång med testa efter säkerhetsrisker på din [App Service-app](https://docs.microsoft.com/azure/app-service/overview) är att använda den [integrering med Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) att utföra ett klick granskar säkerhetsrisker i din app. Du kan visa testresultaten i en rapport som lätt att förstå och lär dig att åtgärda sårbarheten med stegvisa instruktioner.
 
 ### <a name="penetration-testing"></a>Penetrationstester
 Om du vill utföra egna test för penetrationstester eller vill använda en annan skanner suite eller providern, måste du följa den [Azure penetrationstest godkännandeprocess](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) och hämta förhandsgodkännande för att utföra önskade penetrationstester testerna.
@@ -119,13 +119,13 @@ Om du vill utföra egna test för penetrationstester eller vill använda en anna
 Brandväggen för webbaserade program (WAF) i [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) skyddar webbprogram från vanliga webbaserade attacker som SQL injection, cross-site skriptattacker och sessionskapning. Den levereras förkonfigurerad med skydd mot hot som identifieras av den [OWASP Open Web Application Security Project () som de översta 10 vanligaste sårbarheterna](https://msdn.microsoft.com/library/).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
-[App Service-autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) är en funktion som gör det möjligt för programmet att logga in användare så att du inte behöver ändra koden på app-serverdel. Det ger ett enkelt sätt att skydda ditt program och arbeta med data per användare.
+[App Service-autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) är en funktion som gör det möjligt för programmet att logga in användare så att du inte behöver ändra koden på app-serverdel. Det ger ett enkelt sätt att skydda ditt program och arbeta med data per användare.
 
 ### <a name="layered-security-architecture"></a>Arkitektur med flernivåsäkerhet
 Eftersom [App Service-miljöer](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) ger en isolerad körningsmiljö som distribuerats i en [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), utvecklare kan skapa en arkitektur med flernivåsäkerhet att tillhandahålla olika nätverksåtkomst för varje applikationsnivå. En vanligt önskemål är att dölja API-servrar från Allmänt Internetåtkomst och endast tillåta API: er anropas av överordnade webbappar. [Nätverkssäkerhetsgrupper (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) kan användas på Azure Virtual Network-undernät som innehåller App Service-miljöer för att begränsa offentlig åtkomst till API-program.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Web serverdiagnostik- och programdiagnostik
-App Service web apps ger diagnostisk funktionalitet för att logga information från både webbservern och webbprogrammet. Dessa logiskt är indelade i [web serverdiagnostik](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) och [programdiagnostik](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Webbservern innehåller två större utvecklingen i diagnostisera och felsöka webbplatser och program.
+App Service web apps ger diagnostisk funktionalitet för att logga information från både webbservern och webbprogrammet. Dessa logiskt är indelade i [web serverdiagnostik](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) och [programdiagnostik](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Webbservern innehåller två större utvecklingen i diagnostisera och felsöka webbplatser och program.
 
 Den första nya funktionen är i realtid statusinformation om programpooler, arbetsprocesser, platser, domäner för programmet och begäranden körs. Andra nya fördelarna är de detaljerade spårningshändelser som spårar en begäran under hela processen slutförts och svaret.
 
@@ -141,7 +141,7 @@ Du kan aktivera eller inaktivera följande typer av loggar:
 -   Web Server-loggning – Information om hur du använder W3C utökat loggfilsformat för HTTP-transaktioner. Detta är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
 
 #### <a name="application-diagnostics"></a>Programdiagnostik
-[Programdiagnostik](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) kan du samla in information som genereras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) klassen för att logga information till programloggen för diagnostik. I Application Diagnostics finns det två huvudtyper för händelser, de som är relaterade till programprestanda och de som är relaterade till programfel. Fel och problem kan delas upp ytterligare i anslutningen, säkerhet och fel. Problem med är ofta relaterad till problem med programkoden.
+[Programdiagnostik](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) kan du samla in information som genereras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) klassen för att logga information till programloggen för diagnostik. I Application Diagnostics finns det två huvudtyper för händelser, de som är relaterade till programprestanda och de som är relaterade till programfel. Fel och problem kan delas upp ytterligare i anslutningen, säkerhet och fel. Problem med är ofta relaterad till problem med programkoden.
 
 I Programdiagnostik kan visa du gruppera händelser på följande sätt:
 
@@ -291,7 +291,7 @@ Den [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), e
 Du kan aktivera följande diagnostiklogg kategorier för NSG: er:
 -   Händelse: Innehåller poster för vilka NSG reglerna tillämpas på virtuella datorer och instansroller som baseras på MAC-adress. Status för de här reglerna som samlas in var 60: e sekund.
 
--   Regler för räknaren: innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
+-   Regler för räknare: Innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 Security Center hjälper dig att förhindra, upptäcka och svara på hot, och ger dig ökad insyn i och kontroll över säkerheten hos dina Azure-resurser. Den tillhandahåller integrerad säkerhetsövervakning och principhantering säkerhetshantering för alla Azure-prenumerationer, upptäcka hot som kan annars oupptäckta och fungerar med ett vittomfattande ekosystem med säkerhetslösningar. Nätverkscenter rekommendationer kring brandväggar, Nätverkssäkerhetsgrupper, konfigurera regler för inkommande trafik och mycket mer.

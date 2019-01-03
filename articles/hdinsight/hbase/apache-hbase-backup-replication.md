@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164236"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651732"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhetskopiering och replikering för Apache HBase- och Apache Phoenix i HDInsight
 
@@ -26,7 +26,7 @@ Apache HBase stöder flera metoder för skydd mot dataförlust:
 * Ögonblicksbilder
 * Replikering
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix lagras dess metadata i HBase-tabeller, så att metadata har säkerhetskopierats när du säkerhetskopierar HBase catalog systemtabeller.
 
 I följande avsnitt beskrivs användningsscenariot för var och en av dessa metoder.
@@ -35,7 +35,7 @@ I följande avsnitt beskrivs användningsscenariot för var och en av dessa meto
 
 Med den här metoden kan kopiera du alla data i HBase, utan att kunna välja en delmängd av tabeller eller kolumnserier. Efterföljande metoder ger större kontroll.
 
-HBase i HDInsight använder standardlagring valt när du skapar klustret, Azure Storage-blobbar eller Azure Data Lake Store. I båda fallen lagrar HBase dess data och metadata filer på följande sökväg:
+HBase i HDInsight använder standardlagring valt när du skapar klustret, Azure Storage-blobbar eller Azure Data Lake Storage. I båda fallen lagrar HBase dess data och metadata filer på följande sökväg:
 
     /hbase
 
@@ -45,7 +45,7 @@ HBase i HDInsight använder standardlagring valt när du skapar klustret, Azure 
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* I Azure Data Lake Store i `hbase` mappen finns under rotsökvägen som du angav när du etablerar ett kluster. Den här rotsökvägen har vanligtvis en `clusters` mapp med en undermapp med namnet efter ditt HDInsight-kluster:
+* I Azure Data Lake Storage den `hbase` mappen finns under rotsökvägen som du angav när du etablerar ett kluster. Den här rotsökvägen har vanligtvis en `clusters` mapp med en undermapp med namnet efter ditt HDInsight-kluster:
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ När du tar bort klustret, kan du lämna data på plats eller kopiera data till 
 
 * Skapa en ny HDInsight-instans som pekar till den aktuella lagringsplatsen. Den nya instansen skapas med alla befintliga data.
 
-* Kopiera den `hbase` mappen till en annan Azure Storage blob-behållare eller plats för Data Lake Store, och påbörja sedan ett nytt kluster med dessa data. Azure Storage, använda [AzCopy](../../storage/common/storage-use-azcopy.md), och för Data Lake Store användning [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Kopiera den `hbase` mappen till en annan Azure Storage blob-behållare eller Data Lake-lagringsplats och starta sedan ett nytt kluster med dessa data. Azure Storage, använda [AzCopy](../../storage/common/storage-use-azcopy.md), och för Data Lake Storage användning [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exportera sedan importera
 
@@ -75,7 +75,7 @@ Ange fullständig exportsökvägen till standardlagring eller till någon av de 
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-I Azure Data Lake Store är syntaxen:
+I Azure Data Lake Storage är syntaxen:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ Verktyget CopyTable har även stöd för parametrar för att ange tidsintervall 
 
 CopyTable söker igenom hela tabellen källinnehållet som ska kopieras över till tabellen. Detta kan försämra prestanda för din HBase-kluster medan CopyTable körs.
 
-> [!NOTE]
+> [!NOTE]  
 > Om du vill automatisera att kopiera data mellan tabeller, se den `hdi_copy_table.sh` skript i den [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) arkivet på GitHub.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Manuellt samla in Apache ZooKeeper kvorum lista

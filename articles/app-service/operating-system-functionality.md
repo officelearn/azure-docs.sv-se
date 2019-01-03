@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb17748968d0875cae132730a02f490eab966690
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389158"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653517"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
 Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
@@ -131,11 +131,5 @@ Skrivåtkomst till registret är blockerad, inklusive åtkomst till några regis
 
 ## <a name="more-information"></a>Mer information
 
-[Azure Web App-sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) – den senaste informationen om körningsmiljö för App Service. Den här sidan hanteras direkt av App Service-Utvecklingsteamet.
-
-> [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
-> 
-> 
-
+[Azure App Service-sandboxen](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) – den senaste informationen om körningsmiljö för App Service. Den här sidan hanteras direkt av App Service-Utvecklingsteamet.
 

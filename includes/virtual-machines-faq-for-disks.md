@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326461"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553480"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -189,7 +189,7 @@ Standard SSD-enheter har Nej, inte instans VM SLA. Använd Premium SSD-diskar f�
 
 ## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks
 
-** Finns det någon effekt av migrering på Managed Disks prestanda?
+**Finns det någon effekt av migrering på Managed Disks prestanda?**
 
 Migrering innebär att flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
 

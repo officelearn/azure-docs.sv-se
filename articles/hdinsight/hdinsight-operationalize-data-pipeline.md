@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436168"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744453"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -551,7 +551,7 @@ Som du ser är majoriteten av koordinatorn bara skicka konfigurationsinformation
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    En koordinator ansvarar för schemaläggning av åtgärder inom den `start` och `end` datumintervall, enligt det intervall som anges av den `frequency` attribut. Varje schemalagd åtgärd körs i sin tur arbetsflödet som konfigurerats. I coordinator definitionen ovan konfigureras koordinatorn för att köra åtgärder från den 1 januari 2017 till den 5 januari 2017. Frekvensen är inställd på 1 dag av den [Oozie Uttrycksspråk](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frekvens uttryck `${coord:days(1)}`. Detta resulterar i koordinatorn schemaläggning av en åtgärd (och därför arbetsflödet) en gång per dag. Åtgärden kommer att schemaläggas att köras utan fördröjning för datumintervall som är tidigare, som i följande exempel. Början av det datum som en åtgärd är schemalagd att köras kallas den *nominell tid*. Till exempel för att bearbeta data för den 1 januari 2017 koordinatorn schemalägger åtgärden med en nominell 2017-01-01T00:00:00 GMT.
+    En koordinator ansvarar för schemaläggning av åtgärder inom den `start` och `end` datumintervall, enligt det intervall som anges av den `frequency` attribut. Varje schemalagd åtgärd körs i sin tur arbetsflödet som konfigurerats. I coordinator definitionen ovan konfigureras koordinatorn för att köra åtgärder från den 1 januari 2017 till den 5 januari 2017. Frekvensen är inställd på 1 dag av den [Oozie Uttrycksspråk](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frekvens uttryck `${coord:days(1)}`. Detta resulterar i koordinatorn schemaläggning av en åtgärd (och därför arbetsflödet) en gång per dag. Åtgärden kommer att schemaläggas att köras utan fördröjning för datumintervall som är tidigare, som i följande exempel. Början av det datum som en åtgärd är schemalagd att köras kallas den *nominell tid*. Till exempel för att bearbeta data för den 1 januari 2017 koordinatorn schemalägger åtgärden med en nominell 2017-01-01T00:00:00 GMT.
 
 * Punkt 2: Inom det angivna datumintervallet av arbetsflödet, den `dataset` elementet anger var att leta efter i HDFS data för ett visst datumintervall och konfigurerar hur Oozie anger om aktuella data är tillgängliga för bearbetning.
 
@@ -651,6 +651,6 @@ Om du vill köra en pipeline med en koordinator fortsätta på liknande sätt so
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Apache Oozie-dokumentationen](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie-dokumentationen](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

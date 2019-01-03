@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272872"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602354"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -91,7 +91,7 @@ Känsliga plan (PSP) parameterproblemet refererar till ett scenario där Frågeo
 
 Det finns flera sätt för att åtgärda problem med associerade kompromisser och nackdelar:
 
-- Använd den [kompilera om](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset vid varje Frågekörningen. Den här lösningen handlar nödvändig affärer kompileringstid och ökade CPU få bättre kvalitet på planen. Med hjälp av den `RECOMPILE` alternativet ofta inte är möjligt för arbetsbelastningar som kräver ett högt dataflöde.
+- Använd den [kompilera om](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset vid varje Frågekörningen. Den här lösningen handlar nödvändig kompileringstid och ökade CPU få bättre kvalitet på planen. Med hjälp av den `RECOMPILE` alternativet ofta inte är möjligt för arbetsbelastningar som kräver ett högt dataflöde.
 - Använd den [ALTERNATIVET (OPTIMERA för...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset åsidosätta faktiska parametervärdet med en typisk parametervärde som producerar en tillräckligt bra plan för de flesta parametern värdet möjligheter.   Det här alternativet kräver en god förståelse för optimal parametervärden och associerade plan egenskaper.
 - Använd [ALTERNATIVET (OPTIMERA för okänd)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset åsidosätta faktiska parametervärdet i utbyte mot med densitet vektor medelvärdet. Ett annat sätt att göra detta är genom att samla in de inkommande parametervärdena till lokala variabler och sedan använda de lokala variablerna i predikat istället för att använda parametrarna själva. Den genomsnittliga tätheten måste vara *tillräckligt bra* med denna viss snabbkorrigering.
 - Inaktivera parametern kontroll helt och hållet med hjälp av den [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) frågetipset.
@@ -104,7 +104,7 @@ Det finns ytterligare information om hur du löser dessa typer av problem i:
 
 - Detta [lukta en parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blogginlägget
 - Detta [parametern kontroll problem och lösningar](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) blogginlägget
-- Detta [Elefant och mus parametern kontroll](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogginlägget
+- Detta [Elefant och mus parametern kontroll](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogginlägget
 - Detta [dynamisk sql jämfört med planen kvalitet för frågor med parametrar](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogginlägget
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Felsöka kompilera aktiviteten på grund av felaktig parameterisering

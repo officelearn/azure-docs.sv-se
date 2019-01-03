@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497127"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604539"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
@@ -35,7 +35,7 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som de [R interaktiv
 
 4. Installera [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. ML-servern tillhandahåller de [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och `RxSpark` funktioner.
 
-5. Installera [PuTTY](http://www.putty.org/) att tillhandahålla en beräkningskontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
+5. Installera [PuTTY](https://www.putty.org/) att tillhandahålla en beräkningskontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
 
 6. Du har möjlighet att tillämpa Data Science-inställningar på din Visual Studio-miljön, vilket ger en ny layout för din arbetsyta för R-verktyg.
     1. Spara de aktuella inställningarna för Visual Studio genom att använda den **Verktyg > Importera och exportera inställningar** kommandot och välj sedan **Exportera markerade miljöinställningar** och ange ett filnamn. Om du vill återställa dessa inställningar, använder du samma kommando och välj **Importera markerade miljöinställningar**.
@@ -44,7 +44,7 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som de [R interaktiv
 
         ![Data Science-inställningar...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Med metoden som i steg 1 kan du också spara och återställa dina personliga data Science layout, istället för att upprepa den **Data Science inställningar** kommando.
 
 ## <a name="execute-local-r-methods"></a>Köra lokala R-metoder

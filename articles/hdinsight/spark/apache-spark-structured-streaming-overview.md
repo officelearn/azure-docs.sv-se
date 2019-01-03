@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582232"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653636"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
 
 [Apache Spark](https://spark.apache.org/) Structured Streaming gör det möjligt att implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Strukturerad direktuppspelning bygger på Spark SQL-motor och förbättrat konstruktioner från Spark SQL-dataramar och datauppsättningar så du kan skriva streaming frågar på samma sätt som du skulle skriva frågor för batch.  
 
-Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslut till strömmande data från [Apache Kafka](https://kafka.apache.org/), TCP-socket (för felsökning), Azure Storage eller Azure Data Lake Store. Dessa två alternativ, som förlitar sig på externa lagringstjänster, kan du bevaka nya filer som läggs till i lagring och bearbeta deras innehåll som om de har strömmas. 
+Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslut till strömmande data från [Apache Kafka](https://kafka.apache.org/), TCP-socket (för felsökning), Azure Storage eller Azure Data Lake Storage. Dessa två alternativ, som förlitar sig på externa lagringstjänster, kan du bevaka nya filer som läggs till i lagring och bearbeta deras innehåll som om de har strömmas. 
 
-Strukturerad direktuppspelning skapar en tidskrävande fråga som du kan använda åtgärder för inkommande data, till exempel val, projektion, aggregering, fönsterhantering och koppla strömmande DataFrame med referensen dataramar. Nu ska du matar ut resultaten till file storage (Azure Storage-Blobbar eller Data Lake Store) eller till alla datalager genom att använda anpassad kod (till exempel SQL-databas eller Power BI). Strukturerad direktuppspelning ger också utdata till konsolen för att felsöka lokalt och i en InMemory-tabell så att du kan se de data som genereras för felsökning i HDInsight. 
+Strukturerad direktuppspelning skapar en tidskrävande fråga som du kan använda åtgärder för inkommande data, till exempel val, projektion, aggregering, fönsterhantering och koppla strömmande DataFrame med referensen dataramar. Nu ska du matar ut resultaten till file storage (Azure Storage-Blobbar eller Data Lake Storage) eller till alla datalager genom att använda anpassad kod (till exempel SQL-databas eller Power BI). Strukturerad direktuppspelning ger också utdata till konsolen för att felsöka lokalt och i en InMemory-tabell så att du kan se de data som genereras för felsökning i HDInsight. 
 
 ![Stream bearbetning med HDInsight och Apache Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Spark Structured Streaming ersätter Spark Streaming (DStreams). Framöver kommer får Structured Streaming förbättringar och underhåll, medan DStreams ska vara i underhållsläge endast. Strukturerad direktuppspelning är för närvarande inte som funktionen komplettering som DStreams för källorna och egenskaperna att den stöder direkt, så utvärdera dina krav och välja lämplig Spark stream Bearbetningsalternativ. 
 
 ## <a name="streams-as-tables"></a>Strömmar som tabeller
@@ -53,7 +53,7 @@ När med hjälp av Lägg till läge, din fråga skulle vara tillämpar projektio
 
 Överväg att för samma scenario med fullständig läge. I läget för fullständig uppdateras hela utdatatabellen på varje utlösare så att tabellen innehåller data som inte bara från den senaste körningen av utlösaren, men från alla körningar. Du kan använda fullständiga läge för att kopiera data oförändrad från indatatabellen till resultattabellen. I varje utlösta visas de nya resultatraderna tillsammans med alla föregående rader. Utdatatabellen resultaten hamnar lagrar alla data som samlas in eftersom frågan började och kör du så småningom slut på minne. Fullständig läge är avsedd att användas med mängdfrågor som summerar inkommande data på något sätt och så vidare varje utlösare resultattabellen uppdateras med en ny sammanfattning. 
 
-Förutsätter än så länge det finns fem sekunder tillhandahåller redan bearbetas och är det dags att bearbeta data för den sjätte andra. Indatatabellen har händelser för tid 00:01 och tiden 00:03. Målet med den här exempelfråga är att ge medeltemperaturen för enheten var femte sekund. Implementeringen av den här frågan gäller en mängd som gör att alla värden som faller inom varje 5-sekundersfönster anger temperaturgenomsnittet och producerar en rad för medeltemperaturen under den perioden. Det finns två tupplar i slutet av det första fönstret 5-sekundersintervall: (00:01, 1, 95) och (00:03, 1, 98). Så för fönstret 00:00-00:05 aggregeringen producerar en tuppel med medeltemperatur på 96.5 grader. I fönstret nästa 5-sekundersintervall finns endast en datapunkt på tid 00:06, så den resulterande medeltemperaturen håller 98 grader. Vid tiden 00:10, med fullständig läge resultattabellen innehåller raderna för både windows-00:00-00:05 och 00:05-00:10 eftersom frågan returnerar alla rader aggregerade, inte bara nya. Därför fortsätter resultattabellen att växa när nya windows har lagts till.    
+Förutsätter än så länge det finns fem sekunder tillhandahåller redan bearbetas och är det dags att bearbeta data för den sjätte andra. Indatatabellen har händelser för tid 00:01 och tiden 00:03. Målet med den här exempelfråga är att ge medeltemperaturen för enheten var femte sekund. Implementeringen av den här frågan gäller en mängd som gör att alla värden som faller inom varje 5-sekundersfönster anger temperaturgenomsnittet och producerar en rad för medeltemperaturen under den perioden. Det finns två tupplar i slutet av det första 5-sekundersintervall-fönstret: (00:01, 1, 95) och (00:03, 1, 98). Så för fönstret 00:00-00:05 aggregeringen producerar en tuppel med medeltemperatur på 96.5 grader. I fönstret nästa 5-sekundersintervall finns endast en datapunkt på tid 00:06, så den resulterande medeltemperaturen håller 98 grader. Vid tiden 00:10, med fullständig läge resultattabellen innehåller raderna för både windows-00:00-00:05 och 00:05-00:10 eftersom frågan returnerar alla rader aggregerade, inte bara nya. Därför fortsätter resultattabellen att växa när nya windows har lagts till.    
 
 ![Strukturerad direktuppspelning fullständig läge](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
@@ -124,11 +124,11 @@ Den här frågan ger resultat som liknar följande:
 |{u'start': u 2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u 2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Mer information om Spark-strukturerad Stream-API, tillsammans med indata källor, åtgärder och utdata egenskaperna det stöder, finns i [Apache Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Mer information om Spark-strukturerad Stream-API, tillsammans med indata källor, åtgärder och utdata egenskaperna det stöder, finns i [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Kontrollpunkter och Skriv-ahead-loggar
 
-För att leverera elasticitet och feltolerans Structured Streaming förlitar sig på *kontrollpunkter* att säkerställa att dataströmmen bearbetningen kan fortsätta utan avbrott, även med nodfel. I HDInsight skapar Spark kontrollpunkter till beständig lagring, antingen Azure Storage eller Data Lake Store. Dessa kontrollpunkter lagra statusinformation om strömmande frågan. Dessutom Structured Streaming använder en *write-ahead log* (WAL). WAL fångar insamlade data som har tagits emot men har ännu inte bearbetas av en fråga. Om ett fel inträffar och bearbetning av startas från WAL, försvinner inte alla händelser som tagits emot från källan.
+För att leverera elasticitet och feltolerans Structured Streaming förlitar sig på *kontrollpunkter* att säkerställa att dataströmmen bearbetningen kan fortsätta utan avbrott, även med nodfel. I HDInsight skapar Spark kontrollpunkter till beständig lagring, antingen Azure Storage eller Data Lake Storage. Dessa kontrollpunkter lagra statusinformation om strömmande frågan. Dessutom Structured Streaming använder en *write-ahead log* (WAL). WAL fångar insamlade data som har tagits emot men har ännu inte bearbetas av en fråga. Om ett fel inträffar och bearbetning av startas från WAL, försvinner inte alla händelser som tagits emot från källan.
 
 ## <a name="deploying-spark-streaming-applications"></a>Distribuera Spark Streaming program
 
@@ -141,5 +141,5 @@ Status för alla program kan också kontrolleras med en GET-begäran mot en LIVY
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Apache Spark-kluster i HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark-strukturerad strömning Programmeringsguide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache Spark-strukturerad strömning Programmeringsguide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Starta Apache Spark-jobb via fjärranslutning med Apache LIVY](apache-spark-livy-rest-interface.md)

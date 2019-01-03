@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 85bbd59cb921e5f20feb7b1cf1073fd7b695864f
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7f50d6f6417764a20125f85398dd9cbf93f3a4a1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393578"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542118"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus-diagnostikloggar
 
 Du kan visa två typer av loggar för Azure Service Bus:
-* **[Aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Dessa loggar innehåller information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
-* **[Diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Du kan konfigurera diagnostikloggar mer omfattande information om allt som händer i ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
+* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)**. Dessa loggar innehåller information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
+* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)**. Du kan konfigurera diagnostikloggar mer omfattande information om allt som händer i ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
 
 ## <a name="turn-on-diagnostic-logs"></a>Aktivera diagnostikloggar
 
@@ -52,7 +52,7 @@ Diagnostikloggar är inaktiverade som standard. Utför följande steg om du vill
 
 Nya inställningarna träder i kraft i cirka 10 minuter. Efter det loggarna visas i den konfigurerade mål för arkivering, på den **diagnostikloggar** bladet.
 
-Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Diagnostikloggar schema
 

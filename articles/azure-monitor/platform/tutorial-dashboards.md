@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389104"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545324"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
-[Azure Monitor-diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) är loggar som genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla diagnostikloggar som är tillgängliga i Azure Monitor delar ett gemensamt översta schema med flexibilitet för varje tjänst att generera unika egenskaper för sina egna händelser.
+[Azure Monitor-diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) är loggar som genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla diagnostikloggar som är tillgängliga i Azure Monitor delar ett gemensamt översta schema med flexibilitet för varje tjänst att generera unika egenskaper för sina egna händelser.
 
 En kombination av resurstypen (tillgänglig i den `resourceId` egenskapen) och `category` unikt identifiera ett schema. Den här artikeln beskriver översta schemat för diagnostikloggar och länkar till scheman för varje tjänst.
 
@@ -205,7 +205,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mer information om diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream resursdiagnostikloggar till **Event Hubs**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Mer information om diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream resursdiagnostikloggar till **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analysera loggar från Azure storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

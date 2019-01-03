@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89d1859b521fff8ca8d3e8c7342bcb5a4b8d59fe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ee1cfaa9e5eb08b2fe6ee7d210dcb84a8c39d78
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012988"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715332"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Giraph på Windows-baserade HDInsight-kluster
 
 Lär dig hur du anpassar Windows-baserat HDInsight-kluster med Apache Giraph med skriptåtgärd och använda Giraph för att bearbeta storskaliga diagram. Information om att använda Giraph med en Linux-baserat kluster finns i [installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om hur du installerar Giraph på ett Linux-baserade HDInsight-kluster finns i [installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
@@ -34,7 +34,7 @@ Du kan installera Giraph på någon typ av kluster (Hadoop-, Storm, HBase, Spark
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-giraph"></a>Vad är Giraph?
-<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight. Diagram modell relationer mellan objekt, till exempel anslutningar mellan routrar på ett stort nätverk som Internet eller relationer mellan personer på sociala nätverk (kallas ibland ett socialt diagram). Bearbeta diagram gör att du att resonera kring relationerna mellan objekt i ett diagram som:
+<a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight. Diagram modell relationer mellan objekt, till exempel anslutningar mellan routrar på ett stort nätverk som Internet eller relationer mellan personer på sociala nätverk (kallas ibland ett socialt diagram). Bearbeta diagram gör att du att resonera kring relationerna mellan objekt i ett diagram som:
 
 * Identifiera potentiella vänner utifrån dina aktuella relationer.
 * Identifiera den kortaste vägen mellan två datorer i ett nätverk.
@@ -61,7 +61,7 @@ Du kan installera Giraph på någon typ av kluster (Hadoop-, Storm, HBase, Spark
     Du kan lägga till fler än en skriptåtgärd för att installera flera komponenter i klustret. När du har lagt till skripten, klicka på bockmarkeringen för att skapa klustret.
 
 ## <a name="use-giraph"></a>Använd Giraph
-Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundläggande <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementering för att hitta den kortaste vägen mellan objekt i ett diagram. Använd följande steg för att ladda upp exempeldata och exempel jar, köra ett jobb med hjälp av exemplet SimpleShortestPathsComputation och visa sedan resultaten.
+Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundläggande <a href = "https://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> implementering för att hitta den kortaste vägen mellan objekt i ett diagram. Använd följande steg för att ladda upp exempeldata och exempel jar, köra ett jobb med hjälp av exemplet SimpleShortestPathsComputation och visa sedan resultaten.
 
 1. Ladda upp en exempeldatafil till Azure Blob storage. Skapa en ny fil med namnet på den lokala arbetsstationen **tiny_graph.txt**. Den bör innehålla följande rader:
 
@@ -80,7 +80,7 @@ Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundl�
     ![tiny_graph.txt ritas som cirklar med varierande avståndet mellan rader](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 2. Kör exemplet SimpleShortestPathsComputation. Använd följande Azure PowerShell-cmdletar för att köra exemplet med hjälp av tiny_graph.txt-filen som indata.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-stöd för hantering av HDInsight-resurser med hjälp av Azure Service Manager **är föråldrat** och togs bort den 1 januari 2017. I stegen i det här dokumentet används de nya HDInsight-cmdletarna som fungerar med Azure Resource Manager.
     >
     > Följ stegen i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -164,8 +164,8 @@ Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-clu
 * [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
 * [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
-* [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]: skriptåtgärd exempel om hur du installerar Spark.
-* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md): skriptåtgärd exempel om att installera Solr.
+* [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]: Skriptexempel för en åtgärd om hur du installerar Spark.
+* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md): Skriptexempel för en åtgärd om att installera Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

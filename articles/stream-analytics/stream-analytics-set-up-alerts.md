@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du använder Azure-portalen för at
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 727747d84d0db32c73fc1a200bcea7e5c149d24b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090974"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554919"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics-jobb
 Du kan ställa in aviseringar för att utlösa en avisering när ett mått når ett villkor som du anger. Du kan till exempel ställa in en avisering om ett villkor som liknar följande:
@@ -30,7 +30,7 @@ Regler kan ställas in på mått via portalen eller kan konfigureras [programmä
 
 3. I den **mått** bladet klickar du på den **Lägg till avisering** kommando.
 
-      ![Konfigurationen av Azure portal](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+      ![Azure Stream Analytics aviseringar portalinställningarna](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 4. Ange ett namn och en beskrivning.
 

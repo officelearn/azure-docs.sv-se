@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 70bbade2877b62c3d211600f69e1825677f12040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282509"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721877"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan hämta objekt från Azure Marketplace och göra dem tillgängliga i Azure Stack som en cloud-operator. Det är de objekt som du kan välja från en granskad lista över Azure Marketplace-objekt som testats och har stöd för att fungera med Azure Stack. Ytterligare objekt är ofta läggs till i listan kan fortsätta så Håll utkik efter nytt innehåll. 
 
@@ -75,8 +75,8 @@ Om Azure Stack är i frånkopplat läge och utan Internetanslutning kan du anvä
 Marketplace-syndikering verktyget kan också användas i ett scenario med anslutna. 
 
 Det finns två delar i det här scenariot:
-- **Del 1:** ladda ned från Azure Marketplace. På datorn med Internetåtkomst konfigurera PowerShell, ladda ned verktyget syndikering och sedan hämta objekt formuläret Azure Marketplace.  
-- **Del 2:** överföring och publicering på Azure Stack Marketplace. Du flyttar de filer som du hämtade till Azure Stack-miljön, importera dem till Azure Stack och sedan publicera dem på Azure Stack Marketplace.  
+- **Del 1:** Ladda ned från Azure Marketplace. På datorn med Internetåtkomst konfigurera PowerShell, ladda ned verktyget syndikering och sedan hämta objekt formuläret Azure Marketplace.  
+- **Del 2:** Ladda upp och publicera på Azure Stack Marketplace. Du flyttar de filer som du hämtade till Azure Stack-miljön, importera dem till Azure Stack och sedan publicera dem på Azure Stack Marketplace.  
 
 
 ### <a name="prerequisites"></a>Förutsättningar
@@ -89,6 +89,8 @@ Det finns två delar i det här scenariot:
 - Du måste ha en [lagringskonto](azure-stack-manage-storage-accounts.md) i Azure Stack som har en offentligt tillgänglig behållare (vilket är en lagringsblob). Du använder behållare som temporär lagring för marketplace objekt galleriet filer. Om du inte är bekant med lagringskonton och behållare finns i [arbeta med blobar – Azure-portalen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) i Azure-dokumentationen.
 
 - Verktyget för marketplace-syndikering hämtas vid den första proceduren. 
+
+- Du kan installera [AzCopy](../storage/common/storage-use-azcopy.md) för optimal hämtning prestanda, men detta krävs inte.
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Använd verktyget för marketplace-syndikering för att hämta marketplace-objekt
 
@@ -126,10 +128,7 @@ Det finns två delar i det här scenariot:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. När verktyget körs, bör du se en skärm som liknar följande bild, med listan över tillgängliga marketplace-objekt:
@@ -144,7 +143,35 @@ Det finns två delar i det här scenariot:
 
 9. Den tid som nedladdningen tar beror på storleken på objektet. När nedladdningen är klar är artikeln tillgänglig i den mapp som du angav i skriptet. Nedladdningen innehåller en VHD-fil (för virtuella datorer) eller en .zip-fil (för tillägg till virtuella datorer). Det kan även innehålla ett gallery-paket i den *.azpkg* format, vilket är bara en .zip-fil.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importera nedladdningen och publicera Azure Stack Marketplace
+10. Om nedladdningen misslyckas, kan du försöka igen genom att köra följande PowerShell-cmdlet:
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    Innan du försöker igen, ta bort produktmappen där nedladdningen misslyckades. Exempel: om skript för hämtning misslyckas när du laddar ned till `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, ta bort den `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` mapp och sedan kör cmdlet: en.
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Importera nedladdningen och publicera Azure Stack Marketplace (1811 och senare)
+
+1. Du måste flytta filer som du har [tidigare hämtade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) lokalt så att de blir tillgängliga för Azure Stack-miljön. Marketplace-syndikering verktyget måste också vara tillgängliga för Azure Stack-miljön, eftersom du behöver använda för att utföra importen.
+
+   Följande bild visar ett exempel på mappen struktur. `D:\downloadfolder` innehåller alla hämtade marketplace-objekt. Varje undermapp är ett marketplace-objekt (till exempel `microsoft.custom-script-linux-arm-2.0.3`) med namnet av produkt-ID. I varje undermapp finns i marketplace-objekt hämtat innehåll.
+
+   [ ![Marketplace download katalogstruktur](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace download katalogstruktur") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. Följ instruktionerna i [i den här artikeln](azure-stack-powershell-configure-admin.md) att konfigurera Azure Stack operatorn PowerShell-session. 
+
+3. Importera modulen syndikering och sedan starta verktyget marketplace syndikering genom att köra följande skript:
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   Den `-AzsCredential` parametern är valfri. Den används för att förnya åtkomsttoken, om det har gått ut. Om den `-AzsCredential` parametern inte anges och token upphör att gälla, du får en uppmaning att ange autentiseringsuppgifter för operatorn.
+
+4. När skriptet har slutförts ska objektet vara tillgänglig i Azure Stack Marketplace.
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>Importera nedladdningen och publicera Azure Stack Marketplace (1809 och lägre)
 
 1. Filer för avbildningar av virtuella datorer eller mallar för lösningar som du har [tidigare hämtade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) måste vara tillgängliga lokalt till Azure Stack-miljön.  
 
@@ -159,7 +186,7 @@ Det finns två delar i det här scenariot:
    3. Markera den behållare som du vill använda och välj sedan **överför** att öppna den **ladda upp blob** fönstret.  
       [ ![Behållaren](media/azure-stack-download-azure-marketplace-item/container.png "behållare") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Bläddra till paketet och disk-filer att läsa in till lagring och välj sedan i fönstret ladda upp blob **överför**: [ ![överför](media/azure-stack-download-azure-marketplace-item/uploadsm.png "ladda upp") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. Bläddra till paketet och disk-filer att läsa in till lagring och välj sedan i fönstret ladda upp blob **överför**: [ ![Ladda upp](media/azure-stack-download-azure-marketplace-item/uploadsm.png "ladda upp") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Filer som du överför visas i fönstret behållare. Välj en fil och kopiera Webbadressen från den **Blobegenskaper** fönstret. Du ska använda den här URL: en i nästa steg när du importerar marketplace-objekt till Azure Stack.  I följande bild, behållaren är *test blobblagring* och filen *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Filen URL: en är *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       [ ![Blobegenskaper](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blobegenskaper") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
@@ -168,10 +195,10 @@ Det finns två delar i det här scenariot:
 
    Du kan hämta den *publisher*, *erbjuder*, och *sku* värdena för avbildningen från textfilen som hämtar filen AZPKG. Filen lagras på målplatsen. Den *version* värde är den version som anges när du laddar ned objektet från Azure i föregående procedur. 
  
-   I följande exempelskript används värdena för den Windows Server 2016 Datacenter - Server Core-VM. Värdet för *- Osuri* är ett exempel på sökväg till blob-lagringsplats för objektet. 
+   I följande exempelskript används värdena för den Windows Server 2016 Datacenter - Server Core-VM. Värdet för *- Osuri* är ett exempel på sökväg till blob-lagringsplats för objektet.
 
    Som ett alternativ till det här skriptet kan du använda den [proceduren som beskrivs i den här artikeln](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) att importera den. VHD-avbildning med hjälp av Azure portal.
- 
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -181,12 +208,12 @@ Det finns två delar i det här scenariot:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   
-   **Om lösningsmallar:** vissa mallar kan innehålla en liten 3 MB. VHD-fil med namnet **fixed3.vhd**. Du behöver inte importera den till Azure Stack. Fixed3.VHD.  Den här filen som ingår i vissa lösningsmallar att uppfylla publishing krav för Azure Marketplace.
+
+   **Om lösningsmallar:** Vissa mallar kan innehålla en liten 3 MB. VHD-fil med namnet **fixed3.vhd**. Du behöver inte importera den till Azure Stack. Fixed3.VHD.  Den här filen som ingår i vissa lösningsmallar att uppfylla publishing krav för Azure Marketplace.
 
    Granska beskrivningen mallar och hämta och importera sedan ytterligare krav som virtuella hårddiskar som krävs för att arbeta med lösningsmallen.  
    
-   **Om tillägg:** när du arbetar med tillägg till virtuella datorer kan använda följande parametrar:
+   **Om tillägg:** När du arbetar med tillägg för avbildning av virtuell dator kan du använda följande parametrar:
    - *Utgivare*
    - *Typ*
    - *Version*  

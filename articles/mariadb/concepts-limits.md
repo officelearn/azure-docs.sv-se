@@ -3,17 +3,15 @@ title: Begränsningar i Azure-databas för MariaDB
 description: Den här artikeln beskriver begränsningar i Azure Database for MariaDB, till exempel antalet anslutning och lagringsalternativ för motorn.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835717"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970295"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure-databas för MariaDB
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten.
@@ -46,14 +44,14 @@ När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 
 ### <a name="unsupported"></a>Stöds inte
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [SVARTLISTADE](https://mariadb.com/kb/en/library/blackhole/l)
+- [SVARTLISTADE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARKIV](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Stöd för behörighet
 
 ### <a name="unsupported"></a>Stöds inte
-- DBA-roll: många serverparametrar och inställningar kan oavsiktligt försämra serverprestanda eller negera ACID-egenskaper för DBMS. Därför för att upprätthålla integriteten för tjänsten och SLA på en produktnivå, exponerar den här tjänsten inte DBA-rollen. Standardanvändarkontot som skapas när en ny databasinstans har skapats, kan användaren utföra de flesta av DDL och DML-instruktioner i hanterade databasinstansen.
-- SUPER behörighet: på samma sätt [SUPER behörighet](https://mariadb.com/kb/en/library/grant/#global-privileges) är också begränsad.
+- DBA-roll: Många serverparametrar och inställningar kan du oavsiktligt försämra serverprestanda eller negera ACID-egenskaper för DBMS. Därför för att upprätthålla integriteten för tjänsten och SLA på en produktnivå, exponerar den här tjänsten inte DBA-rollen. Standardanvändarkontot som skapas när en ny databasinstans har skapats, kan användaren utföra de flesta av DDL och DML-instruktioner i hanterade databasinstansen.
+- SUPER privilegium: På samma sätt [SUPER behörighet](https://mariadb.com/kb/en/library/grant/#global-privileges) är också begränsad.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för manipulering av instruktionen
 

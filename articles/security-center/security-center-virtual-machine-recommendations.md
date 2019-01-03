@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: dd7858b9723d8d3ee9eb9299b2cee11596563a33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340716"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537655"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Förstå rekommendationer för Azure Security Center-resurs
 
@@ -60,7 +60,7 @@ Använd tabellen nedan som referens för att förstå beräkningarna som är til
 | Använd den senaste Node.js versionen för webbprogram | Rekommenderar att du använder den senaste versionen av Node.js för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
 | CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram. |
 | Använd anpassade domäner för Funktionsappen | Rekommenderar att du använder anpassade domäner för att skydda en funktionsapp från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
-| Konfigurera IP-begränsningar för Funktionsappen | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker. |
+| Konfigurera IP-begränsningar för funktionsappen | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker. |
 | Funktionen App bör enbart vara åtkomliga via HTTPS | Rekommenderar att du begränsar åtkomst till funktionsappar via HTTPS endast. |
 | Fjärrfelsökning bör stängas av för Funktionsappen | Rekommenderar att du stänger av felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp. |
 | Webbsockets bör inaktiveras för Funktionsappen | Rekommenderar att du noggrant läser användningen av Web Sockets i Funktionsappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |

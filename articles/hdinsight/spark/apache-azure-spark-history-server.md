@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497276"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792789"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökat Apache Spark-Historikserver att felsöka och diagnostisera Apache Spark-program
 
@@ -26,7 +26,7 @@ Apache Spark-Historikserver är webbgränssnittet för slutförda och körs Spar
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Öppna Webbgränssnittet för Apache Spark historik Server från Azure-portalen
 
-1. Från den [Azure-portalen](https://portal.azure.com/), öppna Spark-klustret. Mer information finns i [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Från den [Azure-portalen](https://portal.azure.com/), öppna Spark-klustret. Mer information finns i [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Från **snabblänkar**, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**. När du uppmanas, anger du autentiseringsuppgifter som administratör för Spark-klustret. 
 
     ![Spark-Historikserver](./media/apache-azure-spark-history-server/launch-history-server.png "Spark-Historikserver")
@@ -106,11 +106,11 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
 
 + Spela upp jobbet genom att klicka på den **uppspelning** knappen och stoppa när som helst genom att klicka på Stoppa. Aktiviteten visas i färg att visa status för olika när uppspelning:
 
-    + Grön för lyckades: jobbet har slutförts.
-    + Orange för göras: instanser av uppgifter som misslyckades men påverkar inte det slutgiltiga resultatet av jobbet. Dessa uppgifter hade duplicera eller försök instanser som kan lyckas senare.
-    + Blå för att köra: aktiviteten körs.
-    + Vit för att vänta eller hoppades över: aktiviteten väntar på att köra eller scenen har hoppades över.
-    + Röd om misslyckades: Det gick inte att aktiviteten.
+    + Grön för lyckades: Jobbet har slutförts.
+    + Orange för igen: Instanser av uppgifter som misslyckades men påverkar inte det slutgiltiga resultatet av jobbet. Dessa uppgifter hade duplicera eller försök instanser som kan lyckas senare.
+    + Blå för att köra: Aktiviteten körs.
+    + Vit för att vänta eller hoppades över: Uppgiften väntar på att köra eller scenen har hoppades över.
+    + Det gick inte att rött för: Uppgiften misslyckades.
 
     ![Graph färgprov som körs](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
 
     ![Graph färgprov misslyckades](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Spela upp för varje jobb är tillåtet. Spela upp stöds inte för ej slutförda jobb.
 
 
@@ -132,8 +132,8 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
     ![Graph knappbeskrivning](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Jobbet graph fliken faser har knappbeskrivning och lilla ikonen som visas om de uppgifter som uppfyller de nedan villkor:
-    + Datasnedställning: data lässtorlek > genomsnittlig lässtorlek för alla aktiviteter i det här skedet * 2 och data läses storlek > 10 MB
-    + Tidssnedställning: körningstid > Genomsnittlig körningstid för alla aktiviteter i det här skedet * 2 och körningstid > 2 minuter
+    + Datasnedställning: data lässtorlek > genomsnittlig lässtorlek för alla aktiviteter i det här skedet * 2 och data läses storlek > 10 MB.
+    + Tidssnedställning: körningstid > Genomsnittlig körningstid för alla aktiviteter i det här skedet * 2 och körningstid > 2 minuter.
 
     ![skeva Diagramikon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
     + Radantal: summan av poster som indata, utdata poster, blanda läsa poster och blanda skriva poster.
     + Förlopp.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Information från senaste försöket i varje fas (förutom scenen körningstid) visas i noden jobb graph som standard, men under uppspelning graph noden visas information för varje försök.
 
-    > [!NOTE]
+    > [!NOTE]  
     > För datastorleken för läsning och skrivning som vi använder 1 MB = 1 000 KB = 1 000 * 1 000 byte.
 
 + Skicka feedback med problem genom att klicka på **ge oss feedback**.
@@ -168,7 +168,7 @@ Välj jobb-ID och klicka sedan **diagnos** på Verktyg-menyn för att få jobbet
 ### <a name="data-skew"></a>Datasnedställning
 Klicka på **Data förskjuta** fliken motsvarande skeva uppgifter visas baserat på de angivna parametrarna. 
 
-+ **Ange parametrar** – det första avsnittet visas de parametrar som används för att identifiera Data skeva. Inbyggda regeln är: uppgift lästa är större än 3 gånger på den genomsnittliga uppgiftsdata läses och aktivitetsdata läsa är mer än 10MB. Om du vill definiera dina egna regel för skeva uppgifter kan du välja din parametrar, den **förvrängd scenen**, och **förskjuta Char** avsnittet kommer att uppdateras i enlighet med detta.
++ **Ange parametrar** – det första avsnittet visas de parametrar som används för att identifiera Data skeva. Inbyggda regeln är: Uppgiften lästa är större än 3 gånger för den genomsnittliga uppgiftsdata läses och aktivitetsdata läsa är mer än 10MB. Om du vill definiera dina egna regel för skeva uppgifter kan du välja din parametrar, den **förvrängd scenen**, och **förskjuta Char** avsnittet kommer att uppdateras i enlighet med detta.
 
 + **Förvrängd scenen** -det andra avsnittet visar steg som har förvrängd uppgifter som uppfyller de kriterier som anges ovan. Om det finns fler än en skeva uppgift i ett steg, visar skeva mellanlagringstabellen endast mest skeva uppgift (t.ex. största data för data förskjuta).
 

@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 73c65aa5c95887c8b1f6eb5e4cf91e19815eba15
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256408"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741886"
 ---
 # <a name="translator-speech-api-languages"></a>API för Talöversättning: Språk
 
@@ -27,7 +27,7 @@ Kodexempel som demonstrerar användningen av API för att hämta tillgängliga s
 
 ## <a name="implementation-notes"></a>Implementeringsanteckningar
 
-Hämta /languages 
+### <a name="get-languages"></a>Hämta /languages 
 
 Det finns en bred uppsättning språk att transkribera tal, Översätt den transkriberade texten och producera syntetiskt tal översättningens.
 

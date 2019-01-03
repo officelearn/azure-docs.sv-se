@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2c5a584bd5c235eb143c8e1911006aa6e142ff0d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498142"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605644"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-lösningar för ML-tjänster på Azure HDInsight
 
@@ -26,16 +26,16 @@ ML-tjänster på HDInsight kan använda en mängd olika lagringslösningar för 
 
 Du har också möjlighet att få åtkomst till flera Azure storage-konton eller behållare med ditt HDInsight-kluster. Azure-fillagring är ett praktiskt data för användning på gränsnoden som gör att du kan montera en filresurs i Azure Storage, till exempel Linux-filsystem. Men Azure-filresurser kan monteras och används av alla system som har ett operativsystem, till exempel Windows eller Linux. 
 
-När du skapar ett Apache Hadoop-kluster i HDInsight kan du ange antingen en **Azure storage** konto eller en **datasjölagringen**. En specifik storage-behållare från detta konto innehåller filsystemet för klustret som du skapar (t.ex, Hadoop Distributed File System). Mer information och riktlinjer finns:
+När du skapar ett Apache Hadoop-kluster i HDInsight kan du ange antingen en **Azure storage** konto eller **Data Lake Storage**. En specifik storage-behållare från detta konto innehåller filsystemet för klustret som du skapar (t.ex, Hadoop Distributed File System). Mer information och riktlinjer finns:
 
 - [Använda Azure storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Använd Data Lake Store med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-store.md)
+- [Använda Data Lake Storage med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Använd Azure Blob storage-konton med ML-Services-kluster
 
 Om du har angett mer än en storage-konto när du skapar klustret ML-tjänster förklaras i följande anvisningar hur du använder ett sekundärt konto för åtkomst till data och åtgärder på ett kluster för ML-tjänster. Anta att följande storage-konton och behållaren: **storage1** och en standardbehållare som kallas **container1**, och **storage2** med **container2**.
 
-> [!WARNING]
+> [!WARNING]  
 > För prestanda skapas HDInsight-klustret i samma datacenter som det primära lagringskontot som du anger. Med ett storage-konto i en annan plats än HDInsight-kluster stöds inte.
 
 ### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>Använd standardlagring med ML-tjänster på HDInsight
@@ -102,29 +102,29 @@ Du måste konfigurera/User/RevoShare/<SSH username> på **storage2** på följan
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>Använd en Azure Data Lake Store med ML-Services-kluster 
+## <a name="use-azure-data-lake-storage-with-ml-services-cluster"></a>Använd Azure Data Lake Storage med ML-Services-kluster 
 
-Om du vill använda Data Lake Store med HDInsight-kluster, måste du ge ditt Klusteråtkomst till varje Azure Data Lake Store som du vill använda. Anvisningar för hur du använder Azure-portalen för att skapa ett HDInsight-kluster med ett konto för Azure Data Lake Store som standardlagring eller som en ytterligare store finns i [skapa ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Om du vill använda Data Lake Storage med HDInsight-kluster, måste du ge ditt Klusteråtkomst till varje Azure Data Lake Storage som du vill använda. Anvisningar för hur du använder Azure-portalen för att skapa ett HDInsight-kluster med ett Azure Data Lake Storage-konto som standardlagring eller som ytterligare lagringsutrymme finns i [skapa ett HDInsight-kluster med Data Lake Storage med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-Du sedan använda arkivet i R-skriptet mycket som du gjorde en sekundär Azure storage-konto som beskrivs i föregående procedur.
+Du sedan använda lagring i ditt R-skript mycket som du gjorde en sekundär Azure storage-konto som beskrivs i föregående procedur.
 
-### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Lägga till klustret åtkomst till din Azure Data Lake Stores
-Du har åtkomst till ett Data Lake store med hjälp av ett tjänstobjekt för Azure Active Directory (Azure AD) som är associerat med ditt HDInsight-kluster.
+### <a name="add-cluster-access-to-your-azure-data-lake-storage"></a>Lägga till klustret åtkomst till din Azure Data Lake Storage
+Du har åtkomst till Data Lake Storage med hjälp av ett tjänstobjekt för Azure Active Directory (Azure AD) som är associerat med ditt HDInsight-kluster.
 
 1. När du skapar ditt HDInsight-kluster, Välj **kluster AAD-identitet** från den **datakälla** fliken.
 
 2. I den **kluster AAD-identitet** dialogrutan **väljer AD-tjänstens huvudnamn**väljer **Skapa ny**.
 
-När du ge tjänstens huvudnamn ett namn och skapa ett lösenord för den, klickar du på **hantera ADLS åtkomst** associera tjänstens huvudnamn med ditt Data Lake Store.
+När du ge tjänstens huvudnamn ett namn och skapa ett lösenord för den, klickar du på **hantera ADLS åtkomst** associera tjänstens huvudnamn med Data Lake Storage.
 
-Det är också möjligt att lägga till klustret åtkomst till en eller flera Data Lake Store-konton när klustret har skapats. Öppna Azure portal posten för en Data Lake Store och gå till **Datautforskaren > åtkomst > Lägg till**. 
+Det är också möjligt att lägga till klustret åtkomst till en eller flera Data Lake Storage-konton när klustret har skapats. Öppna Azure portal posten för en Data Lake Storage och gå till **Datautforskaren > åtkomst > Lägg till**. 
 
-### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>Hur du får åtkomst till Data Lake store från ML-tjänster på HDInsight
+### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Hur du kommer åt Data Lake Storage från ML-tjänster på HDInsight
 
-När du har beviljat åtkomst till ett Data Lake Store, kan du använda store i ML-Services-kluster på HDInsight på sätt som en sekundär Azure-lagringskonto. Den enda skillnaden är att prefixet **wasb: / /** ändras till **adl: / /** på följande sätt:
+När du har beviljat åtkomst till Data Lake Storage, kan du använda lagring i ML-Services-kluster i HDInsight på sätt som en sekundär Azure-lagringskonto. Den enda skillnaden är att prefixet **wasb: / /** ändras till **adl: / /** på följande sätt:
 
 
-    # Point to the ADL store (e.g. ADLtest)
+    # Point to the ADL Storage (e.g. ADLtest)
     myNameNode <- "adl://rkadl1.azuredatalakestore.net"
     myPort <- 0
 
@@ -143,7 +143,7 @@ När du har beviljat åtkomst till ett Data Lake Store, kan du använda store i 
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-Följande kommandon används för att konfigurera Data Lake Store-konto med RevoShare katalogen och Lägg till exempel-CSV-filen från föregående exempel:
+Följande kommandon används för att konfigurera Data Lake Storage-konto med RevoShare katalogen och Lägg till exempel-CSV-filen från föregående exempel:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

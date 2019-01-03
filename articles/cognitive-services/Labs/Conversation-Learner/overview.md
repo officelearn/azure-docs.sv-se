@@ -1,7 +1,7 @@
 ---
-title: Vad är konversationen deltagaren? -Kognitiva Microsoft-tjänster | Microsoft Docs
+title: Vad är Conversation Learner? -Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Läs mer om konversationen deltagaren och hur det fungerar.
+description: Läs mer om Konversationsdeltagare och hur det fungerar.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,38 +10,38 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9cbf0e60382ef17d68aab47cf5f24ea9b8434f13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353991"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790783"
 ---
-# <a name="what-is-conversation-learner"></a>Vad är konversationen deltagaren?
+# <a name="what-is-conversation-learner"></a>Vad är Conversation Learner?
 
-Konversationen deltagaren kan du skapa och utbilda vardagliga samtalsuttryck gränssnitt som lär sig från exemplet interaktioner. 
+Konversationsdeltagare kan du skapa och undervisa konversationsanpassade gränssnitt som lär sig från exemplet interaktioner. 
 
-Till skillnad från traditionella metoder anser konversation deltagaren slutpunkt till slutpunkt-kontexten för en dialog att förbättra svar och designverktyget mer. Utsträckning en bred uppsättning uppgiftsorienterade användningsfall, konversation deltagaren gäller datorn lära dig att göra robotar och intelligent agenter som är mindre troligt att vara frustrerande för användare, medföra ytterligare customer servicekostnader i bakgrunden och intuitivt att interagera med.
+Till skillnad från traditionella metoder överväger Konversationsdeltagare slutpunkt till slutpunkt-kontexten för en dialogruta för att förbättra svar och leverera mer engagerande användarupplevelser. Med en bred uppsättning uppgiftsorienterade användningsfall Konversationsdeltagare gäller maskininlärning i bakgrunden och gör robotar och intelligent agenter som är mindre troligt att vara frustrerande för användare, medför ytterligare customer servicekostnader och mer spur mer intuitiv interaktioner.
 
-Om du vill komma igång försätts utvecklaren prototypical dialogrutor som de vill imitera. När flera dialogrutor anges modellen uppdateras kontinuerligt och utvecklare kan se hur väl modellen generalisera. När modellen fungerar bra distribueras i bot till slutanvändare. Konversationen deltagaren loggar konversationer med användare och utvecklare kan granska dem. Om fel är spotted utvecklaren kan göra en korrigering på platsen och modellen är retrained och kan användas omedelbart.
+Utvecklare börja genom att ange prototypical dialogrutorna för att efterlikna. Modellen lär sig när flera dialogrutor anges. När modellen fungerar bra, kan roboten distribueras till slutanvändare. Konversationsdeltagare loggar konversationer med användare och utvecklaren kan granska dem. Om misstag är spotted utvecklaren kan göra en korrigering på plats och modellen är modellkomponenten och kan användas direkt.
 
-Den här metoden minskar manuell kodning av dialog logik och möjliggör projektägare eller domän experter att bidra till ett gränssnitt för vardagliga samtalsuttryck utan föregående maskininlärning kunskap. Om den distribueras som en del av en bot eller smart enhet intelligent agent konversation deltagaren snabbt iterera nya kunskaper, beteenden eller kunskaper och snabbt förbättra kvaliteten. 
+Den här metoden minskar manuell kodning av dialog logik och möjliggör företagsägare eller områdesexperter att bidra till ett konversationsanpassade gränssnitt utan tidigare kunskaper för maskininlärning. Om den distribueras som en del av en bot, smarta enheter eller intelligent agent Konversationsdeltagare snabbt kan iterera nya kunskaper eller beteenden kompetenser och snabbt förbättra deras kvalitet. 
 
-Konversationen deltagaren ger utvecklare möjlighet att öka hastigheten på marknaden och enheten lyckade dialoger över flera vardagliga samtalsuttryck kanaler via Microsoft Bot Framework eller fristående med sin egen infrastruktur.
+Konversationsdeltagare gör det möjligt för utvecklare att öka snabbt till marknaden och drive lyckad dialoger i flera konversationsanpassade kanaler via Microsoft Bot Framework eller separat med sin egen infrastruktur.
 
 Sammanfattning och viktiga funktioner:
 
-- Konversationen deltagaren är AI först för att skapa uppgiftsorienterade robotar.
+- Konversationsdeltagare är ett AI-första sätt att skapa åtgärds-inriktade robotar.
 
-- Det bygger på en slutpunkt till slutpunkt återkommande neurala nätverk (LSTM) och lär sig direkt från flera Stäng exempel konversationer. 
+- Den bygger på en slutpunkt till slutpunkt återkommande neurala nätverk (LSTM) och lär sig direkt från flera aktivera exempel på konversationer. 
 
-- Aktiverar designers, utvecklare, företagsanvändare och call center anställda att bygga och underhålla robotar. 
+- Möjliggör designers, utvecklare, företagsanvändare och anrop center arbeten att bygga och underhålla robotar. 
 
-- Ger möjlighet att uttrycka regler och gemensamma mening i kod.
+- Ger möjlighet att uttrycka affärsregler och sunt förnuft i kod.
 
-- Under lära sessioner används modellen neurala nätverket för att poängsätta nästa uppsättning förväntade åtgärder i konversationen. Bot utvecklaren kan sedan välja rätt åtgärd och träna nätverket för att ge rätt svar.
+- Under undervisa sessioner, används neuralt nätverk modellen för att bedöma nästa uppsättning förväntade åtgärder i konversationen. Bot utvecklaren kan sedan välja rätt åtgärd och träna nätverket för att ge rätt svar.
  
-- När utbildning är klar kan utvecklaren använda loggen dialogrutorna från användarinteraktioner som att göra korrigeringar bot svar och träna om modellen. 
+- När utbildning har slutförts kan utvecklaren använda log dialogrutorna från användarinteraktioner att göra korrigeringar bot svar och träna om modellen. 
 
 - Anropa domänspecifika och tredjeparts-API: er för att slutföra uppgifter.
 

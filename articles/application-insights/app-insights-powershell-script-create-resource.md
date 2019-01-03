@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: ccc3ced06a6b5ac36df9e7294a9b4cf17d0dedf3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6cb1bc8608aa106d56382264184c1c4eb017538a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723167"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790070"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>PowerShell-skript för att skapa en Application Insights-resurs
 
@@ -103,9 +103,9 @@ Varje resurs identifieras av dess instrumentationsnyckeln (iKey). Nyckeln är en
 
 Det finns två sätt att tillgängliggöra iKey till SDK:
 
-* I [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
+* I [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
-* Eller i [initieringskod](app-insights-api-custom-events-metrics.md): 
+* Eller i [initieringskod](../azure-monitor/app/api-custom-events-metrics.md): 
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 

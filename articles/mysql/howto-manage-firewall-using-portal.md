@@ -1,63 +1,60 @@
 ---
-title: Skapa och hantera MySQL brandväggsregler i Azure-databas för MySQL
-description: Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure portal
-services: mysql
+title: Skapa och hantera brandväggsregler för MySQL i Azure Database för MySQL
+description: Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure-portalen
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: f7d2d97049d73387f44f55bbd2fb90a6174a9df2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 598af6bb945318f0a76ffe094dd5786abacccc3f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265868"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543537"
 ---
-# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure portal
-Brandväggsregler på servernivå kan administratörer få åtkomst till en Azure-databas för MySQL-Server från en angiven IP-adress eller ett intervall med IP-adresser. 
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure portal
+Brandväggsregler på servernivå gör att administratörer kan få åtkomst till en Azure Database for MySQL-Server från en angiven IP-adress eller ett intervall med IP-adresser. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
 
-1. På sidan MySQL-server under inställningar rubrik, klickar du på **anslutningssäkerhet** att öppna sidan anslutningssäkerhet för Azure-databas för MySQL.
+1. På sidan MySQL server under inställningar klickar du **anslutningssäkerhet** att öppna sidan anslutningssäkerhet för Azure Database för MySQL.
 
    ![Azure portal – Klicka på anslutningssäkerhet](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Klicka på **Lägg till Min IP** i verktygsfältet. Detta skapar automatiskt en brandväggsregel med offentliga IP-adressen för datorn, som uppfattas som Azure systemet.
+2. Klicka på **Lägg till Min IP** i verktygsfältet. Detta skapar automatiskt en brandväggsregel med offentliga IP-adressen för datorn, som uppfattas av Azure-systemet.
 
-   ![Azure portal – Klicka på Lägg till Min IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
+   ![Azure portal – Klicka på Lägg till Min IP-adress](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
-3. Kontrollera din IP-adress innan du sparar du konfigurationen. I vissa situationer kan IP-adressen följas av Azure-portalen som skiljer sig från den IP-adress som används vid åtkomst till internet och Azure-servrar. Därför kan du behöva ändra första IP- och sista IP-om du vill att regeln funktionen som förväntat.
+3. Kontrollera din IP-adress innan du sparar konfigurationen. I vissa situationer kan IP-adressen som observerats av Azure-portalen som skiljer sig från den IP-adress som används vid åtkomst till internet och Azure-servrar. Därför kan du behöva ändra den första IP- och slut-IP för att göra regeln fungerar som förväntat.
 
-   Använd en sökmotor eller andra online för att kontrollera din egen IP-adress. Sök till exempel ”vad är IP-adress”. 
+   Använd en sökmotor eller andra online för att kontrollera din egen IP-adress. Sök till exempel ”vad är Min IP-adress”. 
 
-   ![Bing för vad som är Min IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
+   ![Bing nyheter Min IP-adress](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Lägg till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure-databas för MySQL. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fälten första IP- och slut-IP. Öppna brandväggen kan administratörer, användare och program för att komma åt alla databaser på servern MySQL som de har giltiga autentiseringsuppgifter.
+4. Lägga till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure Database for MySQL. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fälten första IP- och slut-IP. Om du öppnar brandväggen kan administratörer, användare och program för att få åtkomst till alla databaser på MySQL-servern som de har giltiga autentiseringsuppgifter.
 
    ![Azure portal – brandväggsregler ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
-5. Klicka på **spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå. Vänta på att bekräfta att uppdateringen för brandväggsregler har lyckats.
+5. Klicka på **spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå. Vänta för att bekräfta att uppdateringen till brandväggsreglerna har lyckats.
 
    ![Azure portal – Klicka på Spara](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## <a name="connecting-from-azure"></a>Ansluta från Azure
-Azure-anslutningar så att program från Azure att ansluta till din Azure-databas för MySQL-servern måste vara aktiverat. Till exempel som värd för ett Azure Web Apps-program eller ett program som körs i en Azure VM eller att ansluta från ett Azure Data Factory data management gateway. Resurser behöver inte finnas i samma virtuella nätverk (VNet) eller resursgruppen för brandväggsregeln för att aktivera dessa anslutningar. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. Det finns ett antal metoder för att aktivera dessa typer av anslutningar. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Alternativt kan du ställa in den **Tillåt åtkomst till Azure-tjänster** att **ON** på portalen från den **anslutningssäkerhet** rutan och trycker **spara**. Om anslutningen inte är tillåtet i begäran når inte Azure-databasen för MySQL-servern.
+Om du vill tillåta att program från Azure att ansluta till din Azure Database for MySQL-server, vara Azure-anslutningar aktiverade. Till exempel att vara värd för ett Azure Web Apps-program eller ett program som körs i en Azure virtuell dator eller för att ansluta från en Azure Data Factory data management gateway. Resurser behöver inte finnas i samma virtuella nätverk (VNet) eller resursgruppen för brandväggsregeln för att aktivera dessa anslutningar. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. Det finns flera olika metoder för att aktivera dessa typer av anslutningar. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Du kan också ange den **Tillåt åtkomst till Azure-tjänster** alternativet att **på** på portalen från den **anslutningssäkerhet** rutan och trycker på **spara**. Om anslutningsförsöket inte tillåts kommer begäran inte att nå Azure Database for MySQL-server.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
-## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Hantera befintliga brandväggsregler för servernivå med hjälp av Azure portal
+## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Hantera befintliga brandväggsregler på servernivå med hjälp av Azure-portalen
 Upprepa stegen för att hantera brandväggsreglerna.
-* Om du vill lägga till den aktuella datorn, klickar du på **+ Lägg till Min IP**. Klicka på **Spara** för att spara ändringarna.
-* Om du vill lägga till ytterligare IP-adresser, ange den **REGELNAMN**, **första IP-**, och **sista IP**. Klicka på **Spara** för att spara ändringarna.
+* Lägg till den aktuella datorn, klicka på **+ Lägg till Min IP**. Klicka på **Spara** för att spara ändringarna.
+* Om du vill lägga till ytterligare IP-adresser, ange den **REGELNAMN**, **första IP-**, och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ändra en befintlig regel klickar du på något av fälten i regeln och sedan ändra. Klicka på **Spara** för att spara ändringarna.
-* Om du vill ta bort en befintlig regel, klicka på knappen [...] och klicka sedan på **ta bort**. Klicka på **Spara** för att spara ändringarna.
+* Om du vill ta bort en befintlig regel, klicka på ellipsen [...] och klicka sedan på **ta bort**. Klicka på **Spara** för att spara ändringarna.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- På liknande sätt kan du skapa skript för att [skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md).
-- Hjälp med att ansluta till en Azure-databas för MySQL-servern finns [anslutningsbibliotek för Azure-databas för MySQL](./concepts-connection-libraries.md)
+- På samma sätt kan du skapa skript till [skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md).
+- Hjälp med att ansluta till en Azure Database for MySQL-server finns i [anslutningsbibliotek för Azure Database for MySQL](./concepts-connection-libraries.md)

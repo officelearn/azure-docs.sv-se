@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499302"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650111"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
 
@@ -26,16 +26,16 @@ Jobb-baserade kluster som [Apache Spark](https://spark.apache.org/) och [Apache 
 4. Importera tillfälliga data.
 5. Starta jobb och fortsätta bearbetningen på det nya klustret.
 
-Så här uppgraderar du en [Apache HBase](http://hbase.apache.org/) kluster några ytterligare steg krävs, enligt beskrivningen i den här artikeln.
+Så här uppgraderar du en [Apache HBase](https://hbase.apache.org/) kluster några ytterligare steg krävs, enligt beskrivningen i den här artikeln.
 
-> [!NOTE]
+> [!NOTE]  
 > Driftstopp under uppgraderingen bör vara minimal storleksordningen minuter. Det här driftstoppet orsakas av stegen för att tömma alla minnesinterna data och sedan tiden för att konfigurera och starta om tjänsterna på det nya klustret. Resultatet varierar beroende på antalet noder, mängden data och andra variabler.
 
 ## <a name="review-apache-hbase-compatibility"></a>Granska Apache HBase-kompatibilitet
 
-Kontrollera innan du uppgraderar Apache HBase, HBase-versioner på käll- och -kluster är kompatibla. Mer information finns i [Hadoop-komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
+Kontrollera innan du uppgraderar Apache HBase, HBase-versioner på käll- och -kluster är kompatibla. Mer information finns i [Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Vi rekommenderar starkt att du läser igenom kompatibilitetsöversikten version i den [HBase boken](https://hbase.apache.org/book.html#upgrading).
 
 Här är ett exempel version kompatibilitetsöversikten, där Y anger kompatibilitet och N anger en potentiella kompatibilitetsproblem:
@@ -54,7 +54,7 @@ Här är ett exempel version kompatibilitetsöversikten, där Y anger kompatibil
 | Beroende kompatibilitet | N | Y | Y |
 | Operativa kompatibilitet | N | N | Y |
 
-> [!NOTE]
+> [!NOTE]  
 > Alla de senaste inkompatibiliteter beskrivas i HBase version viktig information.
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uppgradera med samma huvudversion för Apache HBase
@@ -203,7 +203,7 @@ Följande scenario är för att uppgradera från HDInsight 3.4 till 3.6 (både l
 9. Starta om alla nödvändiga tjänster som anges av Ambari.
 10. Peka ditt program till det nya klustret.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Statisk DNS för ditt program ändras när du uppgraderar. I stället för att hårdkoda detta DNS, kan du konfigurera en CNAME-post i DNS-inställningarna för ditt domännamn som pekar på klustrets namn. Ett annat alternativ är att använda en konfigurationsfil för ditt program som du kan uppdatera utan att omdistribuera.
 
 11. Starta inmatningen för att se om allt fungerar som förväntat.
@@ -211,7 +211,7 @@ Följande scenario är för att uppgradera från HDInsight 3.4 till 3.6 (både l
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om [Apache HBase](http://hbase.apache.org/) och uppgradera HDInsight-kluster finns i följande artiklar:
+Mer information om [Apache HBase](https://hbase.apache.org/) och uppgradera HDInsight-kluster finns i följande artiklar:
 
 * [Uppgradera ett HDInsight-kluster till en nyare version](../hdinsight-upgrade-cluster.md)
 * [Övervaka och hantera Azure HDInsight med hjälp av Apache Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)

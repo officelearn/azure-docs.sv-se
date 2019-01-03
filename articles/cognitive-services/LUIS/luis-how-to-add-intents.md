@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139880"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598510"
 ---
-# <a name="add-intents"></a>Lägg till avsikter 
+# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter att fastställa användarens avsikt är att yttranden
 
 Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 
 

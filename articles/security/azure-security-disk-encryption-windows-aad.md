@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.custom: seodec18
-ms.openlocfilehash: 347fe1de15661d63ac96444f704e2da919fc54bd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: feae5b4d1e980043134226a07c3eb21320af7ded
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083962"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539850"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer (tidigare version)
 
@@ -25,7 +25,8 @@ Du kan aktivera många diskkryptering scenarier och stegen kan variera beroende 
 Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopierar innan diskar krypteras. Säkerhetskopior Se till att ett återställningsalternativ är möjligt om ett oväntat fel inträffar under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. Du kan använda cmdleten Set-AzureRmVMDiskEncryptionExtension för att kryptera hanterade diskar genom att ange parametern - skipVmBackup när en säkerhetskopia görs. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln. 
 
 >[!WARNING]
->För att se till att kryptering hemligheterna inte går över regionala gränser, måste Azure Disk Encryption Key Vault och de virtuella datorerna för att finnas i samma region. Skapa och använda ett Nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade. 
+> - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom det är inte ett scenario som stöds, betydelse växla från AAD-programmet för det här krypterade virtuella datorer stöds inte ännu.
+> - För att se till att kryptering hemligheterna inte går över regionala gränser, måste Azure Disk Encryption Key Vault och de virtuella datorerna för att finnas i samma region. Skapa och använda ett Nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade. 
 
 
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Aktivera kryptering på den nya IaaS-datorer som skapats från Marketplace
@@ -79,7 +80,7 @@ I det här scenariot kan du aktivera kryptering med hjälp av en mall, PowerShel
 ### <a name="bkmk_RunningWinVMPSH"></a> Aktivera kryptering på befintliga eller köra virtuella datorer med Azure PowerShell 
 Använd den [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet för att aktivera kryptering på en aktiv IaaS virtuell dator i Azure. Information om hur du aktiverar kryptering med Azure Disk Encryption med PowerShell-cmdlets finns i blogginläggen [utforska Azure Disk Encryption med Azure PowerShell – del 1](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) och [utforska Azure Disk Encryption med Azure PowerShell – del 2](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx).
 
--  **Kryptera en aktiv virtuell dator med hjälp av en klienthemlighet:** skriptet nedan initierar dina variabler och kör cmdleten Set-AzureRmVMDiskEncryptionExtension. Resursgrupp, virtuell dator, nyckelvalvet, AAD-appar och klienthemlighet bör redan har skapats som krav. Ersätt MySecureRg, MySecureVM, MySecureVault, min-AAD-klient-ID och min-AAD-client-secret med dina värden.
+-  **Kryptera en aktiv virtuell dator med hjälp av en klienthemlighet:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzureRmVMDiskEncryptionExtension. Resursgrupp, virtuell dator, nyckelvalvet, AAD-appar och klienthemlighet bör redan har skapats som krav. Ersätt MySecureRg, MySecureVM, MySecureVault, min-AAD-klient-ID och min-AAD-client-secret med dina värden.
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
       $vmName = 'MySecureVM';
@@ -113,12 +114,12 @@ Använd den [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.co
    >[!NOTE]
    > Syntaxen för värdet för disk-kryptering-keyvault-parametern är fullständig ID-sträng: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> Syntaxen för värdet för parametern krypteringsnyckel-är den fullständiga URI som KEK som i: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Kontrollera att diskarna är krypterade:** för att kontrollera statusen för kryptering av en IaaS-VM, använda den [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet. 
+- **Kontrollera att diskarna är krypterade:** Om du vill kontrollera statusen för kryptering av en IaaS-VM, använda den [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet. 
      ```azurepowershell-interactive
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Inaktivera diskkryptering:** inaktivera kryptering med den [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
+- **Inaktivera diskkryptering:** Om du vill inaktivera kryptering, använda den [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
      ```
@@ -141,13 +142,13 @@ Använd den [az vm encryption aktivera](/cli/azure/vm/encryption#az-vm-encryptio
      >[!NOTE]
      > Syntaxen för värdet för disk-kryptering-keyvault-parametern är fullständig ID-sträng: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> Syntaxen för värdet för parametern krypteringsnyckel-är den fullständiga URI som KEK som i: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Kontrollera att diskarna är krypterade:** för att kontrollera statusen för kryptering av en IaaS-VM, använda den [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) kommando. 
+- **Kontrollera att diskarna är krypterade:** Om du vill kontrollera statusen för kryptering av en IaaS-VM, använda den [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) kommando. 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Inaktivera kryptering:** inaktivera kryptering med den [az vm encryption inaktivera](/cli/azure/vm/encryption#az-vm-encryption-disable) kommando. 
+- **Inaktivera kryptering:** Inaktivera kryptering med den [az vm encryption inaktivera](/cli/azure/vm/encryption#az-vm-encryption-disable) kommando. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```
@@ -232,7 +233,7 @@ Du kan [lägga till en ny disk till en Windows virtuell dator med hjälp av Powe
  När du använder Powershell för att kryptera en ny disk för virtuella Windows-datorer, måste en ny sekvens-version anges. Sekvens-versionen måste vara unikt. Skriptet nedan genererar ett GUID för sekvens-versionen. I vissa fall kan kan en nyligen tillagd datadisk vara krypterad automatiskt med Azure Disk Encryption-tillägget. Automatisk kryptering uppstår vanligen när den virtuella datorn startas om när den nya disken är online. Detta beror vanligtvis på att ”alla” har angetts för typ av volym när diskkryptering körde tidigare på den virtuella datorn. Om automatisk kryptering sker i en nyligen tillagd datadisk, rekommenderar vi använder cmdleten Set-AzureRmVmDiskEncryptionExtension igen med ny sekvens. Om din nya datadisk är auto krypterad och du inte vill ska krypteras, dekryptera alla enheter först och sedan kryptera med en ny sekvens version att Operativsystemet för typ av volym. 
  
 
--  **Kryptera en aktiv virtuell dator med hjälp av en klienthemlighet:** skriptet nedan initierar dina variabler och kör cmdleten Set-AzureRmVMDiskEncryptionExtension. Resursgrupp, virtuell dator, nyckelvalvet, AAD-appar och klienthemlighet bör redan har skapats som krav. Ersätt MySecureRg, MySecureVM, MySecureVault, min-AAD-klient-ID och min-AAD-client-secret med dina värden. Det här exemplet använder ”alla” för parametern - VolumeType som innehåller både OS- och datavolymer. Om du bara vill kryptera operativsystemvolymen använda ”OS” för parametern - VolumeType. 
+-  **Kryptera en aktiv virtuell dator med hjälp av en klienthemlighet:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzureRmVMDiskEncryptionExtension. Resursgrupp, virtuell dator, nyckelvalvet, AAD-appar och klienthemlighet bör redan har skapats som krav. Ersätt MySecureRg, MySecureVM, MySecureVault, min-AAD-klient-ID och min-AAD-client-secret med dina värden. Det här exemplet använder ”alla” för parametern - VolumeType som innehåller både OS- och datavolymer. Om du bara vill kryptera operativsystemvolymen använda ”OS” för parametern - VolumeType. 
 
      ```azurepowershell-interactive
       $sequenceVersion = [Guid]::NewGuid();
@@ -342,12 +343,12 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName 
 ## <a name="disable-encryption"></a>Inaktivera kryptering
 Du kan inaktivera kryptering med Azure PowerShell, Azure CLI, eller med en Resource Manager-mall. 
 
-- **Inaktivera disk encryption med Azure PowerShell:** inaktivera kryptering med den [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
+- **Inaktivera disk encryption med Azure PowerShell:** Om du vill inaktivera kryptering, använda den [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
      ```
 
-- **Inaktivera kryptering med Azure CLI:** inaktivera kryptering med den [az vm encryption inaktivera](/cli/azure/vm/encryption#az-vm-encryption-disable) kommando. 
+- **Inaktivera kryptering med Azure CLI:** Inaktivera kryptering med den [az vm encryption inaktivera](/cli/azure/vm/encryption#az-vm-encryption-disable) kommando. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```

@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438599"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728133"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL
 
 *Virtuella Nätverksregler* är en säkerhetsfunktion för brandväggen som styr om din Azure [SQL Database](sql-database-technical-overview.md) eller [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) servern tar emot meddelanden som skickas från specifika undernät i virtuella nätverk. Den här artikeln förklarar varför funktionen virtuellt nätverk regeln ibland är det bästa alternativet för att tillåta kommunikation till din Azure SQL Database och SQL Data Warehouse på ett säkert sätt.
 
-> [!NOTE]
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> [!IMPORTANT]
+> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln har *inte* avser **Azure SQL Database Managed Instance**.
 
 Skapa en virtuell nätverksregel det måste du först ta en [tjänstslutpunkt för virtuellt nätverk] [ vm-virtual-network-service-endpoints-overview-649d] för regeln för att referera till.
 
@@ -64,9 +64,8 @@ Du kan rädda IP-alternativet genom att hämta en *Statiska* IP-adress för den 
 
 Dock kan det vara svårt att hantera den statiska IP-metoden och det är kostsamt om det görs i stor skala. Virtual network-regler är lättare att upprätta och hantera.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Ännu har inte SQL-databas på ett undernät
-
-Om din Azure SQL Database-server har en nod i ett undernät i det virtuella nätverket, kan alla noder i det virtuella nätverket kommunicera med din SQL-databas. I det här fallet kan dina virtuella datorer kommunicera med SQL-databas utan några regler för virtuellt nätverk eller en IP-regler.
+> [!NOTE]
+> Du kan ännu inte SQL-databas i ett undernät. Om din Azure SQL Database-server har en nod i ett undernät i det virtuella nätverket, kan alla noder i det virtuella nätverket kommunicera med din SQL-databas. I det här fallet kan dina virtuella datorer kommunicera med SQL-databas utan några regler för virtuellt nätverk eller en IP-regler.
 
 Men från och med September 2017, Azure SQL Database-tjänsten är ännu inte mellan tjänster som kan tilldelas till ett undernät.
 

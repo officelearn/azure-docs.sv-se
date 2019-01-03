@@ -4,17 +4,16 @@ description: Säkerhetskopiera Windows-filer och mappar till Azure med hjälp av
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: säkerhetskopieringsvalvet; Säkerhetskopiera en Windows-server. Säkerhetskopiera windows;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874013"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788403"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klienten) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
@@ -183,6 +182,8 @@ Om din dator/proxy har begränsad tillgång till internet, kontrollerar du att b
 Säkerhetskopieringspolicyn är schemat när återställningspunkter skapas och hur lång tid som återställningspunkterna bevaras. Använd Microsoft Azure Backup-agenten för att skapa principen för säkerhetskopiering för filer och mappar.
 
 ### <a name="to-create-a-backup-schedule"></a>Skapa ett schema för säkerhetskopiering
+
+Ange schemat för säkerhetskopiering på den dator du vill säkerhetskopiera. Observera att den tid som angetts för säkerhetskopiering kan skilja sig från den lokala datortid, eftersom Azure Backup inte ta sommartid (DST) till konto. 
 1. Öppna Microsoft Azure Backup-agenten. Du hittar den genom att söka efter **Microsoft Azure Backup** på datorn.
 
     ![Starta Azure Backup-agenten](./media/backup-configure-vault/snap-in-search.png)

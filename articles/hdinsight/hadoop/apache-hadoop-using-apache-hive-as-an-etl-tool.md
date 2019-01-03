@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632551"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630266"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använda Apache Hive som ett verktyg för extrahering, transformering och inläsning (ETL)
 
-Vanligtvis måste du rensa och transformera inkommande data innan du läser in dem i ett mål som är lämplig för analys. Åtgärder för extrahering, transformering och läsa in (ETL) används för att förbereda data och läsa in den i ett datamål.  Apache Hive på HDInsight kan läsa in Ostrukturerade data, bearbeta data efter behov och sedan läsa in data i en relationsinformationslager för beslut support system. Den här metoden kan data extraheras från källan och lagras i skalbar lagring, till exempel Azure Storage-blobbar eller Azure Data Lake Store. Data sedan omvandlas med hjälp av en sekvens av Hive-frågor och slutligen mellanlagras i Hive som förberedelse för inläsning av i måldatalagret.
+Vanligtvis måste du rensa och transformera inkommande data innan du läser in dem i ett mål som är lämplig för analys. Åtgärder för extrahering, transformering och läsa in (ETL) används för att förbereda data och läsa in den i ett datamål.  Apache Hive på HDInsight kan läsa in Ostrukturerade data, bearbeta data efter behov och sedan läsa in data i en relationsinformationslager för beslut support system. Den här metoden kan data extraheras från källan och lagras i skalbar lagring, till exempel Azure Storage-blobbar eller Azure Data Lake Storage. Data sedan omvandlas med hjälp av en sekvens av Hive-frågor och slutligen mellanlagras i Hive som förberedelse för inläsning av i måldatalagret.
 
 ## <a name="use-case-and-model-overview"></a>Använda användningsfall och modeller: översikt
 
@@ -30,7 +30,7 @@ Hadoop är vanligt i ETL-processer som importerar antingen ett stort antal textf
 
 Vanliga stegen för att använda Hive för att utföra ETL är följande:
 
-1. Läs in data i Azure Data Lake Store eller Azure Blob Storage.
+1. Läs in data i Azure Data Lake Storage eller Azure Blob Storage.
 2. Skapa en Metadata Store-databas (med Azure SQL Database) för användning av Hive vid lagring av dina scheman.
 3. Skapa ett HDInsight-kluster och Anslut datalagret.
 4. Definiera scheman som ska tillämpas på Läs tid över data i datalagret:
@@ -51,7 +51,7 @@ Vanliga stegen för att använda Hive för att utföra ETL är följande:
 
 5. Omvandla data och läser in dem till målet.  Det finns flera sätt att använda Hive under transformering och inläsning:
 
-    * Fråga och förbereda data med Hive och spara den som en CSV-fil i Azure Data Lake Store eller Azure blob storage.  Sedan använda ett verktyg som SQL Server Integration Services (SSIS) att hämta de CSV: er och läsa in data i en relationsdatabas för mål, till exempel SQL Server.
+    * Fråga och förbereda data med Hive och spara den som en CSV-fil i Azure Data Lake Storage eller Azure blob storage.  Sedan använda ett verktyg som SQL Server Integration Services (SSIS) att hämta de CSV: er och läsa in data i en relationsdatabas för mål, till exempel SQL Server.
     * Fråga data direkt från Excel- eller C# med hjälp av Hive ODBC-drivrutinen.
     * Använd [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) att läsa förberedd flat CSV-filer och läsa in dem i mål-relationsdatabas.
 

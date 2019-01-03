@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635500"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722914"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -182,7 +182,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Obs:** instrumentpanelen kanske inte korrekt visar status och utdata för funktioner som har stängts av.
+**Obs!** Instrumentpanelen kanske inte visas korrekt status och utdata för funktioner som har stängts av.
 
 Mer information finns i [WebJobs avslutning](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**Obs:** kö, tabell och blobnamn har åtgärdats varje gång som en funktion, men blob-behållarnamn löses bara när programmet startas. Du kan inte ändra namnet när jobbet körs.
+**Obs!** Kö, tabell och blob-namnet matchas varje gång en funktion, men blob-behållarnamn löses bara när programmet startas. Du kan inte ändra namnet när jobbet körs.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Hur du utlöser en funktion manuellt
 Utlös en funktion manuellt genom att använda den **anropa** eller **CallAsync** metoden på den **JobHost** objekt och **NoAutomaticTrigger** attribut i funktionen, som visas i följande exempel.
@@ -514,7 +514,7 @@ Utdata från konsolen metoder som anropas i en funktion eller i den **Main()** m
 
 Konsolens utdata kan inte länkas till en viss metodanropet eftersom konsolen är enkla trådar, även om många jobbfunktioner kanske körs på samma gång. Det är därför SDK innehåller varje funktionsanrop med en egen unik log-Skrivarobjektet.
 
-Att skriva [programloggarna för spårning av](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), använda **Console.Out** (skapar loggar som är märkta som information) och **Console.Error** (skapar loggar som är märkta som fel). Ett alternativ är att använda [spårningen eller TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), som innehåller utförlig, varning, och kritiska nivåer utöver information och fel. Spårningsloggar för program visas i web app loggfiler, Azure-tabeller, eller Azure BLOB-objekt beroende på hur du konfigurerar Azure-webbappen. Som gäller för alla konsolens utdata, visas de senaste 100 programloggarna också i instrumentpanelsidan för Webbjobbet, inte sidan för ett funktionsanrop.
+Att skriva [programloggarna för spårning av](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), använda **Console.Out** (skapar loggar som är märkta som information) och **Console.Error** (skapar loggar som är märkta som fel). Ett alternativ är att använda [spårningen eller TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), som innehåller utförlig, varning, och kritiska nivåer utöver information och fel. Spårningsloggar för program visas i web app loggfiler, Azure-tabeller, eller Azure BLOB-objekt beroende på hur du konfigurerar Azure-webbappen. Som gäller för alla konsolens utdata, visas de senaste 100 programloggarna också i instrumentpanelsidan för Webbjobbet, inte sidan för ett funktionsanrop.
 
 Konsolens utdata visas i instrumentpanelen bara om programmet körs i ett Azure WebJob inte om programmet körs lokalt eller i någon annan miljö.
 
@@ -550,7 +550,7 @@ I ett kontinuerligt Webbjobb programloggar som visas i/data/jobb/kontinuerlig/*{
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-I en Azure blob program loggar ser ut så här: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13, fel, contosoadsnew, 491e54, 635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+I en Azure blob program loggar ser ut så här: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21 : 01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 Och i en Azure-tabell i **Console.Out** och **Console.Error** loggar ut så här:
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075888"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558812"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Rapporter som är tillgängliga i Cloudyn-portalen
 
@@ -29,7 +29,7 @@ Det finns tre typer av Cloudyn-rapporter:
 
 - Tidrapporter över. Till exempel rapporten Cost Over Time. Tidrapporter över visar en tidsserie med data under en vald period med en fördefinierad upplösning och visa en veckovis upplösning för de senaste två månaderna. Du kan använda gruppering och filtrering för att zooma in på olika datapunkter.
   - Tidrapporter över kan du visa trender och identifiera toppar och avvikelser.
-- Analysrapporter. Till exempel kostnadsanalys repot. De här rapporterna visar aggregerade data under en period som du definierar och Tillåt gruppering och filtrering av data.
+- Analysrapporter. Till exempel Cost Analysis-rapporten. De här rapporterna visar aggregerade data under en period som du definierar och Tillåt gruppering och filtrering av data.
   - Med hjälp av rapporter kan du visa toppar och fastställa rotorsaker för avvikelseidentifiering Analysis och att visa dig en detaljerad kraschar av dina data.
 - Tabular rapporter. Du kan visa en rapport som en tabell, men vissa rapporter visas endast som en tabell. De här rapporterna ger dig detaljerad listor med objekt.
   - Rekommendationer är tabular rapporter – det finns inga visualiseringar rekommendationer. Dock kan du visualisera rekommendation resultat. Till exempel besparingar över tid.
@@ -63,7 +63,7 @@ Många Cloudyn-rapporter visar budgetinformation när du har skapat en manuellt.
 
 ## <a name="reports-and-reporting-features"></a>Rapporter och rapporteringsfunktioner
 
-Clouydn innehåller följande rapporter och rapporteringsfunktioner.
+Cloudyn innehåller följande rapporter och rapporteringsfunktioner.
 
 ### <a name="cost-navigator-report"></a>Kostnad Navigator-rapport
 
@@ -208,7 +208,7 @@ Anpassade avgifter visas i kostnadsrapporter. Till exempel öppna sedan rapporte
 
 Du kan använda Cost Allocation 360 för att skapa anpassade allokering modeller för att tilldela kostnader till förbrukade molnresurser. Många rapporter visar information från anpassade modeller som du har skapat med anpassade modeller. Och vissa rapporter visar bara information när du har skapat en anpassad kostnadsmodell med kostnadsallokering.
 
-Mer information om hur du skapar anpassade modeller finns i [självstudie: hantera kostnader med Cloudyn](tutorial-manage-costs.md).
+Mer information om hur du skapar anpassade modeller finns i [självstudien: Hantera kostnader med Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Rapport med budget över tid
 
@@ -448,7 +448,7 @@ Den **processoranvändning** avsnittet innehåller CPU-belastningen för instans
 
 Klicka på diagrammet för att öka detaljnivån och öppna instans CPU över tid rapporten för att se en specifikation av instanserna.
 
-- Använd **Visa/dölj fält** att lägga till eller ta bort fält: Timestamp, Genomsnittlig CPU, Min CPU, Max CPU.
+- Använd **Visa/dölj fält** att lägga till eller ta bort fält: Tidsstämpel, Genomsnittlig CPU Min CPU, Max CPU.
 - Använd **datumintervall** att ange ett datum eller datumintervall och öka detaljnivån i en specifik InstanceID.
 - Använd **utökade filter** att visa alla eller en specifik instans-ID
 - Klicka på **Zooma in** att öppna rapporten för CPU-användning

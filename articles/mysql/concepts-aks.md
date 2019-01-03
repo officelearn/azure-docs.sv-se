@@ -1,20 +1,17 @@
 ---
 title: Ansluta Azure Kubernetes Service (AKS) med Azure Database for MySQL
 description: Läs om hur du ansluter Azure Kubernetes Service med Azure Database for MySQL
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: baba85aeb800dd8effe3be295b2149179604b41d
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164848"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538182"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ansluta Azure Kubernetes Service och Azure Database for MySQL
 

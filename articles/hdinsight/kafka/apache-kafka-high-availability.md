@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315842"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597672"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Hög tillgänglighet för dina data med Apache Kafka på HDInsight
 
@@ -26,7 +26,7 @@ En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-da
 
 Varje Azure-region har ett visst antal feldomäner. En lista med domäner och antalet feldomäner de innehåller finns i dokumentationen av [tillgänglighetsuppsättningar](../../virtual-machines/windows/regions-and-availability.md#availability-sets).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka har ingen information om feldomäner. När du skapar ett ämne i Kafka kan det lagra alla partitionsrepliker i samma feldomän. HDInsight har [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools) som lösning på det här problemet.
 
 ## <a name="when-to-rebalance-partition-replicas"></a>När ska du balansera om partitionsrepliker
@@ -39,7 +39,7 @@ Du får bästa möjliga tillgänglighet för dina Kafka-data om du balanserar om
 
 ## <a name="replication-factor"></a>Replikeringsfaktor
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Vi rekommenderar att du använder en Azure-region som innehåller tre feldomäner, och använder replikeringsfaktorn 3.
 
 Om du måste använda en region som bara har två feldomäner ska du använda replikeringsfaktorn 4, så att replikerna fördelas jämnt mellan de två feldomänerna.

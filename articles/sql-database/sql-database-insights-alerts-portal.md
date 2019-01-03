@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273355"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634617"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med hjälp av Azure portal
 
@@ -46,13 +46,13 @@ Du kan konfigurera och få information om Varningsregler med hjälp av
 1. I den [portal](https://portal.azure.com/), letar du upp den resurs som du är intresserad av övervakning och markera den.
 2. Välj **aviseringar (klassisk)** under avsnittet övervakning. Text och ikonen kan variera något mellan olika resurser.  
    
-     ![Övervakning](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![Övervakning](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW ENDAST**: Klicka på den **DWU-användning** graph. Välj **Visa klassiska aviseringar**
 
 3. Välj den **Lägg till måttavisering (klassisk)** knappen och Fyll i fälten.
    
-    ![Lägg till avisering](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Lägg till avisering](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Namnet** aviseringen regel och väljer en **beskrivning**, som visar även i e-postaviseringar.
 5. Välj den **mått** du vill övervaka och väljer sedan en **villkor** och **tröskelvärdet** värdet för måttet. Också välja den **Period** tid som måttregel måste vara uppfyllda innan aviseringen utlösare. Till exempel om du använder perioden ”PT5M” och aviseringen söker efter CPU högre än 80%, en avisering utlöses när den **genomsnittlig** CPU har varit över 80% i 5 minuter. När den första utlösaren inträffar, utlöser igen när den genomsnittliga CPU som är mindre än 80% under 5 minuter. CPU-mätning sker varje minut. Med hjälp av tabellen nedan för stöds tidsfönster och aggregeringen Skriv som var Avisera använder inte alla aviseringar använder medelvärdet.   
 6. Kontrollera **e-ägare...**  om du vill att administratörer och medadministratörer för att få e-postaviseringar när aviseringen utlöses.
@@ -117,5 +117,5 @@ När du har skapat en avisering, kan du välja den och:
 ## <a name="next-steps"></a>Nästa steg
 * [Få en översikt över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md) , inklusive typerna av information som du kan samla in och övervaka.
 * Läs mer om [konfigurerar webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
-* Hämta en [översikt över diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) och samla in detaljerade mätvärden för hög frekvens på din tjänst.
+* Hämta en [översikt över diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) och samla in detaljerade mätvärden för hög frekvens på din tjänst.
 * Hämta en [översikt över mått samling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) att kontrollera att tjänsten är tillgänglig och svarar.

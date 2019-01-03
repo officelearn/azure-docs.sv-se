@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff030b9bb9158f3bac0e52a596a2054989301afd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101204"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719617"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 
@@ -26,7 +26,7 @@ LUIS ger en programmatisk API som gör allt som den [LUIS](luis-reference-region
 
 * Logga in på den [LUIS](luis-reference-regions.md) webbplats och hitta din [redigering nyckeln](luis-concept-keys.md#authoring-key) i inställningarna för kontot. Du kan använda den här nyckeln för att anropa API: er redigering.
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* Den här självstudien utgår från en CSV-fil för ett hypotetiskt företag loggfiler för användarbegäranden. Ladda ned den [här](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Den här självstudien utgår från en CSV-fil för ett hypotetiskt företag loggfiler för användarbegäranden. Ladda ned den [här](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installera den senaste Node.js med NPM. Ladda ned det från [här](https://nodejs.org/en/download/).
 * **(Rekommenderas)**  Visual Studio Code för IntelliSense och felsökning kan du hämta det från [här](https://code.visualstudio.com/) utan kostnad.
 
@@ -40,7 +40,7 @@ LUIS ger en programmatisk API som gör allt som den [LUIS](luis-reference-region
 Ser du att den **RequestType** kolumn kan vara avsikter, och **begära** kolumnen visar en exempel-uttryck. I andra fält kan vara entiteter om de sker i uttryck. Eftersom det finns avsikter och entiteter exempel yttranden kan ha kraven för en enkel, exempelapp.
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Steg för att skapa en LUIS-app från icke-LUIS-data
-Om du vill generera en ny LUIS-app från källfilen först parsa data från CSV-filen och omvandla dessa data till ett format som du kan överföra till LUIS med hjälp av API för redigering. Från den tolkade data du samla in information om vilka avsikter och entiteter är det inte. Sedan du göra API-anrop för att skapa appen och Lägg till avsikter och entiteter som har samlats in från tolkade data. När du har skapat LUIS-app, kan du lägga till exempel yttranden från tolkade data. Du kan se det här flödet i den sista delen av följande kod. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) denna kod och spara den i `index.js`.
+Om du vill generera en ny LUIS-app från källfilen först parsa data från CSV-filen och omvandla dessa data till ett format som du kan överföra till LUIS med hjälp av API för redigering. Från den tolkade data du samla in information om vilka avsikter och entiteter är det inte. Sedan du göra API-anrop för att skapa appen och Lägg till avsikter och entiteter som har samlats in från tolkade data. När du har skapat LUIS-app, kan du lägga till exempel yttranden från tolkade data. Du kan se det här flödet i den sista delen av följande kod. Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) denna kod och spara den i `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -70,33 +70,33 @@ Till exempel posten för ”tänd lamporna” mappas till JSON:
         }
 ```
 
-I det här exemplet på `intentName` kommer från användarförfrågan under den **begäran** kolumnrubrik i CSV-filen och `entityName` kommer från de andra kolumnerna med viktig information. Exempel: om det finns en post för **åtgärden** eller **enhet**, och att strängen återkommer i den faktiska begäran och sedan den kan är märkt som en entitet. Följande kod visar detta vid parsning av process. Du kan kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) den och spara den i `_parse.js`.
+I det här exemplet på `intentName` kommer från användarförfrågan under den **begäran** kolumnrubrik i CSV-filen och `entityName` kommer från de andra kolumnerna med viktig information. Exempel: om det finns en post för **åtgärden** eller **enhet**, och att strängen återkommer i den faktiska begäran och sedan den kan är märkt som en entitet. Följande kod visar detta vid parsning av process. Du kan kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js) den och spara den i `_parse.js`.
 
    [!code-javascript[Node.js code for parsing a CSV file to extract intents, entities, and labeled utterances](~/samples-luis/examples/build-app-programmatically-csv/_parse.js)]
 
 
 
 ## <a name="create-the-luis-app"></a>Skapa LUIS-app
-När data har tolkats till JSON, lägga till en LUIS-app. Följande kod skapar LUIS-app. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) , och spara den i `_create.js`.
+När data har tolkats till JSON, lägga till en LUIS-app. Följande kod skapar LUIS-app. Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_create.js) , och spara den i `_create.js`.
 
    [!code-javascript[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
 
 
 ## <a name="add-intents"></a>Lägg till avsikter
-När du har en app kan behöva du avsikter till den. Följande kod skapar LUIS-app. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) , och spara den i `_intents.js`.
+När du har en app kan behöva du avsikter till den. Följande kod skapar LUIS-app. Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_intents.js) , och spara den i `_intents.js`.
 
    [!code-javascript[Node.js code for creating a series of intents](~/samples-luis/examples/build-app-programmatically-csv/_intents.js)]
 
 
 ## <a name="add-entities"></a>Lägg till entiteter
-Följande kod lägger till entiteterna LUIS-app. Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) , och spara den i `_entities.js`.
+Följande kod lägger till entiteterna LUIS-app. Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_entities.js) , och spara den i `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
    
 
 
 ## <a name="add-utterances"></a>Lägg till yttranden
-När de entiteter och avsikter har definierats i LUIS-app, kan du lägga till talade. I följande kod används den [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API där du kan lägga till upp till 100 yttranden i taget.  Kopiera eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) , och spara den i `_upload.js`.
+När de entiteter och avsikter har definierats i LUIS-app, kan du lägga till talade. I följande kod används den [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API där du kan lägga till upp till 100 yttranden i taget.  Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js) , och spara den i `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 

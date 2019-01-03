@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262609"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602179"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -270,15 +270,11 @@ Microsoft ger partner med en vy av kunders distributioner av sina mallar och ins
 
 **Vem kan lägga till en GUID till en mall?**
 
-Spårnings-resurs är avsedd att ansluta den partnerlösning till kundens Azure-användning. Användningsdata är knutna till identitet för en partner Microsoft Partner Network (MPN-ID). Reporting är tillgängligt för partner i CPP.
+Spårnings-resurs är avsedd att ansluta den partnerlösning till kundens Azure-användning. Användningsdata är knutna till identitet för en partner Microsoft Partner Network (MPN-ID). 
 
 **När ett GUID har lagts till, kan det ändras?**
  
 Ja, en kund eller implementering partner kan anpassa mallen och kan ändra eller ta bort GUID. Vi rekommenderar att partner proaktivt beskriver rollen för resursen och GUID för sina kunder och partner som förhindrar borttagning eller ändringar till spårning GUID. Om du ändrar GUID påverkas endast nya, inte befintliga distributioner och resurser.
-
-**När rapportering blir tillgängligt?**
-
-En beta-versionen av reporting ska vara tillgänglig snart. Rapportering kommer att integreras i CPP.
 
 **Kan jag spåra mallar distribueras från en icke-Microsoft-lagringsplats som GitHub?**
 

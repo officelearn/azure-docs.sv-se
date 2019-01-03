@@ -3,16 +3,15 @@ title: Skapa användare i Azure Database for PostgreSQL-server
 description: Den här artikeln beskrivs hur du kan skapa nya användarkonton för att interagera med en Azure Database for PostgreSQL-server.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958108"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540833"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Skapa användare i Azure Database for PostgreSQL-server 
 Den här artikeln beskrivs hur du kan skapa användare i en Azure Database for PostgreSQL-server.
@@ -27,7 +26,7 @@ Azure Database for PostgreSQL-server skapas med 3 standardrollerna definierats. 
 
 Din serveradministratörsanvändaren är medlem i rollen azure_pg_admin. Serveradministratörskontot är dock inte en del av rollen azure_superuser. Eftersom den här tjänsten är en hanterad PaaS-tjänst kan är endast Microsoft en del av rollen superanvändare. 
 
-PostgreSQL-motorn använder behörighet för att styra åtkomsten till databasobjekt, enligt beskrivningen i den [PostgreSQL produktdokumentationen](https://www.postgresql.org/docs/current/static/sql-createrole.html). Azure Database för PostgreSQL server administratörsanvändare beviljas dessa privilegier: inloggning, NOSUPERUSER, ÄRV, CREATEDB, CREATEROLE, NOREPLICATION
+PostgreSQL-motorn använder behörighet för att styra åtkomsten till databasobjekt, enligt beskrivningen i den [PostgreSQL produktdokumentationen](https://www.postgresql.org/docs/current/static/sql-createrole.html). Azure Database för PostgreSQL beviljas server administratörsanvändare dessa privilegier: INLOGGNINGEN MISSLYCKADES, NOSUPERUSER, ÄRVER, CREATEDB, CREATEROLE, NOREPLICATION
 
 Användarkontot för server-administratör kan användas för att skapa ytterligare användare och tilldela dessa användare i rollen azure_pg_admin. Serveradministratörskontot kan också användas för att skapa mindre privilegierade användare och roller som har åtkomst till enskilda databaser och scheman.
 
@@ -77,6 +76,6 @@ Användarkontot för server-administratör kan användas för att skapa ytterlig
    ```
 
 ## <a name="next-steps"></a>Nästa steg
-Öppnar brandväggen för IP-adresserna för de nya användarna datorer så att de kan ansluta: [skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure portal](howto-manage-firewall-using-portal.md) eller [Azure CLI](howto-manage-firewall-using-cli.md).
+Öppna brandväggen för IP-adresserna för de nya användarna datorer så att de kan ansluta: [Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure portal](howto-manage-firewall-using-portal.md) eller [Azure CLI](howto-manage-firewall-using-cli.md).
 
 Mer information om hantering av användarkonton, finns i dokumentationen för PostgreSQL [databasroller och privilegier](https://www.postgresql.org/docs/current/static/user-manag.html), [BEVILJA Syntax](https://www.postgresql.org/docs/current/static/sql-grant.html), och [privilegier](https://www.postgresql.org/docs/current/static/ddl-priv.html).

@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335453"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580747"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -29,7 +29,7 @@ Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar
 
 - **Förenklad distribution**: Security Center erbjuder effektiviserad etablering av integrerade partnerlösningar. Security Center kan etablera den nödvändiga agenten på dina virtuella datorer för lösningar som program mot skadlig kod och utvärdering av säkerhetsrisker. Security Center kan även hantera många nätverkskonfigurationer som krävs för brandväggsinstallationer.
 - **Integrerade identifieringar**: Säkerhetshändelser från partnerlösningar samlas in, aggregeras och visas automatiskt som en del av aviseringarna och incidenterna i Security Center. Dessa händelser kombineras också med identifieringar från andra källor för att tillhandahålla funktioner för avancerad hotidentifiering.
-- **Enhetlig övervakning och hantering av hälsa**: Kunderna kan använda integrerade hälsohändelser för att snabbt övervaka alla partnerlösningar. Grundläggande hantering finns tillgängligt med enkel åtkomst till avancerad konfiguration med hjälp av partnerlösningen.
+- **Enhetlig hälsoövervakning och hantering**: Kunder kan använda integrerade hälsohändelser för att få en snabbövervakning av alla partnerlösningar. Grundläggande hantering finns tillgängligt med enkel åtkomst till avancerad konfiguration med hjälp av partnerlösningen.
 
 Integrerade säkerhetslösningar omfattar för närvarande följande:
 
@@ -87,7 +87,26 @@ Avsnittet **Anslutna lösningar** innehåller säkerhetslösningar som för när
 
 ![Anslutna lösningar](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
-Mer information finns i [Hantera anslutna partnerlösningar](security-center-partner-solutions.md).
+Status för en partnerlösning kan vara:
+
+* Felfritt (grönt) - det finns inga problem.
+* Inte väl skyddad (röd): Det finns säkerhetsproblem som måste åtgärdas omedelbart.
+* Problem med hälsotillstånd (orange) - lösningen har slutat rapportera dess hälsa.
+* Inga rapporter (grå) - lösningen har inte rapporterat något ännu, status för en lösning kan vara orapporterad om den nyligen har anslutits och fortfarande pågår eller inga health-data är tillgängliga.
+
+> [!NOTE]
+> Om hälsodata status inte är tillgänglig visar Security Center datum och tid för senaste händelsen togs emot för att indikera om lösningen rapporterar eller inte. Om inga health-data är tillgängliga och inga aviseringar tas emot inom de senaste 14 dagarna, anger Security Center att lösningen är defekt eller inte reporting.
+>
+>
+
+2. Välj **visa** för ytterligare information och alternativ, vilket inkluderar:
+
+  - **Lösningskonsol**. Öppnar hanteringsupplevelse för den här lösningen.
+  - **Länka VM**. Öppnas bladet länka program. Här kan du ansluta resurser till partnerlösningen.
+  - **Ta bort lösningen**.
+  - **Konfigurera**.
+
+   ![Partnerlösningsinformation](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
 ### <a name="discovered-solutions"></a>Identifierade lösningar
 
@@ -109,6 +128,118 @@ Security Center identifierar också lösningar som distribueras i prenumeratione
 Avsnittet **Lägg till datakällor** innehåller andra tillgängliga datakällor som kan anslutas. Om du vill få anvisningar om att lägga till data från någon av dessa källor klickar du på **LÄGG TILL**.
 
 ![Datakällor](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+
+### <a name="connect-external-solutions"></a>Ansluta externa lösningar
+
+Förutom att samla in säkerhetsdata från datorerna kan du integrer säkerhetsdata från en mängd andra säkerhetslösningar, däribland alla som stöder Common Event Format (CEF). CEF är ett branschstandardformat ovanpå Syslog-meddelanden som används av många säkerhetsleverantörer för att händelser ska kunna integreras mellan olika plattformar.
+
+I den här snabbstarten får du veta hur du:
+- Ansluter en säkerhetslösning till Security Center med CEF-loggar
+- Verifierar anslutningen med säkerhetslösningen
+
+#### <a name="prerequisites"></a>Nödvändiga komponenter
+Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+
+För att gå igenom den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+
+Du behöver också en [Linux-dator](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux) med en Syslog-tjänst som redan är ansluten till Security Center.
+
+#### <a name="connect-solution-using-cef"></a>Ansluta lösning med CEF
+
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
+
+    ![Välj security center](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
+
+3. På huvudmenyn i Security Center väljer du **Säkerhetslösningar**.
+4. På sidan Security Solutions, under **Lägg till datakällor (3)** klickar du på **Lägg till** under **Common Event Format**.
+
+    ![Lägg till datakälla](./media/quick-security-solutions/quick-security-solutions-fig2.png)
+
+5. På sidan Common Event Format-loggar expanderar du det andra steget, **Konfigurera Syslog-vidarebefordran så att de begärda loggarna skickas till agenten på UDP-port 25226**, och följer instruktionerna nedan på Linux-datorn:
+
+    ![Konfigurera syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
+
+6. Expandera det tredje steget, **Placera agentkonfigurationsfilen på agentdatorn**, och följ instruktionerna nedan på Linux-datorn:
+
+    ![Agentkonfiguration](./media/quick-security-solutions/quick-security-solutions-fig4.png)
+
+7. Expandera det fjärde steget, **Starta om syslog-daemon och agenten**, och följ instruktionerna nedan på Linux-datorn:
+
+    ![Starta om syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
+
+
+#### <a name="validate-the-connection"></a>Verifiera anslutningen
+
+Innan du fortsätter med stegen nedan måste du vänta tills syslog-enheten börjar rapportera till Security Center. Det kan ta lite tid och varierar beroende på miljöns storlek.
+
+1.  I den vänstra rutan i Security Center-instrumentpanelen klickar du på **Sök**.
+2.  Välj arbetsytan som Syslog-enheten (Linux-dator) är ansluten till.
+3.  Skriv *CommonSecurityLog* och klicka på knappen **Sök**.
+
+I följande exempel visar resultatet av de här stegen: ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
+
+#### <a name="clean-up-resources"></a>Rensa resurser
+De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
+
+1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
+2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
+3. Under **PRINCIPKOMPONENTER** väljer du **Prisnivå**.
+4. Välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
+5. Välj **Spara**.
+
+Om du vill avaktivera automatisk etablering:
+
+1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
+2. Välj den prenumeration du vill avaktivera automatisk etablering för.
+3. Under **Säkerhetsprincip – Datainsamling** väljer du **Av** under **Registrering** för att inaktivera automatisk etablering.
+4. Välj **Spara**.
+
+>[!NOTE]
+> Inaktivering av automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
+>
+
+## <a name="exporting-data-to-a-siem"></a>Exporterar data till en SIEM
+
+Bearbetade händelser som genereras av Azure Security Center publiceras till Azure [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), någon av loggen skriver tillgängliga i Azure Monitor. Azure Monitor erbjuder en konsoliderad pipeline för routning någon av dina övervakade data i ett SIEM-verktyg. Detta görs genom att dessa data till en Händelsehubb där det kan sedan hämtas för direktuppspelning i ett partner-verktyg.
+
+Den här pipe använder den [Azure Monitoring enkel rörledning](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) för att få åtkomst till övervakningsdata från Azure-miljön. På så sätt kan du enkelt konfigurera Siem och övervakningsverktyg för att använda data.
+
+I nästa avsnitt beskrivs hur du kan konfigurera data strömmas till en händelsehubb. Förutsätter vi att du redan har konfigurerats i din Azure-prenumeration för Azure Security Center.
+
+Översikt på hög nivå
+
+![Översikt på hög nivå](media/security-center-export-data-to-siem/overview.png)
+
+### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Vad är Azure-säkerhetsdata som är exponerade för SIEM?
+
+I den här versionen vi exponerar den [säkerhetsaviseringar.](../security-center/security-center-managing-and-responding-alerts.md) Vi kommer berika datauppsättningen med säkerhetsrekommendationer i kommande versioner.
+
+### <a name="how-to-setup-the-pipeline"></a>Så här konfigurerar du pipelinen
+
+#### <a name="create-an-event-hub"></a>Skapa en händelsehubb
+
+Innan du börjar måste du [skapa ett namnområde för Event Hubs](../event-hubs/event-hubs-create.md). Den här namnområde och en Händelsehubb är målet för alla dina övervakningsdata.
+
+#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream Azure-aktivitetsloggen till Event Hubs
+
+Se följande artikel [strömma aktivitetsloggen till Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+
+#### <a name="install-a-partner-siem-connector"></a>Installera en partneranslutningsapp 
+
+Routning övervakningsdata till en Event Hub med Azure Monitor kan du lätt kan integrera med partner SIEM och övervakningsverktyg.
+
+Finns på följande länk för att se en lista över [SIEMs som stöds](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+
+### <a name="example-for-querying-data"></a>Exempel för att fråga efter data 
+
+Här är några Splunk frågor som du kan använda för att hämta aviseringsdata:
+
+| **Beskrivning av fråga** | **Fråga** |
+|----|----|
+| Alla aviseringar| index = huvudsakliga Microsoft.Security/locations/alerts|
+| Sammanfatta antalet åtgärder efter deras namn| index = huvudsakliga sourcetype = ”amal: säkerhet” \| tabell operationName \| stats antal efter operationName|
+| Få aviseringar information: Tid, namn, status, ID och prenumeration | index = huvudsakliga Microsoft.Security/locations/alerts \| tabell \_tid, properties.eventName, tillstånd, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Nästa steg

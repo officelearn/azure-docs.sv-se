@@ -1,5 +1,5 @@
 ---
-title: Ändra och distribuera om en mikrotjänst | Microsoft Docs
+title: Ändra och distribuera om en mikrotjänst – Azure | Microsoft Docs
 description: Den här självstudiekursen visar hur du ändrar och distribuera om en mikrotjänst i fjärrövervakning
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315765"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631914"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Anpassa och distribuera om en mikrotjänst
 
-Den här självstudiekursen visar hur du redigerar en av de [mikrotjänster](http://azure.com/microservices) i lösningen för fjärrövervakning, skapar du en avbildning av din mikrotjänst, distribuera avbildningen till docker hub och sedan använda lösningen för fjärrövervakning. För att införa detta begrepp används i självstudiekursen ett enkelt scenario där du kan anropa en mikrotjänst API och ändrar statusmeddelandet från ”Alive och bra” till ”New redigerar Made här”!
+Den här självstudiekursen visar hur du redigerar en av de [mikrotjänster](https://azure.com/microservices) i lösningen för fjärrövervakning, skapar du en avbildning av din mikrotjänst, distribuera avbildningen till docker hub och sedan använda lösningen för fjärrövervakning. För att införa detta begrepp används i självstudiekursen ett enkelt scenario där du kan anropa en mikrotjänst API och ändrar statusmeddelandet från ”Alive och bra” till ”New redigerar Made här”!
 
 Remote Monitoring-lösningen använder mikrotjänster som skapas med hjälp av docker-avbildningar som hämtas från en docker-hubb. 
 
@@ -77,7 +77,7 @@ I den här delen kan du anropa standard IoT hub manager mikrotjänst API. API: e
     
     eller på Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

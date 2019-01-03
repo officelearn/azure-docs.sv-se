@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834855"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606190"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Skapa en Windows-skrivbordsapp
 Med hjälp av Azure Active Directory (Azure AD) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering till din skrivbordsapp i några korta steg. Den här artikeln visar hur du skapar en app för .NET Windows Presentation Foundation (WPF) ”uppgiftslista” som innehåller användarens registrering och inloggning och profilhantering. Appen innehåller stöd för registrering och inloggning med ett användarnamn eller e-post. Det omfattar även stöd för registrering och inloggning med konton i sociala medier, till exempel Facebook och Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
 
 ## <a name="create-an-application"></a>Skapa ett program
-Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som tjänsten behöver för att kommunicera säkert med din app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md).  Se till att:
+Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som tjänsten behöver för att kommunicera säkert med din app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md). Se till att:
 
 * Inkludera en **inbyggd klient** i programmet.
 * Kopiera den **omdirigerings-URI** `urn:ietf:wg:oauth:2.0:oob`. Den är standard-URL:en för det här kodexemplet.
@@ -36,7 +36,7 @@ I Azure AD B2C definieras varje användarupplevelse av en [princip](active-direc
 * Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.
 * Välj **Visningsnamn** och andra registreringsattribut i registreringsprincipen.
 * Välj **Visningsnamn** och **Objekt-ID** som programanspråk för varje princip. Du kan också välja andra anspråk.
-* Kopiera **namnet** på varje princip när du har skapat den. Det bör ha prefixet `b2c_1_`.  Du behöver principnamnen senare.
+* Kopiera **namnet** på varje princip när du har skapat den. Det bör ha prefixet `b2c_1_`. Du behöver principnamnen senare.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -51,7 +51,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 Den färdiga appen finns också [som en ZIP-fil](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) eller i `complete`-grenen för samma centrallager.
 
-När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Den `TaskClient` projektet är WPF-program som användaren interagerar med. För den här självstudien anropas en backend-uppgift webb-API, Azure och lagrar varje användares att göra-lista.  Du behöver inte skapa webb-API, vi har redan det ska fungera för dig.
+När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Den `TaskClient` projektet är WPF-program som användaren interagerar med. För den här självstudien anropas en backend-uppgift webb-API, Azure och lagrar varje användares att göra-lista. Du behöver inte skapa webb-API, vi har redan det ska fungera för dig.
 
 Om du vill veta hur ett webb-API på ett säkert sätt autentiserar begäranden med hjälp av Azure AD B2C kan ta en titt på [webb-API: komma igång artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
 
@@ -96,7 +96,7 @@ protected async override void OnInitialized(EventArgs e)
 
     pca = new PublicClientApplication(Globals.clientId)
     {
-        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
+        // MSAL implements an in-memory cache by default. Since we want tokens to persist when the user closes the app,
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
@@ -115,7 +115,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
     {
         // Use the app's clientId here as the scope parameter, indicating that
         // you want a token to the your app's backend web API (represented by
-        // the cloud hosted task API).  Use the UiOptions.ForceLogin flag to
+        // the cloud hosted task API). Use the UiOptions.ForceLogin flag to
         // indicate to MSAL that it should show a sign-up UI no matter what.
         result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                 string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
@@ -187,7 +187,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 Alla dessa fall MSAL antingen returnerar en token i `AuthenticationResult` eller genererar ett undantag. Varje gång du får en token från MSAL, som du kan använda den `AuthenticationResult.User` objektet uppdateras informationen i appen, till exempel Användargränssnittet. ADAL cachelagrar också token för användning i andra delar av programmet.
 
 ### <a name="check-for-tokens-on-app-start"></a>Sök efter token på app-start
-Du kan också använda MSAL för att hålla reda på användarens inloggning status.  I den här appen vill vi att användaren ska förbli inloggade när de Stäng appen och öppnar det igen.  I den `OnInitialized` Åsidosätt, använder MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
+Du kan också använda MSAL för att hålla reda på användarens inloggning status. I den här appen vill vi att användaren ska förbli inloggade när de stänger appen och öppnar det igen. I den `OnInitialized` Åsidosätt, använder MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
 
 ```csharp
 AuthenticationResult result = null;
@@ -209,7 +209,7 @@ catch (MsalException ex)
 {
     if (ex.ErrorCode == "failed_to_acquire_token_silently")
     {
-        // There are no tokens in the cache.  Proceed without calling the To Do list service.
+        // There are no tokens in the cache. Proceed without calling the To Do list service.
     }
     else
     {
@@ -226,7 +226,7 @@ catch (MsalException ex)
 ```
 
 ## <a name="call-the-task-api"></a>Anropa aktivitetens API
-Du har nu använt MSAL för att köra principer och hämta token.  Om du vill använda en dessa tokens för att anropa aktivitetens API kan du igen kan använda MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
+Du har nu använt MSAL för att köra principer och hämta token. Om du vill använda en dessa tokens för att anropa aktivitetens API kan du igen kan använda MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
 
 ```csharp
 private async void GetTodoList()
@@ -284,7 +284,7 @@ När anropet till `AcquireTokenSilentAsync(...)` lyckas och en token har hittats
 ```
 
 ## <a name="sign-the-user-out"></a>Användaren logga ut
-Slutligen kan du kan använda MSAL för att avsluta en användarsession med appen när användaren väljer **logga ut**.  När du använder MSAL kan görs detta genom att avmarkera alla tokens från token-cache:
+Slutligen kan du kan använda MSAL för att avsluta en användarsession med appen när användaren väljer **logga ut**. När du använder MSAL kan görs detta genom att avmarkera alla tokens från token-cache:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,7 +306,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
-Slutligen skapar och kör exemplet.  Registrera dig för appen genom att använda en e-postadress eller användarnamn namn. Logga ut och logga in igen som samma användare. Redigera användarens profil. Logga ut och logga med hjälp av en annan användare.
+Slutligen skapar och kör exemplet. Registrera dig för appen genom att använda en e-postadress eller användarnamn namn. Logga ut och logga in igen som samma användare. Redigera användarens profil. Logga ut och logga med hjälp av en annan användare.
 
 ## <a name="add-social-idps"></a>Lägg till sociala IDP: er
 Appen stöder för närvarande endast användaren registrera sig och logga in som använder **lokala konton**. Det här är konton som lagras i din B2C-katalog som använder ett användarnamn och lösenord. Med hjälp av Azure AD B2C kan du lägga till stöd för andra identitetsleverantörer (IDP) utan att ändra någon av din kod.

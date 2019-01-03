@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322951"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788704"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestandaräknare för din Azure-molntjänst
 
@@ -84,7 +84,7 @@ En prestandaräknare kan läggas till din molntjänst för Azure Diagnostics och
 
 ### <a name="application-insights"></a>Application Insights
 
-Azure Application Insights för Cloud Services kan du ange vilka prestandaräknare som du vill samla in. När du [Lägg till Application Insights i projektet](../application-insights/app-insights-cloudservices.md#sdk), en konfigurationsfil med namnet **ApplicationInsights.config** läggs till i Visual Studio-projektet. Den här konfigurationsfilen definierar vilken typ av information Application Insights samlar in och skickar till Azure.
+Azure Application Insights för Cloud Services kan du ange vilka prestandaräknare som du vill samla in. När du [Lägg till Application Insights i projektet](../azure-monitor/app/cloudservices.md#sdk), en konfigurationsfil med namnet **ApplicationInsights.config** läggs till i Visual Studio-projektet. Den här konfigurationsfilen definierar vilken typ av information Application Insights samlar in och skickar till Azure.
 
 Öppna den **ApplicationInsights.config** och leta reda på **ApplicationInsights** > **TelemetryModules** element. Varje `<Add>` underordnat element definierar en typ av telemetri för att samla in, tillsammans med dess konfiguration. Modultyp för prestandaräknaren telemetri är `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Om det här elementet har redan definierats, Lägg inte till den en gång. Varje prestandaräknare för att samla in definieras under en nod med namnet `<Counters>`. Här är ett exempel som samlar in prestandaräknare för enheten:
 
@@ -116,7 +116,7 @@ Application Insights samlar automatiskt in följande prestandaräknare:
 * \Process(??APP_WIN32_PROC??)\Byte i I/O-data per sekund
 * \Processor(_Total)\% processortid
 
-Mer information finns i [systemprestandaräknare i Application Insights](../application-insights/app-insights-performance-counters.md) och [Application Insights för Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters).
+Mer information finns i [systemprestandaräknare i Application Insights](../application-insights/app-insights-performance-counters.md) och [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
@@ -294,7 +294,7 @@ Som tidigare beskrivits prestandaräknare som du vill samla in definieras i den 
 
 ## <a name="more-information"></a>Mer information
 
-- [Application Insights för Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters)
+- [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Systemprestandaräknare i Application Insights](../application-insights/app-insights-performance-counters.md)
 - [Ange en räknarsökvägen](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Schema för Azure Diagnostics - prestandaräknare](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

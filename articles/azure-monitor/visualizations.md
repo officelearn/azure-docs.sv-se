@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435454"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728354"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera logg- och måttdata som lagras i Azure Monitor.
@@ -32,7 +32,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 ### <a name="advantages"></a>Fördelar
 - Djup integrering i Azure. Visualiseringar kan fästas på instrumentpaneler från flera Azure sidor som mått analytics, logganalys och Application Insights.
 - Har stöd för både mått och loggar.
-- Kombinera data från flera källor, inklusive utdata från [måttutforskaren](../azure-monitor/platform/metrics-charts.md), [Log Analytics-frågor](../azure-monitor/log-query/log-query-overview.md), och [mappar](../application-insights/app-insights-app-map.md) och [tillgänglighet]()i Application Insights.
+- Kombinera data från flera källor, inklusive utdata från [måttutforskaren](../azure-monitor/platform/metrics-charts.md), [Log Analytics-frågor](../azure-monitor/log-query/log-query-overview.md), och [mappar](../azure-monitor/app/app-map.md) och [tillgänglighet]()i Application Insights.
 - Alternativet för personliga eller delade instrumentpaneler. Integrerad med Azure [Rollbaserad autentisering (RBAC)](../role-based-access-control/overview.md).
 - Automatisk uppdatering. Mått-uppdatering är beroende av tidsintervall med minst fem minuter. Loggar uppdatera på en minut.
 - Innehåller parametrar mått instrumentpaneler med tidsstämpel och anpassade parametrar.

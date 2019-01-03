@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: ab80dd86e544127fc3f40f5459ef9a587c7cd511
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498940"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581512"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Konfigurera lagring och skalbarhet för Apache Kafka på HDInsight
 
@@ -26,13 +26,13 @@ Följande diagram innehåller en jämförelse mellan Kafka på HDInsight före h
 
 ![Diagram över Kafka på HDInsight med hjälp av en enda virtuell hårddisk per virtuell dator jämfört med flera hanterade diskar per virtuell dator](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Konfigurera hanterade diskar: Azure-portalen
+## <a name="configure-managed-disks-azure-portal"></a>Konfigurera hanterade diskar: Azure Portal
 
 1. Följ stegen i [Skapa ett HDInsight-kluster](../hdinsight-hadoop-create-linux-clusters-portal.md) för att förstå de vanliga stegen för att skapa ett kluster med hjälp av portalen. Slutför inte skapandet av portalen.
 
 2. Från avsnittet __Klusterstorlek__ använder du fältet __Disk per arbetsnod__ att konfigurera antalet diskar.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Premiumdiskar används med DS- och GS-serien virtuella datorer. Alla andra typer av virtuella dator använder standard.
 
     ![Bild av klusterstorleksavsnittet med diskar per arbetsnod markerat](./media/apache-kafka-scalability/set-managed-disks-portal.png)

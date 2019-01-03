@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386451"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743671"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight
 
@@ -47,7 +47,7 @@ Nimbus-noder är tillgängliga med Apache Storm-kluster. Nimbus-noder ger liknan
 
 ### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper-noder
 
-[ZooKeeper](http://zookeeper.apache.org/) noder som används för val av ledare av master tjänster på huvudnoder. De används också för att se till att tjänster, datanoder (worker) och gatewayer vet vilka huvudnoden en master tjänst är aktiv på. Som standard innehåller tre ZooKeeper-noder i HDInsight.
+[ZooKeeper](https://zookeeper.apache.org/) noder som används för val av ledare av master tjänster på huvudnoder. De används också för att se till att tjänster, datanoder (worker) och gatewayer vet vilka huvudnoden en master tjänst är aktiv på. Som standard innehåller tre ZooKeeper-noder i HDInsight.
 
 ### <a name="worker-nodes"></a>Arbetsnoder
 
@@ -192,7 +192,7 @@ När du är ansluten, visas en `sftp>` prompten. Från det här meddelandet kan 
 En lista över tillgängliga kommandon, ange `help` på den `sftp>` prompten.
 
 > [!NOTE]  
-> Det finns även grafiska gränssnitt som gör det möjligt att visualisera filsystemet när du är ansluten med SFTP. Till exempel [MobaXTerm](http://mobaxterm.mobatek.net/) kan du bläddra filsystemet med ett gränssnitt som liknar Windows Explorer.
+> Det finns även grafiska gränssnitt som gör det möjligt att visualisera filsystemet när du är ansluten med SFTP. Till exempel [MobaXTerm](https://mobaxterm.mobatek.net/) kan du bläddra filsystemet med ett gränssnitt som liknar Windows Explorer.
 
 ### <a name="ambari"></a>Ambari
 

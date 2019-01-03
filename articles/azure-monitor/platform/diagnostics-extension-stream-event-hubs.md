@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1f0b6ecae68a732e7d4bdc313ce9b249b387be8b
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bb240437870ce5457e40e8dcc3b31f3909b546fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326358"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607140"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
 Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -286,7 +286,7 @@ namespace EventHubListener
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint= <your connection string>”
+            string eventHubConnectionString = "Endpoint= <your connection string>”;
             string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
             string storageAccountKey = "<Storage account key>”;

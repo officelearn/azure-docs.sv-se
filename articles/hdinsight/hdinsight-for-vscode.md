@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840222"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723679"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -30,7 +30,7 @@ Följande krävs för att slutföra stegen i den här artikeln:
 
 - Ett HDInsight-kluster. För att skapa ett kluster, se [Kom igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono är endast krävs för Linux och macOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono är endast krävs för Linux och macOS.
 
 ## <a name="install-the-hdinsight-tools"></a>Installera HDInsight-verktyg
    
@@ -72,7 +72,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS Code, måste du anslu
 
 1. Skapa en ny arbetsmapp och en ny skriptfil om inte redan har.
 
-2. Högerklicka på Skriptredigeraren och klicka sedan på snabbmenyn väljer **HDInsight: inloggning**. Du kan också ange **Ctrl + Skift + P**, och ange sedan **HDInsight: inloggning**.
+2. Högerklicka på Skriptredigeraren och klicka sedan på snabbmenyn väljer **HDInsight: Logga in**. Du kan också ange **Ctrl + Skift + P**, och ange sedan **HDInsight: Logga in**.
 
     ![HDInsight Tools för Visual Studio Code-inloggning](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -87,7 +87,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS Code, måste du anslu
 
     När du är ansluten, visas namnet på ditt Azure i statusfältet längst ned till vänster i VS Code-fönstret. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > På grund av ett problem med kända Azure-autentisering måste du öppna en webbläsare i privat eller inkognito läge. Om ditt Azure-konto har två faktorer som är aktiverad, rekommenderar vi att använda phone autentisering i stället för PIN-autentisering.
   
 
@@ -105,7 +105,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS Code, måste du anslu
 <h3 id="linkcluster">Länka ett kluster</h3>
 
 Du kan länka ett normalt kluster med hjälp av en [Apache Ambari](https://ambari.apache.org/) hanteras användarnamn eller länka ett Enterprise Security Pack säker Hadoop-kluster med hjälp av en domän-användarnamn (t.ex: user1@contoso.com).
-1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
+1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: Länka ett kluster**.
 
    ![länken cluster kommando](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -113,19 +113,19 @@ Du kan länka ett normalt kluster med hjälp av en [Apache Ambari](https://ambar
    
    ![länka kluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Länkade användarnamn och lösenord används om klustret både loggas i Azure-prenumeration och länkad ett kluster. 
    
 3. Du kan se ett länkade-kluster med hjälp av kommandot **listan kluster**. Nu kan du skicka ett skript för att den här länkade kluster.
 
    ![länkade kluster](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. Du kan också Avlänka ett kluster genom att mata in **HDInsight: ta bort länken till ett kluster** från kommandopaletten.
+4. Du kan också Avlänka ett kluster genom att mata in **HDInsight: Ta bort länken till ett kluster** från kommandopaletten.
 
 
 ### <a name="to-link-a-generic-apache-livy-endpoint"></a>Länka en allmän Apache Livy-slutpunkt
 
-1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
+1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: Länka ett kluster**.
 2. Välj **allmän Livy Endpoint**.
 3. Ange allmänna Livy slutpunkten, till exempel: http://10.172.41.42:18080.
 4. Välj **grundläggande** när behöver auktorisering för allmän Livy slutpunkten, annars väljer **ingen**.
@@ -142,7 +142,7 @@ Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Visa en lista över HDInsight-kluster under din Azure-prenumeration
 1. Öppnar en arbetsyta och sedan ansluta till Azure. Mer information finns i [öppna HDInsight-arbetsyta](#open-hdinsight-workspace) och [Anslut till Azure](#connect-to-hdinsight-cluster).
 
-2. Högerklicka på Skriptredigeraren och välj sedan **HDInsight: lista över kluster** på snabbmenyn. 
+2. Högerklicka på skriptredigeraren och välj sedan **HDInsight: Klustret visas** på snabbmenyn. 
 
 3. HDInsight-kluster som visas i den **utdata** fönstret.
 
@@ -151,7 +151,7 @@ Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
 ## <a name="set-a-default-cluster"></a>Ange ett standardkluster
 1. Öppna en arbetsyta och Anslut till Azure. Se [öppna HDInsight-arbetsyta](#open-hdinsight-workspace) och [Anslut till Azure](#connect-to-hdinsight-cluster).
 
-2. Högerklicka på Skriptredigeraren och välj sedan **HDInsight: Ange standard-kluster**. 
+2. Högerklicka på skriptredigeraren och välj sedan **HDInsight: Ange Standardkluster**. 
 
 3. Välj ett kluster som standardklustret för den aktuella skriptfilen. Verktygen automatiskt uppdatera konfigurationsfilen **. VSCode\settings.json**. 
 
@@ -160,7 +160,7 @@ Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
 ## <a name="set-the-azure-environment"></a>Ange Azure-miljön
 1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**.
 
-2. Ange **HDInsight: Ställ in Azure-miljön**.
+2. Ange **HDInsight: Ange Azure-miljön**.
 
 3. Välj en miljö, till exempel ”Azure” eller ”AzureChina” som din standardalternativet för inloggning.
 
@@ -181,15 +181,15 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Högerklicka på Skriptredigeraren, Välj **HDInsight: Hive interaktiva** skicka frågan eller använder genvägen **Ctrl + Alt + I**. Välj **HDInsight: Hive Batch** skicka skriptet eller använder genvägen **Ctrl + Alt + H**. 
+4. Högerklicka på Skriptredigeraren, Välj **HDInsight: Hive interaktiv** skicka frågan eller använder genvägen **Ctrl + Alt + I**. Välj **HDInsight: Hive Batch** skicka skriptet eller använder genvägen **Ctrl + Alt + H**. 
 
 5. Välj klustret om du inte har angett ett standardkluster. Med verktygen kan du dessutom skicka ett kodblock istället för hela skriptfilen med snabbmenyn. Efter en liten stund visas resultatet av frågan i en ny flik.
 
    ![Interaktiva Hive-resultat](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - Panelen **RESULTAT**: du kan spara hela resultatet som CSV-, JSON- eller Excel-filer till en lokal sökväg eller markera flera rader.
+    - Panelen **RESULTAT**: Du kan spara hela resultatet som en CSV-, JSON- eller Excel-fil till en lokal sökväg, eller markera flera rader.
 
-    - Panelen **MEDDELANDE**: när du väljer **Rad**nummer, leder det till den första raden i det aktuella skriptet.
+    - Panelen **MEDDELANDEN**: När du väljer **Rad**nummer, leder det till den första raden i det aktuella skriptet.
 
 ## <a name="submit-interactive-pyspark-queries"></a>Köra en interaktiv PySpark-fråga
 
@@ -213,7 +213,7 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Markera det här skriptet. Högerklicka Skriptredigeraren och välj **HDInsight: interaktiv PySpark**, eller använder genväg **Ctrl + Alt + I**.
+4. Markera det här skriptet. Högerklicka Skriptredigeraren och välj **HDInsight: Interaktiv PySpark**, eller använder genväg **Ctrl + Alt + I**.
 
 5. Om du inte redan har installerat den **Python** tillägg i VS Code, Välj den **installera** knappen som du ser i följande bild:
 
@@ -231,7 +231,7 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
 
    ![Skicka Python jobb resultatet](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) status för ansökan visas till vänster i nedre statusfältet när du kör frågor. Inte skicka andra frågor när statusen är **PySpark-Kernel (upptagen)**. 
 
->[!NOTE]
+>[!NOTE]  
 >Klustren kan underhålla sessionsinformation. Definierad variabel, funktionen och motsvarande värden hålls i sessionen, så att de kan refereras över flera tjänstanrop för samma kluster. 
 
 ### <a name="to-disable-environment-check"></a>Inaktivera kontroll av miljö
@@ -288,7 +288,7 @@ Följ anvisningarna för att använda Python2.x:
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. Högerklicka på Skriptredigeraren och välj sedan **HDInsight: PySpark Batch**, eller använder genväg **Ctrl + Alt + H**. 
+4. Högerklicka på skriptredigeraren och välj sedan **HDInsight: PySpark Batch**, eller använder genväg **Ctrl + Alt + H**. 
 
 5. Välja ett kluster som du vill skicka PySpark-jobb. 
 
@@ -406,9 +406,9 @@ HDInsight för VS Code har stöd för följande funktioner:
 * [Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Skapa och köra program

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192421"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728421"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i Log Analytics loggsökningar
 
@@ -31,7 +31,7 @@ Du kan skapa en datorgrupp i Log Analytics med hjälp av någon av metoderna i f
 |:--- |:--- |
 | Loggsökning |Skapa en loggsökning som returnerar en lista med datorer. |
 | Loggsöknings-API |Använd Log Search API du programmässigt skapar en datorgrupp baserat på resultatet av en loggsökning. |
-| Active Directory |Genomsök automatiskt gruppmedlemskap för alla agentdatorer som är medlemmar i en Active Directory-domän och skapa en grupp i Log Analytics för varje säkerhetsgrupp. |
+| Active Directory |Genomsök automatiskt gruppmedlemskap för alla agentdatorer som är medlemmar i en Active Directory-domän och skapa en grupp i Log Analytics för varje säkerhetsgrupp. (Endast Windows-datorer)|
 | Configuration Manager | Importera samlingar från System Center Configuration Manager och skapa en grupp i Log Analytics för var och en. |
 | Windows Server Update Services |Skanna WSUS-servrar eller klienter för grupper och skapa en grupp i Log Analytics för varje automatiskt. |
 
@@ -60,7 +60,10 @@ Använd följande procedur för att skapa en datorgrupp från en loggsökning i 
 
 
 ### <a name="active-directory"></a>Active Directory
-När du konfigurerar Log Analytics för att importera Active Directory-gruppmedlemskap, analyserar gruppmedlemskap för alla domänanslutna datorer med Log Analytics-agenten.  En datorgrupp skapas i Log Analytics för varje säkerhetsgrupp i Active Directory och varje dator läggs till i de datorgrupper som motsvarar de säkerhetsgrupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
+När du konfigurerar Log Analytics för att importera Active Directory-gruppmedlemskap, analyserar gruppmedlemskap för alla Windows-domänanslutna datorer med Log Analytics-agenten.  En datorgrupp skapas i Log Analytics för varje säkerhetsgrupp i Active Directory och varje Windows-dator läggs till i de datorgrupper som motsvarar de säkerhetsgrupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
+
+> [!NOTE]
+> Importerade Active Directory-grupper bara innehålla Windows-datorer.
 
 Du konfigurerar Log Analytics för att importera Active Directory-säkerhetsgrupper från Log Analytics **avancerade inställningar** i Azure-portalen.  Välj **datorgrupper**, **Active Directory**, och sedan **importera Active Directory-gruppmedlemskap från datorer**.  Det krävs ingen ytterligare konfiguration.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342399"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631863"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -209,10 +209,10 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
-| Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Mer information finns i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
-| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md) |
+| Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
+| Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
-|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns [inkludering beteende](automation-update-management.md#inclusion-behavior) |
+|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](automation-update-management.md#inclusion-behavior) |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
 | Förskript och efterskript|Välj skript ska köras före och efter distributionen|
 | Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter och högst 6 timmar |
@@ -589,7 +589,7 @@ Eftersom uppdateringshantering update-funktioner i molnet, kan vissa uppdatering
 
 Uppdateringshantering kan dock fortfarande att rapportera den datorn som icke-kompatibel eftersom den innehåller ytterligare information om relevanta uppdateringen.
 
-Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här beteendet är en begränsning av zypper. I vissa fall kan behöva du köra distributionen av uppdateringen. Du kan kontrollera genom att kontrollera update-loggen.
+Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För att korrekt distribuera uppdateringar för CentOS, Välj alla klassificeringar för att se till att uppdateringar tillämpas. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här beteendet är en begränsning av zypper. I vissa fall kan behöva du köra distributionen av uppdateringen. Du kan kontrollera genom att kontrollera update-loggen.
 
 ## <a name="troubleshoot"></a>Felsöka
 

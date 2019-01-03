@@ -1,19 +1,17 @@
 ---
 title: Server begrepp i Azure Database for PostgreSQL
 description: Den här artikeln innehåller riktlinjer för att konfigurera och hantera Azure Database for PostgreSQL-servrar och överväganden.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: b482a43236885f4b5574a9ba3319f74b083df33a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281268"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540870"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL-servrar
 Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure Database for PostgreSQL-servrar.

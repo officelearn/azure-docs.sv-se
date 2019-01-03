@@ -1,7 +1,7 @@
 ---
 title: Identifiera bildtyper - visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för att identifiera bildtyper som använder den API för visuellt innehåll.
+description: Begrepp för avbildning typ funktionen för identifiering av av den API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342015"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583110"
 ---
-# <a name="detecting-image-types"></a>Identifiera bildtyper
+# <a name="detecting-image-types-with-computer-vision"></a>Identifiera bildtyper med visuellt innehåll
 
 Visuellt innehåll kan analysera innehållstyp avbildningar genom att ange om en bild är ClipArt, omdöme sannolikheten på en skala eller en Linjeteckning.
 
@@ -27,7 +28,7 @@ Visuellt innehåll analyserar en bild och bedömer risken för avbildningen Clip
 
 | Värde | Betydelse |
 |-------|---------|
-| 0 | Icke-ClipArt |
+| 0 | Non-clip-art |
 | 1 | tvetydig |
 | 2 | Normal ClipArt |
 | 3 | bra ClipArt |
@@ -36,7 +37,7 @@ Visuellt innehåll analyserar en bild och bedömer risken för avbildningen Clip
 
 Följande JSON-svar visar vad för visuellt innehåll returnerar vid bedömning av risken för exempel-avbildningar som ClipArt.
 
-![Visuellt innehåll analyserar ost ClipArt](./Images/cheese_clipart.png)
+![En ClipArt-bild för en sektor av ost](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar vid bedömning 
 }
 ```
 
-![Visuellt innehåll analyserar House Yard](./Images/house_yard.png)
+![En blå house och framsida](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Visuellt innehåll analyserar en bild och returnerar ett booleskt värde som ang
 
 Följande JSON-svar visar vad för visuellt innehåll returnerar när som anger om exempel bilderna är rad ritningar.
 
-![Visuellt innehåll analyserar Lion ritning](./Images/lion_drawing.png)
+![En Linjeteckning avbildning av en lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när som anger 
 }
 ```
 
-![Visuellt innehåll analyserar blommor](./Images/flower.png)
+![En vit blommor med en grön bakgrund](./Images/flower.png)
 
 ```json
 {

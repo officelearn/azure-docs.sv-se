@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8c3e3fa6dee41725c95be6f820440f6be50c53e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: e38aab92dccd096e639df04cc0f4cfec5ccb5bf0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496495"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650899"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem med Apache Spark-kluster i HDInsight
 
@@ -109,17 +109,17 @@ När Spark-kluster har slut på resurser, når Spark och PySpark kernlar i Jupyt
 2. Starta om anteckningsboken som du försöker starta. Tillräckligt med resurser ska vara tillgänglig för dig att skapa en session nu.
 
 ## <a name="see-also"></a>Se också
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)

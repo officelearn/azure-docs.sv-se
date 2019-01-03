@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: fa7d89d749d50d62ce54ea71d604831e8919b454
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189854"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652072"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -60,7 +60,7 @@ När dina data matas in av Log Analytics-tjänsten, lagras data logiskt separera
 ## <a name="data-retention"></a>Datakvarhållning
 Indexerade log search-data lagras och bevaras enligt prisplanen. Mer information finns i [priser för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Som en del av din [prenumerationsavtalet](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft behåller dina data enligt villkoren i avtalet.  När data tas bort, vi också ta bort Azure Storage-konto där data finns.  När kundinformation tas bort, förstörs inga fysiska enheter.  
+Som en del av din [prenumerationsavtalet](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft behåller dina data enligt villkoren i avtalet.  När kundinformation tas bort, förstörs inga fysiska enheter.  
 
 I följande tabell visas några av de tillgängliga lösningarna och innehåller exempel på vilken sorts information som samlas in.
 
@@ -78,7 +78,7 @@ I följande tabell visas exempel på datatyper:
 | --- | --- |
 | Varning |Avisera namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Konfiguration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** När du skriver händelser med anpassade fält i Windows-händelseloggen, Log Analytics samlar in dem. |
+| Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs!** När du skriver händelser med anpassade fält i Windows-händelseloggen, Log Analytics samlar in dem. |
 | Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, nätverksnamn, IP-adress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Adress, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, Principalnamnet, OffsetInMinuteFromGreenwichTime |
 | Prestanda |Objektnamn, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
@@ -150,7 +150,7 @@ Din organisation att skicka data till Log Analytics, konfigurerar du en Windows-
 * [Organisations-ID](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft-konto – Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-En Log Analytics-arbetsyta är där data samlas in, aggregeras, analyseras och presenteras. En arbetsyta är främst används som ett sätt att partitionera data och varje arbetsyta är unik. Du kanske vill ha din produktionsdata som hanteras med en arbetsyta och din testdata som hanteras med en annan arbetsyta. Arbetsytor hjälper också att en administratör kontrollera åtkomst till data. Varje arbetsyta kan ha flera användarkonton kopplade till den och varje användarkonto kan komma åt flera Log Analytics-arbetsytor. Du kan skapa arbetsytor baserat på datacenterregion. Varje arbetsyta replikeras till andra datacenter i regionen, främst för Log Analytics tjänstens tillgänglighet.
+En Log Analytics-arbetsyta är där data samlas in, aggregeras, analyseras och presenteras. En arbetsyta är främst används som ett sätt att partitionera data och varje arbetsyta är unik. Du kanske vill ha din produktionsdata som hanteras med en arbetsyta och din testdata som hanteras med en annan arbetsyta. Arbetsytor hjälper också att en administratör kontrollera åtkomst till data. Varje arbetsyta kan ha flera användarkonton kopplade till den och varje användarkonto kan komma åt flera Log Analytics-arbetsytor. Du kan skapa arbetsytor baserat på datacenterregion.
 
 För Operations Manager upprättar Operations Manager-hanteringsgrupp en anslutning med Log Analytics-tjänsten. Du kan sedan konfigurera vilka system som hanteras med agent i hanteringsgruppen ska kunna samla in och skicka data till tjänsten. Beroende på lösningen som du har aktiverat och data från dessa lösningar är antingen skickas direkt från en hanteringsserver för Operations Manager till Log Analytics-tjänsten eller på grund av mängden data som samlas in av systemet hanteras med agent, skickas direkt från agenten till tjänsten. För system som inte övervakas av Operations Manager, ansluter var och en på ett säkert sätt till Log Analytics-tjänsten direkt.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970713"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628501"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault
 
@@ -32,11 +32,13 @@ Varför skapa dina egna nycklar? Anpassade nycklar ger mer flexibilitet, så att
 
 Om du vill använda Kundhanterade nycklar med SSE, du kan antingen skapa ett nytt nyckelvalv och nyckel eller du kan använda ett befintligt nyckelvalv och nyckel. Storage-konto och nyckelvalvet måste vara i samma region, men de kan vara i olika prenumerationer.
 
-### <a name="step-1-create-a-storage-account"></a>Steg 1: Skapa ett lagringskonto
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="step-1-create-a-storage-account"></a>Steg 1: skapar ett lagringskonto
 
 Skapa först ett lagringskonto om du inte redan har en. Mer information finns i [Skapa ett lagringskonto](storage-quickstart-create-account.md).
 
-### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Steg 2: Aktivera SSE för Blob- och lagring
+### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Steg 2: Aktivera SSE för Blob- och storage
 
 Om du vill aktivera SSE med Kundhanterade nycklar måste två nyckelskydd funktioner, mjuk borttagning och rensa inte, aktiveras i Azure Key Vault. De här inställningarna Kontrollera nycklarna inte får vara råkar eller avsiktligt borttagna. Den högsta bevarandeperioden av nycklarna har angetts till 90 dagar, skydda användarna mot skadliga aktörer eller utpressningstrojan-attacker.
 
@@ -45,7 +47,7 @@ Om du vill aktivera programmässigt Kundhanterade nycklar för SSE, kan du anvä
 Om du vill använda Kundhanterade nycklar med SSE, måste du tilldela en identitet för storage-konto till lagringskontot. Du kan ange identiteten genom att köra följande PowerShell eller Azure CLI-kommando:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 Du kan aktivera mjuk borttagning och gör inte rensa genom att köra följande PowerShell eller Azure CLI-kommandon:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -121,18 +123,18 @@ Du kan också ge åtkomst via Azure portal genom att gå till Azure Key Vault i 
 Du kan associera nyckeln ovan med ett befintligt lagringskonto med hjälp av följande PowerShell-kommandon:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="step-5-copy-data-to-storage-account"></a>Steg 5: Kopieringsdata till storage-konto
+### <a name="step-5-copy-data-to-storage-account"></a>Steg 5: Kopiera data till storage-konto
 
 Att överföra data till det nya kontot så att de är krypterade. Mer information finns i [vanliga frågor och svar för kryptering av lagringstjänst](storage-service-encryption.md#faq-for-storage-service-encryption).
 
-### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Steg 6: Fråga status för krypterade data
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Steg 6: Fråga efter statusen på krypterade data
 
 Fråga status för krypterade data.
 
@@ -154,7 +156,7 @@ Kryptering av lagringstjänst är tillgängliga för Azure Managed Disks och Mic
 Azure Disk Encryption innehåller integrering mellan OS-baserade lösningar, till exempel BitLocker och DM-Crypt och Azure KeyVault. Kryptering av lagringstjänst tillhandahåller kryptering internt i Azure storage-plattformen lager, under den virtuella datorn.
 
 **Kan jag återkalla åtkomst till krypteringsnycklarna?**
-Ja, du kan återkalla behörigheten när som helst. Det finns flera sätt att återkalla åtkomst till dina nycklar. Referera till [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) för mer information. Återkalla åtkomst blockerar effektivt åtkomst till alla blobar i lagringskontot som konto krypteringsnyckeln är otillgänglig av Azure Storage.
+Ja, du kan återkalla behörigheten när som helst. Det finns flera sätt att återkalla åtkomst till dina nycklar. Referera till [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) för mer information. Återkalla åtkomst blockerar effektivt åtkomst till alla blobar i lagringskontot som konto krypteringsnyckeln är otillgänglig av Azure Storage.
 
 **Kan jag skapa ett lagringskonto och nyckel i annan region?**  
 Nej, storage-konto och Azure Key Vault och nyckel måste finnas i samma region.

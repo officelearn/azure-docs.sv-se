@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315646"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584504"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -48,16 +48,20 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
 | Antal virtuella kärnor\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Minne | Gen4: 56GB - 156GB<br/>Gen5: 44GB – 440GB<br/>\*I proportion till antalet virtuella kärnor | Gen4: 56GB - 156GB <br/> Gen5: 44GB – 440GB<br/>\*I proportion till antalet virtuella kärnor |
+| Minne | Gen4: 56GB - 156GB<br/>Gen5: 44GB – 440GB<br/>\*I proportion till antalet virtuella kärnor | Gen4: 56GB - 156GB <br/> Gen5: 41GB – 408GB<br/>\*I proportion till antalet virtuella kärnor |
 | Maxstorlek för lagring | 8 TB | Gen 4: 1 TB <br/> 5: e generationen: <br/>-1 TB för 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Max databasfiler per instans | Upp till 280 | 32 767 filer per databas |
-| IOPS (ungefärlig) | 500-7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| Data/Log IOPS (ungefärlig) | 500-7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| Instans Log dataflöde | 22MB/s per instans | 3MB/s per vCore<br/>Max 48MB/s |
+| Dataflöde (ungefärlig) | 100-250 MB/s per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 – 48MB/s per vCore |
 | I/o-svarstid (ungefärlig) | 5 – 10 ms | 1 – 2 ms |
-| Maxstorlek för tempDB | 192 1920 GB (24 GB per vCore) | Bestäms av den maximala lagringsstorleken per instans |
+| Maxstorlek för tempDB | 192 1920 GB (24 GB per vCore) | Inga begränsningar – begränsas av de största instansstorleken för lagring |
 
-- Både användar- och systemdatabaser ingår i den instans lagringsstorleken som jämförs med den högsta gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> systemvy att fastställa det totala antalet använt utrymme i av databaser. Felloggar inte beständiga och inte ingår i storlek. Säkerhetskopior ingår inte i lagringsstorlek.
+**Anteckningar**:
+- Både data och loggfiler filstorlek i användar- och systemdatabaser ingår i den instans lagringsstorleken som jämförs med den högsta gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> systemvy att fastställa det totala antalet använt utrymme i av databaser. Felloggar inte beständiga och inte ingår i storlek. Säkerhetskopior ingår inte i lagringsstorlek.
+- Dataflöde och allokerad IOPS beror också på den sidstorlek som inte uttryckligen begränsas av Managed Instance.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

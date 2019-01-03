@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436338"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743801"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Övervaka Apache Hadoop-kluster i HDInsight med hjälp av Apache Ambari API
 Lär dig mer om att övervaka HDInsight-kluster med hjälp av Apache Ambari APIs.
 
 > [!NOTE]  
 > Informationen i den här artikeln är främst för Windows-baserade HDInsight-kluster som innehåller en skrivskyddad version av Ambari REST API. Linux-baserade kluster, se [hantera Apache Hadoop-kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-> 
-> 
 
 ## <a name="what-is-ambari"></a>Vad är Ambari?
 [Apache Ambari] [ ambari-home] används för att etablera, hantera och övervaka Apache Hadoop-kluster. Det innehåller en intuitiv samling operatörsverktyg och en stabil uppsättning API:er som döljer komplexiteten hos Hadoop och förenklar klusteranvändningen. Läs mer om API: erna [Ambari API-referens][ambari-api-reference]. 
@@ -38,8 +36,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
   
   > [!NOTE]  
   > När du använder cURL-kommando i Windows, Använd dubbla citattecken i stället för citattecken för värden för alternativ.
-  > 
-  > 
+
 * **Ett Azure HDInsight-kluster**. Anvisningar om att etablera klustret finns i [komma igång med HDInsight] [ hdinsight-get-started] eller [etablera HDInsight-kluster][hdinsight-provision]. Följande data gå igenom självstudien behöver du:
   
   | Kluster-egenskapen | Variabelnamn för Azure PowerShell | Värde | Beskrivning |
@@ -146,13 +143,13 @@ Nu har du lärt dig hur du använder Apache Ambari övervakning API-anrop. Du ka
 * [HDInsight-dokumentation][hdinsight-documentation]
 * [Kom igång med HDInsight][hdinsight-get-started]
 
-[ambari-home]: http://ambari.apache.org/
+[ambari-home]: https://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
-[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[microsoft-hadoop-SDK]: https://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx

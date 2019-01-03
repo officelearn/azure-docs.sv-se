@@ -1,7 +1,7 @@
 ---
-title: Tagga bilder - visuellt innehåll
+title: Tillämpa avbildningar - visuellt innehåll taggar
 titleSuffix: Azure Cognitive Services
-description: Begrepp för att tagga bilder med hjälp av den API för visuellt innehåll.
+description: Lär dig begrepp för avbildningarna taggningsfunktion för den API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960915"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582940"
 ---
-# <a name="tagging-images"></a>Tagga bilder
+# <a name="applying-content-tags-to-images"></a>Använda innehåll taggar till avbildningar
 
 Visuellt innehåll returnerar taggar som baseras på tusentals identifierbara objekt, levande varelser, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
 
@@ -27,7 +28,7 @@ När du laddar upp en bild eller ange en bild-URL, utdata visuellt algoritmer ta
 
 Följande JSON-svar visar vad för visuellt innehåll returnerar när taggning visuella funktioner som har identifierats i exempelbild.
 
-![House_Yard](./Images/house_yard.png).
+![En blå house och framsida](./Images/house_yard.png).
 
 ```json
 {

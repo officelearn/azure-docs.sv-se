@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182118"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969000"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Facebook-konto med Azure Active Directory B2C
 
@@ -38,11 +38,11 @@ Om du vill använda en Facebook-konto som identitetsprovider i Azure Active Dire
 13. Välj **produkter**, och välj sedan **konfigurera** under **Facebook-inloggning**.
 14. Välj **inställningar** under **Facebook-inloggning**.
 15. I **giltig OAuth omdirigerings-URI: er**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Ersätt `your-tenant-name` med namnet på din klient. Klicka på **spara ändringar** längst ned på sidan.
-16. För att ditt Facebook-program tillgängliga för Azure AD B2C, Välj **App granska**anger **gör My Application offentliga?** till **Ja**, och klicka sedan på **bekräfta** .
+16. För att ditt Facebook-program tillgängliga för Azure AD B2C klickar du på väljaren Status längst upp höger på sidan och aktivera den **på** offentliggöra programmet och klicka sedan på **Bekräfta**.  Nu bör statusen ändras från **utveckling** till **Live**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurera ett Facebook-konto som identitetsprovider
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

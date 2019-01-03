@@ -1,6 +1,6 @@
 ---
 title: Indexera innehåll från Azure Table storage för fulltextsökning – Azure Search
-description: Lär dig hur du indexera data lagrade i Azure Table storage med Azure Search.
+description: Lär dig hur du indexera data lagrade i Azure Table storage med en Azure Search-indexerare.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9532f4331b4dbbc8d687778b29f63179cca6b4d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317278"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632967"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexera Azure Table storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera data lagrade i Azure Table storage.

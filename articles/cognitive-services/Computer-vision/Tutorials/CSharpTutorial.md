@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Skapa en app – C# för bildbearbetning'
+title: 'Självstudier: Skapa en app för bearbetning av avbildning-C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Utforska en grundläggande Windows-app som använder den API för visuellt innehåll i Microsoft Cognitive Services. Utföra OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
+description: Utforska en grundläggande Windows-app som använder den API för visuellt innehåll i Microsoft Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342661"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584453"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Självstudie: Skapa en app – C för bildbearbetning&#35;
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Självstudier: Skapa en avbildning som app - C bearbetas&#35;
 
-Utforska ett grundläggande Windows-program som använder visuellt för att utföra optisk teckenläsning (OCR), skapa smart beskärs miniatyrer, plus identifiera, kategorisera, tagg och beskriver visuella funktioner, inklusive ansikten, i en bild. Den nedan exempel kan du skicka en bild-URL eller en lokalt lagrad fil. Du kan använda det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av API för visuellt innehåll och Windows Presentation Foundation (WPF), en del av .NET Framework.
+Utforska ett grundläggande Windows-program som använder visuellt för att utföra optisk teckenläsning (OCR), skapa smart beskärs miniatyrer, plus identifiera, kategorisera, tagg och beskriver visuella funktioner, inklusive ansikten, i en bild. Med exemplet nedan kan du skicka en bild-URL eller en lokalt lagrad fil. Du kan använda det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av API för visuellt innehåll och Windows Presentation Foundation (WPF), en del av .NET Framework.
 
 > [!div class="checklist"]
 > * Hämta exempelappen från GitHub
@@ -98,10 +99,10 @@ Du kan köra exempelappen, om du vill se hur det interagerar med dig och med kli
    |Hämta miniatyrbilden | Använder den [hämta miniatyrbilden](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) åtgärden att skapa en miniatyrbild för en lokal eller fjärransluten avbildning. |
 
    > [!IMPORTANT]
-   > Microsoft tar emot avbildningar upp- och använder dem för att förbättra API för visuellt innehåll och relaterade tjänster. Genom att skicka in en avbildning, bekräftar du att du har följt våra [Developer regler för uppförande](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
+   > Microsoft tar emot avbildningar upp- och använder dem för att förbättra API för visuellt innehåll och relaterade tjänster. Genom att skicka in en bild bekräftar du att du har följt vår [uppförandekod för utvecklare](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    Följande skärmbild visar sidan tillhandahålls för scenariot analysera avbildningen när du har analyserat en exempelbild.
-   ![Analysera scenariot sida](../Images/Analyze_Image_Example.PNG)
+   ![Skärmbild av sidan analysera bild](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Utforska exempelappen
 

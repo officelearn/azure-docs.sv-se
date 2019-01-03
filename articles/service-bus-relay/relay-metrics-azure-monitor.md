@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ca4535afb44238380cb6db55953072598130fae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: eb71161c9191e29d3248b2c64fd9cc0fa76c92a2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582368"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545152"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay-mått i Azure Monitor (förhandsversion)
 Azure Relay-mått ger dig tillståndet för resurser i din Azure-prenumeration. Med en omfattande uppsättning mätvärden, kan du utvärdera den övergripande hälsan för dina Relay-resurser, inte bara på namnområdesnivå, utan även på enhetsnivå. Statistiken kan vara viktigt eftersom de hjälper dig att övervaka status för Azure Relay. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
@@ -33,7 +33,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Operations Management Suite och Event Hubs. Mer information finns i [övervakningsdata som samlas in av Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) i Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Åtkomst-mått i portal
 
@@ -60,24 +60,24 @@ Alla mått-värden skickas till Azure Monitor varje minut. Tidskornighet definie
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| ListenerConnections lyckades (förhandsversion) | Antal lyckade lyssnare som har anslutningar till Azure Relay under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|ListenerConnections ClientError (förhandsversion)|Antalet klientfel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|ListenerConnections ServerError (förhandsversion)|Antal fel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|SenderConnections lyckades (förhandsversion)|Antal lyckade avsändaren anslutningar som görs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|SenderConnections-ClientError (förhandsversion)|Antalet klientfel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|SenderConnections-ServerError (förhandsversion)|Antal fel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|ListenerConnections TotalRequests (förhandsversion)|Det totala antalet lyssnare anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|SenderConnections-TotalRequests (förhandsversion)|Vilka begäranden som görs av avsändare under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|ActiveConnections (förhandsversion)|Antal aktiva anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|ActiveListeners (förhandsversion)|Antal aktiva lyssnare under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|ListenerDisconnects (förhandsversion)|Antal frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|SenderDisconnects (förhandsversion)|Antal frånkopplade avsändare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+| ListenerConnections lyckades (förhandsversion) | Antal lyckade lyssnare som har anslutningar till Azure Relay under en angiven period. <br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerConnections ClientError (förhandsversion)|Antalet klientfel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerConnections ServerError (förhandsversion)|Antal fel på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|SenderConnections lyckades (förhandsversion)|Antal lyckade avsändaren anslutningar som görs under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|SenderConnections-ClientError (förhandsversion)|Antalet klientfel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|SenderConnections-ServerError (förhandsversion)|Antal fel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerConnections TotalRequests (förhandsversion)|Det totala antalet lyssnare anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|SenderConnections-TotalRequests (förhandsversion)|Vilka begäranden som görs av avsändare under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ActiveConnections (förhandsversion)|Antal aktiva anslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ActiveListeners (förhandsversion)|Antal aktiva lyssnare under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ListenerDisconnects (förhandsversion)|Antal frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|SenderDisconnects (förhandsversion)|Antal frånkopplade avsändare under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Användningsstatistik för minne
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|BytesTransferred (förhandsversion)|Antalet byte som överförs under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|BytesTransferred (förhandsversion)|Antalet byte som överförs under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 

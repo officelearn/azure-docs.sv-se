@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166616"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543996"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -70,6 +70,9 @@ Skriptet konfigurerar bara Windows-brandväggen lokalt. Om du har nätverksbrand
 
 ### <a name="how-many-agents-should-i-use"></a>Hur många agenter ska jag använda?
 Du bör använda minst en agent för varje undernät som du vill övervaka.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Vad är det maximala antalet agenter som jag kan använda eller fel visas ”... du har nått konfigurationsgränsen”?
+NPM begränsar antalet IP-adresser till 5000 IP-adresser per arbetsyta. Om en nod har både IPv4 och IPv6-adresser, räknas det som 2 IP-adresser för noden. Den här gräns på 5000 IP-adresser skulle därför bestämma den övre gränsen för antalet agenter. Du kan ta bort inaktiva agenter från noder-fliken i NPM >> Konfigurera. NPM sparar också historik över alla IP-adresser som någonsin har tilldelats till den virtuella datorn som är värd för agenten och dessa också räknas som separata IP-adresser som bidrar till den övre gränsen på 5000 IP-adresser. Att frigöra IP-adresser för arbetsytan och du kan använda sidan noder att ta bort IP-adresser som inte används.
 
 ## <a name="monitoring"></a>Övervakning
 

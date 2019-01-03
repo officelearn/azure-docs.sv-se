@@ -1,5 +1,5 @@
 ---
-title: Modellering Multitenancy i Azure Search | Microsoft Docs
+title: Modellering multitenancy för isolering av innehåll i en tjänst – Azure Search
 description: Läs mer om vanliga designmönster för SaaS-program med flera klientorganisationer när du använder Azure Search.
 manager: jlembicz
 author: LiamCavanagh
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313045"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632933"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Designmönster för SaaS-program för flera innehavare och Azure Search
 Ett program för flera är en som innehåller samma tjänster och funktioner till valfritt antal klienter som inte kan se eller dela data med andra innehavare. Det här dokumentet beskriver innehavare isolering strategier för program för flera innehavare som skapats med Azure Search.

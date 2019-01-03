@@ -1,5 +1,5 @@
 ---
-title: 'Designmönster för Azure Cosmos DB: appar för sociala medier'
+title: 'Designmönster för Azure Cosmos DB: Appar för sociala medier'
 description: Läs mer om ett designmönster för sociala nätverk genom att utnyttja flexibiliteten för lagring i Azure Cosmos DB och andra Azure-tjänster.
 keywords: appar för sociala medier
 services: cosmos-db
@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 73f9de856ac81fcd475f9d77b234ae778f7397fb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871871"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726790"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 
 Att leva i ett enormt sammankopplade society innebär att vid en viss tidpunkt i vardagen du bli en del av en **socialt nätverk**. Du kan använda sociala nätverk för att hålla kontakten med vänner, kolleger, familj, eller ibland att dela din passion med personer med gemensamma intressen.
 
-Som tekniker eller utvecklare kan du kanske har funderat över hur dessa nätverk lagra och sammankoppling dina data. Eller du kanske har även har gett för att skapa eller skapa ett nytt sociala nätverk för en specifik nischmarknader marknad. Det är då betydande frågan: hur lagras alla dessa data?
+Som tekniker eller utvecklare kan du kanske har funderat över hur dessa nätverk lagra och sammankoppling dina data. Eller du kanske har även har gett för att skapa eller skapa ett nytt sociala nätverk för en specifik nischmarknader marknad. Det är då betydande frågan: Hur lagras alla dessa data?
 
 Anta att du skapar en ny och shiny sociala nätverk där användarna kan publicera artiklar med relaterade media, t.ex. bilder, videor och musik. Användare kan kommentera inlägg och ge punkter för betygsättning. Det blir en feed med inlägg som användarna ska se och interagera med på landningssidan för webbplats. Den här metoden ljud inte komplexa på först, men för enkelhetens skull, stoppa vi det. (Du gräver anpassade flöden som påverkas av relationer, men det är mer omfattande än målet med den här artikeln.)
 
@@ -47,14 +47,14 @@ Den här artikeln vägleder dig i din sociala plattform datamodellering med Azur
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -100,7 +100,7 @@ Det är bara för att skapa dokument som kan innehålla en lista över post ID: 
 
 Du kan ha en ”senaste” ström med inlägg sorterade efter skapandedatum. Eller du kan ha en ”hetaste” ström med dessa inlägg med mer likes under de senaste 24 timmarna. Du kan även implementera en anpassad dataström för varje användare baserat på logik som följare och intressen. Det vore fortfarande en lista över inlägg. Det är en fråga om hur du skapar dessa listor, men prestandan läsning förblir obehindrad. När du skaffar en av de här listorna du utfärda en enskild fråga till Cosmos DB med hjälp av den [i operatorn](how-to-sql-query.md#WhereClause) att hämta sidor för inlägg i taget.
 
-Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/web-sites-create-web-jobs.md). När en post skapas behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs som utlösts med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementerar den Publicera spridning i strömmar som baseras på en egen anpassad logik.
+Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/webjobs-create.md). När en post skapas behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs som utlösts med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementerar den Publicera spridning i strömmar som baseras på en egen anpassad logik.
 
 Punkter och gilla-markeringar över ett inlägg kan bearbetas i ett uppskjutet sätt med samma metod för att skapa en konsekvent miljö.
 
@@ -208,13 +208,13 @@ Mer information om Azure Search kan du besöka den [Hitchhiker's Guide till Sear
 
 När du lagrar det här innehållet som ökar och ökar varje dag, kanske tänka: Vad kan jag göra med den här strömmen av information från Mina användare?
 
-Det är enkelt att svaret: placera den så att den fungerar och lär dig från den.
+Det är enkelt att svaret: Placera den så att den fungerar och lär dig från den.
 
 Men det kan du lära dig? Några enkla exempel [attitydanalys](https://en.wikipedia.org/wiki/Sentiment_analysis), innehåll rekommendationer baserat på användarens inställningar eller även en automatiserad content moderator som ser till att det innehåll som publicerats av sociala nätverket är säker för familjen.
 
 Nu när jag något för dig låst, kommer du förmodligen tycker du behöver en doktorsexamen i matematiska science att extrahera dessa mönster och information från enkla databaser och filer, men du kommer att fel.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)ingår i den [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en fullständigt hanterad molntjänst som låter dig skapa arbetsflöden med hjälp av algoritmer i ett enkelt dra och släpp-gränssnitt, code algoritmerna i [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), eller använda en del av redan skapats och är redo att använda API: er som: [textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator eller [rekommendationer](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)ingår i den [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en fullständigt hanterad molntjänst som låter dig skapa arbetsflöden med hjälp av algoritmer i ett enkelt dra och släpp-gränssnitt, code algoritmerna i [ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), eller använda en del av redan skapats och är redo att använda API: er som: [Textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator, eller [rekommendationer](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Om du vill åstadkomma något av dessa scenarier för Machine Learning kan du använda [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) att mata in information från olika källor. Du kan också använda [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) att bearbeta informationen och skapa utdata som kan bearbetas av Azure Machine Learning.
 

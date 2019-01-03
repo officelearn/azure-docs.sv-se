@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b361202d2d80f879ae6d23ec29782bc6f837f96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242593"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632882"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Videostabilisera mediefiler med Azure Media Hyperlapse
+
+> [!NOTE]
+> Kommer snart att dras tillbaka den här funktionen för förhandsgranskning i Azure Media Services. Från och med 19 December 2018, kommer Media Services inte längre göra ändringar eller förbättringar i Media Hyperlapse. Den 29 mars 2019 blir den indragna och inte längre tillgänglig.
+
 Azure Media Hyperlapse är en Media Processor (MP) som skapar smooth timelapse-video från första personen eller åtgärd kamera innehåll.  Den molnbaserade på samma nivå till [Microsoft Research skrivbord Hyperlapse Pro och telefon Hyperlapse Mobile](https://aka.ms/hyperlapse), Microsoft Hyperlapse för Azure Media Services använder enorma skalan för bearbetning till Media för Azure Media Services plattformen för att vågrätt skala och parallellisera bulk Hyperlapse-bearbetning.
 
 > [!IMPORTANT]

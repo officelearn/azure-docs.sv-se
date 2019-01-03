@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metric
-ms.openlocfilehash: 4fcde6773bcdfe7ac522c813151518785dc14e25
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: metrics
+ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383569"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721146"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera Azure måttaviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de har skapats för att se till att alla resurser är korrekt.
 
 > [!NOTE]
 > 
-> Den här artikeln beskrivs hur du skapar **klassiska måttaviseringar** med hjälp av Resource Manager-mallar. Om du behöver för att skapa [nyare måttaviseringar](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) med hjälp av mallar, [i den här artikeln](alerts-metric-create-templates.md) ger detaljerad information.
+> Den här artikeln beskrivs hur du skapar **klassiska måttaviseringar** med hjälp av Resource Manager-mallar. Om du behöver för att skapa [nyare måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) med hjälp av mallar, [i den här artikeln](alerts-metric-create-templates.md) ger detaljerad information.
 >
 
 

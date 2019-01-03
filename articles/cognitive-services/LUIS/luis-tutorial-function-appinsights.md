@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255609"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713972"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Lägga till LUIS resultaten till Application Insights och Azure functions
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > [!Tip]
 > Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-All kod i den här självstudien är tillgänglig på den [LUIS-Samples GitHub-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) och varje rad som är associerade med den här självstudien har kommenterats med `//APPINSIGHT:`. 
+All kod i den här självstudien är tillgänglig på den [Azure-Samples GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) och varje rad som är associerade med den här självstudien har kommenterats med `//APPINSIGHT:`. 
 
 ## <a name="web-app-bot-with-luis"></a>Web app-robot med LUIS
 Den här självstudien förutsätter att du har kod som ser ut som följande eller att du har slutfört den [andra självstudiekursen](luis-nodejs-tutorial-build-bot-framework-sample.md): 
@@ -51,11 +51,11 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 
 1. I Azure-portalen i web app bot service väljer **skapa** under den **Bot Management** avsnittet. 
 
-    ![Sök efter app insights](./media/luis-tutorial-appinsights/build.png)
+    ![Välj ”Skapa” under avsnittet ”Bot Management” i Azure-portalen i web app bot service. ](./media/luis-tutorial-appinsights/build.png)
 
 2. En ny webbläsarflik öppnas med App Service Editor. Välj appnamnet på den översta raden och välj sedan **öppna Kudu-konsolen**. 
 
-    ![Sök efter app insights](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Välj appnamnet på den översta raden och välj sedan ”öppna Kudu-konsolen. ](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Ange följande kommando för att installera Application Insights och understreck-paket i konsolen:
 
@@ -63,7 +63,7 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
-    ![Sök efter app insights](./media/luis-tutorial-appinsights/npm-install.png)
+    ![Använd npm-kommandon för att installera Application Insights och understreck-paket](./media/luis-tutorial-appinsights/npm-install.png)
 
     Vänta tills paketen installeras:
 
@@ -112,9 +112,7 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 
 1. I portalen, väljer **alla resurser** sedan filtrera efter namnet på webbappen bot. Klicka på resursen med typen **Application Insights**. Ikonen för Application Insights är en glödlampa. 
 
-    ![Sök efter app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
-
-
+    ! [[Sökning för app insights i Azure Portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. När resursen öppnas klickar du på den **Search** ikon på förstoringsglaset i panelen till höger. En ny panel till rätt visar. Beroende på hur mycket telemetridata har hittats, panelen kan ta en andra att visa. Sök efter `LUIS-results` och trycker på Ange på tangentbordet. Listan är smalare med bara LUIS frågeresultat har lagts till i den här självstudiekursen.
 

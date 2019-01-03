@@ -1,9 +1,9 @@
 ---
-title: Tjänsten kvoter och begränsningar för Azure Batch | Microsoft Docs
+title: Kvoter och begränsningar – Azure Batch-tjänsten | Microsoft Docs
 description: Lär dig mer om standard Azure Batch-kvoter, gränser och begränsningar för och hur du begär kvot ökar
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263612"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753207"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -65,9 +65,9 @@ Om du har skapat ett Batch-konto med poolallokeringsläget inställt **användar
 | [Samtidiga uppgifter](batch-parallel-node-tasks.md) per compute-nod | 4 x antalet kärnor för noden |
 | [Program](batch-application-packages.md) per Batch-konto | 20 |
 | Programpaket per program | 40 |
-| Maximal aktiviteternas livslängd | 7 dagar<sup>1</sup> |
+| Maximal aktiviteternas livslängd | 180 dagar<sup>1</sup> |
 
-<sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
+<sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 180 dagar. Slutförda uppgifter finns kvar för 7 dagar. data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgänglig.
 
 ## <a name="view-batch-quotas"></a>Visa Batch-kvoter
 

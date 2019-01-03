@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389152"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549436"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Distribution av vanliga frågor och svar för Web Apps i Azure
 
@@ -36,7 +36,7 @@ Här följer några alternativ för att publicera webbappens kod:
 *   Distribuera med hjälp av Visual Studio. Om du har Visual Studio-lösningen, högerklicka på programmet webbprojektet och välj sedan **publicera**.
 *   Distribuera med hjälp av en FTP-klient. Ladda ned publiceringsprofil för den webbapp som du vill distribuera din kod till Azure-portalen. Ladda sedan upp filer till \site\wwwroot med hjälp av samma Publicera profil FTP autentiseringsuppgifter.
 
-Mer information finns i [distribuera din app till App Service](app-service-deploy-local-git.md).
+Mer information finns i [distribuera din app till App Service](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Jag får ett felmeddelande när jag försöker distribuera från Visual Studio. Hur löser jag det?
 
@@ -51,7 +51,7 @@ Självstudien [skapa din första ASP.NET-webbapp i Azure på fem minuter](app-se
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Vilka är de olika typerna av autentiseringsuppgifter för distribution?
 
-App Service stöder två typer av autentiseringsuppgifter för lokal Git-distribution och distribution för FTP/S. Mer information om hur du konfigurerar autentiseringsuppgifter för distribution finns i [konfigurera autentiseringsuppgifter för distribution för App Service](app-service-deployment-credentials.md).
+App Service stöder två typer av autentiseringsuppgifter för lokal Git-distribution och distribution för FTP/S. Mer information om hur du konfigurerar autentiseringsuppgifter för distribution finns i [konfigurera autentiseringsuppgifter för distribution för App Service](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Vad är filen eller katalogen strukturen för min App Service-webbapp?
 
@@ -63,7 +63,7 @@ Om du ser det här meddelandet är det troligt att du kör i en diskkvot i servi
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Hur ställer jag in kontinuerlig distribution för min App Service webbapp?
 
-Du kan ställa in kontinuerlig distribution från flera resurser, inklusive Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox och andra Git-lagringsplatser. Dessa alternativ är tillgängliga i portalen. [Kontinuerlig distribution till App Service](app-service-continuous-deployment.md) är en bra genomgång som förklarar hur du ställer in kontinuerlig distribution.
+Du kan ställa in kontinuerlig distribution från flera resurser, inklusive Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox och andra Git-lagringsplatser. Dessa alternativ är tillgängliga i portalen. [Kontinuerlig distribution till App Service](deploy-continuous-deployment.md) är en bra genomgång som förklarar hur du ställer in kontinuerlig distribution.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Hur felsöker jag problem med kontinuerlig distribution från GitHub och Bitbucket?
 
@@ -100,4 +100,4 @@ Kontinuerlig koddistribution för båda alternativen är beroende av befintliga 
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Hur använder jag FTP eller FTPS för att distribuera min app till App Service?
 
-Information om hur du använder FTP eller FTPS för att distribuera din webbapp till App Service finns i [distribuera din app till App Service med FTP/S](app-service-deploy-ftp.md).
+Information om hur du använder FTP eller FTPS för att distribuera din webbapp till App Service finns i [distribuera din app till App Service med FTP/S](deploy-ftp.md).

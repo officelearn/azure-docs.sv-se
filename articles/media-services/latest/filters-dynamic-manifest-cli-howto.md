@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5aa617edf13aee9c5899a59c46aeb729f202719f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133867"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744215"
 ---
 # <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
 
@@ -37,7 +37,7 @@ Det här avsnittet visar hur du konfigurerar ett filter för en Video på begär
 
 ## <a name="define-a-filter"></a>Definiera ett filter 
 
-I följande exempel definierar spåra val av villkoren som läggs till sista manifestet. Det här filtret innehåller alla ljudspår som är engelska med EG 3 och alla video spår har bithastighet i 0-1000000 intervall.
+I följande exempel definierar spåra val av villkoren som läggs till sista manifestet. Det här filtret innehåller alla ljudspår som är EG-3 och alla video spår har bithastighet i 0-1000000 intervall.
 
 Filter som definieras i REST, innehålla ”egenskaper” wrapper JSON-objekt.  
 
@@ -48,11 +48,6 @@ Filter som definieras i REST, innehålla ”egenskaper” wrapper JSON-objekt.
             {
                 "property": "Type",
                 "value": "Audio",
-                "operation": "Equal"
-            },
-            {
-                "property": "Language",
-                "value": "en",
                 "operation": "Equal"
             },
             {
@@ -83,8 +78,16 @@ Filter som definieras i REST, innehålla ”egenskaper” wrapper JSON-objekt.
 
 Följande [az ams-konto-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) kommandot skapar ett kontofilter med filter spåra val som var [definierade tidigare](#define-a-filter). 
 
+Följande kommando kan ett alternativ `--tracks` som tar emot en fil. Om du använder Azure CLI lokalt kan du ange hela sökvägen:
+
 ```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
+```
+
+Om du använder Azure Cloud Shell kan du ladda upp filen till Cloud Shell (hitta knappen uppladdning/nedladdning filer överst i fönstret shell). Du kan sedan hänvisa till filen så här:
+
+```azurecli
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
 Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
@@ -93,8 +96,11 @@ Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/ac
 
 Följande [az ams tillgången-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) kommandot skapar ett filter för tillgången med filter spåra val som var [definierade tidigare](#define-a-filter). 
 
+> [!TIP]
+> Se information om att ange platsen för filnamnet i föregående avsnitt.
+
 ```azurecli
-az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
+az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
 Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).

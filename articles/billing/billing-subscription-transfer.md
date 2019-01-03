@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583320"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581529"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -31,9 +31,6 @@ ms.locfileid: "52583320"
 > [!IMPORTANT]
 > 
 > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten.
-
-> [!div class="nextstepaction"]
-> [Hjälp till att förbättra faktureringsdokument för Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Överföra ägarskapet för en Azure-prenumeration
 

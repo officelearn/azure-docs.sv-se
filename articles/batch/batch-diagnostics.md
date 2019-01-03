@@ -1,5 +1,5 @@
 ---
-title: Mått, aviseringar och diagnostikloggar för Azure Batch | Microsoft Docs
+title: Mått, aviseringar och diagnostikloggar – Azure Batch | Microsoft Docs
 description: Registrera och analysera diagnostiklogg för resurser som pooler och uppgifter i Azure Batch-kontot.
 services: batch
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.custom: seodec18
+ms.openlocfilehash: cd3e671a00f7f8b0a13ed95bfd43795a24244a66
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438446"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537111"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
  
-Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-collection.md#metrics) och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser i Batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../azure-monitor/platform/alerts-overview.md) så att du att få meddelanden när ett mått överskrider ett angivet värde. 
+Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../azure-monitor/platform/data-collection.md#metrics) och [diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) för resurser i Batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../azure-monitor/platform/alerts-overview.md) så att du att få meddelanden när ett mått överskrider ett angivet värde. 
 
 ## <a name="batch-metrics"></a>Batch-mått
 
@@ -109,7 +109,7 @@ Andra valfritt mål för diagnostikloggar:
 
     ![Batch-diagnostik](media/batch-diagnostics/diagnostics-portal.png)
 
-Andra alternativ för att aktivera insamling av supportloggar omfattar: använda Azure Monitor i portalen för att konfigurera diagnostikinställningar ska du använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md), eller Använd Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från resurserna i Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Andra alternativ för att aktivera insamling av supportloggar omfattar: använda Azure Monitor i portalen för att konfigurera diagnostikinställningar ska du använda en [Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md), eller Använd Azure PowerShell eller Azure CLI. Se [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Diagnostisk loggar i storage

@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583252"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652243"
 ---
-# <a name="configure-apache-spark-settings"></a>Konfigurera inställningar för Apache Spark
+# <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
 
 Ett HDInsight Spark-kluster innehåller en installation av den [Apache Spark](https://spark.apache.org/) biblioteket.  Varje HDInsight-kluster innehåller standard konfigurationsparametrar för alla dess installerade tjänster, inklusive Spark.  En viktig aspekt av hantera HDInsight Apache Hadoop-kluster övervakning av arbetsbelastning, inklusive Spark-jobb att kontrollera att jobb som körs på ett förutsägbart sätt. Överväg att fysiska klusterkonfigurationen för att bäst köra Spark-jobb, när du bestämmer hur du optimerar logiska klusterkonfigurationen.
 
@@ -33,7 +33,7 @@ Använd den bästa Spark-versionen för klustret.  Tjänsten HDInsight innehåll
 När du skapar ett nytt kluster, finns det flera Spark-versioner kan välja bland. Att se en fullständig lista [HDInsight-komponenter och versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
-> [!NOTE]
+> [!NOTE]  
 > Standardversionen av Apache Spark i HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett inbyggt beroende rekommenderar Microsoft att du anger den specifika versionen när du skapar kluster med .NET SDK, Azure PowerShell och Azure klassiskt CLI.
 
 Apache Spark har tre system configuration platser:
@@ -76,7 +76,7 @@ Om du vill se och ändra enskilda konfigurationsvärden för Spark, markerar du 
 
 Om du skapar en uppsättning konfigurationsvärden avviker från standarden, kan du också se historiken för dina uppdateringar.  Den här konfigurationshistorik kan vara användbart att se vilken konfiguration som inte är standard har optimala prestanda.
 
-> [!NOTE]
+> [!NOTE]  
 > Om du vill se, men inte ändra gemensamma konfigurationsinställningar för Spark i kluster, Välj den **miljö** fliken på den översta **Spark-jobb Användargränssnittet** gränssnitt.
 
 ## <a name="configuring-spark-executors"></a>Konfigurera Spark executors
@@ -89,7 +89,7 @@ Spark-jobb använder worker-resurser, särskilt minne, så är det vanligt att j
 
 Tre viktiga parametrar som justeras ofta för att justera Spark-konfigurationer för att förbättra programkrav är `spark.executor.instances`, `spark.executor.cores`, och `spark.executor.memory`. En Executor är en process som lanserade för ett Spark-program. En Executor körs på arbetsnoden och ansvarar för uppgifterna för programmet. För varje kluster beräknas standardantalet executors och executor-storlekar baserat på antalet arbetsnoder och nodstorlek worker. Dessa lagras i `spark-defaults.conf` på klustrets huvudnoder.  Du kan redigera dessa värden i ett kluster som körs genom att välja den **anpassade spark-standardvärden** länken i Ambari-webbgränssnittet.  När du gör ändringar, uppmanas du av Gränssnittet för att **starta om** alla påverkade tjänster.
 
-> [!NOTE]
+> [!NOTE]  
 > Dessa tre konfigurationsparametrar kan konfigureras på klusternivå (för alla program som körs i klustret) och även har angetts för varje enskilt program.
 
 En annan källa till information om de resurser som används av Spark-Executors är Gränssnittet för Spark-programmet.  I Användargränssnittet för Spark, Välj den **Executors** flikarna för att visa sammanfattning och information vyer av konfigurationen och resurser som används av executors.  Vyerna kan hjälpa dig att avgöra om du vill ändra standardvärdena för Spark executors för hela klustret eller en viss uppsättning jobbkörningar.
@@ -123,15 +123,15 @@ YARN styr högsta summan av minne som används av behållare på varje nod i Spa
 
 Spark-kluster i HDInsight innehåller ett antal komponenter som standard. Var och en av dessa komponenter omfattar standardvärden för konfiguration, som kan åsidosättas efter behov.
 
-* Spark Core - Spark Core, Spark SQL, Spark-strömning API: er, GraphX och MLlib
-* Anaconda - ett python-paketet manager
-* [Apache Livy](https://livy.incubator.apache.org/) -Apache Spark REST API, används för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
-* [Jupyter](https://jupyter.org/) och [Apache Zeppelin](https://zeppelin.apache.org/) anteckningsböcker - interaktiva webbläsarbaserat användargränssnitt för att interagera med ditt Spark-kluster
-* ODBC-drivrutinen - ansluter Spark-kluster i HDInsight till business intelligence (BI)-verktyg som Microsoft Power BI och Tableau
+* Spark Core - Spark Core, Spark SQL, Spark-strömning API: er, GraphX och Apache Spark MLlib.
+* Anaconda - ett python paketera manager.
+* [Apache Livy](https://livy.incubator.apache.org/) -Apache Spark REST API, används för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster.
+* [Jupyter](https://jupyter.org/) och [Apache Zeppelin](https://zeppelin.apache.org/) anteckningsböcker - interaktiva webbläsarbaserat användargränssnitt för att interagera med ditt Spark-kluster.
+* ODBC-drivrutinen - ansluter Spark-kluster i HDInsight till business intelligence (BI)-verktyg som Microsoft Power BI och Tableau.
 
 För program som körs i Jupyter-anteckningsboken kan använda den `%%configure` kommandot för att göra konfiguration ändras från inom den bärbara datorn sig själv. Ändringarna tillämpas på Spark-jobb som körs från din bärbara dator-instans. Du bör kontrollera ändringarna i början av programmet, innan du kör ditt första kodcellen. Ändrade konfigurationen tillämpas på Livy-sessionen när den skapas.
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan ändra konfigurationen senare i programmet med den `-f` (force)-parametern. Dock försvinner alla ändringar i programmet.
 
 Koden nedan visar hur du ändrar konfigurationen för ett program som körs i en Jupyter-anteckningsbok.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: c2dd9d7c7567a7c57def093c4d611ab09c870d84
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310699"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634549"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Hur du använder Azure Search från .NET-program
 Den här artikeln är en genomgång för att komma igång med den [Azure Search .NET SDK](https://aka.ms/search-sdk). Du kan använda .NET SDK för att implementera en fullständig sökfunktion i ditt program med Azure Search.
@@ -48,7 +48,7 @@ Om du redan använder en äldre version av Azure Search .NET SDK och du vill upp
 ## <a name="requirements-for-the-sdk"></a>Krav för SDK
 1. Visual Studio 2017.
 2. Din egen Azure Search-tjänst. För att kunna använda SDK: N behöver du namnet på din tjänst och en eller flera API-nycklar. [Skapa en tjänst i portalen](search-create-service-portal.md) hjälpa dig med de här stegen.
-3. Ladda ned Azure Search .NET SDK [NuGet-paketet](http://www.nuget.org/packages/Microsoft.Azure.Search) med hjälp av ”hantera NuGet-paket” i Visual Studio. Sök bara efter paketnamnet `Microsoft.Azure.Search` på NuGet.org (eller något av de andra paketera ovanstående namn om du behöver bara en delmängd av funktionerna).
+3. Ladda ned Azure Search .NET SDK [NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Search) med hjälp av ”hantera NuGet-paket” i Visual Studio. Sök bara efter paketnamnet `Microsoft.Azure.Search` på NuGet.org (eller något av de andra paketera ovanstående namn om du behöver bara en delmängd av funktionerna).
 
 Azure Search .NET SDK har stöd för program som riktar in sig på .NET Framework 4.5.2 eller senare, samt .NET Core.
 
@@ -243,7 +243,7 @@ Den här metoden skapar en ny `Index` objekt med en lista över `Field` objekt s
 >
 > 
 
-Förutom fält, kan du också lägga till bedömningsprofiler, förslagsställare eller CORS-alternativ till indexet (detta har utelämnats från exemplet kortfattat). Du hittar mer information om objektet Index och dess komponenter som ingår i den [SDK-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index#microsoft_azure_search_models_index), samt i den [Azure Search REST API-referens](https://docs.microsoft.com/rest/api/searchservice/).
+Förutom fält, kan du också lägga till bedömningsprofiler, förslagsställare eller CORS-alternativ till indexet (detta har utelämnats från exemplet kortfattat). Du hittar mer information om objektet Index och dess komponenter som ingår i den [SDK-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), samt i den [Azure Search REST API-referens](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Fylla i index
 Nästa steg `Main` är att fylla i det nyligen skapade indexet. Det gör du i följande metod:
@@ -324,7 +324,7 @@ Den andra delen skapar en `IndexBatch` som innehåller dokumenten. Du anger den 
 Den tredje delen av den här metoden är ett catch-block som hanterar en viktig felsituation för indexering. Om Azure Search-tjänsten inte kan indexera vissa av dokumenten i batchen skickas ett `IndexBatchException` av `Documents.Index`. Detta kan inträffa om du indexerar dokument när tjänsten är hårt belastad. **Vi rekommenderar starkt att du uttryckligen hanterar den här situationen i din kod.** Du kan fördröja och sedan försöka indexera dokumentet som misslyckades igen eller så kan du logga och fortsätta som i exemplet, eller göra något annat beroende på programmets krav på datakonsekvens.
 
 > [!NOTE]
-> Du kan använda den `FindFailedActionsToRetry` metod för att skapa en ny grupp som innehåller de instruktioner som inte godkänts i ett tidigare anrop till `Index`. Metoden dokumenteras [här](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception#Microsoft_Azure_Search_IndexBatchException_FindFailedActionsToRetry_Microsoft_Azure_Search_Models_IndexBatch_System_String_) och det finns en beskrivning av hur du använder den korrekt [på StackOverflow](http://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
+> Du kan använda den [ `FindFailedActionsToRetry` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) metod för att skapa en ny grupp som innehåller de instruktioner som inte godkänts i ett tidigare anrop till `Index`. Det finns en beskrivning av hur du använder den korrekt [på StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
 >
 >
 
@@ -387,23 +387,23 @@ public partial class Hotel
 }
 ```
 
-Det första du ser är att varje offentlig egenskap för `Hotel` motsvarar ett fält i indexdefinitionen, men med en viktig skillnad: Namnet på varje fält som börjar med gemen (”kamelnotation”), men namnet på varje offentlig egenskap för `Hotel` börjar med en versal (”pascalnotation”). Det här är ett vanligt scenario i .NET-program som utför databindning där målschemat ligger utanför programutvecklarens kontroll. I stället för att behöva bryta mot riktlinjerna för .NET-namngivning genom att göra egenskapsnamnen gemena kan du uppmana SDK att mappa egenskapsnamnen till kamelnotation automatiskt med attributet `[SerializePropertyNamesAsCamelCase]`.
+Det första du ser är att varje offentlig egenskap för `Hotel` motsvarar ett fält i indexdefinitionen, men med en viktig skillnad: Namnet på varje fält börjar med en gemen bokstav (”kamelNotation”), medan namnet på varje offentlig egenskap för `Hotel` börjar med en versal (”PascalNotation”). Det här är ett vanligt scenario i .NET-program som utför databindning där målschemat ligger utanför programutvecklarens kontroll. I stället för att behöva bryta mot riktlinjerna för .NET-namngivning genom att göra egenskapsnamnen gemena kan du uppmana SDK att mappa egenskapsnamnen till kamelnotation automatiskt med attributet `[SerializePropertyNamesAsCamelCase]`.
 
 > [!NOTE]
-> Azure Search .NET SDK använder [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [anpassad serialisering med JSON.NET](#JsonDotNet).
+> Azure Search .NET SDK använder [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [anpassad serialisering med JSON.NET](#JsonDotNet).
 > 
 > 
 
 Den andra bör lägga märke är attribut som `IsFilterable`, `IsSearchable`, `Key`, och `Analyzer` som dekorera varje offentlig egenskap. Dessa attribut mappar direkt till den [motsvarande attribut för Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). Den `FieldBuilder` klassen använder dessa för att konstruera fältdefinitioner för indexet.
 
-Det tredje viktigt om den `Hotel` klass är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typmappningar mellan `bool?` och `Edm.Boolean`, `DateTimeOffset?` och `Edm.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_). Den `FieldBuilder` klass tar hand om den här mappningen för dig, men det kan fortfarande vara bra att förstå om du behöver felsöka serialiseringsproblem med.
+Det tredje viktigt om den `Hotel` klass är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typmappningar mellan `bool?` och `Edm.Boolean`, `DateTimeOffset?` och `Edm.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Den `FieldBuilder` klass tar hand om den här mappningen för dig, men det kan fortfarande vara bra att förstå om du behöver felsöka serialiseringsproblem med.
 
 Den här möjligheten att använda egna klasser som dokument fungerar i båda riktningarna; Du kan också hämta sökresultat och låta SDK deserialisera dem automatiskt till en typ av föredrar, som vi ser i nästa avsnitt.
 
 > [!NOTE]
-> Azure Search .NET SDK stöder också dynamiskt typifierade dokument med hjälp av klassen `Document`, som är en nyckel/värde-mappning av fältnamn till fältvärden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempelkoden i den här självstudien. Den `Document` klassen ärver från `Dictionary<string, object>`. Du hittar andra information [här](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document#microsoft_azure_search_models_document).
+> Azure Search .NET SDK stöder också dynamiskt typifierade dokument med hjälp av klassen `Document`, som är en nyckel/värde-mappning av fältnamn till fältvärden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempelkoden i den här självstudien. Den [ `Document` klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) ärver från `Dictionary<string, object>`.
 > 
-> 
+>
 
 **Varför du bör använda datatyper som kan ha värdet null**
 
@@ -418,7 +418,7 @@ Av den anledningen rekommenderar vi att du använder nullbara typer i dina model
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Anpassad serialisering med JSON.NET
-SDK: N använder JSON.NET för serialisering och avserialisering av dokument. Du kan anpassa serialisering och deserialiseringsfel om det behövs genom att definiera dina egna `JsonConverter` eller `IContractResolver` (se den [JSON.NET dokumentation](http://www.newtonsoft.com/json/help/html/Introduction.htm) för mer information). Detta kan vara användbart när du vill anpassa en befintlig modellklass från ditt program för användning med Azure Search och andra mer avancerade scenarier. Med anpassad serialisering kan du till exempel:
+SDK: N använder JSON.NET för serialisering och avserialisering av dokument. Du kan anpassa serialisering och deserialiseringsfel om det behövs genom att definiera dina egna `JsonConverter` eller `IContractResolver` (se den [JSON.NET dokumentation](https://www.newtonsoft.com/json/help/html/Introduction.htm) för mer information). Detta kan vara användbart när du vill anpassa en befintlig modellklass från ditt program för användning med Azure Search och andra mer avancerade scenarier. Med anpassad serialisering kan du till exempel:
 
 * Inkludera eller exkludera vissa egenskaper hos din modellklass lagras som dokumentfält.
 * Mappa egenskapsnamn i din kod och fältnamn i ditt index.

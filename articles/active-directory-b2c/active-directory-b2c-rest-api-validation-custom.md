@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8af8e4b7844feb785600ef683891642ea89bccaf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542590"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556908"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som verifiering på indata från användaren
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Steg-för-steg-beskrivning: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -30,7 +30,7 @@ IEF skickar data i anspråk och tar emot data i anspråk. Interaktion med API:
 - Kan utformas som en REST API-anspråksutbytet eller som en verifieringsprofil som sker i orchestration-steg.
 - Vanligtvis verifierar indata från användaren. Om värdet från användaren avvisas, kan användaren försöka igen att ange ett giltigt värde med möjlighet att returnera ett felmeddelande.
 
-Du kan också utforma interaktion som ett orchestration-steg. Mer information finns i [genomgång: integrera REST API-anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md).
+Du kan också utforma interaktion som ett orchestration-steg. Mer information finns i [genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md).
 
 Exempelvis den verifiering profil använder vi profilen redigera användarresa i pack startfil ProfileEdit.xml.
 
@@ -41,7 +41,7 @@ Vi kan kontrollera att namnet anges av användaren i profilredigering inte är e
 - En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto registrerings-registreringen/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 - En REST API-slutpunkt för att interagera med. Den här genomgången ska vi har konfigurerat en demo-webbplatsen som heter [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) med en REST API-tjänst.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbered REST API-funktion
+## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbereda REST API-funktion
 
 > [!NOTE]
 > Installationen av REST API-funktioner inte omfattas av den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) tillhandahåller en utmärkt toolkit för att skapa RESTful-tjänster i molnet.
@@ -75,7 +75,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 
 IEF förväntar sig den `userMessage` anspråk som Azure function returnerar. Det här anspråket visas igen som en sträng till användaren om verifieringen misslyckas, till exempel när statusen 409 konflikt returneras i föregående exempel.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Steg 2: Konfigurera anspråksutbytet RESTful-API som en tekniska profil i filen TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Steg 2: Konfigurera exchange för RESTful-API-anspråk som en tekniska profil i filen TrustFrameworkExtensions.xml
 
 Tekniska profilen är fullständig konfiguration av exchange som önskas med RESTful-tjänst. Öppna filen TrustFrameworkExtensions.xml och Lägg till följande XML-kodstycke i den `<ClaimsProviders>` element.
 
@@ -93,6 +93,7 @@ Tekniska profilen är fullständig konfiguration av exchange som önskas med RES
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
@@ -130,4 +131,4 @@ Lägga till anspråksutbytet självkontrollerad tekniska profil:
 
 [Ändra profil redigerings- och registreringen för att samla in ytterligare information från användarna](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md)
+[Genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg](active-directory-b2c-rest-api-step-custom.md)

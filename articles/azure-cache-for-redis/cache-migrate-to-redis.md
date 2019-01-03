@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: c3c1aa9abc6a7ba97bf7c95aa1c670c7239df3ab
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020224"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556806"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrera från Managed Cache Service till Azure Cache för Redis
 Migrera dina program som använder Azure Managed Cache Service till Azure Cache för Redis kan åstadkommas med minimala ändringar till ditt program, beroende på vilka Managed Cache Service-funktioner som programmets cachelagring. API: er är inte exakt samma de liknar varandra och mycket av din befintliga kod som använder Managed Cache Service för att få åtkomst till en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör den nödvändiga konfigurationen och program ändras för att migrera dina Managed Cache Service-appar använder Azure Cache för Redis och visar hur några av funktionerna i Azure Cache för Redis kan användas för att implementera funktionerna i en cache Managed Cache Service.
@@ -47,7 +47,7 @@ Azure Managed Cache Service och Azure Cache för Redis liknar men implementerar 
 
 | Managed Cache Service-funktion | Managed Cache Service-stöd | Azure Cache för Redis-support |
 | --- | --- | --- |
-| Namngivna cacheminnen |En standard-cache är konfigurerad och i Standard och Premium-cache-erbjudanden, upp till nio ytterligare med namnet cacheminnen kan konfigureras om så önskas. |Azure Cache för Rediss har ett konfigurerbart antal databaser (16 är standard) som kan användas för att implementera en liknande funktion till namngivna cacheminnen. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server). |
+| Namngivna cacheminnen |En standard-cache är konfigurerad och i Standard och Premium-cache-erbjudanden, upp till nio ytterligare med namnet cacheminnen kan konfigureras om så önskas. |Azure Redis-Cache har ett konfigurerbart antal databaser (16 är standard) som kan användas för att implementera en liknande funktion till namngivna cacheminnen. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server). |
 | Hög tillgänglighet |Ger hög tillgänglighet för objekt i cachen i cache-erbjudanden för Standard och Premium. Om objekt går förlorade på grund av ett fel kan är säkerhetskopior av objekt i cacheminnet fortfarande tillgängliga. Skrivningar till den sekundära cachen görs synkront. |Hög tillgänglighet är tillgängligt i Standard och Premium-cache-erbjudanden, som har en konfiguration för primär/replik av två noder (varje shard i en Premium-cache har ett par med primär/replik). Skrivningar till repliken görs asynkront. Mer information finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/). |
 | Meddelanden |Gör att klienter kan ta emot asynkrona meddelanden när ett urval cacheåtgärder görs i en namngiven cache. |Klientprogram kan använda Redis pub/sub eller [Keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) att uppnå en liknande funktion att meddelanden. |
 | Lokal cache |Lagrar en kopia av cachelagrade objekt som lokalt på klienten för extra snabb åtkomst. |Klientprogram behöver du implementera den här funktionen med hjälp av en ordlista eller liknande datastruktur. |
@@ -130,7 +130,7 @@ Lägg till följande användningsinstruktion högst upp i den fil som du vill ko
 using StackExchange.Redis
 ```
 
-Om det inte går att lösa det här namnområdet är det viktigt att du har lagt till StackExchange.Redis NuGet-paketet enligt beskrivningen i [Snabbstart: Använd Azure Cache för Redis med ett .NET-program](cache-dotnet-how-to-use-azure-redis-cache.md).
+Om det inte går att lösa det här namnområdet är det viktigt att du har lagt till StackExchange.Redis NuGet-paketet enligt beskrivningen i [snabbstarten: Använd Azure Cache för Redis med ett .NET-program](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Observera att StackExchange.Redis-klienten kräver .NET Framework 4 eller senare.

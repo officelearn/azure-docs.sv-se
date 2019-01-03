@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955634"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598898"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
 
-Till skillnad från som är värd för statisk webbplats, dynamiska webbplatser som är beroende av serverkod är bäst hanteras med hjälp av [Azure Web Apps](/azure/app-service/app-service-web-overview).
+Till skillnad från som är värd för statisk webbplats, dynamiska webbplatser som är beroende av serverkod är bäst hanteras med hjälp av [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 När du aktiverar statisk webbplats som är värd för ditt storage-konto du väljer namnet på din standardfil och du kan också ange en sökväg till en custom 404-sida. När funktionen är aktiverad, en behållare med namnet *$web* skapas om den inte redan finns. 
@@ -109,7 +109,7 @@ Följande: metoder för att distribuera innehåll till en lagringsbehållare
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Pipelines](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
 - [Visual Studio Code-tillägg](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 I samtliga fall måste du kopiera filer till den *$web* behållare.
@@ -158,9 +158,9 @@ Ja, den nya webbslutpunkt följs virtuellt nätverk och brandvägg reglerna som 
 Ja, web-slutpunkt är skiftlägeskänsliga precis som blob-slutpunkten. 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md)
+* [Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https](storage-https-custom-domain-cdn.md)
 * [Konfigurera ett anpassat domännamn för din blob eller web-slutpunkt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [Skapa din första serverlösa webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Självstudie: Vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* [Självstudier: Värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

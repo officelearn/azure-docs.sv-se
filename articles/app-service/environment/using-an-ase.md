@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274725"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630673"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service environment #
 
@@ -39,22 +39,22 @@ Azure App Service Environment är en distribution av Azure App Service i ett und
 
 Du kan distribuera en ase-miljö (ASEv1 och ASEv2) med en extern eller intern VIP för åtkomst till appen. Distribution med extern VIP kallas vanligtvis en extern ASE. Den interna versionen kallas ILB ASE eftersom den använder en intern belastningsutjämnare (ILB). Läs mer om ILB ASE i [skapa och använda en ILB ASE][MakeILBASE].
 
-## <a name="create-a-web-app-in-an-ase"></a>Skapa en webbapp i en ASE ##
+## <a name="create-an-app-in-an-ase"></a>Skapa en app i en ASE ##
 
-Om du vill skapa en webbapp i en ase-miljö använda samma process som när du skapar vanligtvis, men med några små skillnader. När du skapar en ny App Service-plan:
+Om du vill skapa en app i en ase-miljö använda samma process som när du skapar vanligtvis, men med några små skillnader. När du skapar en ny App Service-plan:
 
 - I stället för att välja en geografisk plats där du kan distribuera din app kan välja du en ASE som din plats.
 - Alla App Service-planer som skapats i en ASE måste finnas i en isolerad prisnivå.
 
 Om du inte har en ase-miljö kan du skapa en genom att följa anvisningarna i [skapa en App Service environment][MakeExternalASE].
 
-Skapa en webbapp i en ASE:
+Skapa en app i en ASE:
 
 1. Välj **skapa en resurs** > **webb + mobilt** > **Webbapp**.
 
-2. Ange ett namn för webbappen. Om du redan har valt en App Service-plan i en ASE visar domännamnet för appen domännamnet för ASE.
+2. Ange ett namn för appen. Om du redan har valt en App Service-plan i en ASE visar domännamnet för appen domännamnet för ASE.
 
-    ![Val av nätverksnamn för Web app][1]
+    ![Val av nätverksnamn för App][1]
 
 1. Välj en prenumeration.
 
@@ -80,10 +80,10 @@ Skapa en webbapp i en ASE:
     ![Isolerade prisnivåer][2]
 
     > [!NOTE]
-    > Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
+    > Linux-appar och Windows-appar kan inte vara i samma App Service-planen, men kan finnas i samma App Service Environment. 
     >
 
-1. Välj **Skapa**.
+2. Välj **Skapa**.
 
 ## <a name="how-scale-works"></a>Hur skala fungerar ##
 
@@ -97,7 +97,7 @@ Du kan skala upp till 100 instanser i en ASE. De 100 instanserna kan finnas i en
 
 ## <a name="ip-addresses"></a>IP-adresser ##
 
-App Service har möjlighet att allokera en dedikerad IP-adress till en app. Den här funktionen är tillgänglig när du har konfigurerat en IP-baserad SSL, enligt beskrivningen i [binda ett befintligt anpassat SSL-certifikat till Azure web apps][ConfigureSSL]. I en ASE är det dock en viktig undantag. Du kan inte lägga till ytterligare IP-adresser som ska användas för en IP-baserad SSL i en ILB ASE.
+App Service har möjlighet att allokera en dedikerad IP-adress till en app. Den här funktionen är tillgänglig när du har konfigurerat en IP-baserad SSL, enligt beskrivningen i [binda ett befintligt anpassat SSL-certifikat till Azure App Service][ConfigureSSL]. I en ASE är det dock en viktig undantag. Du kan inte lägga till ytterligare IP-adresser som ska användas för en IP-baserad SSL i en ILB ASE.
 
 Du måste tilldela IP-adresser som resurser innan du kan använda dem i ASEv1. I ASEv2 använder du dem från din app precis som i App Service för flera innehavare. Det finns alltid en ledig adress i ASEv2 upp till 30 IP-adresser. Varje gång läggs du använder en, en annan så att en adress alltid är tillgängliga för användning. Taget fördröjning krävs för att tilldela en annan IP-adress, vilket förhindrar att lägga till IP-adresser i snabb följd.
 
@@ -187,6 +187,6 @@ Ta bort en ase-miljö:
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

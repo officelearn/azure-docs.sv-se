@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164657"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537638"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -64,9 +64,16 @@ Det finns andra problem med stor VM-skalningsuppsättningar, som om bristen på 
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Vad är den minsta storleken på Service Fabric-kluster? Varför kan det vara mindre?
 
-Den minsta storleken som stöds för Service Fabric-kluster som kör produktionsarbetsbelastningar är fem noder. För utveckling och testning stöder vi kluster med tre noder.
+Den minsta storleken som stöds för Service Fabric-kluster som kör produktionsarbetsbelastningar är fem noder. För scenarier för utveckling stöder vi en nod (optimerad för snabb utvecklingsupplevelse i Visual Studio) och kluster med fem noder.
 
-Dessa minimibelopp finns eftersom Service Fabric-klustret körs en uppsättning tillståndskänsliga systemtjänster, inklusive namngivningstjänsten och redundanshanteraren för. Dessa tjänster räknas som spåra vilka tjänster som har distribuerats till klustret och där de är för närvarande finns, beror på stark konsekvens. Den stark konsekvensen i sin tur är beroende av möjligheten att hämta en *kvorum* Services-tillståndet för de angivna uppdateringar, där ett kvorum representerar en strikt majoritet av repliker (N/2 + 1) för en viss tjänst.
+Vi kräver ett produktionskluster ha minst 5 noder på grund av följande tre orsaker:
+1. Även om inga användare-tjänsterna körs, körs Service Fabric-kluster en uppsättning tillståndskänsliga systemtjänster, inklusive namngivningstjänsten och redundans manager-tjänsten. Tjänsterna system är nödvändiga för att klustret ska fortsätta att fungera.
+2. Vi prioriterar alltid en replik av en tjänst per nod, så klusterstorlek är den övre gränsen för antalet repliker som en tjänst (faktiskt en partition) kan ha.
+3. Eftersom en uppgradering av klustret kommer att få ned minst en nod, vill vi ha en buffert på minst en nod, därför vill vi ett produktionskluster ha minst två noder *dessutom* till minst. Minst är kvorum storleken på en systemtjänst som beskrivs nedan.  
+
+Vi vill att klustret ska vara tillgängliga om samtidiga fel med två noder. Systemtjänster måste vara tillgänglig för ett Service Fabric-kluster ska vara tillgängliga. Tillståndskänsliga systemtjänster som namntjänst och redundans manager-tjänsten, som att spåra vilka tjänster som har distribuerats till klustret och där de är för närvarande finns, beror på stark konsekvens. Den stark konsekvensen i sin tur är beroende av möjligheten att hämta en *kvorum* Services-tillståndet för de angivna uppdateringar, där ett kvorum representerar en strikt majoritet av repliker (N/2 + 1) för en viss tjänst. Så om vi vill vara motståndskraftiga mot samtidiga förlust av två noder (alltså samtidiga förlust av två repliker på en systemtjänst), vi måste ha ClusterSize - QuorumSize > = 2, vilket tvingar den minsta storleken är fem. För att se som klustret har N noder och det finns N replikeringar av en system-tjänst – en på varje nod. Kvorum-storleken för en systemtjänst är (N/2 + 1). Ovanstående ojämlikhet ut N - (N/2 + 1) > = 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, exempelvis N = 2\*m där m > = 1, 2 ojämlikhet ut\*m - (2\*m/2 + 1) > = 2 eller m > = 3. Minimum för N är 6 och som kan uppnås när m = 3. Å andra sidan, om N är udda, säger N = 2\*m + 1 var m > = 1, 2 ojämlikhet ut\*m + 1 – ((2\*m + 1) / 2 + 1) > = 2 eller 2\*m + 1 – (m + 1) > = 2 eller m > = 2. Minimum för N är 5 och som kan uppnås när m = 2. Därför bland alla värden i N som uppfyller ojämlikhet ClusterSize - QuorumSize > = 2, vilket är 5.
+
+Observera att i argumentet ovan har vi antas att varje nod har en replik av en system-tjänst, alltså kvorum storleken beräknas baserat på antalet noder i klustret. Men genom att ändra *TargetReplicaSetSize* vi kan göra kvorum storleken mindre än (N / 2 + 1) som kan ge intryck av att vi kan har ett kluster som är mindre än 5 noder och fortfarande har 2 extra noder ovan storleken kvorum. Till exempel i ett kluster med 4 noder om vi ger TargetReplicaSetSize till 3, kvorum storleken utifrån TargetReplicaSetSize är (3/2 + 1) eller 2, så vi har CluserSize - QuorumSize = 4-2 > = 2. Men vi kan inte garantera att system-tjänsten är tillgänglig med eller över kvorum om vi förlorar eventuella par noder samtidigt, kan det att de två noderna som vi förlorar som är värd för två repliker, så att systemtjänsten hamnar i förlorar kvorum (med endast en enskild replik till vänster) en ND blir otillgänglig.
 
 Mot den bakgrunden, låt oss nu undersöka några möjliga klusterkonfigurationer:
 
@@ -74,9 +81,13 @@ Mot den bakgrunden, låt oss nu undersöka några möjliga klusterkonfiguratione
 
 **Två noder**: ett kvorum för en tjänst som distribueras över två noder (N = 2) är 2 (2/2 + 1 = 2). När en enskild replik tappas bort, går det inte att skapa ett kvorum. Eftersom utför en uppgradering av tjänsten kräver att tillfälligt ta ned en replik, men detta är inte en användbar konfiguration.
 
-**Tre noder**: med tre noder (N = 3) kan kravet på att skapa ett kvorum är fortfarande två noder (3/2 + 1 = 2). Det innebär att du kan förlora en enskild nod och fortfarande behålla kvorum.
+**Tre noder**: med tre noder (N = 3) kan kravet på att skapa ett kvorum är fortfarande två noder (3/2 + 1 = 2). Det innebär att du kan förlora en enskild nod och fortfarande behålla kvorum, men samtidigt fel hos två noder kommer att öka systemtjänster i förlorar kvorum och kommer att orsaka klustret blir otillgänglig.
 
-Klusterkonfigurationen tre noder stöds för utveckling/testning eftersom du på ett säkert sätt kan utföra uppgraderingar och rädda enskilda nodfel, förutsatt att de inte inträffar samtidigt. För arbetsbelastningar för produktion, måste du vara motståndskraftiga mot sådana samtidiga fel, så att fem noder som krävs.
+**Fyra noder**: med fyra noder (N = 4) kravet på att skapa ett kvorum är tre noder (4/2 + 1 = 3). Det innebär att du kan förlora en enskild nod och fortfarande behålla kvorum, men samtidigt fel hos två noder kommer att öka systemtjänster i förlorar kvorum och kommer att orsaka klustret blir otillgänglig.
+
+**Fem noder**: med fem noder (N = 5) kravet på att skapa ett kvorum är fortfarande tre noder (5/2 + 1 = 3). Det innebär att du kan förlora två noder på samma gång och fortfarande behålla kvorum för systemtjänster.
+
+För arbetsbelastningar för produktion, måste du vara motståndskraftiga mot samtidiga fel på minst två noder (till exempel en på grund av uppgradering av klustret, en på grund av andra orsaker), så att fem noder som krävs.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan jag inaktivera mitt kluster på natten/helger för att spara kostnader?
 

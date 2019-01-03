@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721569"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580424"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> Se till att kvarhållningsvaraktighetens i bevarandeprincipen är konfigurerad för att vara mindre än 24 dagar eller be om det skulle resultera i Backup Restore-tjänsten för att gå till kvorum förlust efter replikeringsredundans på grund av ett problem i körningen.
+
 ### <a name="enable-periodic-backup"></a>Aktivera regelbunden säkerhetskopiering
 Principen för säkerhetskopiering ska vara associerat med programmet när du har definierat principen för att uppfylla kraven på dataskydd för programmet. Beroende på krav, kan säkerhetskopieringspolicyn som associeras med ett program, tjänst eller en partition.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Kända problem
+- Se till att kvarhållningsvaraktighetens är konfigurerad för att vara mindre än 24 dagar. 
+- Backup Restore-tjänsten finns inte på platser där decimaltecken är annat än '.'
+- Backup Restore-tjänsten inte kan hamna på kluster som skyddas med gMSA baserad säkerhet.
+
 ## <a name="limitation-caveats"></a>Begränsningen / varningar
 - Inga Service Fabric inbyggd PowerShell-cmdletar.
-- Inget stöd för Service Fabric CLI.
 - Inget stöd för Service Fabric-kluster på Linux.
 
 ## <a name="next-steps"></a>Nästa steg

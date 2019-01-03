@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b1bea9b1a2bdb04a60fa6a8fa1d92bfbaf80c6d6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320837"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580645"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden, logga buggar, för att meddela ett team via chatt eller meddelandetjänster eller för olika åtgärder. 
@@ -27,7 +27,7 @@ Lägga till eller uppdatera webhooken URI, i den [Azure-portalen](https://portal
 
 ![Lägg till en varningsregel-fönstret](./media/alerts-webhooks/Alertwebhook.png)
 
-Du kan också konfigurera en avisering för att publicera till en webhook-URI: N med hjälp av [Azure PowerShell-cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts), ett [plattformsoberoende CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), eller [Azure Monitor REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Du kan också konfigurera en avisering för att publicera till en webhook-URI: N med hjälp av [Azure PowerShell-cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), ett [plattformsoberoende CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), eller [Azure Monitor REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
 Webhooken kan autentisera med hjälp av tokenbaserad auktorisering. Webhooken sparas URI med ett token-ID. Exempel: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

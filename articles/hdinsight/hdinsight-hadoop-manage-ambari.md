@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385575"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722030"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet
 
@@ -26,7 +26,7 @@ Lär dig hur du använder Ambari-Webbgränssnittet med ett HDInsight-kluster i d
 
 ## <a id="whatis"></a>Vad är Apache Ambari?
 
-[Apache Ambari](http://ambari.apache.org) förenklar Hadoop-hanteringen genom att tillhandahålla en enkel att använda webbgränssnittet. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) förenklar Hadoop-hanteringen genom att tillhandahålla en enkel att använda webbgränssnittet. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari-Webbgränssnittet är som standard med HDInsight-kluster som använder Linux-operativsystem.
 
@@ -181,12 +181,12 @@ Den **värdar** sidan listar alla värdar i klustret. Följ dessa steg för att 
 
    * **Inaktivera** – tar bort en värd från klustret.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Använd inte den här åtgärden på HDInsight-kluster.
 
    * **Recommission** -lägger till en tidigare inaktiverade värd i klustret.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Använd inte den här åtgärden på HDInsight-kluster.
 
 ### <a id="service"></a>Tjänster

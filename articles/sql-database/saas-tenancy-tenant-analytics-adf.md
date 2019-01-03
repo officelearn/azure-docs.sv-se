@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056605"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606052"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS-analyser med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
 
@@ -142,7 +142,7 @@ Det här avsnittet förklaras de objekt som skapas i data factory. Följande bil
 I översiktssidan, växlar du till **författare** fliken på den vänstra panelen och notera att det finns tre [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) och tre [datauppsättningar](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) skapas.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-Tre kapslade pipeliner är: SQLDBToDW och DBCopy TableCopy.
+Det finns tre kapslade pipelines: SQLDBToDW DBCopy och TableCopy.
 
 **Pipeline 1 – SQLDBToDW** letar upp namnen på klientdatabaserna lagras i katalogdatabasen (tabellnamn: [__ShardManagement]. [ ShardsGlobal]) och varje klientdatabas kör den **DBCopy** pipeline. När åtgärden har slutförts angiven **sp_TransformExtractedData** lagrade proceduren schema körs. Den här lagrade proceduren omvandlar inlästa data i mellanlagringstabellerna och fylls tabellerna star-schema.
 

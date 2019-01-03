@@ -12,14 +12,14 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7a009d310fe29ce67a16d48edb86a7e652088ac6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310394"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727929"
 ---
-# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudiekurs: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudier: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt
 
 I den här självstudien får du lära dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser. Ny synkroniseringsgrupp är fullständigt konfigurerad och synkroniserar enligt det schema som du anger.
 
@@ -31,6 +31,9 @@ Fullständig PowerShell-exempel som visar hur du konfigurerar SQL Data Sync finn
 
 - [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
 - [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+> [!IMPORTANT]
+> Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
 ## <a name="step-1---create-sync-group"></a>Steg 1 – Skapa synkroniseringsgrupp
 

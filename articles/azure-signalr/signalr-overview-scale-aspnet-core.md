@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e739f3905ff2bbb60669b1f1e214a4630b896db4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 695cc2afbfd231758e90889eea2c154fbc16dffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255473"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602621"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Skala ASP.NET Core SignalR-program med hjälp av Azure SignalR Service
 
@@ -21,7 +21,7 @@ Det finns för närvarande [två versioner](https://docs.microsoft.com/aspnet/co
 
 ASP.NET Core SignalR är en omarbetning av den föregående versionen. Därför är ASP.NET Core SignalR inte bakåtkompatibel med den tidigare SignalR-versionen. Både API:er och beteenden skiljer sig åt. ASP.NET Core SignalR SDK riktar in sig på NET-standarden, så du kan fortfarande använda den med .NET Framework. Du måste dock använda de nya API:erna i stället för de gamla. Om du använder SignalR och vill flytta till ASP.NET Core SignalR eller Azure SignalR Service måste du ändra din kod för att hantera API-skillnaderna.
 
-Hos Azure SignalR Service finns serversidans komponent av ASP.NET Core SignalR i Azure. Men eftersom tekniken bygger på ASP.NET Core, har du möjlighet att köra din webbapp på flera plattformar (Windows, Linux och MacOS) om hanteringen sker med [Azure App Service](../app-service/app-service-web-overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) eller [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Du kan också själv stå för anslutningen till Internet i en egen process.
+Hos Azure SignalR Service finns serversidans komponent av ASP.NET Core SignalR i Azure. Men eftersom tekniken bygger på ASP.NET Core, har du möjlighet att köra din webbapp på flera plattformar (Windows, Linux och MacOS) om hanteringen sker med [Azure App Service](../app-service/overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) eller [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Du kan också själv stå för anslutningen till Internet i en egen process.
 
 Om din app ska ha stöd för de senaste funktionerna för innehållsuppdatering av webbklienter i realtid, körning på flera plattformar (Azure, Windows, Linux och macOS) och hantering i olika miljöer kan Azure SignalR Service vara det bästa valet.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812448"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015482"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri kontext: Application Insights-datamodell
 
@@ -84,7 +84,7 @@ Maxlängd: 64
 
 Anonym användar-id. Representerar slutanvändaren av programmet. När telemetri skickas från en tjänst, är användarkontexten om användaren som initierade åtgärden i tjänsten.
 
-[Sampling](../../application-insights/app-insights-sampling.md) är en av tekniker för att minska mängden insamlade telemetri. Samplingsalgoritmen försöker antingen exemplet in eller ut korrelerad telemetri. Anonym användar-id används för sampling poäng generation. Anonym användar-id bör vara ett tillräckligt slumpmässigt värde. 
+[Sampling](../../azure-monitor/app/sampling.md) är en av tekniker för att minska mängden insamlade telemetri. Samplingsalgoritmen försöker antingen exemplet in eller ut korrelerad telemetri. Anonym användar-id används för sampling poäng generation. Anonym användar-id bör vara ett tillräckligt slumpmässigt värde. 
 
 Använder anonym användar-id för att lagra användarnamn är ett missbruk av fältet. Använd autentiserad användar-id.
 

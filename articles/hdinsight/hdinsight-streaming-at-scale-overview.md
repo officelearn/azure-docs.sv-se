@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 77a3685f59c7b15473deda1894f6fd6934fafc1f
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993424"
+ms.locfileid: "54002203"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
 Lösningar för stordata i realtid agera utifrån data i rörelse. Dessa data är vanligtvis mest värdefulla på dess ankomsttid. Om den inkommande dataströmmen blir större än vad som kan hanteras då kan behöva du begränsa resurser ner. Du kan också skalas ett HDInsight-kluster efter din lösning för liveuppspelning genom att lägga till noder på begäran.
 
+
 En eller flera datakällor som genererar händelser (ibland i miljoner per sekund) som behöver matas in snabbt utan att släppa någon användbar information i en strömmande program. Inkommande händelser hanteras med *strömbuffring*, kallas även *Händelsekö*, av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Händelsehubbar](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna som du kan sedan analysera data med ett system för analys i realtid inom den *strömbearbetning* olika lager, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktig lagringssystem som [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), och visas i realtid på en instrumentpanel för business intelligence, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad webbplats sidan.
+
 
 ![HDInsight Streaming-mönster](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 

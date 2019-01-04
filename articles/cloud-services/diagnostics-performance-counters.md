@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788704"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000248"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestandaräknare för din Azure-molntjänst
 
@@ -116,7 +116,7 @@ Application Insights samlar automatiskt in följande prestandaräknare:
 * \Process(??APP_WIN32_PROC??)\Byte i I/O-data per sekund
 * \Processor(_Total)\% processortid
 
-Mer information finns i [systemprestandaräknare i Application Insights](../application-insights/app-insights-performance-counters.md) och [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
+Mer information finns i [systemprestandaräknare i Application Insights](../azure-monitor/app/performance-counters.md) och [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
@@ -295,6 +295,6 @@ Som tidigare beskrivits prestandaräknare som du vill samla in definieras i den 
 ## <a name="more-information"></a>Mer information
 
 - [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
-- [Systemprestandaräknare i Application Insights](../application-insights/app-insights-performance-counters.md)
+- [Systemprestandaräknare i Application Insights](../azure-monitor/app/performance-counters.md)
 - [Ange en räknarsökvägen](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Schema för Azure Diagnostics - prestandaräknare](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

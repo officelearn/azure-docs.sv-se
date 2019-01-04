@@ -9,17 +9,16 @@ ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9dba65591479033a892615ff053eebd0862851e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b4485344f0bb85cb5dd2a2d621833d0fed15a8e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125678"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022486"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +34,7 @@ Den här artikeln beskriver hur du kan använda Kopieringsaktivitet i en Azure-d
 Azure Data Factory stöder för närvarande endast flyttar data från Salesforce till [datalager för mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats), men stöds inte flyttar data från andra data som lagras i Salesforce.
 
 ## <a name="supported-versions"></a>Versioner som stöds
-Den här anslutningen har stöd för följande versioner av Salesforce: Developer Edition, Professional Edition, Enterprise Edition eller obegränsad Edition. . Den stöder också kopiera från Salesforce produktion, sandbox-miljön och anpassad domän.
+Den här anslutningsappen stöder följande versioner av Salesforce: Developer Edition, Professional Edition, Enterprise Edition eller obegränsad Edition. . Den stöder också kopiera från Salesforce produktion, sandbox-miljön och anpassad domän.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * API-behörighet måste aktiveras. Se [hur gör jag för att aktivera API-åtkomst i Salesforce av behörighetsuppsättning?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
@@ -52,9 +51,9 @@ Du kan också få ”REQUEST_LIMIT_EXCEEDED”-fel i båda scenarierna. Se avsni
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från Salesforce med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudie: skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager: 
 
@@ -62,7 +61,7 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
 3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från Salesforce finns [JSON-exempel: kopiera data från Salesforce till Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från Salesforce finns [JSON-exempel: Kopiera data från Salesforce till Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) i den här artikeln. 
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Salesforce: 
 
@@ -125,7 +124,7 @@ Om du vill fråga ej permanent borttagna poster från Salesforce-Papperskorgen, 
 * Om du vill fråga bara de borttagna posterna, ange ”Välj * från MyTable__c **där IsDeleted = 1**”
 * Om du vill fråga efter alla poster, inklusive den befintliga och den har tagits bort, ange ”Välj * från MyTable__c **där IsDeleted = 0 eller IsDeleted = 1**”
 
-## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON-exempel: kopiera data från Salesforce till Azure Blob
+## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON-exempel: Kopiera data från Salesforce till Azure Blob
 I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Salesforce till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.   
 
 Här följer Data Factory-artefakter som du måste skapa för att implementera scenariot. Avsnitten som följer listan innehåller information om de här stegen.
@@ -289,15 +288,15 @@ Se [RelationalSource typegenskaperna](#copy-activity-properties) lista över ege
 | --- | --- |
 | Automatisk numrering |Sträng |
 | Kryssrutan |Boolesk |
-| Valuta |decimaltal |
+| Valuta |Decimal |
 | Date |DateTime |
 | Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
 | Uppslagsrelation |Sträng |
 | Flervalsplocklista |Sträng |
-| Tal |decimaltal |
-| Procent |decimaltal |
+| Tal |Decimal |
+| Procent |Decimal |
 | Telefon |Sträng |
 | Listruta |Sträng |
 | Text |Sträng |

@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314847"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555854"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 
@@ -79,7 +79,7 @@ Om du vill ta bort resursgruppen, använda den `az group delete <nameOfResourceG
 
 ## <a name="supported-container-os-images"></a>Stöds behållaravbildningar OS
 
-Om du utvecklar på en dator med Windows Fall Creators Update (version 1709), kan du bara använda Windows-version 1709 docker docker-avbildningar.
+Om du utvecklar på en dator med Windows Fall Creators Update (version 1709), kan du bara använda Windows-version 1709 docker-avbildningar.
 
 Om du utvecklar på en Windows 10 April 2018 uppdatera (version 1803)-dator kan du använda Windows-version 1709 eller Windows-version 1803 docker-avbildningar.
 
@@ -101,7 +101,7 @@ Tjänst-till-tjänst-kommunikation misslyckas under vissa omständigheter. Detta
 - Om namnet på tjänsten enbart inte fungerar kan du prova det fullständigt kvalificerade namnet: ServiceName.ApplicationName.
 - Lägg till i Docker-filen för din tjänst `EXPOSE <port>` där porten är den du exponera tjänsten på. Exempel:
 
-```
+```DockerFile
 EXPOSE 80
 ```
 

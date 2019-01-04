@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089709"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000571"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Skapa Azure Resource Manager-mallar för distribution av logikappar
 
@@ -27,11 +27,11 @@ Mer information om Resource Manager-mallar finns i [skapa Azure Resource Manager
 
 En logikapp har tre huvudkomponenter:
 
-* **Logikappresursen**: innehåller information om saker som priser plan, plats och arbetsflödesdefinitionen.
+* **Logikappresursen**: Innehåller information om saker som priser plan, plats och arbetsflödesdefinitionen.
 * **Arbetsflödesdefinitionen**: Beskriver logikappens arbetsflödessteg och hur Logic Apps-motorn bör köra arbetsflödet.
 Du kan visa den här definitionen i din logikapp **kodvy** fönster.
 I logikappresursen, hittar du den här definitionen i den `definition` egenskapen.
-* **Anslutningar**: refererar till separata resurser som på ett säkert sätt lagra metadata om alla connector-anslutningar, till exempel en anslutningssträng och en åtkomst-token.
+* **Anslutningar**: Refererar till separata resurser som på ett säkert sätt lagrar metadata om alla connector-anslutningar, till exempel en anslutningssträng och en åtkomst-token.
 I logic app-resursen i logikappen som refererar till dessa resurser i den `parameters` avsnittet.
 
 Du kan visa dessa delar av befintliga logikappar med hjälp av ett verktyg som [Azure Resource Explorer](http://resources.azure.com).
@@ -187,7 +187,7 @@ Det finns ett exempelskript på GitHub under den [LogicAppConnectionAuth](https:
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-Ett vanligt scenario för att distribuera och hantera en miljö är att använda ett verktyg som Azure Pipelines i Azure DevOps med en logic app-Distributionsmall. Azure DevOps innehåller en [distribuera Azure-resursgrupp](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) uppgift att du kan lägga till någon version eller frigöra pipeline. Du måste ha en [tjänstens huvudnamn](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) för auktorisering för att distribuera, och du kan generera versionspipelinen.
+Ett vanligt scenario för att distribuera och hantera en miljö är att använda ett verktyg som Azure Pipelines i Azure DevOps med en logic app-Distributionsmall. Azure DevOps innehåller en [distribuera Azure-resursgrupp](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) uppgift att du kan lägga till någon version eller frigöra pipeline. Du måste ha en [tjänstens huvudnamn](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) för auktorisering för att distribuera, och du kan generera versionspipelinen.
 
 1. I Azure Pipelines, väljer **tom** så att du skapar en tom pipeline.
 

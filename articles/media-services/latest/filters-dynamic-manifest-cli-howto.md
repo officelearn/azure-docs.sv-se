@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5aa617edf13aee9c5899a59c46aeb729f202719f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744215"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000535"
 ---
 # <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
 
@@ -78,7 +78,8 @@ Filter som definieras i REST, innehålla ”egenskaper” wrapper JSON-objekt.
 
 Följande [az ams-konto-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) kommandot skapar ett kontofilter med filter spåra val som var [definierade tidigare](#define-a-filter). 
 
-Följande kommando kan ett alternativ `--tracks` som tar emot en fil. Om du använder Azure CLI lokalt kan du ange hela sökvägen:
+Kommandot kan du skicka en valfri `--tracks` parameter som innehåller JSON som representerar spåra val.  Använd @{file} för att läsa in JSON från en fil. Om du använder Azure CLI lokalt kan du ange hela sökvägen:
+
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json

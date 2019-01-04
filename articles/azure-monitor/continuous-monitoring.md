@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 82187a99fc8009096127cca624698e1329e5d13b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975534"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002288"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -34,7 +34,7 @@ För att få observability i hela miljön, måste du aktivera övervakning på a
 - [Azure DevOps-projekt](../devops-project/overview.md) ger dig ett förenklat sätt med befintlig kod och Git-lagringsplats, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) till Azure.
 - [Kontinuerlig övervakning i din DevOps-releasepipeline](../application-insights/app-insights-vsts-continuous-monitoring.md) gör det möjligt att gate eller ångra distributionen utifrån övervakningsdata.
 - [Statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md) gör att du kan instrumentera en live .NET-app i Windows med Azure Application Insights utan att behöva ändra eller omdistribuera din kod.
-- Om du har åtkomst till koden för ditt program kan aktivera fullständig övervakning med [Programinsikter](../application-insights/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), eller [andra programmeringsspråk](../application-insights/app-insights-platforms.md). På så sätt kan du ange anpassade händelser, mått eller sidvisningar som är relevanta för ditt program och din verksamhet.
+- Om du har åtkomst till koden för ditt program kan aktivera fullständig övervakning med [Programinsikter](../application-insights/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), eller [andra programmeringsspråk](../azure-monitor/app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sidvisningar som är relevanta för ditt program och din verksamhet.
 
 
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409585"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015091"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +72,7 @@ Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 >[!IMPORTANT]
 >Standard Azure Integration Runtime kan inte användas för att köra kopia när du kopierar data till Salesforce. Med andra ord om källan länkade tjänsten har inte en angiven integreringskörning uttryckligen [skapa en Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Salesforce-instans. Associera Salesforce länkade tjänsten som i följande exempel.
 
-**Exempel: Store autentiseringsuppgifter i Data Factory**
+**Exempel: Store-autentiseringsuppgifter i Data Factory**
 
 ```json
 {
@@ -99,7 +98,7 @@ Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 }
 ```
 
-**Exempel: Store autentiseringsuppgifter i Key Vault**
+**Exempel: Store-autentiseringsuppgifter i Key Vault**
 
 ```json
 {
@@ -168,7 +167,7 @@ För att kopiera data från och till Salesforce, ange typegenskapen på dataupps
 ```
 
 >[!NOTE]
->För bakåtkompatibilitet: när du kopierar data från Salesforce, om du använder den tidigare ”RelationalTable” typ av datauppsättningen ser till att det fungerar även om du ser ett förslag att växla till den nya typen ”SalesforceObject”.
+>För bakåtkompatibilitet: När du kopierar data från Salesforce, om du använder den tidigare ”RelationalTable” typ av datauppsättningen ser till att det fungerar även om du ser ett förslag att växla till den nya ”SalesforceObject”-typen.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -227,7 +226,7 @@ För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiv
 ```
 
 >[!NOTE]
->För bakåtkompatibilitet: när du kopierar data från Salesforce, om du använder den föregående ”RelationalSource” typ kopian källan håller fungerar även om du ser ett förslag att växla till den nya ”SalesforceSource”-typen.
+>För bakåtkompatibilitet: När du kopierar data från Salesforce, om du använder den föregående ”RelationalSource” typ kopian håller källan fungerar även om du ser ett förslag att växla till den nya ”SalesforceSource”-typen.
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce som en Mottagartyp
 
@@ -239,9 +238,9 @@ För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten 
 | WriteBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
 | externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som ”externa Id-fältet” i Salesforce-objekt. Det kan inte ha NULL-värden i motsvarande indata. | Ja för ”Upsert” |
 | WriteBatchSize | Antal rader för data som skrivs till Salesforce i varje batch. | Nej (standardvärdet är 5 000) |
-| ignoreNullValues | Anger om du vill ignorera NULL-värden från indata vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: ändra data i målobjektet inte när du gör en upsert eller update-åtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **FALSKT**: uppdatera data i målobjektet till NULL när du gör en upsert eller update-åtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
+| ignoreNullValues | Anger om du vill ignorera NULL-värden från indata vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: Lämna data i målobjektet oförändrade när du gör en upsert eller update-åtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **FALSKT**: Uppdatera data i målobjektet till NULL när du gör en upsert eller update-åtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
 
-**Exempel: Salesforce mottagare i en Kopieringsaktivitet**
+**Exempel: Salesforce-mottagare i en Kopieringsaktivitet**
 
 ```json
 "activities":[
@@ -314,15 +313,15 @@ När du kopierar data från Salesforce, används följande mappningar från Sale
 |:--- |:--- |
 | Automatisk numrering |Sträng |
 | Kryssrutan |Boolesk |
-| Valuta |decimaltal |
+| Valuta |Decimal |
 | Date |DateTime |
 | Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
 | Uppslagsrelation |Sträng |
 | Flervalsplocklista |Sträng |
-| Tal |decimaltal |
-| Procent |decimaltal |
+| Tal |Decimal |
+| Procent |Decimal |
 | Telefon |Sträng |
 | Listruta |Sträng |
 | Text |Sträng |

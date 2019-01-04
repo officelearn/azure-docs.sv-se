@@ -1,5 +1,5 @@
 ---
-title: 'Data Factory-självstudie: första datapipeline | Microsoft Docs'
+title: 'Data Factory-Självstudier: Första datapipeline | Microsoft Docs'
 description: Den här Azure Data Factory-självstudien visar hur du skapar och schemalägga en datafabrik som bearbetar data via Hive-skript på ett Hadoop-kluster.
 services: data-factory
 documentationcenter: ''
@@ -10,30 +10,29 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734260"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015958"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudie: Skapa din första pipeline för att transformera data med Hadoop-kluster
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att transformera data med Hadoop-kluster
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Läs [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md) (Snabbstart: Skapa en datafabrik med Azure Data Factory) om du använder den aktuella versionen av Data Factory-tjänsten.
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [snabbstarten: Skapa en datafabrik med Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 I den här självstudien skapar du din första Azure-datafabrik med en datapipeline. Pipelinen transformerar indata genom att köra Hive-skript på ett Azure HDInsight (Hadoop)-kluster för att producera utdata.  
 
@@ -45,7 +44,7 @@ I den här självstudien får du göra följande:
 1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera datapipelines som flyttar och transformerar data. 
 
     I de här självstudierna skapar du en pipeline i datafabriken. 
-2. Skapa en **pipeline**. En pipeline kan innehålla en eller flera aktiviteter (exempel: Kopieringsaktivitet, HDInsight Hive-aktivitet). Det här exemplet används en HDInsight Hive-aktivitet som kör ett Hive-skript på ett HDInsight Hadoop-kluster. Skriptet skapar först en tabell som refererar till den råa web loggdata som lagras i Azure blob storage och sedan partitionerar rådata per år och månad.
+2. Skapa en **pipeline**. En pipeline kan innehålla en eller flera aktiviteter (exempel: Kopiera aktivitet, HDInsight Hive-aktivitet). Det här exemplet används en HDInsight Hive-aktivitet som kör ett Hive-skript på ett HDInsight Hadoop-kluster. Skriptet skapar först en tabell som refererar till den råa web loggdata som lagras i Azure blob storage och sedan partitionerar rådata per år och månad.
 
     I den här självstudien använder pipelinen Hive-aktivitet du transformerar data genom att köra en Hive-fråga på ett Azure HDInsight Hadoop-kluster. 
 3. Skapa **länkade tjänster**. Du skapar en länkad tjänst länkar ett datalager eller en tjänst för beräkning till datafabriken. Ett datalager som Azure Storage innehåller indata och utdata för aktiviteter i pipelinen. En databearbetningstjänst som HDInsight Hadoop-kluster processer/omvandlingar data.
@@ -63,7 +62,7 @@ Här är den **diagramvy** på exemplet datafabriken du skapar i den här själv
 ![Diagramvy i Data Factory-självstudien](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
-I de här självstudierna **inputdata** mappen för den **adfgetstarted** Azure blob-behållare som innehåller en fil som heter input.log. Den här loggfilen har poster från tre månader: januari, februari och mars 2016. Här följer exempel rader för varje månad i indatafilen. 
+I de här självstudierna **inputdata** mappen för den **adfgetstarted** Azure blob-behållare som innehåller en fil som heter input.log. Den här loggfilen har poster från tre månader: Januari, februari och mars 2016. Här följer exempel rader för varje månad i indatafilen. 
 
 ```
 2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
@@ -98,12 +97,12 @@ När du har slutfört förutsättningarna kan du välja något av följande verk
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Azure-portalen och Visual Studio tillhandahåller GUI sätt att skapa din datafabriker. Å andra sidan alternativ för REST API, PowerShell och Resource Manager-mall innehåller skript/programmering sätt att skapa din datafabriker.
 
 > [!NOTE]
-> Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
+> Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudiekurs om hur du kopierar data med hjälp av Azure Data Factory finns i [självstudien: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
 

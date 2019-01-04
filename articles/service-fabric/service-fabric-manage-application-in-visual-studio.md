@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442177"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001710"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Använd Visual Studio för att förenkla skriva och hantera dina Service Fabric-program
 Du kan hantera dina Azure Service Fabric-program och tjänster via Visual Studio. När du har [ställa in din utvecklingsmiljö](service-fabric-get-started.md), du kan använda Visual Studio för att skapa Service Fabric-program, lägga till tjänster eller ett paket, registrera och distribuera program i det lokala utvecklingsklustret.
@@ -47,7 +47,7 @@ Visual Studio tillhandahåller en egenskap som kallas **programmets felsöknings
 
 #### <a name="application-debug-modes"></a>Lägen för felsökning av program
 
-1. **Uppdatera programmet** det här läget kan du snabbt ändra och felsöka din kod och stöd för redigering av statiska webbfiler när du felsöker. Det här läget fungerar bara om det lokala utvecklingsklustret finns i [1 nod läge]. Detta är standardinställningen programmets felsökningsläge. (/ service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Uppdatera programmet** det här läget kan du snabbt ändra och felsöka din kod och stöd för redigering av statiska webbfiler när du felsöker. Det här läget fungerar bara om det lokala utvecklingsklustret [1 nod läge](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Detta är standardinställningen programmets felsökningsläge.
 2. **Ta bort programmet** gör så att programmet ska tas bort när debug-sessionen avslutas.
 3. **Automatisk uppgradering** programmet fortsätter att köras när debug-sessionen avslutas. Nästa felsökningssessionen hanterar distributionen som en uppgradering. Uppgraderingsprocessen bevarar alla data som du angav i föregående felsökningssessionen.
 4. **Zachovat Aplikaci** programmet köras i klustret när debug-sessionen avslutas. I början av nästa felsökningssessionen tas programmet bort.

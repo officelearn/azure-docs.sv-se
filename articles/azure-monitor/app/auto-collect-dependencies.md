@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 4c06436961c45268cc7ae8ff2b7a5a4f06b24858
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 68a504f43463a25a0aba8d7d72881cddbcfba816
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973119"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999347"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
@@ -98,4 +98,4 @@ Nedan visas i listan över beroendeanrop som identifieras automatiskt som beroen
 - Konfigurera anpassade beroendespårning för [Java](../../azure-monitor/app/java-agent.md).
 - [Skriva anpassade beroendetelemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Se [datamodellen](../../azure-monitor/app/data-model.md) för Application Insights och modellen.
-- Kolla in [plattformar](../../application-insights/app-insights-platforms.md) stöds av Application Insights.
+- Kolla in [plattformar](../../azure-monitor/app/platforms.md) stöds av Application Insights.

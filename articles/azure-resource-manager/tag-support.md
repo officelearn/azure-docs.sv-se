@@ -4,14 +4,14 @@ description: Visar vilka Azure-resurstyper stöder taggar. Innehåller informati
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ef365cdf0a5df168c438abd0428e41200b07756c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753786"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000299"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-using-tags.md).
@@ -24,30 +24,35 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="ad-hybrid-health-service"></a>Hybrid AD-tjänsten för hälsotillstånd
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| services | Nej | 
-| addsservices | Nej | 
-| konfiguration | Nej | 
-| agenter | Nej | 
+| addsservices | Nej |
 | aadsupportcases | Nej | 
-| rapporter | Nej | 
-| servicehealthmetrics | Nej | 
-| loggar | Nej | 
+| agenter | Nej | 
 | anonymousapiusers | Nej | 
+| konfiguration | Nej | 
+| loggar | Nej | 
+| rapporter | Nej | 
+| services | Nej | 
+| servicehealthmetrics | Nej | 
+
+## <a name="aks"></a>AKS
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| managedClusters | Ja | 
 
 ## <a name="analysis-services"></a>Analysis Services
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| servrar | Ja | 
+| Servrar | Ja | 
 
 ## <a name="api-hubs"></a>API Hubs
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | apiManagementAccounts | Nej | 
-| apiManagementAccounts/connectionProviders | Nej | 
-| apiManagementAccounts/anslutningar | Nej | 
-| apiManagementAccounts/connectionAcls | Nej | 
-| apiManagementAccounts/connectionProviderAcls | Nej | 
 | apiManagementAccounts/API: er | Nej | 
+| apiManagementAccounts/connectionAcls | Nej | 
+| apiManagementAccounts/connectionProviders | Nej | 
+| apiManagementAccounts/connectionProviderAcls | Nej | 
+| apiManagementAccounts/anslutningar | Nej | 
 
 ## <a name="api-management"></a>API Management
 | Resurstyp | Har stöd för taggar |
@@ -58,11 +63,48 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | AutomationAccounts | Ja | 
-| automationAccounts/runbooks | Ja | 
 | automationAccounts/konfigurationer | Ja | 
-| automationAccounts/webhooks | Nej | 
-| automationAccounts/softwareUpdateConfigurations | Nej | 
 | automationAccounts/jobb | Nej | 
+| automationAccounts/runbooks | Ja | 
+| automationAccounts/softwareUpdateConfigurations | Nej | 
+| automationAccounts/webhooks | Nej | 
+
+## <a name="azure-database-for-mariadb"></a>Azure-databas för MariaDB
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| Servrar | Ja | 
+| servrar/konfigurationer | Nej |
+| servrar/databaser | Nej |
+| servrar/firewallRules | Nej |
+| servrar/recoverableServers | Nej | 
+| servrar/securityAlertPolicies | Nej |
+| servrar/virtualNetworkRules | Nej | 
+
+## <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| Servrar | Ja | 
+| servrar/konfigurationer | Nej |
+| servrar/databaser | Nej |
+| servrar/firewallRules | Nej |
+| servrar/recoverableServers | Nej | 
+| servrar/securityAlertPolicies | Nej |
+| servrar/virtualNetworkRules | Nej | 
+
+## <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| Servrar | Ja | 
+| servrar/rådgivare | Nej | 
+| servrar/konfigurationer | Nej |
+| servrar/databaser | Nej |
+| servrar/firewallRules | Nej |
+| servrar/queryTexts | Nej | 
+| servrar/recoverableServers | Nej | 
+| servrar/securityAlertPolicies | Nej |
+| servrar/topQueryStatistics | Nej | 
+| servrar/virtualNetworkRules | Nej | 
+| servrar/waitStatistics | Nej | 
 
 ## <a name="batch"></a>Batch
 | Resurstyp | Har stöd för taggar |
@@ -87,14 +129,14 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="cdn"></a>CDN
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
+| edgenodes | Nej | 
 | Profiler | Ja | 
 | profiler-slutpunkter | Ja | 
-| profiler/slutpunkter/ursprung | Nej | 
 | profiler/slutpunkter/customdomains | Nej | 
+| profiler/slutpunkter/ursprung | Nej | 
 | validateProbe | Nej | 
-| edgenodes | Nej | 
 
-## <a name="classic-compute"></a>Klassisk Compute
+## <a name="classic-compute"></a>Klassisk beräkning
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | domainNames | Nej | 
@@ -114,8 +156,8 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | virtuella nätverk | Nej | 
-| virtuella nätverk/virtualNetworkPeerings | Nej | 
 | virtuella nätverk/remoteVirtualNetworkPeeringProxies | Nej | 
+| virtuella nätverk/virtualNetworkPeerings | Nej | 
 
 ## <a name="classic-storage"></a>Klassisk lagring
 | Resurstyp | Har stöd för taggar |
@@ -127,23 +169,23 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | availabilitySets | Ja | 
-| virtuella datorer | Ja | 
-| virtuella datorer /-tillägg | Ja | 
-| virtualMachineScaleSets | Ja | 
-| virtualMachineScaleSets /-tillägg | Nej | 
-| virtualMachineScaleSets/virtuella datorer | Nej | 
-| virtualMachineScaleSets/networkInterfaces | Nej | 
-| virtualMachineScaleSets/virtualMachines/networkInterfaces | Nej | 
-| virtualMachineScaleSets/publicIPAddresses | Nej | 
+| Diskar | Ja | 
+| images | Ja | 
 | restorePointCollections | Ja | 
 | restorePointCollections/restorePoints | Nej | 
-| virtuella datorer/diagnosticSettings | Nej | 
-| virtuella datorer/metricDefinitions | Nej | 
 | sharedVMImages | Ja | 
 | sharedVMImages/versioner | Ja | 
-| Diskar | Ja | 
 | ögonblicksbilder | Ja | 
-| images | Ja | 
+| virtuella datorer | Ja | 
+| virtuella datorer/diagnosticSettings | Nej | 
+| virtuella datorer /-tillägg | Ja | 
+| virtuella datorer/metricDefinitions | Nej | 
+| virtualMachineScaleSets | Ja | 
+| virtualMachineScaleSets /-tillägg | Nej | 
+| virtualMachineScaleSets/networkInterfaces | Nej | 
+| virtualMachineScaleSets/publicIPAddresses | Nej | 
+| virtualMachineScaleSets/virtuella datorer | Nej | 
+| virtualMachineScaleSets/virtualMachines/networkInterfaces | Nej | 
 
 ## <a name="container"></a>Container
 | Resurstyp | Har stöd för taggar |
@@ -155,6 +197,14 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | ------------- | ----------- |
 | containerGroups | Ja | 
 | serviceAssociationLinks | Nej | 
+
+## <a name="container-registry"></a>Container Registry
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| register | Ja | 
+| register/replikeringar | Ja |
+| register/uppgifter | Ja |
+| register/webhooks | Ja |
 
 ## <a name="container-service"></a>Container Service
 | Resurstyp | Har stöd för taggar |
@@ -177,6 +227,11 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | ------------- | ----------- |
 | Anslutningar | Ja | 
 
+## <a name="data-box"></a>Data Box
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| jobb | Ja | 
+
 ## <a name="data-box-edge"></a>Data Box Edge
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
@@ -196,11 +251,11 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | dataFactories | Ja | 
-| fabriker | Ja | 
-| fabriker/integrationRuntimes | Nej | 
 | dataFactories/diagnosticSettings | Nej | 
 | dataFactories/metricDefinitions | Nej | 
 | dataFactorySchema | Nej | 
+| fabriker | Ja | 
+| fabriker/integrationRuntimes | Nej | 
 
 ## <a name="devices"></a>Enheter
 | Resurstyp | Har stöd för taggar |
@@ -218,9 +273,24 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | Labs | Ja | 
-| Scheman | Ja | 
-| Labs/virtuella datorer | Ja | 
+| Labs/artifactsources | Ja |
+| Labs/kostnader | Ja |
+| Labs/customimages | Ja |
+| Labs/formler | Ja |
+| Labs/notificationchannels | Ja |
+| Labs-policysets-principer | Ja |
+| Labs/scheman | Ja |
 | Labs/serviceRunners | Ja | 
+| Labs/användare | Ja |
+| Labs-användare-diskar | Ja |
+| Labs-användare-miljöer | Ja |
+| Labs/användare/hemligheter | Ja |
+| Labs/användare/servicefabrics | Ja |
+| Labs/användare/servicefabrics/scheman | Ja |
+| Labs/virtuella datorer | Ja | 
+| Labs/virtualmachines/scheman | Ja |
+| Labs/virtuella nätverk | Ja |
+| Scheman | Ja | 
 
 ## <a name="dynamics-lcs"></a>Dynamics LCS
 | Resurstyp | Har stöd för taggar |
@@ -232,18 +302,23 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="event-grid"></a>Event Grid
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| eventSubscriptions | Nej | 
-| ämnen | Ja | 
 | domäner | Ja | 
 | domäner/ämnen | Nej | 
-| topicTypes | Nej | 
+| eventSubscriptions | Nej | 
 | extensionTopics | Nej | 
+| ämnen | Ja | 
+| topicTypes | Nej | 
 
 ## <a name="event-hub"></a>Händelsehubb
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Namnområden | Ja | 
 | Kluster | Ja | 
+| Namnområden | Ja | 
+| namnområden/AuthorizationRules | Nej |
+| namnområden/disasterRecoveryConfigs | Nej |
+| namnområden/eventhubs | Nej |
+| namnområden/eventhubs/authorizationRules | Nej |
+| namnområden/eventhubs/consumergroups | Nej |
 
 ## <a name="hana-on-azure"></a>Hana på Azure
 | Resurstyp | Har stöd för taggar |
@@ -265,28 +340,31 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | actionGroups | Ja |
-| Komponenter | Ja | 
-| komponenter/fråga | Nej | 
-| komponenter/mått | Nej | 
-| komponenter/händelser | Nej | 
-| webbtester | Ja | 
-| frågor | Nej | 
-| scheduledqueryrules | Ja | 
-| komponenter/pricingPlans | Nej | 
-| migrateToNewPricingModel | Nej | 
-| rollbackToLegacyPricingModel | Nej | 
+| activityLogAlerts | Ja |
+| alertrules | Ja |
 | automatedExportSettings | Nej | 
-| arbetsböcker | Ja | 
-| myWorkbooks | Nej | 
+| Komponenter | Ja | 
+| komponenter/händelser | Nej | 
+| komponenter/mått | Nej | 
+| komponenter/pricingPlans | Nej | 
+| komponenter/fråga | Nej | 
 | loggar | Nej | 
+| metricAlerts | Ja |
+| migrateToNewPricingModel | Nej | 
+| myWorkbooks | Nej | 
+| frågor | Nej | 
+| rollbackToLegacyPricingModel | Nej | 
+| scheduledqueryrules | Ja | 
+| webbtester | Ja | 
+| arbetsböcker | Ja | 
 
 ## <a name="key-vault"></a>Key Vault
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Valv | Ja | 
-| Valv/hemligheter | Nej | 
-| valv/accessPolicies | Nej | 
 | deletedVaults | Nej | 
+| Valv | Ja | 
+| valv/accessPolicies | Nej | 
+| Valv/hemligheter | Nej | 
 
 ## <a name="log-analytics"></a>Log Analytics
 | Resurstyp | Har stöd för taggar |
@@ -296,8 +374,8 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="logic"></a>Logik
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Arbetsflöden | Ja | 
 | integrationAccounts | Ja | 
+| Arbetsflöden | Ja | 
 
 ## <a name="machine-learning-services"></a>Machine Learning Services
 | Resurstyp | Har stöd för taggar |
@@ -310,13 +388,6 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | ------------- | ----------- |
 | Identiteter | Nej | 
 | userAssignedIdentities | Ja | 
-
-## <a name="mariadb"></a>MariaDB
-| Resurstyp | Har stöd för taggar |
-| ------------- | ----------- |
-| servrar | Ja | 
-| servrar/recoverableServers | Nej | 
-| servrar/virtualNetworkRules | Nej | 
 
 ## <a name="marketplace-apps"></a>Marketplace-appar
 | Resurstyp | Har stöd för taggar |
@@ -333,64 +404,57 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | mediaservices | Ja | 
+| mediaservices/accountFilters | Nej | 
 | mediaservices/tillgångar | Nej | 
+| mediaservices/tillgångar/assetFilters | Nej | 
 | mediaservices/contentKeyPolicies | Nej | 
-| mediaservices/streamingLocators | Nej | 
-| mediaservices/streamingPolicies | Nej | 
 | mediaservices/eventGridFilters | Nej | 
-| mediaservices/omvandlingar | Nej | 
-| mediaservices-transformeringar-jobb | Nej | 
-| mediaservices/Strömningsslutpunkter | Ja | 
+| mediaservices/liveEventOperations | Nej | 
 | mediaservices/liveEvents | Ja | 
 | mediaservices/liveEvents/liveOutputs | Nej | 
-| mediaservices/streamingEndpointOperations | Nej | 
-| mediaservices/liveEventOperations | Nej | 
 | mediaservices/liveOutputOperations | Nej | 
-| mediaservices/tillgångar/assetFilters | Nej | 
-| mediaservices/accountFilters | Nej | 
-
-## <a name="mysql"></a>MySQL
-| Resurstyp | Har stöd för taggar |
-| ------------- | ----------- |
-| servrar | Ja | 
-| servrar/recoverableServers | Nej | 
-| servrar/virtualNetworkRules | Nej | 
+| mediaservices/Strömningsslutpunkter | Ja | 
+| mediaservices/streamingEndpointOperations | Nej | 
+| mediaservices/streamingLocators | Nej | 
+| mediaservices/streamingPolicies | Nej | 
+| mediaservices/omvandlingar | Nej | 
+| mediaservices-transformeringar-jobb | Nej | 
 
 ## <a name="network"></a>Nätverk
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| virtuella nätverk | Ja | 
-| publicIPAddresses | Ja | 
-| networkInterfaces | Ja | 
+| applicationGateways | Ja | 
+| applicationSecurityGroups | Ja | 
+| azureFirewalls | Ja | 
+| anslutningar | Ja | 
+| ddosProtectionPlans | Ja | 
+| expressRouteCircuits | Ja | 
+| frontdoors | Ja | 
+| frontdoorWebApplicationFirewallPolicies | Ja | 
 | interfaceEndpoints | Ja | 
 | belastningsutjämnare | Ja | 
-| networkSecurityGroups | Ja | 
-| applicationSecurityGroups | Ja | 
-| serviceEndpointPolicies | Ja | 
+| localNetworkGateways | Ja | 
 | networkIntentPolicies | Ja | 
-| routeTables | Ja | 
-| publicIPPrefixes | Ja | 
+| networkInterfaces | Ja | 
+| networkProfiles | Ja | 
+| networkSecurityGroups | Ja | 
 | networkWatchers | Ja | 
 | networkWatchers/connectionMonitors | Ja | 
 | networkWatchers/linser | Ja | 
 | networkWatchers/pingMeshes | Ja | 
-| virtualNetworkGateways | Ja | 
-| localNetworkGateways | Ja | 
-| anslutningar | Ja | 
-| applicationGateways | Ja | 
-| expressRouteCircuits | Ja | 
-| routeFilters | Ja | 
-| virtualWans | Ja | 
-| vpnSites | Ja | 
-| virtualHubs | Ja | 
-| vpnGateways | Ja | 
-| azureFirewalls | Ja | 
-| virtualNetworkTaps | Ja | 
 | privateLinkServices | Ja | 
-| ddosProtectionPlans | Ja | 
-| networkProfiles | Ja | 
-| frontdoors | Ja | 
-| frontdoorWebApplicationFirewallPolicies | Ja | 
+| publicIPAddresses | Ja | 
+| publicIPPrefixes | Ja | 
+| routeFilters | Ja | 
+| routeTables | Ja | 
+| serviceEndpointPolicies | Ja | 
+| virtualHubs | Ja | 
+| virtuella nätverk | Ja | 
+| virtualNetworkGateways | Ja | 
+| virtualNetworkTaps | Ja | 
+| virtualWans | Ja | 
+| vpnGateways | Ja | 
+| vpnSites | Ja | 
 | webApplicationFirewallPolicies | Ja | 
 
 ## <a name="notification-hubs"></a>Notification Hubs
@@ -398,6 +462,20 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | ------------- | ----------- |
 | Namnområden | Ja | 
 | namnområden/notificationHubs | Ja | 
+
+## <a name="operational-insights"></a>Operational Insights
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| arbetsytor | Ja |
+| arbetsytor/datakällor | Ja |
+| arbetsytor/linkedServices | Ja |
+| arbetsytor/savedSearches | Nej |
+| arbetsytor/storageInsightConfigs | Ja |
+
+## <a name="operations-management"></a>Operations Management
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| lösningar | Nej |
 
 ## <a name="portal"></a>Portalen
 | Resurstyp | Har stöd för taggar |
@@ -409,17 +487,6 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | ------------- | ----------- |
 | rootResources | Ja | 
 
-## <a name="postgresql"></a>PostgreSQL
-| Resurstyp | Har stöd för taggar |
-| ------------- | ----------- |
-| servrar | Ja | 
-| servrar/recoverableServers | Nej | 
-| servrar/virtualNetworkRules | Nej | 
-| servrar/topQueryStatistics | Nej | 
-| servrar/queryTexts | Nej | 
-| servrar/waitStatistics | Nej | 
-| servrar/rådgivare | Nej | 
-
 ## <a name="power-bi"></a>Power BI
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
@@ -428,8 +495,8 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="recovery-services"></a>Recovery Services
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Valv | Ja | 
 | backupProtectedItems | Nej | 
+| Valv | Ja | 
 
 ## <a name="relay"></a>Relä
 | Resurstyp | Har stöd för taggar |
@@ -451,8 +518,8 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="search"></a>Search
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| searchServices | Ja | 
 | resourceHealthMetadata | Nej | 
+| searchServices | Ja | 
 
 ## <a name="security"></a>Säkerhet
 | Resurstyp | Har stöd för taggar |
@@ -495,6 +562,64 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | applicationDefinitions | Ja | 
 | jitRequests | Ja | 
 
+## <a name="sql"></a>SQL
+| Resurstyp | Har stöd för taggar |
+| ------------- | ----------- |
+| platser/instanceFailoverGroups | Nej |
+| managedInstances | Ja |
+| managedInstances/databaser | Ja |
+| managedInstances/databaser/backupShortTermRetentionPolicies | Nej |
+| databaser/managedInstances/scheman/kolumner/tabeller/sensitivityLabels | Nej |
+| managedInstances/databaser/vulnerabilityAssessments | Nej |
+| managedInstances/databaser/vulnerabilityAssessments/regler/baslinjer | Nej |
+| managedInstances/encryptionProtector | Nej |
+| managedInstances/nycklar | Nej |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nej |
+| managedInstances/vulnerabilityAssessments | Nej |
+| servrar | Ja |
+| servrar/administratörer | Nej |
+| servrar/rådgivare | Nej |
+| servrar/auditingSettings | Nej |
+| servrar/backupLongTermRetentionVaults | Nej |
+| servrar/communicationLinks | Nej |
+| servrar/connectionPolicies | Nej |
+| servrar/databaser | Ja |
+| rådgivare/databaser/servrar | Nej |
+| auditingSettings-servrar/databaser | Nej |
+| backupLongTermRetentionPolicies-servrar/databaser | Nej |
+| backupShortTermRetentionPolicies-servrar/databaser | Nej |
+| connectionPolicies-servrar/databaser | Nej |
+| dataMaskingPolicies-servrar/databaser | Nej |
+| servrar/databaser/dataMaskingPolicies/regler | Nej |
+| extendedAuditingSettings-servrar/databaser | Nej |
+| servrar-databaser-tillägg | Nej |
+| geoBackupPolicies-servrar/databaser | Nej |
+| databaser/servrar/scheman/kolumner/tabeller/sensitivityLabels | Nej |
+| securityAlertPolicies-servrar/databaser | Nej |
+| syncGroups-servrar/databaser | Nej |
+| servrar/databaser/syncGroups/syncMembers | Nej |
+| transparentDataEncryption-servrar/databaser | Nej |
+| vulnerabilityAssessments-servrar/databaser | Nej |
+| servrar/databaser/vulnerabilityAssessments/regler/baslinjer | Nej |
+| servrar/disasterRecoveryConfiguration | Nej |
+| servrar/dnsAliases | Nej |
+| servrar/elasticPools | Ja |
+| servrar/encryptionProtector | Nej |
+| servrar/extendedAuditingSettings | Nej |
+| servrar/failoverGroups | Ja |
+| servrar/firewallRules | Nej |
+| servrar/jobAgents | Ja |
+| servrar-jobAgents-autentiseringsuppgifter | Nej |
+| servrar-jobAgents-jobb | Nej |
+| servrar/jobAgents/jobb/körningar | Nej |
+| servrar/jobAgents/jobb/steg | Nej |
+| servrar/jobAgents/targetGroups | Nej |
+| servrar/nycklar | Nej |
+| servrar/securityAlertPolicies | Nej |
+| servrar/syncAgents | Nej |
+| servrar/virtualNetworkRules | Nej |
+| servrar/vulnerabilityAssessments | Nej |
+
 ## <a name="sql-virtual-machine"></a>SQL-dator
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
@@ -505,20 +630,20 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | ------------- | ----------- |
 | storageAccounts | Ja | 
 | storageAccounts/blobServices | Nej | 
-| storageAccounts/tableServices | Nej | 
-| storageAccounts/queueServices | Nej | 
 | storageAccounts/fileServices | Nej | 
+| storageAccounts/queueServices | Nej | 
 | storageAccounts/tjänster | Nej | 
 | storageAccounts/tjänster/metricDefinitions | Nej | 
+| storageAccounts/tableServices | Nej | 
 
 ## <a name="storage-sync"></a>Synkronisering av lagring
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | storageSyncServices | Ja | 
+| storageSyncServices/registeredServers | Nej | 
 | storageSyncServices/syncGroups | Nej | 
 | storageSyncServices/syncGroups/cloudEndpoints | Nej | 
 | storageSyncServices/syncGroups/serverEndpoints | Nej | 
-| storageSyncServices/registeredServers | Nej | 
 | storageSyncServices/arbetsflöden | Nej | 
 
 ## <a name="storsimple"></a>Storsimple
@@ -548,53 +673,50 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | konto | Ja | 
-| kontot/projektet | Ja | 
 | tillägget och Account | Ja | 
-| konto | Ja | 
 | kontot/projektet | Ja | 
-| tillägget och Account | Ja | 
 
 ## <a name="web"></a>Webb
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| platser/instanser | Nej | 
-| platser-fack-instanser | Nej | 
-| platser-instanser-tillägg | Nej | 
-| platser/platser/instanser/tillägg | Nej | 
-| publishingUsers | Nej | 
-| Verifiera | Nej | 
-| sourceControls | Nej | 
-| platser/hostNameBindings | Nej | 
-| platser/domainOwnershipIdentifiers | Nej | 
-| hostNameBindings-platser/platser | Nej | 
+| apiManagementAccounts | Nej | 
+| apiManagementAccounts/apiAcls | Nej | 
+| apiManagementAccounts/API: er | Nej | 
+| apiManagementAccounts/API: er/apiAcls | Nej | 
+| apiManagementAccounts/API: er/connectionAcls | Nej | 
+| apiManagementAccounts-API: er-anslutningar | Nej | 
+| apiManagementAccounts/API: er/anslutningar/connectionAcls | Nej | 
+| apiManagementAccounts/API: er/localizedDefinitions | Nej | 
+| apiManagementAccounts/connectionAcls | Nej | 
+| apiManagementAccounts/anslutningar | Nej | 
+| billingMeters | Nej | 
 | certifikat | Ja | 
+| connectionGateways | Ja | 
+| anslutningar | Ja | 
+| customApis | Ja | 
+| deletedSites | Nej | 
+| functions | Nej | 
+| hostingEnvironments | Ja | 
+| hostingEnvironments/mått | Nej | 
+| hostingEnvironments/multiRolePools | Nej | 
+| hostingEnvironments/workerPools | Nej | 
+| publishingUsers | Nej | 
 | Servergrupper | Ja | 
 | Servergrupper/arbetare | Nej | 
 | Platser | Ja | 
-| platser/platser | Ja | 
+| platser/domainOwnershipIdentifiers | Nej | 
+| platser/hostNameBindings | Nej | 
+| platser/instanser | Nej | 
+| platser-instanser-tillägg | Nej | 
 | platser/mått | Nej | 
-| platser-fack-mått | Nej | 
 | platser/premieraddons | Ja | 
-| hostingEnvironments | Ja | 
-| hostingEnvironments/multiRolePools | Nej | 
-| hostingEnvironments/workerPools | Nej | 
-| hostingEnvironments/mått | Nej | 
-| functions | Nej | 
-| deletedSites | Nej | 
-| apiManagementAccounts | Nej | 
-| apiManagementAccounts/anslutningar | Nej | 
-| apiManagementAccounts/connectionAcls | Nej | 
-| apiManagementAccounts/API: er/anslutningar/connectionAcls | Nej | 
-| apiManagementAccounts/API: er/connectionAcls | Nej | 
-| apiManagementAccounts/apiAcls | Nej | 
-| apiManagementAccounts/API: er/apiAcls | Nej | 
-| apiManagementAccounts/API: er | Nej | 
-| apiManagementAccounts/API: er/localizedDefinitions | Nej | 
-| apiManagementAccounts-API: er-anslutningar | Nej | 
-| anslutningar | Ja | 
-| customApis | Ja | 
-| connectionGateways | Ja | 
-| billingMeters | Nej | 
+| platser/platser | Ja | 
+| hostNameBindings-platser/platser | Nej | 
+| platser-fack-instanser | Nej | 
+| platser/platser/instanser/tillägg | Nej | 
+| platser-fack-mått | Nej | 
+| sourceControls | Nej | 
+| Verifiera | Nej | 
 | verifyHostingEnvironmentVnet | Nej | 
 
 ## <a name="xrm"></a>XRM

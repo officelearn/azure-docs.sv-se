@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c0f68304a73f8489668fafb98c51bd1e78b7588f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972659"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021891"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [ställa in Application Insights i projektet](../../application-insights/app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).
@@ -96,7 +96,7 @@ När du har skapat en instrumentpanel kan dela du den med andra användare.
 
 ![I rubriken instrumentpanelen klickar du på resursen](./media/app-insights-dashboards/41.png)
 
-Lär dig mer om [roller och åtkomstkontroll](../../application-insights/app-insights-resources-roles-access-control.md).
+Lär dig mer om [roller och åtkomstkontroll](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## <a name="create-dashboards-programmatically"></a>Skapa instrumentpaneler programmässigt
 Du kan automatisera instrumentpanel skapas med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) och en enkel JSON-redigerare.
@@ -109,7 +109,7 @@ Du kan automatisera instrumentpanel skapas med hjälp av [Azure Resource Manager
 ### <a name="overview-blade-buttons"></a>Översikt över bladet knappar
 ![Översikt över bladet övre navigeringsfältet](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Metrics Explorer** ](../../application-insights/app-insights-metrics-explorer.md) -skapa egna diagram av prestanda och användning.
+* [**Metrics Explorer** ](../../azure-monitor/app/metrics-explorer.md) -skapa egna diagram av prestanda och användning.
 * [**Sök** ](../../azure-monitor/app/diagnostic-search.md) – Undersök specifika instanser av händelser som begäranden, undantag, eller loggspårningar.
 * [**Analytics** ](../../azure-monitor/app/analytics.md) -kraftfulla frågor via din telemetri.
 * **Tidsintervall** -Justera intervall som visas av alla diagram på bladet.
@@ -123,14 +123,14 @@ Du kan automatisera instrumentpanel skapas med hjälp av [Azure Resource Manager
 
 * **Översikt över** -gå tillbaka till översiktsbladet.
 * **Aktivitetsloggen** -aviseringar och Azure administrativa händelser.
-* [**Åtkomstkontroll** ](../../application-insights/app-insights-resources-roles-access-control.md) – ger åtkomst till gruppmedlemmar och andra.
+* [**Åtkomstkontroll** ](../../azure-monitor/app/resources-roles-access-control.md) – ger åtkomst till gruppmedlemmar och andra.
 * [**Taggar** ](../../azure-resource-manager/resource-group-using-tags.md) -använda taggar för att gruppera din app med andra.
 
 UNDERSÖK
 
 * [**Programkartan** ](app-map.md) -Active karta med komponenterna i ditt program, som härletts från beroendeinformationen.
 * [**Smart identifiering** ](../../application-insights/app-insights-proactive-diagnostics.md) -granska de senaste aviseringarna i prestanda.
-* [**Live Stream** ](../../application-insights/app-insights-live-stream.md) – en fast uppsättning nästan omedelbar mått, användbart när du distribuerar en ny version eller felsökning.
+* [**Live Stream** ](../../azure-monitor/app/live-stream.md) – en fast uppsättning nästan omedelbar mått, användbart när du distribuerar en ny version eller felsökning.
 * [**Tillgänglighet / Webbtester** ](../../azure-monitor/app/monitor-web-app-availability.md) -skickar regelbundna begäranden till webbappen från runt world.*
 * [**Fel, prestanda** ](../../application-insights/app-insights-web-monitor-performance.md) -undantag, Felfrekvens och svarstider för förfrågningar från din app på förfrågningar till din app och [beroenden](../../azure-monitor/app/asp-net-dependencies.md).
 * [**Prestanda** ](../../application-insights/app-insights-web-monitor-performance.md) -svarstid, beroende svarstider.
@@ -145,14 +145,14 @@ KONFIGURERA
 * [Aviseringar](../../azure-monitor/app/alerts.md) -konfiguration av metrisk varning.
 * [Löpande export](../../azure-monitor/app/export-telemetry.md) -konfigurera export av telemetri till Azure storage.
 * [Prestandatestning](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) – konfigurera en syntetisk belastningen på din webbplats.
-* [Kvoter och priser](../../application-insights/app-insights-pricing.md) och [inmatningssampling](../../application-insights/app-insights-sampling.md).
+* [Kvoter och priser](../../azure-monitor/app/pricing.md) och [inmatningssampling](../../azure-monitor/app/sampling.md).
 * **API-åtkomst** -skapa [Versionsanteckningar](annotations.md) och för Data Access-API: et.
 * [**Arbetsobjekt** ](../../azure-monitor/app/diagnostic-search.md#create-work-item) -ansluta till en spårningssystem så att du kan skapa buggar samtidigt Kontrollera telemetri.
 
 INSTÄLLNINGAR
 
 * [**Låser** ](../../azure-resource-manager/resource-group-lock-resources.md) -låsa Azure-resurser
-* [**Automationsskript** ](../../application-insights/app-insights-powershell.md) -exportdefinition Azure-resursen så att du kan använda den som en mall för att skapa nya resurser.
+* [**Automationsskript** ](../../azure-monitor/app/powershell.md) -exportdefinition Azure-resursen så att du kan använda den som en mall för att skapa nya resurser.
 
 
 ## <a name="video"></a>Video
@@ -163,6 +163,6 @@ INSTÄLLNINGAR
 
 |  |  |
 | --- | --- |
-| [Måttutforskaren](../../application-insights/app-insights-metrics-explorer.md)<br/>Filtrera och segmentera mått |![Sök efter exempel](./media/app-insights-dashboards/64.png) |
+| [Måttutforskaren](../../azure-monitor/app/metrics-explorer.md)<br/>Filtrera och segmentera mått |![Sök efter exempel](./media/app-insights-dashboards/64.png) |
 | [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)<br/>Söka efter och granska händelser, relaterade händelser och skapa buggar |![Sök efter exempel](./media/app-insights-dashboards/61.png) |
 | [Analys](../../azure-monitor/app/analytics.md)<br/>Kraftfullt frågespråk |![Sök efter exempel](./media/app-insights-dashboards/63.png) |

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631489"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021143"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Förbereda Azure Stack PKI-certifikat för användning i distributionen eller rotation
 Certifikatdatabasen [hämtas från din Certifikatutfärdare valfri](azure-stack-get-pki-certs.md) måste importeras och exporteras med egenskaper som matchar certifikatkrav för Azure Stack.
@@ -73,7 +73,14 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
 
 1. Välj **Ja, exportera den privata nyckeln**, och klicka sedan på **nästa**.
 
-1. Markera under Filformat för Export **exportera alla utökade egenskaper** och klicka sedan på **nästa**.
+1. I avsnittet filformat för Export:
+    
+    - Välj **inkludera om möjligt alla certifikat i certifikatet**.  
+    - Välj **exportera alla utökade egenskaper**.  
+    - Välj **aktivera certifikatet sekretess**.  
+    - Klicka på **Nästa**.  
+    
+    ![Guiden för export av certifikat med markerat alternativ](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Välj **lösenord** och ange ett lösenord för certifikaten. Kom ihåg lösenordet eftersom den används som distributionsparameter. Välj **Nästa**.
 
@@ -82,4 +89,5 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
 1. Välj **Slutför**.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Verifiera PKI-certifikat](azure-stack-validate-pki-certs.md)

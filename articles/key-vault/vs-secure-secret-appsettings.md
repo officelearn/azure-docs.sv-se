@@ -1,5 +1,5 @@
 ---
-title: På ett säkert sätt sparar hemliga programinställningar för ett webbprogram | Microsoft Docs
+title: På ett säkert sätt sparar hemliga programinställningar för en webbapp – Azure Key Vault | Microsoft Docs
 description: Hur att på ett säkert sätt spara hemliga programinställningar, till exempel autentiseringsuppgifter för Azure eller från tredje part API-nycklar med ASP.NET core Key Vault-providern, användaren hemlighet eller .NET 4.7.1 configuration builders
 services: visualstudio
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 01/02/2019
 ms.author: cawa
-ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5ed0f861e17c646a66d9fa636e17ce0ba9c7c91a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252121"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999160"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>På ett säkert sätt spara hemliga programinställningar för ett webbprogram
 

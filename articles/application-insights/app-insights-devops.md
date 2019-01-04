@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9c3f9018965908ae065cedb63149190080d7f07
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970244"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998241"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -156,7 +156,7 @@ När en avisering utlöses kan Application Insights automatiskt skapa ett arbets
 ## <a name="but-what-about"></a>Men vad gäller...?
 * [Sekretess- och storage](../azure-monitor/app/data-retention-privacy.md) -telemetrin sparas på Azure säkra servrar.
 * Prestanda - effekten är mycket låg. Telemetri är batchar.
-* [Priser](app-insights-pricing.md) – du kan komma igång utan kostnad och som fortsätter när du använder låg volym.
+* [Priser](../azure-monitor/app/pricing.md) – du kan komma igång utan kostnad och som fortsätter när du använder låg volym.
 
 
 ## <a name="video"></a>Video
@@ -167,6 +167,6 @@ När en avisering utlöses kan Application Insights automatiskt skapa ett arbets
 Det är enkelt att komma igång med Application Insights. De viktigaste alternativen är:
 
 * Instrumentera en webbapp redan körs. Detta ger dig all den inbyggda telemetrin. Det finns för [Java](../azure-monitor/app/java-live.md) och [IIS-servrar](../azure-monitor/app/monitor-performance-live-website-now.md), och även för [Azure App Service](app-insights-overview.md).
-* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](../azure-monitor/app/asp-net.md) eller [Java](../azure-monitor/app/java-get-started.md) appar, samt [Node.js](app-insights-nodejs.md) och en mängd [andra typer](app-insights-platforms.md). 
+* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](../azure-monitor/app/asp-net.md) eller [Java](../azure-monitor/app/java-get-started.md) appar, samt [Node.js](../azure-monitor/app/nodejs.md) och en mängd [andra typer](../azure-monitor/app/platforms.md). 
 * Instrumentera [en webbsida](../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
 

@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7df9086fa5ffc6273a6cb063bdee3cfdfa73e34
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271716"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013323"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Använd Visual Studio Code för att träna och distribuera machine learning-modeller
 
@@ -27,7 +27,7 @@ Och du kan distribuera dessa modeller för dina behov för testning och produkti
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
++ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 + Har den [Azure Machine Learning för VS Code](how-to-vscode-tools.md) tillägget ställa in.
 
@@ -43,7 +43,7 @@ Det här tillägget har stöd för flera olika remote beräkningsmål för Azure
 
 **Skapa ett beräkningsmål:**
 
-1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure: Machine Learning sidopanelen visas.
+1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
 2. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. Prenumerationens namn är ”kostnadsfri utvärdering” i animerade avbildningen, och arbetsytan som är ”TeamWorkspace”. 
 
@@ -51,27 +51,25 @@ Det här tillägget har stöd för flera olika remote beräkningsmål för Azure
 
 4. Välj Beräkningstyp för mål i listan. 
 
-5. Ange avancerade egenskaper i JSON-konfigurationsfilen som öppnas i en ny flik. Du kan ange ett unikt namn för beräkningsmål i den här filen.
+5. I Kommandopaletten, väljer du en storlek på virtuell dator.
 
-6. När du är klar konfigurerar din beräkningsmål, klickar du på **skicka** längst ned till höger.
+6. I Kommandopaletten, anger du ett namn för beräkningsmål i fältet. 
 
-Här är ett exempel för Azure Machine Learning Compute (AMLCompute): [![Skapa AML-beräkning i VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
+7. Ange avancerade egenskaper i JSON-konfigurationsfilen som öppnas i en ny flik. Du kan ange egenskaper, till exempel ett högsta antal noder...
 
-### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Använd remote beräkningarna för experiment i VS Code
+8. När du är klar konfigurerar din beräkningsmål, klickar du på **skicka** i det nedre högra hörnet på skärmen.
 
-Om du vill använda en fjärransluten beräkningsmål vid utbildning, måste du skapa en konfigurationsfil för körning. Den här filen talar om för Azure Machine Learning inte bara om du vill köra experimentet men även hur du förbereder miljön.
+Här är ett exempel för att skapa en Azure Machine Learning Compute (AMLCompute): [![Skapa AML-beräkning i VS Code](./media/vscode-tools-for-ai/CreateARemoteCompute.gif)](./media/vscode-tools-for-ai/CreateARemoteCompute.gif#lightbox)
 
 #### <a name="the-run-configuration-file"></a>Filen ”kör configuration”
 
-VS Code-tillägg kommer automatiskt att skapa en körningskonfiguration för din **lokala** och **docker** miljöer på din lokala dator.
+VS Code-tillägg automatiskt skapar en lokal beräkningsmål och kör konfigurationer för dina **lokala** och **docker** miljöer på din lokala dator. Kör configuration-filer kan hittas under den associerade beräkningsmål. 
 
-Det här är ett kodfragment från standardvärdet kör konfigurationsfilen.
-
-Om du vill installera alla bibliotek/beroenden själv anger `userManagedDependencies: True` och sedan lokala experimentkörningar använder din standardmiljö för Python enligt VS Code Python-tillägg.
+Det här är ett kodfragment från lokala kör standardkonfigurationsfilen. Som standard `userManagedDependencies: True` så måste du installera alla bibliotek/beroenden själv och sedan lokala experimentkörningar kommer att använda din standardmiljö Python som anges av VS Code Python-tillägg.
 
 ```yaml
-# user_managed_dependencies=True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
-    userManagedDependencies: False
+# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+    userManagedDependencies: True
 # The python interpreter path
     interpreterPath: python
 # Path to the conda dependencies file to use for this run. If a project
@@ -83,6 +81,30 @@ Om du vill installera alla bibliotek/beroenden själv anger `userManagedDependen
 # Set True to perform this run inside a Docker container.
     enabled: false
 ```
+
+## <a name="train-and-tune-models"></a>Träna och finjustera modeller
+
+Använda Azure Machine Learning för VS Code (förhandsversion) för att snabbt iterera din kod, gå igenom och felsöka och använda källa kod kontroll lösning för jobbschemaläggning. 
+
+**Att köra experimentet lokalt med Azure Machine Learning:**
+
+1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
+
+1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. 
+
+1. Under noden arbetsytan Expandera den **Compute** noden och högerklicka på den **Kör Config** av beräkning du vill använda. 
+
+1. Välj **kör Experiment**.
+
+1. Välj skriptet som ska köras från Utforskaren. 
+
+1. Klicka på **visa Experiment kör** att se den integrera Azure Machine Learning-portalen för att övervaka dina körningar och se dina tränade modeller.
+
+Här är ett exempel för att köra ett experiment lokalt: [![Kör ett experiment lokalt](./media/vscode-tools-for-ai/RunExperimentLocally.gif)](./media/vscode-tools-for-ai/RunExperimentLocally.gif#lightbox)
+
+### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Använd remote beräkningarna för experiment i VS Code
+
+Om du vill använda en fjärransluten beräkningsmål vid utbildning, måste du skapa en konfigurationsfil för körning. Den här filen talar om för Azure Machine Learning inte bara om du vill köra experimentet men även hur du förbereder miljön.
 
 #### <a name="the-conda-dependencies-file"></a>Filen conda-beroenden
 
@@ -101,6 +123,7 @@ dependencies:
   # Currently Azure ML only supports 3.5.2 and later.
 
 - python=3.6.2
+- tensorflow
 
 - pip:
     # Required packages for AzureML execution, history, and data preparation.
@@ -111,21 +134,24 @@ dependencies:
 
 ```
 
-## <a name="train-and-tune-models"></a>Träna och finjustera modeller
+**Om du vill köra ditt experiment med Azure Machine Learning på en fjärransluten beräkningsmålet:**
 
-Använda Azure Machine Learning för VS Code (förhandsversion) för att snabbt iterera din kod, gå igenom och felsöka och använda källa kod kontroll lösning för jobbschemaläggning. 
-
-**Köra ditt experiment med Azure Machine Learning:**
-
-1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure: Machine Learning sidopanelen visas.
+1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
 1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. 
 
-1. Under noden arbetsytan Expandera den **Compute** nod och högerklicka på den **Kör Config** av beräkning du vill använda. 
+1. Högerklicka på python-skriptet i fönstret redigeraren och välja **AML: Kör som-Experiment i Azure**. 
 
-1. Välj **kör Experiment**.
+1. Välj målobjektet för beräkning i Kommandopaletten. 
+
+1. I Kommandopaletten, anger du körningskonfiguration namn i fältet. 
+
+1. Redigera filen conda_dependencies.yml för att ange den experiment körningsberoenden och klicka sedan på **skicka** i det nedre högra hörnet på skärmen. 
 
 1. Klicka på **visa Experiment kör** att se den integrera Azure Machine Learning-portalen för att övervaka dina körningar och se dina tränade modeller.
+
+Här är ett exempel för att köra ett experiment på en fjärransluten beräkningsmål: [![Kör ett experiment på en fjärransluten mål](./media/vscode-tools-for-ai/runningOnARemoteTarget.gif)](./media/vscode-tools-for-ai/runningOnARemoteTarget.gif#lightbox)
+
 
 ## <a name="deploy-and-manage-models"></a>Distribuera och hantera modeller
 Azure Machine Learning gör det möjligt att distribuera och hantera dina machine learning-modeller i molnet och på gränsen. 
@@ -137,18 +163,21 @@ Registrerade modeller kan spåras och distribueras.
 
 **Registrera din modell:**
 
-1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure: Machine Learning sidopanelen visas.
+1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
 1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn.
 
 1. Under noden arbetsyta högerklickar du på **modeller** och välj **registrera modellen**.
 
+1. I Kommandopaletten, anger du ett namn i fältet. 
+
 1. I listan, väljer om du vill ladda upp en **modellfilen** (för enskild modeller) en **modellen mappen** (för modeller med flera filer, till exempel Tensorflow). 
 
 1. Välj din mapp eller fil.
 
-1. När du är klar konfigurerar din modellegenskaper, klickar du på **skicka** längst ned till höger. 
+1. När du är klar konfigurerar din modellegenskaper, klickar du på **skicka** i det nedre högra hörnet på skärmen. 
 
+Här är ett exempel för att registrera din modell till AML: [![Registrera en AML-modell](./media/vscode-tools-for-ai/RegisteringAModel.gif)](./media/vscode-tools-for-ai/RegisteringAModel.gif#lightbox)
 
 
 ### <a name="deploy-your-service-from-vs-code"></a>Distribuera tjänsten från VS Code
@@ -163,7 +192,7 @@ Läs mer om [distribution med Azure Machine Learning](how-to-deploy-and-where.md
 
 **För att distribuera en webbtjänst:**
 
-1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure: Machine Learning sidopanelen visas.
+1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
 1. Expandera din Azure-prenumeration och din arbetsyta för Azure Machine Learning-tjänsten i trädvyn.
 
@@ -173,15 +202,17 @@ Läs mer om [distribution med Azure Machine Learning](how-to-deploy-and-where.md
 
 1. I Kommandopaletten, välja beräkningsmål som ska distribueras i listan. 
 
-1. I fältet, anger du ett namn för den här tjänsten. 
+1. I Kommandopaletten, anger du ett namn för den här tjänsten i fältet.  
 
 1. Tryck på RETUR-tangenten på tangentbordet för att bläddra och välja skriptfilen i Kommandopaletten.
 
 1. Tryck på RETUR-tangenten på tangentbordet för att bläddra och välj filen conda-beroenden i Kommandopaletten.
 
-1. När du är klar konfigurerar din egenskaper, klickar du på **skicka** längst ned till höger. Du kan ange en lokal Docker-fil eller en schema.json-fil som du kanske vill använda i den här tjänsten egenskaper för filen.
+1. När du är klar konfigurerar din egenskaper, klickar du på **skicka** i det nedre högra hörnet på skärmen för att distribuera. Du kan ange en lokal Docker-fil eller en schema.json-fil som du kanske vill använda i den här tjänsten egenskaper för filen.
 
 Webbtjänsten har nu distribuerats.
+
+Här är ett exempel för att distribuera en webbtjänst: [![Distribuera en webbtjänst](./media/vscode-tools-for-ai/CreatingAnImage.gif)](./media/vscode-tools-for-ai/CreatingAnImage.gif#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

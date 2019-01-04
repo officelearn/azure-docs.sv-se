@@ -9,17 +9,16 @@ ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667446"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020344"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +40,7 @@ En aktivitet kan ha noll eller flera **datauppsättningar**, och framställer en
 
 Innan du skapar en datauppsättning, skapar du en **länkad tjänst** att länka ditt datalager till datafabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Datauppsättningar identifierar data i länkade datalager, till exempel SQL-tabeller, filer, mappar och dokument. Till exempel länkad en Azure Storage-tjänsten länkar ett storage-konto till datafabriken. En Azure Blob-datauppsättning representerar blobbehållaren och mappen som innehåller indatablobbar som ska bearbetas. 
 
-Här är ett exempelscenario. Om du vill kopiera data från Blob storage till en SQL-databas, skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två datauppsättningar: Azure Blob-datauppsättning (som refererar till den länkade Azure Storage-tjänsten) och Azure SQL-tabelldatauppsättning (som refererar till länkad Azure SQL Database-tjänsten). Innehåller anslutningssträngar som Datafabriken använder vid körning för att ansluta till ditt Azure Storage och Azure SQL Database, respektive Azure Storage och länkad Azure SQL Database-tjänster. Azure Blob-datauppsättning anger blobbehållaren och blobbmapp som innehåller indatablobbar i Blob storage. Azure SQL-tabelldatauppsättning ange den SQL-tabellen i SQL-databasen som data ska kopieras.
+Här är ett exempelscenario. Om du vill kopiera data från Blob storage till en SQL-databas, skapar du två länkade tjänster: Azure Storage och Azure SQL-databas. Skapa sedan två datauppsättningar: Azure Blob-datauppsättning (som refererar till den länkade Azure Storage-tjänsten) och Azure SQL-tabelldatauppsättning (som refererar till länkad Azure SQL Database-tjänsten). Innehåller anslutningssträngar som Datafabriken använder vid körning för att ansluta till ditt Azure Storage och Azure SQL Database, respektive Azure Storage och länkad Azure SQL Database-tjänster. Azure Blob-datauppsättning anger blobbehållaren och blobbmapp som innehåller indatablobbar i Blob storage. Azure SQL-tabelldatauppsättning ange den SQL-tabellen i SQL-databasen som data ska kopieras.
 
 Följande diagram visar relationerna mellan pipeline, aktivitet, datauppsättning och den länkade tjänsten i Data Factory: 
 
@@ -198,7 +197,7 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen.  |Nej |
 | kultur |. NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
-| format |Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
+| Format |Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnittet.
 
@@ -207,7 +206,7 @@ Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinfo
     Så anger du följande information är redan tillgänglig för strukturerade datakällor måste ta du inte anger du följande information när du inkluderar avsnittet struktur.
 * **För schema vid läsning datakällor (särskilt Blob storage)**, kan du lagra data utan att behöva lagra någon schema eller typ information med data. Inkludera struktur för dessa typer av datakällor när du vill mappa källkolumner för att kolumner för mottagare. Inkludera även struktur när datauppsättningen utgör indata för en Kopieringsaktivitet och datatyperna för datauppsättningen för källan ska konverteras till inbyggda typer för mottagaren. 
     
-    Data Factory stöder följande värden för att tillhandahålla anger du följande information i strukturen: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan**. Dessa värden är Common Language Specification (CLS)-kompatibla. Av NET-baserade typvärden.
+    Data Factory stöder följande värden för att tillhandahålla anger du följande information i struktur: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan**. Dessa värden är Common Language Specification (CLS)-kompatibla. Av NET-baserade typvärden.
 
 Data Factory utför typkonverteringar automatiskt när du flyttar data från källans datalager till mottagarens datalager. 
   
@@ -238,7 +237,7 @@ I följande tabell beskrivs egenskaperna som du kan använda i avsnittet tillgä
 
 | Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för datauppsättningen sektorn produktion.<br/><br/><b>Stöds frekvens</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
+| frequency |Anger tidsenheten för datauppsättningen sektorn produktion.<br/><br/><b>Stöds frekvens</b>: Minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvensen.<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas. Till exempel om du behöver datauppsättningen att delas timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvens** som **minut**, bör du ange intervallet till mindre än 15. |Ja |Ej tillämpligt |
 | stil |Anger om sektorn ska produceras i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvens** är inställd på **månad**, och **style** är inställd på **EndOfInterval**, sektorn skapas på den sista dagen i månaden. Om **style** är inställd på **StartOfInterval**, sektorn skapas på den första dagen i månaden.<br/><br/>Om **frekvens** är inställd på **dag**, och **style** är inställd på **EndOfInterval**, sektorn skapas under den senaste timmen på dagen.<br/><br/>Om **frekvens** är inställd på **timme**, och **style** är inställd på **EndOfInterval**, sektorn skapas i slutet av timmen. För en sektor under 1 PM - 14: 00, till exempel produceras sektorn klockan 2. |Nej |EndOfInterval |
 | anchorDateTime |Definierar absolut position i tid som används av scheduler för att beräkna datauppsättning sektorn gränser. <br/><br/>Observera att de mer detaljerade delarna ignoreras om den här propoerty har datumdelar som är större än den angivna frekvensen. Till exempel om den **intervall** är **per timme** (frequency: hour och interval: 1), och **anchorDateTime** innehåller **minuter och sekunder**, och sedan minuter och sekunder delar av **anchorDateTime** ignoreras. |Nej |01/01/0001 |

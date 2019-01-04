@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fc30dc928afbee0de2cd0d11a147c08b9f47cef1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720447"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024628"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -94,7 +94,7 @@ När du konfigurerar Profiler görs uppdateringar till webbappens inställningar
 
 För närvarande kan du aktivera Profiler på upp till fyra Azure web apps och distributionsplatser som körs i samma service-abonnemang. Om du har fler web apps än som körs i en app service-plan kan du se en Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException som utlöses av profiler. Profiler körs separat för varje webbapp och försöker starta en ETW-session för varje app. Men det finns ett begränsat antal ETW-sessioner som kan vara aktiv i taget. Om Profiler webbjobb rapporterar för många aktiva profilering sessioner, flytta webbappar till en annan service-planen.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Distributionsfel: katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Distributionsfel: Katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens
 
 Om du omdistribuerar din webbapp till en resurs för Web Apps med Profiler som är aktiverad, visas följande meddelande:
 
@@ -128,12 +128,12 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Kontrollera att nyckeln på kommandoraden profiler är korrekt. 
 
-Det tredje med hjälp av sökvägen i filen config.json, kontrollera loggfilen profiler. Den visas som anger inställningar med hjälp av profiler och status och felmeddelanden från profiler felsökningsinformation. Om profiler körs medan programmet tar emot begäranden, visas det här meddelandet: aktivitet upptäckts från iKey. När spårningen laddas, visas det här meddelandet: starta överföring av spårningen. 
+Det tredje med hjälp av sökvägen i filen config.json, kontrollera loggfilen profiler. Den visas som anger inställningar med hjälp av profiler och status och felmeddelanden från profiler felsökningsinformation. Om profiler körs medan programmet tar emot begäranden, visas det här meddelandet: Aktivitet identifierad från iKey. När spårningen laddas, visas det här meddelandet: Starta överföring av spårningen. 
 
 
-[profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png
-[profiler-webbjobb]:./media/app-insights-profiler/Profiler-webjob.png
-[profiler-webjob-log]:./media/app-insights-profiler/Profiler-webjob-log.png
+[profiler-search-telemetry]:./media/app-insights-profiler-troubleshooting/Profiler-Search-Telemetry.png
+[profiler-webbjobb]:./media/app-insights-profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/app-insights-profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

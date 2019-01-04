@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970653"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015720"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,8 +42,8 @@ Om du är intresserad av efterlevnad i Azure och hur Azure skyddar sin egen infr
 
 I den här artikeln ska granska vi säkerhetsaspekter i följande två data movement scenarier: 
 
-- **Scenariot med molnet**: I det här scenariot både din käll- och mål som är tillgängliga för allmänheten via internet. Dessa inkluderar hanterade molnlagringstjänster, till exempel Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webbprotokoll som FTP- och OData. En fullständig lista över datakällor som stöds i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Scenario med hybridanvändning**: I det här scenariot kan antingen källan eller målet är bakom en brandvägg eller i ett lokalt företagsnätverk. Eller så datalagret är i ett privat nätverk eller virtuella nätverk (oftast källan) och inte är allmänt tillgänglig. Database-servrar som körs på virtuella datorer omfattas också det här scenariot.
+- **Scenariot med molnet**: I det här scenariot är både källan och målet tillgängliga för allmänheten via internet. Dessa inkluderar hanterade molnlagringstjänster, till exempel Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webbprotokoll som FTP- och OData. En fullständig lista över datakällor som stöds i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scenario med hybridanvändning**: I det här scenariot är antingen källan eller målet bakom en brandvägg eller i ett lokalt företagsnätverk. Eller så datalagret är i ett privat nätverk eller virtuella nätverk (oftast källan) och inte är allmänt tillgänglig. Database-servrar som körs på virtuella datorer omfattas också det här scenariot.
 
 ## <a name="cloud-scenarios"></a>Scenarier för molnet
 

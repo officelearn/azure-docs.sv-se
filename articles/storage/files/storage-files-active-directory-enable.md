@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: 03344cf989e1381f97b108e82b8d63e9c4653404
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: fd635682d1b5dc7c3ab784208ac485872d5c7099
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809819"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999007"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -61,9 +61,6 @@ Innan du aktiverar Azure AD via SMB för Azure Files, kontrollera att du har slu
 4.  **Välj eller skapa en Azure-filresurs.**
 
     Välj en ny eller befintlig filresurs som är associerat med samma prenumeration som Azure AD-klienten. Information om hur du skapar en ny filresurs finns i [skapa en filresurs i Azure Files](storage-how-to-create-file-share.md). 
-
-    Azure AD-klient måste distribueras till en region som stöds för förhandsversionen av Azure AD via SMB. Förhandsgranskningen är tillgänglig i alla offentliga regioner undantag för: Västra USA, västra USA 2, södra centrala USA, östra USA, östra USA 2, centrala USA, norra centrala USA, Östra Australien, Västeuropa, Nordeuropa.
-
     För optimala prestanda rekommenderar Microsoft att filresursen är i samma region som den virtuella datorn från vilken du planerar att få åtkomst till resursen.
 
 5.  **Kontrollera Azure Files-anslutningen genom att montera Azure-filresurser med din lagringskontonyckel.**

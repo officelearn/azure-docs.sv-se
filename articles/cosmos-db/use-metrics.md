@@ -7,12 +7,12 @@ author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957597"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999449"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
@@ -38,7 +38,7 @@ En ojämn dataflöde fördelning kan orsaka *frekvent* partitioner, vilket kan l
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Fastställa storage distribution över partitioner
 
-Att ha en bra Kardinaliteten för partitionen är viktigt för alla skalbara program. För att fastställa dataflöde distributionen av alla partitionerad behållare uppdelat efter partitioner, gå till bladet mått i den [Azure-portalen](https://portal.azure.com). På fliken dataflöde visas analys på detaljnivå för lagring i Max konsumerade RU/sekund efter varje fysisk partition-diagram. Följande bild illustrerar en dålig fördelning av data som visas av skeva partitioner längst till vänster.
+Att ha en bra Kardinaliteten för partitionen är viktigt för alla skalbara program. För att fastställa storage distributionen av alla partitionerad behållare uppdelat efter partitioner, gå till bladet mått i den [Azure-portalen](https://portal.azure.com). På fliken lagring, analys på detaljnivå för lagring visas i Data + Index lagringsutrymmet som förbrukas av övre partition nycklar diagram. Följande bild illustrerar en dålig fördelning av lagring av data som visas av skeva partitioner längst till vänster.
 
 ![Exempel på dålig Datadistribution](media/use-metrics/metrics-07.png)
 

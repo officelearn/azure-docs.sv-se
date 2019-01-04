@@ -1,22 +1,23 @@
 ---
-title: Översikt över säkerhetsgrupper i Azure | Microsoft Docs
+title: Översikt över grupper i Azure-säkerhet
+titlesuffix: Azure Virtual Network
 description: Lär dig om säkerhetsgrupper för nätverk och program. Med säkerhetsgrupper kan du filtrera nätverkstrafik mellan Azure-resurser.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: ad5205bcf063cd3375e68ef609c71ced2f551b61
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: b6b3111928baf7fa52a5d87d818e15302b96e790
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311770"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025903"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -29,7 +30,7 @@ Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan a
 
 En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
-|Egenskap  |Förklaring  |
+|Egenskap   |Förklaring  |
 |---------|---------|
 |Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|

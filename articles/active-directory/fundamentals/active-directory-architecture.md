@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013306"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Vad är Azure Active Directory-arkitekturen?
 Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](active-directory-whatis.md)
@@ -34,7 +34,7 @@ Följande arkitekturelement beskrivs i den här artikeln:
  *  Datacenter
 
 ### <a name="service-architecture-design"></a>Tjänstarkitekturens design
-Det vanligaste sättet att skapa en tillgänglig och kan användas, dataintensivt system är genom oberoende byggblock eller skalningsenheter för Azure AD-datanivån, skalningsenheterna kallas *partitioner*. 
+Det vanligaste sättet att skapa en tillgänglig och kan användas, dataintensivt system är genom oberoende byggblock eller skalningsenheter. För Azure AD-datanivån, skalningsenheterna kallas *partitioner*. 
 
 Datanivån har flera frontend-tjänster som tillhandahåller läs-och skrivfunktioner. Diagrammet nedan visar hur komponenterna i en enda-katalogpartition levereras i geografiskt utspridda datacenter. 
 
@@ -66,7 +66,7 @@ Azure Active Directorys partitionsdesign är förenklad jämfört med AD-företa
 
 **Feltolerans**
 
-Ett system är mer tillgängligt om det är tolerant för maskinvaru-, nätverks- och programvarurelaterade fel. För varje partition i katalogen finns det en huvudreplik med hög tillgänglighet: den primära repliken. Endast skrivningar till partitionen utförs på den här repliken. Repliken övervakas kontinuerligt och noggrant, och skrivningar kan omedelbart växlas till en annan replik (som blir den nya primära repliken) om det uppstår ett fel. Under en redundansväxling kan det uppstå ett avbrott i skrivtillgängligheten på 1 till 2 minuter. Lästillgängligheten påverkas inte under den här tiden.
+Ett system är mer tillgängligt om det är tolerant för maskinvaru-, nätverks- och programvarurelaterade fel. För varje partition i katalogen huvudreplik en högtillgänglig: Den primära repliken. Endast skrivningar till partitionen utförs på den här repliken. Repliken övervakas kontinuerligt och noggrant, och skrivningar kan omedelbart växlas till en annan replik (som blir den nya primära repliken) om det uppstår ett fel. Under en redundansväxling kan det uppstå ett avbrott i skrivtillgängligheten på 1 till 2 minuter. Lästillgängligheten påverkas inte under den här tiden.
 
 Läsåtgärder (som är avsevärt många fler än skrivåtgärderna) skickas endast till sekundära repliker. Eftersom sekundära repliker är idempotenta kompenseras förlusten av en replik i en viss partition enkelt genom att läsningarna dirigeras till en annan replik, vanligtvis i samma datacenter.
 

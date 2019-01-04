@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38581274"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019137"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datamängder och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,11 +31,11 @@ Om du är nybörjare till Data Factory finns i [introduktion till Azure Data Fac
 ## <a name="overview"></a>Översikt
 En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en Kopieringsaktivitet som kopierar data från en lokal SQL Server till Azure Blob storage. Du kan sedan använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster att bearbeta data från Blob storage för att producera utdata. Slutligen kan du använda en andra Kopieringsaktivitet för att kopiera utdata till Azure SQL Data Warehouse ovanpå som business intelligence (BI) reporting-lösningarna. Läs mer om pipelines och aktiviteter, [Pipelines och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
 
-Nu kan en **datauppsättning** är en namngiven vy över data som helt enkelt pekar eller refererar till de data som du vill använda i din **aktiviteter** som indata eller utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobbehållaren och mappen i Blob Storage som aktiviteten ska läsa data från.
+Nu kan en **datauppsättning** är en namngiven vy över data som helt enkelt pekar eller refererar till de data som du vill använda i din **aktiviteter** som indata eller utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobcontainern och mappen i Blob Storage som aktiviteten ska läsa data från.
 
 Innan du skapar en datauppsättning, måste du skapa en **länkad tjänst** att länka ditt datalager till datafabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Se det här sättet. datamängden representerar strukturen för data i länkade datalager och den länkade tjänsten definierar anslutningen till datakällan. Till exempel länkad en Azure Storage-tjänsten länkar ett storage-konto till datafabriken. En Azure Blob-datauppsättning representerar blobbehållaren och mappen i den Azure storage-konto som innehåller indatablobbar som ska bearbetas.
 
-Här är ett exempelscenario. Om du vill kopiera data från Blob storage till en SQL-databas, skapar du två länkade tjänster: Azure Storage och Azure SQL Database. Skapa sedan två datauppsättningar: Azure Blob-datauppsättning (som refererar till den länkade Azure Storage-tjänsten) och Azure SQL-tabelldatauppsättning (som refererar till länkad Azure SQL Database-tjänsten). Innehåller anslutningssträngar som Datafabriken använder vid körning för att ansluta till ditt Azure Storage och Azure SQL Database, respektive Azure Storage och länkad Azure SQL Database-tjänster. Azure Blob-datauppsättning anger blobbehållaren och blobbmapp som innehåller indatablobbar i Blob storage. Azure SQL-tabelldatauppsättning ange den SQL-tabellen i SQL-databasen som data ska kopieras.
+Här är ett exempelscenario. Om du vill kopiera data från Blob storage till en SQL-databas, skapar du två länkade tjänster: Azure Storage och Azure SQL-databas. Skapa sedan två datauppsättningar: Azure Blob-datauppsättning (som refererar till den länkade Azure Storage-tjänsten) och Azure SQL-tabelldatauppsättning (som refererar till länkad Azure SQL Database-tjänsten). Innehåller anslutningssträngar som Datafabriken använder vid körning för att ansluta till ditt Azure Storage och Azure SQL Database, respektive Azure Storage och länkad Azure SQL Database-tjänster. Azure Blob-datauppsättning anger blobbehållaren och blobbmapp som innehåller indatablobbar i Blob storage. Azure SQL-tabelldatauppsättning ange den SQL-tabellen i SQL-databasen som data ska kopieras.
 
 Följande diagram visar relationerna mellan pipeline, aktivitet, datauppsättning och den länkade tjänsten i Data Factory:
 
@@ -66,7 +65,7 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 Egenskap  | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 namn | Namnet på den länkade tjänsten. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
-typ | Typ av den länkade tjänsten. Till exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
+typ | Typ av den länkade tjänsten. Exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
 typeProperties | Typegenskaperna är olika för varje datalager eller databeräkningar. <br/><br/> Lagra typer och deras egenskaper för data som stöds, se den [datauppsättningstypen](#dataset-type) tabellen i den här artikeln. Gå till data store connector artikeln för att lära dig om typegenskaperna som är specifika för ett datalager. <br/><br/> Stöds beräkningstyper och deras egenskaper finns i [länkade tjänster för Compute](compute-linked-services.md). | Ja |
 connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Nej
 
@@ -191,7 +190,7 @@ Egenskap  | Beskrivning | Krävs
 namn | Namnet på kolumnen. | Ja
 typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan** | Nej
 kultur | . NET-baserade språkmiljö som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-format | Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej
+Format | Formatera strängen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej
 
 ### <a name="example"></a>Exempel
 Anta att källan Blob-data i CSV-format och innehåller tre kolumner i följande exempel: användar-ID, namn och lastlogindate. De är av typen Int64, sträng- och Datetime med en anpassad datetime-format med hjälp av förkortade franska namnen för dag i veckan.

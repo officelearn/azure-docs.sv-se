@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 39c4a6108f4a5133e2c77904dcd67bf235801956
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0d6a370884e6648aaf131892759ee45b29ed3693
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265142"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001659"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Onlinesäkerhetskopiering och på begäran data Återställ i Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Med Azure Cosmos DB är inte bara dina data, utan även säkerhetskopior av dina
 Säkerhetskopieringar kommer utan att påverka prestanda eller tillgänglighet för ditt program. Azure Cosmos DB utför säkerhetskopiering av data i bakgrunden utan att förbruka alla ytterligare etablerat dataflöde (ru) eller påverka prestanda och tillgänglighet för din databas.
 
 Azure Cosmos DB lagrar automatiska säkerhetskopieringar i Azure Blob Storage, medan de faktiska data som finns lokalt i Azure Cosmos DB. För att garantera låg latens, ögonblicksbilden av säkerhetskopian lagras i Azure Blob storage i samma region som den aktuella skrivregionen (eller en av Skriv-regioner, om du har en konfiguration med flera huvudservrar) i din Cosmos DB-databaskonto. Skydd mot regionalt haveri replikeras igen varje ögonblicksbild av data i Azure Blob storage till en annan region genom geo-redundant lagring (GRS). Den region som säkerhetskopieringen replikeras baseras på din region för källa och regionala par som är associerade med källregionen. Mer information finns i den [lista med geo-redundant par med Azure-regioner](../best-practices-availability-paired-regions.md) artikeln. Du kan inte komma åt den här säkerhetskopieringen direkt. Azure Cosmos DB använder den här säkerhetskopian endast om en säkerhetskopiering återställning initieras.
-Följande bild visar hur en Azure Cosmos-behållare med alla tre primära resurspartitioner i västra USA säkerhetskopieras i en fjärransluten Azure Blob Storage-konto i västra USA och sedan replikeras till östra USA:
+Följande bild visar hur en Azure Cosmos-behållare med alla tre primära fysiska partitioner i västra USA säkerhetskopieras i en fjärransluten Azure Blob Storage-konto i västra USA och sedan replikeras till östra USA:
 
 ![Regelbundna fullständiga säkerhetskopieringar för alla Cosmos DB-entiteter i GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 

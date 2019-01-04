@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins som offentlig förhandsversion tjänstbegränsningar | Microsoft Docs
-description: Förstå Azure Digital Twins offentliga förhandsversion tjänstbegränsningar
+description: Förstå Azure Digital Twins offentliga förhandsversion tjänstbegränsningar.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d9686b9bcc6cb89fabf4fdaa79bf5b8c6c45ddc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961763"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020633"
 ---
 # <a name="public-preview-service-limits"></a>Tjänstbegränsningar för allmän förhandsversion
 
@@ -35,21 +35,25 @@ Den offentliga förhandsversionen, kan varje Azure-prenumeration skapa eller kö
 
 I sin tur kan varje Azure Digital Twins-instans ha:
 
-- En **IoTHub** resurs.
-- En **EventHub** slutpunkt för händelsetypen **DeviceMessage**.
+- Exakt en **IoTHub** resurs.
+- Exakt en **EventHub** slutpunkt för händelsetypen **DeviceMessage**.
 - Upp till tre **EventHub**, **ServiceBus**, eller **EventGrid** slutpunkter på händelsetypen **SensorChange**, **SpaceChange** , **TopologyOperation**, eller **UdfCustom**.
 
-## <a name="management-api-limits"></a>Hanterings-API-gränser
+> [!NOTE]
+> Vissa parametrar som definieras vanligtvis skapa ovan Azure IoT-enheter krävs inte allmänt tillgängliga förhandsversionen.
+> - Läs den [Swagger-referensdokumentation](./how-to-use-swagger.md) för de senaste API-specifikationerna.
 
-Hastighetsbegränsningar för begäran för API Management är:
+## <a name="azure-digital-twins-management-api-limits"></a>Azure Digital Twins Management API-gränser
 
-- 100 förfrågningar i sekunden Management-API: et.
-- Upp till 1 000 objekt som returneras av en fråga som API: et. 
+Begäran hastighetsbegränsningar för ditt Azure-API för hantering av digitala Twins är:
+
+- 100 begäranden per sekund till Azure-API för hantering av digitala Twins.
+- Upp till 1 000 objekt som returneras av en enda Azure Digital Twins Management-API-fråga.
 
 > [!IMPORTANT]
 > Om du överskrider gränsen på 1 000 objekt, du får ett fel och måste förenkla frågan.
 
-## <a name="udf-rate-limits"></a>UDF hastighetsbegränsningar
+## <a name="user-defined-functions-rate-limits"></a>Användardefinierade funktioner hastighetsbegränsningar
 
 Det totala antalet alla användardefinierad funktion-anrop som görs till din Azure Digital Twins-instans anger du följande begränsningar:
 
@@ -59,7 +63,7 @@ Det totala antalet alla användardefinierad funktion-anrop som görs till din Az
 > [!NOTE]
 > Följande åtgärder kan orsaka ytterligare hastighetsbegränsningar för att tillfälligt tillämpas:
 > - Ändringar av metadata för objekt av topologi
-> - Uppdateringar som görs UDF-definitionen
+> - Uppdateringar som görs till den användardefinierade funktionen-definitionen
 > - Enheter som skickar telemetri för första gången
 
 ## <a name="device-telemetry-limits"></a>Enhetsgränser telemetri

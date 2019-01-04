@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309186"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016162"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
-**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen? Eller varför enhetens ägare markeras som ej tillämpligt för hybrid Azure AD-anslutna enheter?**
+**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen? Eller varför enhetens ägare markeras som ej tillämpligt för hybrid Azure AD-anslutna enheter? ** 
  **S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
 Du måste använda vy över alla enheter i Azure portal. Du kan också använda PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
@@ -107,14 +107,14 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 ---
 
-**F: Kan Mina användare logga in på Azure AD-anslutna enheter som har tagits bort eller inaktiveras i Azure AD?**
+**F: Kan Mina användare logga in på Azure AD-anslutna enheter som har tagits bort eller inaktiveras i Azure AD? ** 
  **S:** Ja. Windows har cachelagrat inloggningsmöjlighet så att tidigare inloggade användare åtkomst till skrivbordet snabbt även utan nätverksanslutning. När en enhet tas bort eller inaktiveras i Azure AD, är det inte känt för Windows-enheten. Därför loggade in användare kan fortsätta att arbeta direkt med cachelagrade inloggning. Men eftersom enheten tas bort eller inaktiveras, användare kan inte komma åt några resurser som skyddas av enhetsbaserad villkorlig åtkomst. 
 
 Användare som inte redan har loggat in kan inte komma åt enheten eftersom det finns inga cachelagrade inloggning är aktiverat för dessa. 
 
 ---
 
-**F: Inaktiverade eller borttagna användare loggar in till Azure AD-anslutna enheter?**
+**F: Inaktiverade eller borttagna användare loggar in till Azure AD-anslutna enheter? ** 
  **S:** Ja, men endast under en begränsad tid. När en användare tas bort eller inaktiveras i Azure AD, är det inte omedelbart känt på Windows-enheten. Därför loggade in användare kan komma åt skrivbordet med cachelagrade inloggning. När enheten är medveten om användarens tillstånd (vanligtvis i mindre än 4 timmar), blockerar Windows dessa användare från att komma åt skrivbordet. När användaren tas bort eller inaktiveras i Azure AD, kommer alla sina tokens att återkallas, så att de inte kan komma åt några resurser. 
 
 Har tagits bort eller är inaktiverad användare som inte har loggat in tidigare inte åtkomst till en enhet eftersom det finns inga cachelagrade inloggning är aktiverat för dessa. 
@@ -127,7 +127,7 @@ Har tagits bort eller är inaktiverad användare som inte har loggat in tidigare
 
 ---
 
-**F: Hur ansluter jag till en fjärransluten Azure AD domänansluten enhet?**
+**F: Hur ansluter jag till en fjärransluten Azure AD domänansluten enhet? ** 
  **S:** Finns i artikeln https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc information.
 
 ---
@@ -180,6 +180,9 @@ Har tagits bort eller är inaktiverad användare som inte har loggat in tidigare
 
 - [Felsöka autoregistrering av domän domänanslutna datorer till Azure AD för Windows-klientversioner](troubleshoot-hybrid-join-windows-legacy.md)
  
+**F: Varför ser jag en duplicerad Azure AD registrerade post för min Windows 10 Azure AD ansluten enhet i enhetslistan för Azure AD?**
+
+**S:** När användarna lägger till sitt konto till appar på en domänansluten enhet, kan de uppmanas att ”Lägg till konto till Windows”?. Klicka på ”Ja” i Kommandotolken skulle leda till att enheten registreras med Azure AD och Förtroendetypen markeras som Azure AD-registrerad. När du har aktiverat Hybrid Azure AD-anslutning i din organisation får också hybrid Azure AD-anslutna enheten. Det kommer därför att två enhetstillstånd visas för samma enhet. Hybrid Azure AD-anslutning har dock företräde framför Azure AD-registrerad tillstånd. Så vara enheten anses hybrid Azure AD-anslutning för autentisering och utvärderingen av villkorlig åtkomst. Därför kan du ta bort posten för Azure AD-registrerad enhet från Azure AD-portalen. Granska [i det här avsnittet](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) i Hybridmolnet Azure AD join artikeln om du vill förstå hur du undviker eller rensa det här dubbel tillståndet på Windows 10-dator. 
 
 ---
 

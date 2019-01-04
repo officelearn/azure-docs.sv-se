@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d306629e552686e180a3927108fca276bcad2aa5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e91f6ecb4ff510b1ba93b56d0bfb0bda0a156cf1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971707"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019834"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.
@@ -46,7 +46,7 @@ Du kan också skriva egna beroendespårning kod med hjälp av den [TrackDependen
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet-paketet.
 
 ### <a name="performance-collector"></a>Insamlare för prestanda
-[Samlar in systemprestandaräknare](../../application-insights/app-insights-performance-counters.md) t.ex. CPU, minne och Läs in från en IIS-installation. Du kan ange vilka räknare som ska samlas in, inklusive prestandaräknare som du har installerat själv.
+[Samlar in systemprestandaräknare](../../azure-monitor/app/performance-counters.md) t.ex. CPU, minne och Läs in från en IIS-installation. Du kan ange vilka räknare som ska samlas in, inklusive prestandaräknare som du har installerat själv.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet-paketet.
@@ -125,7 +125,7 @@ Standard initierarna är allt klart antingen genom webb- eller WindowsServer NuG
 * `OperationNameTelemetryInitializer` uppdateringar i `Name` egenskapen för den `RequestTelemetry` och `Name` egenskapen för den `Operation` kontext för alla objekt som telemetri baserat på HTTP-metoden, samt namnen på ASP.NET MVC-kontrollanten och åtgärden som anropas för att bearbeta begäran.
 * `OperationIdTelemetryInitializer` eller `OperationCorrelationTelemetryInitializer` uppdateringar i `Operation.Id` kontextegenskap för alla objekt som telemetri spåras när en begäran med den automatiskt genererade `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer` uppdateringar i `Id` egenskapen för den `Session` kontext för alla telemetri artiklar med extraheras från den `ai_session` cookie som genererats av ApplicationInsights JavaScript instrumentation koden som körs i användarens webbläsare.
-* `SyntheticTelemetryInitializer` eller `SyntheticUserAgentTelemetryInitializer` uppdateringar i `User`, `Session`, och `Operation` kontexter egenskaper för alla objekt som telemetri spåras vid hantering av en begäran från en syntetisk källa, t.ex. en tillgänglighetsuppsättning testa eller söker motorn bot. Som standard [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) visas inte syntetiska telemetri.
+* `SyntheticTelemetryInitializer` eller `SyntheticUserAgentTelemetryInitializer` uppdateringar i `User`, `Session`, och `Operation` kontexter egenskaper för alla objekt som telemetri spåras vid hantering av en begäran från en syntetisk källa, t.ex. en tillgänglighetsuppsättning testa eller söker motorn bot. Som standard [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) visas inte syntetiska telemetri.
 
     Den `<Filters>` ange identifierar egenskaperna för begäranden.
 * `UserTelemetryInitializer` uppdateringar i `Id` och `AcquisitionDate` egenskaperna för `User` kontext för alla telemetri-objekt med värden som extraheras från den `ai_user` cookie som genererats av Application Insights JavaScript instrumentation koden som körs i användarens webbläsaren.
@@ -154,7 +154,7 @@ Den här funktionen är aktiverad som standard. Om din app skickar stora mängde
 
 Parametern innehåller mål som algoritmen som försöker nå. Varje instans av SDK: N fungerar oberoende av varandra, så om din server är ett kluster med flera datorer, den faktiska mängden telemetri ska multipliceras därefter.
 
-[Läs mer om sampling](../../application-insights/app-insights-sampling.md).
+[Läs mer om sampling](../../azure-monitor/app/sampling.md).
 
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Fast räntesats sampling telemetri processor (från 2.0.0-beta1)
 Det finns också en standard [samlar telemetri processor](../../azure-monitor/app/api-filtering-sampling.md) (från 2.0.1):
@@ -233,7 +233,7 @@ Anger den maximala storleken i MB som tilldelas till beständig lagring på den 
 
 #### <a name="local-forwarder"></a>Lokal vidarebefordrare
 
-[Lokala vidarebefordrare](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och ramverk och den vidare till Application Insights. Det kan köras under Windows och Linux. När de kombineras med Application Insights Java SDK lokala vidarebefordraren ger fullständigt stöd för [Live Metrics](../../application-insights/app-insights-live-stream.md) och Adaptiv sampling.
+[Lokala vidarebefordrare](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och ramverk och den vidare till Application Insights. Det kan köras under Windows och Linux. När de kombineras med Application Insights Java SDK lokala vidarebefordraren ger fullständigt stöd för [Live Metrics](../../azure-monitor/app/live-stream.md) och Adaptiv sampling.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

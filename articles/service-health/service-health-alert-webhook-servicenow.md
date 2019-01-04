@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3f8e0e94cf3b63b3ea409b46cb9eec3d5d97eb6f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271308"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580339"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Konfigurera service health-aviseringar med ServiceNow
 
@@ -202,5 +202,5 @@ Den här artikeln visar hur du integrerar Azure service health-aviseringar med S
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
 - Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Lär dig mer om [service health meddelanden](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Lär dig mer om [service health meddelanden](../azure-monitor/platform/service-notifications.md).
 - Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).

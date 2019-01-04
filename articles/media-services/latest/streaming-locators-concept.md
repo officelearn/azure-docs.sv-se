@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086853"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742753"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
-Om du vill ge klienterna en URL som de kan använda för att spela upp kodade video eller ljud filer, måste du skapa en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) och skapa strömmande URL: er. Mer information finns i [Stream en fil](stream-files-dotnet-quickstart.md).
+Du måste ange dina klienter med en URL som de kan använda för att spela upp kodade video- eller ljudinnehåll filer, måste du skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) och skapa strömmande URL: er. Mer information finns i [Stream en fil](stream-files-dotnet-quickstart.md).
 
 ## <a name="streaminglocator-definition"></a>StreamingLocator definition
 
@@ -29,16 +29,16 @@ I följande tabell visar de StreamingLocator egenskaper och ger definitionerna.
 |Namn|Beskrivning|
 |---|---|
 |id |Fullständigt kvalificerade resurs-ID för resursen.|
-|namn   |Namnet på resursen.|
+|namn|Namnet på resursen.|
 |properties.alternativeMediaId|Alternativa Media-ID för den här positionerare för direktuppspelning.|
-|properties.assetName   |Tillgångsnamn|
-|properties.contentKeys |ContentKeys som används av den här Strömningspositionerare.|
-|Properties.Created |Tiden för skapandet av den Strömningspositionerare.|
+|properties.assetName|Tillgångsnamn|
+|properties.contentKeys|ContentKeys som används av den här Strömningspositionerare.|
+|Properties.Created|Tiden för skapandet av den Strömningspositionerare.|
 |properties.defaultContentKeyPolicyName|Namnet på ContentKeyPolicy som används av den här Strömningspositionerare.|
-|properties.endTime |Sluttid för den Strömningspositionerare.|
+|properties.endTime|Sluttid för den Strömningspositionerare.|
 |properties.startTime|Starttiden för den Strömningspositionerare.|
 |properties.streamingLocatorId|StreamingLocatorId av positionerare för direktuppspelning.|
-|properties.streamingPolicyName |Namnet på principen för direktuppspelning används av den här Strömningspositionerare. Ange namnet på Streaming principen som du skapade eller Använd någon av de fördefinierade principer för direktuppspelning. Den fördefinierade Streaming principer som är tillgängliga är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och ' Predefined_ MultiDrmStreaming'|
+|properties.streamingPolicyName |Namnet på principen för direktuppspelning används av den här Strömningspositionerare. Ange namnet på Streaming principen som du skapade eller Använd någon av de fördefinierade principer för direktuppspelning. Den fördefinierade Streaming principer som är tillgängliga är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och 'Predefined_MultiDrmStreaming'|
 |typ|Typ av resursen.|
 
 Läs den fullständiga definitionen [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators).

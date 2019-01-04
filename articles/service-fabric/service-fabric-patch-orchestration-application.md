@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285058"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754041"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -43,13 +43,13 @@ Patch orchestration appen tillhandahåller följande funktioner:
 
 Appen patch orchestration består av följande delkomponenter:
 
-- **Tjänsten Coordinator**: den här tillståndskänsliga tjänsten ansvarar för att:
+- **Tjänsten Coordinator**: Den här tillståndskänsliga tjänsten ansvarar för att:
     - Samordna jobbet Windows Update på hela klustret.
     - Lagra resultatet av slutförda åtgärder för Windows Update.
-- **Nod-agenttjänsten**: den tillståndslösa tjänsten körs på alla noder i Service Fabric-klustret. Tjänsten är ansvarig för:
+- **Nod-agenttjänsten**: Den tillståndslösa tjänsten körs på alla noder i Service Fabric. Tjänsten är ansvarig för:
     - Startprogram för Node Agent NTService.
     - Monitoring Agent-NTService noden.
-- **Noden agenten NTService**: den här Windows NT-tjänst som körs på en högre nivå behörighet (SYSTEM). Däremot körs Node Agent-tjänsten och Coordinator-tjänsten vid privilegium på lägre nivå (NÄTVERKSTJÄNST). Tjänsten ansvarar för att utföra följande Windows Update-jobb på alla noder i klustret:
+- **Noden agenten NTService**: Den här Windows NT-tjänsten körs på en högre nivå behörighet (SYSTEM). Däremot körs Node Agent-tjänsten och Coordinator-tjänsten vid privilegium på lägre nivå (NÄTVERKSTJÄNST). Tjänsten ansvarar för att utföra följande Windows Update-jobb på alla noder i klustret:
     - Inaktivera automatisk uppdatering för Windows på noden.
     - Hämta och installera Windows Update enligt principen har användaren har angett.
     - Startar om datorn efter installationen av Windows.
@@ -152,16 +152,16 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 |MaxResultsToCache    |Lång                              | Maximalt antal Windows Update-resultat, som ska cachelagras. <br>Standardvärdet är 3000 förutsatt att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som sker på en nod per månad är fem. <br> – Antal resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för Windows Update.)<br> Referera till [vanliga frågor och svar](#frequently-asked-questions) avsnittet om hur du avgör vilket är bäst lämpade princip för klustret.
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: 1024)               |Maximal storlek för patch orchestration app loggar i MB, vilket kan vara kvar lokalt på noderna.
-| WUQuery               | sträng<br>(Standard ”: IsInstalled = 0”)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | sträng<br>(Standard: ”IsInstalled = 0”)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: SANT)                 | Den här flaggan kan uppdateringarna för Windows-operativsystemet installeras.            |
-| WUOperationTimeOutInMinutes | Int <br>(Standard: 90).                   | Anger tidsgränsen för alla Windows Update-åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte har slutförts inom den angivna tidsgränsen, avbryts.       |
-| WURescheduleCount     | Int <br> (Standard: 5).                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemalägger om i Windows.          |
-| WURescheduleTimeInMinutes | Int <br>(Standard: 30). | Intervallet då tjänsten schemalägger om Windows-uppdateringen om felet kvarstår. |
-| WUFrequency           | Kommaseparerad sträng (standard: ”varje vecka, Onsdag 7:00:00”)     | Frekvensen för att installera Windows-uppdatering. Format och möjliga värden är: <br>-: Som mm: ss månads-, DD, till exempel varje månad, 5, 12: 22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel varje dag, 12:22:32.  <br> -Ingen indikerar att Windows Update inte bör göras.  <br><br> Observera att tiderna är i UTC.|
+| WUOperationTimeOutInMinutes | Int <br>(Standard: 90)                   | Anger tidsgränsen för alla Windows Update-åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte har slutförts inom den angivna tidsgränsen, avbryts.       |
+| WURescheduleCount     | Int <br> (Standard: 5)                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemalägger om i Windows.          |
+| WURescheduleTimeInMinutes | Int <br>(Standard: 30) | Intervallet då tjänsten schemalägger om Windows-uppdateringen om felet kvarstår. |
+| WUFrequency           | Kommaseparerad sträng (standard: ”Vecka, Onsdag 7:00:00”)     | Frekvensen för att installera Windows-uppdatering. Format och möjliga värden är: <br>-: Som mm: ss månads-, DD, till exempel varje månad, 5, 12: 22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel varje dag, 12:22:32.  <br> -Ingen indikerar att Windows Update inte bör göras.  <br><br> Observera att tiderna är i UTC.|
 | AcceptWindowsUpdateEula | Boolesk <br>(Standard: SANT) | Genom att ange den här flaggan accepterar programmet slutanvändarens licens för Windows Update för ägare för datorn.              |
 
 > [!TIP]
-> Om du vill att Windows Update sker omedelbart anger `WUFrequency` i förhållande till tidpunkten för distribution av programmet. Anta att du har ett testkluster med fem noder och planerar att distribuera appen cirka 17:00:00 UTC. Om du anta att uppgradera programmet eller distributionen tar 30 minuter på högsta, anger du WUFrequency som ”varje dag, 17:30:00”.
+> Om du vill att Windows Update sker omedelbart anger `WUFrequency` i förhållande till tidpunkten för distribution av programmet. Anta att du har ett testkluster med fem noder och planerar att distribuera appen cirka 17:00:00 UTC. Om du anta att uppgradera programmet eller distributionen tar 30 minuter på högsta, anger du WUFrequency som ”varje dag, 17:30:00”
 
 ## <a name="deploy-the-app"></a>Distribuera appen
 
@@ -327,7 +327,7 @@ F. **Hur lång tid tar det för att korrigera ett helt kluster?**
 A. Den tid som behövs för att korrigera ett helt kluster beror på följande faktorer:
 
 - Tid som krävs att korrigera en nod.
-- Princip för Coordinator-tjänsten. -Standardprincipen `NodeWise`, resulterar i korrigeringar bara en nod i taget, som är långsammare än `UpgradeDomainWise`. Till exempel: om en nod tar ca 1 timme att korrigera kan gå igenom att korrigera uzel 20 (samma typ av noder) kluster med 5 uppgraderingsdomäner, som innehåller 4 noder.
+- Princip för Coordinator-tjänsten. -Standardprincipen `NodeWise`, resulterar i korrigeringar bara en nod i taget, som är långsammare än `UpgradeDomainWise`. Exempel: Om en nod tar ca 1 timme att korrigera kan gå igenom att korrigera uzel 20 (samma typ av noder) kluster med 5 uppgraderingsdomäner, som innehåller 4 noder.
     - Det bör ta ~ 20 timmar att korrigera hela klustret, om principen är `NodeWise`
     - Det bör ta ~ 5 timmar om principen är `UpgradeDomainWise`
 - Klustret Läs in – varje uppdatering åtgärden kräver att flytta arbetsbelastningen kunden till andra tillgängliga noder i klustret. Noden som för tillfället patch stå i [inaktiveras](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) tillstånd under den här tiden. Om klustret körs nära hög belastning, tar Inaktivera processen längre tid. Därför verkar övergripande korrigeringsprocessen vara långsam under under belastning förhållanden.

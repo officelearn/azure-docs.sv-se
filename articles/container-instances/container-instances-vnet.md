@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619851"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993305"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -47,6 +47,7 @@ Den här funktionen är i förhandsversion, gäller följande begränsningar nä
 * Nordeuropa (europanorra)
 * Västeuropa (westeurope)
 * Västra USA (westus)
+* Östra USA (eastus)
 
 **Stöds inte** nätverksresurser:
 
@@ -184,7 +185,7 @@ Till loggutdata ska visa som `wget` kunde ansluta och ladda ned indexfilen från
 Du kan också distribuera en behållargrupp till ett befintligt virtuellt nätverk med hjälp av en YAML-fil. Om du vill distribuera till ett undernät i ett virtuellt nätverk måste ange du flera ytterligare egenskaper i YAML:
 
 * `ipAddress`: IP-adressinställningarna för behållargruppen.
-  * `ports`: Portarna som ska öppnas, om sådana.
+  * `ports`: Portar som bör öppnas, om sådana.
   * `protocol`: Protokollet (TCP eller UDP) för porten som öppnade.
 * `networkProfile`: Anger nätverksinställningar som det virtuella nätverk och undernät för en Azure-resurs.
   * `id`: Den fullständiga resurs-ID för Resource Manager för den `networkProfile`.

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9ec502f63df23bab311a45972e31e6df13fa9281
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843996"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792990"
 ---
 # <a name="about-migration"></a>Om migrering
 
@@ -21,9 +21,9 @@ Läs den här artikeln för en snabb överblick över hur [Azure Site Recovery](
 
 Här är vad du kan migrera med hjälp av Site Recovery:
 
-- **Migrera från lokal till Azure**: migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar till Azure. Efter migreringen körs arbetsbelastningar som körs på lokala datorer på virtuella Azure-datorer. 
-- **Migrate within Azure** (Migrera inom Azure): Migrera virtuella Azure-datorer mellan Azure-regioner. 
-- **Migrate AWS** (Migrera AWS): Migrera AWS Windows-instanser till virtuella Azure IaaS-datorer. 
+- **Migrera från lokal till Azure**: Migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar till Azure. Efter migreringen körs arbetsbelastningar som körs på lokala datorer på virtuella Azure-datorer. 
+- **Migrera inom Azure**: Migrera virtuella Azure-datorer mellan Azure-regioner. 
+- **Migrera AWS**: Migrera AWS Windows-instanser till virtuella Azure IaaS-datorer. 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>Vad menar vi med migrering?

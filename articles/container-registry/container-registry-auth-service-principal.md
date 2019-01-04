@@ -1,18 +1,18 @@
 ---
-title: Azure Container Registry-autentisering med tjänstens huvudnamn
-description: Lär dig hur du ger tillgång till avbildningar i ditt privata behållarregister med hjälp av en Azure Active Directory-tjänstobjekt.
+title: Azure Container Registry-autentisering med ett huvudnamn för tjänsten
+description: Ger åtkomst till avbildningar i ditt privata behållarregister med hjälp av en Azure Active Directory-tjänstobjekt.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854498"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754211"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry-autentisering med tjänstens huvudnamn
 
@@ -20,9 +20,9 @@ Du kan använda ett huvudnamn för tjänsten Azure Active Directory (Azure AD) f
 
 ## <a name="what-is-a-service-principal"></a>Vad är ett huvudnamn för tjänsten?
 
-Azure AD *tjänsthuvudnamn* ger åtkomst till Azure-resurser i din prenumeration. Du kan tänka dig en tjänst huvudnamn som en användaridentitet för en tjänst, där ”tjänst” är alla program, tjänst eller plattform som behöver åtkomst till resurser. Du kan konfigurera ett huvudnamn för tjänsten med åtkomsträttigheter som omfattar endast dessa resurser som du anger. Du kan sedan konfigurera programmet eller tjänsten om du vill använda autentiseringsuppgifter för tjänstens huvudnamn kan komma åt resurserna.
+Azure AD *tjänsthuvudnamn* ger åtkomst till Azure-resurser i din prenumeration. Du kan tänka dig en tjänst huvudnamn som en användaridentitet för en tjänst, där ”tjänst” är alla program, tjänst eller plattform som behöver åtkomst till resurser. Du kan konfigurera ett huvudnamn för tjänsten med åtkomsträttigheter som omfattar endast dessa resurser som du anger. Konfigurera sedan programmet eller tjänsten om du vill använda autentiseringsuppgifter för tjänstens huvudnamn kan komma åt resurserna.
 
-I samband med Azure Container Registry, kan du skapa en Azure AD-tjänstens huvudnamn med pull, push och pull eller ägare behörigheter till ditt privata Docker-register i Azure.
+I samband med Azure Container Registry, kan du skapa en Azure AD-tjänstens huvudnamn med pull, push och pull eller andra behörigheter till ditt privata register i Azure. En fullständig lista finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md).
 
 ## <a name="why-use-a-service-principal"></a>Varför ska jag använda ett huvudnamn för tjänsten?
 

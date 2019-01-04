@@ -1,10 +1,11 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Zscaler ZSCloud | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Zscaler ZSCloud | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: a23d68e0b48a01cf98a5d1cc136a6af46895b0ee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 311cf4ad22f8e7fdcee976e0cb4b26b9dd2a13a5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440651"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794282"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Självstudier: Azure Active Directory-integration med Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Självstudier: Azure Active Directory-integrering med Zscaler ZSCloud
 
 I den här självstudien får du lära dig hur du integrerar Zscaler ZSCloud med Azure Active Directory (AD Azure).
 
 Integrera Zscaler ZSCloud med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Zscaler ZSCloud
-- Du kan aktivera användarna att automatiskt få loggat in på Zscaler ZSCloud (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+- Du kan styra i Azure AD som har åtkomst till Zscaler ZSCloud.
+- Du kan aktivera användarna att automatiskt få loggat in på Zscaler ZSCloud (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,54 +47,50 @@ Om du vill konfigurera Azure AD-integrering med Zscaler ZSCloud, behöver du fö
 Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
 - Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
+
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Zscaler ZSCloud från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Att lägga till Zscaler ZSCloud från galleriet
+
 För att konfigurera integrering av Zscaler ZSCloud i Azure AD, som du behöver lägga till Zscaler ZSCloud från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Zscaler ZSCloud från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Bladet för Enterprise-program][2]
 
-    ![Program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Zscaler ZSCloud**.
+    ![Knappen Nytt program][3]
 
-    ![Skapa en Azure AD-användare för testning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_search.png)
+4. I sökrutan skriver **Zscaler ZSCloud**väljer **Zscaler ZSCloud** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **Zscaler ZSCloud**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Zscaler ZSCloud i resultatlistan](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Zscaler ZSCloud baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Zscaler ZSCloud utifrån en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Zscaler ZSCloud är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Zscaler ZSCloud upprättas.
-
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Zscaler ZSCloud.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Zscaler ZSCloud, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Konfigurera proxyinställningar](#configuring-proxy-settings)**  – om du vill konfigurera proxyinställningarna i Internet Explorer
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)**  – du har en motsvarighet för Britta Simon i Zscaler ZSCloud som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)**  – du har en motsvarighet för Britta Simon i Zscaler ZSCloud som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -103,70 +100,101 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Zscaler ZSCloud** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_samlbase.png)
+2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
-1. På den **Zscaler ZSCloud domän och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera enkel inloggning](common/tutorial_general_301.png)
 
-    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
+3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
 
-     I den **inloggnings-URL** textrutan, skriver du in URL: en används av användarna till inloggning till programmets ZScaler ZSCloud.
-    
+    ![Konfigurera enkel inloggning](common/editconfigure.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Zscaler ZSCloud domän och URL: er med enkel inloggning för information](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
+
+    I den **inloggnings-URL** textrutan, skriver du in URL: en används av användarna till inloggning till programmets ZScaler ZSCloud.
+
     > [!NOTE] 
-    > Du måste uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Zscaler ZSCloud klienten supportteamet](https://help.zscaler.com/zia) att hämta det här värdet. 
- 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    > Du måste uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Zscaler två klienten supportteamet](https://help.zscaler.com/) att hämta dessa värden.
 
-    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
+5. Zscaler ZSCloud program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet om **användarattribut och anspråk** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan för **användarattribut och anspråk**.
 
-1. Klicka på **spara** knappen.
+    ![Länken Attribut](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_general_400.png)
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
-1. På den **Zscaler ZSCloud Configuration** klickar du på **konfigurera Zscaler ZSCloud** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    | Namn  | Källattribut  |
+    | ---------| ------------ |
+    | MemberOf     | user.assignedroles |
 
-    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_configure.png) 
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-1. I ett annat webbläsarfönster logga du in på webbplatsen ZScaler ZSCloud företag som administratör.
+    ![image](./common/new_save_attribute.png)
+    
+    ![image](./common/new_attribute_details.png)
 
-1. Klicka på menyn längst upp **Administration**.
+    b. Från listan över **Källattribut** väljer du attributvärdet.
+
+    c. Klicka på **OK**.
+
+    d. Klicka på **Spara**.
+
+    > [!NOTE]
+    > Klicka på [här](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) för att få veta hur du konfigurerar rollen i Azure AD
+
+7. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Base64)** och spara certifikatfilen på datorn.
+
+    ![Länk för nedladdning av certifikatet](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
+
+8. På den **konfigurera Zscaler ZSCloud** avsnittet, kopiera den lämpliga URL enligt dina behov.
+
+    a. Inloggnings-URL
+
+    b. Microsoft Azure Active Directory-identifierare
+
+    c. Utloggnings-URL
+
+    ![Zscaler ZSCloud konfiguration](common/configuresection.png)
+
+9. I ett annat webbläsarfönster logga du in på webbplatsen Zscaler ZSCloud företag som administratör.
+
+10. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
    
     ![Administration](./media/zscaler-zscloud-tutorial/ic800206.png "Administration")
 
-1. Under **hanterar administratörer och roller**, klickar du på **hantera användare och autentisering**.   
+    a. Under autentiseringstyp väljer du **SAML**.
+
+    b. Klicka på **Konfigurera SAML**.
+
+11. På den **redigera SAML** och utför följande steg: och klicka på Spara.  
             
-    ![Hantera användare och autentisering](./media/zscaler-zscloud-tutorial/ic800207.png "hantera användare och autentisering")
-
-1. I den **väljer autentiseringsalternativ för din organisation** avsnittet, utför följande steg:   
-                
-    ![Autentisering](./media/zscaler-zscloud-tutorial/ic800208.png "autentisering")
-   
-    a. Välj **autentisera med hjälp av SAML enkel inloggning**.
-
-    b. Klicka på **konfigureras SAML enkel inloggning**.
-
-1. På den **konfigurera SAML enkel inloggning parametrar** dialogrutan sida, utför följande steg och klicka sedan på **klar**
-
-    ![Enkel inloggning](./media/zscaler-zscloud-tutorial/ic800209.png "enkel inloggning")
+    ![Hantera användare och autentisering](./media/zscaler-zscloud-tutorial/ic800208.png "Hantera användare och autentisering")
     
-    a. Klistra in den **SAML enkel inloggning för tjänst-URL** värde i den **URL för SAML-portalen som användarna skickas för autentisering** textrutan.
-    
-    b. I den **attributet som innehåller inloggningsnamn** textrutan typ **NameID**.
-    
-    c. Om du vill ladda upp din hämtade certifikatet klickar du på **Zscaler pem**.
-    
-    d. Välj **aktivera SAML Automatisk etablering**.
+    a. I textrutan för **URL:en för SAML-portalen** klistrar du in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-1. På den **konfigurera användarautentisering** dialogrutan utför följande steg:
+    b. I textrutan för **attribut för inloggningsnamn** anger du **NameID**.
 
-    ![Administration](./media/zscaler-zscloud-tutorial/ic800210.png "Administration")
-    
-    a. Klicka på **Spara**.
+    c. Klicka på **Ladda upp** för att ladda upp Azure SAML-signeringscertifikatet som du har laddat ned från Azure-portalen i det **offentliga SSL-certifikatet**.
 
-    b. Klicka på **aktivera nu**.
+    d. Reglera **Enable SAML Auto-Provisioning** (Aktivera automatisk etablering av SAML).
+
+    e. I textrutan för **användarens visningsnamnattribut** anger du **displayName** om du vill aktivera automatisk SAML-etablering för attributet displayName.
+
+    f. I textrutan **User Display Name Attribute** (Gruppnamnattribut) anger du **memberOf** om du vill aktivera automatisk SAML-etablering för attributet memberOf.
+
+    g. I textrutan för **avdelningsnamnattribut** anger du **department** om du vill aktivera automatisk SAML-etablering för department-attribut.
+
+    i. Klicka på **Spara**.
+
+12. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
+
+    ![Administration](./media/zscaler-zscloud-tutorial/ic800207.png)
+
+    a. Hovra över menyn **Aktivering** längst ned till vänster.
+
+    b. Klicka på **Aktivera**.
 
 ## <a name="configuring-proxy-settings"></a>Konfigurera proxyinställningar
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Konfigurera proxyinställningarna i Internet Explorer
@@ -189,7 +217,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Välj **använder en proxyserver för ditt lokala nätverk**.
 
-    b. Ange i textrutan adress **gateway.zscalerone.net**.
+    b. Ange i textrutan adress **gateway. Zscaler ZSCloud.net**.
 
     c. Ange i textrutan Port **80**.
 
@@ -200,105 +228,74 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. Klicka på **OK** att Stäng den **Internetalternativ** dialogrutan.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    ![Skapa en Azure AD-användare][100]
 
-    ![Skapa en Azure AD-användare för testning](./media/zscaler-zscloud-tutorial/create_aaduser_01.png) 
+2. Välj **ny användare** överst på skärmen.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/zscaler-zscloud-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](common/create_aaduser_01.png) 
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/zscaler-zscloud-tutorial/create_aaduser_03.png) 
+3. Utför följande steg i egenskaperna för användaren.
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/zscaler-zscloud-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
+    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
-
-    d. Klicka på **Skapa**.
+    d. Välj **Skapa**.
 
 ### <a name="creating-a-zscaler-zscloud-test-user"></a>Skapa en testanvändare Zscaler ZSCloud
 
-Om du vill aktivera Azure AD-användare att logga in på ZScaler ZSCloud, måste de etableras till ZScaler ZSCloud.  
-När det gäller ZScaler ZSCloud är etablering en manuell aktivitet.
-
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Utför följande steg för att konfigurera användaretablering:
-
-1. Logga in på din **Zscaler** klient.
-
-1. Klicka på **Administration**.   
-   
-    ![Administration](./media/zscaler-zscloud-tutorial/ic781035.png "Administration")
-
-1. Klicka på **Användarhantering**.   
-        
-     ![Lägg till](./media/zscaler-zscloud-tutorial/ic781037.png "Lägg till")
-
-1. I den **användare** fliken **Lägg till**.
-      
-    ![Lägg till](./media/zscaler-zscloud-tutorial/ic781037.png "Lägg till")
-
-1. Utför följande steg i avsnittet Lägg till användare:
-        
-    ![Lägg till användare](./media/zscaler-zscloud-tutorial/ic781038.png "lägga till användare")
-   
-    a. Skriv den **UserID**, **användarens visningsnamn**, **lösenord**, **Bekräfta lösenord**, och välj sedan **grupper**och **avdelning** för ett giltigt AAD-konto som du vill etablera.
-
-    b. Klicka på **Spara**.
-
-> [!NOTE]
-> Du kan använda alla andra ZScaler ZSCloud användare konto verktyg för att skapa eller API: er som tillhandahålls av ZScaler ZSCloud att etablera AAD-användarkonton.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Zscaler ZSCloud. Zscaler ZSCloud stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Zscaler ZSCloud om det inte finns ännu.
+>[!Note]
+>Om du vill skapa en användare manuellt kan du kontakta [Zscaler ZSCloud supportteamet](https://help.zscaler.com/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Zscaler ZSCloud.
 
-![Tilldela användare][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
 
-**Om du vill tilldela Britta Simon Zscaler ZSCloud, utför du följande steg:**
+    ![Tilldela användare][201]
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Zscaler ZSCloud**.
 
-    ![Tilldela användare][201] 
+    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png)
 
-1. I listan med program väljer **Zscaler ZSCloud**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
-    ![Konfigurera enkel inloggning](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png) 
+    ![Tilldela användare][202]
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på **Lägg till** knappen och välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I den **användare och grupper** dialogrutan användaren som **Britta Simon** i listan och klicka sedan på den **Välj** längst ned på skärmen.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+6. Från den **Välj roll** dialogrutan Välj en lämplig användarroll i listan och klicka sedan på den **Välj** längst ned på skärmen.
+
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+
+7. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-Öppna panelen om du vill testa dina inställningar för enkel inloggning.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Zscaler ZSCloud i åtkomstpanelen du bör få automatiskt loggat in på ditt Zscaler ZSCloud-program.
-
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -307,15 +304,13 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 <!--Image references-->
 
-[1]: ./media/zscaler-zscloud-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-zscloud-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-zscloud-tutorial/tutorial_general_03.png
-[4]: ./media/zscaler-zscloud-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/zscaler-zscloud-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/zscaler-zscloud-tutorial/tutorial_general_200.png
-[201]: ./media/zscaler-zscloud-tutorial/tutorial_general_201.png
-[202]: ./media/zscaler-zscloud-tutorial/tutorial_general_202.png
-[203]: ./media/zscaler-zscloud-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

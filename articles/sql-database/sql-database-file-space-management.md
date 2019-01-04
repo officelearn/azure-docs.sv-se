@@ -9,27 +9,27 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277901"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605984"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
 
 ## <a name="overview"></a>Översikt
 
-I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Det här tillståndet kan inträffa när utrymme används ökar och data raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
+I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
 
-Övervaka användning av utrymme och minska storleken på datafiler kan vara nödvändigt i följande scenarier:
-- Tillåt datatillväxt i en elastisk pool när den fil som allokerats för dess databaser når maximal poolstorlek.
-- Tillåt minskar den maximala storleken för en enkel databas eller elastisk pool.
-- Tillåtet att ändra en enkel databas eller elastisk pool till en annan tjänstnivå eller prestandanivå med en lägre maxstorleken.
+I följande scenarier kan det vara nödvändigt att övervaka användningen av filutrymmet och att krympa datafiler:
+- Tillåt datatillväxt i en elastisk pool när filutrymmet som tilldelats dess databaser når poolens maxstorlek.
+- Tillåt att maxstorleken för en enskild databas eller elastisk pool minskas.
+- Tillåt att en enskild databas eller elastisk pool ändras till en annan tjänstnivå eller prestandanivå med en mindre maxstorlek.
 
 ### <a name="monitoring-file-space-usage"></a>Övervaka användning av diskutrymme
 De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er endast mäta storleken på data som används sidor:

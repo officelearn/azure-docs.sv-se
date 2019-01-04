@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389065"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721571"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar för programprestanda för Web Apps i Azure
 
@@ -163,7 +163,7 @@ Mer information finns i [konfigurera webbappar i App Service](web-sites-configur
 
 Azure Load Balancer har en standardinställning för timeout för inaktivitet på fyra minuter. Det är vanligtvis en rimlig svar tidsgräns för en webbegäran. Om din webbapp kräver behandling i bakgrunden, bör du använda Azure WebJobs. Azure-webbappen kan anropa WebJobs och bli meddelad när behandling i bakgrunden är klar. Du kan välja mellan flera metoder för att använda WebJobs, inklusive köer och utlösare.
 
-WebJobs är utformat för bearbetning i bakgrunden. Du kan göra så mycket bakgrunden som bearbetar som du vill ha i ett WebJob. Läs mer om WebJobs [kör bakgrundsuppgifter med WebJobs](web-sites-create-web-jobs.md).
+WebJobs är utformat för bearbetning i bakgrunden. Du kan göra så mycket bakgrunden som bearbetar som du vill ha i ett WebJob. Läs mer om WebJobs [kör bakgrundsuppgifter med WebJobs](webjobs-create.md).
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core-program som finns i App Service ibland slutar svara. Hur kan jag åtgärda det här problemet?
 

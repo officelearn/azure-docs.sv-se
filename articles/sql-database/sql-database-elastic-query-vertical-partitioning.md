@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7bf1a3af7705858432b9ff8caf5064b0794568df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875373"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602468"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga mellan molndatabaser med olika scheman (förhandsversion)
 ![Fråga mellan tabeller i olika databaser][1]
@@ -117,8 +117,8 @@ I följande exempel visas hur du hämtar en lista över externa tabeller från d
 ### <a name="remarks"></a>Kommentarer
 Elastisk fråga utökar den befintliga externa table-syntaxen för att definiera externa tabeller som använder externa datakällor av typen RDBMS. En extern tabell-definition för vertikal partitionering innehåller följande aspekter: 
 
-* **Schemat**: den externa tabellen DDL definierar ett schema som kan använda för dina frågor. Det tillhandahållna i din externa tabelldefinitionen schemat måste matcha schemat för tabellerna i fjärrdatabasen faktiska data ska lagras. 
-* **Referens för fjärrdatabasen**: den externa tabellen DDL refererar till en extern datakälla. Den externa datakällan anger logiska servernamnet och databasnamnet för fjärrdatabasen där de faktiska data lagras. 
+* **Schemat**: Den externa tabellen DDL definierar ett schema som kan använda för dina frågor. Det tillhandahållna i din externa tabelldefinitionen schemat måste matcha schemat för tabellerna i fjärrdatabasen faktiska data ska lagras. 
+* **Referens för fjärrdatabasen**: Den externa tabellen DDL refererar till en extern datakälla. Den externa datakällan anger logiska servernamnet och databasnamnet för fjärrdatabasen där de faktiska data lagras. 
 
 Med hjälp av en extern datakälla som beskrivs i föregående avsnitt, är syntaxen för att skapa externa tabeller följande: 
 
@@ -130,7 +130,7 @@ Följande DDL-instruktion utelämnar en befintliga externa tabelldefinitionen fr
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Behörigheter för att skapa och släpp extern tabell**: ALTER ANY extern DATAKÄLLA behörigheter som krävs för extern tabell DDL som krävs också för att referera till den underliggande datakällan.  
+**Behörigheter för att skapa och släpp extern tabell**: ALTER ANY extern DATAKÄLLA behörigheter krävs för extern tabell DDL som krävs också för att referera till den underliggande datakällan.  
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 Användare med åtkomst till den externa tabellen tillgång automatiskt till de underliggande fjärrtabeller under autentiseringsuppgifterna som anges i definitionen av externa datakällan. Du bör noggrant hantera åtkomst till den externa tabellen för att undvika oönskad rättighetsökning via autentiseringsuppgifterna för den externa datakällan. Vanlig SQL-behörigheter kan användas för att BEVILJA eller ÅTERKALLA åtkomst till en extern tabell precis som om det vore en vanlig tabell.  
@@ -156,10 +156,10 @@ Följande fråga utför en 3-vägs-koppling mellan de lokala för order och orde
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Lagrade proceduren för körning av T-SQL: sp\_execute_remote
 Elastisk fråga introducerar också en lagrad procedur som ger direktåtkomst till fjärrdatabasen. Den lagrade proceduren kallas [sp\_köra \_remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra remote lagrade procedurer eller T-SQL-kod på fjärrdatabasen. Det tar följande parametrar: 
 
-* Namn på datakälla (nvarchar): namnet på den externa datakällan av typen RDBMS. 
+* Namn på datakälla (nvarchar): Namnet på den externa datakällan av typen RDBMS. 
 * Fråga (nvarchar): T-SQL-fråga som ska köras på fjärrdatabasen. 
-* Parameterdeklaration (nvarchar) - valfritt: sträng med datatypdefinitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
-* Värdet parameterlistan - valfritt: kommaavgränsad lista över parametervärden (till exempel sp_executesql).
+* Parameterdeklaration (nvarchar) - valfritt: Sträng med data typdefinitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
+* Parametern-värdelista - är valfria: Kommaavgränsad lista över parametervärden (till exempel sp_executesql).
 
 Sp\_köra\_remote använder den externa datakällan i startparametrar för att köra den angivna T-SQL-instruktionen på fjärrdatabasen. Autentiseringsuppgifterna för den externa datakällan används för att ansluta till fjärrdatabasen.  
 

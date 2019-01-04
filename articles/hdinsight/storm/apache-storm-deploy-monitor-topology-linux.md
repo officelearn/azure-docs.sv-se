@@ -9,28 +9,28 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582861"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635416"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
-I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](http://storm.apache.org/) topologier som körs på Storm i HDInsight-kluster.
+I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](https://storm.apache.org/) topologier som körs på Storm i HDInsight-kluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i den här artikeln kräver ett Linux-baserade Storm på HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
-> Information om distribution och övervakning topologier i Windows-baserade HDInsight finns i [distribuera och hantera Apache Storm-topologier i Windows-baserade HDInsight](apache-storm-deploy-monitor-topology.md)
+> Information om distribution och övervakning topologier i Windows-baserade HDInsight finns i [distribuera och hantera Apache Storm-topologier i Windows-baserade HDInsight](apache-storm-deploy-monitor-topology.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Linux-baserade Storm på HDInsight-kluster**: se [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md) anvisningar om hur du skapar ett kluster
 
-* (Valfritt) **Bekant med SSH och SCP**: Mer information finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* (Valfritt) **Bekant med SSH och SCP**: Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 * (Valfritt) **Visual Studio**: Azure SDK 2.5.1 eller senare och Data Lake Tools för Visual Studio. Mer information finns i [Kom igång med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -51,7 +51,7 @@ HDInsight-verktyg kan användas för att skicka C#- eller topologier för Storm-
 
 1. Om du inte redan har installerat den senaste versionen av Data Lake tools för Visual Studio finns i [Kom igång med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Data Lake Tools för Visual Studio kallades HDInsight-verktyg för Visual Studio.
     >
     > Data Lake Tools för Visual Studio som ingår i den __Azure-arbetsbelastningen__ för Visual Studio 2017.
@@ -64,12 +64,12 @@ HDInsight-verktyg kan användas för att skicka C#- eller topologier för Storm-
 
 4. I **Solution Explorer**, högerklicka på projektet och välj **skicka till Storm på HDInsight**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om du uppmanas, anger du inloggningsuppgifterna för din Azure-prenumeration. Om du har mer än en prenumeration kan du logga in på det som innehåller ditt Storm på HDInsight-kluster.
 
 5. Välj ditt Storm på HDInsight-kluster från den **Storm-kluster** listrutan och välj sedan **skicka**. Du kan övervaka om överföringen har genomförts med den **utdata** fönster.
 
-## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Skicka en topologi: SSH och Storm-kommando
+## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Skicka en topologi: SSH- och Storm-kommando
 
 1. Använda SSH för att ansluta till HDInsight-kluster. Ersätt **användarnamn** namnet på din SSH-inloggning. Ersätt **CLUSTERNAME** med namnet på ditt HDInsight-kluster:
 
@@ -83,7 +83,7 @@ HDInsight-verktyg kan användas för att skicka C#- eller topologier för Storm-
 
     Det här kommandot startar exempeltopologin för WordCount (ordräkning) på klustret. Den här topologin genererar meningar slumpmässigt och räknar förekomster av varje ord i meningarna.
 
-   > [!NOTE]
+   > [!NOTE]  
    > När du skickar in topologin till klustret måste du först kopiera jar-filen som innehåller klustret innan du använder kommandot `storm`. Du kan använda för att kopiera filen till klustret, den `scp` kommando. Till exempel, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
    > WordCount-exemplet och andra exempel i Storm Starter ingår redan i klustret på `/usr/hdp/current/storm-client/contrib/storm-starter/`.
@@ -98,7 +98,7 @@ När en topologi skickas med hjälp av Visual Studio, den **Storm-topologier** v
 
 ![Övervakare för Visual studio](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan också visa **Storm-topologier** från **Server Explorer** genom att expandera **Azure** > **HDInsight**, och sedan att högerklicka på ett Storm på HDInsight-kluster och välja **Zobrazit Topologie Stormu**.
 
 Markera formen för kanaler eller bultar att visa information om dessa komponenter. Ett nytt fönster öppnas för varje objekt har valts.
@@ -113,14 +113,14 @@ Ombalansering en topologi gör att systemet kan ändra topologins parallellitet.
 
 För att balansera om en topologi, använda den __balansera om__ längst upp på den __Topology Summary__.
 
-> [!WARNING]
+> [!WARNING]  
 > Ombalansering en topologi först inaktiverar du topologin, och sedan distribuerar arbetare jämnt över klustret och sedan slutligen återgår topologin till tillståndet innan ombalansering inträffade. Så om topologin var aktiv, blir aktiva igen. Om det har inaktiverats kan fortfarande det inaktiverad.
 
 ### <a name="kill-a-topology"></a>Avsluta en topologi
 
 Storm-topologier fortsätter att köras tills de stoppas eller klustret tas bort. Om du vill stoppa en topologi, använda den __Kill__ längst upp på den __Topology Summary__.
 
-## <a name="monitor-and-manage-ssh-and-the-storm-command"></a>Övervaka och hantera: SSH och Storm-kommando
+## <a name="monitor-and-manage-ssh-and-the-storm-command"></a>Övervaka och hantera: SSH- och Storm-kommando
 
 Den `storm` verktyget kan du arbeta med topologier som körs från kommandoraden. Använd `storm -h` för en fullständig lista över kommandon.
 
@@ -154,7 +154,7 @@ Storm-topologier som en gång startats, fortsätta köra tills de stoppas. Om du
 
 Ombalansering en topologi gör att systemet kan ändra topologins parallellitet. Om du har ändrat storlek i klustret för att lägga till fler anteckningar kan ombalansering exempelvis en topologi att se de nya noderna.
 
-> [!WARNING]
+> [!WARNING]  
 > Ombalansering en topologi först inaktiverar du topologin, och sedan distribuerar arbetare jämnt över klustret och sedan slutligen återgår topologin till tillståndet innan ombalansering inträffade. Så om topologin var aktiv, blir aktiva igen. Om det har inaktiverats kan fortfarande det inaktiverad.
 
     storm rebalance TOPOLOGYNAME
@@ -163,15 +163,15 @@ Ombalansering en topologi gör att systemet kan ändra topologins parallellitet.
 
 Storm-användargränssnittet innehåller ett webbgränssnitt för att arbeta med topologier som körs och ingår i ditt HDInsight-kluster. Om du vill visa Storm-Användargränssnittet, Använd en webbläsare för att öppna **https://CLUSTERNAME.azurehdinsight.net/stormui**, där **CLUSTERNAME** är namnet på klustret.
 
-> [!NOTE]
+> [!NOTE]  
 > Om du uppmanas att ange ett användarnamn och lösenord, anger du klusteradministratören (admin) och lösenordet du använde när du skapade klustret.
 
 ### <a name="main-page"></a>Huvudsida
 
 Huvudsidan för Storm-Användargränssnittet innehåller följande information:
 
-* **Klustersammanfattning**: grundläggande information om Storm-kluster.
-* **Sammanfattning av topologi**: en lista över topologier som körs. Använd länkarna i det här avsnittet om du vill visa mer information om specifika topologier.
+* **Klustersammanfattning**: Grundläggande information om Storm-kluster.
+* **Sammanfattning av topologi**: En lista över topologier som körs. Använd länkarna i det här avsnittet om du vill visa mer information om specifika topologier.
 * **Övervakaren sammanfattning**: Information om Storm-övervakaren.
 * **Nimbus configuration**: Nimbus-konfigurationen för klustret.
 
@@ -179,38 +179,38 @@ Huvudsidan för Storm-Användargränssnittet innehåller följande information:
 
 Att välja en länk från den **Topology summary** avsnittet visar följande information om topologin:
 
-* **Sammanfattning av topologi**: grundläggande information om topologin.
-* **Topologi åtgärder**: hanteringsåtgärder som du kan utföra för topologin.
+* **Sammanfattning av topologi**: Grundläggande information om topologin.
+* **Topologi åtgärder**: Management-åtgärder som du kan utföra för topologin.
 
-  * **Aktivera**: återupptar bearbetningen av en inaktiverad topologi.
-  * **Inaktivera**: pausar en topologi som körs.
-  * **Balansera om**: justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Den här åtgärden gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
+  * **Aktivera**: Återupptar bearbetningen av en inaktiverad topologi.
+  * **Inaktivera**: Pausar en topologi som körs.
+  * **Balansera om**: Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Den här åtgärden gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
 
-    Mer information finns i <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet i en Apache Storm-topologi</a>.
-  * **Avsluta**: avslutar en Storm-topologi efter en angiven tidsgräns.
-* **Topology stats**: statistik om topologin. Om du vill ange en mer specifik tidsram för de övriga objekten på sidan i länkarna i den **fönstret** kolumn.
-* **Spouts**: kanaler som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika kanaler.
-* **Bolts**: bultar som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika bultar.
-* **Topologikonfiguration**: konfigurationen av den valda topologin.
+    Mer information finns i <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet i en Apache Storm-topologi</a>.
+  * **Avsluta**: Avslutar en Storm-topologi efter en angiven tidsgräns.
+* **Topology stats**: Statistik om topologin. Om du vill ange en mer specifik tidsram för de övriga objekten på sidan i länkarna i den **fönstret** kolumn.
+* **Spouts**: Kanaler som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika kanaler.
+* **Bolts**: Bultar som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika bultar.
+* **Topologikonfiguration**: Konfiguration av den valda topologin.
 
 ### <a name="spout-and-bolt-summary"></a>Spout och bult sammanfattning
 
 Att välja en kanal från den **Spouts** eller **Bolts** avsnitt visar följande information om det markerade objektet:
 
-* **Översikt över komponenterna**: grundläggande information om den kanal eller en bult.
-* **Spout/bult stats**: statistik om den kanal eller en bult. Om du vill ange en mer specifik tidsram för de övriga objekten på sidan i länkarna i den **fönstret** kolumn.
+* **Översikt över komponenterna**: Grundläggande information om den kanal eller en bult.
+* **Spout/bult stats**: Statistik om den kanal eller en bult. Om du vill ange en mer specifik tidsram för de övriga objekten på sidan i länkarna i den **fönstret** kolumn.
 * **Input stats** (endast bultar): Information om indataströmmar som används av bulten.
-* **Utdata stats**: Information om hur du strömmar som orsakats av den kanal eller en bult.
+* **Utdata stats**: Information om strömmar som orsakats av den kanal eller en bult.
 * **Executors**: Information om instanser av den kanal eller en bult. Välj den **Port** post för en specifik executor att visa en logg över diagnostikinformation produceras för den här instansen.
-* **Fel**: någon information om fel för den kanal eller en bult.
+* **Fel**: Information om eventuella fel för den kanal eller en bult.
 
-## <a name="monitor-and-manage-rest-api"></a>Övervaka och hantera: REST API
+## <a name="monitor-and-manage-rest-api"></a>Övervaka och hantera: REST-API
 
 Storm-Användargränssnittet är byggt på REST API, så att du kan utföra liknande övervaknings- och funktioner med hjälp av REST-API. Du kan använda REST API för att skapa anpassade verktyg för att hantera och övervaka Storm-topologier.
 
-Mer information finns i [Apache Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Följande information gäller med hjälp av REST-API med Apache Storm på HDInsight.
+Mer information finns i [Apache Storm UI REST API](https://storm.apache.org/releases/current/STORM-UI-REST-API.html). Följande information gäller med hjälp av REST-API med Apache Storm på HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Storm REST API är inte allmänt tillgängliga via internet och måste användas med en SSH-tunnel till HDInsight-klustrets huvudnod. Mer information om hur du skapar och använder en SSH-tunnel finns i [använda SSH-tunnlar till Apache Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Apache Oozie och andra web UIs](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>Bas-URI
@@ -221,13 +221,13 @@ Du kan hitta det fullständigt kvalificerade domännamnet (FQDN) för klustrets 
 
 * **Från en SSH-session**: Använd kommandot `headnode -f` från en SSH-session till klustret.
 * **Från Ambari Web**: Välj **Services** högst upp på sidan Välj **Storm**. Från den **sammanfattning** fliken **Storm UI Server**. Det fullständiga Domännamnet för den nod som är värd för Storm-Användargränssnittet och REST API visas överst på sidan.
-* **Från Ambari REST API**: Använd kommandot `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **CLUSTERNAME** med klustrets namn. När du uppmanas, anger du lösenordet för inloggningskonto (admin). I svaret innehåller posten ”värddatornamn” FQDN för noden.
+* **Från Ambari REST API: et**: Använd kommandot `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **CLUSTERNAME** med klustrets namn. När du uppmanas, anger du lösenordet för inloggningskonto (admin). I svaret innehåller posten ”värddatornamn” FQDN för noden.
 
 ### <a name="authentication"></a>Autentisering
 
 REST API-begäranden måste använda **grundläggande autentisering**, så att du använder HDInsight-kluster databasadministratörens namn och lösenord.
 
-> [!NOTE]
+> [!NOTE]  
 > Eftersom grundläggande autentisering skickas i klartext, bör du **alltid** använder HTTPS för att skydda kommunikationen med klustret.
 
 ### <a name="return-values"></a>Returvärden

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synkronisering: hanteraren för synkroniseringstjänsten UI | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Användargränssnittet för hanteraren för synkroniseringstjänsten | Microsoft Docs'
 description: Förstå hanteraren för synkroniseringstjänsten för Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 877f41fb1d47bc8faf4ea1275c94cd492884bfb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 439535975c6e1b996bf888a1df7b6f2ae6732a6d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313252"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717543"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introduktion till Azure AD Connect Synchronization Service Manager-Användargränssnittet
 
@@ -32,9 +32,10 @@ Den **hanteraren för synkroniseringstjänsten** Användargränssnittet används
 Du startar den **hanteraren för synkroniseringstjänsten** Användargränssnittet från start-menyn. Namnet är **synkroniseringstjänsten** och finns i den **Azure AD Connect** grupp.  
 ![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-Klicka på länkarna överst i det här avsnittet för mer information om de olika flikarna i Användargränssnittet.
-
 ## <a name="next-steps"></a>Nästa steg
+
+Mer information om Synchronization Service Manager-UI, inklusive [Operations](how-to-connect-sync-service-manager-ui-operations.md), [Anslutningsappar](how-to-connect-sync-service-manager-ui-connectors.md), [Metaversumdesigner](how-to-connect-sync-service-manager-ui-mvdesigner.md), och [Metaversumsökning](how-to-connect-sync-service-manager-ui-mvsearch.md) flikar.
+
 Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

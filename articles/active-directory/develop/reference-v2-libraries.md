@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f47faaf5c0536ce7041e00686d630427c72771aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a7034e65b0c1e804326e5c087b320f8e7ffde907
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426092"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557110"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0-autentiseringsbibliotek
 
@@ -37,14 +37,14 @@ Vi rekommenderar att du använder bibliotek skrivna av protokollet domän expert
 
 Azure AD v2.0-slutpunkten fungerar med två typer av bibliotek:
 
-* **Klientbibliotek**: interna klienter och servrar använder du-klientbiblioteken för att få åtkomsttoken för att anropa en resurs, till exempel Microsoft Graph.
-* **Server-bibliotek för mellanprogram**: webbappar som använder server mellanprogram-bibliotek för användarinloggning. Web API: erna använder server mellanprogram klientbiblioteken för att validera token som skickas av interna klienter eller av andra servrar.
+* **Klientbibliotek**: Interna klienter och servrar kan du använda klientbibliotek för att få åtkomsttoken för att anropa en resurs, till exempel Microsoft Graph.
+* **Server-bibliotek för mellanprogram**: Webbappar som använder server mellanprogram-bibliotek för användarinloggning. Web API: erna använder server mellanprogram klientbiblioteken för att validera token som skickas av interna klienter eller av andra servrar.
 
 ## <a name="library-support"></a>Klientbiblioteksstöd
 
 Bibliotek levereras i två kategorier för support:
 
-* **Stöds av Microsoft**: Microsoft innehåller korrigeringar för dessa bibliotek och har gjort SDL sistone på dessa bibliotek.
+* **Stöds av Microsoft**: Microsoft tillhandahåller korrigeringar för dessa bibliotek och har gjort SDL sistone på dessa bibliotek.
 * **Kompatibel**: Microsoft har testat dessa bibliotek i grundläggande scenarier och bekräftat att den fungerar med v2.0-slutpunkten. Microsoft inte tillhandahåller korrigeringar för dessa bibliotek och inte har gjort en genomgång av dessa bibliotek. Problem och funktionsförfrågningar ska dirigeras till biblioteksprojekt öppen källkod.
 
 En lista över bibliotek som fungerar med v2.0-slutpunkten finns i nästa avsnitt i den här artikeln.
@@ -54,7 +54,7 @@ En lista över bibliotek som fungerar med v2.0-slutpunkten finns i nästa avsnit
 Klientbibliotek för autentisering som används för att hämta en token för att anropa ett skyddat webb-API
 
 | Plattform | Bibliotek | Ladda ned | Källkod | Exempel | Referens | Konceptuell dokument | Översikt |
-| --- | --- | --- | --- | --- | --- | --- | ---| ---|
+| --- | --- | --- | --- | --- | --- | --- | ---|
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js (förhandsversion) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Enkelsidig app](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)|
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular(Preview) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
@@ -79,7 +79,7 @@ Mellanprogram biblioteken används för att skydda webbprogram och webb-API: er.
 |![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Skriv Java](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![PHP](media/sample-v2-code/logo_php.png) | [PHP Leagues oauth2-klient](https://github.com/thephpleague/oauth2-client) | [Version 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-klient](https://github.com/thephpleague/oauth2-client/) | |
-| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
+| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 ![iOS](media/sample-v2-code/logo_iOS.png) |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Inbyggd app-exempel](active-directory-v2-devquickstarts-ios.md) |
 
 Du kan använda v2.0-slutpunkten för alla bibliotek med standardkompatibel därför är det viktigt att veta var du hittar support.

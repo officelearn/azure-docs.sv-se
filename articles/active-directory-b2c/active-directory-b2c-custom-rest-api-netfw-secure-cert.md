@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344973"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722574"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Skydda RESTful-tjänst med hjälp av klientcertifikat
 
@@ -41,12 +41,12 @@ Den här artikeln innehåller information om hur du:
 Du ställer in **Azure App Service** för att kräva klientcertifikat, ange webbappen `clientCertEnabled` plats inställningen för att *SANT*. Öppna webbappens sida för att göra ändringen i Azure-portalen. I det vänstra navigeringsfönstret under **inställningar** Välj **SSL-inställningar**. I den **klientcertifikat** avsnittet, aktivera den **inkommande klientcertifikat** alternativet.
 
 >[!NOTE]
->Se till att din Azure App Service-plan är Standard eller högre. Mer information finns i [Azure App Service-planer djupgående översikt över](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Se till att din Azure App Service-plan är Standard eller högre. Mer information finns i [Azure App Service-planer djupgående översikt över](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >Mer information om hur den **clientCertEnabled** egenskap, finns i [konfigurera TLS ömsesidig autentisering för web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
-## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Steg 2: Ladda upp certifikatet till nycklar för Azure AD B2C-princip
+## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Steg 2: Överför certifikatet till nycklar för Azure AD B2C-princip
 När du ställer in `clientCertEnabled` till *SANT*, kommunikationen med ditt RESTful-API kräver ett klientcertifikat. Om du vill hämta, överföra och lagra klientcertifikatet i din Azure AD B2C-klient, gör du följande: 
 1. I din Azure AD B2C-klient väljer **B2C inställningar** > **Identitetsramverk**.
 
@@ -152,7 +152,7 @@ För att stödja autentisering av klientcertifikat i en egen princip, ändrar du
    >Om du får felmeddelandet *namnet är inte giltigt, ange ett giltigt namn*, betyder det att Azure AD B2C har heter RESTful-tjänst när den visas klientcertifikatet. Nästa steg är att verifiera certifikatet.
 
 ## <a name="step-6-add-certificate-validation"></a>Steg 6: Lägg till certifikatverifiering
-Klientcertifikatet som Azure AD B2C skickar till RESTful-tjänst genomgår inte verifiering av Azure Web Apps-plattformen, förutom att kontrollera om det finns certifikatet. Verifiering av certifikatet ansvarar för webbappen. 
+Klientcertifikatet som Azure AD B2C skickar till RESTful-tjänst genomgår inte verifiering av Azure App Service-plattformen, förutom att kontrollera om det finns certifikatet. Verifiering av certifikatet ansvarar för webbappen. 
 
 I det här avsnittet ska du lägga till ASP.NET-exempelkoden som validerar egenskaper för certifikat för autentisering.
 

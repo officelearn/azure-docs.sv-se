@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309046"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581036"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka på HDInsight
 
@@ -22,7 +22,7 @@ Lär dig hur du använder Apache Kafka databasspegling funktionen för att repli
 
 I det här exemplet används spegling för att replikera ämnen mellan två kluster med HDInsight. Båda klustren finns i ett virtuellt Azure-nätverk i samma region.
 
-> [!WARNING]
+> [!WARNING]  
 > Spegling ska inte betraktas som ett sätt att uppnå feltolerans. Förskjutningen till objekt i ett ämne skiljer sig mellan käll- och -kluster, så att klienter inte kan använda två synonymt.
 >
 > Om du är orolig feltolerans, anger du replikering för ämnena i klustret. Mer information finns i [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md).
@@ -45,13 +45,13 @@ Käll- och -kluster kan vara annorlunda i antalet noder och partitioner och för
 
 Om du vill spegla mellan Kafka-kluster i olika nätverk, finns det ytterligare aspekter:
 
-* **Gatewayer**: nätverken måste kunna kommunicera på TCPIP-nivå.
+* **Gatewayer**: Nätverk måste kunna kommunicera på TCPIP-nivå.
 
-* **Namnmatchning**: The Kafka-kluster i varje nätverk måste kunna ansluta till varandra med hjälp av värdnamn. Du kan behöva en Domain Name System (DNS)-server i varje nätverk som är konfigurerad för att vidarebefordra begäranden till andra nätverk.
+* **Namnmatchning**: Kafka-kluster i varje nätverk måste kunna ansluta till varandra med hjälp av värdnamn. Du kan behöva en Domain Name System (DNS)-server i varje nätverk som är konfigurerad för att vidarebefordra begäranden till andra nätverk.
 
     När du skapar ett virtuellt nätverk i Azure, istället för att använda automatisk DNS medföljer i nätverket, måste du ange en anpassad DNS-server och IP-adressen för servern. När du har skapat det virtuella nätverket, måste du sedan skapa en Azure-dator som använder den IP-adressen, och sedan installera och konfigurera DNS-programvara på den.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Skapa och konfigurera anpassade DNS-servern innan du installerar HDInsight till det virtuella nätverket. Det finns ingen ytterligare konfiguration krävs för HDInsight att använda DNS-server som konfigurerats för det virtuella nätverket.
 
 Mer information om hur du ansluter två virtuella Azure-nätverk finns i [konfigurera en VNet-till-VNet-anslutning](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
@@ -66,32 +66,32 @@ Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare 
    
     Azure Resource Manager-mallen finns i **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Den här mallen skapar ett Kafka-kluster som innehåller tre arbetarnoder.
 
 2. Använd följande information för att fylla i posterna i den **anpassad distribution** bladet:
     
     ![Anpassade HDInsight-distribution](./media/apache-kafka-mirroring/parameters.png)
     
-    * **Resursgrupp**: skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
+    * **Resursgrupp**: Skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
 
     * **Plats**: Välj en plats geografiskt nära dig.
      
-    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet för Kafka-kluster. Till exempel innebär **hdi** skapar kluster med namnet **käll-hdi** och **dest hdi**.
+    * **Basera klusternamnet**: Det här värdet används som det grundläggande namnet på Kafka-kluster. Till exempel innebär **hdi** skapar kluster med namnet **käll-hdi** och **dest hdi**.
 
-    * **Kluster-användarnamnet för inloggningen**: administratörsanvändarnamn för källan och målet Kafka-kluster.
+    * **Kluster-användarnamnet för inloggningen**: Administratörsanvändarnamn för källan och målet Kafka-kluster.
 
-    * **Kluster inloggningslösenordet**: ett administratörslösenord för källan och målet Kafka-kluster.
+    * **Kluster inloggningslösenordet**: Administratörslösenord för källan och målet Kafka-kluster.
 
-    * **SSH-användarnamn**: SSH-användare skapa för källan och målet Kafka-kluster.
+    * **SSH-användarnamn**: SSH-användaren skapa för källan och målet Kafka-kluster.
 
-    * **SSH-lösenord**: lösenordet för SSH-användare för källan och målet Kafka-kluster.
+    * **SSH lösenord**: Lösenordet för SSH-användare för källan och målet Kafka-kluster.
 
 3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
 4. Markera slutligen **Fäst på instrumentpanelen** och välj sedan **Inköp**. Det tar cirka 20 minuter för att skapa kluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Namnet på HDInsight-kluster är **källa BASENAME** och **dest BASENAME**, där BASENAME är det namn du angav i mallen. Du kan använda dessa namn i senare steg när du ansluter till klustren.
 
 ## <a name="create-topics"></a>Skapa ämnen
@@ -218,7 +218,7 @@ Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare 
 
 7. Standardkonfigurationen för Kafka på HDInsight tillåter inte automatisk generering av ämnen. Du måste använda en av följande alternativ innan du börjar spegling:
 
-    * **Skapa i avsnitt på målklustret**: det här alternativet kan du ange hur många partitioner och replikeringsfaktorn.
+    * **Skapa i avsnitt på målklustret**: Det här alternativet kan du ange hur många partitioner och replikeringsfaktorn.
 
         Du kan skapa ämnen förbereds i förväg med hjälp av följande kommando:
 
@@ -228,7 +228,7 @@ Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare 
 
         Ersätt `testtopic` med namnet på ämnet för att skapa.
 
-    * **Konfigurera klustret för att skapa automatiska ämne**: det här alternativet kan MirrorMaker att automatiskt skapa ämnen, men det kan skapa dem med ett annat antal partitioner eller replikeringsfaktor än käll-avsnittet.
+    * **Konfigurera klustret för att skapa automatiska ämne**: Det här alternativet kan MirrorMaker att automatiskt skapa ämnen, men det kan skapa dem med ett annat antal partitioner eller replikeringsfaktor än käll-avsnittet.
 
         Utför de här stegen för att konfigurera målklustret för att automatiskt skapa ämnen:
 
@@ -254,9 +254,9 @@ Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare 
 
     * **--producer.config**: Anger den fil som innehåller egenskaper för producenten. Dessa egenskaper används för att skapa en producent som skriver till den *mål* Kafka-kluster.
 
-    * **lista över tillåtna--**: en lista över ämnen som MirrorMaker som replikerar från källklustret till målet.
+    * **lista över tillåtna--**: En lista över ämnen som MirrorMaker som replikerar från källklustret till målet.
 
-    * **--num.streams**: antalet trådar som konsument ska skapa.
+    * **--num.streams**: Antal trådar som konsument ska skapa.
 
  Vid start, kan MirrorMaker returnerar information liknande följande text:
 

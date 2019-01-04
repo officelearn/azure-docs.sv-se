@@ -15,16 +15,16 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967903"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541565"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
-Ibland behöver du information om rollbaserad åtkomstkontroll (RBAC) ändringar, till exempel för granskning eller felsökning. Varje gång någon gör ändringar i rolltilldelningar eller rolldefinitioner dina prenumerationer, ändringarna loggas [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Du kan visa aktivitetsloggar för att se alla ändringar som RBAC för de senaste 90 dagarna.
+Ibland behöver du information om rollbaserad åtkomstkontroll (RBAC) ändringar, till exempel för granskning eller felsökning. Varje gång någon gör ändringar i rolltilldelningar eller rolldefinitioner dina prenumerationer, ändringarna loggas [Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md). Du kan visa aktivitetsloggar för att se alla ändringar som RBAC för de senaste 90 dagarna.
 
 ## <a name="operations-that-are-logged"></a>Åtgärder som är inloggad
 

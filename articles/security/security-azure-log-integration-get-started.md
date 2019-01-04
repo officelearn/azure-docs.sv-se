@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036810"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602196"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration med Azure Diagnostisk loggning och vidarebefordran av Windows-händelser
 
@@ -151,9 +151,9 @@ När du har slutfört grundinställning är du redo att utföra efter installati
 I det här steget konfigurerar du den dator som kör tjänsten Azure Log Integration för att ansluta till lagringskontot som innehåller filerna.
 
 För att slutföra det här steget behöver du några saker:  
-* **FriendlyNameForSource**: ett eget namn som du kan använda till att du har konfigurerat för den virtuella datorn att lagra information från Azure Diagnostics-lagringskontot.
-* **StorageAccountName**: namnet på lagringskontot som du angav när du konfigurerade Azure Diagnostics.  
-* **StorageKey**: lagringskontots åtkomstnyckel för lagringskontot där Azure Diagnostics-information lagras för den virtuella datorn.  
+* **FriendlyNameForSource**: Ett eget namn som du kan använda till att du har konfigurerat för den virtuella datorn att lagra information från Azure Diagnostics-lagringskontot.
+* **StorageAccountName**: Namnet på lagringskontot som du angav när du konfigurerade Azure Diagnostics.  
+* **StorageKey**: Lagringskontots åtkomstnyckel för lagringskontot där Azure Diagnostics-information lagras för den virtuella datorn.  
 
 Utför följande steg för att hämta lagringsnyckeln:
 1. Gå till [Azure-portalen](http://portal.azure.com).
@@ -198,7 +198,7 @@ Följande videoklipp beskriver de föregående stegen:<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Om data inte visas i mappen vidarebefordrade händelser
 Om data inte visas i mappen vidarebefordrade händelser efter en timme, kan du utföra följande steg:
 
-1. Kontrollera den dator som kör tjänsten Azure Log Integration. Bekräfta att den har åtkomst till Azure. Om du vill testa anslutningen, i en webbläsare, försök att gå till den [Azure-portalen](http://portal.azure.com).
+1. Kontrollera den dator som kör tjänsten Azure Log Integration. Bekräfta att den har åtkomst till Azure. Om du vill testa anslutningen, i en webbläsare, försök att gå till den [Azure-portalen](https://portal.azure.com).
 2. Kontrollera att användarkontot Azlog har skrivbehörighet för mappen users\Azlog.
   1. Öppna Utforskaren.
   2. Gå till C:\users.
@@ -243,7 +243,7 @@ Du kan även öppna en [supportförfrågan](../azure-supportability/how-to-creat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Log Integration finns i följande artiklar: innan du försöker utföra stegen i den här artikeln måste du granska Kom igång-artikel och slutför stegen.
+Mer information om Azure Log Integration finns i följande artiklar: Innan du försöker utföra stegen i den här artikeln måste du granska Kom igång-artikel och slutför stegen.
 
 * [Azure Log Integration för Azure loggar](https://www.microsoft.com/download/details.aspx?id=53324). Download Center innehåller information om systemkrav och installationsanvisningar för Azure Log Integration.
 * [Introduktion till Azure-Loggintegrering](security-azure-log-integration-overview.md). Den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.

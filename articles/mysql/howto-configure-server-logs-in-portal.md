@@ -1,20 +1,17 @@
 ---
 title: Konfigurera och komma åt loggar för Azure Database för MySQL i Azure Portal
 description: Den här artikeln beskriver hur du konfigurerar och få åtkomst till serverloggar i Azure Database for MySQL från Azure Portal.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 030c9bf32da7b635066a744270739251b9bf3d03
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984714"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544965"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurera och öppna serverloggar i Azure portal
 

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322302"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599884"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana åtkomst i Azure HDInsight
 
@@ -34,7 +34,7 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
 
 2. Ange eller välj de värde som föreslås i följande skärmbild:
 
-    > [!NOTE]
+    > [!NOTE]  
     > De värden som du anger måste vara unika och bör följa riktlinjerna för namngivning. Mallen utför inte några verifieringskontroller. Om de värden som du anger redan används, eller inte följer riktlinjerna, får du ett felmeddelande när du har skickat mallen.       
     > 
     >
@@ -53,7 +53,7 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
     |**Inloggningsnamn och lösenord för klustret**     | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |**SSH-användarnamn och lösenord**     | Standardanvändarnamnet är **sshuser**.  Du kan byta namn på SSH-användarnamn.  SSH-användarlösenordet har samma krav som lösenordet för klusterinloggning.|
        
-    Vissa egenskaper har hårdkodats i mallen.  Du kan konfigurera dessa värden från mallen. Förklaring av de här egenskaperna finns i [skapa Apache Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Vissa egenskaper har hårdkodats i mallen.  Du kan konfigurera dessa värden från mallen. Fler förklaringar av dessa egenskaper finns i [Skapa Apache Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Välj **Jag godkänner villkoren som anges ovan**, **Fäst på instrumentpanelen** och sedan **Köp**. Du ser en ny panel som heter **Skicka distribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster.
 
@@ -66,10 +66,8 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
 5. Panelen visas också den standardlagring som associeras med klustret. Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standardkontot för lagring måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
     
 
-> [!NOTE]
-> Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).       
-> 
->
+> [!NOTE]  
+> Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Få åtkomst till Grafana-instrumentpanel
 
@@ -94,10 +92,8 @@ I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. 
 
-> [!NOTE]
+> [!NOTE]  
 > Om du *omedelbart* fortsätter till nästa kurs för att lära dig hur man kör ETL-åtgärder med Hadoop på HDInsight vill du kanske låta klustret köra vidare. Anledningen till detta är att du i den här självstudiekursen måste skapa ett Hadoop-kluster igen. Men om du inte tänker göra nästa kurs direkt måste du ta bort klustret nu.
-> 
-> 
 
 **Ta bort klustret och/eller Storage-kontot av standardtyp**
 
@@ -122,9 +118,9 @@ Om du är redo att börja arbeta med dina egna data och vill veta mer om hur dat
 
 Mer information om att analysera data med HDInsight finns i följande artiklar:
 
-* Läs mer om att använda Hive med HDInsight, inklusive hur du gör Hive-frågor från Visual Studio, i [använda Apache Hive med HDInsight](../hdinsight-use-hive.md).
-* Läs mer om Pig, ett språk som används för att omvandla data, i [använda Apache Pig med HDInsight](../hdinsight-use-pig.md).
-* Läs mer om Apache Hadoop MapReduce, ett sätt att skriva program som bearbetar data i Hadoop, i [använda Apache Hadoop MapReduce med HDInsight](../hdinsight-use-mapreduce.md).
+* Mer information om att använda Hive med HDInsight, inklusive hur du utför Hive-frågor från Visual Studio, finns i [Använda Apache Hive med HDInsight](../hdinsight-use-hive.md).
+* Du kan läsa mer om Pig, ett språk som används för att omvandla data, i [Använda Apache Pig med HDInsight](../hdinsight-use-pig.md).
+* Du kan läsa mer om MapReduce, ett sätt att skriva appar som bearbetar data i Hadoop, i [Använda MapReduce med HDInsight](../hdinsight-use-mapreduce.md).
 * Du kan läsa mer om hur du använder HDInsight Tools för Visual Studio för att analysera data i HDInsight i [Komma igång med Visual Studio Hadoop-verktyg för HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

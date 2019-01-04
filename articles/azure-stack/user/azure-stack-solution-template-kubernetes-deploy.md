@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959469"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722404"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
 > Kubernetes på Azure Stack är en förhandsversion.
@@ -60,7 +60,7 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 
 1. Om du inte har Kubernetes-kluster i din marketplace tala med administratören för Azure Stack.
 
-## <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett huvudnamn för tjänsten i Azure AD
+## <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett tjänstobjekt i Azure AD
 
 1. Logga in på den globala [Azure-portalen](http://portal.azure.com).
 
@@ -101,7 +101,7 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
 1. Välj den prenumeration som skapats av din operatör för att använda Kubernetes-klustret.
 
-1. Välj **åtkomstkontroll (IAM)** > Välj **+ Lägg till**.
+1. Välj **åtkomstkontroll (IAM)** > Välj **Lägg till rolltilldelning**.
 
 1. Välj den **deltagare** roll.
 

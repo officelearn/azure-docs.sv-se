@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337826"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994767"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -30,7 +30,7 @@ Följande diagram illustrerar viktiga funktioner i den hanterade instansen:
 
 ![viktiga funktioner](./media/sql-database-managed-instance/key-features.png)
 
-Azure SQL Database Managed Instance är utformat för kunder som vill migrera ett stort antal appar från lokala eller IaaS, lokal bygger eller ISV som angetts för miljön till fullständigt hanterad PaaS-molnmiljö med låg migrering arbete som möjligt. Med hjälp av den helt automatiserade [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure, kunderna kan flytta över sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och över kundinstanser med inbyggt stöd för virtuellt nätverk.  Med Software Assurance kan du byta sina befintliga licenser för rabatterade priser på en SQL Database Managed Instance med hjälp av den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmerbarheten för angrepp.
+Azure SQL Database Managed Instance är utformat för kunder som vill migrera ett stort antal appar från lokala eller IaaS, lokal bygger eller ISV som angetts för miljön till fullständigt hanterad PaaS-molnmiljö med låg migrering arbete som möjligt. Med hjälp av den helt automatiserade [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure, kunderna kan flytta över sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och över kundinstanser med inbyggt stöd för virtuellt nätverk.  Med Software Assurance kan du byta sina befintliga licenser för rabatterade priser på en SQL Database Managed Instance med hjälp av den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  SQL Database Managed Instance är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmerbarheten för angrepp.
 
 Vid allmän tillgänglighet syftar Managed Instance till att leverera nära 100% ytan kompatibilitet med den senaste lokala SQL Server-versionen via en mellanlagrad version-plan.
 
@@ -70,7 +70,7 @@ I följande tabell visas de viktigaste funktionerna i Managed Instance:
 
 ## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
 
-Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) i Managed Instance ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du ändra beräkning, minne och lagring utifrån dina arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) i Managed Instance ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du ändra beräkning, minne och lagring utifrån dina arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Du kan välja mellan av maskinvara i vCore-modellen.
 
@@ -146,7 +146,7 @@ Azure SQL Database innehåller en uppsättning avancerade säkerhetsfunktioner s
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör det möjligt att styra åtkomst till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (till exempel av grupmedlemskap eller körning). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Till exempel så att anställda har åtkomst till de datarader som är relevanta för deras avdelning eller att begränsa en data-åtkomsten till endast de relevanta data.
 - [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) krypterar Azure SQL Database Managed Instance-datafiler, kallas även kryptera vilande data. TDE utför i realtid i/o-kryptering och dekryptering av de data och loggfiler. Krypteringen använder en databaskrypteringsnyckel (DEK), som lagras i boot databaspost för tillgänglighet under återställningen. Du kan skydda alla dina databaser i Managed Instance med transparent datakryptering. TDE är SQL Servers beprövade kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier.
 
-Migrering av en krypterad databas till SQL Managed Instance stöds via Azure Database Migration Service (DMS) eller intern återställning. Om du planerar att migrera krypterade databasen med hjälp av inbyggda återställning är ett obligatoriskt steg i migreringen av befintliga TDE-certifikat från SQL Server på plats eller SQL Server-VM till hanterad instans. Mer information om migreringsalternativ finns i [migrering av SQL Server-instans till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+Migrering av en krypterad databas till SQL Managed Instance stöds via Azure Database Migration Service (DMS) eller intern återställning. Om du planerar att migrera en krypterad databas med inbyggd återställning är ett obligatoriskt steg i migreringen av befintliga TDE-certifikat från SQL Server på plats eller SQL Server-VM till hanterad instans. Mer information om migreringsalternativ finns i [migrering av SQL Server-instans till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 

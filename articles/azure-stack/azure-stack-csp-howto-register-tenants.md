@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e319c803b610005bc130e9c5d314d23c48c1e9a3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963750"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717202"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Den här artikeln beskrivs vad du behöver lägga till en användare i Azure Stack som hanteras av en Cloud Service Provider (CSP). När den nya innehavaren använder resurser, kommer Azure Stack rapportera användning till CSP-prenumerationen.
 
@@ -53,7 +53,7 @@ Om slutkunden ska hantera sina egna konton, skapa en gästanvändare i sin katal
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Uppdatera registreringen med kundprenumerationen slutet
 
-Uppdatera din registrering med nya kundens prenumeration. Azure rapporterar kundens användning med hjälp av kunden identiteten från Central till Partner. Det här steget säkerställer att varje kunds användning rapporteras under kundens enskilda CSP-prenumeration. Detta gör att spåra användaren användning och fakturering är mycket enklare.
+Uppdatera din registrering med nya kundens prenumeration. Azure rapporterar kundens användning med hjälp av kunden identiteten från Partner Center. Det här steget säkerställer att varje kunds användning rapporteras under kundens enskilda CSP-prenumeration. Detta gör att spåra användaren användning och fakturering är mycket enklare.
 
 > [!Note]  
 > Om du vill utföra det här steget måste du ha [registrerad Azure Stack](azure-stack-register.md).
@@ -71,7 +71,7 @@ Uppdatera din registrering med nya kundens prenumeration. Azure rapporterar kund
 | --- | --- | 
 |registrationSubscriptionID | Azure-prenumerationen som har använts för den första registreringen av Azure Stack.|
 | customerSubscriptionID | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste vara skapas i CSP-erbjudandet; i praktiken innebär detta via Partnercenter. Om en kund har mer än en Azure Active Directory-klient, måste den här prenumerationen skapas i den klient som ska användas för att logga in på Azure Stack. Kundens prenumerations-ID måste använda gemener. |
-| ResourceGroup | Resursgruppen i Azure som är lagrade i din registrering. |
+| resourceGroup | Resursgruppen i Azure som är lagrade i din registrering. |
 | registrationName | Namnet på registreringen av din Azure Stack. Det är ett objekt som lagras i Azure. | 
 | Egenskaper | Anger egenskaper för resursen. Använd den här parametern om du vill ange värden för egenskaper som är specifika för resurstypen.
 

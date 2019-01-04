@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952060"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539593"
 ---
 # <a name="application-types-for-v20"></a>Programtyper för v2.0
 
@@ -121,7 +121,7 @@ I det här flödet får appen en auktoriseringskod från v2.0-slutpunkten när a
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon- och serversidan appar
 
-Appar som har tidskrävande processer eller som fungerar utan interaktion med en användare måste också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. De här apparna kan autentisera och hämta token genom att använda appens identitet, snarare än en användares delegerade identitet med hjälp av OAuth 2.0 flödet.
+Appar som har tidskrävande processer eller som fungerar utan interaktion med en användare måste också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. De här apparna kan autentisera och hämta token genom att använda appens identitet, snarare än en användares delegerade identitet med hjälp av OAuth 2.0 flödet. Du kan bekräfta appens identitet med hjälp av en klienthemlighet eller ett certifikat. Mer information finns i [autentiserar till Azure AD i daemon-appar med certifikat](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
 I det här flödet appen interagerar direkt med den `/token` slutpunkt för att hämta slutpunkter:
 

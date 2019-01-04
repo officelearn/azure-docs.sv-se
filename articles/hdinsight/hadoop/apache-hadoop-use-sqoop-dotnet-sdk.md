@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 3cd34bf67b0d796af71036e7d14834a061803973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633046"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628092"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Kör Apache Sqoop jobb med hjälp av .NET SDK för Apache Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -24,12 +24,11 @@ Lär dig hur du använder Azure HDInsight .NET SDK för att köra Apache Sqoop j
 
 > [!NOTE]
 > Men du kan använda procedurerna i den här artikeln med antingen ett Windows- eller Linux-baserade HDInsight-kluster, fungerar de bara från en Windows-klient. Använd flikväljaren överst i den här artikeln om du vill välja andra metoder.
-> 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du ha följande objekt:
 
-* Ett Hadoop-kluster i HDInsight. Mer information finns i [skapa ett kluster och en SQL-databas](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Ett Apache Hadoop-kluster i HDInsight. Mer information finns i [skapa ett kluster och en SQL-databas](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Använda Sqoop på HDInsight-kluster med .NET SDK
 HDInsight .NET SDK tillhandahåller klientbibliotek för .NET, så att det är lättare att arbeta med HDInsight-kluster från .NET. I det här avsnittet skapar du ett C#-konsolprogram för att exportera hivesampletable till Azure SQL Database-tabell som du skapade tidigare i den här självstudien.
@@ -111,14 +110,14 @@ HDInsight .NET SDK tillhandahåller klientbibliotek för .NET, så att det är l
 ## <a name="limitations"></a>Begränsningar
 Linux-baserade HDInsight visar följande begränsningar:
 
-* Massexport: The Sqoop koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
+* Massexport: Sqoop-koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
 
-* Batchbearbetning: med hjälp av den `-batch` växla när den utför infogningar, Sqoop utför flera infogningar i stället för batchbearbetning insert-åtgärder.
+* Batchbearbetning: Med hjälp av den `-batch` växel, Sqoop utför flera infogningar i stället för batchbearbetning insert-åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
-* [Använda Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
-* [Analysera flygförseningsdata med HDInsight](../hdinsight-analyze-flight-delay-data.md): använda Hive för att analysera flygning fördröjning data och Använd sedan Sqoop för att exportera data till en Azure SQL database.
-* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): hitta andra metoder för att överföra data till HDInsight eller Azure Blob storage.
+* [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
+* [Analysera flygförseningsdata med HDInsight](../hdinsight-analyze-flight-delay-data.md): Använda Apache Hive för att analysera flygförseningsdata och Använd sedan Sqoop för att exportera data till en Azure SQL database.
+* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): Hitta andra metoder för att överföra data till HDInsight eller Azure Blob storage.
 

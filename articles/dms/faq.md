@@ -4,19 +4,19 @@ description: Läs vanliga frågor och svar om hur du använder Azure Database Mi
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/19/2018
+ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887112"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714703"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder Azure Database Migration Service
 Den här artikeln innehåller vanliga frågor om hur du använder Azure Database Migration Service tillsammans med tillhörande svar.
@@ -28,7 +28,7 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som utfor
 - Fortsatt investeringar i problemfri migrering.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>F. Vilken källa / mål-par Azure Database Migration Service stöder för närvarande?
-Tjänsten stöder för närvarande migreringar från SQL Server till Azure SQL Database och du kan gå till Azure-portalen nu att börja använda Azure Database Migration Service för det här scenariot. Andra källa / mål-par, som t.ex Oracle till Azure SQL Database, är tillgängliga via en begränsad privat förhandsversion. Registrera dig för en möjlighet att delta i begränsad privat förhandsgranskning av dessa scenarier [här](https://aka.ms/dms-preview/).
+Tjänsten stöder för närvarande en mängd olika Migreringsscenarier. En fullständig lista över statusen för varje tillgänglig Migreringsscenario finns i artikeln [Status för migreringsscenarier som stöds av Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Andra Migreringsscenarier är i en begränsad förhandsversion och kräver att skicka en utnämning via webbplatsen DMS-förhandsversion. En fullständig lista över scenarier i en begränsad förhandsversion och för att logga in och particpate i någon av dessa erbjudanden, finns det [plats DMS förhandsversion](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>F. Hur Azure Database Migration Service jämfört med andra Microsoft-databasmigreringsverktyg, till exempel Database Migration Assistant (DMA) eller SQL Server Migration Assistant (SSMA)?
 Azure Database Migration Service är den bästa metoden för Databasmigreringen till Microsoft Azure i skala. Mer information om hur Azure Database Migration Service Jämför med andra Microsoft-databasen Migreringsverktyg och rekommendationer om hur du använder tjänsten för olika scenarier finns i bloggen bokföring [särskiljer Microsofts databas Migreringsverktyg och tjänster](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).

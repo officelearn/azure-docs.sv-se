@@ -7,18 +7,22 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292517"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791833"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
-Den här artikeln visar hur du kan bädda in Video Indexer-widgetar i program. Video Indexer har stöd för inbäddning av två typer av widgetar i program: **insikter** och **spelare**. 
+Den här artikeln visar hur du kan bädda in Video Indexer-widgetar i program. Bädda in två typer av widgetar i ditt program har stöd för video Indexer: **Kognitiva insikter** och **Player**. 
+
+> [!NOTE]
+> Från och med 1 februari 2018 version 1 av den **kognitiva insikter** widget upphör att gälla. Bädda in URL: en version som standard `version=2`.
+
 ## <a name="widget-types"></a>Widgettyper
 
 ### <a name="cognitive-insights-widget"></a>Insiktswidget
@@ -27,8 +31,8 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** URL-parametern **widgets** stöds inte om **version = 2** används. |
-|version|Versioner av **insikts**widgeten|Om du vill få de senaste uppdateringarna för insiktswidgeten lägger du till frågeparametern `?version=2` i inbäddnings-URL:en. Till exempel, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Om du vill få den tidigare versionen tar du bort `version=2` från URL:en.
+|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** Den **widgetar** URL param stöds inte om **version = 2** används. |
+|version|Versioner av **insikts**widgeten|För att få de senaste insikterna widget uppdateringar kan du lägga till `?version=2` fråga param att bädda in URL: en. Till exempel, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Om du vill få den tidigare versionen tar du bort `version=2` från URL:en.
 
 ### <a name="player-widget"></a>Spelarwidget
 
@@ -39,7 +43,7 @@ Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. 
 |t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: t=60|
 |captions|Språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: captions=sv-SE|
 |showCaptions|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/>Exempel: showCaptions=true|
-|typ||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: type=audio|
+|typ||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: type=audio|"
 |autoplay|Ett booleskt värde|Anger om spelaren ska börja spela upp videon när den har lästs in (standard är true).<br/>Exempel: autoplay=false|
 |language|Språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: language=de-DE|
 

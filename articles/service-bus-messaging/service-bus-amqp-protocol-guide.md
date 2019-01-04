@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961152"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542517"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -264,7 +264,7 @@ Varje anslutning måste initiera en egen kontroll länk för att kunna börja oc
 
 #### <a name="starting-a-transaction"></a>Starta en transaktion
 
-Att börja transaktionella arbeta. kontrollanten måste skaffa en `txn-id` från coordinator. Detta sker genom att skicka en `declare` typ meddelande. Om deklarationen lyckas, koordinatorn svarar med ett disposition resultat för, vilket innebär det tilldelade `txn-id`.
+Att börja transaktionella arbeta. kontrollanten måste skaffa en `txn-id` från coordinator. Detta sker genom att skicka en `declare` typ meddelande. Om deklarationen lyckas koordinatorn svarar med en disposition-resultatet som medför det tilldelade `txn-id`.
 
 | Klienten (Controller) | | Service Bus (Coordinator) |
 | --- | --- | --- |
@@ -351,7 +351,7 @@ AMQP'S SASL integration har två nackdelar:
 * Alla autentiseringsuppgifter och token är begränsade till anslutningen. En infrastruktur för meddelanden kanske vill ge differentierad åtkomstkontroll på basis av per entitet; till exempel tillåta att innehavaren av en token ska skickas till kön A men inte till kön B. Med den autentiseringskontext förankrad på anslutningen, går det inte att använda en enda anslutning och ännu använder olika åtkomsttoken för kön A och kön B.
 * Åtkomsttoken är vanligtvis endast giltiga under en begränsad tid. Den här giltigheten kräver att användaren med jämna mellanrum hämta token som ger en möjlighet att tokenutfärdare att vägra att utfärda en ny token om användarens åtkomst behörigheten har ändrats. AMQP-anslutningar kan pågå under långa tidsperioder. SASL-modellen innehåller endast en chans att ställa in en token vid anslutningen, vilket innebär att den infrastruktur för meddelanden som antingen har du koppla från klienten när token upphör att gälla eller som behövs för att godta risken för fortsatt kommunikation med en klient som åtkomstbehörighet kan ha återkallats under tiden.
 
-AMQP CBS-specifikationen som implementeras av Service Bus, kan en elegant lösning för båda dessa problem: Det kan en klient att koppla åtkomsttoken till varje nod och för att uppdatera dessa token innan de går ut, utan att avbryta flödet meddelande.
+AMQP CBS-specifikationen som implementeras av Service Bus, kan en elegant lösning för båda dessa problem: Det gör att en klient att koppla åtkomsttoken till varje nod och för att uppdatera dessa token innan de går ut, utan att avbryta flödet meddelande.
 
 CBS definierar en hantering av virtuella-nod med namnet *$cbs*, tillhandahållas av meddelandeinfrastrukturen. Hanteringsnoden accepterar token för alla andra noder i meddelandeinfrastrukturen.
 
@@ -374,7 +374,7 @@ Den *namn* egenskapen identifierar den entitet som token vara associerad. Det ä
 | amqp:SWT |Simple Webbtoken (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdas av AAD/ACS |
 | servicebus.Windows.NET:sastoken |Service Bus SAS-Token |AMQP-värde (sträng) |- |
 
-Token ger rättigheter. Service Bus känner tre grundläggande rättigheter: ”skicka” gör det möjligt att skicka ”Listen” gör det möjligt för som tar emot och ”hantera” kan manipulera entiteter. SWT-token som utfärdas av AAD/ACS uttryckligen inkludera dessa rättigheter som anspråk. Service Bus SAS-token finns regler som har konfigurerats på namnområdet eller entitet och dessa regler har konfigurerats med behörighet. Signera token med nyckeln som är associerad med regeln därför att gör token snabb respektive rättigheter. Den token som är associerade med en entitet med hjälp av *put-token* låter anslutna klienten interagerar med entiteten per token rättigheter. En länk där klienten tar på den *avsändaren* roll kräver ”skicka” höger; tar på den *mottagare* roll kräver ”Listen” direkt.
+Token ger rättigheter. Service Bus känner tre grundläggande rättigheter: ”Skicka” gör det möjligt att skicka ”Listen” aktiverar tar emot, och ”hantera” kan manipulera entiteter. SWT-token som utfärdas av AAD/ACS uttryckligen inkludera dessa rättigheter som anspråk. Service Bus SAS-token finns regler som har konfigurerats på namnområdet eller entitet och dessa regler har konfigurerats med behörighet. Signera token med nyckeln som är associerad med regeln därför att gör token snabb respektive rättigheter. Den token som är associerade med en entitet med hjälp av *put-token* låter anslutna klienten interagerar med entiteten per token rättigheter. En länk där klienten tar på den *avsändaren* roll kräver ”skicka” höger; tar på den *mottagare* roll kräver ”Listen” direkt.
 
 Svarsmeddelande har följande *egenskaper för program* värden
 
@@ -399,7 +399,7 @@ Klienten är skyldig att betala för att hålla reda på token upphör att gäll
 
 På så sätt kan du skapa en avsändare och upprätta länken till den `via-entity`. Ytterligare information skickas vid upprättandet länken för att upprätta SANT målet meddelanden/överföringar på den här länken. När bifoga har lyckats, vidarebefordras automatiskt alla meddelanden som skickas på den här länken till den *målentitet* via *via entitet*. 
 
-> Obs: Autentisering måste utföras för både *via entitet* och *målentitet* innan du etablerar den här länken.
+> Obs! Autentisering måste utföras för både *via entitet* och *målentitet* innan du etablerar den här länken.
 
 | Client | | Service Bus |
 | --- | --- | --- |

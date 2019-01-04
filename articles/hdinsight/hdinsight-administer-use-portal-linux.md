@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725190"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794489"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -22,140 +22,117 @@ ms.locfileid: "52725190"
 
 Med hjälp av den [Azure-portalen][azure-portal], du kan hantera [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight. Använd flikväljaren ovan för information om hur du hanterar Hadoop-kluster i HDInsight med andra verktyg.
 
-**Krav**
+**Förutsättningar**
+- En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Ett befintligt Apache Hadoop-kluster i HDInsight.  Se [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-Om du vill följa stegen i den här artikeln behöver du en **Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-## <a name="open-the-azure-portal"></a>Öppna Azure portal
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
-2. När du öppnar portalen, kan du:
-
-   * Klicka på **skapa en resurs** från den vänstra menyn för att skapa ett nytt kluster:
-
-       ![knapp för ny HDInsight-kluster](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
-
-       Ange **HDInsight** i **Sök på Marketplace**, klickar du på **HDInsight**, och klicka sedan på **skapa**.
-
-   * Klicka på **HDInsight-kluster** i den vänstra menyn Visa en lista över befintliga kluster:
-
-       ![Azure HDInsight-kluster portalknappen](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
-
-       Om du inte ser den **HDInsight-kluster** knappen och klicka sedan på **HDInsight-kluster** under den **information + analys** avsnittet.
+## <a name="getting-started"></a>Komma igång
+Logga in på [https://portal.azure.com](https://portal.azure.com).
 
 
-## <a name="create-clusters"></a>Skapa kluster
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+## <a name="showClusters"></a> Lista och visa kluster
+Den **HDInsight-kluster** din befintliga kluster visas på sidan.  Från portalen:
+1. Välj **alla tjänster** menyn till vänster.
+2. Välj **HDInsight-kluster** under **ANALYTICS**.
 
-HDInsight fungerar med en bred Hadoop-komponenter. Lista över de komponenter som verifieras och som stöds finns i [vilken version av Apache Hadoop är i Azure HDInsight?](hdinsight-component-versioning.md) Allmän kluster skapas information finns i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="homePage"></a> Startsida för kluster 
+Välj klusternamnet från den [ **HDInsight-kluster** sidan](#showClusters).  Då öppnas det **översikt** vyn ser ut som följande bild:
 
-### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
+![Azure portal HDInsight-kluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
 
-Du måste ange en Azure-prenumeration när du skapar ett HDInsight-kluster. Klustret kan skapas i en ny Azure-resursgrupp eller i en befintlig resursgrupp. Du kan använda följande steg för att kontrollera dina behörigheter för att skapa HDInsight-kluster:
+**Översta menyn:**  
+- **Flytta**: Flyttar klustret till en annan resursgrupp eller till en annan prenumeration.  
+- **Ta bort**: Tar bort klustret.  
+- **Uppdatera**:  Uppdaterar vyn.
 
-- Om du vill skapa en ny resursgrupp:
+**Menyn till vänster:**  
+ - **Övre vänstra meny**  
+    - **Översikt över**:  Innehåller allmän information för klustret.
+    -  **Aktivitetsloggen**: Visa och fråga efter aktivitetsloggar.
+    - **Åtkomstkontroll (IAM)**: Använd rolltilldelningar.  Se [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
+    - **Taggar**: Kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.
+    - **Diagnostisera och lösa problem**: Visa felsökningsinformation.
+    - **Snabbstart**:  Visar information som hjälper dig att komma igång med HDInsight.
+    - **Verktyg**: Hjälpinformation för HDInsight relaterade verktyg.
 
-    1. Logga in på [Azure Portal](https://portal.azure.com).
-    2. Klicka på **prenumeration** menyn till vänster. Den har en gul nyckelikonen. Du bör se en lista över prenumerationer.
-    3. Klicka på den prenumeration som används för att skapa kluster. 
-    4. Klicka på **Mina behörigheter**.  Den visar dina [rollen](../role-based-access-control/built-in-roles.md) för prenumerationen. Du behöver minst deltagaråtkomst till att skapa HDInsight-kluster.
+- **Inställningsmenyn**  
+  - **Klusterstorlek**: Kontrollera, öka och minska antalet arbetarnoder i klustret. Se [skala kluster](hdinsight-administer-use-management-portal.md#scale-clusters).
+  - **Kvotgränser**: Visa använda och tillgängliga kärnor för prenumerationen.
+  - **SSH + klusterinloggning**: Visar instruktioner för att ansluta till klustret med Secure Shell (SSH)-anslutning. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+  - **Data Lake Storage Gen1**: Konfigurera åtkomst till Data Lake Storage Gen1.  Gå till [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+  - **Storage-konton**: Visa storage-konton och nycklar. Storage-konton har konfigurerats när klustret skapas.
+  - **Program**: Lägg till/ta bort HDInsight-program.  Se [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+  - **Skriptåtgärder**: Kör Bash-skript på klustret. Se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
+  - **Externa metastores**: Visa den [Apache Hive](https://hive.apache.org/) och [Apache Oozie](https://oozie.apache.org/) metastores. Metastores kan bara konfigureras när klustret skapas.
+  - **HDInsight-partner**: Lägg till/ta bort aktuell HDInsight-Partner.
+  - **Egenskaper för**: Visa den [Klusteregenskaper](#properties).
+  - **Låser**: Lägg till ett lås för att förhindra att klustret att ändras eller tas bort.
+  -  **Automationsskript**: Visa och exportera Azure Resource Manager-mall för klustret. För närvarande kan exportera du bara beroende Azure storage-kontot. Se [skapa Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-- Använda en befintlig resursgrupp:
+- **Övervakning av menyn**
+  - **Aviseringar**: Hantera aviseringar och åtgärder.
+  - **Mått**: Övervaka klustermått i Azure Log Analytics.
+  - **Diagnosinställningar**: Inställningarna på var du vill lagra diagnos mätvärden.
+  - **Operations Management Suite**:  Övervaka ditt kluster i Azure Operations Management Suite (OMS) och Azure Log Analytics.
 
-    1. Logga in på [Azure Portal](https://portal.azure.com).
-    2. Klicka på **resursgrupper** i den vänstra menyn Visa en lista över resursgrupper.
-    3. Klicka på resursgruppen som du vill använda för att skapa ditt HDInsight-kluster.
-    4. Klicka på **åtkomstkontroll (IAM)** och **rolltilldelningar**, och kontrollera att du (eller en grupp som du tillhör) ha minst deltagaråtkomst till resursgruppen.
-
-Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration felet, se [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
-
-## <a name="list-and-show-clusters"></a>Lista och visa kluster
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
-2. Klicka på **HDInsight-kluster** i den vänstra menyn Visa en lista över befintliga kluster. Om du inte ser **HDInsight-kluster**, klickar du på **alla tjänster** första.
-3. Klicka på klusternamnet. Om listan över klustret är lång kan använda du filter överst på sidan.
-4. Klicka på ett kluster från listan om du vill se översiktssidan:
-
-    ![Azure portal HDInsight-kluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **menyn översikt:**
-    * **Instrumentpanelen**: öppnas Ambari-webbgränssnittet för klustret.
-    * **Secure Shell**: Visar instruktioner för att ansluta till klustret med Secure Shell (SSH)-anslutning.
-    * **Skala kluster**: gör att du kan ändra antalet arbetsnoder för det här klustret.
-    * **Flytta**: flyttar klustret till en annan resursgrupp eller till en annan prenumeration.
-    * **Ta bort**: tar bort klustret.
-
-**Menyn till vänster:**
-    * **Aktivitetsloggar**: visa och fråga aktivitetsloggar.
-    * **Åtkomstkontroll (IAM)**: använda rolltilldelningar.  Se [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
-    * **Taggar**: kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.
-* **Diagnostisera och lösa problem**: visa felsökningsinformation.
-    * **Snabbstart**: Visar information som hjälper dig att komma igång med HDInsight.
-    * **Verktyg för HDInsight**: hjälpinformation för HDInsight relaterade verktyg.
-**Inställningar**
-* **Klusterstorlek**: Kontrollera, öka och minska antalet arbetarnoder i klustret. Se [skala kluster](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Kvotgränser**: visa använda och tillgängliga kärnor för prenumerationen.
-    * **SSH + klusterinloggning**: Visar instruktioner för att ansluta till klustret med Secure Shell (SSH)-anslutning. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
-* **Data Lake Store Gen1**: Konfigurera åtkomst till Data Lake Store Gen1.  Se [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-    * **Storage-konton**: Visa storage-konton och nycklar. Storage-konton har konfigurerats när klustret skapas.
-    * **Program**: Lägg till/ta bort HDInsight-program.  Se [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
-    * **Skriptåtgärder**: kör Bash-skript på klustret. Se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
-    * **HDInsight-Partner**: Lägg till/ta bort aktuell HDInsight-Partner.
-    * **Egenskaper för**: Visa egenskaper för klustret.
-* **Låser**: Lägg till ett lås för att förhindra att klustret som ändrats eller tagits bort.
-    * **Automationsskript**: visa och exportera Azure Resource Manager-mall för klustret. För närvarande kan exportera du bara beroende Azure storage-kontot. Se [skapa Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
-**Övervakning**
-* **Alters**: Hantera aviseringar och åtgärder.
-    * **Mått**: övervaka klustermått i Azure Log Analytics.
-* **Diagnosinställningar**: inställningarna på var du vill lagra mått som du kan undersöka **Support och felsökning**
-    * **Resurshälsa**: se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).
-    * **Ny supportförfrågan**: gör att du kan skapa ett supportärende hos Microsoft support.
+- **Support och felsökning menyn**
+  - **Resurshälsa**: Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).
+  - **Ny supportförfrågan**: Kan du skapa ett supportärende hos Microsoft support.
     
-6. Klicka på **egenskaper**:
+## <a name="properties"></a> Egenskaper för klustret
+Från den [kluster startsida](#homePage)under **inställningar** Välj **egenskaper**.
+* **Hostname**: Klustrets namn.
+* **Klustrets URL**: URL till Ambari-webbgränssnittet.
+* **Secure shell (SSH)**: Användarnamn och värden namnet ska användas i åtkomst till klustret via SSH.
+* **Status för**: En av: Avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, eller ClusterCustomization.
+* **Region**: Azure-plats. En lista över platser som stöds Azure finns i den **Region** nedrullningsbara listrutan på [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
+* **Skapandedatum**: Det datum som klustret har distribuerats.
+* **Operativsystem**: Antingen **Windows** eller **Linux**.
+* **Typ**: Hadoop, HBase, Storm, Spark.
+* **Version**. Se [HDInsight versioner](hdinsight-component-versioning.md).
+* **Prenumeration**: Prenumerationsnamn.
+* **Standarddatakällan**: Standardfilsystemet för klustret.
+* **Noder arbetsstorlek**: Den valda storleken på arbetsnoderna.
+* **Gå nodstorlek**: Valda VM-storleken för huvudnoderna.
+* **Virtuellt nätverk**: Namnet på det virtuella nätverket där klustret distribueras om en valdes vid tidpunkten för distribution.
 
-    Egenskaperna är:
+## <a name="move-clusters"></a>Flytta kluster
 
-   * **Hostname**: klustrets namn.
-   * **Klustrets URL**: en för Ambari-webbgränssnittet.
-   * **Secure shell (SSH)**: namnet på användarnamn och värden ska användas i åtkomst till klustret via SSH.
-   * **Status för**: en av: avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued eller ClusterCustomization.
-   * **Region**: Azure-plats. En lista över platser som stöds Azure finns i den **Region** nedrullningsbara listrutan på [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
-   * **Skapandedatum**: det datum som klustret har distribuerats.
-   * **Operativsystemet**: antingen **Windows** eller **Linux**.
-   * **Typ**: Hadoop, HBase, Storm, Spark.
-   * **Version**. Se [HDInsight versioner](hdinsight-component-versioning.md).
-   * **Prenumeration**: prenumerationsnamn.
-   * **Standarddatakällan**: standardfilsystem för klustret.
-   * **Noder arbetsstorlek**: valda VM-storleken på arbetsnoderna.
-   * **Gå nodstorlek**: valda VM-storleken för huvudnoderna.
-   * **Virtuellt nätverk**: namnet på det virtuella nätverket där klustret distribueras om en valdes vid tidpunkten för distribution.
+Du kan flytta ett HDInsight-kluster till en annan Azure-resursgrupp eller en annan prenumeration. 
+
+Från den [kluster startsida](#homePage):
+
+1. Välj **flytta** på den översta menyn.
+2. Välj **flytta till en annan resursgrupp** eller **flytta till en annan prenumeration**.
+3. Följ instruktionerna från den nya sidan.
 
 ## <a name="delete-clusters"></a>Ta bort kluster
 Tar bort ett kluster tas inte bort standardkontot för lagring eller eventuella länkade lagringskonton. Du kan återskapa klustret med hjälp av samma lagringskonton och samma metastores. Vi rekommenderar att du använder en ny standardbehållaren när du skapar klustret igen.
 
-1. Logga in på den [Portal][azure-portal].
-2. Klicka på **HDInsight-kluster** menyn till vänster. Om du inte ser **HDInsight-kluster**, klickar du på **alla tjänster** första.
-3. Klicka på det kluster som du vill ta bort.
-4. Klicka på **ta bort** på den översta menyn och följ sedan instruktionerna.
+Från den [kluster startsida](#homePage):
+
+1. Välj **ta bort** på den översta menyn.
+2. Följ instruktionerna från den nya sidan.
 
 Se även [pausa/Stäng kluster](#pauseshut-down-clusters).
 
 ## <a name="add-additional-storage-accounts"></a>Lägga till fler lagringskonton
 
-Du kan lägga till ytterligare Azure Storage-konton och Azure Data Lake Store-konton när ett kluster har skapats. Mer information finns i [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md) (Lägga till fler lagringskonton till HDInsight).
+Du kan lägga till ytterligare Azure Storage-konton och Azure Data Lake Storage-konton när ett kluster har skapats. Mer information finns i [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md) (Lägga till fler lagringskonton till HDInsight).
 
 ## <a name="scale-clusters"></a>Skala kluster
 Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av ett Azure HDInsight-kluster, utan att behöva återskapa klustret.
 
-> [!NOTE]
+> [!NOTE]  
 > Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](#list-and-show-clusters).
->
->
-**Skala kluster**
 
-1. Logga in på den [Portal][azure-portal].
-2. Klicka på **HDInsight-kluster** menyn till vänster.
-3. Klicka på klustret som du vill skala.
-3. Klicka på **skala kluster**.
-4. Ange **många av arbetsnoder**. Gränsen för antalet klusternoder varierar mellan Azure-prenumerationer. Du kan kontakta faktureringssupporten om du vill öka gränsen.  Information om kostnaden ändringarna du gjort i antalet noder.
+Från den [kluster startsida](#homePage):
 
-    ![HDInsight hadoop hbase storm spark skala](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
+1. Under **inställningar**väljer **klusterstorlek**.
+2. Ange **många av arbetsnoder** i textrutan numeriskt. Gränsen för antalet klusternoder varierar mellan Azure-prenumerationer. Du kan kontakta faktureringssupporten om du vill öka gränsen.  Information om kostnaden ändringarna du gjort i antalet noder.
+3. Välj **Spara**.
+
+    ![HDInsight hadoop hbase storm spark skala](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster2.png)
 
 Effekten av att ändra antalet datanoder varierar för varje typ av kluster som stöds av HDInsight:
 
@@ -169,9 +146,9 @@ Effekten av att ändra antalet datanoder varierar för varje typ av kluster som 
     Du kan smidigt lägga till eller ta bort noder till HBase-kluster medan den körs. Regionservrar balanseras automatiskt inom ett par minuter efter att du skalar igen. Du kan också manuellt balansera regionservrar genom att logga in till huvudnod i klustret och köra följande kommandon från en kommandotolk:
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
     Mer information om hur du använder HBase-gränssnittet finns i [Kom igång med Apache HBase-exempel i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
@@ -185,7 +162,7 @@ Effekten av att ändra antalet datanoder varierar för varje typ av kluster som 
   * Storm-Webbgränssnittet
   * Verktyget kommandoradsgränssnittet (CLI)
 
-    Referera till den [Apache Storm-dokumentationen](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
+    Referera till den [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
 
     Storm-webbgränssnittet finns på HDInsight-klustret:
 
@@ -215,9 +192,7 @@ Det finns många sätt som du kan programmera processen:
 
 Prisinformationen, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen, se [ta bort kluster](#delete-clusters)
 
-## <a name="move-cluster"></a>Flytta klustret
 
-Du kan flytta ett HDInsight-kluster till en annan Azure-resursgrupp eller en annan prenumeration.  Se [lista och visa kluster](#list-and-show-clusters).
 
 ## <a name="upgrade-clusters"></a>Uppgradera kluster
 
@@ -227,40 +202,37 @@ Se [uppgradera HDInsight-kluster till en nyare version](./hdinsight-upgrade-clus
 
 Ambari innehåller ett intuitivt, enkelt att använda Hadoop management webbgränssnittet backas upp av dess RESTful API: er. Ambari gör det möjligt för systemadministratörer att hantera och övervaka Hadoop-kluster.
 
-1. Öppna ett HDInsight-kluster från Azure-portalen.  Se [lista och visa kluster](#list-and-show-clusters).
-2. Klicka på **kluster instrumentpanelen**.
+Från den [kluster startsida](#homePage):
 
-    ![Menyn för HDInsight Hadoop-kluster](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+1. Välj **Klusterinstrumentpaneler**.
 
-1. Ange kluster användarnamn och lösenord.  Klustret Standardanvändarnamnet är _admin_. Ambari web UI som ser ut som:
+    ![Menyn för HDInsight Hadoop-kluster](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
-    ![HDInsight Hadoop Ambari-Webbgränssnittet](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+1. Välj **Ambari home** från den nya sidan.
+2. Ange kluster användarnamn och lösenord.  Klustret Standardanvändarnamnet är _admin_. Ambari web UI som ser ut som:
 
 Mer information finns i [hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="change-passwords"></a>Ändra lösenord
-Ett HDInsight-kluster kan ha två användarkonton. I HDInsight-kluster användarkonto (alias) HTTP-användarkonto) och SSH-användarkontot ska skapas under skapandeprocessen. Du kan använda Ambari-webbgränssnittet för att ändra klusternamn användaren-konto och lösenord och skriptåtgärder för att ändra SSH-användarkonto
+Ett HDInsight-kluster kan ha två användarkonton. I HDInsight-kluster användarkonto (alias) HTTP-användarkonto) och SSH-användarkontot ska skapas under skapandeprocessen. Du kan använda portalen för att ändra lösenordet för användarkontot kluster och skriptåtgärder för att ändra SSH-användarkontot.
 
 ### <a name="change-the-cluster-user-password"></a>Ändra användarlösenord kluster
-Du kan använda Ambari-Webbgränssnittet för att ändra användarlösenord för klustret. Om du vill logga in på Ambari, måste du använda det befintliga klustret användarnamn och lösenord.
 
-> [!NOTE]
+> [!NOTE]  
 > Ändra lösenordet för användaren (admin) kluster kan det orsaka skriptåtgärder som körs mot den här klustret slutar fungera. Om du har några beständiga skriptåtgärder arbetsnoder som mål, misslyckas skripten när du lägger till noder i klustret via ändra storlek på åtgärder. Mer information om skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
->
->
 
-1. Logga in på Ambari-Webbgränssnittet på HDInsight-kluster användarens autentiseringsuppgifter. Standardanvändarnamnet är **admin**. URL: en är **https://&lt;HDInsight-klustrets namn > azurehdinsight.net**.
-2. Klicka på **Admin** på den översta menyn och klicka sedan på ”Hantera Ambari”.
-3. I den vänstra menyn klickar du på **användare**.
-4. Klicka på **Admin**.
-5. Klicka på **ändra lösenord**.
+Från den [kluster startsida](#homePage):
+1. Välj **SSH- och logga in** under **inställningar**.
+2. Välj **Återställ autentiseringsuppgifter**.
+3. Ange och Bekräfta nytt lösenord i rutorna.
+4. Välj **OK**.
 
-Ambari ändrar sedan lösenordet på alla noder i klustret.
+Lösenordet har ändrats på alla noder i klustret.
 
 ### <a name="change-the-ssh-user-password"></a>Ändra SSH-användarlösenordet
 1. Använd en textredigerare och spara följande text som en fil med namnet **changepassword.sh**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Du måste använda ett redigeringsprogram som använder LF som raden slutar. Om redigeraren använder CRLF, fungerar inte skriptet.
 
     ```bash
@@ -271,16 +243,16 @@ Ambari ändrar sedan lösenordet på alla noder i klustret.
     ```
 
 2. Ladda upp filen till en lagringsplats som kan nås från HDInsight med hjälp av en HTTP eller HTTPS-adress. Till exempel lagra en fil för offentlig, t.ex OneDrive eller Azure Blob storage. Spara URI: N (HTTP eller HTTPS-adress) till filen, eftersom denna URI krävs i nästa steg.
-3. Azure-portalen klickar du på **HDInsight-kluster**.
-4. Klicka på ditt HDInsight-kluster.
-4. Klicka på **skriptåtgärder**.
-4. Från den **skriptåtgärder** bladet väljer **Skicka ny**. När den **skicka skriptåtgärd** bladet visas anger du följande information:
+3. Från den [kluster startsida](#homePage) Välj **skriptåtgärder** under **inställningar**.
+4. Från den **skriptåtgärder** bladet väljer **Skicka ny**. 
+5. Från den **skicka skriptåtgärd** bladet anger du följande information:
 
    | Fält | Värde |
    | --- | --- |
-   | Namn |Ändra ssh lösenord |
+   | Skripttyp | Välj **– anpassade** från den nedrullningsbara listan.|
+   | Namn |”Ändra ssh lösenord” |
    | Bash-skript-URI |URI: N till filen changepassword.sh |
-   | Noder (Head, Worker, Nimbus, övervakaren, Zookeeper, osv.) |✓ för alla nodtyper visas |
+   | Nodtyper: (Head, Worker, Nimbus, övervakaren, Zookeeper, osv.) |✓ för alla nodtyper visas |
    | Parametrar |Ange SSH-användarnamn och sedan det nya lösenordet. Det bör finnas ett blanksteg mellan användarnamnet och lösenordet. |
    | Spara den här skriptåtgärden... |Lämna det här fältet ska vara avmarkerat. |
 5. Välj **skapa** tillämpas skriptet. När skriptet är färdigt är du kan ansluta till klustret med SSH med det nya lösenordet.
@@ -297,63 +269,23 @@ HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RES
 Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst med hjälp av [klassiska Azure-CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) och [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Hitta prenumerations-ID
-
-**Hitta din Azure-prenumerations-ID**
-
-1. Logga in på den [Portal][azure-portal].
-2. Klicka på **prenumerationer**. Varje prenumeration har ett namn och ett ID.
-
-Varje kluster är kopplad till en Azure-prenumeration. Prenumerationen ID visas i klustret **viktiga** panelen. Se [lista och visa kluster](#list-and-show-clusters).
+Varje kluster är kopplad till en Azure-prenumeration.  Azure-prenumerationen ID: T är synliga från den [kluster startsida](#homePage).
 
 ## <a name="find-the-resource-group"></a>Hitta resursgruppen.
-Varje HDInsight-klustret har skapats med en Azure Resource Manager-grupp i Azure Resource Manager-läge. Resource Manager-grupp som tillhör ett kluster visas i:
-
-* Listan över kluster har en **resursgrupp** kolumn.
-* Klustret **viktiga** panelen.  
-
-Se [lista och visa kluster](#list-and-show-clusters).
+Varje HDInsight-klustret har skapats med en Azure Resource Manager-grupp i Azure Resource Manager-läge. Resource Manager-gruppen är synliga från den [kluster startsida](#homePage).
 
 ## <a name="find-the-storage-accounts"></a>Hitta storage-konton
+HDInsight-kluster använder en Azure Storage-konto eller Azure Data Lake Storage för att lagra data. Varje HDInsight-kluster kan ha en standardkontot för lagring och ett antal länkade storage-konton. Visa en lista över storage-konton från den [kluster startsida](#homePage) under **inställningar**väljer **lagringskonton**.
 
-HDInsight-kluster använder en Azure Storage-konto eller ett Azure Data Lake Store för att lagra data. Varje HDInsight-kluster kan ha en standardkontot för lagring och ett antal länkade storage-konton. Om du vill visa storage-konton du först öppna klustret från portalen och klicka sedan på **lagringskonton**:
-
-![Lagringskonton för HDInsight-kluster](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
-
-I föregående skärmbild, det finns en __standard__ kolumn och anger om kontot är standardkontot för lagring.
-
-Om du vill visa Data Lake Store-konton, klickar du på **Data Lake Store-åtkomst** i föregående skärmbild.
-
-## <a name="run-apache-hive-queries"></a>Kör Apache Hive-frågor
-Du kan inte köra Hive-jobb direkt från Azure-portalen, men du kan använda Hive-vyn på Ambari-Webbgränssnittet.
-
-**Att köra Hive-frågor med Ambari Hive-vy**
-
-1. Logga in på Ambari-Webbgränssnittet på HDInsight-kluster användarens autentiseringsuppgifter. Standardanvändarnamnet är **admin**. URL: en är **https://&lt;HDInsight-klustrets namn > azurehdinsight.net**.
-2. Öppna Hive-vy som du ser i följande skärmbild:  
-
-    ![HDInsight hive-vyn](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
-
-3. Klicka på **fråga** på den översta menyn.
-4. Ange en Hive-fråga i **frågeredigeraren**, och klicka sedan på **kör**.
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 Se [hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md#monitoring).
 
-## <a name="browse-files"></a>Bläddra efter filer
-Med Azure-portalen kan bläddra du innehållet i behållare som standard.
-
-1. Logga in på [https://portal.azure.com](https://portal.azure.com).
-2. Klicka på **HDInsight-kluster** i den vänstra menyn Visa en lista över befintliga kluster.
-3. Klicka på klusternamnet. Om listan över klustret är lång kan använda du filter överst på sidan.
-4. Klicka på **Lagringskonton** i den vänstra menyn i klustret.
-5. Klicka på ett lagringskonto.
-7. Klicka på den **Blobar** panelen.
-8. Klicka på standard-behållarnamn.
 
 ## <a name="monitor-cluster-usage"></a>Övervaka kluster användning
 Den **användning** på HDInsight-klusterbladet visar information om hur många kärnor tillgängliga i prenumerationen för användning med HDInsight, samt antalet kärnor som allokerats till det här klustret och hur de är allokerade för noder i det här klustret. Se [lista och visa kluster](#list-and-show-clusters).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > För att övervaka de tjänster som tillhandahålls av HDInsight-klustret, måste du använda Ambari Web eller Ambari REST API. Läs mer om hur du använder Ambari [hantera HDInsight-kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ## <a name="connect-to-a-cluster"></a>Anslut till ett kluster

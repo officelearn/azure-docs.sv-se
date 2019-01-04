@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240400"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547606"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replikering med SQL Database Managed Instance
 
@@ -63,6 +63,8 @@ Utgivaren och distributören på Azure SQL Database kräver:
 - Anslutningen använder SQL-autentisering mellan replikering deltagare.
 
 - Ett Azure Storage-konto-resurs för arbetskatalogen för replikering.
+
+- Port 445 (TCP utgående) måste vara öppna i säkerhetsregler för hanterad instans-undernätet för att komma åt Azure-filresursen
 
 ## <a name="features"></a>Funktioner
 

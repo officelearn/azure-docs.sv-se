@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336490"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584001"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -25,7 +25,7 @@ Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-port
 
 Varje åtgärd består av följande egenskaper:
 
-* **Namn på**: En unik identifierare i åtgärdsgruppen.  
+* **Namn**: En unik identifierare i åtgärdsgruppen.  
 * **Åtgärdstyp**: Åtgärden som ska utföras. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln. 
 * **Information om**: Motsvarande information som kan variera efter *åtgärdstyp*. 
 
@@ -51,7 +51,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
 1. Definiera en lista med åtgärder genom att tillhandahålla varje åtgärd:
 
-    a. **Namn på**: Ange en unik identifierare för den här åtgärden.
+    a. **Namn**: Ange en unik identifierare för den här åtgärden.
 
     b. **Åtgärdstyp**: Välj e-post/SMS/Push/röst, Logikapp, Webhook, ITSM eller Automation-Runbook.
 
@@ -98,7 +98,7 @@ Käll-IP-adressintervall
     - 13.106.38.148
     - 13.106.57.196
 
-Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
+Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./../../azure-monitor/platform/service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
 
 
 ## <a name="next-steps"></a>Nästa steg ##

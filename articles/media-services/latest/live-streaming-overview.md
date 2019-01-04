@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000245"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788216"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -34,7 +34,7 @@ Den här artikeln ger en detaljerad översikt vägledning, tillsammans med diagr
 
 Om du vill leverera på begäran eller live-dataströmmar med Media Services, måste du ha minst en [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). När ditt Media Services-konto skapas en **standard** StreamingEndpoint läggs till i ditt konto i den **stoppad** tillstånd. Du måste starta StreamingEndpoint där du vill kunna strömma ditt innehåll till användarna. Du kan använda standardgrupperna **StreamingEndpoint**, eller skapar en ny anpassad **StreamingEndpoint** med önskad konfiguration och CDN-inställningarna. Du kan välja att aktivera flera Strömningsslutpunkter, var och en riktar in sig på en annan CDN och ge ett unikt värdnamn för leverans av innehåll. 
 
-I Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en LiveEvent, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Remote livekodare skickar bidraget till som indata slutpunkten med hjälp av antingen den [RTMP](https://www.adobe.com/devnet/rtmp.html) eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmenterad MP4)-protokollet.  
+I Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en LiveEvent, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. Remote livekodare skickar bidraget till som indata slutpunkten med hjälp av antingen den [RTMP](https://www.adobe.com/devnet/rtmp.html) eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmenterad MP4)-protokollet. För Smooth Streaming-inmatningsprotokollet, URL-scheman som stöds är `http://` eller `https://`. RTMP-infogningsprotokollet, URL-scheman som stöds är `rtmp://` eller `rtmps://`. Mer information finns i [rekommenderas livestreaming av kodare](recommended-on-premises-live-encoders.md).
 
 När den **LiveEvent** börjar ta emot bidrag feed, som du kan använda dess förhandsgranskningsslutpunkten (förhandsgransknings-URL att förhandsgranska och validera att du får den direktsända dataströmmen innan du ytterligare publicerar. När du har kontrollerat att förhandsgranska dataströmmen är bra, du kan använda LiveEvent så att den direktsända dataströmmen analysleverans via en eller flera (färdiga) **Strömningsslutpunkter**. För att åstadkomma detta måste du skapa ett nytt [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) på den **LiveEvent**. 
 
@@ -42,9 +42,9 @@ Den **LiveOutput** objekt som liknar en inspelningar som ska fånga upp och regi
 
 Med medietjänster kan du dra nytta av **dynamisk paketering**, där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed att skicka till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
 
-Media Services kan du leverera ditt innehåll dynamiskt krypterad (**dynamisk kryptering**) med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser till auktoriserade klienter. Mer information om hur du kryptera ditt innehåll med Media Services finns i [skyddar innehåll – översikt](content-protection-overview.md)
+Media Services kan du leverera ditt innehåll dynamiskt krypterad (**dynamisk kryptering**) med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser till auktoriserade klienter. Mer information om hur du kryptera ditt innehåll med Media Services finns i [skyddar innehåll – översikt](content-protection-overview.md)
 
-Om du vill kan använda du också dynamisk filtrering, som kan användas för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. 
+Om du vill kan använda du också dynamisk filtrering, som kan användas för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nya funktioner för liveuppspelning i v3
 
@@ -77,13 +77,13 @@ Se en direktsänd exempel i [MediaV3LiveApp](https://github.com/Azure-Samples/me
 
 ![Live encoding](./media/live-streaming/live-encoding.png)
 
-När du använder live encoding med Media Services, kan du konfigurera din lokala livekodare för att skicka en enkel bithastighet video som bidrag till LiveEvent (med RTMP eller fragmenterad Mp4-protokollet). LiveEvent kodar den inkommande, enkel bithastigheten, strömma till en [flera video bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), gör den tillgänglig för leverans för uppspelning av protokoll som MPEG-DASH, HLS och Smooth Streaming-enheter. När du skapar den här typen av LiveEvent, ange kodningstyp som **grundläggande** (LiveEventEncodingType.Basic).
+När du använder live encoding med Media Services, kan du konfigurera din lokala livekodare för att skicka en enkel bithastighet video som bidrag till LiveEvent (med RTMP eller fragmenterad Mp4-protokollet). LiveEvent kodar den inkommande, enkel bithastigheten, strömma till en [flera video bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), gör den tillgänglig för leverans för uppspelning av protokoll som MPEG-DASH, HLS och Smooth Streaming-enheter. När du skapar den här typen av LiveEvent, ange kodningstyp som **Standard** (LiveEventEncodingType.Standard).
 
 Du kan skicka bidraget feed på upp till 1080 p upplösning vid en bildfrekvens av 30 bilder/sekund, med H.264/AVC video-codec och AAC (AAC-LC, HE-AACv1 eller HE-AACv2) ljudcodec. Se den [LiveEvent skriver jämförelse och begränsningar](live-event-types-comparison.md) nedan för mer information.
 
 ## <a name="liveevent-types-comparison"></a>LiveEvent typer jämförelse
 
-I följande artikel innehåller en tabell som jämför funktionerna i de två typerna av LiveEvent: [jämförelse](live-event-types-comparison.md).
+I följande artikel innehåller en tabell som jämför funktionerna i de två typerna av LiveEvent: [Jämförelse av](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 

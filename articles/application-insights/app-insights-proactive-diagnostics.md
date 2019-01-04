@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 44b80a395ce29d67912f822c806246bdd97b59b6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868951"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972846"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt dig om potentiella prestandaproblem i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
@@ -55,11 +55,11 @@ Det finns tre typer av identifiering:
 Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
-* [Sökutforskaren](app-insights-diagnostic-search.md)
+* [Sökutforskaren](../azure-monitor/app/diagnostic-search.md)
 * [Analytics – kraftfullt frågespråk](../azure-monitor/log-query/get-started-portal.md)
 
 Smart identifiering är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 
-* [Manuellt konfigurerade måttaviseringar](app-insights-alerts.md)
-* [Webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md) 
+* [Manuellt konfigurerade måttaviseringar](../azure-monitor/app/alerts.md)
+* [Webbtester för tillgänglighet](../azure-monitor/app/monitor-web-app-availability.md) 
 

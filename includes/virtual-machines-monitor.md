@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c2924380ef5175b330deb5052a962bfecf820ae
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53400005"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594353"
 ---
 Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/application-insights/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -43,23 +43,23 @@ Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md
 
 ## <a name="logs"></a>Logs
 
-Den [Azure-aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) är en prenumerationslogg som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Loggen innehåller en mängd data från Azure Resource Manager driftdata uppdateringar på Service Health-händelser. Du kan klicka på aktivitetsloggen i Azure portal för att visa loggen för den virtuella datorn.
+Den [Azure-aktivitetsloggen](../articles/azure-monitor/platform/activity-logs-overview.md) är en prenumerationslogg som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Loggen innehåller en mängd data från Azure Resource Manager driftdata uppdateringar på Service Health-händelser. Du kan klicka på aktivitetsloggen i Azure portal för att visa loggen för den virtuella datorn.
 
 Några av de saker som du kan göra med aktivitetsloggen är:
 
-- Skapa en [aviseringen i en händelse i aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-- [Stream till en Händelsehubb](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
+- Skapa en [aviseringen i en händelse i aktivitetsloggen](../articles/azure-monitor/platform/activity-logs-overview.md).
+- [Stream till en Händelsehubb](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
 - Analysera dem i Power BI med hjälp av den [Power BI-Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Spara den till ett lagringskonto](../articles/azure-monitor/platform/archive-activity-log.md) för arkivering eller manuell granskning. Du kan ange kvarhållningstid (i dagar) som använder Log-profil.
 
 Du kan också komma åt aktivitetsloggdata med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), eller [övervakaren REST API: er](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure diagnostikloggar](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) är loggar som genereras av den virtuella datorn och som tillhandahåller omfattande, frekventa data om driften. Diagnostikloggar skiljer sig från aktivitetsloggen genom att tillhandahålla information om åtgärder som utförts på den virtuella datorn.
+[Azure diagnostikloggar](../articles/azure-monitor/platform/diagnostic-logs-overview.md) är loggar som genereras av den virtuella datorn och som tillhandahåller omfattande, frekventa data om driften. Diagnostikloggar skiljer sig från aktivitetsloggen genom att tillhandahålla information om åtgärder som utförts på den virtuella datorn.
 
 Några av de saker du kan göra med diagnostikloggar är:
 
 - [Spara dem till ett lagringskonto](../articles/azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av Resursdiagnostikinställningar.
-- [Stream dem till Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) ska matas in av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
+- [Stream dem till Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) ska matas in av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
 - Analysera dem med [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning

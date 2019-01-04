@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231642"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720874"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Bästa praxis och referensarkitekturer
 
@@ -81,7 +81,7 @@ Se till att ett program är tillräckligt flexibel för att hantera DOS-attacker
 
 Skalbarhet är hur bra ett system kan hantera ökad belastning. Du måste programmen utformas för [skala horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att uppfylla behovet av en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst, skapas en enskild felpunkt. Etablering av flera instanser kan systemet mer skalbart och återhämtningsbart mer.
 
-För [Azure App Service](../app-service/app-service-value-prop-what-is.md)väljer en [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) som erbjuder flera instanser. Konfigurera var och en av dina roller att använda för Azure Cloud Services, [flera instanser](../cloud-services/cloud-services-choose-me.md). För [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se till att din virtuella dator (VM)-arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighetsuppsättning](../virtual-machines/virtual-machines-windows-manage-availability.md). Vi rekommenderar att du använder [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för funktioner för automatisk skalning.
+För [Azure App Service](../app-service/app-service-value-prop-what-is.md)väljer en [App Service-plan](../app-service/overview-hosting-plans.md) som erbjuder flera instanser. Konfigurera var och en av dina roller att använda för Azure Cloud Services, [flera instanser](../cloud-services/cloud-services-choose-me.md). För [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se till att din virtuella dator (VM)-arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighetsuppsättning](../virtual-machines/virtual-machines-windows-manage-availability.md). Vi rekommenderar att du använder [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för funktioner för automatisk skalning.
 
 ### <a name="defense-in-depth"></a>Skydd på djupet
 
@@ -96,7 +96,7 @@ Ofta ser vi kundernas lokala resurser komma angripna tillsammans med sina resurs
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Azure-erbjudanden för DDoS-skydd
 
-Azure har två DDoS-Tjänsterbjudanden som ger skydd mot nätverksattacker (Layer 3 och 4): DDoS Protection Basic- och DDoS Protection Standard. 
+Azure har två DDoS-Tjänsterbjudanden som ger skydd mot nätverksattacker (Layer 3 och 4): DDoS Protection Basic och Standard för DDoS-skydd. 
 
 ### <a name="ddos-protection-basic"></a>DDoS Protection Basic
 
@@ -182,7 +182,7 @@ Cybersäkerhet kräver konstant innovation i defense. Azure Standard för DDoS p
 
 DDoS-attacker som riktas mot Azure-resurser vanligtvis kräver minimala åtgärder från användaren synpunkt. Fortfarande, införliva DDoS lösning som en del av en incidenthantering strategi hjälper till att minimera påverkan på affärskontinuitet.
 
-### <a name="microsoft-threat-intelligence"></a>Microsoft hotinformation
+### <a name="microsoft-threat-intelligence"></a>Microsoft Threat Intelligence
 
 Microsoft har ett omfattande threat intelligence nätverk. Det här nätverket använder en utökad säkerhet-community som har stöd för Microsoft online services, Microsoft-partner och relationer inom gruppen internet security kunskapen. 
 

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581943"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608502"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Förbättra prestanda för Apache Spark-arbetsbelastningar med Azure HDInsight-i/o-Cache (förhandsversion)
 
@@ -20,7 +20,7 @@ I/o-Cache är en cachelagring tjänst för Azure HDInsight som förbättrar pres
 
 De flesta SSD ger mer än 1 GByte per sekund av bandbredd. Den här bandbredd, kompletterat med operativsystemet InMemory-fil-cache, ger tillräckligt med bandbredd för att läsa in stordata bearbetningsmotorer beräkning, till exempel Apache Spark. Operativ minne lämnas tillgänglig för Apache Spark kan bearbeta mycket minne-beroende aktiviteter, till exempel shuffles. Om du har exklusiv användning av operativsystem minne kan Apache Spark att uppnå optimal Resursanvändning.  
 
->[!Note]
+>[!Note]  
 >I/o-Cache används för närvarande RubiX som en cachelagring komponent, men detta kan ändras i framtida versioner av tjänsten. Använd Cache-i/o-gränssnitt och inte tar några beroenden direkt på RubiX-implementering.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Fördelarna med Azure HDInsight-i/o-Cache
@@ -45,7 +45,7 @@ Azure HDInsight-i/o-Cache är inaktiverat som standard i en förhandsversion. I/
 
 1. Bekräfta omstart av alla påverkade tjänster i klustret.
 
->[!NOTE] 
+>[!NOTE]  
 > Även om förloppsindikatorn visar aktiverad, är inte faktiskt i/o-cachen aktiverad, förrän du startar om andra tjänster påverkas.
 
 ## <a name="troubleshooting"></a>Felsökning

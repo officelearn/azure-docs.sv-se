@@ -8,24 +8,65 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088314"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599424"
 ---
 # <a name="release-notes"></a>Viktig information
 
-## <a name="speech-service-sdk-110"></a>Taltjänst-SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>Tal SDK 1.2.0 eller senare: 2018-December versionen
+
+**Nya funktioner**
+
+* Python
+  * Beta-versionen av Python-stöd (3.5 och senare) är tillgänglig i den här versionen. Mer information om [visas här](quickstart-python.md).
+* JavaScript
+  * Tal-SDK för JavaScript har varit öppen källkod. Källkoden finns på [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * Vi har nu stöd för Node.js, mer information finns [här](quickstart-js-node.md).
+  * Begränsning av lösenordslängd för ljud sessioner har tagits bort återanslutning sker automatiskt under omslaget.
+* Anslutningsobjektet
+  * Du kan komma åt ett anslutningsobjekt från identifieraren. Det här objektet kan du uttryckligen initiera tjänstanslutning och prenumerera för att ansluta och koppla från händelser.
+    (Detta är inte ännu tillgängliga från JavaScript- och Python.)
+* Stöd för Ubuntu 18.04.
+* Android
+  * Aktiverade ProGuard support under APK generation.
+
+**Förbättringar**
+
+* Förbättringar i användningen av interna tråd och minska antalet trådar, lås, mutexer.
+* Förbättrad felrapportering / information. I flera fall har felmeddelanden inte spridits ut.
+* Uppdatera utveckling beroenden i JavaScript för att använda uppdaterade moduler.
+
+**Felkorrigeringar**
+
+* Fast minnesläckor på grund av ett typmatchningsfel i RecognizeAsync.
+* I vissa fall har undantag hamnar.
+* Åtgärda minnesläcka i translation händelse argument.
+* Fast låsningsproblem på återansluta i långa kör sessioner.
+* Ett problem som kan leda till saknade slutresultatet för misslyckade översättningar har åtgärdats.
+* C#: Om en asynkron åtgärd inte har slutförts i huvudtråden, var det möjligt identifieraren kan tas bort innan den asynkron uppgiften slutfördes.
+* Java: Åtgärdat problem vilket resulterar i en krasch på Java-VM.
+* Mål för C: Fast enum mappningen; RecognizedIntent returnerades i stället för RecognizingIntent.
+* JavaScript: Ange Standardutdataformatet till enkel i SpeechConfig.
+* JavaScript: Tar bort inkonsekvens mellan egenskaper för konfigurationsobjekt i JavaScript och andra språk.
+
+**Exempel**
+
+* Uppdaterade och fasta flera exempel (till exempel utdata röster för översättning osv).
+* Lagt till Node.js-exempel i den [exempellagringsplatsen](https://aka.ms/csspeech/samples).
+
+## <a name="speech-sdk-110"></a>Tal SDK 1.1.0
 
 **Nya funktioner**
 
 * Stöd för Android x86/x64.
-* Stöd för proxy: I SpeechConfig objektet kan du nu anropa en funktion för att ställa in proxyinformation (värdnamn, port, användarnamn och lösenord). Den här funktionen är ännu inte tillgänglig på iOS.
+* Stöd för proxy: Du kan nu anropa en funktion för att ställa in proxyinformation (värdnamn, port, användarnamn och lösenord) i SpeechConfig-objektet. Den här funktionen är ännu inte tillgänglig på iOS.
 * Förbättrad felkod och meddelanden. Om ett erkännande returneras ett fel detta redan inställt `Reason` (i avbrutna händelse) eller `CancellationDetails` (i igenkänningsresultatet) till `Error`. Avbrutna händelsen innehåller nu två ytterligare medlemmar `ErrorCode` och `ErrorDetails`. Om servern returnerade ytterligare felinformation med rapporterade fel, nu blir tillgängliga i de nya medlemmarna.
 
 **Förbättringar**
@@ -51,21 +92,21 @@ ms.locfileid: "53088314"
 
 * Lagt till C++ och C# samplea för pull och push stream-användning i den [exempellagringsplatsen](https://aka.ms/csspeech/samples).
 
-## <a name="speech-service-sdk-101"></a>Taltjänst-SDK 1.0.1
+## <a name="speech-sdk-101"></a>Tal SDK 1.0.1
 
 Förbättrad tillförlitlighet och felkorrigeringar:
 
 * Fast potentiella allvarligt fel på grund av konkurrenstillstånd i tar bort Igenkännande
 * Fast potentiella allvarligt fel vid Odefinierad egenskaper.
 * Har lagts till ytterligare fel och kontroll av parametern.
-* Mål-C: fast möjliga allvarligt fel på grund av att namnet åsidosätta i NSString.
-* Mål-C: justeras synligheten för API: et
+* Mål för C: Fast möjliga allvarligt fel på grund av att namnet åsidosätta i NSString.
+* Mål för C: Justerade synligheten för API: et
 * JavaScript: Fasta om händelser och sina nyttolaster.
 * Dokumentation om förbättringar.
 
 I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stickprov för JavaScript har lagts till.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services tal SDK 1.0.0: September 2018 versionen
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services tal SDK 1.0.0: Versionen av September 2018
 
 **Nya funktioner**
 
@@ -77,14 +118,14 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Med den här versionen införs ett antal icke-bakåtkompatibla ändringar.
   Kontrollera [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) mer information.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services tal SDK 0.6.0: augusti 2018 versionen
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services tal SDK 0.6.0: Versionen av augusti 2018
 
 **Nya funktioner**
 
 * UWP-appar som skapats med SDK: N för tal nu kan skicka Windows App Certification Kit (WACK).
   Kolla in den [UWP snabbstarten](quickstart-csharp-uwp.md).
 * Stöd för .NET Standard 2.0 på Linux (Ubuntu 16.04 x 64).
-* Experimentella: Stöd för Java 8 i Windows (64-bitars) och Linux (Ubuntu 16.04 x 64).
+* Experimentella: Stöd Java 8 i Windows (64-bitars) och Linux (Ubuntu 16.04 x 64).
   Kolla in den [Java Runtime Environment Snabbstart](quickstart-java-jre.md).
 
 **Funktionella ändring**
@@ -109,9 +150,9 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 * Stöd för Android-plattformen (API-23: Android 6.0 Marshmallow eller senare). Kolla in den [Android Snabbstart](quickstart-java-android.md).
 * Stöd för .NET Standard 2.0 på Windows. Kolla in den [Snabbstart för .NET Core](quickstart-csharp-dotnetcore-windows.md).
-* Experimentella: Stöd för UWP på Windows (version 1709 eller senare).
+* Experimentella: Stöder UWP på Windows (version 1709 eller senare).
   * Kolla in den [UWP snabbstarten](quickstart-csharp-uwp.md).
-  * Obs: UWP-appar som skapats med SDK: N för tal inte ännu skickar Windows App Certification Kit (WACK).
+  * Obs! UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
 * Stöd för tidskrävande erkännande med automatisk återanslutning.
 
 **Funktionella ändringar**
@@ -134,13 +175,13 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 * Fast felaktig returvärden i resultatet när `RecognizeAsync()` når sin tidsgräns.
 * Media foundation-bibliotek på Windows-beroendet har tagits bort. SDK: N använder nu Core ljud API: er.
-* Dokumentationskorrigering: lagt till en [regioner](regions.md) sidan att beskriva regionerna som stöds.
+* Dokumentationskorrigering: Lagt till en [regioner](regions.md) sidan att beskriva regionerna som stöds.
 
 **Kända problem**
 
 * Tal-SDK för Android rapportera inte tal syntes resultat för översättning. Det här problemet korrigeras i nästa version.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services tal SDK 0.4.0: 2018-juniversionen för
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services tal SDK 0.4.0: Juniversionen för 2018
 
 **Funktionella ändringar**
 
@@ -176,6 +217,6 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 Fler exempel har lagts till och uppdateras kontinuerligt. Den senaste uppsättningen exempel, finns det [tal SDK GitHub-lagringsplats med exempel](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services tal SDK 0.2.12733: maj 2018 versionen
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services tal SDK 0.2.12733: 2018-maj versionen
 
 Den här versionen är den första offentliga förhandsversionen av Cognitive Services tal SDK.

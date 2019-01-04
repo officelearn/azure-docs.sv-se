@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339500"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579370"
 ---
-# <a name="detecting-color-schemes"></a>Identifiera färgscheman
+# <a name="detect-color-schemes-in-images"></a>Identifiera färgscheman i bilder
 
-Visuellt innehåll extraherar färger från en avbildning. Färgerna analyseras sedan i tre olika kontexter: dominerande förgrundsfärgen dominerande bakgrundsfärgen och dominanta färger för avbildningen som helhet. De grupperas i 12 dominanta accentfärger. Dessa accentfärger är svarta, blå, brown, grå, grön, orange, rosa, lila, röd, mörkturkos, vit och gul. Visuellt innehåll analyserar de färger som extraheras från en avbildning för att returnera en accentfärg som representerar den mest levande färgen för bilden till användarna genom en kombination av dominanta färger och mättnad. Beroende på färger i en bild returneras enkel svartvit eller accentfärger i hexadecimal färgkoder. Visuellt också returnerar ett booleskt värde som anger om en bild är svart och vit.
+Visuellt innehåll extraherar färger från en avbildning. Färgerna analyseras sedan i tre olika kontexter: dominerande förgrundsfärgen dominerande bakgrundsfärgen och dominanta färger för avbildningen som helhet. De grupperas i 12 dominanta accentfärger. Dessa accentfärger är svarta, blå, brown, grå, grön, orange, rosa, lila, röd, mörkturkos, vit och gul. Visuellt innehåll analyserar de färger som extraheras från en avbildning för att returnera en accentfärg som representerar den mest levande färgen för bilden till användarna genom en kombination av dominanta färger och mättnad. Beroende på färgerna i en bild returneras enkel svartvit eller accentfärger i hexadecimal-färgkoder. Visuellt också returnerar ett booleskt värde som anger om en bild är svart och vit.
 
 ## <a name="color-scheme-detection-examples"></a>Färgschema identifiering exempel
 
 I följande exempel visas JSON-svaret som returnerades av visuellt innehåll när du söker efter färgschema på bilden. I det här fallet på bilden är inte en svart och vit avbildning, men dominanta färger för förgrunden och bakgrunden är svarta och dominanta färger för avbildningen som helhet är svart och vit.
 
-![Utomhus Mountain](./Images/mountain_vista.png)
+![Berg utomhus](./Images/mountain_vista.png)
 
 ```json
 {
@@ -51,8 +52,8 @@ I följande tabell beskrivs dominerande förgrund, bakgrund och bildfärger för
 
 | Bild | Dominanta färger |
 |-------|-----------------|
-|![Visuellt innehåll analyserar blommor](./Images/flower.png)| Förgrund: svart<br/>Bakgrund: vit<br/>Färger: Svart, vit, grön|
-![Visuellt innehåll analyserar träna Station](./Images/train_station.png) | Förgrund: svart<br/>Bakgrund: svart<br/>Färger: svart |
+|![En vit blommor med en grön bakgrund](./Images/flower.png)| Förgrund: Svart<br/>Bakgrund: Vit<br/>Färger: Svart, vit, grön|
+![Ett flygplan som körs via en station](./Images/train_station.png) | Förgrund: Svart<br/>Bakgrund: Svart<br/>Färger: Svart |
 
 ### <a name="accent-color-examples"></a>Accent färg exempel
 
@@ -60,9 +61,9 @@ I följande tabell beskrivs dominerande förgrund, bakgrund och bildfärger för
 
 | Bild | Accentfärg |
 |-------|--------------|
-|![Utomhus Mountain](./Images/mountain_vista.png) | #BB6D10 |
-|![Visuellt innehåll analyserar blommor](./Images/flower.png) | #C6A205 |
-|![Visuellt innehåll analyserar träna Station](./Images/train_station.png) | #474A84 |
+|![En person som står på en mountain rock på solnedgång](./Images/mountain_vista.png) | #BB6D10 |
+|![En vit blommor med en grön bakgrund](./Images/flower.png) | #C6A205 |
+|![Ett flygplan som körs via en station](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Svart och vit-exempel
 
@@ -70,8 +71,8 @@ I följande tabell anger om varje exempelbild är svart och vit som returneras a
 
 | Bild | Svartvit? |
 |-------|----------------|
-|![Visuellt innehåll analyserar byggnad](./Images/bw_buildings.png) | true |
-|![Visuellt innehåll analyserar House Yard](./Images/house_yard.png) | false |
+|![En svart och bild av byggnader i Manhattan](./Images/bw_buildings.png) | true |
+|![En blå house och framsida](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Nästa steg
 

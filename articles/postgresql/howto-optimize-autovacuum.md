@@ -3,16 +3,15 @@ title: Optimera autovacuum i Azure Database for PostgreSQL-server
 description: Den här artikeln beskrivs hur du kan optimera autovacuum i Azure Database for PostgreSQL-server.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685998"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539797"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Optimera autovacuum på Azure Database for PostgreSQL-server 
 Den här artikeln beskriver hur du optimerar effektivt autovacuum på Azure Database för PostgreSQL.
@@ -34,7 +33,7 @@ Om du inte kör vakuum då och då, kan dead tupplar som ackumuleras leda till:
 - Ökad i/o.
 
 ## <a name="monitoring-bloat-with-autovacuum-queries"></a>Övervaka överdriven storlek med autovacuum frågor
-Följande exempelfråga är utformad för att identifiera antalet inaktiva och aktiva tupplar i en tabell med namnet ”XYZ” ”: Välj %{relname/, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_ tabeller var %{relname/ = ”XYZ” order som n_dead_tup DESC;'
+Följande exempelfråga har utformats för att identifiera antalet inaktiva och aktiva tupplar i en tabell med namnet ”XYZ”: ”Välj %{relname/, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables var %{relname/ =” XYZ ”order som n_dead_tup DESC;'
 
 ## <a name="autovacuum-configurations"></a>Autovacuum konfigurationer
 De konfigurationsparametrar som styr autovacuum kretsar kring två viktiga frågor:

@@ -3,17 +3,15 @@ title: Replikera data till Azure Database for MariaDB.
 description: Den här artikeln beskriver data i replikering för Azure-databas för MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a6bb6ae45c4240f21b1e0baf4956b053d4b98720
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948187"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547617"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikera data till Azure Database for MariaDB
 
@@ -22,8 +20,8 @@ Data i replikering kan du synkronisera data från en MariaDB-server som körs lo
 ## <a name="when-to-use-data-in-replication"></a>När du ska använda Data i replikering
 Huvudscenarierna överväga användning av Data i replikering är:
 
-- **Hybrid datasynkronisering:** med Data i replikering kan du behålla data synkroniseras mellan dina lokala servrar och Azure-databas för MariaDB. Den här synkroniseringen är användbart för att skapa hybridprogram. Den här metoden är tilltalande när du har en befintlig lokal databas-server, men vill flytta data till en region närmare för slutanvändare.
-- **Flera Molnsynkronisering:** för komplexa molnlösningar, Använd Data i replikeringen att synkronisera data mellan Azure Database for MariaDB och olika molnleverantörer, inklusive virtuella datorer och databastjänster som finns i dessa moln.
+- **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala servrar och Azure-databas för MariaDB med Data i replikering. Den här synkroniseringen är användbart för att skapa hybridprogram. Den här metoden är tilltalande när du har en befintlig lokal databas-server, men vill flytta data till en region närmare för slutanvändare.
+- **Synkronisering av flera moln:** För komplexa molnlösningar, använder du Data i replikering för att synkronisera data mellan Azure Database for MariaDB och olika molnleverantörer, inklusive virtuella datorer och databastjänster som finns i dessa moln.
 
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 

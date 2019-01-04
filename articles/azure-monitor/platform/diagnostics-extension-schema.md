@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 42ed050606dd242e43903ed980a5670b4aa6f3df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343181"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790766"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-tillägget configuration schemat versioner och historik
 Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som en del av Microsoft Azure SDK.  
@@ -175,7 +175,7 @@ Har lagts till lagringstyp som ska PublicConfig. StorageType kan vara *tabell*, 
 Lagt till möjligheten att dirigera till EventHub.
 
 ### <a name="diagnostics-extension-15"></a>Diagnostiktillägget 1.5
-Lagt till elementet mottagare och möjligheten att skicka diagnostikdata till [Application Insights](../../application-insights/app-insights-cloudservices.md) vilket gör det enklare att diagnostisera problem i ditt program, samt nivån system och infrastruktur.
+Lagt till elementet mottagare och möjligheten att skicka diagnostikdata till [Application Insights](../../azure-monitor/app/cloudservices.md) vilket gör det enklare att diagnostisera problem i ditt program, samt nivån system och infrastruktur.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 och diagnostik-tillägg 1.3
 Följande ändringar har gjorts för Cloud Service-projekt i Visual Studio. (Dessa ändringar gäller även för senare versioner av Azure SDK.)

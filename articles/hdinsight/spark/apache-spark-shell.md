@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581433"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653857"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Kör Apache Spark från Spark Shell
 
@@ -63,7 +63,7 @@ Spark-Shell-kommando (`spark-shell`, `pyspark`, eller `sparkR`) har stöd för m
 | Växel | beskrivning | Exempel |
 | --- | --- | --- |
 | --MASTER_URL-huvudnod | Anger den överordnade URL. I HDInsight, det här värdet är alltid `yarn`. | `--master yarn`|
-| --JAR: er JAR_LIST | Kommaavgränsad lista över lokala JAR-filer till på drivrutinen och executor klassökvägar. I HDInsight består den här listan av sökvägar till standard-filsystem i Azure Storage eller Data Lake Store. | `--jars /path/to/examples.jar` |
+| --JAR: er JAR_LIST | Kommaavgränsad lista över lokala JAR-filer till på drivrutinen och executor klassökvägar. I HDInsight består den här listan av sökvägar till standard-filsystem i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
 | --MAVEN_COORDS-paket | Kommaavgränsad lista med maven-koordinaterna för JAR-filer till på drivrutinen och executor klassökvägar. Söker lokala maven-lagringsplatsen och sedan maven central, och sedan alla ytterligare remote databaser som har angetts med `--repositories`. Formatet för koordinaterna är *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | listan över--py-filer | För Python, en kommaavgränsad lista över .zip eller .egg .py filer att placera på PYTHONPATH. | `--pyfiles "samples.py"` |
 
@@ -72,4 +72,3 @@ Spark-Shell-kommando (`spark-shell`, `pyspark`, eller `sparkR`) har stöd för m
 - Se [introduktion till Apache Spark på Azure HDInsight](apache-spark-overview.md) en översikt.
 - Se [skapar ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md) att arbeta med Spark-kluster och SparkSQL.
 - Se [vad är Apache Spark Structured Streaming?](apache-spark-streaming-overview.md) att skriva program som bearbetar strömmande data med Spark.
-

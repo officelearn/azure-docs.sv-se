@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: 1a49f62d7b5e21fe9d6483f71b729a9100aff1a3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585583"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719429"
 ---
 # <a name="liveevent-states-and-billing"></a>LiveEvent tillstånd och fakturering
 
 I Azure Media Services, börjar en LiveEvent fakturering när dess status övergår till **kör**. Du måste stoppa LiveEvent om du vill stoppa LiveEvent från fakturering.
 
-När **LiveEventEncodingType** på din [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) till Standard (grundläggande), Media Services automatiskt stängs av alla LiveEvent som är fortfarande i den **kör** tillstånd 12 timmar När indata feeden går förlorad och det finns inga **LiveOutput**datorer som körs. Men du kommer fortfarande att debiteras för den tid som LiveEvent var i den **kör** tillstånd.
+När **LiveEventEncodingType** på din [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) till Standard, Media Services automatiskt stängs av alla LiveEvent som är fortfarande i den **kör** tillstånd 12 timmar efter det indata-flöde går förlorad och det finns inga **LiveOutput**datorer som körs. Men du kommer fortfarande att debiteras för den tid som LiveEvent var i den **kör** tillstånd.
 
 ## <a name="states"></a>Tillstånd
 

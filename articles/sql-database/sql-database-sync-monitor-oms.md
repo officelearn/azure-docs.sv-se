@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b7d6b59ab03985c19ffa08a0a8266d449892046f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872956"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717831"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Övervaka SQL Data Sync med Log Analytics 
 
 För att kontrollera aktivitetsloggen SQL Data Sync och identifiera fel och varningar, var du tidigare tvungen att kontrollera SQL Data Sync manuellt i Azure portal eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakningsupplevelse. Du kan anpassa den här lösningen för att passa ditt scenario.
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Övervakningsinstrumentpanel för alla synkroniseringsgrupper 
 
@@ -181,9 +184,9 @@ Om du vill konfigurera Log Analytics-vy, gör du följande:
 
 Den här lösningen är kostnadsfri i de flesta fall.
 
-**Azure Automation:** det kan finnas en kostnader som uppstår med Azure Automation-kontot, beroende på din användning. De första 500 minuterna uppgiftskörtid per månad är kostnadsfria. I de flesta fall förväntas i den här lösningen använder mindre än 500 minuter per månad. Om du vill undvika kostnader genom att schemalägga att runbook körs vid ett intervall av två timmar eller mer. Mer information finns i [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
+**Azure Automation:** Det kan finnas en kostnader som uppstår med Azure Automation-kontot, beroende på din användning. De första 500 minuterna uppgiftskörtid per månad är kostnadsfria. I de flesta fall förväntas i den här lösningen använder mindre än 500 minuter per månad. Om du vill undvika kostnader genom att schemalägga att runbook körs vid ett intervall av två timmar eller mer. Mer information finns i [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
 
-**Logganalys:** det kan finnas en kostnad som hör till Log Analytics beroende på din användning. Den kostnadsfria nivån omfattar 500 MB inmatade data per dag. I de flesta fall förväntas i den här lösningen mata in mindre än 500 MB per dag. Använd endast fel filtrering ingår i runbook för att minska användningen. Om du använder mer än 500 MB per dag, uppgradera till den kostnadsfria nivån för att undvika risken för analytics stoppas när begränsningen har uppnåtts. Mer information finns i [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** Det kan finnas en kostnad som hör till Log Analytics beroende på din användning. Den kostnadsfria nivån omfattar 500 MB inmatade data per dag. I de flesta fall förväntas i den här lösningen mata in mindre än 500 MB per dag. Använd endast fel filtrering ingår i runbook för att minska användningen. Om du använder mer än 500 MB per dag, uppgradera till den kostnadsfria nivån för att undvika risken för analytics stoppas när begränsningen har uppnåtts. Mer information finns i [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kodexempel
 
@@ -198,7 +201,7 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [självstudien: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)

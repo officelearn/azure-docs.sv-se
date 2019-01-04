@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569013"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546750"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
 
 Genom att konfigurera federation med Google, kan du tillåta inbjudna användare att logga in på din delade appar och resurser med sina egna Google-konton utan att behöva skapa Microsoft-Accounts (MSA: er) eller Azure AD-konton.  
 > [!NOTE]
-> Din Google-gästanvändare måste logga in med en länk som innehåller klient-kontext, till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>`. Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel.
+> Din Google-gästanvändare måste logga in med en länk som innehåller klient-kontext, till exempel `https://myapps.microsoft.com/<tenant id>`. Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Vad är upplevelsen för Google-användare?
 När du skickar en inbjudan till en Google Gmail-användare bör gästanvändaren åtkomst till dina delade appar eller resurser med hjälp av en länk som innehåller klient-kontext. Upplevelse för dem som varierar beroende på om de har redan loggat in på Google:
@@ -32,10 +32,10 @@ Om gästanvändaren ser felet ”huvud för lång”, de kan försöka ta bort d
 
 ![Logga in med Google](media/google-federation/google-sign-in.png)
 
-## <a name="step-1-configure-a-google-developer-project"></a>Steg 1: Konfigurera en Google developer-projekt
+## <a name="step-1-configure-a-google-developer-project"></a>Steg 1: Konfigurera ett Google developer-projekt
 Skapa först ett nytt projekt i konsolen för Google-utvecklare att skaffa en klient-ID och en klienthemlighet som du kan senare lägga till Azure AD. 
 1. Gå till Google APIs på https://console.developers.google.com, och logga in med ditt Google-konto. Vi rekommenderar att du använder en delad grupp Google-konto.
-2. Skapa ett nytt projekt: på instrumentpanelen, detta Välj **skapa projekt**, och välj sedan **skapa**. På sidan nytt projekt kan du ange en **projektnamn**, och välj sedan **skapa**.
+2. Skapa ett nytt projekt: På instrumentpanelen, väljer **skapa projekt**, och välj sedan **skapa**. På sidan nytt projekt kan du ange en **projektnamn**, och välj sedan **skapa**.
    
    ![Nytt Google-projekt](media/google-federation/google-new-project.png)
 
@@ -90,7 +90,7 @@ Nu ställer du Google-klient-ID och klienthemlighet, antingen genom att skriva i
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Använda klient-id och klienthemligheten från den app som du skapade i ”steg 1: Konfigurera en Google developer-projekt”. Mer information finns i den [New AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikeln. 
+   > Använda klient-id och klienthemligheten från den app som du skapade i ”steg 1: Konfigurera ett Google developer-projekt ”. Mer information finns i den [New AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikeln. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Hur tar jag bort Google federation?
 Du kan ta bort din Google federation-konfiguration. Om du gör det Google-gästanvändare som har redan utnyttjat sin inbjudan kommer inte att kunna logga in, men du kan ge dem åtkomst till dina resurser igen genom att ta bort dem från katalogen och bjuda in dem igen. 

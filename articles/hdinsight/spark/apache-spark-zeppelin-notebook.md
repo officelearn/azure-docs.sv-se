@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 83adec0c3127e87da9871e294026fd467199c720
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0571347b7b44d6f6836d4dec1ebcf9b752d8fa8f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012886"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634447"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
 
@@ -28,12 +28,11 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Starta en Apache Zeppelin-anteckningsbok
 1. Spark-klusterbladet, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Zeppelin Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också nå Zeppelin-anteckningsbok för ditt kluster genom att öppna följande URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
-   > 
-   > 
+
 1. Skapa en ny anteckningsbok. Huvud-fönstret klickar du på **Notebook**, och klicka sedan på **Skapa ny anteckning**.
    
     ![Skapa en ny Zeppelin notebook](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "skapa en ny Zeppelin-anteckningsbok")
@@ -74,9 +73,8 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
    
     Du kan också ange en rubrik i varje stycke. I det högra hörnet, klickar du på den **inställningar** ikon och klicka sedan på **visa rubriken**.
 
-> [!NOTE]
+> [!NOTE]  
 > % spark2 tolk stöds inte i Zeppelin-anteckningsböcker i alla HDInsight-versioner och % sh tolk stöds inte från HDInsight 4.0 och senare.
->
 
 1. Du kan nu köra Spark SQL-uttryck på den **hvac** tabell. Klistra in följande fråga i ett nytt stycke. Frågan hämtar ID för att bygga och skillnaden mellan mål- och faktiska temperaturer för varje att bygga på ett speciellt datum. Tryck på **SKIFT + RETUR**.
    
@@ -108,9 +106,9 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
     ![Starta om Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "starta om Zeppelin intepreter")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Hur jag för att använda externa paket med anteckningsboken?
-Du kan konfigurera Zeppelin notebook i Apache Spark-kluster i HDInsight (Linux) om du vill använda externa, communityn har bidragit med paket som inte är inkluderade out-of the box i klustret. Du kan söka i [Maven databasen](http://search.maven.org/) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Exempelvis kan en fullständig lista över communityn har bidragit med paket finns på [Spark paket](http://spark-packages.org/).
+Du kan konfigurera Zeppelin notebook i Apache Spark-kluster i HDInsight (Linux) om du vill använda externa, communityn har bidragit med paket som inte är inkluderade out-of the box i klustret. Du kan söka i [Maven databasen](https://search.maven.org/) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Exempelvis kan en fullständig lista över communityn har bidragit med paket finns på [Spark paket](https://spark-packages.org/).
 
-I den här artikeln visas hur du använder den [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paket med Jupyter-anteckningsboken.
+I den här artikeln visas hur du använder den [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paket med Jupyter-anteckningsboken.
 
 1. Öppna tolk inställningarna. I det övre högra hörnet, klickar du på den inloggade användarens namn och klicka sedan på **tolk**.
    
@@ -118,14 +116,14 @@ I den här artikeln visas hur du använder den [spark-csv](http://search.maven.o
 1. Bläddra till Livy tolk inställningar och klickar sedan på **redigera**.
    
     ![Ändra inställningarna för tolk](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "ändra tolk inställningar")
-1. Lägg till en ny nyckel kallas **livy.spark.jars.packages** och ange värdet i formatet `group:id:version`. Om du vill använda den [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet, måste du ange värdet för nyckeln till `com.databricks:spark-csv_2.10:1.4.0`.
+1. Lägg till en ny nyckel kallas **livy.spark.jars.packages** och ange värdet i formatet `group:id:version`. Om du vill använda den [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet, måste du ange värdet för nyckeln till `com.databricks:spark-csv_2.10:1.4.0`.
    
     ![Ändra inställningarna för tolk](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "ändra tolk inställningar")
    
     Klicka på **spara** och starta sedan om Livy-tolk.
-1. **Tips**: Om du vill lära dig att komma till värdet för nyckeln som anges ovan, här är hur.
+1. **Tips!** Om du vill lära dig att komma till värdet för nyckeln som anges ovan, här är hur.
    
-    a. Leta upp paketet i Maven-centrallagret. Den här självstudien har vi använt [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Leta upp paketet i Maven-centrallagret. Den här självstudien har vi använt [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Samla in värden för från databasen, **GroupId**, **ArtifactId**, och **Version**.
    
@@ -156,12 +154,12 @@ I sådana fall måste du utföra följande steg innan du kan börja köra jobb f
 1. Kör en kodcell från en befintlig Zeppelin-anteckningsbok. Detta skapar en ny session Livy i HDInsight-klustret.
 
 ## <a name="seealso"></a>Se även
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

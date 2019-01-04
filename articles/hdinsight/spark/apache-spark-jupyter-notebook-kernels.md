@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea54419f230a7988a42fd4b85be0d212ee3d14d4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582589"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791826"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Apache Spark-kluster i Azure HDInsight 
 
 HDInsight Spark-kluster tillhandahåller kernlar som du kan använda med Jupyter-anteckningsboken på [Apache Spark](https://spark.apache.org/) för att testa ditt program. En kernel är ett program som körs och tolkar din kod. Det finns tre kernels:
 
-- **PySpark** – för appar som skrivits i Python2
-- **PySpark3** – för program som skrivits i Python3
-- **Spark** – för program som skrivits i Scala
+- **PySpark** – för appar som skrivits i Python2.
+- **PySpark3** – för program som skrivits i Python3.
+- **Spark** – för program som skrivits i Scala.
 
 Lär dig hur du använder dessa kernlar och fördelarna med att använda dem i den här artikeln.
 
@@ -33,7 +33,7 @@ Lär dig hur du använder dessa kernlar och fördelarna med att använda dem i d
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Skapa en Jupyter-anteckningsbok på Spark HDInsight
 
-1. Från den [Azure-portalen](https://portal.azure.com/), öppna ditt kluster.  Se [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters) anvisningar. Klustret har öppnats i ett nytt portalblad.
+1. Från den [Azure-portalen](https://portal.azure.com/), öppna ditt kluster.  Se [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) anvisningar. Klustret har öppnats i ett nytt portalblad.
 
 2. Från den **snabblänkar** klickar du på **Klusterinstrumentpaneler** att öppna den **Klusterinstrumentpaneler** bladet.  Om du inte ser **snabblänkar**, klickar du på **översikt** menyn till vänster på bladet.
 
@@ -41,12 +41,11 @@ Lär dig hur du använder dessa kernlar och fördelarna med att använda dem i d
 
 3. Klicka på **Jupyter-anteckningsbok**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också nå Jupyter notebook i Spark-kluster genom att öppna följande URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
+
 
 3. Klicka på **New**, och klicka sedan på antingen **Pyspark**, **PySpark3**, eller **Spark** att skapa en anteckningsbok. Använd Spark kernel för Scala-appar, PySpark-kerneln för Python2-program och PySpark3 kernel för Python3 program.
    
@@ -70,7 +69,7 @@ Här följer några fördelar med att använda de nya kernlar med Jupyter notebo
    
    Du kan i stället använda förinställda kontexter direkt i ditt program.
 
-- **Cell användbara**. PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med `%%` (till exempel `%%MAGIC` <args>). Den magiska språkkommandot måste vara det första ordet i en kodcell och tillåter flera rader med innehåll. Magic ordet ska vara det första ordet i cellen. Att lägga till något innan magic, även kommentarer orsakar ett fel.     Mer information om användbara funktioner finns i [här](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Cell användbara**. PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med `%%` (till exempel `%%MAGIC` <args>). Den magiska språkkommandot måste vara det första ordet i en kodcell och tillåter flera rader med innehåll. Magic ordet ska vara det första ordet i cellen. Att lägga till något innan magic, även kommentarer orsakar ett fel.     Mer information om användbara funktioner finns i [här](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     I följande tabell visas de olika användbara funktioner via dessa kernlar.
 
@@ -79,16 +78,15 @@ Här följer några fördelar med att använda de nya kernlar med Jupyter notebo
    | Hjälp |`%%help` |Genererar en tabell med alla tillgängliga användbara med exempel och beskrivning |
    | info |`%%info` |Utdata sessionsinformation för den aktuella Livy-slutpunkten |
    | konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Flaggan force (-f) är obligatoriskt om en session redan har skapats, vilket garanterar att sessionen är släppas och återskapas. Titta på [Livy's POST /sessions Begärandetext](https://github.com/cloudera/livy#request-body) en lista över giltiga parametrar. Parametrar måste skickas som en JSON-sträng och måste vara på nästa rad efter magic, som visas i Exempelkolumnen. |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om den `-o` parametern har gått ut, resultatet av frågan sparas i den %% lokal Python-kontext som en [Pandas](http://pandas.pydata.org/) dataframe. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om den `-o` parametern har gått ut, resultatet av frågan sparas i den %% lokal Python-kontext som en [Pandas](https://pandas.pydata.org/) dataframe. |
    | lokal |`%%local`<br>`a=1` |All kod i efterföljande rader körs lokalt. Koden måste vara giltig Python2 kod även oavsett kernel som du använder. Så även om du har valt **PySpark3** eller **Spark** kernlar när du skapar den bärbara datorn om du använder den `%%local` magic i en cell, cellen måste bara har giltig Python2-kod... |
    | loggar |`%%logs` |Utdata loggarna för den aktuella Livy-sessionen. |
    | delete |`%%delete -f -s <session number>` |Tar bort en viss session för den aktuella Livy-slutpunkten. Du kan inte ta bort sessionen som initieras för kernel själva. |
    | cleanup |`%%cleanup -f` |Tar bort alla sessioner för aktuella Livy slutpunkten, inklusive anteckningsbokens session. Framtvinga flaggan -f. är obligatoriskt. |
 
-   > [!NOTE]
+   > [!NOTE]  
    > Förutom användbara funktioner har lagts till av PySpark-kerneln, du kan också använda den [inbyggda IPython användbara](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), inklusive `%%sh`. Du kan använda den `%%sh` magic att köra skript och kodblock på klustrets huvudnod.
-   >
-   >
+
 2. **Automatisk visualisering**. Den **Pyspark** kernel automatiskt visualiserar utdata för Hive- och SQL-frågor. Du kan välja mellan flera olika typer av visualiseringar, inklusive tabell, cirkel, rad, området, -fältet.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parametrar som stöds med den %% sql magic
@@ -96,7 +94,7 @@ Den `%%sql` magic har stöd för olika parametrar som du kan använda för att s
 
 | Parameter | Exempel | Beskrivning |
 | --- | --- | --- |
-| -o |`-o <VARIABLE NAME>` |Använd den här parametern för att spara resultatet av frågan, i den %% lokal Python kontext som en [Pandas](http://pandas.pydata.org/) dataframe. Namnet på variabeln dataframe är variabelnamnet som du anger. |
+| -o |`-o <VARIABLE NAME>` |Använd den här parametern för att spara resultatet av frågan, i den %% lokal Python kontext som en [Pandas](https://pandas.pydata.org/) dataframe. Namnet på variabeln dataframe är variabelnamnet som du anger. |
 | -q |`-q` |Används för att stänga av visualiseringar för cellen. Om du inte vill visualisera innehållet i en cell automatiskt och bara vill hämta in den som en dataram och sedan använda `-q -o <VARIABLE>`. Om du vill stänga av visualiseringar utan registrerar resultaten (till exempel för att köra en SQL-fråga som en `CREATE TABLE` instruktionen), Använd `-q` utan att ange en `-o` argumentet. |
 | -m |`-m <METHOD>` |Där **metoden** är antingen **ta** eller **exempel** (standardvärdet är **ta**). Om metoden är **ta**, kernel hämtar element högst upp på resultatuppsättningen för data som anges av MAXROWS (beskrivs senare i den här tabellen). Om metoden är **exempel**, kernel-exempel slumpmässigt element i datauppsättningen enligt `-r` parametern, som beskrivs nedan i den här tabellen. |
 | -r |`-r <FRACTION>` |Här **del** är ett flyttal mellan 0,0 och 1,0. Om exemplet metoden för SQL-frågan är `sample`, och sedan kernel exempel slumpmässigt för den angivna andelen av elementen i resultatuppsättningen för dig. Exempel: Om du kör en SQL-fråga med argument `-m sample -r 0.01`, och sedan 1% av resultatraderna slumpmässigt samplas. |
@@ -131,9 +129,8 @@ Du kan öppna den **00 - [Läs mig första] Spark Magic Kernelfunktioner** antec
 
 Om klustret använder Azure Storage som standardkonto för lagring, Jupyter-anteckningsböcker sparas till storage-konto under den **/HdiNotebooks** mapp.  Bärbara datorer, textfiler och mappar som du skapar från inom Jupyter är tillgängliga från lagringskontot.  Exempel: Om du använder Jupyter för att skapa en mapp **MinMapp** och en anteckningsbok **myfolder/mynotebook.ipynb**, du kan komma åt den notebook på `/HdiNotebooks/myfolder/mynotebook.ipynb` i lagringskontot.  Det gäller även omvänt, det vill säga om du överför en bärbar dator direkt till ditt storage-konto på `/HdiNotebooks/mynotebook1.ipynb`, anteckningsboken är synlig från Jupyter samt.  Anteckningsböcker är kvar på lagringskontot även när klustret tas bort.
 
-> [!NOTE]
-> HDInsight-kluster med Azure Data Lake Store som standardlagring lagra inte anteckningsböcker i associerade lagringen.
->
+> [!NOTE]  
+> HDInsight-kluster med Azure Data Lake Storage som standardlagring lagra inte anteckningsböcker i associerade lagringen.
 
 Hur anteckningsböcker sparas till storage-kontot är kompatibel med [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Så, om du SSH till klustret som du kan använda filen kommandon för hantering som du ser i följande kodavsnitt:
 
@@ -141,7 +138,7 @@ Hur anteckningsböcker sparas till storage-kontot är kompatibel med [Apache Had
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-Oavsett om klustret använder Azure Storage eller Azure Data Lake Store som standardkonto för lagring, sparas också de bärbara datorerna på klustrets huvudnod vid `/var/lib/jupyter`.
+Oavsett om klustret använder Azure Storage eller Azure Data Lake Storage som standardkonto för lagring, sparas också de bärbara datorerna på klustrets huvudnod vid `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Webbläsare som stöds
 
@@ -151,17 +148,17 @@ Jupyter notebook i Spark HDInsight-kluster stöds bara på Google Chrome.
 Ny dessa kernlar finns i utvecklas scenen och kommer mogna över tid. Detta kan också innebära att API: er kan ändras när dessa kernlar mogna. Skicka oss gärna feedback som du har när du använder dessa kernlar som är nya. Detta är användbart i att forma den slutliga utgåvan av dessa kernlar. Du kan lämna kommentarer eller feedback under den **kommentarer** avsnittet längst ned i den här artikeln.
 
 ## <a name="seealso"></a>Se även
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)

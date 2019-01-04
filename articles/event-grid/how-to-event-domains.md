@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298544"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554596"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med händelse-domäner
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du:
 
 Läs om event domäner i [förstå händelse domäner för att hantera Event Grid-ämnen](event-domains.md).
 
-## <a name="install-preview-feature"></a>Installera funktionen för förhandsgranskning
+## <a name="install-preview-feature"></a>Installera förhandsversionsfunktionen
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -139,7 +139,7 @@ Behörigheter som anges för ett ämne som lagras i Azure Active Directory och m
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publicering av händelser till en Event Grid-domän
 
-Publicering av händelser till en domän är samma som [publicering till ett anpassat ämne](./post-to-custom-topic.md). Den enda skillnaden är att du behöver ange avsnittet om du vill att varje händelse att gå till. Följande matris med händelser leder händelse med `"id": "1111"` till ämnet `foo` vid händelse med `"id": "2222"` skulle skickas till ämnet `bar`:
+Publicering av händelser till en domän är samma som [publicering till ett anpassat ämne](./post-to-custom-topic.md). Men i stället för publicering till det anpassade ämnet publicera du alla händelser till slutpunkten för domänen. I JSON-händelsedata anger du avsnittet om du vill att händelserna för att gå till. Följande matris med händelser leder händelse med `"id": "1111"` till ämnet `demotopic1` vid händelse med `"id": "2222"` skulle skickas till ämnet `demotopic2`:
 
 ```json
 [{
@@ -168,7 +168,15 @@ Publicering av händelser till en domän är samma som [publicering till ett anp
 }]
 ```
 
-Om du vill hämta nycklar för en domän med Azure CLI, använder du:
+Hämta slutpunkten domän med Azure CLI
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Om du vill hämta nycklar för en domän, använder du:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Om du använder PowerShell använder du:
+Hämta domän-slutpunkten med PowerShell
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Om du vill hämta nycklar för en domän, använder du:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001803"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721894"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
@@ -62,7 +62,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 #### <a name="authenticated-tokens"></a>Autentiserad token
 
-Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/App-Service-Authentication-Overview.MD).
+Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
 
 App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `UserId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
 
@@ -108,7 +108,7 @@ module.exports = function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Autentiserad token
 
-Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/App-Service-Authentication-Overview.MD).
+Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
 
 App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `userId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
 

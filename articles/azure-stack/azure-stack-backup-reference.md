@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138454"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713581"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referens för Backup-tjänsten för infrastruktur
 
 ## <a name="azure-backup-infrastructure"></a>Azure backup-infrastrukturen
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack består av många tjänster som utgör portal, Azure Resource Manager och drabbas av infrastrukturhantering. Av installation-liknande hanteringsupplevelse av Azure Stack fokuserar på att minska komplexiteten som är exponerade för operatorn i lösningen.
 
@@ -87,9 +87,16 @@ Kraven är:
 
 Infrastruktur för säkerhetskopiering Controller säkerhetskopieras data på begäran. Rekommendationen är att säkerhetskopiera minst två gånger en dag och hålla högst sju dagar säkerhetskopieringar. 
 
+**1811 och senare**
 | Miljö-skala | Planerade storleken på säkerhetskopia | Totala mängden utrymme som krävs |
 |-------------------|--------------------------|--------------------------------|
-| 4 – 16 noder        | 10 GB                     | 140 GB                          |
+| 4 – 16 noder        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Pre-1811**
+| Miljö-skala | Planerade storleken på säkerhetskopia | Totala mängden utrymme som krävs |
+|-------------------|--------------------------|--------------------------------|
+| 4 – 16 noder, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Nätverkskrav
 | Lagringsplats                                                                 | Information                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Infrastruktur för säkerhetskopiering Controller säkerhetskopieras data på be
 | Gräns för identifierare                                                 | Gräns        | Kommentarer                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Typ av säkerhetskopiering                                                      | Endast fullständig    | Infrastruktur för säkerhetskopiering styrenhet stöder endast fullständiga säkerhetskopieringar. Inkrementell säkerhetskopiering stöds inte.                                          |
-| Schemalagda säkerhetskopieringar                                                | Endast manuellt  | Säkerhetskopiering styrenhet stöder för närvarande endast säkerhetskopieringar på begäran                                                                                 |
+| Schemalagda säkerhetskopieringar                                                | Schemalagda och manuellt  | Backup-styrenhet stöder schemalagda säkerhetskopieringar och på begäran säkerhetskopieringar                                                                                 |
 | Maximalt antal samtidiga säkerhetskopiering jobb                                   | 1            | Endast en aktiv säkerhetskopiering stöds per instans av säkerhetskopiering Controller.                                                                  |
 | Konfiguration av nätverksväxel                                     | Inte i omfånget | Administratören måste säkerhetskopiera konfiguration av nätverksväxel med hjälp av OEM-verktyg. I dokumentationen för Azure Stack som tillhandahålls av varje OEM-leverantör. |
 | Maskinvara livscykel värd                                          | Inte i omfånget | Administratören måste säkerhetskopiera maskinvara livscykel värden med hjälp av OEM-verktyg. I dokumentationen för Azure Stack som tillhandahålls av varje OEM-leverantör.      |

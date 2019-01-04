@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686627"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721605"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
 Den här artikeln beskriver Metodtips för Azure SQL Data Sync.
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
 ## <a name="security-and-reliability"></a> Säkerhet och tillförlitlighet
 
@@ -196,7 +199,7 @@ I vissa fall kan det orsaka synkronisering misslyckas att avregistrera en databa
 1. Synkroniseringsgruppen A har skapats med hjälp av en SQL-databasinstans och en lokal SQL Server-databas som är associerad med lokal agent 1.
 2. Samma lokala databas har registrerats med lokal agent 2 (den här agenten inte är kopplad till någon synkroniseringsgruppen).
 3. Avregistrera en lokal databas från lokal agent 2 tar bort spårning och meta tabeller för synkronisera grupp A för den lokala databasen.
-4. Synkronisera gruppera en operations-misslyckas med felet: ”den aktuella åtgärden kunde inte slutföras eftersom databasen inte har etablerats för synkronisering eller du har inte behörighet att synkronisera configuration tabeller”.
+4. Synkroniseringsåtgärder grupp A misslyckas med felet: ”Den aktuella åtgärden kunde inte slutföras eftersom databasen inte har etablerats för synkronisering eller du har inte behörighet att synkronisera configuration tabeller”.
 
 #### <a name="solution"></a>Lösning
 
@@ -219,18 +222,18 @@ Om du försöker ta bort en databas och sedan redigera en synkroniseringsgrupp u
 ## <a name="next-steps"></a>Nästa steg
 Mer information om SQL Data Sync finns:
 
--   Översikt – [synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
--   Konfigurera datasynkronisering
-    - I portalen – [självstudie: Ställ in SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+-   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
+-   Konfigurera Data Sync
+    - I portalen – [självstudien: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Data synkroniseras Agent - [Data synkroniseras Agent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
--   Övervaka – [övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
--   Felsök - [felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Övervakning – [Övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+-   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Uppdatera synkroniseringsschemat
-    -   Med Transact-SQL - [automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
-    -   Med PowerShell - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)
+    -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)
 
 Mer information om SQL-databas finns:
 

@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002118"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726688"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga Node.js Azure-Mobiltjänst till App Service
 App Service Mobile är ett nytt sätt att bygga mobilappar med Microsoft Azure. Mer information finns i [vad är Mobile Apps?].
@@ -98,7 +98,7 @@ Under distributionen måste du göra följande:
 2. Klicka på **+NY** > **Webb + Mobil** > **Mobilapp** och ange sedan ett namn för din serverdel för mobilappen.
 3. För **Resursgrupp** väljer du en befintlig resursgrupp, eller skapar en ny (med samma namn som din app).
 
-    Du kan antingen välja en annan App Service-plan eller skapa en ny. Mer information om App Services-planer och hur du skapar en ny plan i en annan prisnivå på din önskade plats finns i [Djupgående översikt över Azure App Services-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    Du kan antingen välja en annan App Service-plan eller skapa en ny. Mer information om App Services-planer och hur du skapar en ny plan i en annan prisnivå på din önskade plats finns i [Djupgående översikt över Azure App Services-planer](../app-service/overview-hosting-plans.md).
 4. För **App Service-plan** är standardplanen (i [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) vald. Du kan också välja en annan plan eller [skapa en ny](../app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service-planens inställningar avgör den [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som är associerade med din app.
 
     Efter att du har valt planen klickar du på **Skapa**. Serverdelen för mobilappen skapas.
@@ -162,7 +162,7 @@ När du har den nya klientversionen som är redo, prova mot projektet uppgradera
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Prissättning för App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Autentiseringskoncept]: ../app-service/app-service-authentication-overview.md
+[Autentiseringskoncept]: ../app-service/overview-authentication-authorization.md
 [Snabbstart för autentisering]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/

@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079219"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754672"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Självstudiekurs 6: Gruppera och extrahera relaterade data
+# <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 
-Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en överordnad kategori. Informationen finns som separata entiteter innan en sammansatta skapas. Det liknar hierarkisk entitet men kan innehålla olika typer av enheter. 
+Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en överordnad kategori. Informationen finns som separata entiteter innan en sammansatta skapas. Det liknar en hierarkisk entitet, men kan innehålla olika typer av enheter. 
 
 Sammansatta entiteten är ett bra alternativ för den här typen av data eftersom data:
 
@@ -33,7 +33,8 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp
+> * Exempelapp för import
+> * Skapa avsikt
 > * Lägg till sammansatt entitet 
 > * Träna
 > * Publicera
@@ -41,286 +42,139 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
-Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+## <a name="import-example-app"></a>Exempelapp för import
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
-
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Hämta och spara den [app JSON-fil](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) från listan entitet självstudierna.
 
 2. Importera JSON-koden till en ny app.
 
 3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
-
 ## <a name="composite-entity"></a>Sammansatt entitet
-Skapa en sammansatt entitet när separata entiteter kan grupperas logiskt och den här logisk gruppering kan vara bra att klientprogrammet. 
 
-I den här appen medarbetarnamn har definierats i den **medarbetare** listan entitet och omfattar namn, e-postadress, företagets anknytningsnumret, mobiltelefonnummer och USA Federal skatte-ID. 
+I den här appen, ett avdelningsnamn definieras i den **avdelning** listan entitet och omfattar. 
 
-Den **MoveEmployee** syftet har exempel yttranden att begära en anställd flyttas från en kontorsbyggnad och till en annan. Skapa namn är alfabetiskt: ”A”, ”B” och annat kontor är numeriska: ”1234”, ”13245”. 
+Den **TransferEmployeeToDepartment** syftet har exempel yttranden att begära en anställd flyttas till en ny avdelning. 
 
-Exempel yttranden i den **MoveEmployee** avsikt inkluderar:
+Exempel yttranden avsikt följande:
 
 |Exempel på yttranden|
 |--|
-|Flytta John W. Smith ska kunna a-2345|
-|flytta x12345 till h-1234 imorgon|
+|Flytta John W. Smith till ekonomiavdelningen|
+|överföra Jill Jones från till R & D|
  
-Begäran om att flytta bör ta medarbetaren (med några synonymen) och den slutgiltiga kontorsbyggnad och platsen. Begäran kan även innehålla den ursprungliga office samt ett datum som flytten som ska hända. 
+Begäran om att flytta bör innehålla avdelningsnamnet på och medarbetarnamn. 
 
-Extraherade data från slutpunkten bör innehålla den här informationen och returnera den i den `RequestEmployeeMove` sammansatt entitet:
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Lägg till PersonName fördefinierade entitet som hjälper med common dataextrahering
 
-```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
-```
+LUIS har flera fördefinierade entiteter för extrahering av data. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Välj **skapa** från det övre navigeringsfältet väljer **entiteter** från den vänstra navigeringsmenyn.
 
-2. På den **avsikter** väljer **MoveEmployee** avsikt. 
+1. Välj knappen **Manage prebuilt entity** (Hantera fördefinierad entitet).
 
-3. Välj på förstoringsglaset i verktygsfältet om du vill filtrera listan yttranden. 
+1. Välj **[PersonName](luis-reference-prebuilt-person.md)** Välj sedan i listan över fördefinierade entiteter **klar**.
 
-    [![Skärmbild av LUIS på 'MoveEmployee' avsikten med förstoringsglaset markerat](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Skärmbild av LUIS på 'MoveEmployee' avsikten med förstoringsglaset markerat")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-4. Ange `tomorrow` i textrutan filter för att hitta uttryck `shift x12345 to h-1234 tomorrow`.
+    Den här entiteten kan du lägga till namnet taligenkänning att ditt klientprogram.
 
-    [![Skärmbild av LUIS på 'MoveEmployee' syftet med filtret ”morgondagens' markerat](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Skärmbild av LUIS på 'MoveEmployee' syftet med filtret” morgondagens' markerat")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+## <a name="create-composite-entity-from-example-utterances"></a>Skapa sammansatta entitet från exempel yttranden
 
-    En annan metod är att filtrera entiteten efter datetimeV2, genom att välja **entitet filter** därefter **datetimeV2** i listan. 
+1. Välj **Intents** (Avsikter) i det vänstra navigeringsfönstret.
 
-5. Välj den första entiteten `Employee`och välj sedan **omsluta i sammansatt entitet** i listan över popup-menyn. 
+1. Välj **TransferEmployeeToDepartment** från listan över avsikter.
 
-    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. Välj personName-entitet i den första uttryck `John Jackson`och välj sedan **starta wrapping sammansatt entitet** i listan över popup-menyn för följande uttryck:
 
+    `place John Jackson in engineering`
 
-6. Välj sedan det senaste entitet omedelbart `datetimeV2` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `RequestEmployeeMove` och sedan anger du väljer. 
+1. Välj sedan det senaste entitet omedelbart `engineering` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `TransferEmployeeInfo` och sedan anger du väljer. 
 
-    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att markera senaste entitet i sammansatta och skapa entitet markerat](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att markera senaste entitet i sammansatta och skapa markerad entitet")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+1. I **vilken typ av enhet vill du skapa?**, alla fält som krävs finns i listan: `personName` och `Department`. Välj **Done** (Klar). 
 
-7. I **vilken typ av enhet vill du skapa?**, nästan alla fält som krävs finns i listan. Endast den ursprungliga platsen saknas. Välj **lägga till en underordnad entitet**väljer **Locations::Origin** från listan över befintliga entiteter, Välj **klar**. 
-
-    Observera att färdiga entitet, number, har lagts till i den sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
-
-    ![Skärmbild av LUIS på 'MoveEmployee' avsikt att lägga till en annan entitet i popup-fönster](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. Välj på förstoringsglaset i verktygsfältet för att ta bort filtret. 
-
-9. Ta bort ordet `tomorrow` från filtret så att du kan se alla exempel yttranden igen. 
+    Observera att entiteten fördefinierade personName, har lagts till sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etikett exempel yttranden med sammansatta entitet
 
 
 1. Välj vänster-entitet som ska vara i sammansatt i varje exempel-uttryck. Välj sedan **omsluta i sammansatt entitet**.
 
-    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+1. Välj det sista ordet i sammansatt entiteten och välj sedan **TransferEmployeeInfo** på snabbmenyn. 
 
-2. Välj det sista ordet i sammansatt entiteten och välj sedan **RequestEmployeeMove** på snabbmenyn. 
+1. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet. 
 
-    [![Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatta markerat](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
-3. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet. 
-
-    [![Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
-
-## <a name="train"></a>Träna
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att ändringarna ska avsikten kan testas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicera
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att den tränade modellen är frågningsbar från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Hämta avsikt och entiteten förutsägelse från slutpunkten 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Gå till slutet av URL:en i adressen och ange `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. Den sista frågesträngsparametern är `q`, uttryck frågan. 
+2. Gå till slutet av URL:en i adressen och ange `Move Jill Jones to DevOps`. Den sista frågesträngsparametern är `q`, uttryck frågan. 
 
     Eftersom det här testet är att verifiera sammansatt extraheras korrekt, kan ett test antingen inkludera en befintliga exempel-uttryck eller en ny uttryck. Ett bra test är att inkludera alla underordnade entiteter i sammansatt entiteten.
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }
@@ -334,9 +188,18 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Relaterad information
+
+* [Lista entitet självstudien](luis-quickstart-intents-only.md)
+* [Sammansatt entitet](luis-concept-entity-types.md) konceptuell information
+* [Hur du tränar](luis-how-to-train.md)
+* [Så här publicerar du](luis-how-to-publish-app.md)
+* [Testa LUIS-portalen](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudiekursen skapades en sammansatt entitet för att kapsla in befintliga entiteter. På så sätt kan klientprogram för att hitta en grupp av relaterade data i olika datatyper fortsätta konversationen. Ett klientprogram för den här personalapp kan be vilken dag och tid flytten måste börja och sluta. Det kan också fråga om andra logistik av movesuch som en fysisk telefon. 
+Den här självstudiekursen skapades en sammansatt entitet för att kapsla in befintliga entiteter. På så sätt kan klientprogram för att hitta en grupp av relaterade data i olika datatyper fortsätta konversationen. Ett klientprogram för den här personalapp kan be vilken dag och tid flytten måste börja och sluta. Det kan också fråga om andra logistik av flytt till exempel en fysisk telefon. 
 
 > [!div class="nextstepaction"] 
 > [Lär dig hur du lägger till en enkel enhet med en fras-lista](luis-quickstart-primary-and-secondary-data.md)  

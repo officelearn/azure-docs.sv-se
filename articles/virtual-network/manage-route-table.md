@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7c3c4eea80eb0ceddc48d30fd51cf23524df5640
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222122"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540766"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -48,7 +48,7 @@ Det finns en gräns för hur många routningstabeller som du kan skapa per Azure
 **Kommandon**
 
 - Azure CLI: [skapa az network route-table](/cli/azure/network/route-table/route#az_network_route_table_create)
-- PowerShell: [nya AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Visa routningstabeller
 
@@ -64,7 +64,7 @@ Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **ro
 1. Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **routningstabeller** visas i sökresultaten, markerar du den.
 2. Välj routningstabellen i listan som du vill visa information om. Under **inställningar**, du kan visa den **vägar** i routningstabellen och **undernät** routningstabellen är kopplad till.
 3. Mer information om gemensamma inställningar för Azure finns följande information:
-    *   [Aktivitetslogg](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Aktivitetslogg](../azure-monitor/platform/activity-logs-overview.md)
     *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Lås](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -128,7 +128,7 @@ Om en routingtabell kopplas till undernät, kan inte tas bort. [Koppla bort](#di
 **Kommandon**
 
 - Azure CLI: [ta bort az network route-table](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
+- PowerShell: [Ta bort AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Skapa en väg
 
@@ -147,7 +147,7 @@ Det finns en gräns för hur många vägar vägtabell kan skapa per Azure-plats 
 **Kommandon**
 
 - Azure CLI: [az network route-table route skapa](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell: [nya AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [Ny AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Visa flöden
 
@@ -198,7 +198,7 @@ Noll eller flera vägar innehåller en routningstabell. Läs mer om vilken infor
 **Kommandon**
 
 - Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
-- PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell: [Ta bort AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Visa effektiva vägar
 

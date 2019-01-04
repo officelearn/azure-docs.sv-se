@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339220"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725072"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du ställer in aviseringar med hjälp av gränssnitt
 - Villkor: Specifika villkor eller logik som när synts signalen ska utlösa åtgärd
 - Åtgärd: Specifika anrop som skickats till en mottagare av ett meddelande - e-post, SMS, webhook osv.
 
-Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad fråga baserat på [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](../../azure-monitor/platform/alerts-unified-log.md).
+Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad fråga baserat på [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -245,6 +245,6 @@ Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för va
 
 * Lär dig mer om [Loggaviseringar i Azure-aviseringar](../../azure-monitor/platform/alerts-unified-log.md)
 * Förstå [Webhook-åtgärder för loggaviseringar](../../azure-monitor/platform/alerts-log-webhook.md)
-* Läs mer om [Application Insights](../../application-insights/app-insights-analytics.md)
+* Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
 * Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

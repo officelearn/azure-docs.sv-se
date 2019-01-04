@@ -3,17 +3,15 @@ title: Server begrepp i Azure Database for MariaDB
 description: Det här avsnittet innehåller riktlinjer och överväganden för att arbeta med Azure-databas för MariaDB-servrar.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247779"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544574"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Server begrepp i Azure Database for MariaDB
 Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure-databas för MariaDB-servrar.
@@ -33,7 +31,7 @@ En Azure Database for MariaDB-server:
 - Tillhandahåller definitionsområdet för hanteringsprinciper som tillämpas på dess databaser: inloggning, brandvägg, användare, roller, konfigurationer osv.
 - Är tillgängligt i MariaDB Motorversion 10.2. Mer information finns i [stöds Azure Database for MariaDB databasversioner](./concepts-supported-versions.md).
 
-Du kan skapa en eller flera databaser inom en Azure Database for MariaDB-server. Du kan välja om du vill skapa en databas per server att använda alla resurser eller att skapa flera databaser som delar resurser. Priserna är strukturerade per server, baserat på konfigurationen av prisnivå, virtuella kärnor, och lagringsutrymme (GB). Mer information finns i [prisnivåer](./concepts-pricing-tiers.md).
+Du kan skapa en eller flera databaser på en Azure Database for MariaDB-server. Du kan välja om du vill skapa en databas per server att använda alla resurser eller att skapa flera databaser som delar resurser. Priserna är strukturerade per server, baserat på konfigurationen av prisnivå, virtuella kärnor, och lagringsutrymme (GB). Mer information finns i [prisnivåer](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Hur skyddar jag en Azure Database for MariaDB server?
 

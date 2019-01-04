@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333589"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753140"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Rapportkvarhållningsregler i Azure Active Directory
 
@@ -53,17 +53,19 @@ För säkerhets-signaler, samling processen startar när du anmäla sig till anv
 
 **Aktivitetsrapporter**    
 
-| Rapport                 | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Kataloggranskning        | 7 dagar        | 30 dagar             | 30 dagar             |
-| Inloggningsaktivitet       | Gäller inte           | 30 dagar             | 30 dagar             |
-| Azure MFA-användning        | 30 dagar       | 30 dagar             | 30 dagar             |
+| Rapport                 | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| Kataloggranskning        | 7 dagar        |  7 dagar        | 30 dagar             | 30 dagar             |
+| Inloggningsaktivitet       | Gäller inte           |  Gäller inte           | 30 dagar             | 30 dagar             |
+| Azure MFA-användning        | 30 dagar       |  30 dagar       | 30 dagar             | 30 dagar             |
+
+Du kan behålla aktivitetsdata gransknings- och logga in under längre tid än loggperioden ovan genom att skicka det till ett Azure storage-konto med Azure Monitor. Mer information finns i [Arkiv Azure AD-loggar till ett Azure storage-konto](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Security signaler**
 
-| Rapport         | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Användare i riskzonen  | 7 dagar        | 30 dagar             | 90 dagar             |
-| Riskfyllda inloggningar | 7 dagar        | 30 dagar             | 90 dagar             |
+| Rapport         | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| Användare i riskzonen  | 7 dagar        | 7 dagar         | 30 dagar             | 90 dagar             |
+| Riskfyllda inloggningar | 7 dagar        | 7 dagar         |  30 dagar            | 90 dagar             |
 
 ---

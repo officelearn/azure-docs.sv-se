@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531841"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632152"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Aktivera Azure Storage-mätvärden och visa måttdata
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -37,7 +37,10 @@ Följ stegen nedan för att aktivera mätvärden i den [Azure-portalen](https://
 Den [Azure-portalen](https://portal.azure.com) för närvarande kan du inte konfigurera minutmått i ditt storage-konto, måste du aktivera minutmått med hjälp av PowerShell eller via programmering.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>Så här aktiverar du mått med hjälp av PowerShell
-Du kan använda PowerShell på den lokala datorn för att konfigurera mätvärden i Storage i ditt storage-konto med hjälp av Azure PowerShell-cmdleten Get-AzureStorageServiceMetricsProperty för att hämta de aktuella inställningarna och cmdleten Set-AzureStorageServiceMetricsProperty för att ändra de aktuella inställningarna.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Du kan använda PowerShell på den lokala datorn för att konfigurera mätvärden i Storage i ditt storage-konto med hjälp av Azure PowerShell-cmdleten Get-AzStorageServiceMetricsProperty för att hämta de aktuella inställningarna och cmdleten Set-AzStorageServiceMetricsProperty att ändra de aktuella inställningarna.
 
 Cmdletar som styr Lagringsmått använder följande parametrar:
 
@@ -48,16 +51,16 @@ Cmdletar som styr Lagringsmått använder följande parametrar:
 Till exempel växlar följande kommando på minutmått för Blob service i ditt storage-kontot med kvarhållning tidsperiod som angetts till fem dagar:
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 Följande kommando hämtar de aktuella per timme mått nivå och kvarhållning dagarna för blob service i standardkontot för lagring:
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Information om hur du konfigurerar Azure PowerShell-cmdletar för att arbeta med din Azure-prenumeration och hur du väljer standardkontot för lagring att använda, se: [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Information om hur du konfigurerar finns Azure PowerShell-cmdletar för att arbeta med din Azure-prenumeration och hur du väljer standardkontot för lagring att använda, i: [Hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Så här aktiverar du lagringsmått programmässigt
 Följande C#-kodavsnitt visar hur du aktiverar mått och loggning för Blob-tjänsten med hjälp av storage-klientbiblioteket för .NET:

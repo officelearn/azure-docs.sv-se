@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387490"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558438"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -26,7 +26,7 @@ Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att 
 Azure Monitor innehåller basnivå infrastruktur mått och loggar för de flesta tjänster i Microsoft Azure. Mer information finns i [Övervakningsöversikt](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostikloggar är loggar som genereras av en resurs som tillhandahåller omfattande, frekventa data om användningen av den här resursen. Data Factory matar ut diagnostikloggar i Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Bevara Data Factory-Data
-Data Factory lagrar bara data för pipelinekörning 45 dagar. Om du vill bevara pipelinekörning data i mer än 45 dagar med Azure Monitor, du kan inte bara vidarebefordra diagnostikloggar för analys, du kan även spara dem till ett lagringskonto så att du har factory information för hela valfritt.
+Data Factory lagrar bara data för pipelinekörning 45 dagar. Om du vill bevara pipelinekörning data i mer än 45 dagar med Azure Monitor kan du bara kan inte skicka diagnostiska loggar för analys, du kan även spara dem till ett lagringskonto så att du har factory information för hela valfritt.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -41,9 +41,9 @@ Du kan använda ett lagring eller event hub-namnområde som inte är i samma pre
 ### <a name="diagnostic-settings"></a>Diagnostikinställningar
 Diagnostikloggar för icke-beräkningsresurser konfigureras med hjälp av diagnostikinställningar. Diagnostikinställningar för en resurskontroll:
 
-* Diagnostikloggar mottagna (Storage-konto, Händelsehubbar och/eller Log Analytics).
+* Diagnostikloggar mottagna (Storage-konto, Händelsehubbar och Log Analytics).
 * Vilka loggkategorier skickas.
-* Hur länge varje loggkategori ska behållas i ett lagringskonto
+* Hur länge varje loggkategori ska behållas i ett lagringskonto.
 * En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
 * Om principerna för kvarhållning har angetts men lagra loggar i ett lagringskonto är inaktiverad (till exempel bara Event Hubs eller Log Analytics alternativ har valts) principerna för kvarhållning har ingen effekt.
 * Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort.
@@ -465,15 +465,7 @@ Du kan visualisera måtten som ovan, titta på frågorna som bakom de här mått
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan generera aviseringar på mått som stöds i Data Factory. Klicka på den **aviseringar** knappen i Data Factory **övervakaren** sidan.
-
-![Alternativ för aviseringar](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Då kommer du till den **aviseringar** sidan.
-
-![Sidan varningar](media/monitor-using-azure-monitor/alerts_image2.png)
-
-Du kan också logga in på Azure-portalen och klicka på **skärm –&gt; aviseringar** att nå den **aviseringar** sidan direkt.
+Logga in på Azure-portalen och klicka på **skärm –&gt; aviseringar** att skapa aviseringar.
 
 ![Aviseringar i portalen menyn](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ Du kan också logga in på Azure-portalen och klicka på **skärm –&gt; aviser
     ![Åtgärdsgrupp skärmen 4 av 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) du lär dig om att övervaka och hantera pipelines genom att köra.
+
+Se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) du lär dig om att övervaka och hantera pipelines med kod.

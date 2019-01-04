@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251036"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794362"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -97,7 +97,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
 ### <a name="configure-settings"></a>Konfigurera inställningar
 
-1. I konfigurationsguiden för serverhantering väljer du **Ställ in anslutning** och väljer sedan det nätverkskort som processervern använder för att ta emot replikeringstrafik från virtuella datorer. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats.
+1. I konfigurationsguiden för serverhantering väljer du **Ställ in anslutning** och väljer sedan det nätverkskort som processervern använder för att ta emot replikeringstrafik från virtuella datorer. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats. Det rekommenderas starkt att inte ändra IP-adressen för en konfigurationsserver. Se till att IP-Adressen som tilldelats till konfigurationsservern är statisk IP-adress och inte DHCP IP.
 2. I **Välj Recovery Services-valv**, logga in på Microsoft Azure, Välj din Azure-prenumeration samt relevant resursgrupp och valv.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
     I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Välj i servrar, **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
 8. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
 
-    **Inte**, användning av klonade konfigurationsservern komponent stöds inte. 
+    **Inte**, användning av klonade konfigurationsservern komponent stöds inte.
+
+9. Kan jag ändra IP-Adressen för konfigurationsservern?
+
+    **Inte**, rekommenderas att inte ändra IP-adressen för en konfigurationsserver. Se till att alla IP-adresser tilldelade till konfigurationsservern är STATISKA IP-adresser och inte DHCP IP-adresser.
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

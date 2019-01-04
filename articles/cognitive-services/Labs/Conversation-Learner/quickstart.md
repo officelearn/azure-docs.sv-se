@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166140"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791088"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Konversationsdeltagare modell med hjälp av Node.js
 
@@ -112,14 +112,11 @@ Anvisningarna ovan igång allmän tom roboten.  Att köra en självstudiekurs el
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in http://localhost:5050/home. 
 
-5. Klicka på ”Importera tutorials” (behöver bara göras en gång).  Detta tar ungefär en minut och kopierar Konversationsdeltagare modeller för alla kurser på Konversationsdeltagare kontot.
-
-6. Klicka på demo-modellen i Användargränssnittet för konversationen Learner som motsvarar demon du igång.
+5. Klicka på ”Importera tutorials” och välj demo-modell i Användargränssnittet för konversationen Learner som motsvarar demon du igång.
 
 Källfilerna för demonstrationerna finns i `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Det här projektet använder sig av [Microsofts uppförandekod för öppen käll
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hej världen](./tutorials/1-hello-world.md)
+> [Hej världen](./tutorials/01-hello-world.md)

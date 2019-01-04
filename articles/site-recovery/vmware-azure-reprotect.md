@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834976"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791888"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Skydda igen och misslyckas tillbaka datorer till en lokal plats efter redundansväxlingen till Azure
 
@@ -61,8 +61,8 @@ För att distribuera en processerver i Azure:
 
 Huvudmålservern tar emot data vid återställning efter fel. Som standard körs huvudmålservern på konfigurationsservern lokalt. Beroende på vilken trafikvolym misslyckades tillbaka, kan du dock behöva skapa en separat huvudmålserver för återställning efter fel. Här är hur man skapar en:
 
-* [Skapa en Linux-huvudmålserver](vmware-azure-install-linux-master-target.md) för återställning efter fel för virtuella Linux-datorer. Detta krävs.
-* Du kan också skapa en separat huvudmålserver för återställning efter fel för Windows-VM. Att göra detta, köra enhetliga installationsprogrammet igen och välja för att skapa en huvudmålserver. [Läs mer](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* [Skapa en Linux-huvudmålserver](vmware-azure-install-linux-master-target.md) för återställning efter fel för virtuella Linux-datorer. Detta krävs. Observera att Master-målservern på LVM stöds inte.
+* Du kan också skapa en separat huvudmålserver för återställning efter fel för Windows-VM. Att göra detta, köra enhetliga installationsprogrammet igen och välja för att skapa en huvudmålserver. [Läs mer](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 När du skapar en huvudmålserver kan du utföra följande uppgifter:
 

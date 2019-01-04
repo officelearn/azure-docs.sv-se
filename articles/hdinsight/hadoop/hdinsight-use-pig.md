@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166174"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653976"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache Pig med Apache Hadoop på HDInsight
 
@@ -29,10 +29,10 @@ Apache Pig är en plattform för att skapa program för Apache Hadoop med hjälp
 | [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux eller Windows |Windows (för tillfället) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux eller Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a id="why"></a>Varför ska man använda Pig
+## <a id="why"></a>Varför ska man använda Apache Pig
 
 En av utmaningarna med att bearbeta data med hjälp av MapReduce i Hadoop implementerar din standardbearbetningslogiken genom att använda endast en karta och en minska-funktion. För komplexa bearbetning du ofta behöva Bryt bearbetning i flera MapReduce-åtgärder som är sammankedjade tillsammans för att uppnå det önskade resultatet.
 
@@ -40,23 +40,23 @@ Pig kan du definiera bearbetning som en serie transformationer som data flödar 
 
 Pig Latin-språk kan du beskriva dataflödet från rådata indata via en eller flera omvandlingar till önskat resultat. Pig Latin program följer detta allmänna mönster:
 
-* **Läs in**: Läsa data hanteras från filsystemet
+* **Läs in**: Läsa data hanteras från filsystemet.
 
-* **Omvandla**: Ändra data
+* **Omvandla**: Ändra data.
 
-* **Dumpa eller lagra**: Mata ut data till skärmen eller lagra den för bearbetning
+* **Dumpa eller lagra**: Mata ut data till skärmen eller lagra den för bearbetning.
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 
 Pig Latin även stöd för användardefinierade funktioner (UDF), där du kan anropa externa komponenter som implementerar logik som är svåra att modellen i Pig Latin.
 
-Läs mer om Pig Latin [Pig Latin referens manuell 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [Pig Latin referens manuell 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
+Läs mer om Pig Latin [Pig Latin referens manuell 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [Pig Latin referens manuell 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Ett exempel på hur du använder UDF: er med Pig, finns i följande dokument:
 
-* [Använda DataFu med Pig i HDInsight](apache-hadoop-use-pig-datafu-udf.md) -DataFu är en samling användbar UDF: er som underhålls av Apache
-* [Använda Python med Pig och Hive i HDInsight](python-udf-hdinsight.md)
-* [Använda C# med Hive och Pig i HDInsight](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Använda Apache DataFu med Apache Pig i HDInsight](apache-hadoop-use-pig-datafu-udf.md) -DataFu är en samling användbar UDF: er som underhålls av Apache
+* [Använd Python med Apache Pig- och Apache Hive i HDInsight](python-udf-hdinsight.md)
+* [Använd C# med Apache Hive och Apache Pig i HDInsight](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>Exempeldata
 
@@ -68,7 +68,7 @@ Varje logg i filen består av en rad med fält som innehåller en `[LOG LEVEL]` 
 
 I exemplet ovan är loggningsnivån fel.
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan också skapa en log4j-fil med hjälp av den [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) loggning verktyget och överför sedan filen till din blob. Se [ladda upp Data till HDInsight](../hdinsight-upload-data.md) anvisningar. Mer information om hur du använder blobar i Azure storage med HDInsight finns i [använda Azure Blob Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Exempel-jobb
@@ -98,7 +98,7 @@ HDInsight kan köra Pig Latin-jobb med hjälp av olika metoder. Använd följand
 | [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux eller Windows |Windows (för tillfället) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux eller Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig- och SQL Server Integration Services
@@ -115,9 +115,9 @@ Läs mer om Azure Feature Pack för SSIS [här][ssispack].
 Nu när du har lärt dig hur du använder Pig med HDInsight kan använda följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
 
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md)
-* [Använda Hive med HDInsight][hdinsight-use-hive]
-* [Använda Sqoop med HDInsight](hdinsight-use-sqoop.md)
-* [Använda Oozie med HDInsight](../hdinsight-use-oozie.md)
+* [Använda Apache Hive med HDInsight][hdinsight-use-hive]
+* [Använd Apache Sqoop med HDInsight](hdinsight-use-sqoop.md)
+* [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md)
 * [Använda MapReduce-jobb med HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965401"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714856"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Lär dig att dirigera trafik till specifika slutpunkter baserat på olika mått med hjälp av geo-distribuerad appar mönstret. Skapa en Traffic Manager garanterar-profil med geografiska-baserad Routning och slutpunkten konfiguration information dirigeras till slutpunkterna som baseras på regionala krav, företagets och internationella förordning och dina databehov.
 
@@ -59,15 +59,15 @@ Så är fallet med överväganden angående skalbarhet, upp inte den här lösni
 
 Innan du bygga ut en distribuerad app-fotavtryck hjälper det för att ha följande kunskaper:
 
--   **Anpassad domän för appen:** vad är det anpassade domännamnet som kunder använder för att få åtkomst till appen? Exempelappen, det anpassade domännamnet är *www.scalableasedemo.com.*
+-   **Anpassad domän för appen:** Vad är det anpassade domännamnet som kunder använder för att få åtkomst till appen? Exempelappen, det anpassade domännamnet är *www.scalableasedemo.com.*
 
--   **Traffic Manager-domän:** ett domännamn måste väljas när du skapar en [Azure Traffic Manager-profil](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Det här namnet kommer att kombineras med den *trafficmanager.net* suffix för att registrera en post för domänen som hanteras av Traffic Manager. Valt namnet är för exempelappen, *skalbar ase demo*. Därför är det fullständiga domännamnet som hanteras av Traffic Manager *skalbar ase demo.trafficmanager.net*.
+-   **Traffic Manager-domän:** Ett domännamn måste väljas när du skapar en [Azure Traffic Manager-profil](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Det här namnet kommer att kombineras med den *trafficmanager.net* suffix för att registrera en post för domänen som hanteras av Traffic Manager. Valt namnet är för exempelappen, *skalbar ase demo*. Därför är det fullständiga domännamnet som hanteras av Traffic Manager *skalbar ase demo.trafficmanager.net*.
 
--   **Strategi för att skala app-fotavtryck:** kommer fotavtryck för programmet att distribueras på flera App Service-miljöer i en enda region? Flera regioner? En blandning av båda metoderna? Beslutet bör baseras på förväntningar som kundtrafiken kommer kommer från, samt hur väl resten av en app stöd för backend-infrastruktur kan skala. Till exempel med ett 100% tillståndslösa program, kan en app massivt skalas med hjälp av en kombination av flera App Service-miljöer per Azure-region, multiplicerat med App Service-miljöer som distribueras över flera Azure-regioner. Kunder med 15 + globala Azure-regioner kan välja mellan, kan verkligen skapa ett världsomspännande storskaliga program-fotavtryck. För exempelapp som används för den här artikeln, har tre App Service-miljöer skapats i en enda Azure-region (södra centrala USA).
+-   **Strategi för att skala app-fotavtryck:** Program-fotavtryck distribueras över flera App Service-miljöer i en enda region? Flera regioner? En blandning av båda metoderna? Beslutet bör baseras på förväntningar som kundtrafiken kommer kommer från, samt hur väl resten av en app stöd för backend-infrastruktur kan skala. Till exempel med ett 100% tillståndslösa program, kan en app massivt skalas med hjälp av en kombination av flera App Service-miljöer per Azure-region, multiplicerat med App Service-miljöer som distribueras över flera Azure-regioner. Kunder med 15 + globala Azure-regioner kan välja mellan, kan verkligen skapa ett världsomspännande storskaliga program-fotavtryck. För exempelapp som används för den här artikeln, har tre App Service-miljöer skapats i en enda Azure-region (södra centrala USA).
 
--   **Namnkonvention för App Service-miljöer:** varje App Service Environment krävs ett unikt namn. Utöver en eller två App Service-miljöer är det bra att ha en namngivningskonvention för att identifiera varje App Service Environment. En enkel namngivningskonvention för exempelappen har använts. Namnen på de tre App Service-miljöer är *fe1ase*, *fe2ase*, och *fe3ase*.
+-   **Namngivningskonventionen för App Service-miljöer:** Varje App Service-miljö kräver ett unikt namn. Utöver en eller två App Service-miljöer är det bra att ha en namngivningskonvention för att identifiera varje App Service Environment. En enkel namngivningskonvention för exempelappen har använts. Namnen på de tre App Service-miljöer är *fe1ase*, *fe2ase*, och *fe3ase*.
 
--   **Namnkonventionen för apparna:** eftersom flera instanser av appen ska distribueras, ett namn krävs för varje instans av den distribuerade appen. Med App Service-miljöer kan samma appnamn användas över flera App Service-miljöer. Eftersom varje App Service Environment har ett unikt domänsuffix, kan utvecklare du återanvända exakt samma appnamn i varje miljö. Utvecklare kan till exempel ha appar som namnges enligt följande: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*osv. Varje app-instans har ett unikt namn för appen i det här scenariot. App-instansnamn som används är *webfrontend1*, *webfrontend2*, och *webfrontend3*.
+-   **Namngivningskonvention för appar:** Eftersom flera instanser av appen ska distribueras, krävs ett namn för varje instans av den distribuerade appen. Med App Service-miljöer kan samma appnamn användas över flera App Service-miljöer. Eftersom varje App Service Environment har ett unikt domänsuffix, kan utvecklare du återanvända exakt samma appnamn i varje miljö. Utvecklare kan till exempel ha appar som namnges enligt följande: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*osv. Varje app-instans har ett unikt namn för appen i det här scenariot. App-instansnamn som används är *webfrontend1*, *webfrontend2*, och *webfrontend3*.
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -240,9 +240,9 @@ Azure DevOps och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara
 > [!Note]  
 >  Vissa inställningar för uppgifter kan ha automatiskt definierats som [miljövariabler](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) när du skapade en versionsdefinition från en mall. De här inställningarna kan inte ändras i Aktivitetsinställningarna; i stället måste du välja den överordnade miljö artikeln att redigera inställningarna.
 
-## <a name="part-2-update-web-app-options"></a>Del 2: Uppdateringsalternativ web app
+## <a name="part-2-update-web-app-options"></a>Del 2: Uppdatera web app-alternativ
 
-Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. 
+Med [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. 
 
 ![Alternativ text](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-we
 > [!Note]  
 >  Använd en CNAME-post för alla anpassade DNS-namn utom en rotdomän (för example,northwind.com).
 
-Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Förutsättningar
 
@@ -276,7 +276,7 @@ Uppdatera DNS-zonfilen för domänen. Azure AD ska verifiera ägarskapet för de
 Till exempel om du vill lägga till DNS-poster fornorthwindcloud.comand www.northwindcloud.com, konfigurera DNS-inställningarna för rotdomänen för thenorthwindcloud.com.
 
 > [!Note]  
->  Ett domännamn kan köpas med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  Ett domännamn kan köpas med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > För att kunna mappa ett anpassat DNS-namn till en webbapp måste webbappens [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) vara en betalplan (**Delad**, **Basic**, **Standard** eller **Premium**).
 
 

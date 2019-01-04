@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087516"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719614"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Säkra anrop till anpassade API: er från Azure Logic Apps
 
@@ -24,12 +24,12 @@ Om du vill skydda anrop till API: er, kan du konfigurera Azure Active Directory 
 
 Du kan skydda anrop till ditt anpassade API på följande sätt:
 
-* [Inga kodändringar alls](#no-code): skydda ditt API med [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) via Azure-portalen, så du behöver uppdatera koden eller distribuera om ditt API.
+* [Inga kodändringar alls](#no-code): Skydda ditt API med [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) via Azure-portalen, så du behöver uppdatera koden eller distribuera om ditt API.
 
   > [!NOTE]
   > Som standard ger inte Azure AD-autentisering som du aktiverar i Azure portal detaljerad behörighet. Till exempel låser den här autentiseringen ditt API till bara en specifik klient, inte till en specifik användare eller app. 
 
-* [Uppdatera API-koden](#update-code): skydda ditt API genom att se [certifikatautentisering](#certificate), [grundläggande autentisering](#basic), eller [Azure AD-autentisering](#azure-ad-code) via kod.
+* [Uppdatera API-koden](#update-code): Skydda ditt API genom att se [certifikatautentisering](#certificate), [grundläggande autentisering](#basic), eller [Azure AD-autentisering](#azure-ad-code) via kod.
 
 <a name="no-code"></a>
 
@@ -178,7 +178,7 @@ Så här distribuerar automatiskt en tom webbapp och en logikapp tillsammans med
 
 [![Distribuera till Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Del 3: Lägg till i avsnittet om auktorisering i din logikapp
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Del 3: Fyll i avsnittet om auktorisering i din logikapp
 
 Den tidigare mallen har redan det här avsnittet för auktorisering som ställer in, men om du använder direkt logikappen, måste du inkludera avsnittet fullständig behörighet.
 
@@ -266,7 +266,7 @@ Extrahera rubriken med JSON-webbtoken (JWT) för att begränsa API-åtkomst till
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/overview-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->

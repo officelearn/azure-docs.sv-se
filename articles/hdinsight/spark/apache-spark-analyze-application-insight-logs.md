@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb3826a2c93ee19e1bb84028a6621d637ce27077
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497992"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810721"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analysera loggar i Application Insights telemetry med Apache Spark i HDInsight
 
@@ -28,7 +28,7 @@ Lär dig hur du använder [Apache Spark](https://spark.apache.org/) på HDInsigh
 
 * Liknar processen med att skapa en Linux-baserade HDInsight-kluster. Mer information finns i [skapa Apache Spark i HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * En webbläsare.
@@ -49,9 +49,9 @@ Följande diagram illustrerar arkitekturen för tjänsten för det här exemplet
 
 Application Insights kan konfigureras för att exportera telemetri kontinuerligt till BLOB-objekt. HDInsight läsa data som lagras i blobbar. Det finns dock vissa krav som måste följas:
 
-* **Plats**: om Storage-konto och HDInsight finns på olika platser, kan det öka svarstiden. Kostnad, ökar även som utgående avgifterna tillämpas på data som flyttas mellan regioner.
+* **Plats**: Om Lagringskontot och HDInsight finns på olika platser, kan det öka svarstiden. Kostnad, ökar även som utgående avgifterna tillämpas på data som flyttas mellan regioner.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Med ett Storage-konto i en annan plats än HDInsight stöds inte.
 
 * **Typ av BLOB**: HDInsight stöder endast blockblobar. Standardvärdet är Application Insights med hjälp av blockblob-objekt, bör så fungera som standard med HDInsight.
@@ -60,11 +60,11 @@ Information om att lägga till lagring i ett befintligt kluster finns i den [lä
 
 ### <a name="data-schema"></a>Dataschema
 
-Application Insights ger [exportera datamodell](../../application-insights/app-insights-export-data-model.md) information för dataformatet telemetri som exporteras till BLOB-objekt. Stegen i det här dokumentet använder Spark SQL för att arbeta med data. Spark SQL kan automatiskt generera ett schema för JSON-datastruktur som loggats av Application Insights.
+Application Insights ger [exportera datamodell](../../azure-monitor/app/export-data-model.md) information för dataformatet telemetri som exporteras till BLOB-objekt. Stegen i det här dokumentet använder Spark SQL för att arbeta med data. Spark SQL kan automatiskt generera ett schema för JSON-datastruktur som loggats av Application Insights.
 
 ## <a name="export-telemetry-data"></a>Exportera dessa data
 
-Följ stegen i [konfigurera löpande Export](../../application-insights/app-insights-export-telemetry.md) att konfigurera din Application Insights för att exportera telemetri till en Azure storage blob.
+Följ stegen i [konfigurera löpande Export](../../azure-monitor/app/export-telemetry.md) att konfigurera din Application Insights för att exportera telemetri till en Azure storage blob.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>Konfigurera HDInsight för att komma åt data
 
@@ -111,10 +111,10 @@ Lägg till Azure Storage-konto till ett befintligt kluster genom att använda in
 
     Wasb-sökväg som returneras är platsen för telemetridata som Application Insights. Ändra den `hdfs dfs -ls` rad i cellen att använda wasb-sökväg som returneras och sedan använda **SKIFT + RETUR** köra cellen igen. Den här gången ska resultaten visa kataloger som innehåller dessa data.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Under resten av stegen i det här avsnittet i `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory användes. Din katalogstruktur skilja sig.
 
-6. Ange följande kod i cellen nästa: Ersätt `WASB_PATH` med sökvägen från föregående steg.
+6. I nästa cell, anger du följande kod: Ersätt `WASB_PATH` med sökvägen från föregående steg.
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
@@ -200,7 +200,7 @@ Lägg till Azure Storage-konto till ett befintligt kluster genom att använda in
 
     Den här frågan returnerar adressinformation för de översta 20 posterna där context.location.city inte är null.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Kontext-struktur finns i all telemetri som loggats av Application Insights. Stad-element kan inte fyllas i loggarna. Använd schemat för att identifiera andra element som du kan fråga som kan innehålla data för dina loggar.
 
     Den här frågan returnerar information liknande följande text:
@@ -252,10 +252,10 @@ Lägg till Azure Storage-konto till ett befintligt kluster genom att använda in
 
     Wasb-sökväg som returneras är platsen för telemetridata som Application Insights. Ändra den `hdfs dfs -ls` rad i cellen att använda wasb-sökväg som returneras och sedan använda **SKIFT + RETUR** köra cellen igen. Den här gången ska resultaten visa kataloger som innehåller dessa data.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Under resten av stegen i det här avsnittet i `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory användes. Den här katalogen finns inte annat telemetridata för en webbapp.
 
-6. Ange följande kod i cellen nästa: Ersätt `WASB\_PATH` med sökvägen från föregående steg.
+6. I nästa cell, anger du följande kod: Ersätt `WASB\_PATH` med sökvägen från föregående steg.
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -343,7 +343,7 @@ Lägg till Azure Storage-konto till ett befintligt kluster genom att använda in
 
     Den här frågan returnerar adressinformation för de översta 20 posterna där context.location.city inte är null.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Kontext-struktur finns i all telemetri som loggats av Application Insights. Stad-element kan inte fyllas i loggarna. Använd schemat för att identifiera andra element som du kan fråga som kan innehålla data för dina loggar.
    >
    >
@@ -364,9 +364,9 @@ Lägg till Azure Storage-konto till ett befintligt kluster genom att använda in
 
 Fler exempel på hur du använder Apache Spark för att arbeta med data och tjänster i Azure finns i följande dokument:
 
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Information om att skapa och köra Spark-program finns i följande dokument:

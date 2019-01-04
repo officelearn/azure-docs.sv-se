@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 263dba970b015d466b3fd46f390a063e87de2e2c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093330"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535283"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en anslutningssträng för Event Hubs
 
@@ -51,7 +51,7 @@ Du kan lägga till en ny SAS-princip och hämta anslutningssträngen eller anvä
 ![Hämta anslutningssträngen för Händelsehubbar](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Hämta anslutningssträngen med Azure PowerShell
-Du kan använda Get-AzureRmEventHubNamespaceKey för att hämta anslutningssträngen för principregeln/ange namnet som visas nedan:
+Du kan använda Get-AzureRmEventHubNamespaceKey för att hämta anslutningssträngen för specifika principregeln namnet som visas nedan:
 
 ```azurepowershell-interactive
 Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

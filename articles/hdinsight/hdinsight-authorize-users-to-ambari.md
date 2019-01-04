@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496883"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725277"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Auktorisera användare för Apache Ambari Views
 
 [Enterprise Security Package (ESP) aktiverat HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) tillhandahåller funktioner för företagsklass, inklusive Azure Active Directory-baserad autentisering. Du kan [synkronisera nya användare](hdinsight-sync-aad-users-to-cluster.md) lagts till i Azure AD-grupper som har fått åtkomst till klustret, så att dessa specifika användare att utföra vissa åtgärder. Arbeta med användare, grupper och behörigheter i [Apache Ambari](https://ambari.apache.org/) stöds för både ESP HDInsight-kluster och standard HDInsight-kluster.
 
-Active Directory-användare kan logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera kluster interaktioner med andra godkända slutpunkter som [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell och REST API: er.
+Active Directory-användare kan logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera kluster interaktioner med andra godkända slutpunkter som [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell och REST API: er.
 
-> [!WARNING]
+> [!WARNING]  
 > Ändra inte lösenordet för Ambari-watchdog (hdinsightwatchdog) på Linux-baserade HDInsight-klustret. Ändra lösenordet delar möjligheten att använda skriptåtgärder eller utföra skalningsåtgärder med klustret.
 
 Om du inte redan har gjort det, Följ [instruktionerna](./domain-joined/apache-domain-joined-configure.md) att etablera ett nytt ESP-kluster.
@@ -100,7 +100,7 @@ Om du vill se listan över behörigheter för varje roll, klicka på det blå fr
 
 ![Roller menyn länk](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
 
-Det finns två olika vyer som du kan använda för att hantera roller för användare och grupper på den här sidan: Block och lista.
+Det finns två olika vyer som du kan använda för att hantera roller för användare och grupper på den här sidan: Blockera och lista.
 
 ### <a name="block-view"></a>Visa block
 
@@ -110,7 +110,7 @@ Visa Block visar varje roll i en egen rad och ger den **tilldela roller till des
 
 ### <a name="list-view"></a>Listvy
 
-Listvyn ger snabb redigering funktioner i två kategorier: användare och grupper.
+Listvyn ger snabb redigering funktioner i två kategorier: Användare och grupper.
 
 * Kategorin användare för listvyn visar en lista över alla användare, där du kan välja en roll för varje användare i listrutan.
 

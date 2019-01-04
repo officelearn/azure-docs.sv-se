@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434672"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722086"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
@@ -66,7 +66,7 @@ I den dedikerade App Service-planen kör dina funktionsappar på dedikerade virt
 * Du behöver funktioner som endast är tillgängliga i en App Service-plan, till exempel stöd för App Service Environment, virtuellt nätverk/VPN-anslutning och större storlekar för Virtuella datorer.
 * Du vill köra funktionsappen på Linux eller vill du ange en anpassad avbildning som du vill köra dina funktioner.
 
-En virtuell dator frikopplar kostnaden från antalet körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för den VM-instans som du tilldelar. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+En virtuell dator frikopplar kostnaden från antalet körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för den VM-instans som du tilldelar. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/overview-hosting-plans.md). 
 
 Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan även skala upp genom att välja en annan App Service-plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384214"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714669"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET-lösningar för Windows-baserade HDInsight till Linux-baserat HDInsight
 
@@ -24,7 +24,7 @@ Linux-baserade HDInsight-kluster används [Mono (https://mono-project.com) ](htt
 
 Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](hdinsight-component-versioning.md). Om du vill installera en specifik version av Mono se den [installera eller uppdatera Mono](hdinsight-hadoop-install-mono.md) dokumentet.
 
-Mer information om kompatibilitet mellan Mono och .NET finns i den [Mono-kompatibilitet (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentet.
+Mer information om kompatibilitet mellan Mono och .NET finns i den [Mono-kompatibilitet (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) dokumentet.
 
 > [!IMPORTANT]  
 > SCP.NET-ramverket är kompatibel med Mono. Läs mer om hur du använder SCP.NET med Mono [Använd Visual Studio för att utveckla C#-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -52,7 +52,7 @@ Den [.NET portabilitet Analyzer](https://marketplace.visualstudio.com/items?item
 
 ## <a name="manual-portability-analysis"></a>Manuell portabilitet analys
 
-Utföra en manuell granskning av din kod med hjälp av informationen i den [Programportabilitet (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) dokumentet.
+Utföra en manuell granskning av din kod med hjälp av informationen i den [Programportabilitet (https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) dokumentet.
 
 ## <a name="modify-and-build"></a>Ändra och skapa
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.reviewer: ''
+ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061111"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810381"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Kontrollera dina mallar för Azure Stack med verktyget för mall-validering
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan använda verktyget mall verifiering för att kontrollera om Azure Resource Manager [mallar](azure-stack-arm-templates.md) är redo för att distribuera till Azure Stack. Mallen verifiering verktyget är tillgängligt som en del av Azure Stack-verktyg. Hämta Azure Stack-verktyg med hjälp av stegen som beskrivs i den [ladda ned verktyg från GitHub](azure-stack-powershell-download.md) artikeln.
 
@@ -32,25 +32,25 @@ Du kan använda verktyget mall verifiering för att kontrollera om Azure Resourc
 
 För att verifiera en mall kan du behöva och skapa ett moln funktioner filen först och sedan köra verktyget verifiering. Du kan använda följande PowerShell-moduler från Azure Stack-verktyg:
 
-- I den **CloudCapabilities** mapp:<br>         AzureRM.CloudCapabilities.psm1 skapar en cloud funktioner JSON-fil som representerar de tjänster och -versioner i ett Azure Stack-moln.
+- I den **CloudCapabilities** mapp:<br>         `AzureRM.CloudCapabilities.psm1` skapar en cloud funktioner JSON-fil som representerar de tjänster och -versioner i ett Azure Stack-moln.
 - I den **TemplateValidator** mapp:<br>
-AzureRM.TemplateValidator.psm1 använder en cloud funktioner JSON-fil för att testa mallar för distribution i Azure Stack.
+`AzureRM.TemplateValidator.psm1` använder en cloud funktioner JSON-fil för att testa mallar för distribution i Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Skapa filen cloud-funktioner
 
-Innan du använder mallen verifieraren kan köra AzureRM.CloudCapabilities PowerShell-modulen för att skapa en JSON-fil.
+Innan du använder mallen verifieraren kan köra den **AzureRM.CloudCapabilities** PowerShell-modulen för att skapa en JSON-fil.
 
 >[!NOTE]
 >Om du uppdaterar din integrerat system eller Lägg till nya tjänster eller virtuella tillägg, bör du köra den här modulen igen.
 
 1. Kontrollera att du är ansluten till Azure Stack. De här stegen kan utföras från Azure Stack development kit värden eller använda en [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta från din arbetsstation.
-2. Importera AzureRM.CloudCapabilities PowerShell-modulen:
+2. Importera den **AzureRM.CloudCapabilities** PowerShell-modulen:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Använd cmdleten Get-CloudCapabilities för att hämta service-versioner och skapa en cloud funktioner JSON-fil. Om du inte anger **- OutputPath**, filen AzureCloudCapabilities.Json har skapats i den aktuella katalogen. Använd din faktiska plats:
+3. Använd den `Get-CloudCapabilities` cmdlet för att hämta service-versioner och skapa en cloud funktioner JSON-fil. Om du inte anger **- OutputPath**, filen AzureCloudCapabilities.Json har skapats i den aktuella katalogen. Använd din faktiska plats:
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -58,9 +58,9 @@ Innan du använder mallen verifieraren kan köra AzureRM.CloudCapabilities Power
 
 ## <a name="validate-templates"></a>Kontrollera mallar
 
-Följ dessa steg för att validera mallar med hjälp av AzureRM.TemplateValidator PowerShell-modulen. Du kan använda egna mallar eller verifiera den [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Använd de här stegen för att validera mallar med hjälp av den **AzureRM.TemplateValidator** PowerShell-modulen. Du kan använda egna mallar eller verifiera den [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-1. Importera AzureRM.TemplateValidator.psm1 PowerShell-modulen:
+1. Importera den **AzureRM.TemplateValidator.psm1** PowerShell-modulen:
 
     ```PowerShell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
@@ -95,13 +95,13 @@ Mall-verifieraren stöder följande parametrar.
 
 ### <a name="examples"></a>Exempel
 
-Det här exemplet verifierar att alla de [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates) laddas ned till lokal lagring. I exempel validerar också storlekar för virtuella datorer och tillägg mot Azure Stack Development Kit funktioner.
+Det här exemplet verifierar att alla de [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates) laddas ned till lokal lagring. I exempel validerar också storlekar för virtuella datorer och tillägg mot Azure Stack Development Kit funktioner:
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
--TemplatePattern MyStandardTemplateName.json`
--IncludeComputeCapabilities`
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
 

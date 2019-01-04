@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054412"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606035"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allmänna riktlinjer för att arbeta med Wingtip biljetter SaaS exempelappar
 
@@ -57,7 +57,7 @@ Om dessa värden här bara ser du inte behöva uppdatera de här distributionssp
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Köra skripten genom att trycka på F5
 
-Flera skript använder *$PSScriptRoot* att navigera mappar, och *$PSScriptRoot* utvärderas bara när skript körs genom att trycka på **F5**.  Om du markerar och kör en markering (**F8**) kan resultera i fel, trycker du på **F5** när du kör skript.
+Flera skript använder *$PSScriptRoot* att navigera mappar, och *$PSScriptRoot* utvärderas bara när skript körs genom att trycka på **F5**.  Om du markerar och kör en markering (**F8**) kan resultera i fel, trycker du på **F5** när du kör skript.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Stega igenom skripten för att undersöka implementeringen
 
@@ -94,7 +94,7 @@ För att säkerställa en lyckad demoanslutning, alla servrar har en [brandvägg
 
    ![katalogserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Autentiseringsuppgifterna för demot är: inloggningsnamn = *developer*, lösenord = *P@ssword1*
+3. Autentiseringsuppgifterna för demot är: Logga in = *developer*, lösenord = *P@ssword1*
 
     Bilden nedan visar inloggningen för den *databas per klient* mönster. 
     ![anslutning](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

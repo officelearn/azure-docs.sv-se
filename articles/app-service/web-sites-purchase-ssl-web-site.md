@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268724"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714308"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -35,7 +35,7 @@ Den här självstudien visar hur du skyddar webbappen genom att skapa (köpa) et
 Att följa den här guiden:
 
 - [Skapa en App Service-app](/azure/app-service/)
-- [Mappa ett domännamn till din webbapp](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera i Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Mappa ett domännamn till din webbapp](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera i Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Välj **App Service-verifiering**. Eftersom du redan har mappats till domänen t
 > Stöds fyra typer av domän verifieringsmetoder: 
 > 
 > - **App Service** -det enklaste alternativet när domänen har redan mappats till en App Service-app i samma prenumeration. Den drar nytta av det faktum att App Service-appen har redan verifierats äger domänen.
-> - **Domän** -Kontrollera en [App Service-domän som du har köpt från Azure](custom-dns-web-site-buydomains-web-app.md). Azure lägger till verifiering TXT-posten för dig och Slutför automatiskt.
+> - **Domän** -Kontrollera en [App Service-domän som du har köpt från Azure](manage-custom-dns-buy-domain.md). Azure lägger till verifiering TXT-posten för dig och Slutför automatiskt.
 > - **E-post** -verifiera domänen genom att skicka ett e-postmeddelande till domänadministratör. Anvisningar finns när du väljer alternativet.
 > - **Manuell** -verifiera domänen med hjälp av en HTML-sida (**Standard** certifikat endast) eller en DNS TXT-post. Anvisningar finns när du väljer alternativet.
 

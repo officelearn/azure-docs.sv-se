@@ -1,7 +1,7 @@
 ---
 title: Identifiera ansikten - visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för att identifiera ansikten med hjälp av den API för visuellt innehåll.
+description: Begrepp för funktionen för identifiering av ansikte för den API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342321"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580547"
 ---
-# <a name="detecting-faces"></a>Identifiera ansikten
+# <a name="face-detection-with-computer-vision"></a>Ansiktsigenkänning med visuellt innehåll
 
 Visuellt identifierar ansikten i bilder och genererar den ålder, kön och rektangel för varje identifierad ansikte. Visuellt innehåll tillhandahåller en delmängd av de funktioner som finns i [Ansiktsigenkänning](/azure/cognitive-services/face/) och du kan använda tjänsten för ansiktsigenkänning för mer detaljerad analys, till exempel identifiering av ansikten och posering.  
 
@@ -25,7 +26,7 @@ Visuellt identifierar ansikten i bilder och genererar den ålder, kön och rekta
 
 Det första exemplet visar JSON-svaret som returnerades av visuellt innehåll för en avbildning som innehåller ett enda mänskliga ansikte.
 
-![Visuellt innehåll analyserar kvinna tak ansikte](./Images/woman_roof_face.png)
+![Visuellt innehåll analyserar kvinnoansikte på tak](./Images/woman_roof_face.png)
 
 ```json
 {

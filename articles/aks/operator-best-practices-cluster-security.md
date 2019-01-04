@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 5acabc8381422b9202b041cf849af3b35809a3c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110166"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717219"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metodtips för Klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ För mer detaljerad kontroll över behållaråtgärder du kan också använda in
 
 ### <a name="app-armor"></a>App Armor
 
-Du kan använda för att begränsa de åtgärder som behållare kan utföra, den [AppAmour] [ k8s-apparmor] säkerhetsmodul för Linux-kernel. AppArmor är tillgänglig som en del av den underliggande AKS-noden OS, och är aktiverad som standard. Du skapar AppArmor profiler som till exempel begränsar åtgärder, läsa, skriva eller köra eller systemfunktioner, till exempel montera filsystem. AppArmor standardprofiler begränsa åtkomsten till olika `/proc` och `/sys` platser, och tillhandahålla ett sätt att isolera logiskt behållare från den underliggande noden. AppArmor fungerar för alla program som körs på Linux, inte bara Kubernetes-poddar.
+Du kan använda för att begränsa de åtgärder som behållare kan utföra, den [AppArmor] [ k8s-apparmor] säkerhetsmodul för Linux-kernel. AppArmor är tillgänglig som en del av den underliggande AKS-noden OS, och är aktiverad som standard. Du skapar AppArmor profiler som till exempel begränsar åtgärder, läsa, skriva eller köra eller systemfunktioner, till exempel montera filsystem. AppArmor standardprofiler begränsa åtkomsten till olika `/proc` och `/sys` platser, och tillhandahålla ett sätt att isolera logiskt behållare från den underliggande noden. AppArmor fungerar för alla program som körs på Linux, inte bara Kubernetes-poddar.
 
 ![AppArmor profiler som används i ett AKS-kluster för att begränsa behållaråtgärder](media/operator-best-practices-container-security/apparmor.png)
 

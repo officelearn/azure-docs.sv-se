@@ -4,17 +4,17 @@ description: Lär dig vilka operativsystem kan köra Azure IoT Edge-daemon och r
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100197"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555616"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge stöds system
 
@@ -44,9 +44,11 @@ Allmänt tillgänglig
 Offentlig förhandsversion
 | Operativsystem | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core (April 2018 uppdatering) | Ja | Nej |
-| Windows 10 IoT Enterprise (April 2018 uppdatering) | Ja | Nej |
-| Windows 10-Server 1803 | Ja | Nej |
+| Windows 10 IoT Core build 17763 | Ja | Nej |
+| Windows 10 skapa 17763 för Windows-behållare<br><br>Windows 10 build 14393 eller senare för Linux-behållare\* | Ja | Nej |
+| Windows Server 2019 för Windows-behållare<br><br>Windows Server 2016 eller senare för Linux-behållare\* | Ja | Nej |
+
+\* Microsoft tillhandahåller installationspaket för Linux-behållare på Windows-enheter endast för utveckling och testning. Detta är inte en konfiguration som stöds för användning i produktion. 
 
 ### <a name="tier-2"></a>Nivå 2
 Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lätt kan användas. Detta innebär att:

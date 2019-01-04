@@ -3,52 +3,51 @@ title: Sök efter en anpassad vy – Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Beskriver hur du söker efter en anpassad vy över webben.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 15c5b3c58c4f3617111707ed82d031b67b6ad4c1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465143"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558336"
 ---
-# <a name="call-your-custom-search"></a>Anropa dina anpassad sökning
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa anpassad sökning i Bing-instans från portalen
 
-Innan du gör ditt första anrop till API: et för anpassad sökning att hämta sökresultat för din instans, måste du hämta en prenumerationsnyckel för Cognitive Services. Om du vill hämta en nyckel för API för anpassad sökning, se [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+När du har konfigurerat anpassade användningen kan du testa den från inom Bing Custom Search [portal](https://customsearch.ai). 
+
+![en skärmbild av bing anpassad sökning i portalen](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Skapa en sökfråga 
+
+När du har loggat in Bing Custom Search [portal](https://customsearch.ai), Välj din Sökinstans och klicka på den **produktion** fliken. Under **slutpunkter**, Välj en API-slutpunkt (till exempel webb-API). Prenumerationen avgör vilka slutpunkter som ska visas.
+
+Ange parametervärden för din slutpunkt för att skapa en sökfråga. Observera att de parametrar som visas i portalen kan ändras beroende på den slutpunkt som du väljer. Se den[Custom Search API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) för mer information. 
+
+Vissa viktiga parametrar finns nedan:
 
 
-## <a name="try-it-out"></a>Prova
+|Parameter  |Beskrivning  |
+|---------|---------|
+|Söka i data     | Den sökterm att söka efter. Endast tillgängligt för webb, bild, Video och automatiska förslag slutpunkter |
+|Anpassade konfigurations-ID | Konfigurations-ID för den valda Custom Search-instansen. Det här fältet är skrivskyddat. |
+|Marknad     | På marknaden som resulterar kommer kommer från. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
+|Prenumerationsnyckel | Prenumerationsnyckel att testa med. Du kan välja en nyckel i listrutan eller ange en manuellt.          |
 
-När du har konfigurerat anpassade användningen kan testa du konfigurationen från anpassad sökning i portalen. 
+Klicka på **ytterligare parametrar** visar följande parametrar:  
 
-1. Logga in på [anpassad sökning i](https://customsearch.ai).
-2. Klicka på en anpassad sökning i instans från listan av instanser.
-3. Klicka på den **produktion** fliken. 
-4. Under den **slutpunkter** väljer du en slutpunkt (till exempel webb-API). Prenumerationen avgör vilka slutpunkter ska visas (se [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) för Prenumerationsalternativ). 
-5. Ange parametervärden. 
-
-    Följande är möjliga parametrar som du kan ange (den faktiska listan beror på den valda slutpunkten). Mer information om dessa parametrar finns i [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) referens.
-
-    - **Fråga**: den sökterm att söka efter. Endast tillgängligt för webb, bild, Video och automatiska förslag slutpunkter.
-    - **ID för anpassade**: konfigurations-ID för den valda Custom Search-instansen. Det här fältet är skrivskyddat.
-    - **Marknaden**: marknaden var resultatet kommer från. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.
-    - **Prenumerationsnyckel**: prenumerationsnyckeln att testa med. Du kan välja en nyckel i listrutan eller ange en manuellt.  
-      
-    Klicka på **ytterligare parametrar** visar följande parametrar:  
-      
-    - **Säker sökning**: ett filter som används för att filtrera webbsidor för vuxet innehåll. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.
-    - **Språk för användargränssnittet**: det språk som används för användaren gränssnittet strängar. Exempel: Om du aktiverar bilder och videor i Användargränssnittet för värd för den **bild** och **Video** flikarna använder det angivna språket.
-    - **Antal**: antalet sökresultat att returnera i svaret. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.
-    - **Förskjutning**: antalet sökresultat ska hoppas över innan det returneras resultatet. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.
-
-6. När du har angett alla obligatoriska alternativ, klickar du på **anropa** Se JSON-svar i den högra rutan. 
-
-Om du väljer den värdbaserade UI-slutpunkten kan testa du sökupplevelsen längst ned i fönstret.
+|Parameter  |Beskrivning  |
+|---------|---------|
+|Säker sökning     | Ett filter som används för att filtrera webbsidor för vuxet innehåll. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
+|Språk för användargränssnittet    | Språket som används för användaren gränssnittet strängar. Exempel: Om du aktiverar bilder och videor i Användargränssnittet för värd för den **bild** och **Video** flikarna använder det angivna språket.        |
+|Antal     | Antal resultat från att returnera i svaret. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.         |
+|Offset    | Antalet sökresultat ska hoppas över innan det returneras resultatet. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.        |
+    
+När du har angett alla obligatoriska alternativ, klickar du på **anropa** Se JSON-svar i den högra rutan. Om du väljer den värdbaserade UI-slutpunkten kan testa du sökupplevelsen längst ned i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

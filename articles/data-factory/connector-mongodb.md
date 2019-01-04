@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från MongoDB med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Mongo DB till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
+title: Kopiera data från MongoDB med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från Mongo DB till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,58 +11,48 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e11c62f338a9e6ce74ce2e04a933b0458df784d0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054066"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807915"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Aktuell version](connector-mongodb.md)
+# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en MongoDB-databas. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en MongoDB-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+
+>[!IMPORTANT]
+>ADF släpp den här nya versionen av MongoDB-anslutningsappen som ger bättre inbyggt stöd för MongoDB. Om du använder tidigare MongoDB-anslutningsappen i din lösning som stöds som – är för bakåtkompatibilitet, referera till [MongoDB-anslutningsappen (äldre)](connector-mongodb-legacy.md) artikeln.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från MongoDB-databas till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från MongoDB-databas till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här MongoDB-anslutningen:
-
-- MongoDB **version 2.4, 2.6, 3.0, 3.2, 3.4 och 3,6**.
-- Kopiera data med hjälp av **grundläggande** eller **anonym** autentisering.
+Mer specifikt stöder MongoDB-anslutningsappen **versioner upp till 3.4**.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill kopiera data från en MongoDB-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel mer information. Integration Runtime innehåller en inbyggd MongoDB-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från MongoDB.
+Om du vill kopiera data från en MongoDB-databas som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) artikeln om du vill få mer detaljerad information.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till MongoDB-anslutningen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för MongoDB-anslutningsappen.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för MongoDB länkade tjänsten:
+Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Egenskapen type måste anges till: **MongoDb** |Ja |
-| server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
-| port |TCP-port som MongoDB-servern använder för att lyssna efter anslutningar. |Nej (standard är 27017) |
-| databaseName |Namnet på den MongoDB-databas som du vill komma åt. |Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **grundläggande**, och **anonym**. |Ja |
-| användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
-| lösenord |Lösenord för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
-| authSource |Namnet på MongoDB-databas som du vill använda för att kontrollera autentiseringsuppgifterna för autentisering. |Nej. Standardvärdet är att använda administratörskontot och databasen som anges med egenskapen databaseName för grundläggande autentisering. |
-| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat från servern. Standardvärdet är false.  | Nej |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| typ |Type-egenskapen måste anges till: **MongoDbV2** |Ja |
+| connectionString |Ange t.ex. MongoDB-anslutningssträng `mongodb://[username:password@]host[:port][/[database][?options]]`. Referera till [MongoDB manuell på anslutningssträngen](https://docs.mongodb.com/manual/reference/connection-string/) för mer information. <br/><br />Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| databas | Namnet på databasen som du vill komma åt. | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -70,16 +60,13 @@ Följande egenskaper stöds för MongoDB länkade tjänsten:
 {
     "name": "MongoDBLinkedService",
     "properties": {
-        "type": "MongoDb",
+        "type": "MongoDbV2",
         "typeProperties": {
-            "server": "<server name>",
-            "databaseName": "<database name>",
-            "authenticationType": "Basic",
-            "username": "<username>",
-            "password": {
+            "connectionString": {
                 "type": "SecureString",
-                "value": "<password>"
-            }
+                "value": "mongodb://[username:password@]host[:port][/[database][?options]]"
+            },
+            "database": "myDatabase"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -91,13 +78,11 @@ Följande egenskaper stöds för MongoDB länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av MongoDB dataset.
-
-Ange typegenskapen för dataset för att kopiera data från MongoDB, **MongoDbCollection**. Följande egenskaper stöds:
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper har stöd för MongoDB-datauppsättning:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för dataset måste anges till: **MongoDbCollection** | Ja |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **MongoDbV2Collection** | Ja |
 | Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
 
 **Exempel:**
@@ -106,7 +91,7 @@ Ange typegenskapen för dataset för att kopiera data från MongoDB, **MongoDbCo
 {
      "name":  "MongoDbDataset",
     "properties": {
-        "type": "MongoDbCollection",
+        "type": "MongoDbV2Collection",
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
@@ -120,16 +105,24 @@ Ange typegenskapen för dataset för att kopiera data från MongoDB, **MongoDbCo
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av MongoDB-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av MongoDB-källa.
 
 ### <a name="mongodb-as-source"></a>MongoDB som källa
 
-Om du vill kopiera data från MongoDB, anger du datakällan i kopieringsaktiviteten till **MongoDbSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **MongoDbSource** | Ja |
-| DocumentDB |Använd anpassade SQL-92-fråga för att läsa data. Till exempel: Välj * från mytable prefix. |Nej (om ”samlingsnamn” i datamängden har angetts) |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbV2Source** | Ja |
+| filter | Anger val av filter som använder frågeoperatorer. Om du vill returnera alla dokument i en samling, utelämnar den här parametern eller skicka ett tomt dokument ({}). | Nej |
+| cursorMethods.project | Anger fälten att returnera i dokumenten för projektion. Om du vill returnera alla fält i matchande dokument, utelämnar du den här parametern. | Nej |
+| cursorMethods.sort | Anger den ordning som frågan returnerar matchande dokument. Referera till [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nej |
+| cursorMethods.limit | Anger det maximala antalet dokument som returnerar servern. Referera till [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nej | 
+| cursorMethods.skip | Anger hur många av dokument att hoppa över och från där MongoDB börjar att returnera resultat. Referera till [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Nej |
+| batchSize | Anger antalet dokument att returnera i varje batch för svaret från MongoDB-instans. I de flesta fall påverkar ändra batchstorleken inte användaren eller programmet. Cosmos DB-gränser som varje batch inte får överskrida 40MB i storlek, vilket är summan av batchSize antalet dokumentens storlek, så minska det här värdet om dokumentstorleken på din är stor. | Nej<br/>(standardvärdet är **100**) |
+
+>[!TIP]
+>ADM-stödet förbrukar BSON dokument i **strikt läge**. Kontrollera att din filterfråga är i strikt läge i stället för Shell-läge. Mer beskrivning finns på [MongoDB manuell](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Exempel:**
 
@@ -152,8 +145,14 @@ Om du vill kopiera data från MongoDB, anger du datakällan i kopieringsaktivite
         ],
         "typeProperties": {
             "source": {
-                "type": "MongoDbSource",
-                "query": "SELECT * FROM MyTable"
+                "type": "MongoDbV2Source",
+                "filter": "{datetimeData: {$gte: ISODate(\"2018-12-11T00:00:00.000Z\"),$lt: ISODate(\"2018-12-12T00:00:00.000Z\")}, _id: ObjectId(\"5acd7c3d0000000000000000\") }",
+                "cursorMethods": {
+                    "project": "{ _id : 1, name : 1, age: 1, datetimeData: 1 }",
+                    "sort": "{ age : 1 }",
+                    "skip": 3,
+                    "limit": 3
+                }
             },
             "sink": {
                 "type": "<sink type>"
@@ -163,83 +162,13 @@ Om du vill kopiera data från MongoDB, anger du datakällan i kopieringsaktivite
 ]
 ```
 
-> [!TIP]
-> Ange när SQL-frågan titta närmare på DateTime-format. Till exempel: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` eller använda parametern `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+## <a name="export-json-documents-as-is"></a>Exportera JSON-dokument som – är
 
-## <a name="schema-by-data-factory"></a>Schema som Data Factory
+Du kan använda den här MongoDB-anslutningsappen för att exportera JSON-dokument som – kommer från en MongoDB-samling till olika filbaserade lager eller till Azure Cosmos DB. Hoppa över ”strukturen” för att uppnå kopian schemaoberoende (kallas även *schemat*) i avsnittet datauppsättning och schemamappning i kopieringsaktiviteten.
 
-Azure Data Factory-tjänsten skapar schema från en MongoDB-samling med hjälp av den **senaste 100 dokument** i samlingen. Om dokumenten 100 inte innehåller fullständig schemat, kan vissa kolumner ignoreras under kopieringen.
+## <a name="schema-mapping"></a>Schemamappning
 
-## <a name="data-type-mapping-for-mongodb"></a>Datatypen mappning för MongoDB
-
-När du kopierar data från MongoDB, används följande mappningar från MongoDB-datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
-
-| Datatypen för MongoDB | Data factory tillfälliga datatyp |
-|:--- |:--- |
-| Binär |Byte] |
-| Boolesk |Boolesk |
-| Date |DateTime |
-| NumberDouble |Dubbel |
-| NumberInt |Int32 |
-| NumberLong |Int64 |
-| ObjectId |Sträng |
-| Sträng |Sträng |
-| UUID |GUID |
-| Objekt |Renormalized förenkla i kolumner med ”_” som kapslad avgränsare |
-
-> [!NOTE]
-> Mer information om stöd för matriser med virtuella tabeller, referera till [stöd för komplexa typer som använder virtuella tabeller](#support-for-complex-types-using-virtual-tables) avsnitt.
->
-> För närvarande följande MongoDB-datatyper stöds inte: DBPointer, JavaScript, Max per minut nyckel, reguljärt uttryck, symboler, Timestamp, Undefined.
-
-## <a name="support-for-complex-types-using-virtual-tables"></a>Stöd för komplexa typer som använder virtuella tabeller
-
-Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från din MongoDB-databas. För komplexa typer som matriser eller objekt med olika typer i dokumenten normaliserar drivrutinen igen data i motsvarande virtuella tabeller. Om en tabell innehåller sådana kolumner, genererar drivrutinen mer specifikt kan följande virtuella tabeller:
-
-* En **bastabellen**, som innehåller samma data som verkliga tabell utom komplex typ-kolumner. Bastabellen använder samma namn som den verkliga tabell som representerar.
-* En **virtuella tabellen** för varje kolumn för komplex typ, som utökar kapslade data. Virtuella tabeller namnges med namnet på tabellen verkliga, avgränsare ”_” och namnet på den matris eller ett objekt.
-
-Virtuella tabellerna hänvisar till data i tabellen verkliga aktiverar drivrutinen att komma åt Avnormaliserade data. Du kan komma åt innehållet i MongoDB matriser genom att fråga och ansluta till virtuella tabeller.
-
-### <a name="example"></a>Exempel
-
-Till exempel är ExampleTable här en MongoDB-tabell som har en kolumn med en matris med objekt i varje cell – fakturor, och en kolumn med en matris med skalära typer – klassificeringar.
-
-| _id | Kundens namn | Fakturor | Servicenivå | Klassificering |
-| --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: ”123” objektet: ”toaster”, pris: ”456” rabatt: ”0,2”}, {invoice_id: ”124” objektet: ”vara”, pris: rabatt ”1235”: ”0,2”}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id: objektet ”135”: ”kombinerad kyl”, pris: ”12543” rabatt: ”0,0”}] |Guld |[1,2] |
-
-Drivrutinen skulle generera flera virtuella tabeller som representerar denna tabell. Den första virtuella tabellen är bastabellen med namnet ”ExampleTable” visas i exemplet. Bastabellen innehåller alla data för den ursprungliga tabellen, men data från matriserna har utelämnats och utökas i virtuella tabeller.
-
-| _id | Kundens namn | Servicenivå |
-| --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Guld |
-
-Följande tabeller visar virtuella tabeller som representerar de ursprungliga matriserna i exemplet. Dessa tabeller innehåller följande:
-
-* En referens till den ursprungliga primärnyckelkolumnen som motsvarar raden i den ursprungliga matrisen (via kolumnen _id)
-* Uppgift om placeringen av data i den ursprungliga matrisen
-* Utökade data för varje element i matrisen
-
-**Tabell ”ExampleTable_Invoices”:**
-
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | Objektet | price | Rabatt |
-| --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |Toaster |456 |0.2 |
-| 1111 |1 |124 |vara |1235 |0.2 |
-| 2222 |0 |135 |kombinerad kyl |12543 |0.0 |
-
-**Tabell ”ExampleTable_Ratings”:**
-
-| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
-| --- | --- | --- |
-| 1111 |0 |5 |
-| 1111 |1 |6 |
-| 2222 |0 |1 |
-| 2222 |1 |2 |
-
+För att kopiera data från MongoDB till tabular mottagare, referera till [schemamappning](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

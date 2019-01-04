@@ -3,15 +3,16 @@ title: Om haveriberedskap för virtuella VMware-datorer till Azure med Azure Sit
 description: Den här artikeln innehåller en översikt över haveriberedskap för virtuella VMware-datorer till Azure med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 22be5d7438fdb554d1550fd6675ee1884c638824
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0984f53c70baa50916e125d096a612ad8f061228
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851068"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972829"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Om haveriberedskap för virtuella VMware-datorer till Azure
 
@@ -88,16 +89,16 @@ Lokal här är vad du behöver göra:
 När du har din Azure och lokala infrastruktur på plats kan konfigurera du haveriberedskap.
 
 1. För att förstå de komponenter som du kommer att behöva distribuera, granska de [VMware till Azure-arkitektur](vmware-azure-architecture.md), och [fysisk till Azure-arkitektur](physical-azure-architecture.md). Det finns ett antal komponenter, så det är viktigt att förstå hur de fungerar ihop.
-2. **Källmiljö**: som ett första steg i distributionen som du ställer in din källmiljö för replikering. Du kan ange vad du vill replikera och var du vill att replikera till.
-3. **Konfigurationsservern**: du behöver att ställa in en konfigurationsserver i din miljö för en lokal källa:
+2. **Källmiljö**: Som ett första steg i distributionen, kan du ställa in din källmiljö för replikering. Du kan ange vad du vill replikera och var du vill att replikera till.
+3. **Konfigurationsservern**: Du måste ställa in en konfigurationsserver i din miljö för en lokal källa:
     - Konfigurationsservern är en enda lokal dator. För VMware-haveriberedskap rekommenderar vi att du distribuerar det som en VMware-VM som kan distribueras från en nedladdningsbar OVF-mall.
     - Konfigurationsservern samordnar kommunikationen mellan lokala och Azure
     - Några andra komponenter som körs på configuration server-datorn.
         - Processervern tar emot, optimerar och skickar data för replikering till Azure storage. Den hanterar också automatisk installation av mobilitetstjänsten på datorer som du vill replikera, samt utför automatisk identifiering av virtuella datorer på VMware-servrar.
         - Huvudmålservern hanterar replikeringsdata vid återställning efter fel från Azure.
     - Konfigurera innehåller registrera konfigurationsservern i valvet, ladda ned MySQL-Server och VMware PowerCLI och att ange konton som används för automatisk identifiering och installera Mobilitetstjänsten.
-4. **Målmiljö**: du ställer in mål-Azure-miljön genom att ange din Azure-prenumeration, lagring och nätverksinställningar.
-5. **Replikeringsprincip**: du anger du hur replikering ska ske. Inställningarna omfattar hur ofta återställningspunkter skapas och lagras och om appkonsekventa ögonblicksbilder ska skapas.
+4. **Målmiljö**: Du konfigurerar mål-Azure-miljön genom att ange din Azure-prenumeration, lagring och nätverksinställningar.
+5. **Replikeringsprincip**: Du anger du hur replikering ska ske. Inställningarna omfattar hur ofta återställningspunkter skapas och lagras och om appkonsekventa ögonblicksbilder ska skapas.
 6. **Aktivera replikering**. Du aktiverar replikering för lokala datorer. Om du har skapat ett konto för att installera mobilitetstjänsten kommer sedan den att installeras när du aktiverar replikering för en dator. 
 
 *Behöver du mer hjälp?*

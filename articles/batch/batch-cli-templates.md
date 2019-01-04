@@ -1,22 +1,23 @@
 ---
-title: Köra Azure Batch-jobb slutpunkt till slutpunkt med hjälp av mallar | Microsoft Docs
+title: Kör jobb slutpunkt till slutpunkt med hjälp av mallar – Azure Batch | Microsoft Docs
 description: Skapa Batch-pooler, jobb och aktiviteter med mallfilerna och Azure CLI.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964300"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547685"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använda Azure Batch CLI-mallar och filöverföring
 
@@ -37,7 +38,7 @@ Batch-mallar som bygger på den [befintliga Batch-stöd i Azure CLI](batch-cli-g
 
 Jobb normalt använda filer som indata och producerar utdata datafiler. Ett storage-konto associeras som standard med varje Batch-konto. Överföra filer till och från lagringskontot med hjälp av CLI med ingen kodning och inga autentiseringsuppgifter för lagringskontot.
 
-Till exempel [ffmpeg](http://ffmpeg.org/) är ett populärt program som bearbetar ljud- och bildfiler. Här följer stegen med Azure Batch CLI för att anropa ffmpeg att koda om källan videofiler till olika lösningar.
+Till exempel [ffmpeg](https://ffmpeg.org/) är ett populärt program som bearbetar ljud- och bildfiler. Här följer stegen med Azure Batch CLI för att anropa ffmpeg att koda om källan videofiler till olika lösningar.
 
 -   Skapa en pool-mall. Den användare som skapar mallen vet hur du anropar ffmpeg-programmet och dess krav. de anger rätt OS, VM storlek, hur ffmpeg är installerat (från ett programpaket eller använder en pakethanterare, till exempel) och andra programpoolen egenskapsvärden. Parametrar skapas så när mallen används endast pool-ID och antalet virtuella datorer måste anges.
 

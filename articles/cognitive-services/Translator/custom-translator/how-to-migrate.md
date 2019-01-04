@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077128"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718732"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
@@ -85,7 +85,7 @@ Att migrera en arbetsyta:
 
 4.  På nästa sida väljer du något av dessa två alternativ:
 
-    a.  Distribuerat utbildningar endast: det här alternativet kommer att migrera dina distribuerade system och relaterade dokument.
+    a.  Distribuerade utbildningar: Det här alternativet kommer att migrera dina distribuerade system och relaterade dokument.
 
     b.  Alla lyckade utbildningar: Det här alternativet kommer att migrera alla lyckade utbildningar och relaterade dokument.
 
@@ -111,15 +111,15 @@ Följ dessa steg om du vill visa migreringshistoriken:
 
 Migrering historiksidan visar följande information som sammanfattning för varje migrering som du har begärt.
 
-1.  Migrerade av: Namn och e-post för användaren skickat den här migreringsbegäran om
+1.  Migrera med: Namn och e-post för användaren skickat den här migreringsbegäran om
 
-2.  Migrerade på: Datum och tid stämpel för migreringen
+2.  Migrerade på: Datum- och tidsstämpel av migreringen
 
 3.  Projekt: Antalet projekt som begärdes för en migrering v/s antal projekt har migrerats.
 
-4.  Utbildningar: Antal utbildningar som begärdes för en migrering v/s antalet utbildningar migrerats.
+4.  Kurser: Antal utbildningar som begärdes för en migrering v/s antalet utbildningar migrerats.
 
-5.  Dokument: Antal dokument som krävs för migrering v/s antal dokument som har migrerats.
+5.  Dokument: Antal dokument som begärdes för en migrering v/s antal dokument som har migrerats.
 
     ![Historikinformation för migrering](media/how-to/how-to-migration-history-details.png)
 
@@ -130,7 +130,7 @@ Om du vill ha mer detaljerad migreringsrapport om ditt projekt, utbildningar och
 * Du får endast att migrera en gång per projekt.  Om du vill upprepa en migrering i ett projekt kan du kontakta oss.
 * För närvarande anpassad Translator stöder 36 språk översätta från och till engelska och vi arbetar hårt för att lägga till ytterligare språk.  Hub kräver inte basmodeller och därför har stöd för flera tusen språk.  Du kan migrera ett nyckelpar med språket stöds inte, men vi kommer endast utför migrering av dokument och projektet definitioner.  Vi kommer inte att kunna skapa den nya modellen.  Dessutom är kommer dessa dokument och projekt att visas som inaktiva för att indikera att de inte kan användas just nu. Om du lägger till stöd för dessa projekt och/eller dokument, blir de aktiva och trainable.
 * Anpassade Translator stöder för närvarande inte enspråkig träningsdata.  Du kan migrera enspråkig dokument som par språket stöds inte, men de visas som inaktiva tills enspråkig stöds.  
-* Anpassade Translator kräver 10 k parallella meningar för att träna.  Microsoft Hub kan utbilda i en mindre uppsättning data.  Om ett utbildnings migreras som inte uppfyller det här kravet, kommer den tränas.
+* Anpassade Translator kräver 10 k parallella meningar för att träna.  Microsoft Hub kan utbilda i en mindre uppsättning data. Om ett utbildnings migreras som inte uppfyller det här kravet, kommer den inte tränas.
 
 
 ## <a name="custom-translator-versus-hub"></a>Anpassade Translator jämfört med Hub

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 110b97cdb4de6e866ac8ce17a1f05d0231ff5071
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ffbd36beda179afc4bee6fb2d102215ac8f5f5c2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221607"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539423"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -52,7 +52,7 @@ När du skapar en virtuell dator med Azure-portalen, skapar portalen ett nätver
     |Namn|Ja|Namnet måste vara unikt inom den resursgrupp som du väljer. Framöver kommer har du troligen flera nätverksgränssnitt i Azure-prenumerationen. Förslag när du skapar en namngivningskonvention att hantera flera nätverksgränssnitt enklare finns i [namngivningskonventioner](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Namnet kan inte ändras när nätverksgränssnittet har skapats.|
     |Virtuellt nätverk|Ja|Välj det virtuella nätverket för nätverksgränssnittet. Du kan endast tilldela ett nätverksgränssnitt i ett virtuellt nätverk som finns i samma prenumeration och plats som nätverksgränssnittet. När ett nätverksgränssnitt har skapats kan ändra du inte det virtuella nätverket som den är tilldelad till. Den virtuella datorn som du lägger till nätverksgränssnittet till måste även finnas på samma plats och prenumeration som nätverksgränssnittet.|
     |Undernät|Ja|Välj ett undernät i det virtuella nätverket som du har valt. Du kan ändra det undernät som nätverksgränssnittet har tilldelats när den har skapats.|
-    |Privata IP-adresstilldelning|Ja| I den här inställningen väljer du tilldelningsmetod för IPv4-adress. Välj bland följande tilldelning: **dynamisk:** när du väljer det här alternativet Azure tilldelar nästa tillgängliga adress automatiskt från adressutrymmet för det undernät som du har valt. **Statisk:** när du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress inom adressutrymmet för det undernät som du har valt. Statiska och dynamiska adresser ändras inte tills du ändrar dem eller nätverksgränssnittet har tagits bort. Du kan ändra tilldelningsmetoden när nätverkskortet har skapats. Azure DHCP-server tilldelar den här adressen till nätverksgränssnittet i operativsystemet för den virtuella datorn.|
+    |Privata IP-adresstilldelning|Ja| I den här inställningen väljer du tilldelningsmetod för IPv4-adress. Välj av följande tilldelningsmetoder: **Dynamiska:** När du väljer det här alternativet, tilldelar Azure automatiskt nästa tillgängliga adress från adressutrymmet för det undernät som du har valt. **Statisk:** När du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress inom adressutrymmet för det undernät som du har valt. Statiska och dynamiska adresser ändras inte tills du ändrar dem eller nätverksgränssnittet har tagits bort. Du kan ändra tilldelningsmetoden när nätverkskortet har skapats. Azure DHCP-server tilldelar den här adressen till nätverksgränssnittet i operativsystemet för den virtuella datorn.|
     |Nätverkssäkerhetsgrupp|Nej| Lämna inställd **ingen**, Välj en befintlig [nätverkssäkerhetsgrupp](security-overview.md), eller [skapa en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md). Nätverkssäkerhetsgrupper kan du filtrera nätverkstrafik och från ett nätverksgränssnitt. Du kan använda noll eller en nätverkssäkerhetsgrupp för ett nätverksgränssnitt. Noll eller en säkerhetsgrupp i nätverket kan även tillämpas på det undernät som nätverksgränssnittet har tilldelats. När en nätverkssäkerhetsgrupp används för ett nätverksgränssnitt och undernät som nätverksgränssnittet har tilldelats, inträffa ibland oväntade resultat. Om du vill felsöka nätverkssäkerhetsgrupper för nätverksgränssnitt och undernät, se [felsöka nätverkssäkerhetsgrupper](diagnose-network-traffic-filter-problem.md).|
     |Prenumeration|Ja|Välj en av dina Azure [prenumerationer](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Den virtuella datorn som du kan koppla ett nätverksgränssnitt för och det virtuella nätverket som du ansluter den till måste finnas i samma prenumeration.|
     |Privat IP-adress (IPv6)|Nej| Om du väljer den här kryssrutan måste tilldelas en IPv6-adress till nätverksgränssnittet, förutom IPv4-adress för nätverksgränssnittet. Se den [IPv6](#IPv6) i den här artikeln för viktig information om användning av IPv6 med nätverksgränssnitt. Du kan inte välja en tilldelningsmetod för IPv6-adress. Om du vill tilldela en IPv6-adress tilldelas den med metoden dynamisk.
@@ -69,7 +69,7 @@ Portalen ger inte alternativet att tilldela nätverksgränssnittet till programs
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
@@ -81,20 +81,20 @@ Du kan visa och ändra de flesta inställningar för ett nätverksgränssnitt n�
 1. I rutan som innehåller texten *Sök efter resurser* högst upp på Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten, markerar du den.
 2. Välj nätverksgränssnittet som du vill visa eller ändra inställningar för i listan.
 3. Följande objekt visas i listan för nätverksgränssnittet som du har valt:
-    - **Översikt:** innehåller information om nätverksgränssnittet, till exempel IP-adresserna som tilldelats, virtuellt nätverk/undernät nätverksgränssnittet har tilldelats och den virtuella datorn nätverksgränssnittet är kopplad till (om den är ansluten till en). Följande bild visar en översikt över inställningar för ett nätverksgränssnitt med namnet **mywebserver256**: ![översikt över gränssnittet](./media/virtual-network-network-interface/nic-overview.png) kan du flytta ett nätverksgränssnitt till en annan resursgrupp eller prenumerationen genom att välja (**ändra**) bredvid den **resursgrupp** eller **prenumerationsnamn**. Om du flyttar ett nätverksgränssnitt måste du flytta alla resurser som är relaterade till nätverksgränssnittet med den. Om nätverksgränssnittet är kopplat till en virtuell dator, till exempel måste du också flytta den virtuella datorn och andra VM-relaterade resurser. Om du vill flytta ett nätverksgränssnitt, se [flytta resursen till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). Artikeln innehåller förutsättningar och hur du flyttar resurser med hjälp av Azure portal, PowerShell och Azure CLI.
-    - **IP-konfigurationer:** offentliga och privata IPv4 och IPv6-adresser tilldelade till IP-konfigurationer visas här. Om en IPv6-adress har tilldelats en IP-konfiguration, visas inte adressen. Läs mer om IP-konfigurationer och hur du lägger till och ta bort IP-adresser i [konfigurera IP-adresser för en Azure nätverksgränssnittet](virtual-network-network-interface-addresses.md). IP-vidarebefordring och undernättilldelning konfigureras också i det här avsnittet. Mer information om dessa inställningar finns [aktivera eller inaktivera IP-vidarebefordring](#enable-or-disable-ip-forwarding) och [ändra undernättilldelning](#change-subnet-assignment).
-    - **DNS-servrar:** du kan ange vilken DNS-server som ett nätverksgränssnitt tilldelas av Azure DHCP-servrar. Nätverksgränssnittet kan ärver inställningarna från det virtuella nätverket nätverksgränssnittet har tilldelats eller har en anpassad inställning som åsidosätter inställning för det virtuella nätverket som den är tilldelad till. Om du vill ändra vad som visas, se [ändra DNS-servrar](#change-dns-servers).
-    - **Nätverkssäkerhetsgrupp (NSG):** visar som NSG är associerad med nätverksgränssnittet (om sådan finns). En NSG innehåller inkommande och utgående regler för att filtrera nätverkstrafik för nätverksgränssnittet. Om en NSG är associerad med nätverksgränssnittet, visas namnet på den associera NSG: N. Om du vill ändra vad som visas, se [koppla eller koppla bort en nätverkssäkerhetsgrupp](#associate-or-dissociate-a-network-security-group).
-    - **Egenskaper:** visar viktiga inställningar för nätverksgränssnittet, inklusive MAC-adressen (tomt om nätverksgränssnittet inte är kopplad till en virtuell dator) och prenumerationen som den finns i.
-    - **Reglerna för effektiva:** säkerhetsregler visas om nätverksgränssnittet är ansluten till en aktiv virtuell dator och en NSG är associerad till nätverksgränssnittet, det undernät som den är tilldelad till eller båda. Läs mer om vad som visas i [visa gällande säkerhetsregler](#view-effective-security-rules). Mer information om Nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](security-overview.md).
-    - **Effektiva vägar:** vägar listas om nätverksgränssnittet är kopplat till en aktiv virtuell dator. Vägar är en kombination av standardvägar som Azure, några användardefinierade vägar och BGP-vägar som kan finnas för det undernät som nätverksgränssnittet har tilldelats. Läs mer om vad som visas i [visa effektiva vägar](#view-effective-routes). Läs mer om Azure standardvägar och användardefinierade vägar i [routningsöversikten](virtual-networks-udr-overview.md).
-    - **Gemensamma inställningar för Azure Resource Manager:** Läs mer om vanliga Azure Resource Manager-inställningar i [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Låser](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), och [automationsskript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Översikt:** Innehåller information om nätverksgränssnittet, till exempel IP-adresserna som tilldelats, virtuellt nätverk/undernät nätverksgränssnittet har tilldelats och den virtuella datorn nätverksgränssnittet är kopplad till (om den är ansluten till en). Följande bild visar en översikt över inställningar för ett nätverksgränssnitt med namnet **mywebserver256**: ![Översikt över gränssnittet](./media/virtual-network-network-interface/nic-overview.png) du kan flytta ett nätverksgränssnitt till en annan resursgrupp eller prenumeration genom att välja (**ändra**) bredvid den **resursgrupp** eller  **Prenumerationsnamn**. Om du flyttar ett nätverksgränssnitt måste du flytta alla resurser som är relaterade till nätverksgränssnittet med den. Om nätverksgränssnittet är kopplat till en virtuell dator, till exempel måste du också flytta den virtuella datorn och andra VM-relaterade resurser. Om du vill flytta ett nätverksgränssnitt, se [flytta resursen till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). Artikeln innehåller förutsättningar och hur du flyttar resurser med hjälp av Azure portal, PowerShell och Azure CLI.
+    - **IP-konfigurationer:** Offentliga och privata IPv4 och IPv6-adresser tilldelade till IP-konfigurationer visas här. Om en IPv6-adress har tilldelats en IP-konfiguration, visas inte adressen. Läs mer om IP-konfigurationer och hur du lägger till och ta bort IP-adresser i [konfigurera IP-adresser för en Azure nätverksgränssnittet](virtual-network-network-interface-addresses.md). IP-vidarebefordring och undernättilldelning konfigureras också i det här avsnittet. Mer information om dessa inställningar finns [aktivera eller inaktivera IP-vidarebefordring](#enable-or-disable-ip-forwarding) och [ändra undernättilldelning](#change-subnet-assignment).
+    - **DNS-servrar:** Du kan ange vilken DNS-server som ett nätverksgränssnitt tilldelas av Azure DHCP-servrar. Nätverksgränssnittet kan ärver inställningarna från det virtuella nätverket nätverksgränssnittet har tilldelats eller har en anpassad inställning som åsidosätter inställning för det virtuella nätverket som den är tilldelad till. Om du vill ändra vad som visas, se [ändra DNS-servrar](#change-dns-servers).
+    - **Nätverkssäkerhetsgrupp (NSG):** Visar vilket NSG är associerad med nätverksgränssnittet (om sådan finns). En NSG innehåller inkommande och utgående regler för att filtrera nätverkstrafik för nätverksgränssnittet. Om en NSG är associerad med nätverksgränssnittet, visas namnet på den associera NSG: N. Om du vill ändra vad som visas, se [koppla eller koppla bort en nätverkssäkerhetsgrupp](#associate-or-dissociate-a-network-security-group).
+    - **Egenskaper:** Visar viktiga inställningar för nätverksgränssnittet, inklusive MAC-adressen (tomt om nätverksgränssnittet inte är kopplad till en virtuell dator) och prenumerationen som den finns i.
+    - **Gällande säkerhetsregler:**  Säkerhetsregler visas om nätverksgränssnittet är ansluten till en aktiv virtuell dator och en NSG är associerad till nätverksgränssnittet, det undernät som den är tilldelad till eller båda. Läs mer om vad som visas i [visa gällande säkerhetsregler](#view-effective-security-rules). Mer information om Nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](security-overview.md).
+    - **Effektiva vägar:** Vägar listas om nätverksgränssnittet är kopplat till en aktiv virtuell dator. Vägar är en kombination av standardvägar som Azure, några användardefinierade vägar och BGP-vägar som kan finnas för det undernät som nätverksgränssnittet har tilldelats. Läs mer om vad som visas i [visa effektiva vägar](#view-effective-routes). Läs mer om Azure standardvägar och användardefinierade vägar i [routningsöversikten](virtual-networks-udr-overview.md).
+    - **Vanliga Azure Resource Manager-inställningar:**  Läs mer om vanliga Azure Resource Manager-inställningar i [aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md), [åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [låser](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), och [ Automationsskript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Kommandon**
 
 Om en IPv6-adress tilldelas till ett nätverksgränssnitt, returnerar det faktum att adressen tilldelas, men den inte returnerar den tilldelade adressen i PowerShell-utdata. På samma sätt CLI returnerar det faktum att adressen är tilldelad, men returnerar *null* i dess utdata för adressen.
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic list](/cli/azure/network/nic#az_network_nic_list) att visa nätverksgränssnitt i prenumerationen; [az network nic show](/cli/azure/network/nic#az_network_nic_show) att visa inställningar för ett nätverksgränssnitt|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) visa nätverksgränssnitt i prenumeration eller visa inställningarna för ett nätverksgränssnitt|
@@ -108,12 +108,12 @@ DNS-servern är tilldelad av Azure DHCP-servern till nätverksgränssnittet i VM
 3. Välj **DNS-servrar** under **inställningar**.
 4. Välj antingen:
     - **Ärv från virtuellt nätverk**: Välj det här alternativet att ärva DNS-Serverinställningen som definierats för det virtuella nätverket nätverksgränssnittet har tilldelats. En anpassad DNS-server eller Azure-tillhandahållna DNS-server har definierats på nivån för virtuella nätverket. Azure-tillhandahållna DNS-servern kan matcha värdnamnen för resurser som är tilldelade till samma virtuella nätverk. FQDN måste användas för att matcha för resurser som tilldelats olika virtuella nätverk.
-    - **Anpassad**: du kan konfigurera en egen DNS-server för att matcha namn i flera virtuella nätverk. Ange IP-adressen för den server som du vill använda som en DNS-server. DNS-serveradressen som du anger tilldelas endast till det här nätverksgränssnittet och åsidosättningar DNS-inställningar för det virtuella nätverket nätverksgränssnittet har tilldelats.
+    - **Anpassad**: Du kan konfigurera en egen DNS-server för att matcha namn i flera virtuella nätverk. Ange IP-adressen för den server som du vill använda som en DNS-server. DNS-serveradressen som du anger tilldelas endast till det här nätverksgränssnittet och åsidosättningar DNS-inställningar för det virtuella nätverket nätverksgränssnittet har tilldelats.
 5. Välj **Spara**.
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
@@ -134,7 +134,7 @@ Inställningen måste aktiveras för varje nätverksgränssnitt som är kopplad 
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
@@ -154,7 +154,7 @@ Du kan ändra undernätet, men inte det virtuella nätverket, som ett nätverksg
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
@@ -168,7 +168,7 @@ Du kan bara lägga till ett nätverksgränssnitt för eller ta bort ett nätverk
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
@@ -200,7 +200,7 @@ När du tar bort ett nätverksgränssnitt släpps alla MAC- eller IP-adresser so
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic delete](/cli/azure/network/nic#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|

@@ -9,23 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/20/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f12632b20d516c81e21a50cfdda7e40d4163afc1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141540"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742226"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
-Du kan använda Azure Media Services för att skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Med medietjänster kan du leverera live och på begäran innehåll dynamiskt krypterad med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady och Google Widevine Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter.
+Du kan använda Azure Media Services för att skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Med medietjänster kan leverera du live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter.
 
-I Azure Media Services v3 kan principer för innehåll-nycklar du ange hur innehållsnyckeln levereras om du vill avsluta klienter via komponenten leverans av Media Services-nyckel. Mer information finns i [Content protection översikt](content-protection-overview.md).
+I Azure Media Services v3, en [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) kan du ange hur innehållsnyckeln levereras om du vill avsluta klienter via komponenten leverans av Media Services-nyckel. Mer information finns i [Content protection översikt](content-protection-overview.md).
 
-## <a name="contentkeypolicies-definition"></a>ContentKeyPolicies definition
+Vi rekommenderar att du återanvända samma ContentKeyPolicy för alla dina tillgångar. ContentKeyPolicies kan uppdateras, så om du vill göra en nyckelrotation sedan du antingen lägga till en ny ContentKeyPolicyOption befintliga ContentKeyPolicy med en tokenbegränsningar med nya nycklar. Eller så kan du uppdatera den primära Verifieringsnyckeln och listan över alternativa verifieringsnycklar i den befintliga principen och alternativ. Det kan ta upp till 15 minuter för leverans av nyckel-cacheminne för att uppdatera och hämta den uppdaterade policyn.
+
+## <a name="contentkeypolicy-definition"></a>ContentKeyPolicy definition
 
 I följande tabell visar de ContentKeyPolicy egenskaper och ger definitionerna.
 
@@ -37,8 +39,8 @@ I följande tabell visar de ContentKeyPolicy egenskaper och ger definitionerna.
 |properties.description |En beskrivning för principen.|
 |properties.lastModified|Senaste ändringsdatum för principen|
 |Properties.Options |Nyckeln principalternativen.|
-|properties.policyId    |Äldre princip-ID.|
-|typ   |Typ av resursen.|
+|properties.policyId|Äldre princip-ID.|
+|typ|Typ av resursen.|
 
 Läs den fullständiga definitionen [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
@@ -62,7 +64,7 @@ Operatorn beskrivning:
 
 ### <a name="filteringordering"></a>Filtrering/ordning
 
-I följande tabell visar hur dessa alternativ kan användas på StreamingPolicy egenskaper: 
+I följande tabell visar hur dessa alternativ kan användas på ContentKeyPolicies egenskaper: 
 
 |Namn|Filter|Beställa|
 |---|---|---|
@@ -70,10 +72,10 @@ I följande tabell visar hur dessa alternativ kan användas på StreamingPolicy 
 |namn|Eq, ne, ge, le, gt, lt|Stigande och fallande|
 |Properties.Created |Eq, ne, ge, le, gt, lt|Stigande och fallande|
 |properties.description |Eq, ne, ge, le, gt, lt||
-|properties.lastModified    |Eq, ne, ge, le, gt, lt|Stigande och fallande|
+|properties.lastModified|Eq, ne, ge, le, gt, lt|Stigande och fallande|
 |Properties.Options |||
-|properties.policyId    |Eq, ne||
-|typ   |||
+|properties.policyId|Eq, ne||
+|typ|||
 
 ### <a name="pagination"></a>Sidbrytning
 
@@ -84,7 +86,7 @@ Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. För 
 
 Om ett frågesvar innehåller många objekt, tjänsten returnerar en ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultatet. Detta kan användas för att bläddra igenom hela resultatmängden. Du kan inte konfigurera sidstorleken. 
 
-Om StreamingPolicy skapas eller tas bort vid bläddring genom samlingen, syns ändringarna i de returnerade resultaten (om dessa ändringar finns i en del av den samling som inte har hämtats.) 
+Om ContentKeyPolicies skapas eller tas bort vid bläddring genom samlingen, syns ändringarna i de returnerade resultaten (om dessa ändringar finns i en del av den samling som inte har hämtats.) 
 
 I följande C#-exempel visar hur du räknar upp via alla ContentKeyPolicies i kontot.
 

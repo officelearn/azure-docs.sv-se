@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253450"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723152"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använd Key Vault-referenser för App Service och Azure Functions (förhandsversion)
 
@@ -32,7 +32,7 @@ För att kunna läsa hemligheter från Nyckelvalvet, måste du ha ett valv som s
 
 1. Skapa ett nyckelvalv genom att följa den [Snabbstart för Key Vault](../key-vault/quick-create-cli.md).
 
-1. Skapa en [systemtilldelade hanterad identitet](app-service-managed-service-identity.md) för ditt program.
+1. Skapa en [systemtilldelade hanterad identitet](overview-managed-identity.md) för ditt program.
 
    > [!NOTE] 
    > Key Vault refererar till för närvarande endast stöd för system tilldelade hanterade identiteter. Användartilldelade identiteter kan inte användas.

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435726"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715910"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -26,7 +26,7 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 > [!IMPORTANT]
 > **[Förändring] För service-slutpunkt-anslutningar till Azure SQL-servrar, en `Default` anslutning beteendet ändras till `Redirect`.**
 >
-> Ändringen är redan gäller från den 10 November 2019 för södra Brasilien och västra Europa. För alla andra regioner börjar ändringen gälla från den 2 januari 2019.
+> Ändringen är redan gäller från den 10 November 2018 för södra Brasilien och västra Europa. För alla andra regioner börjar ändringen gälla från den 2 januari 2019.
 >
 > Om du vill förhindra att anslutningar via en tjänstslutpunkt bryts i befintliga miljöer på grund av den här ändringen, använder vi telemetri gör du följande:
 > - För servrar som vi identifierar som kontrollerades via tjänstslutpunkter innan ändringen får vi växlar anslutningstypen till `Proxy`.

@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892465"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995158"
 ---
-# <a name="add-a-heat-map-layer"></a>Lägg till ett lager för den termiska kartan
+# <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
 Värma maps, även kallat peka densitet maps, är en typ av datavisualisering som används för att representera densitet med hjälp av en uppsättning färger. De används ofta för att visa data ”hotspots” på en karta och är ett bra sätt att återge stora peka datauppsättningar.  Till exempel återgivningen punkter inom kartvyn tiotusentals som symboler täcker det mesta av mappningsområdet och skulle resultera i många symboler som omfattas av andra, vilket gör det svårt att få mycket insyn i data. Dock gör visualisera samma datauppsättningen som en termisk karta det enkelt att se var point-data är den densest och den relativa densiteten till andra delar. Det finns många scenarier i vilka den termiska kartor, används. Här följer några exempel;
 
 * Temperaturdata renderas ofta som termisk karta eftersom det ger uppskattningar för vilka temperaturen mellan två datapunkter.
-* Återgivning av data för bruset sensorer som en termisk karta inte bara visar insanity av bruset där sensorn är men kan också ge insikter om nedbrytning över ett avstånd. Bruset nivån på en plats som en får inte vara hög, men om täckning för brus från flera sensorer överlappar, det är möjligt att den här överlappande området kan få högre bruset och därför skulle vara synliga i den termiska kartan.
+* Data för bruset sensorer som en termisk karta renderas inte bara visar intensiteten på bruset där sensorn är men kan också ge insikter om nedbrytning över ett avstånd. Bruset nivån på en plats som en får inte vara hög, men om täckning för brus från flera sensorer överlappar, det är möjligt att den här överlappande området kan få högre bruset och därför skulle vara synliga i den termiska kartan.
 * Visualisera en GPS är trace som innehåller hastigheten som en vikt höjd karta där intensiteten för varje datapunkt baseras på hastigheten ett bra sätt att snabbt se där fordonets minskar.
 
 > [!TIP]
-> Bubbeldiagram lager som standard renderas koordinaterna för alla geometrier i en datakälla. Funktioner för att begränsa lagret så att den återger endast punkt geometri set den `filter` tillhör skiktet till `['==', '$type', 'Point']`
+> Bubbeldiagram lager som standard renderas koordinaterna för alla geometrier i en datakälla. Att begränsa lagret så att den endast renderingar peka geometri funktioner, inställd på `filter` tillhör skiktet till `['==', '$type', 'Point']`
 
-## <a name="add-a-heat-map-layer"></a>Lägg till ett lager för den termiska kartan
+## <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
 För att återge en orsaken punkter som en termisk karta enkelt skicka din datakälla till en instans av klassen HeatMapLayer och lägga till den i kartan som visas här.
 
@@ -51,7 +51,7 @@ I föregående exempel anpassad den termiska kartan genom att ange alternativen 
 
 * `opacity`: Anger hur täckande eller genomskinlig termisk karta skiktet är.
 * `intensity`: Gäller en multiplikator vikten för varje datapunkt för att öka övergripande intensiteten av den termiska kartan. Det här hjälper dig att göra små skillnader i vikten för datapunkter blir det lättare att visualisera.
-* `weight`: Alla datapunkter har en vikt på 1 som standard, alltså alla datapunkter viktas likvärdigt. Alternativet vikt fungerar som en multiplikator och kan anges som ett tal eller ett uttryck. Om ett tal har angetts som tal, exempelvis 2, skulle det vara detsamma som att placera varje datapunkt på kartan två gånger, vilket fördubblar densiteten. Ange alternativet vikt till ett antal renderas för den termiska kartan på ett liknande sätt att använda alternativet intensiteten. Men om ett uttryck används kan vikten för varje datapunkt baseras på olika och beroende på vissa mått i egenskaperna för punkten. Ta jordbävning data varje datapunkt exempelvis representerar en jordbävning och ett viktigt mått när varje jordbävning har är omfattning. Jordbävningar inträffa när som helst, men de flesta har en låg omfattning och ännu inte tyckte. Använder magnitude värdet i ett uttryck för att tilldela vikt alternativet gör att mer betydande jordbävningar vara ökning representeras bättre i den termiska kartan.
+* `weight`: Som standard alla datapunkter har en vikt på 1, alltså alla datapunkter viktas likvärdigt. Alternativet vikt fungerar som en multiplikator och kan anges som ett tal eller ett uttryck. Om ett tal har angetts som tal, exempelvis 2, skulle det vara detsamma som att placera varje datapunkt på kartan två gånger, vilket fördubblar densiteten. Ange alternativet vikt till ett antal renderas för den termiska kartan på ett liknande sätt att använda alternativet intensiteten. Men om ett uttryck används kan vikten för varje datapunkt baseras på olika och beroende på vissa mått i egenskaperna för punkten. Ta jordbävning data varje datapunkt exempelvis representerar en jordbävning och ett viktigt mått när varje jordbävning har är omfattning. Jordbävningar inträffa när som helst, men de flesta har en låg omfattning och ännu inte tyckte. Använder magnitude värdet i ett uttryck för att tilldela vikt alternativet gör att mer betydande jordbävningar vara ökning representeras bättre i den termiska kartan.
 * Förutom grundläggande layer-alternativ, Min/max Zooma, synliga och filtrera, det finns också en `source` om du vill uppdatera datakällan och `source-layer` om datakällan är en vektor panelen källa.
 
 Här är ett verktyg för att testa olika termisk karta layer alternativ.

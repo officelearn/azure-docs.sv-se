@@ -4,18 +4,17 @@ description: Lär dig hur du använder Azure-kötjänsten från Python för att 
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0edb90ca7324d47beaa5133d423928e615ff33a9
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162995"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742821"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Använda Queue Storage från Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -31,7 +30,7 @@ Den här guiden visar hur du utför vanliga scenarier med Azure Queue storage-tj
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Ladda ned och installera Azure Storage SDK för Python
 
-Azure Storage SDK för Python kräver Python 2.7, 3.3, 3.4, 3.5 och 3.6 och ingår i 4 olika paket: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` och `azure-storage-queue`. I den här självstudien vi ska använda `azure-storage-queue` paketet.
+Den [Azure Storage SDK för Python](https://github.com/azure/azure-storage-python) kräver Python 2.7, 3.3, 3.4, 3.5 och 3.6.
  
 ### <a name="install-via-pypi"></a>Installera via PyPi
 
@@ -41,15 +40,19 @@ Om du vill installera via Python Package Index (PyPI), skriver du:
 pip install azure-storage-queue
 ```
 
-
 > [!NOTE]
-> Om du uppgraderar från Azure Storage SDK för Python version 0.36 eller tidigare, måste du först avinstallera med `pip uninstall azure-storage` som vi inte längre publicerar Storage SDK för Python i ett enda paket.
-> 
-> 
+> Om du uppgraderar från Azure Storage SDK för Python version 0.36 eller tidigare, avinstallera den äldre SDK med hjälp av `pip uninstall azure-storage` innan du installerar det senaste paketet.
 
-Alternativa installationsmetoder, finns det [Azure Storage SDK för Python på GitHub](https://github.com/Azure/azure-storage-python/).
+Av alternativa installationsmetoder finns i [Azure Storage SDK för Python](https://github.com/Azure/azure-storage-python/).
+
+## <a name="view-the-sample-application"></a>Visa exempelprogrammet
+
+Om du vill visa och köra ett exempelprogram som visar hur du använder Python med Azure-köer, se [Azure Storage: Komma igång med Azure-köer i Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
+
+Om du vill köra exempelprogrammet, kontrollera att du har installerat både den `azure-storage-queue` och `azure-storage-common` paket.
 
 ## <a name="how-to-create-a-queue"></a>Hur: Skapa en kö
+
 Den **QueueService** objekt kan du arbeta med köer. Följande kod skapar en **QueueService** objekt. Lägg till följande längst upp i valfri Python-fil som du vill komma åt Azure Storage via programmering:
 
 ```python
@@ -129,8 +132,6 @@ Nu när du har lärt dig grunderna i Queue storage kan du följa dessa länkar o
 
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355)
-* [Azure Storage Teamblogg]
-* [Microsoft Azure Storage SDK för Python]
 
-[Azure Storage Teamblogg]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK för Python]: https://github.com/Azure/azure-storage-python

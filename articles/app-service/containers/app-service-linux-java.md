@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407345"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976740"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -28,7 +28,7 @@ Den här guiden innehåller viktiga begrepp och instruktioner för Java-utveckla
 
 ## <a name="logging-and-debugging-apps"></a>Loggning och felsökning av appar
 
-Prestandarapporter trafik visualiseringar och hälsa kontroller är tillgängliga för eeach app via Azure-portalen. Se den [översikt över Azure App Service-diagnostik](/azure/app-service/app-service-diagnostics) för mer information om hur du använder dessa diagnostiska verktyg.
+Prestandarapporter trafik visualiseringar och hälsa kontroller är tillgängliga för eeach app via Azure-portalen. Se den [översikt över Azure App Service-diagnostik](/azure/app-service/overview-diagnostics) för mer information om hur du använder dessa diagnostiska verktyg.
 
 ## <a name="application-performance-monitoring"></a>Prestandaövervakning av program
 
@@ -54,11 +54,11 @@ Strömma loggar till konsolen med `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Mer information finns i [Direktuppspelningsloggar med Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+Mer information finns i [Direktuppspelningsloggar med Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>App-loggning
 
-Aktivera [programloggning](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) via Azure portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) att konfigurera App Service för att skriva ditt programs standard konsolens utdata och felströmmar för standard-konsolen till lokalt filsystem eller Azure Blob Storage. Loggning till lokala App Service-filsystemet inaktiveras instans 12 timmar efter att den är konfigurerad. Om du behöver längre kvarhållning kan du konfigurera programmet att skriva utdata till ett Blob storage-behållare.
+Aktivera [programloggning](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via Azure portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) att konfigurera App Service för att skriva ditt programs standard konsolens utdata och felströmmar för standard-konsolen till lokalt filsystem eller Azure Blob Storage. Loggning till lokala App Service-filsystemet inaktiveras instans 12 timmar efter att den är konfigurerad. Om du behöver längre kvarhållning kan du konfigurera programmet att skriva utdata till ett Blob storage-behållare.
 
 Om programmet använder [Logback](https://logback.qos.ch/) eller [Log4j](https://logging.apache.org/log4j) för att analysera och du kan vidarebefordra spårning för granskning i Azure Application Insights med hjälp av loggning framework konfigurationsanvisningar i [Utforska Java spårningsloggar i Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -173,9 +173,6 @@ Om du vill konfigurera Tomcat om du vill använda Java Database Connectivity (JD
 
 Eller ange miljövariabler i bladet ”Application Settings” i Azure-portalen.
 
->[!NOTE]
-> Om du använder Azure Database för Postgres ersätter `ssl=true` med `sslmode=require` i JDBC-anslutningssträngen.
-
 Därefter fastställer om datakällan ska vara tillgänglig till ett program eller för alla program som körs på Tomcat servleten.
 
 #### <a name="for-application-level-data-sources"></a>För programnivå datakällor: 
@@ -259,7 +256,7 @@ Därefter fastställer om datakällan ska vara tillgänglig till ett program ell
 
     3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till den `/home/tomcat/lib` mapp.
 
-    Du kan också använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ dessa [instruktioner för att hämta dina autentiseringsuppgifter för FTP-](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Du kan också använda en FTP-klient för att ladda upp JDBC-drivrutinen. Följ dessa [instruktioner för att hämta dina autentiseringsuppgifter för FTP-](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Om du har skapat en datakälla på servernivå, startar du om App Service på Linux-programmet. Tomcat återställs `CATALINA_HOME` till `/home/tomcat/conf` och använda den uppdaterade konfigurationen.
 

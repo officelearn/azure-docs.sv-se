@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383909"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713836"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installera Apache Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta storskaliga diagram
 
 Lär dig mer om att installera Apache Giraph på ett HDInsight-kluster. Funktionen för åtgärden skriptet i HDInsight kan du anpassa ditt kluster genom att köra ett bash-skript. Skript kan användas för att anpassa kluster under och när klustret har skapats.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Vad är Giraph
 
-[Apache Giraph](http://giraph.apache.org/) kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight. Diagram modell relationer mellan objekt. Till exempel anslutningar mellan routrar på ett stort nätverk som Internet eller relationer mellan personer på sociala nätverk. Bearbeta diagram gör att du att resonera kring relationerna mellan objekt i ett diagram som:
+[Apache Giraph](https://giraph.apache.org/) kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight. Diagram modell relationer mellan objekt. Till exempel anslutningar mellan routrar på ett stort nätverk som Internet eller relationer mellan personer på sociala nätverk. Bearbeta diagram gör att du att resonera kring relationerna mellan objekt i ett diagram som:
 
 * Identifiera potentiella vänner utifrån dina aktuella relationer.
 
@@ -36,7 +36,7 @@ Lär dig mer om att installera Apache Giraph på ett HDInsight-kluster. Funktion
 > [!WARNING]  
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut – Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 >
-> Anpassade komponenter, till exempel Giraph, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft Support kanske kan lösa problemet. Om inte, du måste läsa öppen källkod-communities där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter, till exempel Giraph, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft Support kanske kan lösa problemet. Om inte, du måste läsa öppen källkod-communities där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ https://apache.org ](https://apache.org), till exempel: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Vad skriptet gör
@@ -55,7 +55,7 @@ Ett exempelskript för att installera Giraph på ett HDInsight-kluster finns på
 
 Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet när du skapade klustret med hjälp av Azure portal.
 
-> [!NOTE]
+> [!NOTE]  
 > En skriptåtgärd kan tillämpas med hjälp av någon av följande metoder:
 > * Azure PowerShell
 > * Den klassiska Azure CLI
@@ -78,7 +78,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
    * **ZOOKEEPER**: Lämna det avmarkerat.
 
-   * **PARAMETRAR**: Lämna fältet tomt.
+   * **PARAMETRAR**: Lämna det här fältet tomt.
 
 3. Längst ned på den **skriptåtgärder**, använda den **Välj** för att spara konfigurationen. Använd slutligen den **Välj** knappen längst ned på den **valfri konfiguration** avsnitt för att spara informationen som valfri konfiguration.
 
@@ -86,7 +86,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
 ## <a name="usegiraph"></a>Hur kan jag använda Giraph på HDInsight?
 
-När klustret har skapats, kan du använda följande steg för att köra exemplet SimpleShortestPathsComputation ingår Giraph. Det här exemplet används grundläggande [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) implementering för att hitta den kortaste vägen mellan objekt i ett diagram.
+När klustret har skapats, kan du använda följande steg för att köra exemplet SimpleShortestPathsComputation ingår Giraph. Det här exemplet används grundläggande [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) implementering för att hitta den kortaste vägen mellan objekt i ett diagram.
 
 1. Anslut till HDInsight-klustret med hjälp av SSH:
 
@@ -146,7 +146,7 @@ När klustret har skapats, kan du använda följande steg för att köra exemple
    | `-op` |Platsen. |
    | `-w 2` |Antal arbetare att använda. I det här exemplet 2. |
 
-    Mer information om dessa och andra parametrar som används med Giraph exempel finns i den [Giraph snabbstarten](http://giraph.apache.org/quick_start.html).
+    Mer information om dessa och andra parametrar som används med Giraph exempel finns i den [Giraph snabbstarten](https://giraph.apache.org/quick_start.html).
 
 6. När jobbet har slutförts resultaten lagras i den **/example/out/shotestpaths** directory. Utdata-filnamn som börjar med **del-m -** och måste sluta med ett tal som anger först, andra, etc.-fil. Använd följande kommando för att visa utdata:
 

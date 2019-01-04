@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258907"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714482"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivå för Azure App Service
 
@@ -29,7 +29,7 @@ Den nya **PremiumV2** prisnivån får du snabbare processorer, SSD-lagring och D
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Skala upp en webbapp med **PremiumV2**, måste du ha en Webbapp i Azure App Service som körs i en prisnivå som är lägre än **PremiumV2**, och Web App måste köras i en App Service-distribution som har stöd för PremiumV2.
+Skala upp en app på **PremiumV2**, måste du ha en Azure App Service-app som körs i en prisnivå som är lägre än **PremiumV2**, och appen måste köras i en App Service-distribution som har stöd för PremiumV2.
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>Skapa en app i PremiumV2-nivå
 
-Prisnivån för en App Service-app har definierats i den [App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) som den körs på. Du kan skapa en App Service-plan eller som en del av skapandet av Web App.
+Prisnivån för en App Service-app har definierats i den [App Service-plan](overview-hosting-plans.md) som den körs på. Du kan skapa en App Service-plan eller som en del av skapandet av appen.
 
 När du konfigurerar App Service-plan i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>väljer **prisnivå**. 
 
@@ -88,7 +88,7 @@ Vissa App Service-planer det går inte att skala upp till PremiumV2-nivå om den
 
 Om din app körs i en App Service-distribution där **PremiumV2** är inte tillgängligt eller om din app körs i en region som för närvarande stöder inte **PremiumV2**, måste du distribuera din app för att ta utnyttja **PremiumV2**.  Du kan välja mellan två alternativ:
 
-- Skapa en **nya** resource gruppen och skapa sedan en **nya** web Apps och app service plan i den **nya** resource group välja önskad Azure region under skapandet processen.  Du **måste** väljer den **PremiumV2** planen vid den nya app service-planen har skapats.  Detta säkerställer att kombinationen av resursgruppen, App Service-planen och Azure-region leder till App Service-planen som skapas i en App Service-distribution som har stöd för **PremiumV2**.  Omdistribuera sedan din programkod i den nyligen skapade app och app service-plan. Om du vill du därefter skalas App Service-planen från **PremiumV2** att spara kostnader och du kommer fortfarande att kunna har skala tillbaka upp igen i framtiden med **PremiumV2**.
+- Skapa en **nya** resource gruppen och skapa sedan en **nya** appen och App Service plan i den **nya** resource group välja önskad Azure region under skapandeprocessen.  Du **måste** väljer den **PremiumV2** planen vid den nya app service-planen har skapats.  Detta säkerställer att kombinationen av resursgruppen, App Service-planen och Azure-region leder till App Service-planen som skapas i en App Service-distribution som har stöd för **PremiumV2**.  Omdistribuera sedan din programkod i den nyligen skapade app och app service-plan. Om du vill du därefter skalas App Service-planen från **PremiumV2** att spara kostnader och du kommer fortfarande att kunna har skala tillbaka upp igen i framtiden med **PremiumV2**.
 - Om din app körs redan i en befintlig **Premium** tier, och sedan kan du klona din app med alla appinställningar, anslutningssträngar och distributionskonfiguration till en ny app service-plan som använder **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

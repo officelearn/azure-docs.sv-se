@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083419"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650849"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Skapa filter med Media Services REST API
 
@@ -31,12 +31,13 @@ Det här avsnittet visar hur du definierar ett filter för en Video på begäran
 För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
 
 - Granska [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
 - [Konfigurera Postman för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).
+
+    Se till att följa det sista steget i avsnittet [hämta Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Definiera ett filter  
 
-Följande är de **Begärandetext** exempel som definierar de spåra val av villkor som läggs till i manifestet. Det här filtret innehåller alla ljudspår som är engelska med EG 3 och alla video spår har bithastighet i 0-1000000 intervall.
+Följande är de **Begärandetext** exempel som definierar de spåra val av villkor som läggs till i manifestet. Det här filtret innehåller alla ljudspår som är EG-3 och alla video spår har bithastighet i 0-1000000 intervall.
 
 ```json
 {
@@ -50,14 +51,9 @@ Följande är de **Begärandetext** exempel som definierar de spåra val av vill
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ I den Postman-samling som du laddade ned, väljer **kontofilter**->**skapa eller
 
 Den **PLACERA** HTTP-frågemetoden liknar:
 
-PLACERA https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Välj den **brödtext** fliken och klistra in json kod som du [definierade tidigare](#define-a-filter).
 
@@ -98,11 +96,13 @@ Mer information finns i [skapa eller uppdatera](https://docs.microsoft.com/rest/
 
 ## <a name="create-asset-filters"></a>Skapa filter för tillgången  
 
-I ”Media Services v3” Postman-samlingen som du laddade ned, väljer **tillgångar**-> ** Skapa eller uppdatera tillgången Filter.
+I ”Media Services v3” Postman-samlingen som du laddade ned, väljer **tillgångar**->**skapa eller uppdatera tillgången Filter**.
 
 Den **PLACERA** HTTP-frågemetoden liknar:
 
-PLACERA https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Välj den **brödtext** fliken och klistra in json kod som du [definierade tidigare](#define-a-filter).
 

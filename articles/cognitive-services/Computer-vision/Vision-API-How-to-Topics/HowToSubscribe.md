@@ -1,5 +1,5 @@
 ---
-title: Hämta prenumerationsnycklar för den API för visuellt innehåll
+title: Hämta prenumerationsnycklar - visuellt innehåll
 titlesuffix: Azure Cognitive Services
 description: Lär dig mer om att hämta prenumerationsnycklar för anrop till API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985430"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580815"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Hur du hämtar prenumerationsnycklar
 
-Datorn Vision services kräver särskilda prenumerationsnycklar. Varje anrop till API för visuellt innehåll krävs en prenumerationsnyckel. Nyckeln måste antingen skickas via en frågesträngparameter eller anges i förfrågans sidhuvud.
+Datorn Vision services kräver särskilda prenumerationsnycklar. Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln måste antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud.
 
 Om du vill registrera dig för prenumerationsnycklar, se [prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Det är kostnadsfritt att registrera dig. Priserna för dessa tjänster kan komma att ändras.
 

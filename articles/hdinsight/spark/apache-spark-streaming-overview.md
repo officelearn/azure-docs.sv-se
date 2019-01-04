@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583221"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652089"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Översikt över Apache Spark-strömning
 
@@ -203,7 +203,7 @@ Glidande fönstrets funktioner tillgängliga i Spark Streaming API är fönstret
 
 ## <a name="checkpointing"></a>Kontrollpunkter
 
-För att leverera elasticitet och feltolerans, Spark Streaming förlitar sig på kontrollpunkter för att säkerställa att bearbetning av dataströmmen kan fortsätta utan problem, som även körs vid nodfel. I HDInsight skapar Spark kontrollpunkter till beständig lagring (Azure Storage eller Data Lake Store). Dessa kontrollpunkter lagra metadata om strömmande programmet till exempel konfiguration, åtgärder som definierats av programmet och eventuella batchar som placerats i kö men ännu inte behandlats. I vissa fall kan med kontrollpunkterna även spara data i rdd-datauppsättningar till att snabbt återskapa tillståndet för data från vad som finns i rdd-datauppsättningar som hanteras av Spark.
+För att leverera elasticitet och feltolerans, Spark Streaming förlitar sig på kontrollpunkter för att säkerställa att bearbetning av dataströmmen kan fortsätta utan problem, som även körs vid nodfel. I HDInsight skapar Spark kontrollpunkter till beständig lagring (Azure Storage eller Data Lake Storage). Dessa kontrollpunkter lagra metadata om strömmande programmet till exempel konfiguration, åtgärder som definierats av programmet och eventuella batchar som placerats i kö men ännu inte behandlats. I vissa fall kan med kontrollpunkterna även spara data i rdd-datauppsättningar till att snabbt återskapa tillståndet för data från vad som finns i rdd-datauppsättningar som hanteras av Spark.
 
 ## <a name="deploying-spark-streaming-applications"></a>Distribuera Spark Streaming program
 

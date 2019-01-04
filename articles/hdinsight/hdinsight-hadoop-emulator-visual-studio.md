@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012767"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726637"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använda Azure Data Lake-verktyg för Visual Studio med begränsat Hortonworks-läge
 
@@ -60,13 +60,13 @@ Se till att Hortonworks Sandbox körs. Följ stegen i den [Kom igång med Horton
 
     ![Skärmbild av dialogrutan med knappen Uppdatera markerade](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Uppdateringsprocessen använder Ambari för att ändra konfigurationen av Hortonworks Sandbox vad som förväntas av Data Lake-verktyg för Visual Studio.
 
 6. När verifieringen är klar kan du välja **Slutför** att slutföra konfigurationen.
     ![Skärmbild av dialogrutan med Slutför markerat](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > Det kan ta flera minuter att konfigurera och verifiera tjänsterna beroende på din utvecklingsmiljö och mängden minne som allokeras till den virtuella datorn hastighet.
 
 När du har följt de här stegen, nu har du en **lokalt kluster för HDInsight** post i Server Explorer under den **HDInsight** avsnittet.
@@ -99,7 +99,7 @@ Hive innehåller ett SQL-liknande frågespråk (HiveQL) för att arbeta med stru
 
     Efter den **jobbstatus** ändras till **slutfört**, visas en riktad Acyklisk graf (DAG). Det här diagrammet beskriver körningssökvägen som fastställts av Tez vid bearbetning av Hive-frågan. Tez är standard Körningsmotor för Hive i det lokala klustret.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Apache Tez är standardalternativet när du använder Linux-baserade HDInsight-kluster. Det är inte standard på Windows-baserade HDInsight. För att använda den där, måste du lägga till raden `set hive.execution.engine = tez;` i början av Hive-frågan.
 
     Använd den **Jobbutdata** länken för att visa utdata. I det här fallet är det 823, antalet rader i tabellen sample_08. Du kan visa diagnostikinformation om jobbet med hjälp av den **Jobblogg** och **ladda ned YARN-logg** länkar.
@@ -110,7 +110,7 @@ Hive innehåller ett SQL-liknande frågespråk (HiveQL) för att arbeta med stru
 
     En interaktiv fråga strömmar i utdataloggen som genereras under bearbetningen till den **HiveServer2 utdata** fönster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Det är samma som är tillgänglig från den **Jobblogg** länka när ett jobb har slutförts.
 
     ![Skärmbild av loggen](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

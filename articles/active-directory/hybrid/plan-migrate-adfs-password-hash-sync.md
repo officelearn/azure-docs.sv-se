@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410269"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555106"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migrera från federation till synkronisering av lösenordshash för Azure AD
 Följande dokument innehåller råd om hur du flyttar från AD FS till synkronisering av lösenordshash.
@@ -295,7 +295,7 @@ Använd den här metoden när AD FS har ursprungligen konfigurerats med Azure AD
    > I det här läget kommer federerade domäner att ändras till hanterad autentisering vilket kan nu använda synkronisering av Lösenordshash som metod för autentisering.
        
    7. Öppna Azure AD-portalen, väljer Azure Active Directory och välj sedan Azure AD Connect.
-   8. Kontrollera att som Federation inaktiveras när sömlös enkel inloggning och synkronisering av lösenord är aktiverade.  
+   8. Kontrollera att Federation inaktiveras när sömlös enkel inloggning och synkronisering av lösenord är aktiverade.  
   ![Bild 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. Gå till [testning och nästa steg](#testing-and-next-steps).
    
@@ -336,7 +336,7 @@ Som en del av den här processen kan du Aktivera sömlös enkel inloggning och v
    > [!IMPORTANT]
    > Inga ändringar görs i hur användarna loggar in i det här läget.  
    
-   7. Kontrollera att Federation fortsätter att vara aktiverad och nu sömlös enkel inloggning är aktiverat på Azure AD-portalen.
+   7. Kontrollera att Federation fortsätter att vara aktiverad och nu sömlös enkel inloggning är aktiverad på Azure AD-portalen.
    ![Bild 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>Konvertera domäner från federerad som hanteras

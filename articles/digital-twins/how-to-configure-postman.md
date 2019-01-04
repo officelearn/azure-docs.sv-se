@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: 5c06e38bf5a51744a4878a7acb6c365d7e812a61
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711148"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975023"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för Azure Digital Twins
 
@@ -31,7 +31,7 @@ Konfigurera Azure AD-appen för att använda OAuth 2.0 implicit beviljande av fl
 
 1. Följ stegen i [snabbstarten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) att skapa ett Azure AD-program av typen intern. Eller du kan återanvända en befintlig inbyggd app-registrering.
 
-1. Under **nödvändiga behörigheter**, ange `Azure Digital Twins` och välj **delegerade behörigheter**. Välj sedan **bevilja behörigheter**.
+1. Under **nödvändiga behörigheter**väljer **Lägg till** och ange **Azure Digital Twins** under **Lägg till API-åtkomst**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället. Välj **bevilja behörigheter > delegerade behörigheter** och **klar**.
 
     ![Azure AD app-registreringar Lägg till api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -53,20 +53,19 @@ Nu ska installera och konfigurera Postman att skaffa en Azure AD-token. Därefte
 1. Se till att din **Auktoriseringswebbadressen** är korrekt. Det bör ta formatet:
 
     ```plaintext
-    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
     | Namn  | Ersätt med | Exempel |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Namnet på din klient eller organisation | `microsoft` |
-    | YOUR_RESOURCE_ID | Resurs-ID | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
 
 1. Välj den **auktorisering** fliken **OAuth 2.0**, och välj sedan **hämta ny åtkomsttoken**.
 
     | Fält  | Värde |
     |---------|---------|
     | Beviljandetyp | `Implicit` |
-    | Motringnings-URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | Motringnings-URL | `https://www.getpostman.com/oauth2/callback` |
     | Auth URL | Använd den **Auktoriseringswebbadressen** från steg 2 ovan |
     | Klientorganisations-ID | Använd den **program-ID** för Azure AD-app som har skapats eller ändrat syfte från föregående avsnitt |
     | Scope | Lämna tomt |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 345e7c6985f03081048019912d636bba8e9a2361
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426489"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633773"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)
 
@@ -56,10 +56,7 @@ Miljövariabeln som är associerade med den `--auth-mode` parametern är `AZURE_
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Anropa PowerShell-kommandon med en Azure AD-identitet
 
-Azure PowerShell har stöd för inloggning med en Azure AD-identitet med en av de följande förhandsversionsmoduler endast: 
-
-- 4.4.0-Preview 
-- 4.4.1-Preview 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Använda Azure PowerShell för att logga in med en Azure AD-identitet:
 
@@ -78,23 +75,23 @@ Använda Azure PowerShell för att logga in med en Azure AD-identitet:
 1. Installera den senaste versionen av Azure PowerShell:
 
     ```powershell
-    Install-Module AzureRM –Repository PSGallery –AllowClobber
+    Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installera en förhandsversion av Azure Storage-moduler som har stöd för Azure AD:
-
-    ```powershell
-    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
-    ```
+1. Installera ett Azure Storage-förhandsversionsmodulen som har stöd för Azure AD:
+   
+   ```powershell
+   Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+   ```
 1. Stäng och öppna PowerShell-fönstret.
-1. Anropa den [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet för att skapa en kontext och inkludera den `-UseConnectedAccount` parametern. 
+1. Anropa den [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet för att skapa en kontext och inkludera den `-UseConnectedAccount` parametern. 
 1. Skicka nya kontexten till cmdlet för att anropa en cmdlet med ett Azure AD-identitet.
 
 I följande exempel visar hur du listar blobarna i en behållare från Azure PowerShell med hjälp av en Azure AD-identitet. Tänk på att ersätta platshållaren konto och en behållare namnen med dina egna värden: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzureStorageBlob -Container sample-container -Context $ctx 
+$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389225"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714839"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
-Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./tutorial-dashboards.md) tillhandahålls i slutet av artikeln.
+Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./tutorial-dashboards.md) tillhandahålls i slutet av artikeln.
 
 ## <a name="administrative"></a>Administrativ
 Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort åtgärden åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är ”Skapa virtuell dator” och ”ta bort nätverkssäkerhetsgruppen” varje åtgärd som en användare eller program med hjälp av Resource Manager är utformat som en åtgärd på en viss resurstyp. Om åtgärdstypen är skriva, ta bort eller åtgärden, registreras poster i start- och lyckas eller misslyckas av åtgärden i den administrativa kategorin. Den administrativa kategorin omfattar även ändringar av rollbaserad åtkomstkontroll i en prenumeration.
@@ -191,7 +191,7 @@ Den här kategorin innehåller en post för alla service health incidenter som h
   }
 }
 ```
-Referera till den [service health meddelanden](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) artikeln efter dokumentation om värdena i egenskaperna.
+Referera till den [service health meddelanden](./../../azure-monitor/platform/service-notifications.md) artikeln efter dokumentation om värdena i egenskaperna.
 
 ## <a name="resource-health"></a>Resurshälsa
 Den här kategorin innehåller en post för eventuella resource health-händelser som har inträffat för dina Azure-resurser. Ett exempel på typen av händelse som du ser i den här kategorin är ”virtuell dator hälsostatus ändrats till inte tillgänglig”. Resource health-händelser kan representera en av fyra health-status: Tillgängliga otillgänglig, degraderat och okänd. Dessutom kan resurshälsotillståndshändelser kategoriseras som användaren startat eller plattform initieras.
@@ -676,5 +676,5 @@ Vid direktuppspelning av Azure-aktivitetsloggen till ett lagringskonto eller Eve
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om aktivitetsloggen (tidigare granskningsloggar)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [Stream Azure-aktivitetsloggen till Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Läs mer om aktivitetsloggen (tidigare granskningsloggar)](../../azure-monitor/platform/activity-logs-overview.md)
+* [Stream Azure-aktivitetsloggen till Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

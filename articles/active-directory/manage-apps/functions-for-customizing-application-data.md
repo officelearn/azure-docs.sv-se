@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105163"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973731"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -27,14 +27,14 @@ När du konfigurerar etablering till ett SaaS-program, är en av typerna av attr
 Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för Applications (VBA).
 
 * Hela uttrycket måste definieras när det gäller funktioner, som består av ett namn följt av argument inom parentes: <br>
-  *FunctionName (<< argument 1 >>, <<argument N>>)*
-* Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
+* Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
 * Du kan skicka tre olika typer av argument funktioner:
   
   1. Attribut måste omges av hakparenteser. Till exempel: [attributeName]
-  2. Strängkonstanter måste vara inom dubbla citattecken. Till exempel: ”USA”
-  3. Andra funktioner. Till exempel: FunctionOne (<<argument1>>, FunctionTwo (<<argument2>>))
-* För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Till exempel ”: företagets namn: \"Contoso\"”
+  2. Strängkonstanter måste vara inom dubbla citattecken. Exempel: ”USA”
+  3. Andra funktioner. Exempel: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: ”Företagsnamn: \"Contoso\"”
 
 ## <a name="list-of-functions"></a>Lista över funktioner
 [Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch)
@@ -243,7 +243,7 @@ Du måste du generera en användare alias genom att först 3 bokstäverna i anv�
 
 * **INDATA** (givenName): ”John”
 * **INDATA** (efternamn): ”Berg”
-* **UTDATA**: ”JohDoe”
+* **UTDATA**:  ”JohDoe”
 
 ### <a name="remove-diacritics-from-a-string"></a>Ta bort diakritiska tecken från en sträng
 Du måste ersätta tecken med accenter med motsvarande tecken som inte innehåller accenttecken.
@@ -254,7 +254,7 @@ NormalizeDiacritics([givenName])
 **Exempel indata/utdata:** <br>
 
 * **INDATA** (givenName): ”Zoë”
-* **UTDATA**: ”Zoe”
+* **UTDATA**:  ”Zoe”
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
 
@@ -268,7 +268,7 @@ Exempelvis kan du formatera datum för ServiceNow.
 **Exempel indata/utdata:**
 
 * **INDATA** (extensionAttribute1): ”20150123105347.1Z”
-* **UTDATA**: ”2015-01-23”
+* **UTDATA**:  ”2015-01-23”
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Ersätt ett värde baserat på fördefinierade uppsättning med alternativ
 

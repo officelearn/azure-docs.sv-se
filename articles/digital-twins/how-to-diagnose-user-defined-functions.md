@@ -1,23 +1,27 @@
 ---
 title: 'Så här felsöker du UDF: er i Azure Digital Twins | Microsoft Docs'
-description: 'Riktlinjer om hur du felsöker UDF: er i Azure Digital Twins'
+description: 'Riktlinjer om hur du felsöker UDF: er i Azure Digital Twins.'
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413021"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974870"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du problem med användardefinierade funktioner i Azure Digital Twins
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digital Twins
 
-Den här artikeln sammanfattar hur du diagnostiserar användardefinierade funktioner. Sedan visas några av de vanligaste scenarierna som påträffades när du arbetar med dem.
+Den här artikeln sammanfattar hur du diagnostiserar användardefinierade funktioner. Sedan visas några av de vanligaste scenarierna som troligen förekommer när du arbetar med dem.
+
+>[!TIP]
+> Läs [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md) mer information om hur du konfigurerar felsökningsverktyg i Azure Digital Twins med aktivitetsloggar, diagnostikloggar och Azure Monitor.
 
 ## <a name="debug-issues"></a>Felsökning av problem
 
@@ -28,9 +32,14 @@ Att veta hur du diagnostiserar problem som kan uppstå i din instans av Azure Di
 Loggar och mått för din instans av Azure Digital Twins blir tillgängliga via Azure Monitor. Följande dokumentation förutsätter att du har skapat en [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) arbetsytan via den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md), via [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), eller via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Det uppstår en fördröjning i 5 minuter när du skickar händelser till **Log Analytics** för första gången.
+> Det uppstå en fördröjning på 5 minuter när du skickar händelser till Azure Log Analytics för första gången.
 
-Läs artikeln [”samla in och använda loggdata från resurserna i Azure”](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) att aktivera diagnostikinställningar för din Azure Digital Twins instans via portalen, Azure CLI eller PowerShell. Se till att välja alla loggkategorier, mått och Azure Log Analytics-arbetsytan.
+Om du vill konfigurera övervakning och loggning för Azure Digital Twins resurser, läsa [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md).
+
+Läs artikeln [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md) för en heltäckande översikt över diagnostiklogginställningar för din Azure Digital Twins instans via Azure Portal, Azure CLI eller PowerShell.
+
+>[!IMPORTANT]
+> Se till att välja alla loggkategorier, mått och Azure Log Analytics-arbetsytan.
 
 ### <a name="trace-sensor-telemetry"></a>Spårningstelemetri för sensor
 
@@ -56,11 +65,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Läs mer om kraftfulla frågeåtgärder [komma igång med frågor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Mer information om kraftfulla frågeåtgärder [komma igång med frågor](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Identifiera vanliga problem
 
-Både diagnostisera och identifiera vanliga problem är viktigt när du felsöker din lösning. Flera vanliga problem som uppstår vid utveckla användardefinierade funktioner sammanfattas nedan.
+Både diagnostisera och identifiera vanliga problem är viktigt när du felsöker din lösning. Flera problem som ofta uppstår när du utvecklar användardefinierade funktioner sammanfattas nedan.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -74,11 +83,11 @@ Kontrollera om det finns en rolltilldelning för ditt användardefinierad funkti
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parameter | Ersätt med |
+| Parametervärde | Ersätt med |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | ID för den användardefinierade funktionen ska hämtas rolltilldelningar för|
+| YOUR_USER_DEFINED_FUNCTION_ID | ID för den användardefinierade funktionen ska hämtas rolltilldelningar för|
 
-Följ den här artikeln på om ingen rolltilldelning hämtas [så här skapar du en rolltilldelning för användardefinierade funktionen](./how-to-user-defined-functions.md).
+Lär dig [så här skapar du en rolltilldelning för användardefinierade funktionen](./how-to-user-defined-functions.md), om det finns inga rolltilldelningar.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Kontrollera om matcher fungerar för en sensor telemetri
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Det här scenariot uppstår eftersom används identifieraren som refererar till en sensor topologi objekttyp som angetts är ”utrymme”.
+Det här scenariot uppstår eftersom den använda identifieraren refererar till en sensor medan objekttypen topologi angivna är `Space`.
 
 **Rätt** exempel:
 
@@ -200,4 +209,4 @@ Om du aktiverar diagnostikinställningar kan du stöta på dessa vanliga undanta
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du aktiverar [övervakning och loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) i Azure Digital Twins.
+Lär dig hur du aktiverar [övervakning och loggar](../azure-monitor/platform/activity-logs-overview.md) i Azure Digital Twins.

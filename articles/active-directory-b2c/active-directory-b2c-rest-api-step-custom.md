@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338787"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556568"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som ett orchestration-steg
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Steg-för-steg-beskrivning: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ IEF skickar data i anspråk och tar emot data i anspråk. Anspråksutbytet som R
 
 Du kan använda de mottagna anspråk senare ändra flödet av körningen.
 
-Du kan också utforma interaktion som en profil. Mer information finns i [genomgång: integrera REST API-anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md).
+Du kan också utforma interaktion som en profil. Mer information finns i [genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md).
 
 Scenariot är att när en användare utför en profilredigering, vi vill:
 
@@ -47,7 +47,7 @@ Scenariot är att när en användare utför en profilredigering, vi vill:
 - En REST API-slutpunkt för att interagera med. Den här genomgången använder en enkel Azure-funktion app webhook som ett exempel.
 - *Rekommenderade*: Slutför den [REST API-anspråk exchange genomgång som en validerngssteg](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbered REST API-funktion
+## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbereda REST API-funktion
 
 > [!NOTE]
 > Installationen av REST API-funktioner inte omfattas av den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) tillhandahåller en utmärkt toolkit för att skapa RESTful-tjänster i molnet.
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 En funktionsapp i Azure gör det enkelt att hämta funktions-URL som innehåller ID för specifik funktion. I det här fallet URL: en är: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Du kan använda den för att testa.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Steg 2: Konfigurera anspråksutbytet RESTful-API som en tekniska profil i filen TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Steg 2: Konfigurera exchange för RESTful-API-anspråk som en tekniska profil i filen TrustFrameworExtensions.xml
 
 Tekniska profilen är fullständig konfiguration av exchange som önskas med RESTful-tjänst. Öppna filen TrustFrameworkExtensions.xml och Lägg till följande XML-kodstycke i den `<ClaimsProvider>` element.
 
@@ -97,6 +97,7 @@ Tekniska profilen är fullständig konfiguration av exchange som önskas med RES
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />

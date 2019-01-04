@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166599"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608485"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Med hjälp av metadata och GenerateAnswer-API
 
-QnA Maker kan du lägga till metadata i form av nyckel/värde-par för din fråga/svar-uppsättningar. Den här informationen kan användas för att filtrera resultat på användarförfrågningar och för att lagra ytterligare information som kan användas i Uppföljnings konversationer. Mer information finns i [kunskapsbas](../Concepts/knowledge-base.md).
+QnA Maker kan du lägga till metadata i form av nyckel / värdepar i din fråga/svar-uppsättningar. Den här informationen kan användas för att filtrera resultat på användarförfrågningar och för att lagra ytterligare information som kan användas i Uppföljnings konversationer. Mer information finns i [kunskapsbas](../Concepts/knowledge-base.md).
 
 ## <a name="qna-entity"></a>Frågor och svar om entiteten
 
@@ -113,11 +113,11 @@ Du kan anropa GenerateAnswer med en HTTP POST-begäran. Exempel som visar hur du
 
 ## <a name="metadata-example"></a>Metadata-exempel
 
-Överväg att den under vanliga frågor om data för restauranger i Hyderabad. Lägga till metadata i kunskapsbasen genom att klicka på kugghjulsikonen.
+Överväg att den nedanför data för vanliga frågor och svar. Lägga till metadata i kunskapsbasen genom att klicka på ikonen för metadata.
 
 ![lägga till metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>Filtrera resultaten med strictFilters
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrera resultaten med strictFilters för metadatataggarna
 
 Överväg att användaren frågan ”när fungerar den här hotell Stäng”? Om avsikten är angiven för restaurang ”Paradise”.
 

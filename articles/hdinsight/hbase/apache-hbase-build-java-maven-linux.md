@@ -9,30 +9,30 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1eab8b248fd8ad42adf8c0a747565fed9bbc14e8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164066"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652565"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Skapa Java-program för Apache HBase
 
-Lär dig hur du skapar en [Apache HBase](http://hbase.apache.org/) program i Java. Använd sedan programmet med HBase i Azure HDInsight.
+Lär dig hur du skapar en [Apache HBase](https://hbase.apache.org/) program i Java. Använd sedan programmet med HBase i Azure HDInsight.
 
 Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) att skapa och bygga projektet. Maven är en programvara för projekthantering och förståelsen verktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt.
 
-> [!NOTE]
+> [!NOTE]  
 > Stegen i det här dokumentet har nyligen testats med HDInsight 3.6.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Krav
 
 * [Java-plattformen JDK](https://aka.ms/azure-jdks) 8 eller senare.
 
-    > [!NOTE]
+    > [!NOTE]  
     > HDInsight 3.5 och större kräver Java 8. Tidigare versioner av HDInsight kräver Java 7.
 
 * [Apache Maven](https://maven.apache.org/)
@@ -49,14 +49,14 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om du använder PowerShell måste du omge det `-D` parametrar inom dubbla citattecken.
     >
     > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     Det här kommandot skapar en katalog med samma namn som den **artifactID** parametern (**hbaseapp** i det här exemplet.) Den här katalogen innehåller följande objekt:
 
-   * **pom.XML**:  Projektet Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
+   * **pom.XML**:  Projektet Object Model ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
    * **SRC**: Den katalog som innehåller den **main/java/com/microsoft/exempel** directory, där du skapar programmet.
 
 3. Ta bort den `src/test/java/com/microsoft/examples/apptest.java` filen. Den används inte i det här exemplet.
@@ -78,9 +78,9 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
     </dependency>
    ```
 
-    Det här avsnittet anger att projektet måste **hbase-client** och **phoenix kärnor** komponenter. Vid kompilering laddas dessa beroenden från Maven-centrallagret standard. Du kan använda den [Maven-sökning för centrala lagringsplatsen](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) mer information om det här beroendet.
+    Det här avsnittet anger att projektet måste **hbase-client** och **phoenix kärnor** komponenter. Vid kompilering laddas dessa beroenden från Maven-centrallagret standard. Du kan använda den [Maven-sökning för centrala lagringsplatsen](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) mer information om det här beroendet.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Versionsnumret för hbase-klienten måste matcha versionen av Apache HBase som medföljer HDInsight-kluster. Använd följande tabell för att hitta rätt versionsnumret.
 
    | HDInsight-kluster av version | Apache HBase-version som ska användas |
@@ -88,7 +88,7 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 och 3.6 |1.1.2 |
 
-    Läs mer om HDInsight-versioner och komponenter, [vilka är de olika Hadoop-komponenterna med HDInsight](../hdinsight-component-versioning.md).
+    Läs mer om HDInsight-versioner och komponenter, [vilka är de olika Apache Hadoop-komponenterna med HDInsight](../hdinsight-component-versioning.md).
 
 3. Lägg till följande kod till den **pom.xml** fil. Den här texten måste ingå i den `<project>...</project>` taggar i filen, till exempel mellan `</dependencies>` och `</project>`.
 
@@ -139,10 +139,10 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
 
     Det här avsnittet konfigurerar en resurs (`conf/hbase-site.xml`) som innehåller konfigurationsinformation för HBase.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också ange konfigurationsvärden via kod. Visa kommentarerna i den `CreateTable` exempel.
 
-    Det här avsnittet konfigurerar också den [Maven-kompilatorn-pluginprogrammet](http://maven.apache.org/plugins/maven-compiler-plugin/) och [Maven nyans-pluginprogrammet](http://maven.apache.org/plugins/maven-shade-plugin/). Kompilatorn plugin-programmet används för att kompilera topologin. Nyans plugin-programmet används för att förhindra dubbletter av licens JAR-paket som skapats med Maven. Det här plugin-programmet används för att förhindra att ett ”duplicerade licensfiler” fel vid körning i HDInsight-klustret. Med hjälp av maven-nyans-plugin-programmet med den `ApacheLicenseResourceTransformer` implementering förhindrar felet.
+    Det här avsnittet konfigurerar också den [plugin-programmet för Apache Maven-kompilatorn](https://maven.apache.org/plugins/maven-compiler-plugin/) och [Apache Maven nyans plugin-programmet](https://maven.apache.org/plugins/maven-shade-plugin/). Kompilatorn plugin-programmet används för att kompilera topologin. Nyans plugin-programmet används för att förhindra dubbletter av licens JAR-paket som skapats med Maven. Det här plugin-programmet används för att förhindra att ett ”duplicerade licensfiler” fel vid körning i HDInsight-klustret. Med hjälp av maven-nyans-plugin-programmet med den `ApacheLicenseResourceTransformer` implementering förhindrar felet.
 
     Maven-nyans-plugin-programmet ger också en uber JAR-filen som innehåller alla beroenden som krävs av programmet.
 
@@ -357,7 +357,7 @@ Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) 
 
 2. När kommandot har slutförts, den `hbaseapp/target` katalogen innehåller en fil med namnet `hbaseapp-1.0-SNAPSHOT.jar`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Den `hbaseapp-1.0-SNAPSHOT.jar` filen är en uber JAR-filen. Den innehåller alla beroenden som krävs för att köra programmet.
 
 

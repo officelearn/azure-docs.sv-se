@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3aa3b2fa0dffb38970b80fe061f1fe09271e15b1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bc3ee549a4219441b657b89bef56d35dfac6626a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438309"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547498"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
-I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlets, CLI eller REST API för att arkivera dina [Azure diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla dina diagnostikloggar med en princip för valfri kvarhållningstid för granskning, statiska analys eller säkerhetskopiering. Storage-kontot behöver inte finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlets, CLI eller REST API för att arkivera dina [Azure diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla dina diagnostikloggar med en princip för valfri kvarhållningstid för granskning, statiska analys eller säkerhetskopiering. Storage-kontot behöver inte finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 > [!WARNING]
 > Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -33,12 +33,12 @@ Innan du börjar måste du [skapa ett lagringskonto](../../storage/common/storag
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 
-För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
+För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: ”Inkommande meddelanden'-mått i en Händelsehubb kan utforskas och läggas till på en per kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och visas för varje enskild kö. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 >
 
@@ -162,6 +162,6 @@ Varje händelse som lagras i filen pt1h.JSON i matrisen ”poster” efter det h
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ladda ned blobar för analys](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Stream diagnostikloggar till Event Hubs-namnområdet](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Stream diagnostikloggar till Event Hubs-namnområdet](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Arkivera loggar för Azure Active Directory med Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Läs mer om diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Läs mer om diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md)

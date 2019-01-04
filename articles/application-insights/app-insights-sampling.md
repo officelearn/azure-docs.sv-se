@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 17725f830b347839ddc57eba61ef7c65d5253568
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877623"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970890"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -57,7 +57,7 @@ Ange samplingsfrekvensen i användning och uppskattade kostnader:
 
 Precis som andra typer av sampling behåller algoritmen relaterad telemetri objekt. Till exempel när du granska telemetri i Search kommer du att kunna hitta den relaterade till ett visst undantag. Mått räknar, till exempel förfrågningar och antal undantag bevaras korrekt.
 
-Datapunkter som ignoreras av sampling är inte tillgängliga i alla Application Insights-funktioner som [löpande Export](app-insights-export-telemetry.md).
+Datapunkter som ignoreras av sampling är inte tillgängliga i alla Application Insights-funktioner som [löpande Export](../azure-monitor/app/export-telemetry.md).
 
 Inmatningssampling fungerar inte när SDK-baserade anpassningsbara eller fast räntesats sampling är i drift. Observera att Adaptiv sampling är aktiverat som standard när ASP.NET SDK har aktiverats i Visual Studio eller med hjälp av statusövervakaren och inmatningssampling är inaktiverat. Om samplingsfrekvensen på SDK är mindre än 100%, ignoreras inmatning samplingsfrekvensen som du anger.
 
@@ -83,7 +83,7 @@ Uppdatera ditt projekts NuGet-paket till senast *förhandsversioner* version av 
 
 ### <a name="configuring-adaptive-sampling"></a>Konfigurera Adaptiv sampling ###
 
-I [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), du kan justera flera parametrar i den `AdaptiveSamplingTelemetryProcessor` noden. Siffrorna som visas är standardvärden:
+I [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md), du kan justera flera parametrar i den `AdaptiveSamplingTelemetryProcessor` noden. Siffrorna som visas är standardvärden:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -112,11 +112,11 @@ I [ApplicationInsights.config](app-insights-configuration-with-applicationinsigh
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    En semikolonavgränsad lista av typer som du inte vill samlas in. Identifieras typer är: beroende, händelse, undantag, sidvisningar, begäran, spårning. Alla instanser av de angivna typerna överförs. de typer som inte har angetts samplas.
+    En semikolonavgränsad lista av typer som du inte vill samlas in. Identifierade typer är: Beroende, händelse, undantag, sidvisningar, begäran, spåra. Alla instanser av de angivna typerna överförs. de typer som inte har angetts samplas.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    En semikolonavgränsad lista över typer som du vill ska samlas in. Identifieras typer är: beroende, händelse, undantag, sidvisningar, begäran, spårning. De angivna typerna samplas; alla instanser av andra typer skickas alltid.
+    En semikolonavgränsad lista över typer som du vill ska samlas in. Identifierade typer är: Beroende, händelse, undantag, sidvisningar, begäran, spåra. De angivna typerna samplas; alla instanser av andra typer skickas alltid.
 
 
 **Stänga av** Adaptiv sampling, ta bort noden adaptivesamplingtelemetryprocessor från applicationinsights-config.
@@ -167,14 +167,14 @@ Ta bort den `AdaptiveSamplingTelemetryProcessor` nod från .config-filen.
 
 ```
 
-([Lär dig mer om telemetri processorer](app-insights-api-filtering-sampling.md#filtering).)
+([Lär dig mer om telemetri processorer](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 <a name="other-web-pages"></a>
 
 ## <a name="sampling-for-web-pages-with-javascript"></a>Sampling för webbsidor med JavaScript
 Du kan konfigurera webbsidor för fast räntesats linjer från en server. 
 
-När du [konfigurera webbsidor för Application Insights](app-insights-javascript.md), ändra JavaScript-kodavsnitt som du får från Application Insights-portalen. (I ASP.NET-appar i kodfragment vanligtvis används i _Layout.cshtml.)  Infoga en rad som `samplingPercentage: 10,` innan instrumenteringsnyckeln:
+När du [konfigurera webbsidor för Application Insights](../azure-monitor/app/javascript.md), ändra JavaScript-kodavsnitt som du får från Application Insights-portalen. (I ASP.NET-appar i kodfragment vanligtvis används i _Layout.cshtml.)  Infoga en rad som `samplingPercentage: 10,` innan instrumenteringsnyckeln:
 
     <script>
     var appInsights= ... 
@@ -206,7 +206,7 @@ I Metrics Explorer multipliceras priser, till exempel antalet begäranden och un
 ### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Konfigurera fast räntesats sampling i ASP.NET ###
 
 1. **Uppdatera ditt projekts NuGet-paket** till senast *förhandsversioner* version av Application Insights. Högerklicka på projektet i Solution Explorer i Visual Studio, väljer hantera NuGet-paket, kontrollera **inkludera förhandsversion** och Sök efter Microsoft.ApplicationInsights.Web. 
-2. **Inaktivera adaptiv sampling**: I [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), ta bort eller kommentera ut den `AdaptiveSamplingTelemetryProcessor` noden.
+2. **Inaktivera adaptiv sampling**: I [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md), ta bort eller kommentera ut den `AdaptiveSamplingTelemetryProcessor` noden.
    
     ```xml
    
@@ -220,7 +220,7 @@ I Metrics Explorer multipliceras priser, till exempel antalet begäranden och un
 
     ```
 
-3. **Aktivera insamlingsmodulen för fast räntesats.** Lägg till det här kodfragmentet att [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. **Aktivera insamlingsmodulen för fast räntesats.** Lägg till det här kodfragmentet att [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -237,7 +237,7 @@ I Metrics Explorer multipliceras priser, till exempel antalet begäranden och un
 
 ### <a name="configuring-fixed-rate-sampling-in-java"></a>Konfigurera fast räntesats sampling i JAVA ###
 
-1. Hämta och konfigurera ditt webbprogram med senaste [application insights java SDK](app-insights-java-get-started.md)
+1. Hämta och konfigurera ditt webbprogram med senaste [application insights java SDK](../azure-monitor/app/java-get-started.md)
 
 2. **Aktivera fast räntesats insamlingsmodulen** genom att lägga till följande kodavsnitt ApplicationInsights.xml-fil.
 
@@ -263,7 +263,7 @@ I Metrics Explorer multipliceras priser, till exempel antalet begäranden och un
         <IncludedType>Exception</IncludedType>
     </IncludedTypes>
 ```
-De typer av telemetri som kan inkluderas eller uteslutas från sampling är: beroende, händelse, undantag, sidvisningar, begäran och spårning.
+De typer av telemetri som kan inkluderas eller uteslutas från sampling är: Beroende, händelse, undantag, sidvisningar, begäran och spårning.
 
 > [!NOTE]
 > Samplingsprocenten, Välj i procent som ligger nära 100/N där N är ett heltal.  Samlar för närvarande stöd inte för andra värden.
@@ -291,7 +291,7 @@ I stället för att ange parametern sampling i .config-filen kan ange du program
 
 ```
 
-([Lär dig mer om telemetri processorer](app-insights-api-filtering-sampling.md#filtering).)
+([Lär dig mer om telemetri processorer](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 ## <a name="when-to-use-sampling"></a>När du ska använda sampling?
 Adaptiv sampling aktiveras automatiskt om du använder ASP.NET SDK version 2.0.0-beta3 eller senare. Du kan aktivera inmatningssampling att Application Insights ska samlas in insamlade data oavsett vilken version av SDK: N som du använder.
@@ -316,7 +316,7 @@ De huvudsakliga fördelarna med sampling är:
 **Använd fast räntesats sampling om:**
 
 * Du använder Application Insights SDK för ASP.NET web services-version 2.0.0 eller senare eller Java SDK v2.0.1 eller senare, och
-* Du vill synkroniserade sampling mellan klienten och servern, så att när du undersöker händelser i [Search](app-insights-diagnostic-search.md), du kan navigera mellan relaterade händelser på klienten och servern, till exempel sidvyer och http-begäranden.
+* Du vill synkroniserade sampling mellan klienten och servern, så att när du undersöker händelser i [Search](../azure-monitor/app/diagnostic-search.md), du kan navigera mellan relaterade händelser på klienten och servern, till exempel sidvyer och http-begäranden.
 * Du är för lämpliga samplingsprocenten för din app. Det bör vara tillräckligt högt för att få exakta mått, men under hastigheten som överskrider din prisnivå kvoter och begränsningar gränser. 
 
 **Använd Adaptiv sampling:**
@@ -324,7 +324,7 @@ De huvudsakliga fördelarna med sampling är:
 Om villkoren kan använda andra typer av sampling inte gäller, rekommenderar vi Adaptiv sampling. Detta är aktiverat som standard i ASP.NET server-SDK, version 2.0.0-beta3 eller senare. Det kommer inte att minska trafiken tills en viss taxa har uppnåtts, därför låg användning platser påverkas inte.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Hur vet jag om sampling pågår?
-För att identifiera faktiska samplingsfrekvensen oavsett om den har tillämpats, använda en [analysfråga](app-insights-analytics.md) som detta:
+För att identifiera faktiska samplingsfrekvensen oavsett om den har tillämpats, använda en [analysfråga](../azure-monitor/app/analytics.md) som detta:
 
 ```
 union * 
@@ -396,5 +396,5 @@ Klientsidan (JavaScript) SDK deltar i fast räntesats sampling tillsammans med S
 * Initiera en separat instans av TelemetryClient med en ny TelemetryConfiguration (inte standard är aktiva). Använda den för att skicka din sällsynta händelser.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Filtrering](app-insights-api-filtering-sampling.md) kan ge mer strikt kontroll över din SDK skickar.
+* [Filtrering](../azure-monitor/app/api-filtering-sampling.md) kan ge mer strikt kontroll över din SDK skickar.
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 02942cafe6e1532a6829ad7a6761b825739a1e85
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865411"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597978"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering över utskalade molndatabaser (förhandsversion)
 ![Fråga över shards][1]
@@ -140,7 +140,7 @@ Instruktionen DISTRIBUTION anger Datadistribution som används för den här tab
 2. **REPLIKERADE** innebär att identiska kopior av tabellen finns på varje databas. Det är ditt ansvar att se till att replikerna är identiska mellan databaser.
 3. **AVRUNDA\_ROBIN** innebär att tabellen är horisontellt med en metod för programvarudistribution för program-beroende. 
 
-**Data på nivån referens**: den externa tabellen DDL refererar till en extern datakälla. Den externa datakällan anger en skärvkarta som ger den externa tabellen med informationen som behövs för att hitta alla databaser i din datanivå. 
+**Data på nivån referens**: Den externa tabellen DDL refererar till en extern datakälla. Den externa datakällan anger en skärvkarta som ger den externa tabellen med informationen som behövs för att hitta alla databaser i din datanivå. 
 
 ### <a name="security-considerations"></a>Säkerhetsöverväganden
 Användare med åtkomst till den externa tabellen tillgång automatiskt till de underliggande fjärrtabeller under autentiseringsuppgifterna som anges i definitionen av externa datakällan. Undvik oönskad rättighetsökning via autentiseringsuppgifterna för den externa datakällan. Använd GRANT eller REVOKE för en extern tabell precis som om det vore en vanlig tabell.  
@@ -168,10 +168,10 @@ Följande fråga skapar en 3-vägs-koppling mellan informationslager, order och 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Lagrade proceduren för körning av T-SQL: sp\_execute_remote
 Elastisk fråga introducerar också en lagrad procedur som ger direktåtkomst till shards. Den lagrade proceduren kallas [sp\_köra \_remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra remote lagrade procedurer eller T-SQL-kod på fjärr-databaser. Det tar följande parametrar: 
 
-* Namn på datakälla (nvarchar): namnet på den externa datakällan av typen RDBMS. 
+* Namn på datakälla (nvarchar): Namnet på den externa datakällan av typen RDBMS. 
 * Fråga (nvarchar): T-SQL-fråga som ska köras på varje shard. 
-* Parameterdeklaration (nvarchar) - valfritt: sträng med datatypdefinitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
-* Värdet parameterlistan - valfritt: kommaavgränsad lista över parametervärden (till exempel sp_executesql).
+* Parameterdeklaration (nvarchar) - valfritt: Sträng med data typdefinitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
+* Parametern-värdelista - är valfria: Kommaavgränsad lista över parametervärden (till exempel sp_executesql).
 
 Sp\_köra\_remote använder den externa datakällan i startparametrar för att köra den angivna T-SQL-instruktionen på fjärr-databaser. Autentiseringsuppgifterna för den externa datakällan används för att ansluta till shardmap manager-databasen och remote databaserna.  
 

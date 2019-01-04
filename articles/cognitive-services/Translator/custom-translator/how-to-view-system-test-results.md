@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627649"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630350"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
@@ -26,13 +26,13 @@ Välj ett projekt och sedan välja fliken modeller i projektet, letar du upp den
 
 Fliken test visar:
 
-1.  Testresultat för system: Resultatet av test-processen i utbildningar. Testa processen genererar BLEU poängen.
+1.  **Testresultat för system:** resultatet av test-processen i utbildningar. Testa processen genererar BLEU poängen.
 
-    **Antal mening:** hur många parallella meningar har använts i test-uppsättningen.
+    **Antal meningen:** Hur många parallella meningar användes i test-uppsättningen.
 
      **BLEU poäng:** BLEU poäng genereras för en modell efter slutförande för utbildning.
 
-    **Status:** anger om test-processen är klar eller pågår.
+    **Status:** Anger om test-processen är klar eller pågår.
 
     ![Testresultat för system](media/how-to/how-to-system-test-results.png)
 
@@ -40,9 +40,9 @@ Fliken test visar:
 
 3.  Tabellen på informationssidan för test-resultatet har två kolumner – en för varje språk i paret. Kolumnen för en källspråket visar meningen översättas. Kolumnen för målspråket som innehåller två meningar i varje rad.
 
-    **Ref:** den här meningen är referens översättningen av källa meningen som anges i test-datauppsättning.
+    **Ref:** Den här meningen är referens översättningen av källa meningen som anges i test-datauppsättning.
 
-    **MT:** den här meningen är automatisk översättning av källa meningen utförd av modellen som skapats efter utbildningen utfördes.
+    **MT:** Den här meningen är automatisk översättning av källa meningen utförd av modellen som skapats efter utbildningen utfördes.
 
     ![Jämfört med system test resultat](media/how-to/how-to-system-test-results-2.png)
 
@@ -54,11 +54,11 @@ Klicka på länken ladda ned översättningar för att ladda ned en zip-fil. ZIP
 
 Det här hämtade zip-arkivet innehåller tre filer.
 
-1.  Custom.MT.txt: den här filen innehåller maskinöversättningar källspråk versal i målspråk utförd av modellen tränas med användarens data.
+1.  **Custom.MT.txt:** Den här filen innehåller maskinöversättningar källspråk versal i målspråk utförd av modellen tränas med användarens data.
 
-2.  Ref.txt: den här filen innehåller anges av användaren översättningar av källspråk meningar på språket som mål.
+2.  **Ref.txt:** Den här filen innehåller anges översättningar av källspråk meningar i målspråket av användaren.
 
-3.  Source.txt: den här filen innehåller meningar på språket som källa.
+3.  **Source.txt:** Den här filen innehåller meningar på språket som källa.
 
     ![Testresultat för hämtade system](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ Att begära en distribution:
     ![Distribuera modell](media/how-to/how-to-deploy-model.png)
 
 3.  Klicka på distribuera.
-4.  Välj den region där du vill att din modell som ska distribueras och klicka på Spara. Du kan välja flera regioner.
+4.  Välj **distribuerat** för geografi är de regioner där du vill att din modell ska distribueras, och klicka på Spara. Du kan välja **distribuerat** för flera regioner.
 
     ![Distribuera modell](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Du kan visa statusen för din modell i kolumnen ”Status”.
 
+## <a name="update-deployment-settings"></a>Uppdatera distributionsinställningar
+
+Så här uppdaterar distributionsinställningar:
+
+1.  Välj ett projekt och gå till den **modeller** fliken.
+
+2. För en modell som har distribuerats, visas en **uppdatering** knappen.
+
+    ![Distribuera modell](media/how-to/how-to-update-undeploy-model.png)
+
+3.  Välj **uppdatering**.
+4.  Välj **distribuerat** eller **Undeployed** för geografi är de regioner där du vill att din modell distribueras eller avdistribuerats, klicka sedan på **spara**.
+
+    ![Distribuera modell](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->Om en modell är redan distribuerat, visas en ”Undeploy”-knappen för den modellen. Klicka på ”Undeploy” om du vill ta bort en modell.
+>Om du väljer **Undeployed** för alla regioner modellen avdistribuerats från alla regioner och lägga till ett odistribuerade tillstånd. Det är nu tillgängliga.
 
 ## <a name="next-steps"></a>Nästa steg
 

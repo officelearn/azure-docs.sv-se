@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094363"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556228"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -41,7 +41,7 @@ Följande steg vägleder dig genom processen att skapa certifikat och installera
 ## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet för att konfigurera som en gateway. Du kan använda utvecklingsdatorn eller en virtuell dator som en IoT Edge-enhet med steg för följande operativsystem:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,9 +60,9 @@ Installera OpenSSL för Windows på den dator som du använder för att generera
    >[!NOTE]
    >Om du redan har OpenSSL som har installerats på din Windows-enhet kan du hoppa över detta steg men se till att openssl.exe är tillgänglig i miljövariabeln PATH.
 
-* **Enklare:** ladda ned och installera eventuella [från tredje part OpenSSL binärfiler](https://wiki.openssl.org/index.php/Binaries), till exempel från [det här projektet på SourceForge](https://sourceforge.net/projects/openssl/). Lägga till den fullständiga sökvägen till openssl.exe till SÖKVÄGEN för miljövariabeln. 
+* **Enklare:** Ladda ned och installera eventuella [från tredje part OpenSSL binärfiler](https://wiki.openssl.org/index.php/Binaries), till exempel från [det här projektet på SourceForge](https://sourceforge.net/projects/openssl/). Lägga till den fullständiga sökvägen till openssl.exe till SÖKVÄGEN för miljövariabeln. 
    
-* **Rekommenderat:** ladda ned källkoden OpenSSL och skapa de binära filerna på din dator själv eller via [vcpkg](https://github.com/Microsoft/vcpkg). Anvisningarna nedan använder vcpkg att ladda ned källkoden, kompilera och installera OpenSSL på din Windows-dator med enkla steg.
+* **Rekommenderat:** Ladda ned källkoden OpenSSL och skapa de binära filerna på din dator själv eller via [vcpkg](https://github.com/Microsoft/vcpkg). Anvisningarna nedan använder vcpkg att ladda ned källkoden, kompilera och installera OpenSSL på din Windows-dator med enkla steg.
 
    1. Navigera till den katalog som där du vill installera vcpkg. Vi ska referera till den här katalogen som  *\<VCPKGDIR >*. Följ instruktionerna för att ladda ned och installera [vcpkg](https://github.com/Microsoft/vcpkg).
    

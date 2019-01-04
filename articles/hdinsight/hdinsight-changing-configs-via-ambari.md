@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498668"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722931"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera klusterkonfigurationer för HDInsight
 
-HDInsight ger [Apache Hadoop](https://hadoop.apache.org/) kluster för bearbetning av storskaliga program. Hantera, övervaka och optimera dessa komplexa kluster med flera noder kan vara svårt. [Apache Ambari](http://ambari.apache.org/) är ett webbgränssnitt för att hantera och övervaka HDInsight Linux-kluster.  Windows-kluster kan använda den [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight ger [Apache Hadoop](https://hadoop.apache.org/) kluster för bearbetning av storskaliga program. Hantera, övervaka och optimera dessa komplexa kluster med flera noder kan vara svårt. [Apache Ambari](https://ambari.apache.org/) är ett webbgränssnitt för att hantera och övervaka HDInsight Linux-kluster.  Windows-kluster kan använda den [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 En introduktion till med hjälp av Ambari-Webbgränssnittet finns i [hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 
@@ -68,7 +68,7 @@ I följande avsnitt beskrivs alternativ för att optimera prestandan för Apache
 
 ### <a name="set-the-hive-execution-engine"></a>Ange motorn för körning av Hive
 
-Hive tillhandahåller två motorer för körningen: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) och [Apache TEZ](https://tez.apache.org/). Tez är snabbare än MapReduce. HDInsight Linux-kluster har Tez som motorn för körning av standard. Så här ändrar motorn för körning:
+Hive innehåller två motorer för körning: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) och [Apache TEZ](https://tez.apache.org/). Tez är snabbare än MapReduce. HDInsight Linux-kluster har Tez som motorn för körning av standard. Så här ändrar motorn för körning:
 
 1. I Hive **Peeringkonfigurationer** Skriv **motorn för körning av** i filterfältet.
 
@@ -83,7 +83,7 @@ Hive tillhandahåller två motorer för körningen: [Apache Hadoop MapReduce](ht
 Hadoop försöker dela (*kartan*) en fil till flera filer och bearbeta den resulterande filer parallellt. Antalet Mappningskomponenter beror på antalet delningar. Följande konfigurationsparametrar för två driva antal delningar för Tez-Körningsmotor:
 
 * `tez.grouping.min-size`: Nedre gräns på storleken på en grupperad delning, med ett standardvärde på 16 MB (16 777 216 byte).
-* `tez.grouping.max-size`: Storleken på en grupperad delning med standardvärdet 1 GB (1 073 741 824 byte) övre gräns.
+* `tez.grouping.max-size`: Övre gräns på storleken på en grupperad delning med standardvärdet 1 GB (1 073 741 824 byte).
 
 Minska båda parametrarna förbättra svarstiden genom att öka mer dataflöde som en prestanda tumregel.
 
@@ -189,7 +189,7 @@ Som en allmän regel är viktigt att ha komprimeringsmetoden delbara, annars myc
 
     ![Hive exec compress mellanliggande](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Om du vill komprimera mellanliggande filer, väljer du en komprimerings-codec med lägre processor kostnaderna, även om codec-enheten inte har en hög komprimering utdata.
 
 1. Ange mellanliggande komprimerings-codec genom att lägga till den anpassade egenskapen `mapred.map.output.compression.codec` till den `hive-site.xml` eller `mapred-site.xml` fil.
@@ -210,7 +210,7 @@ Som en allmän regel är viktigt att ha komprimeringsmetoden delbara, annars myc
 
     Detta kommer komprimera filen mellanliggande Snappy komprimering. När egenskapen har lagts till, visas det i rutan anpassad hive-plats.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Den här proceduren ändrar den `$HADOOP_HOME/conf/hive-site.xml` filen.
 
 ### <a name="compress-final-output"></a>Komprimera slutgiltiga utdata
@@ -299,7 +299,7 @@ Ytterligare rekommendationer för att optimera motorn för körning av Hive:
 
     ![Avancerade pig-egenskaper](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Sessionsnivå inställningar åsidosätter egenskapsvärden i den `pig.properties` filen.
 
 ### <a name="tune-execution-engine"></a>Finjustera motorn för körning
@@ -333,9 +333,9 @@ Pig kopierar JAR-filerna som krävs av UDF: er till en distribuerad cache för a
 
 Följande minnesinställningar för kan hjälpa dig att optimera prestanda för Pig-skript.
 
-* `pig.cachedbag.memusage`: Mängden minne som allokeras till en egenskapsuppsättning. En egenskapsuppsättning är en samling av tupplar. En tuppel är en ordnad uppsättning fält och ett fält är en typ av data. Om data i en egenskapsuppsättning ligger utanför det allokerade minnet, är det hamnat på disk. Standardvärdet är 0,2 som representerar 20 procent av det tillgängliga minnet. Det här minnet delas mellan alla påsar i ett program.
+* `pig.cachedbag.memusage`: Mängden minne som allokerats till en egenskapsuppsättning. En egenskapsuppsättning är en samling av tupplar. En tuppel är en ordnad uppsättning fält och ett fält är en typ av data. Om data i en egenskapsuppsättning ligger utanför det allokerade minnet, är det hamnat på disk. Standardvärdet är 0,2 som representerar 20 procent av det tillgängliga minnet. Det här minnet delas mellan alla påsar i ett program.
 
-* `pig.spill.size.threshold`: Påsar större än tröskelvärdet oljesanering storlek (i byte) har hamnat på disk. Standardvärdet är 5 MB.
+* `pig.spill.size.threshold`: Påsar som är större än tröskelvärdet oljesanering storlek (i byte) har hamnat på disk. Standardvärdet är 5 MB.
 
 
 ### <a name="compress-temporary-files"></a>Komprimera temporära filer
@@ -408,7 +408,7 @@ Den `hbase.client.scanner.caching` inställningen anger hur många rader som lä
 
 ![HBase antalet rader som hämtas](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ange inte värdet så att tiden mellan anrop av next-metoden på en skanner som är större än tidsgränsen för skannern. Tidslängden skannern definieras av den `hbase.regionserver.lease.period` egenskapen.
 
 

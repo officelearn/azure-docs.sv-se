@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499131"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653263"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installera publicerad program – Dataiku DDS
 
@@ -28,15 +28,15 @@ Du kan använda DSS för att implementera en komplett lösning för analytiska, 
 
 Du kan installera DSS på HDInsight med hjälp av [Apache Hadoop](https://hadoop.apache.org/) eller [Apache Spark](https://spark.apache.org/) kluster. Du kan installera DSS på befintliga kluster som körs eller när du skapar nya kluster. DSS har också stöd för Azure Blob storage som en anslutning för läsning av data.
 
-Du kan använda DSS för att skapa projekt, som sedan kan generera [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) eller Spark-jobb. Dessa jobb körs som vanlig MapReduce eller Spark-jobb i HDInsight, så du kan skala kluster på begäran.
+Du kan använda DSS för att skapa projekt, som sedan kan generera [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) eller Spark-jobb. Dessa jobb körs som vanlig MapReduce eller Spark-jobb i HDInsight, så du kan skala kluster på begäran.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill installera den här appen på ett nytt HDInsight-kluster eller ett befintligt kluster, måste du ha följande konfiguration:
 
-* Kluster tier(s): Standard, Premium
+* Klusternivåer: Standard, Premium
 * Klustertyper: Hadoop, Spark
-* Kluster-versioner: 3.4, 3.5
+* Klusterversioner: 3.4, 3.5
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Installera Dataiku DSS publicerad program
 
@@ -62,7 +62,7 @@ I följande steg finns en enkel demonstration.
 
     ![Länkar för nya projekt](./media/hdinsight-apps-install-dataiku/new-project.png)
 
-3. Skriv i det nya projektformuläret, en **namn**. Den **Projektnyckel** fylls automatiskt med ett föreslaget värde. I det här fallet ange ”Orders”. Klicka på **skapa**.
+3. Skriv i det nya projektformuläret, en **namn**. Den **Projektnyckel** fylls automatiskt med ett föreslaget värde. I det här fallet ange ”Orders”. Klicka på **SKAPA**.
 
     ![Nytt projekt-formulär](./media/hdinsight-apps-install-dataiku/new-project-form.png)
 
@@ -114,7 +114,7 @@ Fler djupgående självstudier läsa [Läs Dataiku DSS](https://www.dataiku.com/
 
 * [Dataiku DSS dokumentation](https://doc.dataiku.com/dss/latest/).
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
-* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
-* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
-* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
+* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): Lär dig hur du publicerar dina anpassade HDInsight-program på Azure Marketplace.
+* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Lär dig hur du definierar HDInsight-program.
+* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd för att installera fler program.
 * [Använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom edge-nod för att komma åt HDInsight-kluster och för testning och som är värd för HDInsight-program.

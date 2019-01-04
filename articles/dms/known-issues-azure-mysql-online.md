@@ -4,19 +4,19 @@ description: Läs mer om begränsningar för kända problem/migrering med online
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884518"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721656"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för MySQL
 
@@ -25,7 +25,7 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
 ## <a name="online-migration-configuration"></a>Onlinemigrering konfiguration
 - MySQL-källserverversionen måste vara version 5.6.35, 5.7.18 eller senare
 - Azure Database för MySQL stöder:
-    - MySQL Community Edition
+    - MySQL community edition
     - InnoDB-motorn
 - Samma Versionsmigrering. Migrera MySQL 5.6 till Azure Database för MySQL 5.7 stöds inte.
 - Aktivera binär loggning i my.ini (Windows) eller my.cnf (Unix)
@@ -53,29 +53,29 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
       GROUP BY SchemaName;
     ```
 
-    Kör drop-sekundärnyckeln (vilket är den andra kolumnen) i frågeresultatet.
+    Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 - Schemat i Azure-måldatabas för MySQL får inte ha utlösare. Att släppa utlösare i måldatabasen:
     ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
     ```
 
 ## <a name="datatype-limitations"></a>DataType-begränsningar
-- **Begränsningen**: om det finns en JSON-datatyp i källdatabasen för MySQL, misslyckas migreringen under kontinuerlig synkronisering.
+- **Begränsningen**: Om det finns en JSON-datatyp i källan MySQL-databas, misslyckas migreringen under kontinuerlig synkronisering.
 
-    **Lösning**: ändra JSON-datatyp till medelhög text eller longtext i källan MySQL-databas.
+    **Lösning**: Ändra JSON-datatyp till medelhög text eller longtext i källan MySQL-databas.
 
-- **Begränsningen**: om det finns ingen primärnyckel i tabeller, kontinuerlig synkronisering misslyckas.
+- **Begränsningen**: Om det finns ingen primärnyckel i tabeller, misslyckas kontinuerlig synkronisering.
  
-    **Lösning**: tillfälligt Ange primärnyckel för tabellen för migrering att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: Ange tillfälligt primärnyckel för tabellen för migrering att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="lob-limitations"></a>LOB-begränsningar
 Stora objekt (LOB)-kolumner är kolumner som kan växa i storlek. För MySQL, medelhög text Longtext, Blob, Mediumblob, Longblob osv är några av datatyper i LOB.
 
-- **Begränsningen**: om LOB-datatyper används som primärnyckel för, misslyckas migreringen.
+- **Begränsningen**: Om LOB-datatyper används som primärnyckel för, misslyckas migreringen.
 
     **Lösning**: Ersätt primärnyckel med andra datatyper eller kolumner som inte är LOB.
 
-- **Begränsningen**: om längden på kolumnen för stora objekt (LOB) är större än 32 KB, data kan trunkeras på angivna. Du kan kontrollera längden på LOB-kolumn med hjälp av den här frågan:
+- **Begränsningen**: Om längden på kolumnen för stora objekt (LOB) är större än 32 KB, kan data trunkeras på angivna. Du kan kontrollera längden på LOB-kolumn med hjälp av den här frågan:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 947abea50685b04c3500a13a950375c32547efaf
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498769"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652973"
 ---
 # <a name="install-published-application---datameer"></a>Installera publicerad program – Datameer
 
@@ -22,7 +22,7 @@ Den här artikeln beskrivs hur du installerar och kör den [Datameer](https://ww
 
 ## <a name="about-datameer"></a>Om Datameer
 
-Datameer är ett internt program för Hadoop-plattformen, utöka befintliga funktioner i Azure HDInsight och ger snabb integrering, förberedelse och analys av strukturerade och Ostrukturerade data. Datameer har åtkomst till fler än 70 olika källor och format: strukturerade, halvstrukturerade och Ostrukturerade. Du kan direkt överföra data eller använda deras unika data-länkar för att hämta data på begäran. Datameers självbetjäningsfunktioner och välbekanta kalkylbladsgränssnitt minskar komplexiteten med Big Data-teknik och accelererar tiden till insikt. Kalkylblad-gränssnittet tillhandahåller en enkel mekanism för att ange deklarativa formler som kan sedan identifieras översätts till optimerade Hadoop-jobb. Med Datameer och dina business intelligence (BI) och Excel-kunskaper kan använda du Hadoop i molnet snabbt. Mer information finns i den [Datameer dokumentation](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+Datameer är ett internt program för Hadoop-plattformen, utöka befintliga funktioner i Azure HDInsight och ger snabb integrering, förberedelse och analys av strukturerade och Ostrukturerade data. Datameer har åtkomst till fler än 70 olika källor och format: strukturerade, halvstrukturerade och Ostrukturerade. Du kan direkt överföra data eller använda deras unika data-länkar för att hämta data på begäran. Datameers självbetjäningsfunktioner och välbekanta kalkylbladsgränssnitt minskar komplexiteten med Big Data-teknik och accelererar tiden till insikt. Kalkylblad-gränssnittet tillhandahåller en enkel mekanism för att ange deklarativa formler som kan sedan identifieras översätts till optimerade Hadoop-jobb. Med Datameer och dina business intelligence (BI) och Excel-kunskaper kan använda du Hadoop i molnet snabbt. Mer information finns i den [Datameer dokumentation](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -96,19 +96,19 @@ Följande steg visar en ”Hello World”-demonstration.
 
 12. Dra en stapeldiagram-widget i listan med widgetar till vänster som visas i steg 1 i följande diagram. Därefter navigerar i mappen Data under data webbläsaren till höger, expandera din arbetsbok, och sedan kalkylbladet du lade till med filter (steg 2). Dra den **namn** kolumnen över stapeldiagram och släpp i den **etikett** mål att ställa in arbetsbokens namn på kolumnen som diagrammets Etikettfält (steg 3).
 
-    ![Informationsgrafik](./media/hdinsight-apps-install-datameer/infographic.png)
+    ![Infografik](./media/hdinsight-apps-install-datameer/infographic.png)
 
 13. Ange ålder som diagrammets Y-axeln genom att dra den **ålder** kolumn i diagrammets **Data** fält.
 
-    ![Informationsgrafik](./media/hdinsight-apps-install-datameer/infographic-age.png)
+    ![Infografik](./media/hdinsight-apps-install-datameer/infographic-age.png)
 
 Grattis! Du har skapat en visualisering av dina data utan att behöva skriva någon kod. Nu kan du utforska varianter och fler visualiseringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Datameer dokumentation](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+* [Datameer dokumentation](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
-* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
-* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
-* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
+* [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): Lär dig hur du publicerar dina anpassade HDInsight-program på Azure Marketplace.
+* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Lär dig hur du definierar HDInsight-program.
+* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd för att installera fler program.
 * [Använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom edge-nod för att komma åt HDInsight-kluster och för testning och som är värd för HDInsight-program.

@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4ac036bbb94ae8b009700ff21bad1a117843584c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: f3a6e0284c9ef0e986ade3689452ecd0fac2797c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427207"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549589"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-auktoriseringskodflöde
 
@@ -61,20 +61,20 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Klicka på länken nedan för att utföra den här begäran! Efter inloggningen webbläsaren ska omdirigeras till `https://localhost/myapp/` med en `code` i adressfältet.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parameter             |             | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|-----------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| klient                | obligatorisk    | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).                                                                                                                                                                                                                                                                                                                    |
-| client_id             | obligatorisk    | Programmet med ID som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app.  |
-| response_type         | obligatorisk    | Måste innehålla `code` för auktoriseringskodsflödet.       |
-| redirect_uri          | Rekommenderas | Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
-| omfång                 | obligatorisk    | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna.           |
-| response_mode         | Rekommenderas | Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`, eller `form_post`. `query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Mer information finns i [OpenID Connect-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
-| state                 | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Värdet kan också koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
-| fråga                | valfri    | Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är ”inloggning”, ”ingen” och ”godkänna”. `prompt=login` kommer att tvinga användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen – det säkerställer att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, v2.0-slutpunkten returnerar ett `interaction_required` fel. `prompt=consent` utlöser OAuth godkännande i dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
-| login_hint            | valfri    | Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk.                                                                                                                                                                                                                                                                                                    |
-| domain_hint           | valfri    | Kan vara något av `consumers` eller `organizations`. Om inkluderat, den hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på v2.0 på inloggningssidan, vilket leder till en något mer effektiv användarupplevelse. Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` från en föregående inloggning. Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`. Annars kan du använda `domain_hint=organizations`.                                                                                                              |
-| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parametern. Kan vara något av `plain` eller `S256`. Om undantas identifieras `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v2.0 stöder både `plain` och `S256`. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | valfri    | Används för att skydda auktoriseringsbeviljanden kod via Proof-nyckel för kod Exchange (PKCE) från en intern klient. Krävs om `code_challenge_method` ingår. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636).                                                                                                                                                                                                                                                                                                                                                                    |
+| Parameter    | Krävs/valfritt | Beskrivning |
+|--------------|-------------|--------------|
+| `tenant`    | obligatorisk    | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).  |
+| `client_id`   | obligatorisk    | Programmet (klient)-ID: T som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) eller **appregistreringar (förhandsversion)** upplevelse i Azure portal som tilldelats din app.  |
+| `response_type` | obligatorisk    | Måste innehålla `code` för auktoriseringskodsflödet.       |
+| `redirect_uri`  | Rekommenderas | Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `scope`  | obligatorisk    | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna. |
+| `response_mode`   | Rekommenderas | Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara något av följande:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Mer information finns i [OpenID Connect-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
+| `state`                 | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Värdet kan också koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| `prompt`  | valfri    | Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är `login`, `none`, och `consent`.<br/><br/>- `prompt=login` kommer att tvinga användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning.<br/>- `prompt=none` är motsatsen – det säkerställer att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, v2.0-slutpunkten returnerar ett `interaction_required` fel.<br/>- `prompt=consent` utlöser OAuth godkännande i dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
+| `login_hint`  | valfri    | Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk.   |
+| `domain_hint`  | valfri    | Kan vara något av `consumers` eller `organizations`.<br/><br/>Om inkluderat, den hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på v2.0 på inloggningssidan, vilket leder till en något mer effektiv användarupplevelse. Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` från en föregående inloggning. Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`. Annars kan du använda `domain_hint=organizations`.  |
+| `code_challenge_method` | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parametern. Kan vara något av följande värden:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Om undantas identifieras `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v2.0 stöder både `plain` och `S256`. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge`  | valfri | Används för att skydda auktoriseringsbeviljanden kod via Proof-nyckel för kod Exchange (PKCE) från en intern klient. Krävs om `code_challenge_method` ingår. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Nu kan uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen. V2.0-slutpunkten säkerställer också att användaren har samtyckt till behörigheterna som anges i den `scope` frågeparameter. Om användaren inte har godkänt att någon av dessa behörigheter, kommer den be användaren att godkänna behörigheterna som krävs. Information om [behörigheter och samtycke appar för flera klienter finns här](v2-permissions-and-consent.md).
 
@@ -90,10 +90,10 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| Parameter | Beskrivning                                                                                                                                                                                                                        |
-|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kod      | Authorization_code som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. Authorization_codes kortlivade, vanligtvis de går ut efter 10 minuter. |
-| state     | Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska.                                            |
+| Parameter | Beskrivning  |
+|-----------|--------------|
+| `code` | Authorization_code som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. Authorization_codes kortlivade, vanligtvis de går ut efter 10 minuter. |
+| `state` | Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 #### <a name="error-response"></a>Felsvar
 
@@ -105,26 +105,26 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter         | Beskrivning                                                                                                       |
-|-------------------|-------------------------------------------------------------------------------------------------------------------|
-| fel             | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| error_description | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel.          |
+| Parameter | Beskrivning  |
+|----------|------------------|
+| `error`  | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
+| `error_description` | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för slutpunkt-auktoriseringsfel
 
 I följande tabell beskrivs olika felkoder som kan returneras i de `error` -parametern för felsvaret.
 
-| Felkod                | Beskrivning                                                                                                           | Klientåtgärd                                                                                                                                                                                                                               |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| invalid_request           | Protokollfel, till exempel en obligatorisk parameter saknas.                                                               | Åtgärda och skicka begäran igen. Det här är en utvecklingsfel som vanligtvis påträffades under första testningen.                                                                                                                                     |
-| unauthorized_client       | Klientprogrammet har inte behörighet att begära en auktoriseringskod.                                           | Det här felet uppstår vanligen när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
-| ACCESS_DENIED             | Resursägaren nekas godkännande                                                                                         | Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner.                                                                                                                                               |
-| unsupported_response_type | Auktoriseringsservern stöder inte svarstypen i begäran.                                         | Åtgärda och skicka begäran igen. Det här är en utveckling fel vanligtvis påträffades under första testningen.                                                                                                                                     |
-| server_error              | Ett oväntat fel inträffade på servern.                                                                         | Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad till ett tillfälligt fel.                                                                |
-| temporarily_unavailable   | Servern är tillfälligt för upptagen för att hantera begäran.                                                           | Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd.                                                                                                               |
-| invalid_resource          | Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det inte är korrekt konfigurerad. | Det här felet indikerar resursen, om den finns, inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD.                                          |
-|login_required             | För många eller inga användare hittades | Klienten har begärt en tyst autentisering (`prompt=none`), men det gick inte att hitta en enskild användare. Detta kan innebära att det finns flera användare aktiv i sessionen eller inga användare. Detta tar hänsyn till den klient som valts (till exempel om det finns 2 AAD-konton som aktiv och en MSA och `consumers` väljs, tyst autentisering ska fungera). |
-|interaction_required       | Begäran kräver interaktion från användaren. | Det krävs en ytterligare autentisering steg eller godkännande. Försök igen med begäran utan `prompt=none`. |
+| Felkod  | Beskrivning    | Klientåtgärd   |
+|-------------|----------------|-----------------|
+| `invalid_request` | Protokollfel, till exempel en obligatorisk parameter saknas. | Åtgärda och skicka begäran igen. Det här är en utvecklingsfel som vanligtvis påträffades under första testningen. |
+| `unauthorized_client` | Klientprogrammet har inte behörighet att begära en auktoriseringskod. | Det här felet uppstår vanligen när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
+| `access_denied`  | Resursägaren nekas godkännande  | Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
+| `unsupported_response_type` | Auktoriseringsservern stöder inte svarstypen i begäran. | Åtgärda och skicka begäran igen. Det här är en utveckling fel vanligtvis påträffades under första testningen.  |
+| `server_error`  | Ett oväntat fel inträffade på servern.| Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad till ett tillfälligt fel. |
+| `temporarily_unavailable`   | Servern är tillfälligt för upptagen för att hantera begäran. | Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
+| `invalid_resource`  | Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det inte är korrekt konfigurerad. | Det här felet indikerar resursen, om den finns, inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
+| `login_required` | För många eller inga användare hittades | Klienten har begärt en tyst autentisering (`prompt=none`), men det gick inte att hitta en enskild användare. Detta kan innebära att det finns flera användare aktiv i sessionen eller inga användare. Detta tar hänsyn till den klient som valts (till exempel om det finns 2 AAD-konton som aktiv och en MSA och `consumers` väljs, tyst autentisering ska fungera). |
+| `interaction_required` | Begäran kräver interaktion från användaren. | Det krävs en ytterligare autentisering steg eller godkännande. Försök igen med begäran utan `prompt=none`. |
 
 ## <a name="request-an-access-token"></a>Begär en åtkomsttoken
 
@@ -148,18 +148,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Försök att köra den här begäran i Postman! (Glöm inte att ersätta den `code`) [ ![kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
-| Parameter     |                       | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|---------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| klient        | obligatorisk              | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).                                                                                                                                                   |
-| client_id     | obligatorisk              | Programmet med ID som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app.                                                                                                                                                                                                                             |
-| _typ av beviljande    | obligatorisk              | Måste vara `authorization_code` för auktoriseringskodsflödet.                                                                                                                                                                                                                                                                                                                                                                            |
-| omfång         | obligatorisk              | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det första ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
-| Kod          | obligatorisk              | Authorization_code som du har köpt i den första delen i flödet.                                                                                                                                                                                                                                                                                                                                                                   |
-| redirect_uri  | obligatorisk              | Samma redirect_uri värde som används för att hämta authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
-| client_secret | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.  Klienthemlighet måste vara URL-kodat innan de skickas.                                                                                                                    |
-| code_verifier | valfri              | Den samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE har använts i auktoriseringsbegäran kod bevilja. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+| Parameter  | Krävs/valfritt | Beskrivning     |
+|------------|-------------------|----------------|
+| `tenant`   | obligatorisk   | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).  |
+| `client_id` | obligatorisk  | Programmet med ID som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
+| `grant_type` | obligatorisk   | Måste vara `authorization_code` för auktoriseringskodsflödet.   |
+| `scope`      | obligatorisk   | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det första ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
+| `code`          | obligatorisk  | Authorization_code som du har köpt i den första delen i flödet. |
+| `redirect_uri`  | obligatorisk  | Samma redirect_uri värde som används för att hämta authorization_code. |
+| `client_secret` | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.  Klienthemlighet måste vara URL-kodat innan de skickas.  |
+| `code_verifier` | valfri  | Den samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE har använts i auktoriseringsbegäran kod bevilja. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
-#### <a name="successful-response"></a>Lyckat svar
+### <a name="successful-response"></a>Lyckat svar
 
 Ett lyckat svar för token kommer att se ut:
 
@@ -173,16 +173,17 @@ Ett lyckat svar för token kommer att se ut:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| Parameter     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | Den begärda åtkomst-token. Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API.                                                                                                                                                                                                                                                                                                                                    |
-| token_type    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar                                                                                                                                                                                                                                                                                                                                                                           |
-| expires_in    | Hur länge den åtkomst-token är giltig (i sekunder).                                                                                                                                                                                                                                                                                                                                                                                                       |
-| omfång         | Scope som gäller för access_token.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information om att uppdatera en åtkomsttoken som avser den [nedan](#refresh-the-access-token). <br> **Obs:** endast angivna om `offline_access` omfång begärdes.                                               |
-| id_token      | En JSON-Webbtoken (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
 
-#### <a name="error-response"></a>Felsvar
+| Parameter     | Beskrivning   |
+|---------------|------------------------------|
+| `access_token`  | Den begärda åtkomst-token. Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API.  |
+| `token_type`    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar |
+|` expires_in`    | Hur länge den åtkomst-token är giltig (i sekunder). |
+| `scope`         | Scope som gäller för access_token. |
+| `refresh_token` | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information om att uppdatera en åtkomsttoken som avser den [nedan](#refresh-the-access-token). <br> **Obs!** Endast angivna om `offline_access` omfång begärdes. |
+| `id_token`      | En JSON-Webbtoken (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
+
+### <a name="error-response"></a>Felsvar
 
 Felsvar ser ut:
 
@@ -199,27 +200,27 @@ Felsvar ser ut:
 }
 ```
 
-| Parameter         | Beskrivning                                                                                                       |
-|-------------------|-------------------------------------------------------------------------------------------------------------------|
-| fel             | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| error_description | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel.          |
-| error_codes       | En lista över STS-specifika felkoder som kan hjälpa i diagnostik.                                                |
-| tidsstämpel         | Den tid då felet inträffade.                                                                           |
-| trace_id          | En unik identifierare för begäran som kan hjälpa i diagnostik.                                               |
-| correlation_id    | En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter.                             |
+| Parameter         | Beskrivning    |
+|-------------------|----------------|
+| `error`       | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
+| `error_description` | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel. |
+| `error_codes` | En lista över STS-specifika felkoder som kan hjälpa i diagnostik.  |
+| `timestamp`   | Den tid då felet inträffade. |
+| `trace_id`    | En unik identifierare för begäran som kan hjälpa i diagnostik. |
+| `correlation_id` | En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
 
-#### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för tokenslutpunkt fel
+### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för tokenslutpunkt fel
 
-| Felkod              | Beskrivning                                                                                                           | Klientåtgärd                                                                                                                                                                                                                               |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| invalid_request         | Protokollfel, till exempel en obligatorisk parameter saknas.                                                               | Åtgärda och skicka begäran igen                                                                                                                                                                                                                |
-| invalid_grant           | Auktoriseringskod eller PKCE kod verifierare är ogiltigt eller har upphört att gälla.                                             | Testa en ny begäran till den `/authorize` slutpunkt och kontrollera att parametern code_verifier var korrekt.                                                                                                                                   |
-| unauthorized_client     | Den autentiserade klienten har inte behörighet att använda den här beviljandetypen för auktorisering.                                     | Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
-| invalid_client          | Klientautentiseringen misslyckades.                                                                                        | Med klientens autentiseringsuppgifter är inte giltiga. Du kan åtgärda genom uppdaterar programadministratören autentiseringsuppgifterna.                                                                                                                                       |
-| unsupported_grant_type  | Auktoriseringsservern stöder inte beviljandetypen för auktorisering.                                              | Ändra beviljandetyp i begäran. Den här typen av fel ska ske under utveckling och identifieras under första testningen.                                                                                                      |
-| invalid_resource        | Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det inte är korrekt konfigurerad. | Detta anger resursen om den finns, inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD.                                           |
-| interaction_required    | Begäran kräver interaktion från användaren. Till exempel krävs ett steg för ytterligare autentisering.                   | Försök igen med samma resurs.                                                                                                                                                                                                  |
-| temporarily_unavailable | Servern är tillfälligt för upptagen för att hantera begäran.                                                            | Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd.                                                                                                                |
+| Felkod         | Beskrivning        | Klientåtgärd    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Protokollfel, till exempel en obligatorisk parameter saknas. | Åtgärda och skicka begäran igen   |
+| `invalid_grant`    | Auktoriseringskod eller PKCE kod verifierare är ogiltigt eller har upphört att gälla. | Testa en ny begäran till den `/authorize` slutpunkt och kontrollera att parametern code_verifier var korrekt.  |
+| `unauthorized_client` | Den autentiserade klienten har inte behörighet att använda den här beviljandetypen för auktorisering. | Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
+| `invalid_client` | Klientautentiseringen misslyckades.  | Med klientens autentiseringsuppgifter är inte giltiga. Du kan åtgärda genom uppdaterar programadministratören autentiseringsuppgifterna.   |
+| `unsupported_grant_type` | Auktoriseringsservern stöder inte beviljandetypen för auktorisering. | Ändra beviljandetyp i begäran. Den här typen av fel ska ske under utveckling och identifieras under första testningen. |
+| `invalid_resource` | Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det inte är korrekt konfigurerad. | Detta anger resursen om den finns, inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD.  |
+| `interaction_required` | Begäran kräver interaktion från användaren. Till exempel krävs ett steg för ytterligare autentisering. | Försök igen med samma resurs.  |
+| `temporarily_unavailable` | Servern är tillfälligt för upptagen för att hantera begäran. | Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
 
 ## <a name="use-the-access-token"></a>Använd åtkomsttoken
 
@@ -227,8 +228,6 @@ Nu när du har skaffat har en `access_token`, du kan använda token i begärande
 
 > [!TIP]
 > Kör den här begäran i Postman! (Ersätt den `Authorization` rubrik första) [ ![kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
-> 
-> 
 
 ```
 GET /v1.0/me/messages
@@ -262,15 +261,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parameter     |                       | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|---------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| klient        | obligatorisk              | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).                                                                                                                                                                                  |
-| client_id     | obligatorisk              | Programmet med ID som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app.                                                                                                                                                                                                                                                            |
-| _typ av beviljande    | obligatorisk              | Måste vara `refresh_token` för den här delen i auktoriseringskodsflödet.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| omfång         | obligatorisk              | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det ursprungliga authorization_code begäran ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
-| refresh_token | obligatorisk              | Refresh_token som du har köpt i den andra delen i flödet.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| redirect_uri  | obligatorisk              | Samma redirect_uri värde som används för att hämta authorization_code.                                                                                                                                                                                                                                                                                                                                                                                            |
-| client_secret | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.                                                                                                                                                    |
+| Parameter     |                | Beskrivning        |
+|---------------|----------------|--------------------|
+| `tenant`        | obligatorisk     | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).   |
+| `client_id`     | obligatorisk    | Den **(klient)-ID: T** som portalen för registrering av appen ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) eller **appregistreringar (förhandsversion)** har erfarenhet av Azure-portalen tilldela din app.  |
+| `grant_type`    | obligatorisk    | Måste vara `refresh_token` för den här delen i auktoriseringskodsflödet. |
+| `scope`         | obligatorisk    | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det ursprungliga authorization_code begäran ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
+| `refresh_token` | obligatorisk    | Refresh_token som du har köpt i den andra delen i flödet. |
+| `redirect_uri`  | obligatorisk    | Samma redirect_uri värde som används för att hämta authorization_code. |
+| `client_secret` | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Lyckat svar
 
@@ -286,14 +285,14 @@ Ett lyckat svar för token kommer att se ut:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| Parameter     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | Den begärda åtkomst-token. Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API.                                                                                                                                                                                                                                                                                                                                     |
-| token_type    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar                                                                                                                                                                                                                                                                                                                                                                           |
-| expires_in    | Hur länge den åtkomst-token är giltig (i sekunder).                                                                                                                                                                                                                                                                                                                                                                                                        |
-| omfång         | Scope som gäller för access_token.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| refresh_token | En ny OAuth 2.0-uppdateringstoken. Med den här nyligen förvärvade uppdateringstoken för att säkerställa uppdaterings-tokens är giltig så länge som möjligt bör du ersätta den gamla uppdateringstoken. <br> **Obs:** endast angivna om `offline_access` omfång begärdes.                                                                                                                                                                                                |
-| id_token      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
+| Parameter     | Beskrivning         |
+|---------------|-------------------------------------------------------------|
+| `access_token`  | Den begärda åtkomst-token. Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API. |
+| `token_type`    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar |
+| `expires_in`    | Hur länge den åtkomst-token är giltig (i sekunder).   |
+| `scope`         | Scope som gäller för access_token.    |
+| `refresh_token` | En ny OAuth 2.0-uppdateringstoken. Med den här nyligen förvärvade uppdateringstoken för att säkerställa uppdaterings-tokens är giltig så länge som möjligt bör du ersätta den gamla uppdateringstoken. <br> **Obs!** Endast angivna om `offline_access` omfång begärdes.|
+| `id_token`      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
 
 #### <a name="error-response"></a>Felsvar
 
@@ -310,13 +309,13 @@ Ett lyckat svar för token kommer att se ut:
 }
 ```
 
-| Parameter         | Beskrivning                                                                                                       |
-|-------------------|-------------------------------------------------------------------------------------------------------------------|
-| fel             | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| error_description | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel.           |
-| error_codes |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
-| tidsstämpel |Den tid då felet inträffade. |
-| trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
-| correlation_id |En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
+| Parameter         | Beskrivning                                                                                        |
+|-------------------|----------------------------------------------------------------------------------------------------|
+| `error`           | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
+| `error_description` | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel.           |
+| `error_codes` |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
+| `timestamp` | Den tid då felet inträffade. |
+| `trace_id` | En unik identifierare för begäran som kan hjälpa i diagnostik. |
+| C`orrelation_id` | En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
 
 En beskrivning av felkoder och rekommenderade klientåtgärd i [felkoder för tokenslutpunkt fel](#error-codes-for-token-endpoint-errors).

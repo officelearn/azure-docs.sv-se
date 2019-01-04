@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: rayne
-ms.openlocfilehash: 50ef6ff452713ec8a8023c5d5e3d58a4b91ea323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/27/2018
+ms.author: raynew
+ms.openlocfilehash: c93f80ba93e84c93ddf58b46b4bbcf98c53478d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849810"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794234"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adresser för att ansluta till en sekundär lokal plats efter redundans
 
@@ -23,8 +23,8 @@ När du växlar över Hyper-V-datorer i System Center Virtual Machine Manager (V
 
 Det finns ett par olika sätt att hantera IP-adresser för virtuella replikdatorerna efter redundansväxlingen: 
 
-- **Behålla samma IP-adress efter redundansväxling**: I det här scenariot den replikerade virtuella datorn har samma IP-adress som den primära virtuella datorn. Detta förenklar nätverket utfärdar efter växling vid fel, men det krävs vissa infrastrukturarbete.
-- **Använd en annan IP-adress efter redundansväxling**: I det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxling. 
+- **Behålla samma IP-adress efter redundansväxling**: I det här scenariot har den replikerade virtuella datorn samma IP-adress som den primära virtuella datorn. Detta förenklar nätverket utfärdar efter växling vid fel, men det krävs vissa infrastrukturarbete.
+- **Använd en annan IP-adress efter redundansväxling**: I det här scenariot hämtar en ny IP-adress i den virtuella datorn efter redundans. 
  
 
 ## <a name="retain-the-ip-address"></a>Behålla IP-adressen

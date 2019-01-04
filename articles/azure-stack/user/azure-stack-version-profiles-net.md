@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074459"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555021"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Använda API-versionsprofiler med .NET i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-.NET SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursprovidrar i SDK innehåller beräkning, nätverk, lagring, app services och [KeyVault](../../key-vault/key-vault-whatis.md). .NET SDK innehåller 14 NuGet-paket måste laddas ned i projektet lösningen varje gång som införlivar profilinformation. Men du kan hämta vilka resursprovidern specifikt du ska använda för 2018-03-01-hybrid eller 2017-03-09-profile för att optimera minnet för ditt program. Varje paket består av en resursleverantör, respektive API-versionen och API-profilen som den tillhör. API-profiler i .NET SDK aktivera hybrid molnutveckling genom att hjälpa dig att växla mellan globala Azure-resurser och resurser på Azure Stack.
+.NET SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursprovidrar i SDK innehåller beräkning, nätverk, lagring, app services och [KeyVault](../../key-vault/key-vault-whatis.md). .NET SDK innehåller 14 NuGet-paket. Dessa paket måste laddas ned till ditt projektlösning varje gång som införlivar profilinformation. Men du kan hämta vilka resursprovidern specifikt du ska använda för 2018-03-01-hybrid eller 2017-03-09-profile för att optimera minnet för ditt program. Varje paket består av en resursleverantör, respektive API-versionen och API-profilen som den tillhör. API-profiler i .NET SDK aktivera hybrid molnutveckling genom att hjälpa dig att växla mellan globala Azure-resurser och resurser på Azure Stack.
 
 ## <a name="net-and-api-version-profiles"></a>.NET och API-versionsprofiler
 
@@ -44,7 +44,7 @@ En API-profil är en kombination av resursprovidrar och API-versioner. Du kan an
 
 -   Om du vill använda specifika API-versioner för en resurstyp i en viss resursprovider, använder du de specifika API-versioner som definierats i paketet.
 
-Observera att du kan kombinera alla alternativ i samma program.
+Du kan kombinera alla alternativ i samma program.
 
 ## <a name="install-the-azure-net-sdk"></a>Installera Azure .NET SDK
 
@@ -52,7 +52,7 @@ Observera att du kan kombinera alla alternativ i samma program.
 
 2.  Om du vill installera rätt NuGet-paketen, se [Söka efter och installera ett paket][].
 
-3.  De paket som måste installeras beror på vilken profil-version som du vill använda. Paketnamnet för profilversioner är:
+3.  De paket som måste installeras beror på vilken profil-version som du vill använda. Paketnamn för profilversioner är:
 
     1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**
 
@@ -62,7 +62,7 @@ Observera att du kan kombinera alla alternativ i samma program.
 
 5.  Om det inte finns skapar du en prenumeration och spara prenumerations-ID som ska användas senare. Anvisningar för att skapa en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack][].
 
-6.  Skapa ett huvudnamn för tjänsten och spara klient-ID och Klienthemlighet. Anvisningar om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [ge program åtkomst till Azure Stack][]. Observera att klient-ID är även känd som program-ID när du skapar ett huvudnamn för tjänsten.
+6.  Skapa ett huvudnamn för tjänsten och spara klient-ID och Klienthemlighet. Anvisningar om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [ge program åtkomst till Azure Stack][]. Klient-ID är även känd som program-ID när du skapar ett tjänstens huvudnamn.
 
 7.  Kontrollera att tjänstens huvudnamn har rollen deltagare/ägare av prenumerationen. Anvisningar om hur du tilldelar en roll till tjänstens huvudnamn finns i [ge program åtkomst till Azure Stack][].
 
@@ -76,9 +76,10 @@ Om du vill använda Azure-SDK för .NET med Azure Stack, måste du ange följand
 | Klientorganisations-ID                 | AZURE_CLIENT_ID       | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i den här artikeln. |
 | Prenumerations-ID:t           | AZURE_SUBSCRIPTION_ID | Den [ *prenumerations-ID* ][] är hur du kommer åt erbjudanden i Azure Stack.                                                      |
 | Klienthemlighet             | AZURE_CLIENT_SECRET   | Tjänstens huvudnamn programhemlighet sparas när tjänstens huvudnamn har skapats.                                      |
-| Resource Manager-slutpunkten | ARM_ENDPOINT           | Se [ *Azure Stack resource manager-slutpunkten*][].                                                                    |
+| Resource Manager-slutpunkten | ARM_ENDPOINT           | Se [ *Azure Stack Resource Manager-slutpunkten*][].                                                                    |
+| Plats                  | RESOURCE_LOCATION     | Plats för Azure Stack.
 
-Du hittar klient-ID för Azure Stack, följer du instruktionerna [här](../azure-stack-csp-ref-operations.md). Ange din miljövariabler genom att göra följande:
+Du hittar klient-ID för Azure Stack, följer du instruktionerna [här](../azure-stack-csp-ref-operations.md). Om du vill ställa in din miljövariabler, gör du följande:
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
@@ -96,7 +97,7 @@ I Unix-baserat system, kan du använda följande kommando:
 Export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager-slutpunkt
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager-slutpunkten
 
 Microsoft Azure Resource Manager är en management-ramverk som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället, i en enda åtgärd.
 
@@ -106,7 +107,7 @@ Observera följande överväganden:
 
 - Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: https://management.local.azurestack.external/
 
-- Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 JSON-exempelfilen:
 
@@ -125,158 +126,73 @@ JSON-exempelfilen:
 
 ## <a name="existing-api-profiles"></a>Befintliga API-profiler
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: senaste profil som skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Senaste profil har skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Om du har en tidsstämpel som är lägre än den 1808-versionen kan använda den här profilen.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Om du har en tidsstämpel som är lägre än den 1808-versionen kan du använda den här profilen.
 
-3.  **Senaste**: profilen som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster. Den här profilen är en del av den **Microsoft.Azure.Management** NuGet-paketet.
+3.  **Senaste**: Profil som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster. Den här profilen är en del av den **Microsoft.Azure.Management** NuGet-paketet.
 
 Mer information om Azure Stack och API-profiler finns i en [sammanfattning av API-profiler][].
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Användningen av Azure .NET SDK API-profil
 
-Följande kod ska användas för att skapa en instans av en profil-klient. Den här parametern är endast krävs för Azure Stack eller andra privata moln. Global Azure har redan inställningarna som standard.
-
-Följande kod behövs för att autentisera tjänstobjektet i Azure Stack. Skapas en token genom att klienten-ID och grundläggande autentisering, som är specifika för Azure Stack.
+Följande kod ska användas för att skapa en instans av en resource management-klienten. Liknande kod kan användas för att skapa en instans av andra provider för nätverksresurser (till exempel beräkning, nätverk och lagring) klienter. 
 
 ```csharp
-public class CustomLoginCredentials : ServiceClientCredentials
+var client = new ResourceManagementClient(armEndpoint, credentials)
 {
-    private string clientId;
-    private string clientSecret;
-    private string resourceId;
-    private string tenantId;
-
-    private const string authenticationBase = "https://login.windows.net/{0}";
-
-    public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-    {
-        clientId = servicePrincipalId;
-        clientSecret = servicePrincipalSecret;
-        resourceId = azureEnvironmentResourceId;
-        tenantId = azureEnvironmentTenandId;
-    }
+    SubscriptionId = subscriptionId
+};
 ```
 
-Detta kan du använda API-profilen NuGet-paket för att distribuera programmet till Azure Stack.
-
-## <a name="define-azure-stack-environment-setting-functions"></a>Definiera Azure Stack-miljön inställningen funktioner
-
-Använd följande kod för att autentisera tjänstobjektet i Azure Stack-miljön:
+Den `credentials` parametern i koden ovan krävs för att skapa en instans av en klient. Följande kod genererar en autentiseringstoken av klient-ID och tjänstens huvudnamn.
 
 ```csharp
-private string AuthenticationToken { get; set; }
-public override void InitializeServiceClient<T>(ServiceClient<T> client)
+var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
+var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
+```
+Den `getActiveDirectoryServiceSettings` anropet i koden hämtar Azure Stack-slutpunkter från slutpunkten för metadata. Den anger miljövariabler vid anrop som görs: 
+
+```csharp
+public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
 {
-    var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-    var credential = new ClientCredential(clientId, clientSecret);
-    var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-    clientCredential: credential).Result;
-    if (result == null)
+    var settings = new ActiveDirectoryServiceSettings();
+    try
     {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
+        var request = (HttpWebRequest)HttpWebRequest.Create(string.Format("{0}/metadata/endpoints?api-version=1.0", armEndpoint));
+        request.Method = "GET";
+        request.UserAgent = ComponentName;
+        request.Accept = "application/xml";
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        {
+            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            {
+                var rawResponse = sr.ReadToEnd();
+                var deserialized = JObject.Parse(rawResponse);
+                var authenticationObj = deserialized.GetValue("authentication").Value<JObject>();
+                var loginEndpoint = authenticationObj.GetValue("loginEndpoint").Value<string>();
+                var audiencesObj = authenticationObj.GetValue("audiences").Value<JArray>();
+                settings.AuthenticationEndpoint = new Uri(loginEndpoint);
+                settings.TokenAudience = new Uri(audiencesObj[0].Value<string>());
+                settings.ValidateAuthority = loginEndpoint.TrimEnd('/').EndsWith("/adfs", StringComparison.OrdinalIgnoreCase) ? false : true;
+            }
+        }
     }
-    AuthenticationToken = result.AccessToken;
+    catch (Exception ex)
+    {
+        Console.WriteLine(String.Format("Could not get AD service settings. Exception: {0}", ex.Message));
+    }
+    return settings;
 }
 ```
-
-Detta åsidosätter initiera tjänstklienten autentisera till Azure Stack.
+Detta kan du använda API-profilen NuGet-paket för att distribuera programmet till Azure Stack.
 
 ## <a name="samples-using-api-profiles"></a>Exempel med hjälp av API-profiler
 
-Du kan använda följande exempel finns i GitHub-lagringsplatser som referens för att skapa lösningar med .NET och Azure Stack-API-profiler.
-
--   [Testa projektet för att virtuella datorer, virtuella nätverk, resursgrupper och storage-konto][]
--   Hantera virtuella datorer med hjälp av .NET
-
-### <a name="sample-unit-test-project"></a>Exempelprojektet enhet Test 
-
-1.  Klona databasen med hjälp av följande kommando:
-
-    ```shell
-    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
-    ```
-
-2.  Skapa en Azure-tjänstens huvudnamn och tilldela en roll får åtkomst till prenumerationen. Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [Använda Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat][].
-
-3.  Hämta följande nödvändiga värden:
-
-    1.  Klient-ID:t
-    2.  Klientorganisations-ID
-    3.  Klienthemlighet
-    4.  Prenumerations-ID:t
-    5.  Resource Manager-slutpunkten
-
-4.  Ange följande miljövariabler med hjälp av informationen som du hämtade från tjänstens huvudnamn du skapat med hjälp av Kommandotolken:
-
-    1.  Exportera AZURE_TENANT_ID = {ditt klient-id}
-    2.  Exportera AZURE_CLIENT_ID = {din klient-id}
-    3.  Exportera AZURE_CLIENT_SECRET = {klienthemlighet}
-    4.  Exportera AZURE_SUBSCRIPTION_ID = {ditt prenumerations-id}
-    5.  Exportera ARM_ENDPOINT = {din Azure Stack Resource manager-URL}
-
-   I Windows, använder **ange** i stället för **exportera**.
-
-5.  Kontrollera plats-variabeln anges till din Azure Stack-plats. Till exempel LOCAL = ”local”.
-
-6.  Ange anpassade inloggningsuppgifterna som gör att du kan autentisera till Azure Stack. Observera att den här delen av kod som ingår i det här exemplet i mappen auktorisering.
-
-   ```csharp
-   public class CustomLoginCredentials : ServiceClientCredentials
-   {
-       private string clientId;
-       private string clientSecret;
-       private string resourceId;
-       private string tenantId;
-       private const string authenticationBase = "https://login.windows.net/{0}";
-       public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-       {
-           clientId = servicePrincipalId;
-           clientSecret = servicePrincipalSecret;
-           resourceId = azureEnvironmentResourceId;
-           tenantId = azureEnvironmentTenandId;
-       }
-   private string AuthenticationToken { get; set; }
-   ```
-
-7.  Lägg till följande kod om du använder Azure Stack för att åsidosätta initiera tjänstklienten autentisera till Azure Stack. Observera att en del av koden ingår redan i det här exemplet i mappen auktorisering.
-
-   ```csharp
-   public override void InitializeServiceClient<T>(ServiceClient<T> client)
-   {
-      var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-      var credential = new ClientCredential(clientId, clientSecret);
-      var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-                clientCredential: credential).Result;
-      if (result == null)
-      {
-          throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-      AuthenticationToken = result.AccessToken;
-   }
-   ```
- 
-8.  Med hjälp av NuGet-Pakethanteraren, Sök efter ”2018-03-01-hybrid” och installera de paket som är associerade med den här profilen för beräkning, nätverk, lagring, KeyVault och App Services-resursprovidrar.
-
-2.  Ange de parametrar som krävs för att arbeta med Azure Stack i varje aktivitet i filen .cs. Ett exempel illustreras på följande sätt för aktiviteten `CreateResourceGroupTest`:
-
-   ```csharp
-   var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
-   var baseUriString = Environment.GetEnvironmentVariable("AZURE_BASE_URL");
-   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCEGROUP");
-   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET");
-   var azureResourceId = Environment.GetEnvironmentVariable("AZURE_RESOURCE_ID");
-   var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-   var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-   var credentials = new CustomLoginCredentials(servicePrincipalId, servicePrincipalSecret, azureResourceId, tenantId);
-   ```
-
-1.  Högerklicka på varje uppgift och välj **Kör test**.
-
-    1.  I fönstret sida fönstret gröna bockmarkeringar aviserar att varje uppgift har skapats har baserat på de parametrar som anges. Kontrollera Azure Stack-prenumerationen för att säkerställa att resurserna som har skapats.
-
-    2.  Läs mer om hur du kör enhetstester [köra enhetstester med Test Explorer.][]
+Följande exempel kan användas som referens för att skapa lösningar med .NET och Azure Stack-API-profiler.
+- [Hantera resursgrupper](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
+- [Hantera Lagringskonton](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
+- [Hantera en virtuell dator](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -292,8 +208,8 @@ Mer information om API-profiler finns:
   [Ge program åtkomst till Azure Stack]: ../azure-stack-create-service-principals.md
   [* klient -ID *]: ../azure-stack-identity-overview.md
   [* prenumerations -ID *]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
-  [* de Azure Stack resource manager-slutpunkten *]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [* de Azure Stack Resource Manager-slutpunkten *]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [Sammanfattning av API-profiler]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
-  [Testa projektet för att virtuella datorer, virtuella nätverk, resursgrupper och storage-konto]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
-  [Använda Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat]: ../azure-stack-create-service-principals.md
-  [Köra enhetstester med Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
+  [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
+  [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
+  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

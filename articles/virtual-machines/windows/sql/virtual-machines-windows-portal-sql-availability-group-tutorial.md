@@ -17,17 +17,17 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51238083"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
 Den här självstudien visar hur du skapar en SQL Server alltid tillgänglighetsgrupp på Azure Virtual Machines. Fullständig genomgång skapar en tillgänglighetsgrupp med en databasreplik på två SQL-servrar.
 
-**Uppskattad tidsåtgång**: tar cirka 30 minuter för att slutföra när alla krav är uppfyllda.
+**Uppskattad tidsåtgång**: Tar cirka 30 minuter för att slutföra när alla krav är uppfyllda.
 
 Diagrammet visar vad du skapar under kursen.
 
@@ -45,7 +45,7 @@ I följande tabell visas de krav som du måste utföra innan du påbörjar den h
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Filresurs för klustervittne |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-tjänstkontot | Domänkonto |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Tjänstkontot för SQL Server Agent | Domänkonto |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Öppna portar i brandväggen | -SQL Server: **1433** för standardinstans <br/> -Slutpunkten för databasspegling: **5022** eller alla tillgängliga portar <br/> -Tillgänglighet grupp IP-adress hälsoavsökning för belastningsutjämnaren: **59999** eller alla tillgängliga portar <br/> -Cluster core IP-adress hälsoavsökning för belastningsutjämnaren: **58888** eller alla tillgängliga portar |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Öppna portar i brandväggen | -SQL-Server: **1433** för standardinstans <br/> -Slutpunkten för databasspegling: **5022** eller alla tillgängliga portar <br/> -Tillgänglighetsgruppen läsa in hälsoavsökning för belastningsutjämnaren IP-adress: **59999** eller alla tillgängliga portar <br/> -Klustrets core IP-adress hälsoavsökning för belastningsutjämnaren: **58888** eller alla tillgängliga portar |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Lägg till funktionen för Redundansklustring | Både SQL-servrar kräver den här funktionen |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domänkonto för installation | – Lokal administratör på varje SQL Server <br/> -Medlem i SQL Server fasta serverrollen sysadmin för varje instans av SQL Server  |
 
@@ -70,7 +70,7 @@ När kraven har slutförts, är det första steget att skapa ett redundanskluste
    ![Skapa kluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. Skapa ett kluster med en nod i guiden Skapa kluster genom att stega dig igenom sidorna med inställningarna i tabellen nedan:
 
-   | Sida | Inställningar |
+   | Sidan | Inställningar |
    | --- | --- |
    | Innan du börjar |Använd standard |
    | Välj servrar |Skriv namnet på första SQL Server i **RETUR servernamn** och klicka på **Lägg till**. |
@@ -296,7 +296,7 @@ Du är nu redo att konfigurera en tillgänglighetsgrupp med följande steg:
 
     ![Guiden för ny AG, Välj inledande datasynkronisering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var, **\\\\\<första SQLServer\>\Backup\\**. Klicka på **Nästa**.
+8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var, **\\\\\<första SQLServer\>\Backup\**. Klicka på **Nästa**.
 
    >[!NOTE]
    >Fullständig synkronisering tar en fullständig säkerhetskopiering av databasen på den första instansen av SQL Server och återställer det till den andra instansen. Fullständig synkronisering rekommenderas inte för stora databaser, eftersom det kan ta lång tid. Du kan minska nu genom att manuellt gör en säkerhetskopia av databasen och återställer dem med `NO RECOVERY`. Om databasen har redan återställts med `NO RECOVERY` på andra SQL Server innan du konfigurerar Availability-gruppen, Välj **Anslut bara**. Om du vill säkerhetskopiera när du har konfigurerat Availability-gruppen, Välj **hoppa över inledande datasynkronisering**.

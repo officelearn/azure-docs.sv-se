@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106047"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754398"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Självstudie 2: Batch test datauppsättningar
+# <a name="tutorial-batch-test-data-sets"></a>Självstudier: Datauppsättningar för batch-test
 
 Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.  
 
@@ -36,7 +36,7 @@ När du använder en app än den här självstudien gör *inte* använder exempl
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp
+> * Exempelapp för import
 > * Skapa en batchfil för testning 
 > * Köra ett batch-test
 > * Granskningsresultat
@@ -45,13 +45,13 @@ När du använder en app än den här självstudien gör *inte* använder exempl
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
+## <a name="import-example-app"></a>Exempelapp för import
 
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+Använd följande steg:
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Importera JSON-koden till en ny app.
 
@@ -61,7 +61,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 ## <a name="batch-file"></a>Kommandofil
 
-1. Skapa `HumanResources-jobs-batch.json` i en textredigerare eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) den. 
+1. Skapa `HumanResources-jobs-batch.json` i en textredigerare eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) den. 
 
 2. Lägg till yttranden med i JSON-formaterade kommandofilen, den **avsikt** du vill att förväntade i testet. 
 
@@ -177,7 +177,7 @@ När du först skriva och testa batch-filer, är det bäst att börja med ett pa
 
 Värdet för en **jobbet** entiteten i test-uttryck är vanligtvis en eller två ord med några exempel som flera ord. Om _egna_ personalapp har vanligtvis jobbet namnen på många ord, exempel yttranden som är märkt med **jobbet** entitet i den här appen inte skulle fungera bra.
 
-1. Skapa `HumanResources-entities-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/) eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) den.
+1. Skapa `HumanResources-entities-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/) eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) den.
 
 
 2. I JSON-formaterade batch-filen lägger du till en matris med objekt som innehåller yttranden med den **avsikt** du vill att förväntade i test samt platserna för alla entiteter i uttryck. Eftersom en entitet är tokenbaserad kan du se till att starta och stoppa varje entitet på ett tecken. Inte börja eller sluta uttryck på ett blanksteg. Detta orsakar ett fel under importen för batch-fil.  

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 623e7276ccba85b6df74291ee857613019349b7a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406132"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993441"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
@@ -76,7 +76,7 @@ För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Att tillhandahålla ytterligare verifiering för arbets-eller skolkonton
 1.  I den **konton** skärmen i Microsoft Authenticator-appen, Välj nedrullningsbara pilen bredvid det konto som du vill återställa.
 
-    ![Microsoft Authenticator-appen som visar tillgängliga konton med deras associerade listrutepilarna](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![Microsoft Authenticator-appen som visar tillgängliga konton med deras associerade listrutepilarna](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2.  Välj **skanna QR-kod för att återställa**, och sedan skanna QR-koden.
 

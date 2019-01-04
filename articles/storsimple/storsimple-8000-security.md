@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193917"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976026"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple säkerhet och dataskydd
 
@@ -121,7 +121,7 @@ Mer information om StorSimple Snapshot Manager går du till [vad är StorSimple 
 Vi rekommenderar att du använder följande riktlinjer för att säkerställa att StorSimple-lösenord är stark och väl skyddade:
 
 * Ändra ditt lösenord var tredje månad. Ändra lösenorden tillämpas per år.
-* Använd starka lösenord. Mer information går du till [skapa starkare lösenord och skydda dem](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Använd starka lösenord. Mer information går du till [skapa starkare lösenord och skydda dem](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Alltid använda olika lösenord för olika mekanismer; var och en av de lösenord som du anger måste vara unika.
 * Dela inte lösenord med vem som helst som inte har behörighet att få åtkomst till StorSimple-enheten.
 * Om ett lösenord framför andra eller inte tipset på formatet för ett lösenord.

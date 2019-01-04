@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d199275d6c17dff72c020bd3a9807f50af8af1e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438684"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544047"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du automatiskt starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics när en resurs skapas.
@@ -25,7 +25,7 @@ I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall
 
 Metoden för att aktivera diagnostikloggar med en Resource Manager-mall beror på resurstypen.
 
-* **Icke-Compute** resurser (till exempel Nätverkssäkerhetsgrupperna, Logic Apps, Automation) använder [diagnostikinställningar som beskrivs i den här artikeln](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Icke-Compute** resurser (till exempel Nätverkssäkerhetsgrupperna, Logic Apps, Automation) använder [diagnostikinställningar som beskrivs i den här artikeln](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
 * **Compute** (WAD/LAD-baserad) resurser i [WAD/LAD konfigurationsfilen som beskrivs i den här artikeln](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 I den här artikeln beskriver vi hur du konfigurerar diagnostik med någon av metoderna.
@@ -266,6 +266,6 @@ Om du vill aktivera diagnostik på en beräkningsresurs, till exempel en virtuel
 Hela processen, inklusive exempel beskrivs [i det här dokumentet](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om Azure-diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream Azure diagnostikloggar till Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Läs mer om Azure-diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream Azure diagnostikloggar till Event Hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

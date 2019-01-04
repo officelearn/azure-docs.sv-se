@@ -3,24 +3,22 @@ title: Skapa användare i Azure Database for MariaDB-server
 description: Den här artikeln beskrivs hur du kan skapa nya användarkonton för att interagera med en Azure Database for MariaDB-server.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50154a7fee63eb3ff9e08155123f9e5962bbfcf0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946127"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542135"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Skapa användare i Azure Database for MariaDB 
 Den här artikeln beskrivs hur du kan skapa användare i Azure Database for MariaDB.
 
 När du först skapade Azure Database for MariaDB, som du angav en användare för serveradministratör och ett lösenord. Mer information kan du följa den [snabbstarten](quickstart-create-mariadb-server-database-using-azure-portal.md). Du kan hitta din användarens inloggningsnamn för serveradministratören i Azure Portal.
 
-Administratörsanvändare server hämtar viss behörighet för servern som anges: Markera, infoga, uppdatera, ta bort, skapa, ta bort, Läs in igen, PROCESS, referenser, INDEX, ALTER, visa databaser, skapa TEMPORÄRA tabeller, lås tabeller, kör, UNDERORDNAD replikering, replikering KLIENTEN, VISA, VISA, SKAPA RUTINMÄSSIG, ALTER RUTINEN, SKAPA ANVÄNDARE, HÄNDELSE, UTLÖSARE
+Administratörsanvändare server hämtar viss behörighet för servern som anges: VÄLJ, INFOGA, UPPDATERA, TA BORT, TA BORT, LÄSA IN, BEARBETA, REFERENSER, INDEX, ALTER, VISA DATABASER, SKAPA TEMPORÄRA TABELLER, LÅSA TABELLER, KÖRA SKAPAR UNDERORDNAD REPLIKERING, REPLIKERINGSKLIENT, VISA, VISA, SKAPA RUTINUNDERHÅLL, ALTER RUTINEN, SKAPA ANVÄNDARE , HÄNDELSE, UTLÖSARE
 
 När Azure Database for MariaDB-server har skapats kan använda du första användarkontot för server-administratör att skapa ytterligare användare och ge administratörsåtkomst till dem. Serveradministratörskontot kan också användas för att skapa mindre privilegierade användare som har åtkomst till enskilda databasscheman.
 
@@ -85,6 +83,6 @@ När Azure Database for MariaDB-server har skapats kan använda du första anvä
 Mer information om hantering av användarkonton, finns i MariaDB-dokumentationen för [Användarkontohantering](https://mariadb.com/kb/en/library/user-account-management/), [BEVILJA Syntax](https://mariadb.com/kb/en/library/grant/), och [privilegier](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Nästa steg
-Öppnar brandväggen för IP-adresserna för de nya användarna datorer så att de kan ansluta: [skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal](howto-manage-firewall-portal.md)  
+Öppna brandväggen för IP-adresserna för de nya användarna datorer så att de kan ansluta: [Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086614"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603335"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
@@ -71,7 +71,7 @@ Lägg till alternativa frågor i ett befintligt nyckelpar med frågor och svar o
 ## <a name="add-metadata"></a>lägga till metadata
 
 
-Lägg till metadata par genom att välja filterikonen
+Lägg till metadata par genom att välja ikonen metadata
 
 ![Lägga till Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ Lägg till metadata par genom att välja filterikonen
 
 ## <a name="manage-large-knowledge-bases"></a>Hantera stora kunskapsbaser
 
-1. Kunskapsbaser är **grupperade** av datakällan från vilken de extraherades. Du kan visa eller dölja datakällan.
-2. Du kan **search** kunskapsbas genom att skriva i textrutan längst ned i Knowledge Base-tabell. Klicka på Ange om du vill söka i fråga, svar eller metadata för innehållet. Klicka på X-ikonen Ta bort sökrutan filtrera.
-3. **Sidbrytning** kan du hantera stora kunskapsbaser
+* **Datakällans grupper**: Kunskapsbaser grupperas av datakällan från vilken de extraherades. Du kan visa eller dölja datakällan.
 
-    ![Sök, sidbryta grupp](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Använd QnA Maker källa datastapel att komprimera och expandera data källan frågor och svar](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Söka i kunskapsbasen**: Du kan söka i knowledge base genom att skriva i textrutan längst ned i Knowledge Base-tabell. Klicka på Ange om du vill söka i fråga, svar eller metadata för innehållet. Klicka på X-ikonen Ta bort sökrutan filtrera.
+
+    ![Använd sökrutan QnA Maker ovan frågor och svar för att minska vyn till endast filter-matchande objekt](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Sidbrytning**: Snabbt navigera i datakällorna för att hantera stora kunskapsbaser
+
+    ![Använd QnA Maker sidbrytning funktioner över frågor och svar för att flytta genom sidor med frågor och svar](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Ta bort kunskapsbaser
 

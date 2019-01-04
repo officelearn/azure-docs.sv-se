@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886635"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741750"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exempel på användning av Bing insikter
 
-Det här avsnittet innehåller exempel på hur Bing kan visa insikter på Bing.com.
+Den här artikeln innehåller exempel på hur Bing kan använda och visa information om bilder på Bing.com.
 
 ## <a name="pagesincluding-insight-example"></a>PagesIncluding insight-exempel
 
-Nedan visas hur Bing kan visa webbsidor som innehåller bilden. I exemplet visas en länk till den första webbsidan och användaren kan expandera eller komprimera listan över andra webbsidor som innehåller bilden.
+Nedan visas en länk till den första webbsidan och användaren kan expandera eller komprimera listan över andra webbsidor som innehåller bilden.
 
 ![Utökade sidor, inklusive](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Icke-standard-taggar är bland annat avgränsningsruta som identifierar intresse
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan kontrollera ut JSON bakom de här exemplen [standard insights](default-insights-tag.md) och [JSON-svar](overview.md#the-response).
-
-Om du vill komma igång snabbt med din första begäran kan se Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)
+Kom igång snabbt med din första begäran, finns Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Skapa klient för att använda distribuerade webbtjänsten
 titleSuffix: Azure Machine Learning service
-description: 'Lär dig mer om att använda en webbtjänst som genererades när en modell har distribuerats med Azure Machine Learning-modell. Den webbtjänst som visar ett REST-API. Skapa klienter för den här API: T med vilket språk du önskar.'
+description: Lär dig mer om att använda en webbtjänst som genererades när en modell har distribuerats med Azure Machine Learning-modell. Webbtjänsten visar ett REST-API. Skapa klienter för detta API med vilket språk du önskar.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251138"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753395"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
-Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för en web service med hjälp av C#, Go, Java och Python.
+Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för webbtjänsten med hjälp av C#, Go, Java och Python.
 
-En webbtjänst skapas när du distribuerar en avbildning till ett Azure Container-instans, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Bilder skapas från registrerade modeller och bedömningsfilerna. Den URI som används för åtkomst till en webbtjänst kan hämtas med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
+Du kan skapa en webbtjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Du kan skapa avbildningar från registrerade modeller och bedömningsfilerna. Du kan hämta den URI som används för åtkomst till en webbtjänst med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
 
-Det allmänna arbetsflödet när du skapar en klient som använder en Machine Learning-webbtjänst är:
+Det allmänna arbetsflödet för att skapa en klient som använder en machine learning-webbtjänsten är:
 
-1. Använda SDK för att hitta anslutningsinformation
-1. Bestäm vilken typ av om begärandedata som används av modellen
-1. Skapa ett program som anropar webbtjänsten
+1. Använda SDK för att hitta anslutningsinformation.
+1. Bestäm vilken typ av om begärandedata som används av modellen.
+1. Skapa ett program som anropar webbtjänsten.
 
 ## <a name="connection-information"></a>Anslutningsinformation
 
 > [!NOTE]
-> SDK: N för Azure Machine Learning används för att hämta information om web service. Det här är en Python-SDK. Den används för att hämta information om webbtjänsterna, men du kan använda valfritt språk för att skapa en klient för tjänsten.
+> Använd SDK: N för Azure Machine Learning för att få informationen om webbtjänster. Det här är en Python-SDK. Du kan använda valfritt språk för att skapa en klient för tjänsten.
 
-Web service-anslutningsinformationen kan hämtas med hjälp av Azure Machine Learning-SDK. Den [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller information som behövs för att skapa en klient. Följande `Webservice` egenskaper som är användbara när du skapar ett klientprogram:
+Den [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver att skapa en klient. Följande `Webservice` egenskaper är användbara för att skapa ett klientprogram:
 
 * `auth_enabled` – Om autentisering har aktiverats, `True`, annars `False`.
 * `scoring_uri` – REST API-adress.
@@ -60,7 +60,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(services[0].scoring_uri)
     ```
 
-* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice` och ange namnet på arbetsytan och tjänsten som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
+* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`, och ange namnet på arbetsytan och tjänsten som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,10 +69,10 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
 
 ### <a name="authentication-key"></a>Autentiseringsnyckel
 
-Autentiseringsnycklar skapas automatiskt när autentisering har aktiverats för en distribution.
+När du aktiverar autentisering för en distribution kan skapa du automatiskt autentiseringsnycklar.
 
-* Autentisering är __aktiverad som standard__ när du distribuerar till __Azure Kubernetes Service__.
-* Autentisering är __inaktiverad som standard__ när du distribuerar till __Azure container Instances__.
+* Autentisering är aktiverad som standard när du distribuerar till Azure Kubernetes Service.
+* Autentisering är inaktiverad som standard när du distribuerar till Azure Container Instances.
 
 För att styra autentisering, använder de `auth_enabled` parameter när du skapar eller uppdaterar en distribution.
 
@@ -128,7 +128,7 @@ Webbtjänsten kan acceptera flera uppsättningar av data i en begäran. Den retu
 
 ### <a name="binary-data"></a>Binära data
 
-Om din modell accepterar binära data, till exempel en avbildning måste du ändra den `score.py` filen användes för distributionen för att godkänna raw HTTP-förfrågningar. Här är ett exempel på en `score.py` som accepterar binära data och återställer återförda byte för POST-förfrågningar. För GET-begäranden returneras den fullständiga URL: en i svarstexten:
+Om din modell accepterar binära data, till exempel en avbildning måste du ändra den `score.py` filen användes för distributionen för att godkänna raw HTTP-förfrågningar. Här är ett exempel på en `score.py` som accepterar binära data och återställer återförda byte för POST-förfrågningar. För GET-begäranden returnerar den fullständiga URL i svarstexten:
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Saker i den `azureml.contrib` namnområde ändras ofta arbetar vi för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion och stöds inte fullt ut av Microsoft.
+> Den `azureml.contrib` namnområde ändras ofta, när vi arbetar för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion, och stöds inte fullt ut av Microsoft.
 >
-> Om du vill testa detta på din lokala utvecklingsmiljö kan installera du komponenterna i contrib namnområdet med följande kommando:
+> Om du vill testa detta på din lokala utvecklingsmiljö kan du installera komponenterna i den `contrib` namnområde med hjälp av följande kommando:
 > 
 > ```shell
 > pip install azureml-contrib-services

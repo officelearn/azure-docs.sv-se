@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078808"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714499"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service i Azure Stack uppdatering 2 viktig information
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure Stack Update 2 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
 
@@ -66,7 +66,7 @@ Azure App Service i Azure Stack Update 2 innehåller följande förbättringar o
   - Uppdatera .net viktiga komponenter för att överensstämma med Azure App Service i offentliga moln.
   - Uppdaterade Kudu
 
-- Autoväxling av distribution platser funktionen aktiverad - [konfigurera automatisk växling](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Autoväxling av distribution platser funktionen aktiverad - [konfigurera automatisk växling](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Testa i produktion-funktionen aktiverad - [introduktion till testning i produktion](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,10 +83,10 @@ Azure App Service i Azure Stack Update 2 innehåller följande förbättringar o
 - Arbetare är inte nå filserver när App Service har distribuerats i ett befintligt virtuellt nätverk och servern är endast tillgänglig i det privata nätverket.
 
 Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
- * Källa: alla
+ * Källa: Alla
  * Käll-portintervall: *
  * Mål: IP-adresser
- * Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+ * Mål-IP-adressintervall: Intervall av IP-adresser för din filserver
  * Målportintervall: 445
  * Protokoll: TCP
  * Åtgärd: Tillåt

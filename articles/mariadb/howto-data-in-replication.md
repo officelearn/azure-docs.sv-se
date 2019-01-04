@@ -3,17 +3,15 @@ title: Konfigurera Data i replikering för att replikera data till Azure Databas
 description: Den här artikeln beskriver hur du ställer in Data i replikering för Azure-databas för MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212768"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548909"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Så här konfigurerar du Azure-databas för MariaDB-Data i replikering
 
@@ -155,7 +153,7 @@ Följande steg förbereder och konfigurera MariaDB-servern körs lokalt, i en vi
    - master_password: lösenordet för huvudservern
    - master_log_file: binära loggfilens namn från att köras `show master status`
    - master_log_pos: binär logg position från att köras `show master status`
-   - master_ssl_ca: kontexten för CA-certifikat. Om du inte använder SSL skicka tom sträng.
+   - master_ssl_ca: CA-certifikat kontext. Om du inte använder SSL skicka tom sträng.
        - Det rekommenderas att skicka den här parametern i som en variabel. Se följande exempel för mer information.
 
    **Exempel**

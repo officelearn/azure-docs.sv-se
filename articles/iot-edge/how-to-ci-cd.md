@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386833"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582923"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -40,7 +40,7 @@ I det här avsnittet skapar du ett exempel på IoT Edge lösning som innehåller
 
 3. Din lösning för IoT Edge-exemplet är nu klar. Standard C# modulen fungerar som en modul för pipe-meddelande. I den `deployment.template.json`, visas den här lösningen innehåller två moduler. Meddelandet kommer att genereras från den `tempSensor` -modulen och kommer skickas direkt `FilterModule`, skickas sedan till din IoT-hubb.
 
-4. Spara dessa projekt och genomför i din Azure-databaser.
+4. Spara dessa projekt och genomför i din Azure-lagringsplatser lagringsplats.
     
 > [!NOTE]
 > Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure-lagringsplatser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -69,11 +69,11 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
     
     * Om du vill bygga dina moduler i plattformen amd64 för Linux-behållare kan du välja **finns Ubuntu 1604**
     * Om du vill bygga dina moduler i plattformen amd64 för Windows-behållare kan du välja **finns VS2017** 
-    * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare, måste du ange upp dina egna skapandeagent genom att klicka på den **hantera** knappen.
+    * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare måste du ange upp dina egna skapandeagent genom att besöka den **hantera** knappen.
     
     ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
 
-1. I Agent-jobbet klickar du på ”+” för att lägga till tre uppgifter i build-pipeline. De första två är från **Azure IoT Edge**. Och den tredje är från **publicera skapa artefakter**
+1. I Agent-jobbet, öppna ”+” att lägga till tre uppgifter i build-pipeline. De första två är från **Azure IoT Edge**. Och den tredje är från **publicera skapa artefakter**
     
     ![Lägga till aktiviteter till build-pipeline](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
 
     ![Aktivera utlösaren för kontinuerlig integrering](./media/how-to-ci-cd/configure-trigger.png)
 
-    Spara ny build-pipeline. Klicka på knappen **Spara**.
+    Spara den nya build-pipelinen med **spara** knappen.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Konfigurera Azure Pipelines för kontinuerlig distribution
 I det här avsnittet skapar du en releasepipeline som är konfigurerad för att köras automatiskt när build-pipeline sjunker artefakter och den visar distributionsloggar i Azure-Pipelines.
 
-1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har releaser kan välja den **+ ny** och klicka sedan på **+ ny viktig pipeline**.  
+1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har releaser kan välja den **+ ny** och välj **+ ny viktig pipeline**.  
 
     ![Lägg till releasepipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
 
     ![Lägg till artefakter](./media/how-to-ci-cd/add-artifacts.png)  
     
-    I **Lägg till en artefakt sida**, välj källtyp **skapa**. Välj sedan projektet och build-pipeline som du skapade. Klicka sedan på **lägga till**.
+    I **Lägg till en artefakt sida**, välj källtyp **skapa**. Välj sedan projektet och build-pipeline som du skapade. Välj sedan **Lägg till**.
 
     ![Lägg till en byggesartefakt](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
 
     ![Konfigurera QA uppgifter](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   Distributionsuppgift är plattform okänsliga, vilket innebär att du kan välja antingen **finns VS2017** eller **finns Ubuntu 1604** i den **agentpoolen** (eller andra agent som hanteras av själv). Klicka på ”+” och lägga till en aktivitet.
+   Distributionsuppgift är plattform okänsliga, vilket innebär att du kan välja antingen **finns VS2017** eller **finns Ubuntu 1604** i den **agentpoolen** (eller andra agent som hanteras av själv). Välj ”+” och lägga till en aktivitet.
 
     ![Lägg till aktiviteter för QA](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
 
     ![Distribuera till QA](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Spara den nya releasepipeline. Klicka på knappen **Spara**. Och klicka sedan på **Pipeline** att gå tillbaka till pipelinen.
+    Spara den nya versionspipelinen med de **spara** knappen. Välj sedan **Pipeline** att gå tillbaka till pipelinen.
 
 6. Det andra steget är för din produktionsmiljö. Om du vill lägga till en ny fas ”PROD”, kan du klona scenen ”QA” och Byt namn på klonade scenen för att **PROD**,
 
     ![Klona steg](./media/how-to-ci-cd/clone-stage.png)
 
-7. Konfigurera uppgifter för din produktionsmiljö. Anta att du har flera IoT Edge enheter som har taggats som ”prod', uppgift-konfigurationer uppdatering Målvillkor” prod ”och ange distributions-ID” distribuera-prod ”i avancerade inställningar. Klicka på knappen **Spara**. Och klicka sedan på **Pipeline** att gå tillbaka till pipelinen.
+7. Konfigurera uppgifter för din produktionsmiljö. Anta att du har flera IoT Edge enheter som har taggats som ”prod', uppgift-konfigurationer uppdatering Målvillkor” prod ”och ange distributions-ID” distribuera-prod ”i avancerade inställningar. Spara den med den **spara** knappen. Välj sedan **Pipeline** att gå tillbaka till pipelinen.
     
     ![Distribuera till produktion](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
 
         ![Öppna före villkor](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Ange **aktiverad** i **före godkännanden**. Och Fyll i den **godkännare** indata. Klicka sedan på **Spara**.
+    2. Ange **aktiverad** i **före godkännanden**. Och Fyll i den **godkännare** indata. Spara den med **spara** knappen.
     
         ![Ange villkor](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
 
 I det här avsnittet ska du utlösa en build om du vill göra CI/CD-pipeline som fungerar. Kontrollera distributionen är klar.
 
-1. Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för källkod eller utlösa den manuellt. Du kan utlösa en build-jobb i build-pipeline genom att klicka på den **kö** knappen som i följande skärmbild.
+1. Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för källkod eller utlösa den manuellt. Du kan utlösa en build-jobb i build-pipeline genom att välja den **kö** knappen som i följande skärmbild.
 
     ![Manuell utlösare](./media/how-to-ci-cd/manual-trigger.png)
 

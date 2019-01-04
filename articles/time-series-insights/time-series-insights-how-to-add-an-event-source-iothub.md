@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights lägga till en IoT-hubb - lägga till en IoT hub-händelsekälla till Azure Time Series Insights | Microsoft Docs
+title: Lägga till en IoT hub-händelsekälla till Azure Time Series Insights | Microsoft Docs
 description: Den här artikeln beskriver hur du lägger till en händelsekälla som är ansluten till en IoT-hubb i miljön för Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3e370bd4cebb84d7ee9f607fc6640218ee202bb9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 933d411f67655b49b4aef7bf413dfe5f87e4ff08
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321279"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556738"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en IoT hub-händelsekälla till Time Series Insights-miljön
 

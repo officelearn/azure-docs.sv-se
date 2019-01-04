@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: b17f6301a41dbb1f64edf9d027dff0f57c09282c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139476"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808782"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Ett exempelprogram som använder nycklar och hemligheter som lagras i key vault
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Följ stegen i den här artikeln för att köra ett exempelprogram (HelloKeyVault) som hämtar nycklar och hemligheter från ett nyckelvalv i Azure Stack.
+Följ stegen i den här artikeln om du vill köra ett exempelprogram med namnet **HelloKeyVault** som hämtar nycklar och hemligheter från en nyckel valv i Azure Stack.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,7 +46,7 @@ Du kan använda Azure portal eller PowerShell förbereder för exempelprogrammet
 >[!NOTE]
 >Som standard skapar ett nytt program i PowerShell-skriptet i Active Directory. Dock kan du registrera en av dina befintliga program.
 
- Innan du kör följande skript, ser till att ange värden för den `aadTenantName` och `applicationPassword` variabler. Om du inte anger ett värde för `applicationPassword`, det här skriptet genererar ett slumpmässigt lösenord.
+Innan du kör följande skript, ser till att ange värden för den `aadTenantName` och `applicationPassword` variabler. Om du inte anger ett värde för `applicationPassword`, det här skriptet genererar ett slumpmässigt lösenord.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -69,7 +69,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -134,10 +134,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-Nästa skärmdump visar utdata från skriptet som används för att skapa key vault:
+Följande bild visar utdata från skriptet som används för att skapa key vault:
 
 ![Nyckelvalv med åtkomstnycklar](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -145,19 +144,19 @@ Anteckna den **VaultUrl**, **AuthClientId**, och **AuthClientSecret** värden so
 
 ## <a name="download-and-configure-the-sample-application"></a>Ladda ned och konfigurerar du exempelprogrammet
 
-Ladda ned exemplet nyckelvalv från Azure [Key Vault-klienten exempel](https://www.microsoft.com/en-us/download/details.aspx?id=45343) sidan. Extrahera innehållet i ZIP-filen på utvecklingsdatorn. Det finns två program i mappen samples, den här artikeln använder HelloKeyVault.
+Ladda ned exemplet nyckelvalv från Azure [Key Vault-klienten exempel](https://www.microsoft.com/download/details.aspx?id=45343) sidan. Extrahera innehållet i ZIP-filen på utvecklingsdatorn. Det finns två program i mappen samples. Den här artikeln använder **HelloKeyVault**.
 
-Att läsa in HelloKeyVault exemplet:
+Att läsa in den **HelloKeyVault** exemplet:
 
 * Bläddra till den **Microsoft.Azure.KeyVault.Samples** > **exempel** > **HelloKeyVault** mapp.
-* Öppna HelloKeyVault programmet i Visual Studio.
+* Öppna den **HelloKeyVault** program i Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>Konfigurera exempelprogrammet
 
 I Visual Studio:
 
-* Öppna filen HelloKeyVault\App.config och hitta Bläddra till den &lt; **appSettings** &gt; element.
-* Uppdatera den **VaultUrl**, **AuthClientId**, och **AuthClientSecret** nycklar med de värden som används för att skapa nyckelvalvet. (Filen App.config har som standard en platshållare för *AuthCertThumbprint*. Ersätt platshållaren med *AuthClientSecret*.)
+* Öppna filen HelloKeyVault\App.config och hitta den &lt; **appSettings** &gt; element.
+* Uppdatera den **VaultUrl**, **AuthClientId**, och **AuthClientSecret** nycklar med värden som returneras av de som används för att skapa nyckelvalvet. Filen App.config har som standard en platshållare för `AuthCertThumbprint`. Ersätt platshållaren med `AuthClientSecret`.
 
   ![Appinställningar](media/azure-stack-kv-sample-app/appconfig.png)
 
@@ -170,10 +169,9 @@ När du kör HelloKeyVault programmet loggar in på Azure AD och använder sedan
 Du kan använda HelloKeyVault-exemplet för att:
 
 * Utföra grundläggande åtgärder som att skapa, kryptera, omsluta, och ta bort med nycklar och hemligheter.
-* Skicka parametrar som *kryptera* och *dekryptera* till HelloKeyVault, och tillämpa de angivna ändringarna till ett nyckelvalv.
+* Skicka parametrar som `encrypt` och `decrypt` till HelloKeyVault, och tillämpa de angivna ändringarna till ett nyckelvalv.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera en VM med ett Key Vault-lösenord](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Distribuera en virtuell dator med ett Key Vault-certifikat](azure-stack-kv-push-secret-into-vm.md)
+- [Distribuera en VM med ett Key Vault-lösenord](azure-stack-kv-deploy-vm-with-secret.md)
+- [Distribuera en virtuell dator med ett Key Vault-certifikat](azure-stack-kv-push-secret-into-vm.md)

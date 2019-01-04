@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821301"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548807"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
 
@@ -29,7 +29,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Log Analytics och Event Hubs. Mer information finns i [övervakningsdata som samlas in av Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Det här värdet har konfigurerats i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Det här värdet har konfigurerats i [diagnostikinställningar](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) i Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Åtkomst-mått i portal
 
@@ -60,11 +60,11 @@ Räknar antalet förfrågningar om data och hantering av åtgärder.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Inkommande förfrågningar (förhandsversion) | Antalet begäranden som görs till Service Bus-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Lyckade begäranden (förhandsversion)|Antal lyckade begäranden som görs till Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Fel (förhandsversion)|Antal begäranden som inte bearbetas på grund av ett fel i Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Användarfel (förhandsversion, se följande avsnitt)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom användningen har överskridits.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+| Inkommande förfrågningar (förhandsversion) | Antalet begäranden som görs till Service Bus-tjänsten under en angiven period. <br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Lyckade begäranden (förhandsversion)|Antal lyckade begäranden som görs till Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Fel (förhandsversion)|Antal begäranden som inte bearbetas på grund av ett fel i Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Användarfel (förhandsversion, se följande avsnitt)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom användningen har överskridits.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 
 ### <a name="user-errors"></a>Användarfel
 
@@ -78,18 +78,18 @@ Följande två typer av fel är klassificerade som användarfel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Inkommande meddelanden (förhandsversion)|Antal händelser eller meddelanden som skickas till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden som tas emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-| Meddelanden (förhandsversion) | Antal meddelanden i kö/ämne. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Dimensionen: EntityName |
-| ActiveMessages (förhandsversion) | Antal aktiva meddelanden i kö/ämne. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Dimensionen: EntityName |
+|Inkommande meddelanden (förhandsversion)|Antal händelser eller meddelanden som skickas till Service Bus under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden som tas emot från Service Bus under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+| Meddelanden (förhandsversion) | Antal meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
+| ActiveMessages (förhandsversion) | Antal aktiva meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Öppnade anslutningar (förhandsversion)|Antal öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Anslutningar stängd (förhandsversion)|Antal stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
+|ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Öppnade anslutningar (förhandsversion)|Antal öppna anslutningar.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Anslutningar stängd (förhandsversion)|Antal stängda anslutningar.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Användningsstatistik för resursen
 
@@ -98,8 +98,8 @@ Följande två typer av fel är klassificerade som användarfel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Processoranvändning per namnområde (förhandsversion)|Procent CPU-användning av namnområdet.<br/><br/> Enhet: procent <br/> Sammansättningstyp: högsta <br/> Dimensionen: EntityName|
-|Minnesstorleksanvändning per namnområde (förhandsversion)|Procentandel minnesanvändningen för namnområdet.<br/><br/> Enhet: procent <br/> Sammansättningstyp: högsta <br/> Dimensionen: EntityName|
+|Processoranvändning per namnområde (förhandsversion)|Procent CPU-användning av namnområdet.<br/><br/> Enhet: Procent <br/> Mängdtyp: Maximal <br/> Dimensioner: EntityName|
+|Minnesstorleksanvändning per namnområde (förhandsversion)|Procentandel minnesanvändningen för namnområdet.<br/><br/> Enhet: Procent <br/> Mängdtyp: Maximal <br/> Dimensioner: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
@@ -123,7 +123,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
         ![Välj namnområde](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Välj **lägga till villkor**, och gör följande på den **konfigurera signallogiken** sidan:
     1. Välj **mått** för **signalera typ**. 
-    2. Välj en signal. Till exempel: **tjänsten fel (förhandsversion)**. 
+    2. Välj en signal. Exempel: **Fel (förhandsgranskning)-tjänsten**. 
 
         ![Välj serverfel](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Välj **är större än** för **villkor**.

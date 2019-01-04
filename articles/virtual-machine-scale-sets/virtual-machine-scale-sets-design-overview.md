@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739285"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791055"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Designöverväganden för Skalningsuppsättningar
 Den här artikeln beskriver designöverväganden för Skalningsuppsättningar för virtuella datorer. Information om Virtual Machine Scale Sets finns i [översikt över Skaluppsättningar för virtuell dator](virtual-machine-scale-sets-overview.md).
@@ -71,7 +71,7 @@ En skalningsuppsättning som bygger på en Marketplace-avbildning (kallas även 
 
 En skalningsuppsättning som är konfigurerade med användarhanterade storage-konton är för närvarande begränsad till 100 virtuella datorer (och rekommenderas för skalans 5 storage-konton).
 
-En skalningsuppsättning som bygger på en anpassad avbildning (en som skapats av dig) kan ha en kapacitet på upp till 300 virtuella datorer när den konfigurerats med Azure Managed disks. Om skalningsuppsättningen är konfigurerad med användarhanterade storage-konton, måste programmet skapa alla OS-disk VHD i ett lagringskonto. Därför kan högsta rekommenderade antalet virtuella datorer i en skalningsuppsättning som bygger på en anpassad avbildning och användarhanterade lagring är 20. Om du inaktiverar överetablering kan du gå upp till 40.
+En skalningsuppsättning som bygger på en anpassad avbildning (en som skapats av dig) kan ha en kapacitet på upp till 600 virtuella datorer när den konfigurerats med Azure Managed disks. Om skalningsuppsättningen är konfigurerad med användarhanterade storage-konton, måste programmet skapa alla OS-disk VHD i ett lagringskonto. Därför kan högsta rekommenderade antalet virtuella datorer i en skalningsuppsättning som bygger på en anpassad avbildning och användarhanterade lagring är 20. Om du inaktiverar överetablering kan du gå upp till 40.
 
 För virtuella datorer i mer än de här gränserna tillåter kan du behöva distribuera flera skalningsuppsättningar enligt [den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

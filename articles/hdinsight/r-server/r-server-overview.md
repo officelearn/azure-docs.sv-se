@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499473"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584538"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till ML-tjänster och funktioner för öppen källkod-R på HDInsight
 
-> [!NOTE]
+> [!NOTE]  
 > I September 2017 Microsoft R Server släpptes under det nya namnet på **Microsoft Machine Learning Server** eller ML Server. Därför kallas nu R Server-kluster i HDInsight **Maskininlärningstjänster** eller **ML tjänster** -kluster i HDInsight. Mer information om ändringen av R Server finns i [Microsoft R Server är nu Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
 
 Microsoft Machine Learning Server är tillgänglig som ett alternativ för distribution när du skapar HDInsight-kluster i Azure. Den typ av kluster som innehåller det här alternativet kallas **ML Services**. Den här funktionen ger dataforskare, statistiker och R-programmerare med åtkomst på begäran till skalbara och distribuerade analysmetoder på HDInsight.
@@ -29,7 +29,7 @@ ML-tjänster på HDInsight innehåller de senaste funktionerna för R-baserad an
 
 Edge-nod i ett kluster är ett bra ställe att ansluta till klustret och köra R-skript. Med en kantnod har alternativet att köra parallelliserad distribuerade funktionerna i ScaleR över kärnor i noden gränsservern. Du kan också köra dem mellan noderna i klustret med hjälp av Scaler's Hadoop Map Reduce eller Apache Spark-beräkningskontext.
 
-Du kan hämta modeller eller förutsägelser som uppstår vid analys för lokal användning. De kan också ska operationaliseras någon annanstans i Azure, i synnerhet via [Azure Machine Learning Studio](http://studio.azureml.net) [webbtjänsten](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+Du kan hämta modeller eller förutsägelser som uppstår vid analys för lokal användning. De kan också ska operationaliseras någon annanstans i Azure, i synnerhet via [Azure Machine Learning Studio](https://studio.azureml.net) [webbtjänsten](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Kom igång med ML-tjänster på HDInsight
 
@@ -72,7 +72,7 @@ Följande funktioner ingår i ML-tjänster på HDInsight.
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Alternativen för datalagring för ML-tjänster på HDInsight
 
-Standardlagring för HDFS-filsystemets av HDInsight-kluster kan associeras med ett Azure Storage-konto eller ett Azure Data Lake Store. Den här associationen säkerställer att data har överförts till klustret lagring under analysen görs beständiga och data är tillgängliga även när klustret tas bort. Det finns olika verktyg för hantering av dataöverföring till lagringsalternativ du väljer, inklusive funktionen portalbaserad uppladdning av storage-konto och [AzCopy](../../storage/common/storage-use-azcopy.md) verktyget.
+Standardlagring för HDFS-filsystemets av HDInsight-kluster kan associeras med ett Azure Storage-konto eller ett Azure Data Lake Storage. Den här associationen säkerställer att data har överförts till klustret lagring under analysen görs beständiga och data är tillgängliga även när klustret tas bort. Det finns olika verktyg för hantering av dataöverföring till lagringsalternativ du väljer, inklusive funktionen portalbaserad uppladdning av storage-konto och [AzCopy](../../storage/common/storage-use-azcopy.md) verktyget.
 
 Har du möjlighet att bevilja åtkomst till ytterligare Blob och Data lake lagras under klustret etableringsprocessen oavsett alternativet primär lagring som används. Se [komma igång med ML-tjänster på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) information om hur du lägger till åtkomst till ytterligare konton. Se [alternativ för Azure Storage för ML-tjänster på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) du lär dig mer om hur du använder flera lagringskonton.
 

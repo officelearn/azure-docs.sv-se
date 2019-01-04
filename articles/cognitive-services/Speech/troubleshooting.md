@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 80e39e845ab631ad5cc3ae8af9e2e42f09b521bf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 2da6795e938f1a0c0ed0495fb169007126501eea
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342198"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753668"
 ---
 # <a name="troubleshooting-bing-speech"></a>Felsökning för Bing-tal
 
@@ -52,7 +52,7 @@ Du kan köra följande kommando för att bekräfta. Observera att ersätta *YOUR
 > [!NOTE]
 > Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerationsnyckel.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -88,7 +88,7 @@ Det här steget behövs bara om du använder Autentiseringstoken för autentiser
 > [!NOTE]
 > Ersätt `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil och `YOUR_ACCESS_TOKEN` med autentiseringstoken som returnerades i föregående steg.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 

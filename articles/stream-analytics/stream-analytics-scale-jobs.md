@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f7567d0c3bfdfc7bd44b918c9f2feda7499386e8
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984087"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554681"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala Azure Stream Analytics-jobb för att öka dataflödet
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka dataflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala dina jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
@@ -34,7 +34,7 @@ Om din fråga sin natur helt kan mellan inkommande partitioner, kan du följa f�
 4.  När du har bestämt gränserna för vad ett 6 SU-jobb kan nå, kan du extrapolera linjärt bearbetningskapacitet för jobbet när du lägger till flera SUs, förutsatt att du inte har några data förskjuta som gör vissa partitionen ”heta”.
 
 > [!NOTE]
-> Välj rätt antal enheter för strömning: eftersom Stream Analytics skapar en processnoden för varje 6 SU ytterligare, är det bäst att göra antalet noder som en divisor av antalet inkommande partitioner så att partitionerna kan fördelas jämnt mellan noderna.
+> Välj rätt antal enheter för strömning: Eftersom Stream Analytics skapar en processnoden för varje 6 SU har lagts till, är det bäst att göra antalet noder som en divisor av antalet inkommande partitioner, så att partitionerna kan fördelas jämnt mellan noderna.
 > Exempelvis kan du ha mäts din 6 SU jobbet kan uppnå 4 MB/s pris och dina indata partitionsantal är 4. Du kan välja att köra jobbet med 12 SU att uppnå ungefär 8 MB/s-behandlingstakt eller 24 SU att uppnå 16 MB/s. Sedan kan du bestämma när du vill öka SU antal tills jobbet vilket värde som en funktion av din inkommande frekvens.
 
 
@@ -48,15 +48,16 @@ Om din fråga inte embarrassingly parallel, kan du följa följande steg.
 
 Fråga:
 
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
-
+ ```SQL
+ WITH Step1 AS (
+ SELECT COUNT(*) AS Count, TollBoothId, PartitionId
+ FROM Input1 Partition By PartitionId
+ GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+ )
+ SELECT SUM(Count) AS Count, TollBoothId
+ FROM Step1
+ GROUP BY TumblingWindow(minute, 3), TollBoothId
+ ```
 I frågan ovan, du räkna bilar per avgift monter per partition och sedan lägga till antalet från alla partitioner tillsammans.
 
 När partitioneras för varje partition i steget där du allokera upp till 6 SU-och varje partition med 6 SU är maximum, så att varje partition kan placeras på en egen nod för bearbetning.

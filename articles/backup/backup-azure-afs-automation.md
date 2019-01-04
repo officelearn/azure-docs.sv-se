@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318712"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632643"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Använd PowerShell för att säkerhetskopiera och återställa Azure-filresurser
 
@@ -34,11 +34,11 @@ Om du vill visa AzureRm.RecoveryServices.Backup PowerShell cmdlet-referens, se d
 ## <a name="setup-and-registration"></a>Installation och registrering
 
 > [!NOTE]
-> Förhandspriserna [här](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), stöd för nya funktioner i AzureRM-modulen ends i november 2018. Därför tillhandahåller vi stöd för säkerhetskopiering av Azure-filresurser med den nya ”Az” PS-modulen. Vi planerar även som ska publiceras till GA-versionen av Az-modulen.
+> Förhandspriserna [här](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), stöd för nya funktioner i AzureRM-modulen ends i november 2018. Därför ger stöd för säkerhetskopiering av Azure-filresurser med den nya ”Az” PS-modulen nu i GA.
 
 Börja:
 
-1. [Hämta den senaste versionen av PowerShell ”Az”](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (den lägsta versionen är: 0.7.0)
+1. [Hämta den senaste versionen av PowerShell ”Az”](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (den lägsta versionen är: 1.0.0)
 
 2. Hitta Azure Backup PowerShell-cmdletar tillgängliga genom att skriva följande kommando:
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+NewAFSPolicy tar en daglig säkerhetskopiering och bibehålls i 30 dagar.
 
 ### <a name="enable-protection"></a>Aktivera skydd
 

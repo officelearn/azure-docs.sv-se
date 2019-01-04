@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257615"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554766"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Omtrimma en klassisk Azure Machine Learning Studio-webbtjänst
-Förutsägande webbtjänsten som du har distribuerat är standardinställningen bedömningsslutpunkten. Standardslutpunkterna hålls synkroniserade med den ursprungliga träningen och bedömning experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten, måste du lägga till en ny slutpunkt för webbtjänsten. 
+Förutsägande webbtjänsten som du har distribuerat är standardinställningen bedömningsslutpunkten. Standardslutpunkterna hålls synkroniserade med den ursprungliga träningen och bedömning experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten, måste du lägga till en ny slutpunkt för webbtjänsten.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Du måste har ställt in ett träningsexperiment och ett förutsägelseexperiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md). 
+Du måste har ställt in ett träningsexperiment och ett förutsägelseexperiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> Förutsägbart experiment måste distribueras som en klassisk machine learning-webbtjänst. 
-> 
-> 
+> Förutsägbart experiment måste distribueras som en klassisk machine learning-webbtjänst.
+>
+>
 
 Ytterligare information om distribuera webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Lägg till en ny slutpunkt
-Förutsägande webbtjänsten som du har distribuerat innehåller en bedömningsslutpunkten som hålls synkroniserad med den ursprungliga utbildningen och bedömning experiment tränade modellen. Om du vill uppdatera webbtjänsten till med en ny tränad modell, måste du skapa en ny bedömnings-slutpunkt. 
+Förutsägande webbtjänsten som du har distribuerat innehåller en bedömningsslutpunkten som hålls synkroniserad med den ursprungliga utbildningen och bedömning experiment tränade modellen. Om du vill uppdatera webbtjänsten till med en ny tränad modell, måste du skapa en ny bedömnings-slutpunkt.
 
 Skapa en ny bedömnings-slutpunkt på den förebyggande webbtjänst som kan uppdateras med den tränade modellen:
 
 > [!NOTE]
 > Var noga med att du lägger till slutpunkten för förutsägande Web Service, inte webbtjänsten utbildning. Om du har distribuerat både ett utbildnings- och en förutsägbar webbtjänst korrekt, bör du se två separata webbtjänster som visas. Förutsägande webbtjänsten ska sluta med ”[förutsägande exp.]”.
-> 
-> 
+>
+>
 
 Det finns två sätt som du kan lägga till en ny slutpunkt till en webbtjänst:
 
@@ -51,7 +51,7 @@ Det finns två sätt som du kan lägga till en ny slutpunkt till en webbtjänst:
 2. Använda portalen för Microsoft Azure-webbtjänster
 
 ### <a name="programmatically-add-an-endpoint"></a>Lägga till en slutpunkt
-Du kan lägga till bedömnings slutpunkter med hjälp av exempelkoden i den här [github-lagringsplatsen](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Du kan lägga till bedömnings slutpunkter med hjälp av exempelkoden i den här [GitHub-lagringsplatsen](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Använda Microsoft Azure Web Services-portalen för att lägga till en slutpunkt
 1. Klicka på webbtjänster i Machine Learning Studio, på den vänstra kolumnen.

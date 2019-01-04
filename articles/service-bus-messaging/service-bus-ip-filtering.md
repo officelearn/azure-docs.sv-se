@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b08540787fc61b9bb38ed921bd42e0f3065cf8f4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270441"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653840"
 ---
 # <a name="use-firewall-rules"></a>Använd brandväggsregler
 
@@ -53,7 +53,7 @@ IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adr
 > - Azure-datautforskaren
 >
 > Den nedan Microsoft services måste vara i ett virtuellt nätverk
-> - Azure Web Apps
+> - Azure App Service
 > - Azure Functions
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk och brandvägg med Azure Resource Manager-mallar

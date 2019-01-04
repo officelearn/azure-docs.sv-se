@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262326"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634515"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ För att konfigurera loggning och mått för ditt storage-konto med hjälp av de
 
 **Via PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 1. Använd den [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet för att lägga till ditt Azure-konto till PowerShell-fönstret:
@@ -114,13 +116,13 @@ Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du
 4. Aktivera lagringsloggning för Blob-tjänsten:
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. Aktivera storage-mätvärden för Blob service, se till att ange **- MetricsType** till `Minute`:
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurera loggning för klientsidan av .NET
@@ -198,11 +200,11 @@ Message Analyzer innehåller tillgångar för Azure Storage som hjälper dig att
 2. Starta Message Analyzer.
 3. Från den **verktyg** menyn och välj **Tillgångsansvarig**. I den **Tillgångsansvarig** dialogrutan **hämtar**, sedan kan filtrera efter **Azure Storage**. Azure Storage-tillgångar visas, enligt bilden nedan.
 4. Klicka på **synkronisera alla visas objekt** att installera Azure Storage-tillgångar. De tillgängliga resurserna är:
-   * **Regler för Azure Storage-färg:** färgregler för Azure Storage kan du definiera särskilda filter som använder färg, text och format för att markera meddelanden som innehåller specifik information i en spårning.
+   * **Regler för Azure Storage-färg:** Azure Storage-färgregler kan du definiera särskilda filter med färg, text och inställningar för teckensnitt som används för att markera meddelanden som innehåller specifik information i en spårning.
    * **Azure Storage-diagram:** Azure Storage-diagram är fördefinierade diagram som graph server loggdata. Observera att om du vill använda Azure Storage-diagram för tillfället, du kan bara läser in serverloggen i rutnätet analys.
    * **Azure Storage-Parser:** Azure Storage-Parser parsa Azure Storage-klienten, server och HTTP-loggar för att visa dem i rutnätet för analys.
    * **Azure Storage-filter:** Azure Storage-filter är fördefinierade villkor som du kan använda för att fråga data i rutnätet för analys.
-   * **Azure Storage-Vylayouter:** vylayouter för Azure Storage är fördefinierad kolumn och grupperingar i rutnätet för analys.
+   * **Azure Storage layouter:** Azure Storage-vylayouter är fördefinierad kolumn och grupperingar i rutnätet för analys.
 5. Starta om analysverktyg när du har installerat tillgångarna.
 
 ![Message Analyzer Tillgångshanteraren](./media/storage-e2e-troubleshooting/mma-start-page-1.png)

@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 923a1ab9020925c17b3b19d24c7524ab2f8f3356
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092770"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608025"
 ---
-# <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso-migrering: omstrukturera en lokal app till en Azure Web App och Azure SQL-databas
+# <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso-migrering: Omstrukturera en lokal app till en Azure Web App och Azure SQL-databas
 
 Den här artikeln visar hur Contoso omstrukturerar sina SmartHotel360-app i Azure. De migrera app-klientdelens VM till ett Azure Web Apps och app-databas till en Azure SQL-databas.
 
@@ -23,15 +23,15 @@ Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företa
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
+[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
 [Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om. | Tillgängligt
 [Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av en lokal tvålagers-SmartHotel-app som körs på VMware. Contoso utvärderar app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
 [Artikel 4: Ange ny värd för en app på Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift and shift-migrering till Azure för SmartHotel appen. Contoso migrerar appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databasen till en SQL Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar appen SmartHotel virtuella datorer med Site Recovery endast. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer Always On-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso gör en lift and shift-migrering av Linux osTicket-app till virtuella Azure-datorer med Site Recovery | Tillgängligt
-[Artikel 8: Rehost en Linux-app till Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
-Artikel 9: Omstrukturera en app till en Azure Web App och Azure SQL-databas | Visar hur Contoso migrerar SmartHotel-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Den här artikeln
+[Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso gör en lift and shift-migrering av Linux osTicket-app till virtuella Azure-datorer med Site Recovery | Tillgängligt
+[Artikel 8: Ange ny värd för en Linux-app till Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
+Artikel 9: Omstrukturera en app till en Azure Web App- och Azure SQL-databas | Visar hur Contoso migrerar SmartHotel-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Den här artikeln
 [Artikel 10: Omstrukturera en Linux-app till Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure Web Apps på flera platser, integrerad med GitHub för kontinuerlig leverans. De migrera app-databasen till en Azure MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera TFS på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Visar hur Contoso migrerar sina lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Azure DevOps-tjänsterna i Azure. | Tillgängligt
 [Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
@@ -46,11 +46,11 @@ IT-ledning har haft ett nära samarbete med affärspartners att förstå vad de 
 
 - **Åtgärda tillväxten**: Contoso växer och har Press på lokala system och infrastruktur.
 - **Öka effektiviteten**: Contoso måste ta bort onödiga procedurer och förenkla processer för utvecklare och användare.  Affärsbehov IT ska vara snabbt och inte spill tid eller pengar och därför leverera snabbare på kunders behov.
-- **Förbättrad flexibilitet**: Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än ändringarna i marketplace, aktivera kan användas i en global ekonomi.  Det får inte vara i vägen eller bli en blockerare för företag.
-- **Skala**: när verksamheten växer har, Contoso IT måste tillhandahålla system som kan växa i samma takt.
+- **Förbättrad flexibilitet**:  Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än ändringarna i marketplace, aktivera kan användas i en global ekonomi.  Det får inte vara i vägen eller bli en blockerare för företag.
+- **Skala**: När verksamheten växer har, ange Contoso IT system som kommer växa i samma takt.
 - **Kostnaderna**: Contoso vill minimera licensieringskostnaderna.
 
-## <a name="migration-goals"></a>Mål för migrering
+## <a name="migration-goals"></a>Migreringsmål
 
 Contoso cloud-teamet har fästs ned mål för den här migreringen. Dessa mål har använts för att avgöra den bästa migreringsmetoden.
 
@@ -110,7 +110,7 @@ Contoso utvärderar sina föreslagna design genom att sätta ihop en lista med f
 --- | --- | ---
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso använder DMA för att utvärdera och identifiera kompatibilitetsproblem som kan påverka deras databasfunktioner i Azure. DMA utvärderar funktionsparitet mellan SQL-källor och mål och rekommenderar förbättringar av prestanda och tillförlitlighet. | Det här verktyget kan laddas ned utan kostnad.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | En intelligent, hanterad fullständigt databastjänst för relationsdatabaser i molnet. | Kostnaden baserat på funktioner, dataflöde och storlek. [Läs mer](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-[Azure App Services – Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Skapa kraftfulla molnappar med en helt hanterad plattform | Kostnader beroende på storleken, plats och användning varaktighet. [Läs mer](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure App Services – Web Apps](https://docs.microsoft.com/azure/app-service/overview) | Skapa kraftfulla molnappar med en helt hanterad plattform | Kostnader beroende på storleken, plats och användning varaktighet. [Läs mer](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Innehåller en kontinuerlig integrering och kontinuerlig distribution (CI/CD) pipeline för utveckling av appar. Pipelinen börjar med en Git-lagringsplats för att hantera kod, ett versionssystem för att producera paket och andra byggartefakter och ett Release Management-system för att distribuera ändringar i utveckling, testning och produktionsmiljöer. 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -128,12 +128,12 @@ Här är Contoso måste köra det här scenariot:
 Här är hur Contoso kommer att köras migreringen:
 
 > [!div class="checklist"]
-> * **Steg 1: Etablera en SQL-databasinstans i Azure**: Contoso etablerar en SQL-instans i Azure. När appwebbplatsen har migrerat till Azure, pekar WCF service-webbapp till den här instansen.
+> * **Steg 1: Etablera en SQL Database-instans i Azure**: Contoso etablerar en SQL-instans i Azure. När appwebbplatsen har migrerat till Azure, pekar WCF service-webbapp till den här instansen.
 > * **Steg 2: Migrera databas med DMA**: Contoso migrerar app-databasen med Database Migration Assistant.
-> * **Steg 3: Etablera Web Apps**: Contoso etablerar de två webbappar.
+> * **Steg 3: Etablera Webbappar**: Contoso etablerar de två web apps.
 > * **Steg 4: Konfigurera Azure DevOps**: Contoso skapas ett nytt Azure DevOps-projekt och importerar Git-lagringsplats.
 > * **Steg 5: Konfigurera anslutningssträngar**: Contoso konfigurerar anslutningssträngar så att webbapp för nivån, WCF service-webbapp och SQL-instansen kan kommunicera.
-> * **Steg 6: Konfigurera build och släppa pipelines**: som ett sista steg Contoso ställer in version och versionen pipelines för att skapa appen och distribuerar dem till två separata Azure Web Apps.
+> * **Steg 6: Konfigurera build och släppa pipelines**: Som ett sista steg Contoso ställer in version och versionen pipelines för att skapa appen och distribuerar dem till två separata Azure Web Apps.
 
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>Steg 1: Etablera en Azure SQL-databas

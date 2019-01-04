@@ -10,18 +10,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 04046b4c7c36418b9024a690ad5279f9e34578a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583643"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634600"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm-topologier med Python på HDInsight
 
-Lär dig hur du skapar en [Apache Storm](http://storm.apache.org/) topologi som använder Python-komponenter. Apache Storm har stöd för flera språk, även så att du kan kombinera komponenter på flera språk i en topologi. Den [som](http://storm.apache.org/releases/current/flux.html) framework (presenteras med Storm 0.10.0) kan du enkelt kan skapa lösningar som använder Python-komponenter.
+Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) topologi som använder Python-komponenter. Apache Storm har stöd för flera språk, även så att du kan kombinera komponenter på flera språk i en topologi. Den [som](https://storm.apache.org/releases/current/flux.html) framework (presenteras med Storm 0.10.0) kan du enkelt kan skapa lösningar som använder Python-komponenter.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Informationen i det här dokumentet har testats med Storm på HDInsight 3.6. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Koden för det här projektet är tillgänglig på [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
@@ -34,7 +34,7 @@ Koden för det här projektet är tillgänglig på [ https://github.com/Azure-Sa
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (Valfritt) En lokal utvecklingsmiljö för Storm. En lokal miljö för Storm krävs endast om du vill köra topologin lokalt. Mer information finns i [konfigurera en utvecklingsmiljö](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
+* (Valfritt) En lokal utvecklingsmiljö för Storm. En lokal miljö för Storm krävs endast om du vill köra topologin lokalt. Mer information finns i [konfigurera en utvecklingsmiljö](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Stöd för flera språk för storm
 
@@ -92,8 +92,8 @@ Om du vill köra topologin lokalt använder du följande kommando:
 storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.yaml
 ```
 
-> [!NOTE]
-> Det här kommandot kräver en lokal utvecklingsmiljö för Storm. Mer information finns i [konfigurera en utvecklingsmiljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
+> [!NOTE]  
+> Det här kommandot kräver en lokal utvecklingsmiljö för Storm. Mer information finns i [konfigurera en utvecklingsmiljö](https://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 När topologi-startar den skickar information till den lokala konsolen som liknar följande text:
 
@@ -137,7 +137,7 @@ Stoppa topologin genom att använda __Ctrl + C__.
 
 3. Du kan använda Storm-Användargränssnittet för att visa topologi i klustret. Storm-Användargränssnittet finns på https://mycluster.azurehdinsight.net/stormui. Ersätt `mycluster` med klusternamnet på ditt.
 
-> [!NOTE]
+> [!NOTE]  
 > När startats körs en Storm-topologi tills de stoppas. Stoppa topologin genom att använda någon av följande metoder:
 >
 > * Den `storm kill TOPOLOGYNAME` från kommandoraden
@@ -148,5 +148,5 @@ Stoppa topologin genom att använda __Ctrl + C__.
 
 Se följande dokument för andra sätt att använda Python med HDInsight:
 
-* [Hur du använder Python för strömning av Apache Hadoop MapReduce-jobb](../hadoop/apache-hadoop-streaming-python.md)
+* [Hur du använder Python för strömmande MapReduce-jobb](../hadoop/apache-hadoop-streaming-python.md)
 * [Hur du använder Python användaren användardefinierade funktioner (UDF) i Apache Pig- och Apache Hive](../hadoop/python-udf-hdinsight.md)

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314515"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652769"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Massinläsning av data till Apache Phoenix med psql
 
-[Apache Phoenix](http://phoenix.apache.org/) är en öppen källkod, massivt parallella relationell databas som bygger på [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix ger SQL-liknande frågor över HBase. Phoenix använder JDBC-drivrutinerna så att användarna kan skapa, ta bort och ändra SQL-tabeller, index, vyer och sekvenser och upsert rader individuellt och gruppvis. Phoenix använder noSQL interna kompilering i stället för att använda MapReduce för att kompilera frågor, för att skapa med låg latens program ovanpå HBase. Phoenix lägger till coprocessorer för att stödja köra klienten anger kod i adressutrymmet för servern, köra koden samordnad med data. Detta minskar klient/server-dataöverföring.  Först skapar tabeller och sedan läsa in data i dem om du vill arbeta med data med hjälp av Phoenix i HDInsight.
+[Apache Phoenix](https://phoenix.apache.org/) är en öppen källkod, massivt parallella relationell databas som bygger på [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix ger SQL-liknande frågor över HBase. Phoenix använder JDBC-drivrutinerna så att användarna kan skapa, ta bort och ändra SQL-tabeller, index, vyer och sekvenser och upsert rader individuellt och gruppvis. Phoenix använder noSQL interna kompilering i stället för att använda MapReduce för att kompilera frågor, för att skapa med låg latens program ovanpå HBase. Phoenix lägger till coprocessorer för att stödja köra klienten anger kod i adressutrymmet för servern, köra koden samordnad med data. Detta minskar klient/server-dataöverföring.  Först skapar tabeller och sedan läsa in data i dem om du vill arbeta med data med hjälp av Phoenix i HDInsight.
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Samtidigt som läser in med Apache Phoenix
 
@@ -73,7 +73,7 @@ Innan du börjar läsa in data, kontrollera att Phoenix är aktiverat och att in
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
+    > [!NOTE]   
     > Att fastställa den `ZookeeperQuorum` namn, leta upp den [Apache ZooKeeper](https://zookeeper.apache.org/) kvorum strängen i filen `/etc/hbase/conf/hbase-site.xml` med egenskapsnamn `hbase.zookeeper.quorum`.
 
 5. Efter den `psql` åtgärden har slutförts, du bör se ett meddelande i kommandofönstret:
@@ -141,7 +141,7 @@ För högre dataflöde läser in fördelas på klustret, använder du verktyget 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Stora mängder Data läses in med Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html)
+* [Stora mängder Data läses in med Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
 * [Använda Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Saltat tabeller](https://phoenix.apache.org/salted.html)
-* [Phoenix grammatik](http://phoenix.apache.org/language/index.html)
+* [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html)

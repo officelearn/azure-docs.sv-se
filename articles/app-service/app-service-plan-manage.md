@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 936abe80a66c1dbe99e7d8a255fe8995a2df0803
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262137"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715672"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en App Service-plan i Azure
 
-En [Azure App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) tillhandahåller de resurser som en App Service-app ska köras. Den här guiden visar hur du hanterar en App Service plan.
+En [Azure App Service-plan](overview-hosting-plans.md) tillhandahåller de resurser som en App Service-app ska köras. Den här guiden visar hur du hanterar en App Service plan.
 
 ## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 

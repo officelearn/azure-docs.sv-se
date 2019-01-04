@@ -8,24 +8,24 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432231"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606477"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
 Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux och Docker
-[Web Apps](/app-service/app-service-web-overview) är App Services främsta erbjudande för att skapa och agera värd åt webbprogram med hjälp av Windows-miljöer. Utvecklare som föredrar en Linux-miljö kan välja [App Service för Linux](/app-service/containers/app-service-linux-intro). Utvecklare kan även distribuera Docker-avbildningar direkt i App Service för Linux för att distribuera anpassade körningar/ramverk.
+[Web Apps](/app-service/overview) är App Services främsta erbjudande för att skapa och agera värd åt webbprogram med hjälp av Windows-miljöer. Utvecklare som föredrar en Linux-miljö kan välja [App Service för Linux](/app-service/containers/app-service-linux-intro). Utvecklare kan även distribuera Docker-avbildningar direkt i App Service för Linux för att distribuera anpassade körningar/ramverk.
 
 ## <a name="5-minute-quickstarts"></a>Snabbstarter på 5 minuter
 
 Lär dig hur du distribuerar ditt första program i molnet med hjälp av App Service för Web Apps:
 
-- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
+- [NET](/azure/app-service/app-service-web-get-started-dotnet)
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
@@ -54,7 +54,7 @@ Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure.
 Hitta skript för att hantera vanliga uppgifter.
 
 - [Azure CLI](/azure/app-service/app-service-cli-sample)
-- [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
+- [Azure PowerShell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>Mer
 

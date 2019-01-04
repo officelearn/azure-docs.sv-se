@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310546"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631954"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
@@ -76,7 +76,7 @@ Om en sökning inte returnerar förväntade resultat, är det mest sannolika sce
 
 ### <a name="compare-english-analyzers"></a>Jämför engelska analysverktyg
 
-Den [Sökanalysverktyg](http://alice.unearth.ai/) är en tredjeparts-demonstrationsapp som visar en sida-vid-sida-jämförelse av analysverktyget från Lucene Lucenes engelska analyzer och Microsofts engelska naturligt språk processor. Indexet är oförändrade. den innehåller text från en populära historia. För varje sökinmatning anger du, visas resultaten från varje analyzer i intilliggande fönster, vilket ger dig en uppfattning om hur varje analyzer bearbetar samma sträng. 
+Den [Sökanalysverktyg](https://alice.unearth.ai/) är en tredjeparts-demonstrationsapp som visar en sida-vid-sida-jämförelse av analysverktyget från Lucene Lucenes engelska analyzer och Microsofts engelska naturligt språk processor. Indexet är oförändrade. den innehåller text från en populära historia. För varje sökinmatning anger du, visas resultaten från varje analyzer i intilliggande fönster, vilket ger dig en uppfattning om hur varje analyzer bearbetar samma sträng. 
 
 ## <a name="examples"></a>Exempel
 
@@ -244,13 +244,13 @@ Fält som innehåller strängar i olika språk kan använda ett språkanalysverk
 
 + Granska våra utförlig förklaring av [hur Fullständig textsökning fungerar i Azure Search](search-lucene-query-architecture.md). Den här artikeln använder exemplen för att förklara beteenden som kan verka krånglig på ytan.
 
-+ Prova ytterligare frågesyntax från den [söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) exemplet eller från [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i Sökutforskaren i portalen.
++ Prova ytterligare frågesyntax från den [söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exemplet eller från [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i Sökutforskaren i portalen.
 
 + Lär dig hur du använder [språkspecifika Lexikalisk](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Konfigurera anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) för minimal bearbetning eller särskild bearbetning för enskilda fält.
 
-+ [Jämför standard- och engelska analysverktyg](http://alice.unearth.ai/) i intilliggande fönster på den här demo-webbplatsen. 
++ [Jämför standard- och engelska analysverktyg](https://alice.unearth.ai/) i intilliggande fönster på den här demo-webbplatsen. 
 
 ## <a name="see-also"></a>Se också
 

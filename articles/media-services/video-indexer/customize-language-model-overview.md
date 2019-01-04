@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: anzaman
-ms.openlocfilehash: aa2c089659d202222e7dd5e41ae56bf2a683bb1e
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b309d0969eb313c90e94af0a32123b7d45b4bef0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323037"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601397"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Anpassa en språkmodell med Video Indexer
 
-Video Indexer stöder automatisk taligenkänning genom integration med Microsofts [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Du kan anpassa språkmodellen genom att ladda upp anpassning text, nämligen text från domänen vars ordförråd som motorn efter behov. När du träna din modell, nya ord visas i texten anpassning känns igen, förutsatt att standard uttal och språkmodellen kommer att lära dig nya sannolika ordsekvenser. Anpassade språkmodeller som har stöd för engelska, tyska, spanska, arabiska, franska, Hindi, italienska, japanska, portugisiska, ryska och kinesiska.
+Video Indexer stöder automatisk taligenkänning genom integration med Microsofts [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Du kan anpassa språkmodellen genom att ladda upp anpassning text, nämligen text från domänen vars ordförråd som motorn efter behov. När du träna din modell, nya ord visas i texten anpassning känns igen, förutsatt att standard uttal och språkmodellen kommer att lära dig nya sannolika ordsekvenser. Anpassade språkmodeller som har stöd för engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska, portugisiska (Brasilien), Hindi och koreanska. 
 
 Låt oss ta ett ord som är specifika, som ”Kubernetes” (i samband med Azure Kubernetes service), som exempel. Eftersom ordet är ny i Video Indexer kan identifieras den som ”communities”. Du behöver träna modellen ska kunna identifiera den som ”Kubernetes”. Orden finns i andra fall, men språkmodellen förväntade inte de ska visas i ett visst kontext. Till exempel är ”container service” inte en 2-word-sekvens som en icke specialiserade språkmodell skulle känna igen som en specifik uppsättning orden.
 

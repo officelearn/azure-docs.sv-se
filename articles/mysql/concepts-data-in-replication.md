@@ -1,20 +1,17 @@
 ---
 title: Replikera data till Azure Database för MySQL.
 description: Den här artikeln beskriver data i replikering för Azure Database för MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666084"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544234"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -23,8 +20,8 @@ Data i replikering kan du synkronisera data från en MySQL-server som körs loka
 ## <a name="when-to-use-data-in-replication"></a>När du ska använda Data i replikering
 Huvudscenarierna överväga användning av Data i replikering är:
 
-- **Hybrid datasynkronisering:** med Data i replikering kan du behålla data synkroniseras mellan dina lokala servrar och Azure Database för MySQL. Den här synkroniseringen är användbart för att skapa hybridprogram. Den här metoden är tilltalande när du har en befintlig lokal databas-server, men vill flytta data till en region närmare för slutanvändare.
-- **Flera Molnsynkronisering:** för komplexa molnlösningar, Använd Data i replikeringen att synkronisera data mellan Azure Database for MySQL och olika molnleverantörer, inklusive virtuella datorer och databastjänster som finns i dessa moln.
+- **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala servrar och Azure Database för MySQL med Data i replikering. Den här synkroniseringen är användbart för att skapa hybridprogram. Den här metoden är tilltalande när du har en befintlig lokal databas-server, men vill flytta data till en region närmare för slutanvändare.
+- **Synkronisering av flera moln:** För komplexa molnlösningar, använder du Data i replikering för att synkronisera data mellan Azure Database for MySQL och olika molnleverantörer, inklusive virtuella datorer och databastjänster som finns i dessa moln.
 
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 

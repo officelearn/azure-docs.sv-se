@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383603"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714023"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Installera och använda Apache Solr på HDInsight Hadoop-kluster
 
@@ -28,12 +28,12 @@ Lär dig hur du installerar Apache Solr på Azure HDInsight med hjälp av skript
 
 ## <a name="whatis"></a>Vad är Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) är en enterprise search plattform som möjliggör kraftfull fulltextsökning på data. Hadoop kan lagra och hantera stora mängder data, ger Apache Solr sökfunktioner för att snabbt hämta data.
+[Apache Solr](https://lucene.apache.org/solr/features.html) är en enterprise search plattform som möjliggör kraftfull fulltextsökning på data. Hadoop kan lagra och hantera stora mängder data, ger Apache Solr sökfunktioner för att snabbt hämta data.
 
 > [!WARNING]   
 > Komponenter som tillhandahålls med HDInsight-kluster stöds helt och hållet av Microsoft.
 >
-> Anpassade komponenter, till exempel Solr, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten är kanske inte kan lösa problem med anpassade komponenter. Du kan behöva interagera med öppen källkod-communities för att få hjälp. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter, till exempel Solr, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten är kanske inte kan lösa problem med anpassade komponenter. Du kan behöva interagera med öppen källkod-communities för att få hjälp. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ https://apache.org ](https://apache.org), till exempel: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Vad skriptet gör
 
@@ -68,7 +68,7 @@ Om du vill skapa ett kluster som har installerat Solr, Följ stegen i den [skapa
 ## <a name="usesolr"></a>Hur kan jag använda Solr i HDInsight
 
 > [!IMPORTANT]  
-> Stegen i det här avsnittet visar grundläggande Solr funktioner. Mer information om hur du använder Solr finns i den [Apache Solr plats](http://lucene.apache.org/solr/).
+> Stegen i det här avsnittet visar grundläggande Solr funktioner. Mer information om hur du använder Solr finns i den [Apache Solr plats](https://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Indexera data
 

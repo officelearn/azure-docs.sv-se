@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cf258637311cd22964723da6bad3451dff6cccf6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584289"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632024"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Utveckla C#-topologier för Apache Storm med hjälp av Data Lake-verktyg för Visual Studio
 
@@ -22,7 +22,7 @@ Lär dig hur du skapar en C# Apache Storm-topologi med hjälp av Azure Data Lake
 
 Du också lära dig hur du skapar hybridtopologier som använder C# och Java-komponenter.
 
-> [!NOTE]
+> [!NOTE]  
 > När stegen i det här dokumentet är beroende av en Windows-utvecklingsmiljö med Visual Studio, kan du skicka kompilerade projektet till en Linux eller Windows-baserade HDInsight-kluster. Linux-baserade kluster som skapats efter den 28 oktober 2016 stöder endast SCP.NET topologier.
 
 Om du vill använda en C#-topologi med en Linux-baserat kluster måste du uppdatera Microsoft.SCP.Net.SDK NuGet-paketet används av projektet till version 0.10.0.6 eller senare. Paketversionen måste även matcha huvudversionen av Storm som är installerad på HDInsight.
@@ -34,8 +34,8 @@ Om du vill använda en C#-topologi med en Linux-baserat kluster måste du uppdat
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]
-> C#-topologier på Linux-baserade kluster måste använda .NET 4.5 och använda Mono för att köra på HDInsight-klustret. Kontrollera [Mono-kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/) för potentiella kompatibilitetsproblem.
+> [!IMPORTANT]  
+> C#-topologier på Linux-baserade kluster måste använda .NET 4.5 och använda Mono för att köra på HDInsight-klustret. Kontrollera [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/) för potentiella kompatibilitetsproblem.
 
 ## <a name="install-visual-studio"></a>Installera Visual Studio
 
@@ -57,7 +57,7 @@ Om du vill installera Data Lake tools för Visual Studio, följer du stegen i [k
 
 När du skickar en Storm-topologi från Visual Studio genererar SCP.NET en zip-fil som innehåller topologi och beroenden. Java används för att skapa dessa zip-filer eftersom den använder ett format som är mer kompatibel med Linux-baserade kluster.
 
-1. Installera Java Developer Kit (JDK) 7 eller senare på din utvecklingsmiljö. Du kan hämta Oracle JDK från [Oracle](https://aka.ms/azure-jdks). Du kan också använda [andra Java-distributioner](http://openjdk.java.net/).
+1. Installera Java Developer Kit (JDK) 7 eller senare på din utvecklingsmiljö. Du kan hämta Oracle JDK från [Oracle](https://aka.ms/azure-jdks). Du kan också använda [andra Java-distributioner](https://openjdk.java.net/).
 
 2. Den `JAVA_HOME` miljövariabeln måste peka på katalogen som innehåller Java.
 
@@ -114,8 +114,8 @@ Data Lake tools för Visual Studio innehåller följande mallar:
 | Storm Hybrid-exempel |Hur du använder en Java-komponent. |
 | Storm-exempel |En grundläggande ordräkningstopologi. |
 
-> [!WARNING]
-> Inte alla mallar fungerar med Linux-baserade HDInsight. NuGet-paket som används av mallarna kanske inte är kompatibla med Mono. Kontrollera den [Mono-kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentera och använda den [.NET portabilitet Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) identifiera potentiella problem.
+> [!WARNING]  
+> Inte alla mallar fungerar med Linux-baserade HDInsight. NuGet-paket som används av mallarna kanske inte är kompatibla med Mono. Kontrollera den [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/) dokumentera och använda den [.NET portabilitet Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) identifiera potentiella problem.
 
 I stegen i det här dokumentet använder du projekttyp grundläggande Storm-program för att skapa en topologi.
 
@@ -125,7 +125,7 @@ HBase läsare och skrivare mallar använder HBase REST API, inte av HBase Java A
 
 ### <a name="eventhub-templates-notes"></a>Anteckningar för EventHub-mallar
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Java-baserade EventHub spout komponent som medföljer mallen EventHub läsare kanske inte fungerar med Storm på HDInsight version 3.5 eller senare. Det finns en uppdaterad version av den här komponenten på [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 En exempeltopologi som använder den här komponenten och fungerar med Storm på HDInsight 3.5, finns i [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
@@ -140,11 +140,11 @@ En exempeltopologi som använder den här komponenten och fungerar med Storm på
 
 3. När du har skapat projektet bör du ha följande filer:
 
-   * **Program.CS**: den här filen definierar topologin för ditt projekt. En standard-topologi som består av en kanal och en bult skapas som standard.
+   * **Program.CS**: Den här filen definierar topologin för ditt projekt. En standard-topologi som består av en kanal och en bult skapas som standard.
 
-   * **Spout.CS**: en exempel-kanal som genererar slumptal.
+   * **Spout.CS**: En exempel-kanal som genererar slumptal.
 
-   * **Bolt.CS**: ett exempel bult som ser till att antalet siffror som orsakats av kanal.
+   * **Bolt.CS**: En exempel-bult som ser till att antalet siffror som orsakats av kanal.
 
      När du har skapat projektet NuGet laddar ned senast [SCP.NET paketet](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
@@ -154,13 +154,13 @@ En exempeltopologi som använder den här komponenten och fungerar med Storm på
 
 1. Öppna **Spout.cs**. Spouts används för att läsa data i en topologi från en extern källa. Huvudkomponenterna för en kanal är:
 
-   * **NextTuple**: anropas av Storm när kanal som är tillåtet att skapa nya tupplar.
+   * **NextTuple**: Anropas av Storm när kanal som är tillåtet att skapa nya tupplar.
 
-   * **Ack** (endast transaktionella topologi): hanterar bekräftelser som initieras av andra komponenter i topologin för tupplar som skickas från kanal. Kanske uttrycka en tuppel kan den kanal som vet att den har bearbetats av underordnade komponenter.
+   * **Ack** (endast transaktionella topologi): Hanterar bekräftelser som initieras av andra komponenter i topologin för tupplar som skickas från kanal. Kanske uttrycka en tuppel kan den kanal som vet att den har bearbetats av underordnade komponenter.
 
-   * **Misslyckas** (endast transaktionella topologi): hanterar tupplar som misslyckas bearbetning av andra komponenter i topologin. Implementera en metod som misslyckas kan du generera tuppeln igen så att de kan bearbetas igen.
+   * **Misslyckas** (endast transaktionella topologi): Hanterar tupplar som misslyckas bearbetning av andra komponenter i topologin. Implementera en metod som misslyckas kan du generera tuppeln igen så att de kan bearbetas igen.
 
-2. Ersätt innehållet i den **kanalen** klassen med följande text: den här spout slumpmässigt genererar en mening till topologin.
+2. Ersätt innehållet i den **kanalen** klassen med följande text: Den här spout genererar slumpmässigt en mening till topologin.
 
     ```csharp
     private Context ctx;
@@ -226,14 +226,14 @@ En exempeltopologi som använder den här komponenten och fungerar med Storm på
 
 2. I **Solution Explorer**, högerklicka på projektet och välj **Lägg till** > **nytt objekt**. I listan, väljer **Storm bult**, och ange **Splitter.cs** som namn. Upprepa den här processen att skapa en andra bult med namnet **Counter.cs**.
 
-   * **Splitter.CS**: implementerar en bult som delar upp meningar i enskilda ord och genererar en ny ström av orden.
+   * **Splitter.CS**: Implementerar en bult som delar upp meningar i enskilda ord och genererar en ny ström av orden.
 
-   * **Counter.CS**: implementerar en bult som räknar varje ord och genererar en ny ström av ord och antalet för varje ord.
+   * **Counter.CS**: Implementerar en bult som räknar varje ord och genererar en ny ström av ord och antalet för varje ord.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Dessa bultar läsa och skriva till dataströmmar, men du kan också använda en bult för att kommunicera med källor, exempelvis en databas eller tjänst.
 
-3. Öppna **Splitter.cs**. Det har bara en av metoderna som standard: **kör**. Execute-metoden anropas när bulten tar emot en tuppel för bearbetning. Här kan du kan läsa och bearbeta inkommande tupplar och generera utgående tupplar.
+3. Öppna **Splitter.cs**. Den har bara en av metoderna som standard: **Köra**. Execute-metoden anropas när bulten tar emot en tuppel för bearbetning. Här kan du kan läsa och bearbeta inkommande tupplar och generera utgående tupplar.
 
 4. Ersätt innehållet i den **delare** klassen med följande kod:
 
@@ -408,21 +408,21 @@ return topologyBuilder;
 
 1. I **Solution Explorer**, högerklicka på projektet och välj **skicka till Storm på HDInsight**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om du uppmanas ange autentiseringsuppgifterna för din Azure-prenumeration. Om du har mer än en prenumeration kan du logga in på det som innehåller ditt Storm på HDInsight-kluster.
 
 2. Välj ditt Storm på HDInsight-kluster från den **Storm-kluster** listrutan och välj sedan **skicka**. Du kan övervaka om överföringen lyckas med hjälp av den **utdata** fönster.
 
 3. När topologin har skickats, den **Storm-topologier** för klustret ska visas. Välj den **WordCount** topologi från listan för att visa information om topologin som körs.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också visa **Storm-topologier** från **Server Explorer**. Expandera **Azure** > **HDInsight**, högerklicka på ett Storm på HDInsight-kluster och välj sedan **Zobrazit Topologie Stormu**.
 
     Dubbelklicka på komponenten i diagrammet om du vill visa information om komponenterna i topologin.
 
 4. Från den **Topology Summary** klickar du på **Kill** att stoppa topologin.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Storm-topologier fortsätter att köras tills de inaktiveras eller klustret tas bort.
 
 ## <a name="transactional-topology"></a>Transaktionell topologi
@@ -431,13 +431,13 @@ Föregående topologin är icke-transaktionell. Komponenterna i topologin implem
 
 Transaktionell topologier implementera följande för att stödja återuppspelning av data:
 
-* **Cachelagring av metadata**: kanal som måste lagra metadata om data som sänds, så att data kan hämtas och genereras igen om ett fel inträffar. Eftersom de data som skickas från exemplet är små, lagras rådata för varje tuppel i en ordlista för repetitionsattacker.
+* **Cachelagring av metadata**: Kanal måste lagra metadata om data som sänds, så att data kan hämtas och genereras igen om ett fel inträffar. Eftersom de data som skickas från exemplet är små, lagras rådata för varje tuppel i en ordlista för repetitionsattacker.
 
-* **Ack**: varje bult i topologin kan anropa `this.ctx.Ack(tuple)` att bekräfta att den har bearbetat en tuppel. När alla bultar har bekräftat tuppel, den `Ack` spout-metoden har anropats. Den `Ack` metoden kan spout att ta bort data som har cachelagrats för repetitionsattacker.
+* **Ack**: Varje bult i topologin kan anropa `this.ctx.Ack(tuple)` att bekräfta att den har bearbetat en tuppel. När alla bultar har bekräftat tuppel, den `Ack` spout-metoden har anropats. Den `Ack` metoden kan spout att ta bort data som har cachelagrats för repetitionsattacker.
 
-* **Misslyckas**: varje bult kan anropa `this.ctx.Fail(tuple)` som visar att bearbetningen misslyckades för en tuppel. Felet sprids till den `Fail` metoden för kanal, där tuppeln spelas upp med hjälp av cachelagrade metadata.
+* **Misslyckas**: Varje bult kan anropa `this.ctx.Fail(tuple)` som visar att bearbetningen misslyckades för en tuppel. Felet sprids till den `Fail` metoden för kanal, där tuppeln spelas upp med hjälp av cachelagrade metadata.
 
-* **Sekvensera ID**: när avger en tuppel en unik sekvens-ID kan anges. Det här värdet identifierar tuppel för bearbetning av repetitionsattacker (Ack och misslyckas). Till exempel kanal i den **Storm-exempel** projektet använder följande när du sänder data:
+* **Sekvensera ID**: När avger en tuppel kan en unik sekvens-ID anges. Det här värdet identifierar tuppel för bearbetning av repetitionsattacker (Ack och misslyckas). Till exempel kanal i den **Storm-exempel** projektet använder följande när du sänder data:
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
@@ -451,21 +451,21 @@ Du kan också använda Data Lake tools för Visual Studio för att skapa hybridt
 
 Ett exempel på en hybridtopologi, skapa ett projekt och välj **Storm Hybrid exempel**. Den här typen av exemplet visar följande begrepp:
 
-* **Java spout** och  **C# bult**: definitionerna i **HybridTopology_javaSpout_csharpBolt**.
+* **Java spout** och  **C# bult**: Definitionerna i **HybridTopology_javaSpout_csharpBolt**.
 
     * En transaktionell version har definierats i **HybridTopologyTx_javaSpout_csharpBolt**.
 
-* **C#kanalen** och **Java bult**: definitionerna i **HybridTopology_csharpSpout_javaBolt**.
+* **C#kanalen** och **Java bult**: Definitionerna i **HybridTopology_csharpSpout_javaBolt**.
 
     * En transaktionell version har definierats i **HybridTopologyTx_csharpSpout_javaBolt**.
 
-  > [!NOTE]
+  > [!NOTE]  
   > Den här versionen visas också hur du använder Clojure kod från en textfil som en Java-komponent.
 
 
 Om du vill växla topologin som används när projektet har skickats, flytta den `[Active(true)]` instruktionen för topologin som du vill använda, innan den skickas till klustret.
 
-> [!NOTE]
+> [!NOTE]  
 > Alla Java-filer som krävs har angetts som en del av det här projektet i den **JavaDependency** mapp.
 
 Tänk på följande när du skapar och skickar en hybridtopologi:
@@ -480,11 +480,11 @@ Tänk på följande när du skapar och skickar en hybridtopologi:
 
 SCP.NET version 0.9.4.203 introducerar en ny klass och metod för att arbeta med Event Hub-kanal (en Java kanal som läser från Event Hubs). När du skapar en topologi som använder en Event Hub-kanal kan du använda följande metoder:
 
-* **EventHubSpoutConfig** klass: skapar ett objekt som innehåller konfiguration för komponenten kanal.
+* **EventHubSpoutConfig** klass: Skapar ett objekt som innehåller konfigurationen för komponenten kanal.
 
-* **TopologyBuilder.SetEventHubSpout** metod: lägger till Event Hub spout-komponenten i topologin.
+* **TopologyBuilder.SetEventHubSpout** metod: Lägger till Event Hub spout-komponenten i topologin.
 
-> [!NOTE]
+> [!NOTE]  
 > Du måste fortfarande använda den **CustomizedInteropJSONSerializer** att serialisera data som produceras av kanal.
 
 ## <a id="configurationmanager"></a>Använda ConfigurationManager
@@ -532,7 +532,7 @@ De senaste versionerna av SCP.NET stöd för uppgradering av paketet via NuGet. 
 
 2. Välj Pakethanteraren, **uppdateringar**. Om det finns en uppdatering, finns de. Klicka på **uppdatering** för paket att installera den.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om ditt projekt har skapats med en tidigare version av SCP.NET som inte har använt NuGet, måste du utföra följande steg för att uppdatera till en nyare version:
 >
 > 1. Högerklicka på projektet i **Solution Explorer** och välj **Hantera NuGet-paket**.
@@ -562,7 +562,7 @@ Linux-baserade HDInsight-kluster kan du se till att projektet använder binärfi
 
 Även om det är enkelt att distribuera en topologi till ett kluster, i vissa fall kan behöva du testa en topologi lokalt. Använd följande steg för att köra och testa en exempeltopologi i den här självstudien lokalt i din utvecklingsmiljö.
 
-> [!WARNING]
+> [!WARNING]  
 > Lokal testning fungerar endast för basic, C#-topologier endast. Du kan inte använda lokal testning för hybridtopologier eller topologier med flera strömmar.
 
 1. I **Solution Explorer**, högerklicka på projektet och välj **egenskaper**. I egenskaperna för projektet, ändra den **utdata typ** till **konsolprogram**.
@@ -684,12 +684,12 @@ Linux-baserade HDInsight-kluster kan du se till att projektet använder binärfi
 
 2. Spara ändringarna och klicka sedan på **F5** eller välj **felsöka** > **Starta felsökning** starta projektet. Ett konsolfönster ska visas och logga status som tester förloppet. När **testerna slutförda** visas trycker du på valfri tangent för att Stäng fönstret.
 
-3. Använd **Windows Explorer** att hitta den katalog som innehåller ditt projekt. Till exempel: **C:\Users\<användarnamn > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. I den här katalogen, öppna **Bin**, och klicka sedan på **felsöka**. Du bör se textfiler som skapas när du kört testerna: sentences.txt och counter.txt splitter.txt. Öppna varje textfil och granska data.
+3. Använd **Windows Explorer** att hitta den katalog som innehåller ditt projekt. Exempel: **C:\Users\<användarnamn > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. I den här katalogen, öppna **Bin**, och klicka sedan på **felsöka**. Du bör se textfiler som skapas när du kört testerna: sentences.txt och counter.txt splitter.txt. Öppna varje textfil och granska data.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Strängdata kvarstår som en matris med decimalvärden i dessa filer. Till exempel \[[97,103,111]] i den **splitter.txt** filen är ordet *och*.
 
-> [!NOTE]
+> [!NOTE]  
 > Se till att ange den **projektet typ** tillbaka till **klassbiblioteket** innan du distribuerar till ett Storm på HDInsight-kluster.
 
 ### <a name="log-information"></a>Logginformation
@@ -702,7 +702,7 @@ Context.Logger.Info("Component started");
 
 Logginformation kan ses från den **loggen för Hadoop-tjänsten**, som finns i **Server Explorer**. Expandera posten för ditt Storm på HDInsight-kluster och sedan expandera **loggen för Hadoop-tjänsten**. Välj slutligen loggfilen ska visa.
 
-> [!NOTE]
+> [!NOTE]  
 > Loggar lagras i Azure storage-kontot som används av klustret. Om du vill visa loggarna i Visual Studio, måste du logga in på Azure-prenumerationen som äger storage-konto.
 
 ### <a name="view-error-information"></a>Visa felinformation

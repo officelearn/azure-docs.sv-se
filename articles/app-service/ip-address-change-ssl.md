@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6c8c86ff6212acc31e961d6ae62836ca2b7b7380
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270798"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714227"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Så här förbereder du för en ändring för SSL IP-adress
 
@@ -52,4 +52,4 @@ Om du har fått ett meddelande om att SSL-IP-adressen för din Azure App Service
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs hur du förbereder en ändring av IP-adress som initierades av Azure. Mer information om IP-adresser i Azure App Service finns i [SSL och SSL-IP-adresser i Azure App Service](app-service-ip-addresses.md).
+Den här artikeln beskrivs hur du förbereder en ändring av IP-adress som initierades av Azure. Mer information om IP-adresser i Azure App Service finns i [SSL och SSL-IP-adresser i Azure App Service](overview-inbound-outbound-ips.md).

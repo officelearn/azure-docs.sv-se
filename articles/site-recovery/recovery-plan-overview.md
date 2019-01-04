@@ -3,16 +3,17 @@ title: Med hjälp av återställningsplaner för haveriberedskap med Azure Site 
 description: Lär dig mer om hur du använder återställningsplaner för haveriberedskap med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848399"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975669"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -60,11 +61,11 @@ Med den här anpassningen på plats är här vad som händer när du kör en red
 
 Återställa stora program kan vara en komplicerad uppgift. Manuella steg gör processen felbenägna och den person som kör redundans kanske inte är medveten om alla app krångla. Du kan använda en återställningsplan för att införa ordning och automatisera de åtgärder som behövs i varje steg med hjälp av Azure Automation-runbooks för redundans till Azure eller skript. Du kan infoga pauser för manuella åtgärder i återställningsplaner för uppgifter som inte kan automatiseras. Det finns ett par olika typer av uppgifter som du kan konfigurera:
 
-* **Uppgifter för virtuella Azure-datorn efter redundans**: när du växlar över till Azure, vanligtvis måste du utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundans. Exempel: 
+* **Uppgifter för virtuella Azure-datorn efter redundans**: När du växlar över till Azure, vanligtvis måste du utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundans. Exempel: 
     * Skapa en offentlig IP-adress för virtuella Azure-datorn.
     * Tilldela en nätverkssäkerhetsgrupp till nätverkskortet på den virtuella Azure-datorn.
     * Lägg till en belastningsutjämnare i en tillgänglighetsuppsättning.
-* **Aktiviteter i virtuell dator efter redundans**: dessa uppgifter omkonfigurera vanligtvis när appen körs på datorn, så att de fortsätter att fungera korrekt i den nya miljön. Exempel:
+* **Aktiviteter i virtuell dator efter redundans**: Dessa uppgifter konfigurera vanligtvis när appen körs på datorn, så att de fortsätter att fungera korrekt i den nya miljön. Exempel:
     * Ändra anslutningssträngen för databasen på datorn.
     * Ändra webbserverns konfiguration eller regler.
 

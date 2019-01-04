@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963604"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600316"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azures ordlista: en ordlista med termer i molnet på Azure-plattformen
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: En ordlista med termer i molnet på Azure-plattformen
 
 Ordlista för Microsoft Azure är en kort ordlista med molnet terminologi för Azure-plattformen. Se även:
 
@@ -37,7 +37,7 @@ Se [registrera dig för en Azure-prenumeration med ditt Office 365-konto](billin
 Ett annat namn för [App Service-app](#app-service-app).
 
 ## <a name="app-service-app"></a>App Service-app
-Beräkningsresurserna som [Azure App Service](app-service/app-service-web-overview.md) tillhandahåller för hantering av en webbplatsen eller programmet, webb-API, eller [mobilappserverdel](app-service-mobile/app-service-mobile-value-prop.md). App Service-appar kallas även att *Apptjänster*, *webbappar*, *API apps*, och *mobilappar*.
+Beräkningsresurserna som [Azure App Service](app-service/overview.md) tillhandahåller för hantering av en webbplatsen eller programmet, webb-API, eller [mobilappserverdel](app-service-mobile/app-service-mobile-value-prop.md). App Service-appar kallas även att *Apptjänster*, *webbappar*, *API apps*, och *mobilappar*.
 
 ## <a name="availability-set"></a>Tillgänglighetsuppsättning
 En samling med virtuella datorer som hanteras tillsammans att tillhandahålla program redundans och tillförlitlighet. Användning av en tillgänglighetsuppsättning säkerställer att minst en virtuell dator under en planerad eller oplanerad underhållshändelse är tillgänglig.  
@@ -106,13 +106,13 @@ Se [översikt över Azure Resource Manager](azure-resource-manager/resource-grou
 En JSON-fil som deklarativt definierar en eller flera Azure-resurser och som definierar beroenden mellan distribuerade resurser. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger.  
 Se [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>resursprovider
+## <a name="resource-provider"></a>Provider för nätverksresurser
 En tjänst som tillhandahåller resurserna som du kan distribuera och hantera via Resource Manager. Varje resursprovider tillhandahåller åtgärder som hjälper dig att arbeta med de resurser du distribuerar. Resursproviders kan nås via Azure portal, Azure PowerShell och flera programmeringsspråk SDK: er.  
 Se [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="role"></a>roll
 Ett sätt för att styra åtkomst som kan tilldelas till användare, grupper och tjänster. Roller kan utföra åtgärder som att skapa, hantera, och Läs om Azure-resurser.  
-Se [RBAC: inbyggda roller](role-based-access-control/built-in-roles.md)
+Se [RBAC: Inbyggda roller](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>serviceavtal (SLA)
 Det avtal som beskriver Microsofts åtaganden gällande drifttid och anslutning. Varje Azure-tjänst har en specifik SLA.  

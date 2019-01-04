@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 777b0e6e98c0d8d726b69f0fc169f2d2752b4b6d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865020"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603955"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastisk fråga översikt (förhandsversion)
 
@@ -56,7 +56,7 @@ En elastisk förfrågan tillåter enkel åtkomst till en hel samling databaser v
 
 För elastisk fråga kännetecknas av följande topologier:
 
-* **Vertikal partitionering - databasöverskridande frågor** (topologi 1): data partitioneras vertikalt mellan ett antal databaser i en datanivå. Normalt finnas olika uppsättningar med tabeller på olika databaser. Det innebär att schemat är annorlunda på olika databaser. Alla tabeller för inventering är exempel på en databas när alla redovisning-relaterade tabeller är på en andra databas. Vanliga användningsområden med den här topologin kräver ett till frågor, eller att kompilera rapporter över tabeller i flera databaser.
+* **Vertikal partitionering - databasöverskridande frågor** (topologi 1): Data partitioneras vertikalt mellan ett antal databaser i en datanivå. Normalt finnas olika uppsättningar med tabeller på olika databaser. Det innebär att schemat är annorlunda på olika databaser. Alla tabeller för inventering är exempel på en databas när alla redovisning-relaterade tabeller är på en andra databas. Vanliga användningsområden med den här topologin kräver ett till frågor, eller att kompilera rapporter över tabeller i flera databaser.
 * **Horisontell partitionering – horisontell partitionering** (topologi 2): Data partitioneras vågrätt för att distribuera rader i en utskalad data nivå. Schemat är identiska på alla deltagande databaser med den här metoden. Den här metoden kallas även ”horisontell partitionering”. Horisontell partitionering kan utföras och hanterade med (1) elastic database-verktygen bibliotek eller (2) self-partitionering. En elastisk förfrågan används för att fråga efter eller kompilera rapporter över många skärvor.
 
 > [!NOTE]
@@ -73,13 +73,13 @@ En elastisk förfrågan kan användas för att se data i en SQL-databas som är 
 > Du måste ha behörigheten ALTER ANY extern DATAKÄLLA. Den här behörigheten ingår behörigheten ALTER DATABASE. ALTER ANY extern DATAKÄLLA behörighet att referera till den underliggande datakällan.
 >
 
-**Referensdata**: topologin används för hantering av referens. I figuren nedan visas hålls två tabeller (T1 och T2) med referensdata på en dedikerad databas. Med hjälp av en elastisk förfrågan, du kan nu komma åt tabeller T1 och T2 via en fjärranslutning från andra databaser, enligt bilden. Använd topologi 1 om referenstabeller är små eller fjärranslutna frågor till referenstabellen har selektiv predikat.
+**Referensdata**: Topologin används för hantering av referens. I figuren nedan visas hålls två tabeller (T1 och T2) med referensdata på en dedikerad databas. Med hjälp av en elastisk förfrågan, du kan nu komma åt tabeller T1 och T2 via en fjärranslutning från andra databaser, enligt bilden. Använd topologi 1 om referenstabeller är små eller fjärranslutna frågor till referenstabellen har selektiv predikat.
 
 **Bild 2** vertikal partitionering – med hjälp av elastisk fråga fråga referensdata
 
 ![Vertikal partitionering – med hjälp av elastisk fråga fråga referensdata][3]
 
-**Databasöverskridande frågor**: elastiska frågor aktivera användningsfall som kräver fråga över flera SQL-databaser. Bild 3 visar fyra olika databaser: CRM, inventering, HR och produkter. Frågor som utförs i en av databaserna måste också åtkomst till en eller alla andra databaser. Med en elastisk förfrågan kan konfigurera du din databas för det här fallet genom att köra några enkla DDL-instruktionerna på var och en av de fyra databaserna. Efter den här engångskonfiguration är åtkomst till en fjärrtabell lika enkelt som refererar till en lokal tabell från T-SQL-frågor eller från din BI-verktyg. Den här metoden rekommenderas om fjärrfrågor inte returnerar stora resultat.
+**Databasöverskridande frågor**: Elastiska frågor aktivera användningsfall som kräver fråga över flera SQL-databaser. Bild 3 visar fyra olika databaser: CRM, inventering, HR och produkter. Frågor som utförs i en av databaserna måste också åtkomst till en eller alla andra databaser. Med en elastisk förfrågan kan konfigurera du din databas för det här fallet genom att köra några enkla DDL-instruktionerna på var och en av de fyra databaserna. Efter den här engångskonfiguration är åtkomst till en fjärrtabell lika enkelt som refererar till en lokal tabell från T-SQL-frågor eller från din BI-verktyg. Den här metoden rekommenderas om fjärrfrågor inte returnerar stora resultat.
 
 **Bild 3** vertikal partitionering – med hjälp av elastisk fråga att fråga över olika databaser
 

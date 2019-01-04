@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567442"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555650"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)
 
@@ -111,7 +111,7 @@ Starta om daemon när du har angett etableringsinformationen i konfigurationsfil
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk etablering
+### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk försörjning
 
 Att automatiskt etablera en enhet [konfigurera Device Provisioning-tjänsten och hämta din enhet registrerings-ID](how-to-auto-provision-simulated-device-linux.md). Automatisk etablering fungerar bara med enheter som har ett chip för Trusted Platform Module (TPM). Till exempel levereras Raspberry Pi enheter inte med TPM som standard. 
 
@@ -175,6 +175,39 @@ På resursen begränsad enheter, vi rekommenderar starkt att du ställer in den 
 
 Om ditt nätverk som har en proxyserver, följer du stegen i [konfigurerar IoT Edge-enheten att kommunicera via en proxyserver](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Avinstallera IoT Edge
+
+Om du vill ta bort IoT Edge-installationen från din Linux-enhet kan använda följande kommandon från kommandoraden. 
+
+Ta bort IoT Edge-körningen. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+När IoT Edge-körningen tas bort, stoppas den behållare som det skapats men finns kvar på enheten. Visa alla behållare för att se vilka som finns kvar. 
+
+```bash
+sudo docker ps -a
+```
+
+Ta bort behållarna från enheten, till exempel två körningsbehållarna. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Ta bort behållaren runtime slutligen från din enhet. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
+Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
+
 Om du har problem med Edge-körningen installeras korrekt, ser du den [felsökning](troubleshoot.md#stability-issues-on-resource-constrained-devices) sidan.
+
+Om du vill uppdatera en befintlig installation till den senaste versionen av IoT Edge, se [uppdatera IoT Edge security daemon och runtime](how-to-update-iot-edge.md).

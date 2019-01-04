@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140038"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554868"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsversionen av Microsoft Azure Machine Learning Python-klientbiblioteket aktivera säker åtkomst till dina Azure Machine Learning-datauppsättningar från en lokal Python-miljö och möjliggör skapandet och hanteringen av datauppsättningar i en arbetsyta.
 
 Det här avsnittet innehåller instruktioner om hur du:
 
-* installera Machine Learning Python-klientbiblioteket 
+* installera Machine Learning Python-klientbiblioteket
 * få åtkomst till och ladda upp datauppsättningar, inklusive instruktioner för hur du hämtar åtkomstbehörighet till Azure Machine Learning datauppsättningar från den lokala miljön i Python
 * åtkomst till mellanliggande datauppsättningar från experiment
 * använda Python-klientbiblioteket för att räkna upp datauppsättningar, få åtkomst till metadata, läsa innehållet i en datauppsättning, skapa nya datauppsättningar och uppdatera befintliga datauppsättningar
@@ -49,7 +49,7 @@ Azure Machine Learning Python-klientbiblioteket måste också installeras för a
 
     pip install azureml
 
-Du kan också hämta och installera från källor på [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Du kan också hämta och installera från källor på [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -74,11 +74,11 @@ Om din roll inte har angetts som **ägare**, kan du antingen begäran om att bju
 
 För att skaffa autentiseringstoken kan göra du något av följande:
 
-* Be om en token från en ägare. Ägare kan komma åt sina auktoriseringstoken från inställningssidan för arbetsytan i Studio. Välj **inställningar** från den vänstra rutan och klicka på **AUKTORISERINGSTOKEN** att se de primära och sekundära token.  Även om primärt eller sekundära auktoriseringstoken kan användas i kodfragmentet, rekommenderar vi att ägare bara dela de sekundära auktoriseringstoken.
+* Be om en token från en ägare. Ägare kan komma åt sina auktoriseringstoken från inställningssidan för arbetsytan i Studio. Välj **inställningar** från den vänstra rutan och klicka på **AUKTORISERINGSTOKEN** att se de primära och sekundära token. Även om primärt eller sekundära auktoriseringstoken kan användas i kodfragmentet, rekommenderar vi att ägare bara dela de sekundära auktoriseringstoken.
 
 ![Auktoriseringstoken](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Be att höjas upp till rollen ägare.  Då måste en aktuell ägare för arbetsytan där du först ta bort dig från arbetsytan sedan nytt bjuda in dig till den som ägare.
+* Be att höjas upp till rollen ägare. Då måste en aktuell ägare för arbetsytan där du först ta bort dig från arbetsytan sedan nytt bjuda in dig till den som ägare.
 
 När utvecklare har fått arbetsytans id och auktorisering token, de kan komma åt arbetsytan med kodfragmentet oavsett deras roll.
 

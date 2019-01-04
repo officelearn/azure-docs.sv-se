@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961611"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714329"
 ---
 # <a name="article-top"></a>Migrera din befintliga Azure-Mobiltjänst till Azure App Service
 Med den [allmän tillgänglighet för Azure App Service], Azure Mobile Services-platser kan enkelt migreras på plats kan utnyttja alla funktioner i Azure App Service.  Det här dokumentet beskriver vad som händer när du migrerar din webbplats från Azure Mobile Services till Azure App Service.
@@ -176,7 +176,7 @@ Alla autentiseringsinställningar är tillgängliga som Appinställningar på we
 | Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
 | Azure AD |**MS\_AadClientID** | |**MS\_AadTenants** |
 
-Obs: **MS\_AadTenants** lagras som en kommaavgränsad lista över klient domäner (fälten ”tillåtna Klientorganisationer” i Mobile Services-portalen).
+Obs! **MS\_AadTenants** lagras som en kommaavgränsad lista över klient domäner (fälten ”tillåtna Klientorganisationer” i Mobile Services-portalen).
 
 > [!WARNING]
 > **Använd inte autentiseringsmekanismer i menyn Inställningar**
@@ -219,7 +219,7 @@ Alla scheduler-jobb är tillgängliga via avsnittet Scheduler-Jobbsamlingar.  Ö
 1. Logga in på [Azure Portal].
 2. Välj **Bläddra >**, ange **schema** i den *Filter* rutan och välj sedan **Scheduler samlingar**.
 3. Välj Jobbsamlingen för din webbplats.  Namnet är *sitename*-jobb.
-4. Klicka på **inställningar**.
+4. Klicka på **Inställningar**.
 5. Klicka på **Scheduler-jobb** under hantera.
 
 Schemalagda jobb visas med den frekvens som du har angett före migreringen.  På begäran-jobben är inaktiverade.  Köra ett jobb på begäran:
@@ -310,7 +310,7 @@ Diagnostisk loggning är normalt inaktiverat i en Azure App Service.  Aktivera D
 2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din migrerade mobiltjänst.
 3. Bladet inställningar öppnas som standard.
 4. Välj **diagnostikloggar** under menyn funktioner.
-5. Klicka på **på** för följande loggar: **Programinloggning (filsystem)**, **detaljerade felmeddelanden**, och **spårning av misslyckade begäranden**
+5. Klicka på **på** för följande loggar: **Programloggning (filsystem)**, **detaljerade felmeddelanden**, och **spårning av misslyckade begäranden**
 6. Klicka på **filsystem** för webbserver-loggning
 7. Klicka på **Spara**
 
@@ -327,7 +327,7 @@ Loggarna visas i fönstret som de skapas.  Du kan också hämta loggar för sena
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Tar bort en migreras Mobile App klon orsakar ett eventuellt strömavbrott
 Om du klona migrerade mobiltjänsten med hjälp av Azure PowerShell och sedan ta bort klonen, tas DNS-posten för produktionstjänsten bort.  Webbplatsen är inte längre vara tillgänglig från Internet.  
 
-Lösning: Om du vill klona din webbplats kan göra det via portalen.
+Lösning: Om du vill klona din webbplats kan du göra det via portalen.
 
 ### <a name="changing-webconfig-does-not-work"></a>Ändra Web.config fungerar inte
 Om du har en ASP.NET-webbplats kan ändras till den `Web.config` filen inte tillämpas.  Azure App Service bygger ett lämpligt `Web.config` fil under starten för mobiltjänster-runtime.  Du kan åsidosätta vissa inställningar (till exempel anpassade huvuden) med hjälp av en XML-transformation.  Skapa en fil i kallas `applicationHost.xdt` -den här filen måste hamnar i den `D:\home\site` på Azure-tjänsten.  Ladda upp den `applicationHost.xdt` filen via ett anpassat distributionsskript eller direkt med hjälp av Kudu.  Nedan visas ett exempel dokument:
@@ -376,25 +376,25 @@ Nu när ditt program har migrerats till App Service, finns det fler funktioner s
 [Prissättning för App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Automatisk skalning]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Klassisk Azure-portal]: https://manage.windowsazure.com
 [Azure Portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler-planer]: ../scheduler/scheduler-plans-billing.md
-[kontinuerligt distribuera]: ../app-service/app-service-continuous-deployment.md
+[kontinuerligt distribuera]: ../app-service/deploy-continuous-deployment.md
 [Omvandla dina blandat namnområden]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [Anpassade domännamn]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [allmän tillgänglighet för Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Loggning]: ../app-service/web-sites-enable-diagnostic-log.md
+[Loggning]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services jämfört med App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Prestandaövervakning]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[mellanlagringsplatser]: ../app-service/web-sites-staged-publishing.md
+[mellanlagringsplatser]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform-exempel]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funktioner]: ../azure-functions/functions-overview.md

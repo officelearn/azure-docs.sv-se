@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: aae3454fc8de8455146fa1189b66e6498c32e20c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ba163b797cfaaf73c660f1ef3d8da18758e8139a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440578"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542007"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbereda för ändring av format till Azure Monitor arkiveras på ett lagringskonto för diagnostikloggar
 
@@ -32,7 +32,7 @@ Azure Monitor erbjuder en funktion som gör det möjligt att skicka diagnostikda
 * Den här ändringen inträffar på en gång i alla regioner för offentliga moln. Ändringen inträffar inte ännu i Azure i Kina, Azure Tyskland och Azure Government-moln.
 * Den här ändringen påverkar följande datatyper:
   * [Diagnostikloggar för Azure-resurs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([finns i listan över resurser här](./../../azure-monitor/platform/tutorial-dashboards.md))
-  * [Azure-Resursmått som exporteras av diagnostikinställningar](./../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
+  * [Azure-Resursmått som exporteras av diagnostikinställningar](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
   * [Azure aktivitetsloggdata som exporteras av loggprofiler](./../../azure-monitor/platform/archive-activity-log.md)
 * Den här ändringen påverkar inte:
   * Flödesloggar för nätverk

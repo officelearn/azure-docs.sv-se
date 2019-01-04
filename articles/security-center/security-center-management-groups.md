@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964125"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720823"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -71,13 +71,13 @@ En Azure Active Directory-klientadministratör har inte direkt åtkomst till Azu
 
    ![Azure AD-egenskaper – skärmbild](./media/security-center-management-groups/aad-properties.png)
 
-3. Under **Global administratör kan hantera Azure-prenumerationer och Hanteringsgrupper**, inställd växeln **Ja**.
+3. Under **åtkomsthantering för Azure-resurser**, inställd växeln **Ja**.
 
    ![Global administratör kan hantera Azure-prenumerationer och Hanteringsgrupper – skärmbild](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Om du anger växeln till **Ja**, ditt globala administratörskonto (för tillfället inloggad användare) läggs till rollen Administratör för användaråtkomst i Azure RBAC vid rotscopet (`/`), vilket ger dig tillgång till Visa och rapportera på alla Azure-prenumerationer som är associerade med Azure AD-klienten.
+   - När du ställer in växeln på Ja, har du tilldelats rollen Administratör för användaråtkomst i Azure RBAC vid rotscopet (/). Detta ger dig behörighet att tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Den här växeln är endast tillgänglig för användare som har tilldelats rollen Global administratör i Azure AD.
 
-   - Om du anger växeln till **nr**, ditt globala administratörskonto (för tillfället inloggad användare) tas bort från rollen Administratör för användaråtkomst i Azure RBAC. Du kan inte se alla Azure-prenumerationer som är associerade med Azure AD-klient, och du kan visa och hantera endast Azure-prenumerationer som du har beviljats åtkomst.
+  - När du ställer in växeln på Nej tas rollen Administratör för användaråtkomst i Azure RBAC bort från ditt konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Du kan visa och hantera den Azure-prenumerationer och hanteringsgrupper som du har beviljats åtkomst.
 
 4. Klicka på **spara** att spara dina inställningar.
 

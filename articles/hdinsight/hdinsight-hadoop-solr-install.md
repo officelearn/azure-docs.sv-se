@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384504"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713564"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Solr på Windows-baserade HDInsight-kluster
 
@@ -38,7 +38,7 @@ Exempelskript som används i det här avsnittet skapar du ett Windows-baserade S
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>Vad är Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> är en enterprise search plattform som möjliggör kraftfull fulltextsökning på data. Hadoop kan lagra och hantera stora mängder data, ger Apache Solr sökfunktioner för att snabbt hämta data.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> är en enterprise search plattform som möjliggör kraftfull fulltextsökning på data. Hadoop kan lagra och hantera stora mängder data, ger Apache Solr sökfunktioner för att snabbt hämta data.
 
 ## <a name="install-solr-using-portal"></a>Installera Solr med hjälp av portalen
 1. Börja skapa ett kluster med hjälp av den **skapa anpassade** enligt beskrivningen på [skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md).
@@ -156,7 +156,7 @@ Du måste börja med att indexera Solr med vissa datafiler. Du kan sedan använd
           </response>
       ```
       
-   2. I fjärrsessionen, går du till {SOLR_HOME}\{samling} \data. För klustret skapas via exempelskriptet, bör detta vara `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. På den här platsen bör du se en mapp för ögonblicksbilder som skapats med ett namn som liknar **ögonblicksbild.\*tidsstämpel**\*.
+   2. I fjärrsessionen, går du till {SOLR_HOME}\{samling} \data. För klustret skapas via exempelskriptet, bör detta vara `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. På den här platsen bör du se en mapp för ögonblicksbilder som skapats med ett namn som liknar **ögonblicksbild.* tidsstämpel ***.
    
    3. ZIP-mappen för ögonblicksbilder och överför den till Azure Blob storage. Gå till platsen för mappen för ögonblicksbilder med hjälp av följande kommando från kommandoraden Hadoop:
 

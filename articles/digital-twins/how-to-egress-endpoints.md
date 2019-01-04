@@ -1,25 +1,71 @@
 ---
 title: Utgående och slutpunkter i Azure Digital Twins | Microsoft Docs
-description: Riktlinjer för hur du skapar slutpunkter med Azure Digital Twins
+description: Riktlinjer för hur du skapar slutpunkter med Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636313"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994847"
 ---
 # <a name="egress-and-endpoints"></a>Utgående och slutpunkter
 
-Azure Digital Twins stöder begreppet **slutpunkter**. Varje slutpunkt representerar en koordinator för meddelande eller händelse i användarens Azure-prenumeration. Händelser och meddelanden kan skickas till Azure Event Hubs, Azure Event Grid och Azure Service Bus-ämnen.
+Azure Digital Twins *slutpunkter* representerar förhandlare meddelandet eller händelse inom en användares Azure-prenumeration. Händelser och meddelanden kan skickas till Azure Event Hubs, Azure Event Grid och Azure Service Bus-ämnen.
 
-Händelser skickas till slutpunkter enligt fördefinierade inställningar för routning. Användaren kan ange vilken slutpunkt som ska ta emot någon av följande händelser: 
+Händelser dirigeras till slutpunkterna enligt fördefinierade inställningar för routning. Användare kan ange vilka *händelsetyper* får varje slutpunkt.
+
+Mer information om händelser, Routning och händelsetyper, referera till [routning händelser och meddelanden i Azure Digital Twins](./concepts-events-routing.md).
+
+## <a name="events"></a>Händelser
+
+Händelser som skickas av IoT-objekt (till exempel enheter och sensorer) ska bearbetas av Azure meddelandet och händelsen asynkrona meddelandeköer. Händelser som definieras av följande [Schemareferens i Azure Event Grid event](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Attribut | Typ | Beskrivning |
+| --- | --- | --- |
+| id | sträng | Unik identifierare för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| data | objekt | Händelsedata är specifika för resursprovidern. |
+| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+
+Mer information om Event Grid-Händelseschema:
+
+- Granska den [Schemareferens i Azure Event Grid event](../event-grid/event-schema.md).
+- Läs den [referens för Azure EventGrid Node.js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Händelsetyper
+
+Händelsetyper klassificera natur händelsen och ställs i den **händelsetyp** fält. Tillgängliga händelsetyper anges av i följande lista:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Händelser skickas till slutpunkter enligt fördefinierade inställningar för r
 - SpaceChange
 - DeviceMessage
 
-En grundläggande förståelse för händelser som Routning och händelsetyper finns [routning händelser och meddelanden](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Händelsebeskrivning typer
-
-Händelseformatet för var och en av händelsetyperna som beskrivs i följande avsnitt.
+I följande underavsnitt beskrivs ytterligare händelseformatet för varje händelsetyp av.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** gäller för ändringar i metadatadiagram. Den **ämne** egenskap anger typ av objekt som påverkas. Följande typer av objekt kan utlösa den här händelsen: 
+**TopologyOperation** gäller för ändringar i metadatadiagram. Den **ämne** egenskap anger typ av objekt som påverkas. Följande typer av objekt kan utlösa den här händelsen:
 
 - Enhet
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Händelseformatet för var och en av händelsetyperna som beskrivs i följande a
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** är en händelse som skickas av en användardefinierad funktion (UDF). 
+**UdfCustom** är en händelse som skickas av en användardefinierad funktion (UDF).
   
 > [!IMPORTANT]  
 > Den här händelsen måste uttryckligen skickas från UDF själva.
@@ -195,10 +237,19 @@ Med hjälp av **DeviceMessage**, kan du ange en **EventHub** anslutning som råt
 
 ## <a name="configure-endpoints"></a>Konfigurera slutpunkter
 
-Hantering av slutpunkten utnyttjas via API-slutpunkter. Följande exempel visar hur du konfigurerar de olika slutpunkterna som stöds. Vara särskilt uppmärksam på matrisen för typer som den definierar routning för slutpunkten:
+Hantering av slutpunkten utnyttjas via API-slutpunkter.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Följande exempel visar hur du konfigurerar slutpunkter som stöds.
+
+>[!IMPORTANT]
+> Betala titta noga på **eventTypes** attribut. Den definierar vilken händelse typer hanteras av slutpunkten och därmed avgöra dess routning.
+
+En autentiserad HTTP POST-begäran mot
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Vägen till Service Bus händelsetyper **SensorChange**, **SpaceChange**, och **TopologyOperation**:

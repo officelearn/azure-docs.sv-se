@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336891"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723543"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analysera Log Analytics-data i Azure Monitor
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Så här Log Analytics-data ordnas
 När du skapar en fråga kan börja du med att bestämma vilka tabeller innehåller de data som du letar efter. Olika typer av data är indelade i dedikerade tabeller i varje [Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md).  Dokumentationen för olika datakällor som innehåller namnet på datatypen som skapas och en beskrivning av var och en av dess egenskaper.  Många frågor kräver endast data från en enskild tabell, men andra kan använda en mängd olika alternativ för att inkludera data från flera tabeller.
 
-Medan [Application Insights](../../application-insights/app-insights-overview.md) butiker programdata som begäranden, undantag, spårningar och användning i Log Analytics, dessa data lagras i en annan partition än andra loggdata. Du använder samma frågespråk för att komma åt dessa data men måste använda den [Application Insights-konsolen](../../application-insights/app-insights-analytics.md) eller [Application Insights REST API](https://dev.applicationinsights.io/) att komma åt den. Du kan använda [frågor över flera resurser](../../azure-monitor/log-query/cross-workspace-query.md) att kombinera Application Insights-data med andra data i Log Analytics.
+Medan [Application Insights](../../application-insights/app-insights-overview.md) butiker programdata som begäranden, undantag, spårningar och användning i Log Analytics, dessa data lagras i en annan partition än andra loggdata. Du använder samma frågespråk för att komma åt dessa data men måste använda den [Application Insights-konsolen](../../azure-monitor/app/analytics.md) eller [Application Insights REST API](https://dev.applicationinsights.io/) att komma åt den. Du kan använda [frågor över flera resurser](../../azure-monitor/log-query/cross-workspace-query.md) att kombinera Application Insights-data med andra data i Log Analytics.
 
 
 ![Tabeller](media/log-query-overview/queries-tables.png)

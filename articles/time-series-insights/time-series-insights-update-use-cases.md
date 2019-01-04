@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6ee03197a78a75ca57d0ed049cdd6a8df8b2149
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7625eb383beef2e86cc8a977362db09329a6ea1b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272974"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556721"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Preview-användningsfall
 
@@ -32,7 +32,7 @@ Det här dokumentet innehåller en översikt över användningsfall om förhands
 
 ## <a name="introduction"></a>Introduktion
 
-Time Series Insights är ett erbjudande för slutpunkt till slutpunkt-plattform som tjänst. Den används för att mata in, bearbeta, lagra och fråga efter data med mycket contextualized, tid-serien – optimerad IoT-skala. Time Series Insights är perfekt för ad hoc-datagranskning och operativa analys. Time Series Insights är unikt utbyggbar och anpassade, tjänst, som uppfyller brett behöver industriella IoT-distributioner.
+Time Series Insights är ett erbjudande för slutpunkt till slutpunkt-plattform som tjänst. Det används för att mata in, bearbeta, lagra och köra frågor på höggradigt sammanhangsbaserade, tidsserieoptimerade IoT-skalningsdata. Time Series Insights passar perfekt för ad hoc-datagranskning och operativ analys. Time Series Insights är unikt utbyggbar och anpassade, tjänst, som uppfyller brett behöver industriella IoT-distributioner.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Datautforskning och visuell avvikelseidentifiering
 

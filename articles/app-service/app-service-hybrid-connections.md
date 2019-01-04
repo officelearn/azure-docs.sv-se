@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258023"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653398"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service-Hybridanslutningar #
 
@@ -177,7 +177,7 @@ Det är periodiska uppdateringar till Hybridanslutningshanteraren åtgärda prob
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Att lägga till en Hybridanslutning i din app via programmering ##
 
-API: er som anges nedan kan användas direkt för att hantera Hybridanslutningar som är anslutna till web apps. 
+API: er som anges nedan kan användas direkt för att hantera Hybridanslutningar som är ansluten till dina appar. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ JSON-objekt som är associerade med en Hybridanslutning ser ut som:
       }
     }
 
-Ett sätt att använda den här informationen är med armclient som du kan hämta från den [ARMClient] [ armclient] GitHub-projektet. Här är ett exempel på att koppla en befintlig Hybrid-anslutning till din webbapp. Skapa en JSON-fil per ovan schemat som:
+Ett sätt att använda den här informationen är med armclient som du kan hämta från den [ARMClient] [ armclient] GitHub-projektet. Här är ett exempel på bifoga en befintlig Hybrid-anslutning till din app. Skapa en JSON-fil per ovan schemat som:
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ I App Service, kan verktyget tcpping anropas från konsolen avancerade verktyg (
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalks hybridanslutningar ##
 
-Tidig form av den här funktionen anropades BizTalk-Hybridanslutningar. Den här funktionen slutet av livslängd har gått den 31 maj 2018 och upphört med sin verksamhet. BizTalk-hybridanslutningar har tagits bort från alla webbappar och är inte tillgängliga via portalen eller API: et. Om du fortfarande har dessa äldre anslutningar som konfigurerats i Hybridanslutningshanteraren kommer du se statusen utgått och visar en instruktion i slutet av liv längst ned på sidan.
+Tidig form av den här funktionen anropades BizTalk-Hybridanslutningar. Den här funktionen slutet av livslängd har gått den 31 maj 2018 och upphört med sin verksamhet. BizTalk-hybridanslutningar har tagits bort från alla appar och kan inte nås via portalen eller API: et. Om du fortfarande har dessa äldre anslutningar som konfigurerats i Hybridanslutningshanteraren kommer du se statusen utgått och visar en instruktion i slutet av liv längst ned på sidan.
 
 ![BizTalk-Hybridanslutningar i den HCM-system][12]
 

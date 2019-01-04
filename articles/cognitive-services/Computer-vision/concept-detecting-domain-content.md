@@ -1,7 +1,7 @@
 ---
 title: Identifiera domänspecifika innehåll – visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för som beskriver bilder med hjälp av den API för visuellt innehåll.
+description: Lär dig hur du anger en bild kategorisering domän för att returnera mer detaljerad information om en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,23 +10,24 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342574"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579217"
 ---
 # <a name="detecting-domain-specific-content"></a>Identifiera domänspecifikt innehåll
 
-Dessutom stöder också till taggning och översta kategorisering, visuellt specialiserad (eller domänspecifika) information. Särskild information kan implementeras som en fristående metod eller med den övergripande kategoriseringen. Den fungerar som ett sätt att ytterligare förfina 86 kategoritaxonomi genom tillägg av domänspecifika modeller.
+Dessutom stöder också till taggning och översta kategorisering, visuellt specialiserad (eller domänspecifika) information. Specialiserad information kan implementeras som en fristående metod eller med den övergripande kategoriseringen. Denna information kompletterar 86-kategoritaxonomin genom att lägga till domänspecifika modeller.
 
 Det finns två alternativ för att använda domänspecifika modeller:
 
 * Begränsade analys  
-  Analysera bara en vald modell genom att aktivera en HTTP POST-anrop. Om du vet vilken modell som du vill använda kan du ange modellens namn. Du bara hämta information relevanta för den modellen. Du kan till exempel använda det här alternativet för att bara söka efter kändisigenkänning. Svaret innehåller en lista över potential matchar kändisar, tillsammans med sina förtroende poäng.
+  Analysera bara en vald modell genom att aktivera en HTTP POST-anrop. Om du vet vilken modell som du vill använda kan du ange modellens namn. Du bara hämta information relevanta för den modellen. Du kan till exempel använda det här alternativet för att bara söka efter kändisigenkänning. Svaret innehåller en lista över potentiella matchande kändisar, tillsammans med deras förtroendepoäng.
 * Förbättrad analys  
-  Analysera för att tillhandahålla ytterligare information som rör kategorier från den 86 kategoritaxonomi. Det här alternativet är tillgängligt för användning i program där användare vill få allmän bildanalys utöver information från en eller flera domänspecifika modeller. När den här metoden har anropats kallas 86 kategoritaxonomi klassificeraren först. Om någon av kategorierna matchar som kända eller matchande modeller följer en igenom av klassificerare anrop. Till exempel om den `details` -parametern för anropet HTTP POST anges antingen till ”alla” eller innehåller ”kändisar”, metoden anropar kändisar klassificeraren när 86-kategori-klassificerare kallas. Om avbildningen har klassificerats som `people_` eller en underkategori i den kategorin och kändis klassificeraren sedan anropas.
+  Analysera för att tillhandahålla ytterligare information som rör kategorier från 86-kategoritaxonomin. Alternativet är tillgängligt för program där du vill få allmän bildanalys utöver information från en eller flera domänspecifika modeller. När den här metoden används anropas 86 kategoritaxonomi-klassificeraren först. Om någon av kategorierna matchar som kända eller matchande modeller följer en igenom av klassificerare anrop. Till exempel om den `details` -parametern för anropet HTTP POST anges antingen till ”alla” eller innehåller ”kändisar”, metoden anropar kändisar klassificeraren när 86-kategori-klassificerare kallas. Om avbildningen har klassificerats som `people_` eller en underkategori i den kategorin och kändis klassificeraren sedan anropas.
 
 ## <a name="listing-domain-specific-models"></a>Visa en lista över domänspecifika modeller
 

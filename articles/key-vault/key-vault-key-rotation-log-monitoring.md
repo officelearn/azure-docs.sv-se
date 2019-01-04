@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 39ae2108c327f38dbf41981ec6aabe7722b77685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302025"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717389"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -
 
@@ -414,7 +414,7 @@ Och Lägg till en fil med namnet project.json med följande innehåll:
 
 Vid **spara**, Azure Functions hämtar nödvändiga binärfiler.
 
-Växla till den **integrera** fliken och ge parametern timer ett beskrivande namn att användas i funktionen. I den föregående koden det förväntar sig att timern ska anropas *myTimer*. Ange en [CRON-uttryck](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) på följande sätt: 0 \* \* \* \* \* för timern som gör att funktionen ska köras en gång i minuten.
+Växla till den **integrera** fliken och ge parametern timer ett beskrivande namn att användas i funktionen. I den föregående koden det förväntar sig att timern ska anropas *myTimer*. Ange en [CRON-uttryck](../app-service/webjobs-create.md#CreateScheduledCRON) på följande sätt: 0 \* \* \* \* \* för timern som gör att funktionen ska köras en gång i minuten.
 
 På samma **integrera** fliken, Lägg till indata av typen **Azure Blob Storage**. Detta att peka sync.txt-fil med tidsstämpel för senaste händelsen har tittat på av funktionen. Det här är tillgängliga i funktionen av parameternamnet. Azure Blob Storage-indata i den föregående koden förväntar sig parameternamn måste vara *inputBlob*. Välj det lagringskonto där sync.txt-filen ska placeras (det kan vara samma eller ett annat lagringskonto). I sökvägsfältet, ange sökvägen där filen finns i formatet {container-name}/path/to/sync.txt.
 

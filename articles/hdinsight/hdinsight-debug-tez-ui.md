@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 65e0fed29909ad5714b35659a7dd453e095a3eeb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012818"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713741"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Använda Apache Tez-Användargränssnittet för att felsöka Tez-jobb på Windows-baserade HDInsight
 Den [Apache TEZ](https://tez.apache.org/) Användargränssnittet kan användas för att felsöka [Apache Hive](https://hive.apache.org/) jobb som använder Tez som motorn för körning. Tez UI visualisera jobbet som ett diagram över anslutna objekt kan öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Windows. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Ett Windows-baserade HDInsight-kluster. Anvisningar om hur du skapar ett nytt kluster finns i [komma igång med Windows-baserade HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Apache Tez-Användargränssnittet är bara tillgängligt på Windows-baserade HDInsight-kluster som skapas efter den 8 februari 2016.
-  >
-  >
+
 * En Windows-baserade fjärrskrivbord-klienten.
 
 ## <a name="understanding-apache-tez"></a>Förstå Apache Tez
@@ -65,10 +64,8 @@ Använd följande steg för att köra en Hive-fråga som använder Tez.
         en-GB   Nairobi Area    Kenya
 
 ## <a name="use-the-tez-ui"></a>Använda Tez-Användargränssnittet
-> [!NOTE]
+> [!NOTE]  
 > Tez UI är endast tillgänglig från skrivbordet för klustrets huvudnoder, så du måste använda Fjärrskrivbord för att ansluta till huvudnoderna.
->
->
 
 1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt HDInsight-kluster. Högst upp på bladet HDInsight, Välj den **fjärrskrivbord** ikon. Den här länken visar bladet för remote desktop
 
@@ -77,10 +74,9 @@ Använd följande steg för att köra en Hive-fråga som använder Tez.
 
     ![Anslutningsikon för fjärrskrivbord](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om du inte har aktiverat Fjärrskrivbord-anslutningen, ange ett användarnamn, lösenord och upphör att gälla och välj sedan **aktivera** att aktivera fjärrskrivbordet. När den har aktiverats, kan du använda de här stegen för att ansluta.
-   >
-   >
+
 3. När du är ansluten, öppna Internet Explorer på fjärrskrivbordet, väljer du kugghjulsikonen uppe till höger i webbläsaren och välj sedan **Kompatibilitetsvyinställningarna**.
 4. Längst ned i **Kompatibilitetsvyinställningarna**, avmarkerar du kryssrutan för **visa intranätplatser i Kompatibilitetsvy** och **Använd Microsoft-kompatibilitetslista**, och Välj sedan **Stäng**.
 5. I Internet Explorer bläddrar du till http://headnodehost:8188/tezui/#/. Detta visar Tez UI
@@ -101,10 +97,8 @@ Använd följande steg för att köra en Hive-fråga som använder Tez.
    * **Alla aktiviteter** visar en lista över aktiviteter för alla hörn i den här DAG.
    * **Alla TaskAttempts** visar information om försöker att köra uppgifter för denna DAG.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Om du rullar åt kolumnen visa för hörn, uppgifter och TaskAttempts Observera att det finns länkar för att visa **räknare** och **visa eller ladda ned loggar** för varje rad.
-     >
-     >
 
      Om det uppstod ett fel med jobbet, visas statusen misslyckades, samt länkar till information om aktiviteten i DAG-information. Diagnostikinformation visas under DAG-information.
 8. Välj **grafisk vy**. Då visas en grafisk representation av gruppen för Databastillgänglighet. Du kan placera markören över varje brytpunkt som vy för att visa information om den.
@@ -115,20 +109,17 @@ Använd följande steg för att köra en Hive-fråga som använder Tez.
     ![Information om hörn](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Observera att du nu har länkar överst på sidan som är relaterade till hörn och uppgifter.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Du kan också komma fram till den här sidan genom att gå tillbaka till **DAG information**, välja **hörn information**, och sedan välja den **kartan 1** hörn.
-    >
-    >
 
     * **Hörn räknare** visar informationen för den här brytpunkt.
     * **Uppgifter** visar uppgifter för den här brytpunkt.
     * **Uppgift försök** visar information om försök att köra uppgifter för den här brytpunkt.
     * **Datakällor & egenskaperna** visar datakällor och egenskaperna för den här brytpunkt.
 
-      > [!NOTE]
+      > [!NOTE]  
       > Med föregående meny rulla som kolumnen visa för uppgifter, uppgift försök och källor och Sinks__ att visa länkar till mer information för varje objekt.
-      >
-      >
+
 11. Välj **uppgifter**, och välj sedan den objekt med namnet **00_000000**. Visar den här länken **aktivitetsinformation** för den här uppgiften. Den här skärmen, du kan se **uppgift räknare** och **uppgift försök**.
 
     ![Uppgiftsinformation](./media/hdinsight-debug-tez-ui/taskdetails.png)

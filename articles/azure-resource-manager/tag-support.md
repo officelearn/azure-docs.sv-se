@@ -4,14 +4,14 @@ description: Visar vilka Azure-resurstyper stöder taggar. Innehåller informati
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: ef365cdf0a5df168c438abd0428e41200b07756c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409674"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753786"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-using-tags.md).
@@ -264,6 +264,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="insights"></a>Insikter
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
+| actionGroups | Ja |
 | Komponenter | Ja | 
 | komponenter/fråga | Nej | 
 | komponenter/mått | Nej | 

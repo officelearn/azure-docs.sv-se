@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a9e7cfdf9b63e511c3b59e840999024e849122aa
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136723"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808901"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 
-Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Inkludera den [Snapshot collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och om du vill konfigurera insamlingsparametrarna i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ögonblicksbilder som visas på [undantag](app-insights-asp-net-exceptions.md) i Application Insights-portalen.
+Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Inkludera den [Snapshot collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och om du vill konfigurera insamlingsparametrarna i [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicksbilder som visas på [undantag](../azure-monitor/app/asp-net-exceptions.md) i Application Insights-portalen.
 
 Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. För att få en mer kraftfullt felsökningsverktyg som fungerar med källkoden kan du öppna ögonblicksbilder med Visual Studio 2017 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
 
@@ -43,11 +43,11 @@ Följande miljöer stöds:
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Konfigurera insamling av ögonblicksbild för ASP.NET-program
 
-1. [Aktivera Application Insights i din webbapp](app-insights-asp-net.md), om du inte gjort det ännu.
+1. [Aktivera Application Insights i din webbapp](../azure-monitor/app/asp-net.md), om du inte gjort det ännu.
 
 2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
-3. Granska standardalternativen som paketet lagts till i [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. Granska standardalternativen som paketet lagts till i [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md):
 
     ```xml
     <TelemetryProcessors>
@@ -81,12 +81,12 @@ Följande miljöer stöds:
     </TelemetryProcessors>
     ```
 
-4. Ögonblicksbilder samlas endast på undantag som har rapporterats till Application Insights. I vissa fall (exempelvis äldre versioner av .NET-plattformen) kan du behöva [konfigurera insamling av undantag](app-insights-asp-net-exceptions.md#exceptions) vill visa undantag med ögonblicksbilder i portal.
+4. Ögonblicksbilder samlas endast på undantag som har rapporterats till Application Insights. I vissa fall (exempelvis äldre versioner av .NET-plattformen) kan du behöva [konfigurera insamling av undantag](../azure-monitor/app/asp-net-exceptions.md#exceptions) vill visa undantag med ögonblicksbilder i portal.
 
 
 ### <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>Konfigurera insamling av ögonblicksbild för ASP.NET Core 2.0-program
 
-1. [Aktivera Application Insights i din ASP.NET Core-webbapp](app-insights-asp-net-core.md), om du inte gjort det ännu.
+1. [Aktivera Application Insights i din ASP.NET Core-webbapp](../azure-monitor/app/asp-net-core.md), om du inte gjort det ännu.
 
     > [!NOTE]
     > Att se till att ditt program refererar till version 2.1.1 eller senare av Microsoft.ApplicationInsights.AspNetCore-paketet.
@@ -212,7 +212,7 @@ Prenumerationsägare ska tilldela den `Application Insights Snapshot Debugger` r
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Felsök ögonblicksbilder i Application Insights-portalen
 
-Om en ögonblicksbild är tillgängligt för ett visst undantag eller ett problem-ID, en **Open Debug Snapshot** knappen visas i den [undantag](app-insights-asp-net-exceptions.md) i Application Insights-portalen.
+Om en ögonblicksbild är tillgängligt för ett visst undantag eller ett problem-ID, en **Open Debug Snapshot** knappen visas i den [undantag](../azure-monitor/app/asp-net-exceptions.md) i Application Insights-portalen.
 
 ![Öppna Felsök ögonblicksbild knappen undantag](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
@@ -235,8 +235,8 @@ Hämtade ögonblicksbilden innehåller symbolfiler som hittades på webbservern 
 
 ## <a name="how-snapshots-work"></a>Så här fungerar ögonblicksbilder
 
-Snapshot Collector implementeras som en [Application Insights Telemetry Processor](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). När programmet körs, läggs Snapshot Collector telemetri processorn till programmets telemetri pipeline.
-Varje gång dina program anrop [TrackException](app-insights-asp-net-exceptions.md#exceptions), Snapshot Collector beräknar ett Problem-ID från vilken typ av undantag som genereras och metoden utlösande.
+Snapshot Collector implementeras som en [Application Insights Telemetry Processor](../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). När programmet körs, läggs Snapshot Collector telemetri processorn till programmets telemetri pipeline.
+Varje gång dina program anrop [TrackException](../azure-monitor/app/asp-net-exceptions.md#exceptions), Snapshot Collector beräknar ett Problem-ID från vilken typ av undantag som genereras och metoden utlösande.
 Varje gång programmet anropar TrackException, ökar en räknaren stegvis för lämpliga problemet-ID. När räknaren når den `ThresholdForSnapshotting` värde, Problem-ID läggs till i en samling-Plan.
 
 Snapshot Collector övervakar även undantag när de är utlöst genom att prenumerera på den [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) händelse. När händelsen utlöses beräknas Problem-ID för undantaget och jämföra mot Problem-ID: N i samlingen Plan.
@@ -472,10 +472,10 @@ Om du fortfarande inte ser ett undantag med detta ögonblicksbild-ID har inte un
 
 ### <a name="edit-network-proxy-or-firewall-rules"></a>Redigera regler för proxy eller brandvägg
 
-Om programmet ansluter till Internet via en proxyserver eller brandvägg, kan du behöva redigera regler så att ditt program kan kommunicera med Snapshot Debugger-tjänsten. Här är [en lista över IP-adresser och portar som används av Snapshot Debugger](app-insights-ip-addresses.md#snapshot-debugger).
+Om programmet ansluter till Internet via en proxyserver eller brandvägg, kan du behöva redigera regler så att ditt program kan kommunicera med Snapshot Debugger-tjänsten. Här är [en lista över IP-adresser och portar som används av Snapshot Debugger](../azure-monitor/app/ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ange snappoints i din kod](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) att hämta ögonblicksbilder utan att behöva vänta ett undantag.
-* [Diagnostisera undantag i dina webbappar](app-insights-asp-net-exceptions.md) förklarar hur du gör flera undantag som är synliga för Application Insights.
+* [Diagnostisera undantag i dina webbappar](../azure-monitor/app/asp-net-exceptions.md) förklarar hur du gör flera undantag som är synliga för Application Insights.
 * [Smart identifiering](app-insights-proactive-diagnostics.md) identifierar automatiskt prestandaavvikelser.

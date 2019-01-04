@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f9f0c52c187b36416dbc77f280a8f6148cf1cbbc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138695"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971060"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Begrepp om avsikter i LUIS-appen
 
@@ -58,7 +58,7 @@ På liknande sätt att vidta [yttranden](luis-concept-utterance.md) motsvarar et
 [Fördefinierade domäner](luis-how-to-use-prebuilt-domains.md) har avsikter med yttranden.  
 
 ## <a name="none-intent-is-fallback-for-app"></a>Ingen avsikt är reserv för app
-Den **ingen** avsikten är en allomfattande eller återställningsplats avsikt. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Den **ingen** avsikt ska ha mellan 10 och 20 procent av total yttranden i programmet. Lämna den inte tom. 
+Den **ingen** avsikten är en allomfattande eller återställningsplats avsikt. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Den **ingen** avsikt ska ha mellan 10 och 20 procent av total yttranden i programmet. Lämna inte ingen tomt. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Ingen avsiktlig hjälper konversationen riktning
 När ett uttryck förväntas som ingen avsiktlig och returnerade till chattrobot med den förutsägelsen roboten kan ställa fler frågor eller ange en meny för att dirigera användare till giltiga alternativ i chattrobot. 

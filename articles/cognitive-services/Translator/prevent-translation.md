@@ -1,7 +1,7 @@
 ---
 title: Förhindra att innehåll translation – Translator Text API
 titlesuffix: Azure Cognitive Services
-description: Förhindra översättning av innehåll med den Translator Text API.
+description: Förhindra översättning av innehåll med Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: v-jansko
-ms.openlocfilehash: b012201bcb9e0aece3d7e1ddd4f771643088af76
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 70bc4a50240abd8e4b67ff572f8c472f7519569a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683380"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556857"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Hur du förhindrar översättning av innehåll med Translator Text API
 
@@ -37,7 +37,7 @@ Translator Text API kan du tagga innehåll så att de inte konverteras. Du kansk
 
 4. Strängen inte skicka till Translator Text API för översättning.
 
-5. Anpassade Translator: Använda en [ordlista i anpassade Translator](custom-translator/what-is-dictionary.md) vidtar den föreskrivna översättningen av en mening med 100% sannolikhet.
+5. Anpassade Translator: Använd en [ordlista i anpassade Translator](custom-translator/what-is-dictionary.md) vidtar den föreskrivna översättningen av en mening med 100% sannolikhet.
 
 
 ## <a name="next-steps"></a>Nästa steg

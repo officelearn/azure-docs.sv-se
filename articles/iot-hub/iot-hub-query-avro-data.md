@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
-ms.openlocfilehash: a5b8ce8cd753ee294a8d61ba8a3dfed872f0f31a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956342"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993492"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Fråga Avro-data med hjälp av Azure Data Lake Analytics
 
@@ -21,7 +21,7 @@ Den här artikeln beskrivs hur du frågar Avro-data för att effektivt dirigera 
 
 Utmaningen har som när Azure IoT Hub skickar meddelanden till Azure Blob storage, skriver IoT Hub innehållet i Avro-format, vilket har både ett meddelande brödtext egenskapen och ett meddelande. Skrivdata till Blob storage stöds av IoT Hub i Avro-data-format och det här formatet används inte för andra slutpunkter. Mer information finns i en artikel om hur du använder Azure Storage-behållare. Avro-formatet är perfekt för data och meddelandet konservering, är det svårt att använda den för att köra frågor mot data. Däremot är det mycket enklare för att fråga data med JSON- eller CSV-format.
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 Du kan använda många av big data-mönster för både omvandling samt skala data för att åtgärda icke-relationella stordata behov och format och lösa denna utmaning. En av mönster ”betala per fråga”, är Azure Data Lake Analytics, vilket är fokus i den här artikeln. Även om du enkelt kan utföra frågan i Hadoop eller andra lösningar är ofta bättre Data Lake Analytics lämpligt för den här metoden för ”betala per fråga”. 
 
@@ -171,7 +171,7 @@ I det här avsnittet ska du fråga efter data med Avro och exportera den till en
 
 I den här självstudien lärde du dig att fråga Avro-data för att effektivt dirigera meddelanden från Azure IoT Hub till Azure-tjänster.
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt som använder IoT Hub finns det [dokumentation om Azure IoT-Lösningsacceleratorer](../iot-accelerators/index.yml).
+Exempel på fullständiga lösningar för slutpunkt till slutpunkt som använder IoT Hub finns det [dokumentation om Azure IoT-Lösningsacceleratorer](/azure/iot-accelerators).
 
 Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
 

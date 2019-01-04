@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497777"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725974"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -27,10 +27,10 @@ Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-ne
 
 * Direkt åtkomst till [Apache Hadoop](https://hadoop.apache.org/) tjänster som inte är tillgänglig offentligt över internet. Till exempel [Apache Kafka](https://kafka.apache.org/) API: er eller [Apache HBase](https://hbase.apache.org/) Java API.
 
-> [!WARNING]
+> [!WARNING]  
 > Informationen i det här dokumentet kräver kunskap om TCP/IP-nätverk. Om du inte är bekant med TCP/IP-nätverk, bör du samarbeta med någon som innan du gör ändringar i produktionsnätverk.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om du letar efter stegvis vägledning om hur du ansluter HDInsight till ditt lokala nätverk med hjälp av Azure Virtual Network, finns i den [ansluta HDInsight till det lokala nätverket](connect-on-premises-network.md) dokumentet.
 
 ## <a name="planning"></a>Planering
@@ -53,7 +53,7 @@ Följande är de frågor som du måste svara på när du planerar att installera
 
 Använd stegen i det här avsnittet för att identifiera hur du lägger till en ny HDInsight i ett befintligt virtuellt Azure-nätverk.
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan inte lägga till ett befintligt HDInsight-kluster till ett virtuellt nätverk.
 
 1. Använder du en klassisk eller Resource Manager-distributionsmodellen för det virtuella nätverket?
@@ -88,7 +88,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
 
         Mer information finns i den [felsöka nätverkssäkerhetsgrupper](../virtual-network/diagnose-network-traffic-filter-problem.md) dokumentet.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Regler för nätverkssäkerhetsgrupper tillämpas i ordning baserat på regelprioritet. Den första regeln som matchar trafikmönstret har tillämpats och inga andra tillämpas efter den trafiken. Ordning regler från mest Tillåtande till ger. Mer information finns i den [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
 
     * Användardefinierade vägar
@@ -112,7 +112,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
     * [Skapa HDInsight med klassiska Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Skapa HDInsight med en Azure Resource Manager-mall](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Att lägga till HDInsight i ett virtuellt nätverk är ett valfritt konfigurationssteg. Var noga med att välja det virtuella nätverket när du konfigurerar klustret.
 
 ## <a id="multinet"></a>Ansluta flera virtuella nätverk
@@ -132,7 +132,7 @@ Azure ger namnmatchning för Azure-tjänster som är installerade i ett virtuell
 
 Standard-namnmatchning har __inte__ Tillåt HDInsight att matcha namnen på resurser i nätverk som är anslutna till det virtuella nätverket. Det är till exempel vanligt att ansluta till ditt lokala nätverk till det virtuella nätverket. HDInsight med endast standard namnmatchningen, inte de åtkomst till resurser i det lokala nätverket efter namn. Motsatt gäller även, resurser i ditt lokala nätverk inte kan komma åt resurser i det virtuella nätverket efter namn.
 
-> [!WARNING]
+> [!WARNING]  
 > Du måste skapa den anpassa DNS-servern och konfigurerar det virtuella nätverket för att använda den innan du skapar HDInsight-kluster.
 
 Om du vill aktivera namnmatchningen mellan det virtuella nätverket och resurser i anslutna nätverk, måste du utföra följande åtgärder:
@@ -141,7 +141,7 @@ Om du vill aktivera namnmatchningen mellan det virtuella nätverket och resurser
 
 2. Konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern.
 
-3. Hitta Azure tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Läs om hur du hittar DNS-suffix i [exempel: anpassad DNS](#example-dns) avsnittet.
+3. Hitta Azure tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Läs om hur du hittar DNS-suffix i [exempel: Anpassad DNS](#example-dns) avsnittet.
 
 4. Konfigurera vidarebefordran mellan DNS-servrar. Konfigurationen beror på vilken typ av fjärrnätverket.
 
@@ -153,7 +153,7 @@ Om du vill aktivera namnmatchningen mellan det virtuella nätverket och resurser
 
             * Vidarebefordra alla övriga förfrågningar till den lokala DNS-servern. Den lokala DNS hanterar alla andra namnmatchning, även begäranden om Internetresurser, till exempel Microsoft.com.
 
-        * __Den lokala DNS__: vidarebefordra begäranden för DNS-suffix för virtuellt nätverk till anpassade DNS-servern. Den anpassa DNS-servern vidarebefordrar sedan till Azures rekursiva matchare.
+        * __Den lokala DNS__: Vidarebefordra begäranden för DNS-suffixet för virtuellt nätverk till anpassade DNS-servern. Den anpassa DNS-servern vidarebefordrar sedan till Azures rekursiva matchare.
 
         Den här konfigurationen vägar begäranden för fullständigt kvalificerade domännamn som innehåller DNS-suffixet för det virtuella nätverket till anpassade DNS-servern. Alla övriga förfrågningar (även för offentliga internet-adresser) hanteras av den lokala DNS-servern.
 
@@ -167,7 +167,7 @@ Om du vill aktivera namnmatchningen mellan det virtuella nätverket och resurser
 
         DNS-servern baserat för varje nätverk vidarebefordrar begäranden till en annan på DNS-suffix. Andra förfrågningar har åtgärdats med hjälp av Azures rekursiva matchare.
 
-    Ett exempel på varje konfiguration finns i den [exempel: anpassad DNS](#example-dns) avsnittet.
+    Ett exempel på varje konfiguration finns i den [exempel: Anpassad DNS](#example-dns) avsnittet.
 
 Mer information finns i den [namnmatchning för virtuella datorer och Rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentet.
 
@@ -201,7 +201,7 @@ Använd följande steg för att ansluta till Apache Ambari och andra webbsidor v
 
     I listan över noder som returnerade, hitta det fullständiga Domännamnet för huvudnoderna och Använd FQDN: er för att ansluta till Ambari och andra webbtjänster. Till exempel använda `http://<headnode-fqdn>:8080` att komma åt Ambari.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker få åtkomst till en tjänst på en huvudnod och den returnerar ett 404-fel, växla till andra huvudnoden.
 
 2. Information om den noden och porten som en tjänst är tillgänglig på finns i [portar som används av Hadoop-tjänster på HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentet.
@@ -212,7 +212,7 @@ Nätverkstrafik i en Azure-nätverk kan kontrolleras med hjälp av följande met
 
 * **Nätverkssäkerhetsgrupper** (NSG) du kan filtrera inkommande och utgående trafik till nätverket. Mer information finns i den [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight har inte stöd för att begränsa utgående trafik. All utgående trafik ska tillåtas.
 
 * **Användardefinierade vägar** (UDR) definiera hur trafiken flödar mellan resurser i nätverket. Mer information finns i den [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md) dokumentet.
@@ -248,7 +248,7 @@ Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik fr
 
 ## <a id="hdinsight-ip"></a> Den begärda IP-adresser
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure hälso- och management-tjänster måste kunna kommunicera med HDInsight. Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, Tillåt trafik från IP-adresser för dessa tjänster att nå HDInsight.
 >
 > Om du inte använder nätverkssäkerhetsgrupper eller användardefinierade vägar Kontrollera trafik, kan du ignorera det här avsnittet.
@@ -266,7 +266,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
 
 2. Om ditt HDInsight-kluster är i något av följande regioner, måste du tillåta trafik från IP-adresser som visas för regionen:
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Om du använder den Azure-region inte visas kan sedan bara använda fyra IP-adresser från steg 1.
 
     | Land/region | Region | Tillåtna IP-adresser | Tillåtna port | Riktning |
@@ -330,14 +330,14 @@ Följande Resource Manager-mallen skapar ett virtuellt nätverk som begränsar i
 
 * [Distribuera ett skyddat virtuellt Azure-nätverk och ett HDInsight Hadoop-kluster](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Använd följande PowerShell-skript för att skapa ett virtuellt nätverk som begränsar inkommande trafik och tillåter trafik från IP-adresser för regionen Europa, norra.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
 
 ```powershell
@@ -435,7 +435,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 $vnet | Set-AzureRmVirtualNetwork
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Det här exemplet visar hur du lägger till regler för att tillåta inkommande trafik på de begärda IP-adresserna. Den innehåller inte en regel för att begränsa inkommande åtkomst från andra källor.
 >
 > I följande exempel visar hur du aktiverar SSH-åtkomst från Internet:
@@ -458,7 +458,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 
 2. Använd följande för att lägga till regler i den nya nätverkssäkerhetsgrupp som tillåter inkommande kommunikation på port 443 från Azure HDInsight-tjänsten för hälsotillstånd och hantering. Ersätt **RESOURCEGROUPNAME** med namnet på resursgruppen som innehåller Azure virtuellt nätverk.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
 
     ```azurecli
@@ -490,7 +490,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 
     När det här kommandot har slutförts kan installera du HDInsight i det virtuella nätverket.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De här stegen Öppna endast åtkomst till HDInsight hälso- och management-tjänsten på Azure-molnet. Alla andra åtkomst till HDInsight-kluster från utanför det virtuella nätverket är blockerad. Om du vill aktivera åtkomst från utanför det virtuella nätverket måste du lägga till ytterligare regler för Nätverkssäkerhetsgruppen.
 >
 > I följande exempel visar hur du aktiverar SSH-åtkomst från Internet:
@@ -580,7 +580,7 @@ Anpassad DNS-servern i det virtuella nätverket:
 
 4. Lägg till en villkorlig vidarebefordrare till den lokala DNS-servern. Konfigurera villkorlig vidarebefordrare för att skicka begäranden för DNS-suffix från steg 1 till den anpassa DNS-servern.
 
-    > [!NOTE]
+    > [!NOTE]  
     > I dokumentationen för din DNS-programvara ge specifik information om hur du lägger till en villkorlig vidarebefordrare.
 
 När du har slutfört de här stegen kan du ansluta till resurser i nätverken med fullständigt kvalificerade domännamn (FQDN). Du kan nu installera HDInsight till det virtuella nätverket.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386908"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974853"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera ScaleR och SparkR i HDInsight
 
@@ -21,7 +21,7 @@ Det här dokumentet beskrivs hur du kan förutsäga ankomst flygförseningar med
 
 Även om båda paketen körs på motorn för körning av Apache Hadoop Spark, blockeras de minnesintern Datadelning eftersom de kräver sina egna respektive Spark-sessioner. Tills problemet åtgärdas i en kommande version av ML Server, är lösningen att upprätthålla inte överlappar Spark-sessioner och för att utbyta data via mellanliggande filer. Instruktionerna här visar att dessa krav är enkelt att uppnå.
 
-Det här exemplet har ursprungligen delas i en talk på Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här diskussionen på [att bygga en skalbar Datavetenskapsplattform med R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+Det här exemplet har ursprungligen delas i en talk på Strata 2016 av Mario Inchiosa och Roni Burd. Du hittar den här diskussionen på [att bygga en skalbar Datavetenskapsplattform med R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
 Koden skapades ursprungligen för ML Server som körs på Spark i HDInsight-kluster i Azure. Men begreppet blanda användningen av SparkR och ScaleR i ett skript också är giltig i kontexten för lokala miljöer.
 
@@ -29,9 +29,9 @@ I det här dokumentet förutsätter vi att du har en mellanliggande nivå av kun
 
 ## <a name="the-airline-and-weather-datasets"></a>Datauppsättningar för flygbolag och väder
 
-Flight data är tillgängliga från den [US government Arkiv](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Det är också tillgängligt som en zip från [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Flight data är tillgängliga från den [US government Arkiv](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Det är också tillgängligt som en zip från [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Weather-data som kan laddas ned som zip-filer i obearbetat format efter månad, från den [National Oceanic and Atmospheric Administration databasen](http://www.ncdc.noaa.gov/orders/qclcd/). Hämta data för maj 2007 – December 2012 i det här exemplet. Använda per timme datafiler och `YYYYMMMstation.txt` fil i var och en av komprimerade. 
+Weather-data som kan laddas ned som zip-filer i obearbetat format efter månad, från den [National Oceanic and Atmospheric Administration databasen](https://www.ncdc.noaa.gov/orders/qclcd/). Hämta data för maj 2007 – December 2012 i det här exemplet. Använda per timme datafiler och `YYYYMMMstation.txt` fil i var och en av komprimerade. 
 
 ## <a name="setting-up-the-spark-environment"></a>Konfigurera Spark-miljö
 
@@ -41,7 +41,7 @@ Använd följande kod för att konfigurera Spark-miljö:
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -535,7 +535,7 @@ I den här artikeln visas hur det är möjligt att kombinera användningen av Sp
 
 ## <a name="next-steps-and-more-information"></a>Nästa steg och mer information
 
-- Mer information om användning av ML-Server i Apache Spark finns i den [komma igång](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Mer information om användning av ML-Server i Apache Spark finns i den [komma igång](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 - Allmän information om ML Server finns i den [Kom igång med R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikeln.
 
@@ -543,6 +543,6 @@ I den här artikeln visas hur det är möjligt att kombinera användningen av Sp
 
 Mer information om användning av SparkR finns:
 
-- [Apache SparkR dokument](https://spark.apache.org/docs/2.1.0/sparkr.html)
+- [Apache SparkR dokumentet](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Översikt över SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) från Databricks
+- [Översikt över SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) från Databricks.

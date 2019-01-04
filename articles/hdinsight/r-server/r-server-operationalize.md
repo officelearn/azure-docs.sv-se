@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496909"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579965"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationalisera ML-tjänster på Azure HDInsight-kluster
 
@@ -22,13 +22,13 @@ När du har använt ML-Services-kluster i HDInsight för att slutföra dina data
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **En ML-Services-kluster i HDInsight**: anvisningar finns i [Kom igång med ML-tjänster på HDInsight](r-server-get-started.md).
+* **En ML-Services-kluster i HDInsight**: Anvisningar finns i [Kom igång med ML-tjänster på HDInsight](r-server-get-started.md).
 
-* **En SSH-klient (Secure Shell)**: En SSH-klient används för att fjärransluta till HDInsight-klustret och köra kommandon direkt på klustret. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+* **En Secure Shell (SSH)-klient**: En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operationalisera ML-Services-kluster med enda-konfiguration
 
-> [!NOTE]
+> [!NOTE]  
 > Stegen nedan gäller för R Server 9.0 och ML Server 9.1. ML Server 9.3 finns [använder administrationsverktyget för att hantera konfigurationen för driftsättning](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH till kantnoden.
@@ -173,7 +173,7 @@ Så här inaktiverar du arbetsnoder:
 
 1. Avsluta admin-verktyget.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Steg 3: Lägg till compute-noder information på webbnod
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Steg 3: Lägga till beräkningsnoder på webbnod
 
 När alla inaktiverade arbetsnoder har konfigurerats för att köra beräkningsnoder återgår på gränsnoden och lägger till inaktiverade arbetsnoders IP-adresser i ML Server-webbnodens konfiguration:
 

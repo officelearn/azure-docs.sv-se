@@ -9,15 +9,18 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283305"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634328"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- och gallerier för Azure Automation
 I stället för att skapa egna runbooks och moduler i Azure Automation kan du komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn.  Du kan antingen använda de här scenarierna utan ändringar eller du kan använda dem som en startpunkt och redigera dem efter behov.
+
+> [!NOTE]
+> Den nya [Az för Azure PowerShell-modulen](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) stöds inte i Azure Automation. Alla skript som laddats ned från PowerShell-galleriet med dessa cmdlets fungerar inte i Azure Automation.
 
 Du kan hämta runbooks från den [Runbook-galleriet](#runbooks-in-runbook-gallery) och moduler från den [PowerShell-galleriet](#modules-in-powerShell-gallery).  Du kan också bidra till gruppen genom att dela scenarier som du utvecklar, se [att lägga till en runbook i galleriet](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 

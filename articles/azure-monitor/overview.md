@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436185"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975193"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -39,9 +39,7 @@ För många Azure-resurser visas data som samlas in av Azure Monitor direkt i si
 
 ![Mått](media/overview/metrics.png)
 
-<<<<<<< HEAD loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) som snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [logganalys](../log-analytics/log-analytics-log-search-portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [avisering regler för](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-=== Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../azure-monitor/log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](../azure-monitor/log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](../azure-monitor/log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor använder en version av den [Datautforskaren frågespråk](/azure/kusto/query/) som är lämplig för enkel logg frågar men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,11 +54,11 @@ Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata
 - **Azure-prenumeration övervakningsdata**: Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. 
 - **Azure-klient övervakningsdata**: Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory.
 
-När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) registrera när resurser skapas eller ändras. [Mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
+När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md) registrera när resurser skapas eller ändras. [Mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
 
-Utöka dina data som du samlar in i den faktiska användningen av resurser genom att [aktiverar diagnostik](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) och [att lägga till en agent](platform/agent-windows.md) att beräkna resurser. Detta samlar in telemetri för den interna åtgärden på resursen och gör att du kan konfigurera olika [datakällor](platform/agent-data-sources.md) att samla in loggar och mått från Windows och Linux gästoperativsystemet. 
+Utöka dina data som du samlar in i den faktiska användningen av resurser genom att [aktiverar diagnostik](../azure-monitor/platform/diagnostic-logs-overview.md) och [att lägga till en agent](platform/agent-windows.md) att beräkna resurser. Detta samlar in telemetri för den interna åtgärden på resursen och gör att du kan konfigurera olika [datakällor](platform/agent-data-sources.md) att samla in loggar och mått från Windows och Linux gästoperativsystemet. 
 
-[Lägga till en instrumentationspaket i ditt program](../application-insights/app-insights-azure-web-apps.md)att aktivera Application Insights för att samla in detaljerad information om ditt program, inklusive sidvisningar, programförfrågningar och undantag. Ytterligare kontrollera tillgängligheten för ditt program genom att konfigurera en [tillgänglighetstestet](../application-insights/app-insights-monitor-web-app-availability.md) att simulera trafik för användare.
+[Lägga till en instrumentationspaket i ditt program](../azure-monitor/app/azure-web-apps.md)att aktivera Application Insights för att samla in detaljerad information om ditt program, inklusive sidvisningar, programförfrågningar och undantag. Ytterligare kontrollera tillgängligheten för ditt program genom att konfigurera en [tillgänglighetstestet](../azure-monitor/app/monitor-web-app-availability.md) att simulera trafik för användare.
 
 ### <a name="custom-sources"></a>Anpassade källor
 Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Data Collector API](../azure-monitor/platform/data-collector-api.md). På så sätt kan du skapa anpassade övervakningsscenarier och utökad övervakning till resurser som inte exponerar telemetri via andra källor.
@@ -131,7 +129,7 @@ Automatisk skalning kan du har rätt mängd resurser som körs för att hantera 
 Ofta har du kravet på att integrera Azure Monitor med andra system och för att skapa anpassade lösningar som använder dina övervakningsdata. Andra Azure-tjänster fungerar med Azure Monitor för att tillhandahålla den här integreringen.
 
 ### <a name="event-hub"></a>Händelsehubb
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) är en strömmande plattform och händelseinmatningstjänst som kan omvandla och lagra data med valfri leverantör av realtidsanalys eller batchbearbetnings-/ lagringsadapter. Använda Event Hubs till [strömma loggdata från Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) att samarbeta SIEM och övervakningsverktyg.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) är en strömmande plattform och händelseinmatningstjänst som kan omvandla och lagra data med valfri leverantör av realtidsanalys eller batchbearbetnings-/ lagringsadapter. Använda Event Hubs till [strömma loggdata från Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) att samarbeta SIEM och övervakningsverktyg.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

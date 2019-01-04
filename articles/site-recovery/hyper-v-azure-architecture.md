@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: eb177852be273f1c9af06b1f9d85fbba4cc98567
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae71fb9f509c39e871f4d1dfb29626be47bea4b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845502"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790987"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V till Azure disaster recovery-arkitekturen
 
@@ -131,9 +131,9 @@ Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett n
 När din lokala infrastruktur är igång igen kan du inte återställa. Återställning efter fel sker i tre steg:
 
 1. Starta en planerad redundansväxling från Azure till lokal plats:
-    - **Minimera stilleståndstiden**: Om du använder det här alternativet Site Recovery synkroniserar data före redundans. Den söker efter ändrade datablock och hämtar dem till den lokala platsen, när behåller virtuell Azure-dator som kör, minimerar avbrottstid. När du anger manuellt när redundansen ska utföra, Azure-Virtuella datorn stängs av och alla slutliga deltaändringar kopieras redundansen börjar.
-    - **Fullständig nedladdning**: med det här alternativet synkroniseras data under en redundansväxling. Det här alternativet laddar ned hela disken. Det går snabbare eftersom ingen kontrollsummor beräknas, men det finns fler driftstopp. Använd det här alternativet om du har kört repliken virtuella Azure-datorer under en viss tid, eller om den lokala virtuella datorn har tagits bort.
-    - **Skapa en virtuell dator**: du kan välja för att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
+    - **Minimera stilleståndstiden**: Om du använder det här alternativet synkroniserar data före redundans i Site Recovery. Den söker efter ändrade datablock och hämtar dem till den lokala platsen, när behåller virtuell Azure-dator som kör, minimerar avbrottstid. När du anger manuellt när redundansen ska utföra, Azure-Virtuella datorn stängs av och alla slutliga deltaändringar kopieras redundansen börjar.
+    - **Fullständig nedladdning**: Med det här alternativet synkroniseras data under en redundansväxling. Det här alternativet laddar ned hela disken. Det går snabbare eftersom ingen kontrollsummor beräknas, men det finns fler driftstopp. Använd det här alternativet om du har kört repliken virtuella Azure-datorer under en viss tid, eller om den lokala virtuella datorn har tagits bort.
+    - **Skapa en virtuell dator**: Du kan välja för att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
 
 2. När den första synkroniseringen är klar kan välja du för att slutföra redundansen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrollera att allt fungerar som förväntat. Du kan se att den virtuella Azure-datorer har stoppats i Azure-portalen.
 3.  Sedan kan etablera du redundansen för att avsluta och få åtkomst till arbetsbelastningen från den lokala virtuella datorn igen.

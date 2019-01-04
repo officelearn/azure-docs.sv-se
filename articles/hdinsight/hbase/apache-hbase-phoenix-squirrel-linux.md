@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312910"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653993"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight
-Lär dig hur du använder [Apache Phoenix](http://phoenix.apache.org/) i Azure HDInsight och hur du använder SQLLine. Läs mer om Phoenix [Phoenix i 15 minuter eller mindre](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
+Lär dig hur du använder [Apache Phoenix](https://phoenix.apache.org/) i Azure HDInsight och hur du använder SQLLine. Läs mer om Phoenix [Apache Phoenix i 15 minuter eller mindre](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html).
 
-> [!NOTE]
-> Phoenix versionsinformation om HDInsight finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](../hdinsight-component-versioning.md).
+> [!NOTE]  
+> Phoenix versionsinformation om HDInsight finns i [vad är nytt i Apache Hadoop-klusterversionerna från HDInsight](../hdinsight-component-versioning.md).
 >
 >
 
@@ -61,7 +61,7 @@ När du ansluter till ett HBase-kluster måste du ansluta till en av de [Apache 
 
         !quit
 
-Mer information finns i den [SQLLine manuell](http://sqlline.sourceforge.net/#manual) och [Apache Phoenix grammatik](http://phoenix.apache.org/language/index.html).
+Mer information finns i den [SQLLine manuell](http://sqlline.sourceforge.net/#manual) och [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight. Mer information finns i följande artiklar:

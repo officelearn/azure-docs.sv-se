@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343164"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713280"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Hur du kör varaktiga funktioner som WebJobs
 
-[Azure Functions](../functions-overview.md) och [varaktiga funktioner](durable-functions-overview.md) tillägget bygger på den [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md). Den `JobHost` WebJobs SDK är runtime i Azure Functions. Om du behöver för att styra `JobHost` beteende på sätt som inte var möjliga i Azure Functions, som du kan utveckla och köra varaktiga funktioner med hjälp av WebJobs SDK själv. Du kan sedan köra din varaktiga funktioner i ett Azure WebJob eller var som helst ett konsolprogram körs.
+[Azure Functions](../functions-overview.md) och [varaktiga funktioner](durable-functions-overview.md) tillägget bygger på den [WebJobs SDK](../../app-service/webjobs-create.md). Den `JobHost` WebJobs SDK är runtime i Azure Functions. Om du behöver för att styra `JobHost` beteende på sätt som inte var möjliga i Azure Functions, som du kan utveckla och köra varaktiga funktioner med hjälp av WebJobs SDK själv. Du kan sedan köra din varaktiga funktioner i ett Azure WebJob eller var som helst ett konsolprogram körs.
 
 Chaining varaktiga funktioner-exempel finns i en WebJobs-SDK-version: ladda ned eller klona den [varaktiga funktioner databasen](https://github.com/azure/azure-functions-durable-extension/) och navigera till den *exempel\\webjobssdk\\länkning* mapp.
 

@@ -9,168 +9,167 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: acab20f7fa9594d6b86a2cc63a69e91759b57b38
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086682"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975567"
 ---
-# <a name="configure-containers"></a>Konfigurera containrar
+# <a name="configure-text-analytics-docker-containers"></a>Konfigurera textanalys docker-behållare
 
 Textanalys ger varje behållare med ett gemensamt ramverk för konfiguration, så att du enkelt kan konfigurera och hantera inställningar för lagring, loggning och telemetri och säkerhet för dina behållare.
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
-Konfigurationsinställningar i textanalys behållare är hierarkiska alla behållare använder en delad hierarki, baserat på följande toppnivåstruktur:
+[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
-* [ApiKey](#apikey-configuration-setting)
-* [ApplicationInsights](#applicationinsights-configuration-settings)
-* [Autentisering](#authentication-configuration-settings)
-* [Billing](#billing-configuration-setting)
-* [Licensvillkor](#eula-configuration-setting)
-* [Fluentd](#fluentd-configuration-settings)
-* [Loggning](#logging-configuration-settings)
-* [Monterar](#mounts-configuration-settings)
-
-Du kan använda antingen [miljövariabler](#configuration-settings-as-environment-variables) eller [kommandoradsargument](#configuration-settings-as-command-line-arguments) att ange konfigurationsinställningar för när instanser skapades av en behållare från Text Analytics behållare.
-
-Värden för miljövariabler åsidosätta värden för kommandoradsargument, vilket i sin tur åsidosätter standardvärdena för behållaravbildningen. Med andra ord, om du anger olika värden i en miljövariabel och ett argument på kommandoraden för samma konfigurationsinställning som `Logging:Disk:LogLevel`, sedan skapa en instans av en behållare, används värdet i miljövariabeln genom den skapade instanser behållaren.
-
-### <a name="configuration-settings-as-environment-variables"></a>Konfigurationsinställningar som miljövariabler
-
-Du kan använda den [variabeln syntax för ASP.NET Core-miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) att ange konfigurationsinställningar.
-
-Behållaren läser miljövariabler för användaren när behållaren instantieras. Om det finns en miljövariabel, åsidosätter värdet för miljövariabeln standardvärdet för den angivna Konfigurationsinställningen. Fördelen med att använda miljövariabler är att flera konfigurationsinställningar kan anges innan kontrollanten behållare och flera behållare kan använda samma uppsättning inställningar automatiskt.
-
-Till exempel följande kommandon använda en miljövariabel för att konfigurera konsolen loggningsnivån till [LogLevel.Information](https://msdn.microsoft.com), sedan skapar en instans av en behållare från behållaravbildningen Attitydanalys. Värdet för miljövariabeln åsidosätter standardinställningen för konfigurationen.
-
-  ```Docker
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789
-  ```
-
-### <a name="configuration-settings-as-command-line-arguments"></a>Konfigurationsinställningar som kommandoradsargument
-
-Du kan använda den [ASP.NET Core kommandoradsargumentet syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) att ange konfigurationsinställningar.
-
-Du kan ange konfigurationsinställningarna i den valfria `ARGS` -parametern för den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando som används för att skapa en instans av en behållare från en hämtade behållaravbildning. Fördelen med att använda kommandoradsargument är att varje behållare kan använda en annan, anpassad uppsättning konfigurationsinställningar.
-
-Till exempel följande kommando skapar en instans av en behållare från behållaravbildningen Attitydanalys och konfigurerar konsolen loggningsnivå LogLevel.Information, åsidosätter standardinställningen för konfigurationen.
-
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
-  ```
+> [!IMPORTANT]
+> Den [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), och [ `Eula` ](#eula-setting) inställningar används tillsammans, och du måste ange giltiga värden för alla tre av dem, annars din behållare startar inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` konfigurationsinställning anger konfigurationsnyckeln för Text Analytics-resurs på Azure som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig Konfigurationsnyckel för Text Analytics-resursen som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _textanalys_ resurs som angetts för den [ `Billing` ](#billing-setting) konfigurationsinställning.
 
-> [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-configuration-setting) konfigurationsinställningar som används tillsammans och du måste ange giltiga värden för alla tre dem. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
+Den här inställningen kan hittas på följande plats:
 
-## <a name="applicationinsights-configuration-settings"></a>Inställningar för ApplicationInsights
+* Azure-portalen: **Text Analytics** resurshantering under **nycklar**
 
-Konfigurationsinställningarna i den `ApplicationInsights` avsnittet kan du lägga till [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetri stöd till behållaren. Application Insights erbjuder djupgående övervakning av behållaren kod-nivå. Du kan enkelt övervaka din behållare för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i din behållare utan att behöva vänta på att en användare rapporterar dem.
+## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
-I följande tabell beskrivs de konfigurationsinställningar som stöds den `ApplicationInsights` avsnittet.
-
-| Namn | Datatyp | Beskrivning |
-|------|-----------|-------------|
-| `InstrumentationKey` | Sträng | Instrumenteringsnyckeln för Application Insights-instans till vilken telemetri skickas data för behållaren. Mer information finns i [Application Insights för ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
-
-## <a name="authentication-configuration-settings"></a>Konfigurationsinställningar för autentisering
-
-Den `Authentication` konfigurationsinställningar tillhandahåller alternativ för Azure-säkerhet för dina behållare. Även om konfigurationsinställningarna i det här avsnittet är tillgängliga för alla behållare i textanalys behållare, sätt där inställningen konfigurationsvärden används är specifika för varje behållare och behållare får inte använda det här avsnittet alls.
-
-I följande tabell beskrivs de konfigurationsinställningar som stöds den `Authentication` avsnittet.
-
-| Namn | Datatyp | Beskrivning |
-|------|-----------|-------------|
-| `ApiKey` | sträng eller matris | Azure-prenumerationsnycklar som används av behållaren att få åtkomst till andra Azure-resurser, om det behövs av behållaren.<br/> Om fler än en prenumerationsnyckel används av behållaren, är det här värdet anges som en matris med strängar; i annat fall används ett strängvärde för att ange en enskild prenumeration-nyckel som används av behållaren. |
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` konfigurationsinställning anger URI för den Text Analytics-resursen på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för en Text Analytics-resurs på Azure.
+Den `Billing` inställningen anger URI för den _textanalys_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för ett __textanalys_ resurs på Azure.
+
+Den här inställningen kan hittas på följande plats:
+
+* Azure-portalen: **Text Analytics** översikt, märkt `Endpoint`
+
+|Krävs| Namn | Datatyp | Beskrivning |
+|--|------|-----------|-------------|
+|Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+
+## <a name="eula-setting"></a>Licensvillkor för inställningen
+
+[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+
+## <a name="fluentd-settings"></a>Fluentd-inställningar
+
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="logging-settings"></a>Loggningsinställningar
+ 
+[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+
+## <a name="mount-settings"></a>Monteringsinställningar
+
+Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
+
+Text Analytics-behållare använder inte indata eller utdata monterar för att lagra utbildning eller tjänstdata. 
+
+Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
+
+|Valfri| Namn | Datatyp | Beskrivning |
+|-------|------|-----------|-------------|
+|Inte tillåtet| `Input` | Sträng | Text Analytics behållare Använd inte detta.|
+|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+
+## <a name="hierarchical-settings"></a>Hierarkisk inställningar
+
+[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
+
+## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
+
+I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) den.
+
+* **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
+* **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
+
+Ersätt {_argument_name_} med dina egna värden:
+
+| Platshållare | Värde | Format eller exempel |
+|-------------|-------|---|
+|{BILLING_KEY} | Slutpunktsnyckeln för textanalys resursen finns på sidan för Azure-portalens Text Analytics nycklar. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal Text Analytics översiktssidan.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 > [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-configuration-setting) konfigurationsinställningar som används tillsammans och du måste ange giltiga värden för alla tre dem. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
+> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
+> ApiKey-värdet är den **nyckel** från sidan nycklar för Azure Text Analytics-resursen. 
 
-## <a name="eula-configuration-setting"></a>EULA konfigurationsinställning
+## <a name="keyphrase-extraction-container-docker-examples"></a>Keyphrase extrahering behållare docker-exempel
 
-Den `Eula` konfigurationsinställning indikerar att du har godkänt licensen för behållaren. Du måste ange ett värde för den här inställningen och värdet måste anges till `accept`.
+I följande exempel docker är avsedda för keyphrase extraheringsbehållaren. 
 
-> [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-configuration-setting) konfigurationsinställningar som används tillsammans och du måste ange giltiga värden för alla tre dem. Annars startar behållaren inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
-
-Cognitive Services-behållare är licensierad under [ditt avtal](https://go.microsoft.com/fwlink/?linkid=2018657) reglerar din användning av Azure. Om du inte har en befintlig avtal som reglerar användningen av Azure kan du godkänner att ditt avtal som reglerar användningen av Azure är den [prenumerationsavtalet för Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755) (som införlivar den [villkoren för Online Services ](https://go.microsoft.com/fwlink/?linkid=2018760)). För förhandsversioner godkänner du även den [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Med hjälp av behållaren godkänner du dessa villkor.
-
-## <a name="fluentd-configuration-settings"></a>Fluentd konfigurationsinställningar
-
-Den `Fluentd` avsnittet hanterar konfigurationsinställningar för [Fluentd](https://www.fluentd.org), en öppen källkod för datainsamling för enhetlig loggning. Text Analytics behållare innehåller en Fluentd loggningsprovider vilket gör att din behållare att skriva log och eventuellt måttdata till en Fluentd-server.
-
-I följande tabell beskrivs de konfigurationsinställningar som stöds den `Fluentd` avsnittet.
-
-| Namn | Datatyp | Beskrivning |
-|------|-----------|-------------|
-| `Host` | Sträng | IP-adressen eller DNS-värdnamn för Fluentd-servern. |
-| `Port` | Integer | Porten som används av Fluentd-server.<br/> Standardvärdet är 24224. |
-| `HeartbeatMs` | Integer | Pulsslag intervall i millisekunder. Om ingen händelse trafik har skickats innan det här intervallet upphör att gälla, skickas ett pulsslag till Fluentd-servern. Standardvärdet är 60000 millisekunder (1 minut). |
-| `SendBufferSize` | Integer | Buffertutrymme för nätverk i byte som allokerats för skickar åtgärder. Standardvärdet är 32768 byte (32 kB). |
-| `TlsConnectionEstablishmentTimeoutMs` | Integer | Tidsgräns i millisekunder för att upprätta en SSL/TLS-anslutning med Fluentd-servern. Standardvärdet är 10 000 millisekunder (10 sekunder).<br/> Om `UseTLS` har angetts till false, ignoreras det här värdet. |
-| `UseTLS` | Boolesk | Anger om behållaren ska använda SSL/TLS för att kommunicera med Fluentd-servern. Standardvärdet är FALSKT. |
-
-## <a name="logging-configuration-settings"></a>Inställningar för loggning
-
-Den `Logging` konfigurationsinställningar hantera ASP.NET Core loggningsstöd för din behållare. Du kan använda samma konfigurationsinställningar och värden för din behållare kan du för en ASP.NET Core-program. Följande loggning providers som stöds av behållare för textanalys:
-
-* [Konsol](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
-  ASP.NET Core `Console` loggningsprovider. Alla konfigurationsinställningar för ASP.NET Core och standardvärden för den här loggningsprovider stöds.
-* [Felsökning](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
-  ASP.NET Core `Debug` loggningsprovider. Alla konfigurationsinställningar för ASP.NET Core och standardvärden för den här loggningsprovider stöds.
-* Disk  
-  Loggningsprovider JSON. Den här loggningsprovider skriver loggdata till utdata mount.  
-  Den `Disk` loggningsprovider stöder följande konfigurationsinställningar:  
-
-  | Namn | Datatyp | Beskrivning |
-  |------|-----------|-------------|
-  | `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs:** detta värde måste anges till `json` att aktivera loggning-providern. Ett fel inträffar om det här värdet anges utan att också ange en utdata mount vid instansiering en behållare. |
-  | `MaxFileSize` | Integer | Den maximala storleken i megabyte (MB) på en loggfil. När storleken på den aktuella loggfilen uppfyller eller överskrider detta värde, har en ny loggfil startats med loggningsprovider. Om -1 anges begränsas storleken på loggfilen bara av den maximala filstorleken för utdata mount. Standardvärdet är 1. |
-
-Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
-
-## <a name="mounts-configuration-settings"></a>Monterar konfigurationsinställningar
-
-Docker-behållare tillhandahålls av Text Analytics behållare är avsedda att vara tillståndslösa såväl som inte kan ändras. Med andra ord lagras filer som skapas i en behållare i en skrivbar container-lager som kvarstår medan behållaren körs och enkelt kan inte nås. Om den behållaren stoppas eller tas bort, förstörs filerna som skapades i den behållaren med den.
-
-Eftersom de är Docker-behållare, du dock använda Docker-lagringsalternativ, till exempel volymer och Binder monterar, läsa och skriva beständiga data utanför behållaren, om behållaren har stöd för den. Mer information om hur du anger och hantera Docker-lagringsalternativ finns i [hantera data i Docker](https://docs.docker.com/storage/).
-
-> [!NOTE]
-> Du behöver normalt inte ändra värdena för dessa konfigurationsinställningar. I stället ska du använda värdena som anges i dessa konfigurationsinställningar som mål när du anger inkommande och utgående monterar för behållaren. Läs mer om hur du anger inkommande och utgående monterar [indata och utdata monterar](#input-and-output-mounts).
-
-I följande tabell beskrivs de konfigurationsinställningar som stöds den `Mounts` avsnittet.
-
-| Namn | Datatyp | Beskrivning |
-|------|-----------|-------------|
-| `Input` | Sträng | Inkommande monterings-mål. Standardvärdet är `/input`. |
-| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. |
-
-### <a name="input-and-output-mounts"></a>Indata- och monterar
-
-Som standard varje behållare har stöd för en *inkommande montera*, som behållaren kan läsa data, och en *utdata mount*, som behållaren kan skriva data. Behållare är inte krävs för att stödja indata eller utdata monterar, men varje behållare kan använda både inkommande och utgående monterar i container-specifika syften förutom stöds av behållare för Text Analytics loggningsalternativen. Följande tabell visar indata och utdata montera stöd för varje behållare i textanalys behållare.
-
-| Container | Inkommande montera | Utdata Mount |
-|-----------|-------------|--------------|
-|[Extrahering av diskussionsämne](#working-with-key-phrase-extraction) | Stöds inte | Valfri |
-|[Språkidentifiering](#working-with-language-detection) | Stöds inte | Valfri |
-|[Attitydanalys](#working-with-sentiment-analysis) | Stöds inte | Valfri |
-
-Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando som används för att skapa en instans av en behållare från en hämtade behållaravbildning. Som standard indata montera använder `/input` som dess mål- och utdata montera använder `/output` som mål. Alla Docker-lagringsalternativ för Docker-behållarvärden kan anges i den `--mount` alternativet.
-
-Till exempel följande kommando definierar en Docker-bindning montera den `D:\Output` mapp på värddatorn som utdata mount, sedan instantierar en behållare från Attitydanalys behållaravbildningen, och spara loggfiler i JSON-format till utdata mount.
+### <a name="basic-example"></a>Grundläggande exempel 
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789 Logging:Disk:Format=json
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Exempel på loggning med kommandoradsargument
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Exempel på loggning med miljövariabeln
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  ```
+
+## <a name="language-detection-container-docker-examples"></a>Språk identifiering av behållare, docker exempel
+
+I följande exempel docker är för behållaren för identifiering av språk. 
+
+### <a name="basic-example"></a>Grundläggande exempel
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Exempel på loggning med kommandoradsargument
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Exempel på loggning med miljövariabeln
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  ```
+ 
+## <a name="sentiment-analysis-container-docker-examples"></a>Sentiment analysis behållare docker-exempel
+
+I följande exempel docker är för behållaren sentiment analys. 
+
+### <a name="basic-example"></a>Grundläggande exempel
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Exempel på loggning med kommandoradsargument
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Exempel på loggning med miljövariabeln
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* Granska [hur du installerar och kör behållare](how-tos/text-analytics-how-to-install-containers.md)

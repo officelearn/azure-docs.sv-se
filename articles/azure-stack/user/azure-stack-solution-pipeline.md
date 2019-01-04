@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967069"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714618"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudie: Distribuera appar till Azure och Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Lär dig hur du distribuerar ett program till Azure och Azure Stack med hjälp av en hybrid pipeline för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
 
@@ -72,7 +72,7 @@ Den här självstudien förutsätter att du har några grundläggande kunskaper 
 ### <a name="azure-requirements"></a>Krav för Azure
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* Skapa en [Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) i Azure. Gör Observera av Webbappens URL måste du använda den i självstudien.
+* Skapa en [Web App](https://docs.microsoft.com/azure/app-service/overview) i Azure. Gör Observera av Webbappens URL måste du använda den i självstudien.
 
 ### <a name="azure-stack-requirements"></a>Krav för Azure Stack
 
@@ -166,7 +166,7 @@ Som en del av konfigurationen av slutpunkten, Azure DevOps-tjänsterna kräver d
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Ge tjänstens huvudnamn behörighet att distribuera resurser i Azure Stack-prenumerationen
 
-För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar de bästa behörigheterna för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar de bästa behörigheterna för programmet. Läs om tillgängliga roller i [RBAC: Inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att den kan läsa resursgruppen och alla dess resurser.
 
@@ -180,9 +180,7 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
 3. I Visual Studio Enterprise, väljer **åtkomstkontroll (IAM)**.
 
-    ![Åtkomstkontroll (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Välj **Lägg till**.
+4. Välj **Lägg till rolltilldelning**.
 
     ![Lägg till](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 

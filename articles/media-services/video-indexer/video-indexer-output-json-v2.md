@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292520"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554664"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
@@ -78,8 +78,8 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |Attribut | Beskrivning|
 |---|---|
 |namn|Namnet på videon. Till exempel Azure Monitor.|
-|shortId|ID för videon. Till exempel 63c6d532ff.|
-|privacyMode|Din analys på detaljnivå kan ha ett av följande lägen: **privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
+|id|ID för videon. Till exempel 63c6d532ff.|
+|privacyMode|Din analys på detaljnivå kan ha något av följande lägen: **Privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
 |varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
 |thumbnailVideoId|ID för videon som miniatyren togs.
 |thumbnailId|Videons miniatyr-ID. Anropa Get-miniatyrbilden för att få den faktiska miniatyrbilden (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
@@ -149,7 +149,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 
 Insikterna är en uppsättning dimensioner (till exempel avskrift rader, ansikten, varumärken, osv.), där varje dimension är en lista över unika element (till exempel face1, bild2, -bild3), och varje element har sin egen metadata och en lista över dess instanser (som är tidsintervall med ytterligare valfria metadata).
 
-Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en lista över dess temporala instanser (till exempel: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 och 00:41:21 – 00:41:49.) Varje temporala instans kan ha ytterligare metadata. Till exempel samordnar den ansiktsrektangeln (20,230,60,60).
+Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en lista över dess temporala instanser (till exempel: 00: 00:05 – 10:00:00, 00:01:00-00:02:30 och 00:41:21 – 00:41:49.) Varje temporala instans kan ha ytterligare metadata. Till exempel samordnar den ansiktsrektangeln (20,230,60,60).
 
 |Version|Code-versionen|
 |---|---|
@@ -553,7 +553,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 |Namn|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal svaren i videon.|
-|WordCount|Antalet ord per talare.|
+|SpeakerWordCount|Antalet ord per talare.|
 |SpeakerNumberOfFragments|Mängden fragment talaren har i en video.|
 |SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
 |SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
@@ -767,8 +767,8 @@ Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är
 |Namn|Beskrivning|
 |---|---|
 |id|Avsnittet-ID.|
-|namn|Avsnittet namnet, till exempel: ”Pharmaceuticals”.|
-|Tjänsten|Spår återger ämnen-hierarkin. Till exempel ”: hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
+|namn|Ämnesnamnet, till exempel: ”Pharmaceuticals”.|
+|Tjänsten|Spår återger ämnen-hierarkin. Exempel: ”Hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
 |förtroende|Förtroendepoäng i intervallet [0,1]. Är högre tryggare.|
 |language|Språket som används i avsnittet.|
 |iptcName|IPTC media koda namn, om identifieras.|

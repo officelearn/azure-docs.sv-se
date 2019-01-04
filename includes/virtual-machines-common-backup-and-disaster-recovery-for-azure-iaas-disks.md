@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485898"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638820"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Återställning för säkerhetskopiering och haveriberedskap för Azure IaaS-diskar
 
@@ -63,7 +63,7 @@ För att skydda dina IaaS-arbetsbelastningar från avbrott, bör du planera för
 
 DR-överväganden kan innehålla följande aspekter:
 
-- Hög tillgänglighet: möjligheten för programmet att fortsätta köras i ett felfritt tillstånd utan betydande driftavbrott. Genom att *felfritt tillstånd*, det här tillståndet innebär att programmet svarar och användare kan ansluta till programmet och interagera med den. Vissa verksamhetskritiska program och databaser kan bli ombedd att alltid är tillgänglig, även om det uppstår fel på plattformen. Du kan behöva planera redundans för programmet, samt data för dessa arbetsbelastningar.
+- Hög tillgänglighet: Möjligheten för programmet att fortsätta köras i ett felfritt tillstånd utan betydande driftavbrott. Genom att *felfritt tillstånd*, det här tillståndet innebär att programmet svarar och användare kan ansluta till programmet och interagera med den. Vissa verksamhetskritiska program och databaser kan bli ombedd att alltid är tillgänglig, även om det uppstår fel på plattformen. Du kan behöva planera redundans för programmet, samt data för dessa arbetsbelastningar.
 
 - Tillförlitlighet: I vissa fall kan den huvudsakliga överväganden är att se till att data går förlorade om en katastrof inträffar. Därför kanske du behöver en säkerhetskopia av dina data i en annan plats. Du kanske inte behöver fullständig redundans för programmet, men bara en vanlig säkerhetskopiering av diskar för dessa arbetsbelastningar.
 
@@ -92,7 +92,7 @@ Låt oss titta på IaaS programbelastningen. Det här programmet kan till exempe
 
 Ett annat exempel är en rapportserver som hämtar data från andra källor och genererar aggregerade rapporter. Förlusten av den här virtuella datorn eller diskar kan leda till förlust av rapporterna. Dock kan det vara möjligt att köra rapporterna och återskapa utdata. I så fall kan behöver du verkligen en förlust av data, även om rapportservern uppnås med en katastrof. Därför kan du ha en högre nivå av feltolerans för att förlora en del av data på rapportservern. I så fall kan är säkerhetskopiera mindre ofta ett alternativ för att minska kostnaderna.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Scenario 4: IaaS data programproblem
+### <a name="scenario-4-iaas-application-data-issues"></a>Scenario 4: Problem med IaaS-program
 
 Problem med IaaS-program är en annan möjlighet. Tänk dig ett program som beräknar, underhåller och levererar viktiga affärsdata, till exempel information om priser. En ny version av programmet hade en programvara-bugg som felaktigt beräknas priserna och skadad befintliga commerce-data som hanteras av plattformen. Här är bästa åtgärden att återgå till den tidigare versionen av programmet och data. Du aktiverar det genom att ta regelbundna säkerhetskopieringar av systemet.
 
@@ -152,7 +152,7 @@ Använd följande steg för att aktivera säkerhetskopiering för dina virtuella
 
 1.  Konfigurera principen för säkerhetskopiering och välj den virtuella datorn från samma användargränssnitt.
 
-1.  Kontrollera att Backup-agenten är installerad på den virtuella datorn. Om den virtuella datorn skapas med hjälp av en Azure-galleriet bilden, installerat Backup-agenten redan. Övrigt (det vill säga om du använder en anpassad avbildning), följ instruktionerna till [installera VM-agenten på en virtuell dator](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Kontrollera att Backup-agenten är installerad på den virtuella datorn. Om den virtuella datorn skapas med hjälp av en Azure-galleriet bilden, installerat Backup-agenten redan. Övrigt (det vill säga om du använder en anpassad avbildning), följ instruktionerna till [installera VM-agenten på en virtuell dator](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Kontrollera att den virtuella datorn tillåter nätverksanslutningar för tjänsten backup ska fungera. Följ anvisningarna för [nätverksanslutningar](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Mer information finns i instruktionerna för att [återställa virtuella datorer
 
 Du kan också använda PowerShell för [återställer en virtuell dator](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) eller för [skapar en ny virtuell dator från återställs diskar](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Alternativ lösning: programkonsekventa ögonblicksbilder
+## <a name="alternative-solution-consistent-snapshots"></a>Alternativ lösning: Programkonsekventa ögonblicksbilder
 
 Om det inte går att använda Azure Backup kan implementera du en egen mekanism för säkerhetskopiering med ögonblicksbilder. Det är komplicerat att skapa programkonsekventa ögonblicksbilder för alla diskar som används av en virtuell dator och replikerar sedan dessa ögonblicksbilder till en annan region. Därför överväger Azure med Backup-tjänsten som ett bättre alternativ än att skapa en anpassad lösning. 
 
@@ -248,7 +248,7 @@ Säkerhetskopieringsprocessen kan därför vara en kombination av två saker:
 
 Du kan behöva hantera säkerhetskopiering av både data och konfiguration beroende på av säkerhetskopieringen som du väljer, eller backup-tjänsten kan hantera alla som du.
 
-## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>Bilaga: Förstå effekten av dataredundans
+## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>Tillägg: Förstå effekten av dataredundans
 
 För storage-konton i Azure, det finns tre typer av dataredundans som du bör tänka på angående disaster recovery: lokalt redundant, geo-redundant eller geo-redundant med läsbehörighet. 
 

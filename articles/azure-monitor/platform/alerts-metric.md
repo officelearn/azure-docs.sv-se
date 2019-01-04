@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336501"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584317"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för mått med Azure Monitor
 
@@ -33,7 +33,7 @@ Följande procedur beskriver hur du skapar en måttaviseringsregel i Azure-porta
 
 3. Klicka på **Välj mål**, Välj en målresurs som du vill ändra i fönstret kontext som läser in. Använd **prenumeration** och **resurstyp** listrutor för att hitta resursen som du vill övervaka. Du kan också använda sökfältet för att hitta din resurs.
 
-4. Om den valda resursen har mått som du kan skapa aviseringar, **tillgängliga signaler** på nederkant höger innehåller mått. Du kan visa en fullständig lista över resurstyper som stöds för måttaviseringar i den här [artikel](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. Om den valda resursen har mått som du kan skapa aviseringar, **tillgängliga signaler** på nederkant höger innehåller mått. Du kan visa en fullständig lista över resurstyper som stöds för måttaviseringar i den här [artikel](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. När du har valt en målresurs, klickar du på **lägga till villkor**
 
@@ -130,4 +130,4 @@ I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsr
 
 - [Skapa måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-enable-template.md).
 - [Förstå hur mått aviseringar work](alerts-metric-overview.md).
-- [Förstå web hook schemat för måttaviseringar](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Förstå web hook schemat för måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

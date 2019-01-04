@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101862"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721843"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
 SQL Data Sync är en tjänst som bygger på Azure SQL Database som gör att du synkroniserar data som du väljer riktningarna över flera SQL-databaser och SQL Server-instanser.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
 ## <a name="architecture-of-sql-data-sync"></a>Arkitekturen för SQL Data Sync
 
@@ -51,11 +54,11 @@ En Synkroniseringsgrupp har följande egenskaper:
 
 Datasynkronisering är användbart i fall där data ska hållas uppdaterad över flera Azure SQL-databaser eller SQL Server-databaser. Här är huvudsakliga användningsområden för Data Sync:
 
--   **Hybrid datasynkronisering:** med datasynkronisering, kan du synkronisera data mellan dina lokala databaser och Azure SQL-databaser för att möjliggöra hybridprogram. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
+-   **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala databaser och Azure SQL-databaser för att möjliggöra hybridprogram med Data Sync. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
 
--   **Distribuerade program:** i många fall är det bra att separera olika arbetsbelastningar på olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
+-   **Distribuerade program:** I många fall är det bra att separera olika arbetsbelastningar på olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
 
--   **Globalt distribuerade program:** många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
+-   **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
 
 Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 
@@ -69,11 +72,11 @@ Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 
 ## <a name="how-does-data-sync-work"></a>Hur fungerar Data Sync? 
 
--   **Spåra dataändringar:** datasynkronisering spårar ändringar med infoga, uppdatera och ta bort utlösare. Ändringarna sparas i en separat tabell i databasen. Observera att BULK INSERT inte aktiveras utlösare som standard. Om FIRE_TRIGGERS inte anges kör inga insert-utlösare. Lägga till alternativet FIRE_TRIGGERS så att Data Sync kan spåra dessa infogningar. 
+-   **Spåra dataändringar:** Datasynkronisering spårar ändringar genom att använda insert-, update- och delete-utlösare. Ändringarna sparas i en separat tabell i databasen. Observera att BULK INSERT inte aktiveras utlösare som standard. Om FIRE_TRIGGERS inte anges kör inga insert-utlösare. Lägga till alternativet FIRE_TRIGGERS så att Data Sync kan spåra dessa infogningar. 
 
--   **Synkronisera data:** datasynkronisering har utformats i en modell med nav och ekrar. Hubben synkroniserar individuellt med varje medlem. Ändringar från hubben laddas ned till medlemmen och sedan överförs ändringar från medlemmen till hubben.
+-   **Synkronisera data:** Datasynkronisering har utformats i en modell med nav och ekrar. Hubben synkroniserar individuellt med varje medlem. Ändringar från hubben laddas ned till medlemmen och sedan överförs ändringar från medlemmen till hubben.
 
--   **Lösa konflikter:** datasynkronisering innehåller två alternativ för konfliktlösning, *Hub wins* eller *medlem wins*.
+-   **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konfliktlösning, *Hub wins* eller *medlem wins*.
     -   Om du väljer *Hub wins*, ändringar i navet alltid över ändringar i medlemmen.
     -   Om du väljer *medlem wins*, ändringar i medlem Skriv över ändringar i hubben. Om det finns mer än en medlem, beror det slutliga värdet på vilka medlem synkroniseras först.
 

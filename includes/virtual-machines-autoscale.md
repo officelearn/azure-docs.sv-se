@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53400010"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594251"
 ---
 Du kan enkelt [skala automatiskt](../articles/azure-monitor/platform/autoscale-best-practices.md) din [virtuella datorer (VM)](../articles/virtual-machines/windows/overview.md) när du använder [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [funktionen för automatisk skalning i Azure Övervaka](../articles/azure-monitor/platform/autoscale-overview.md). Dina virtuella datorer måste vara medlemmar i en skalningsuppsättning kan skalas automatiskt. Den här artikeln innehåller information som hjälper dig att bättre förstå hur du skalar dina virtuella datorer både lodrätt och vågrätt med hjälp av automatisk och manuell metoder.
 
@@ -29,7 +29,7 @@ Skalningsuppsättningar gör det enkelt att distribuera och hantera identiska vi
 
 Automatisk skalning innehåller rätt antal virtuella datorer för att hantera belastningen på programmet. Det kan du lägga till virtuella datorer för att hantera ökad belastning och spara pengar genom att ta bort virtuella datorer som sitter inaktiv. Du kan ange ett lägsta och högsta antal virtuella datorer som körs baserat på en uppsättning regler. Med en minsta gör att körs ditt program alltid även utan belastning. Med ett maxvärde som begränsar den totala möjliga timkostnad.
 
-Du kan aktivera automatisk skalning när du skapar en skalningsuppsättning med [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) eller [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Du kan också aktivera det när skalningsuppsättningen skapas. Du kan skapa en skalningsuppsättning, installera tillägget och konfigurera automatisk skalning med hjälp av en [Azure Resource Manager-mall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Aktivera autoskalning från Azure Monitor i Azure-portalen eller aktivera autoskalning från uppsättningen skalinställningar.
+Du kan aktivera automatisk skalning när du skapar en skalningsuppsättning med [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) eller [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Du kan också aktivera det när skalningsuppsättningen skapas. Du kan skapa en skalningsuppsättning, installera tillägget och konfigurera automatisk skalning med hjälp av en [Azure Resource Manager-mall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Aktivera autoskalning från Azure Monitor i Azure-portalen eller aktivera autoskalning från uppsättningen skalinställningar.
 
 ![Aktivera autoskalning](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

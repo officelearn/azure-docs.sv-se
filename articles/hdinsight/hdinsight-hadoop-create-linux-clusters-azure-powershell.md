@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 54dbeeede58116b01f21db784b3e34970ace029f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863439"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792155"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Skapa Linux-baserade kluster i HDInsight med Azure PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "52863439"
 
 Azure PowerShell är en kraftfull skriptmiljö som du kan använda för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Microsoft Azure. Det här dokumentet innehåller information om hur du skapar ett Linux-baserade HDInsight-kluster med hjälp av Azure PowerShell. Den innehåller också ett exempelskript.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure PowerShell är endast tillgängligt på Windows-klienter. Om du använder en Linux-, Unix- eller Mac OS X-klient, se [skapar ett Linux-baserade HDInsight-kluster med klassiska Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) för information om hur du använder den klassiska CLI för att skapa ett kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -31,7 +31,7 @@ Du måste ha följande innan du sätter igång:
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-stöd för hantering av HDInsight-resurser med hjälp av Azure Service Manager **är föråldrat** och togs bort den 1 januari 2017. I stegen i det här dokumentet används de nya HDInsight-cmdletarna som fungerar med Azure Resource Manager.
     >
     > Följ stegen i [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -55,14 +55,14 @@ De värden som du anger för klusterinloggning används för att skapa Hadoop-an
 
 De värden som du anger för SSH-användaren används för att skapa SSH-användare för klustret. Använd det här kontot för att starta en fjärrsession med SSH på klustret och köra jobb. Mer information finns i dokumentet [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om du planerar att använda mer än 32 arbetsnoder (antingen när klustret skapas eller genom att skala klustret när du har skapat) måste du även ange en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne.
 >
 > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Det kan ta upp till 20 minuter att skapa ett kluster.
 
-## <a name="create-cluster-configuration-object"></a>Skapa kluster: konfigurationsobjekt
+## <a name="create-cluster-configuration-object"></a>Skapa kluster: Konfigurationsobjekt
 
 Du kan också skapa ett HDInsight konfiguration objekt med hjälp av `New-AzureRmHDInsightClusterConfig` cmdlet. Sedan kan du ändra det här konfigurationsobjektet för att aktivera ytterligare konfigurationsalternativ för klustret. Använd slutligen den `-Config` -parametern för den `New-AzureRmHDInsightCluster` cmdlet för att använda konfigurationen.
 
@@ -70,7 +70,7 @@ Följande skript skapar ett konfigurationsobjekt för att konfigurera en R Serve
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
-> [!WARNING]
+> [!WARNING]  
 > Med ett storage-konto i en annan plats än HDInsight-kluster stöds inte. När du använder det här exemplet kan du skapa ytterligare storage-konto på samma plats som servern.
 
 ## <a name="customize-clusters"></a>Anpassa kluster
@@ -84,7 +84,7 @@ Följande skript skapar ett konfigurationsobjekt för att konfigurera en R Serve
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -94,7 +94,7 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande resurser 
 
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
 * [Använda Apache Pig med HDInsight](hadoop/hdinsight-use-pig.md)
-* [Använda Apache HAdoop MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-kluster
 
@@ -111,6 +111,6 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande resurser 
 
 * [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'ML i molnet: villkoren och arkitektur'
+title: 'Maskininlärning i molnet: Arkitektur för Användarvillkor'
 titleSuffix: Azure Machine Learning service
 description: Läs mer om arkitekturen, termer och begrepp som utgör Azure Machine Learning-tjänsten. Här beskrivs också hur det allmänna arbetsflödet för att använda tjänsten och Azure-tjänster som används av Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -11,43 +11,43 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184737"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808102"
 ---
-# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Hur fungerar Azure Machine Learning-tjänsten: arkitektur och begrepp
+# <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
-Det här dokumentet beskriver arkitekturen och begrepp för Azure Machine Learning-tjänsten. Följande diagram visas de viktigaste komponenterna i tjänsten och visar det allmänna arbetsflödet när du använder tjänsten: 
+Den här artikeln beskrivs arkitekturen och begrepp för Azure Machine Learning-tjänsten. De viktigaste komponenterna i tjänsten och det allmänna arbetsflödet för att använda tjänsten visas i följande diagram: 
 
-[![Azure Machine Learning-tjänsten arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning-service-arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-Arbetsflödet följer vanligtvis dessa steg:
+Arbetsflödet följer vanligtvis den här sekvensen:
 
-1. Utveckla maskininlärning utbildning skript i __Python__.
-1. Skapa och konfigurera en __beräkningsmålet__.
-1. __Skicka skripten__ till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, lagrar beräkningsmål kör poster till en __datalager__. Det poster sparas i en __experimentera__.
-1. __Fråga experimentet__ för loggade mått från de aktuella och tidigare körningarna. Om mått som inte anger ett önskat utfall kan köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
-1. När ett tillfredsställande kör hittas, registrera beständiga modellen i den __modellen registret__.
+1. Utveckla maskininlärning utbildning skript i **Python**.
+1. Skapa och konfigurera en **beräkningsmålet**.
+1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, lagrar beräkningsmål kör poster till en **datalager**. Det poster sparas i en **experimentera**.
+1. **Fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
+1. När du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
 1. Utveckla ett bedömningsskript.
-1. __Skapa en avbildning__ och registrera den i den __avbildningsregister__. 
-1. __Distribuera avbildningen__ som en __webbtjänsten__ i Azure.
+1. **Skapa en avbildning** och registrera den i den **avbildningsregister**. 
+1. **Distribuera avbildningen** som en **webbtjänsten** i Azure.
 
 
 > [!NOTE]
-> Även om det här dokumentet definierar termer och begrepp som används av Azure Machine Learning, anger inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i den [Microsoft Azures ordlista](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+> Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning-tjänsten, anger inte termer och begrepp för Azure-plattformen. Läs mer om Azure-plattformen terminologi, den [Microsoft Azures ordlista](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspace"></a>Arbetsyta
 
 Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det ger en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.
 
-Arbetsytan och ser en lista över beräkningsmål som kan användas för att träna din modell. Det håller också en historik över träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Den här informationen används för att avgöra vilka kör utbildning ger den bästa modellen.
+Arbetsytan och ser en lista över beräkningsmål som du kan använda för att träna din modell. Det håller också en historik över träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du kan använda den här informationen för att avgöra vilka kör utbildning ger den bästa modellen.
 
-Modeller är registrerade med arbetsytan. Registrerade modellen och bedömnings skript används för att skapa en avbildning. Avbildningen kan sedan distribueras till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Det kan också distribueras till en Azure IoT Edge-enhet som en modul.
+Du kan registrera modeller med arbetsytan. Du använder en modell som är registrerade och bedömnings-skript för att skapa en avbildning. Du kan sedan distribuera avbildningen till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera avbildningen till en Azure IoT Edge-enhet som en modul.
 
-Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, styra åtkomst till arbetsytan genom att tilldela användarna följande roller:
+Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, kan du styra åtkomsten till den genom att tilldela användarna följande roller:
 
 * Ägare
 * Deltagare
@@ -55,15 +55,15 @@ Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. N
 
 När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
 
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) -registrerar docker-behållare som används vid träning och när du distribuerar en modell.
-* [Azure Storage](https://azure.microsoft.com/services/storage/) – används som standard-datalager för arbetsytan.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) – butiker övervakningsinformation om dina modeller.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) – butiker hemligheter som används av beräkningsmål och annan känslig information som krävs av arbetsytan.
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar docker-behållare som du använder vid träning och när du distribuerar en modell.
+* [Azure storage-konto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.
+* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Butiker övervakningsinformation om dina modeller.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Butiker hemligheter som används av compute mål och annan känslig information som behövs av arbetsytan.
 
 > [!NOTE]
-> Du kan också använda befintliga Azure-tjänster i stället för att skapa nya versioner. 
+> Förutom att skapa nya versioner, kan du också använda befintliga Azure-tjänster. 
 
-Följande diagram är en taxonomi för arbetsytan:
+En taxonomi för arbetsytan illustreras i följande diagram:
 
 [![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
@@ -71,96 +71,95 @@ Följande diagram är en taxonomi för arbetsytan:
 
 I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa en modell för maskininlärning innebär att välja en algoritm, att förse den med data och justering av hyperparametrar. Utbildning är en iterativ process som skapar en tränad modell, som kapslar in det modellen har lärt dig under utbildning.
 
-En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell tränas utanför Azure Machine Learning. En modell kan registreras under en arbetsyta för Azure Machine Learning-tjänsten.
+En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en arbetsyta för Azure Machine Learning-tjänsten.
 
-Azure Machine Learning-tjänsten är framework oberoende. Du kan använda valfritt populära machine learning-ramverk när du skapar en modell, till exempel scikit-Läs xgboost, PyTorch, TensorFlow, Chainer och CNTK.
+Azure Machine Learning-tjänsten är framework oberoende. När du skapar en modell kan använda du alla populära machine learning-ramverk, som lär du dig Scikit, XGBoost, PyTorch, TensorFlow, Chainer och Microsoft Cognitive Toolkit (kallades tidigare CNTK).
 
-Ett exempel för att träna en modell finns i den [snabbstarten: Skapa en machine learning-arbetsyta](quickstart-get-started.md) dokumentet.
+Ett exempel för att träna en modell finns i [snabbstarten: Skapa en arbetsyta för Machine Learning-tjänsten](quickstart-get-started.md).
 
 ### <a name="model-registry"></a>Modell-registret
 
 Modellen registret håller reda på alla modeller i din arbetsyta för Azure Machine Learning-tjänsten. 
 
-Modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig förutsätter registret att det är en ny version. Versionen ökas och den nya modellen är registrerad under namnet.
+Modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig förutsätter registret att det är en ny version. Versionen ökas och den nya modellen är registrerad med samma namn.
 
-Du kan ange ytterligare metadatataggar när du registrera modellen och sedan använda dessa taggar när du söker efter modeller.
+När du registrerar modellen kan du ange ytterligare metadatataggar och sedan använda taggar när du söker efter modeller.
 
 Du kan inte ta bort modeller som används av en avbildning.
 
-Ett exempel med att registrera en modell finns i den [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md) dokumentet.
+Ett exempel med att registrera en modell finns i [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="image"></a>Bild
 
-Bilder är ett sätt att distribuera en modell, tillsammans med alla komponenter som krävs för att använda modellen på ett tillförlitligt sätt. En avbildning innehåller följande objekt:
+Bilder är ett sätt att distribuera en modell, tillsammans med alla komponenter måste du använda modellen på ett tillförlitligt sätt. En avbildning innehåller följande objekt:
 
 * En modell.
-* En arbetsflödesbaserad skript eller program. Det här skriptet används för att skicka indata till modellen och returnerar resultatet av modellen.
-* Beroenden som krävs av modellen eller bedömnings skriptprogram.  Du kan exempelvis innehålla en miljö Conda-fil som listar beroendena för Python-paketet.
+* En arbetsflödesbaserad skript eller program. Du kan använda skript för att skicka indata till modellen och returnera utdata från modellen.
+* De beroenden som krävs av modellen eller bedömnings-skript eller program. Du kan exempelvis innehålla en miljö Conda-fil som listar beroendena för Python-paketet.
 
-Det finns två typer av avbildningar som kan skapas med Azure Machine Learning:
+Azure Machine Learning kan skapa två typer av bilder:
 
-* FPGA avbildning: Används när du distribuerar till en fält-programmable gate-matris på Azure-molnet.
-* Docker-avbildningen: Används när du distribuerar för att beräkna mål än FPGA. Till exempel Azure Container Instances och Azure Kubernetes Service.
+* **FPGA bild**: Används när du distribuerar till en fält-programmable gate array i Azure.
+* **Docker-avbildning**: Används när du distribuerar till beräkningsmål än FPGA. Exempel är Azure Container Instances och Azure Kubernetes Service.
 
-Ett exempel för att skapa en avbildning finns i den [distribuera en modell för klassificering av avbildning i Azure Container Instance](tutorial-deploy-models-with-aml.md) dokumentet.
+Ett exempel för att skapa en avbildning finns i [distribuera en modell för klassificering av avbildning i Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### <a name="image-registry"></a>Avbildningsregister
 
-Avbildningsregister håller reda på bilder som skapats från dina modeller. Du kan ange ytterligare metadatataggar när du skapar avbildningen. Metadatataggar lagras som bild-registret och kan efterfrågas för att hitta din avbildning.
+Avbildningsregister håller reda på avbildningar som skapats från dina modeller. Du kan ange ytterligare metadatataggar när du skapar avbildningen. Metadatataggar lagras som bild-registret, och du kan skicka frågor mot dem för att hitta din avbildning.
 
 ## <a name="deployment"></a>Distribution
 
-En distribution är en instansiering bildens i antingen en webbtjänst som kan finnas i molnet eller en IoT-modul för integrerad enhet distributioner. 
+En distribution är en instansiering bildens i antingen en webbtjänst som kan användas i molnet eller en IoT-modul för integrerad enhet distributioner. 
 
 ### <a name="web-service"></a>Webbtjänst
 
-En distribuerad webbtjänst kan använda Azure Container Instances, Azure Kubernetes Service eller fält-programmable gate matriser (FPGA).
-Tjänsten har skapats från en avbildning som innehåller din modell, skript och tillhörande filer. Avbildningen har en Utjämning av nätverksbelastning, HTTP-slutpunkt som tar emot bedömnings begäranden som skickas till webbtjänsten.
+En distribuerad webbtjänst kan använda Azure Container Instances, Azure Kubernetes Service eller FPGA. Du har skapat tjänsten från en avbildning som innehåller din modell, skript och tillhörande filer. Avbildningen har en Utjämning av nätverksbelastning, HTTP-slutpunkt som tar emot bedömnings förfrågningar som skickas till webbtjänsten.
 
-Azure hjälper dig att övervaka din distribution av webbtjänster genom att samla in telemetri med Application Insights och/eller modell telemetri om du har valt att aktivera den här funktionen. Dessa data är endast tillgänglig för dig och lagras i dina Application Insights och storage-konto instanser.
+Azure hjälper dig att övervaka din distribution av webbtjänster genom att samla in Application Insights telemetry eller modell telemetri om du har valt att aktivera den här funktionen. Dessa data är tillgänglig endast för dig och lagras i dina Application Insights och storage-konto instanser.
 
-Om du har aktiverat automatisk skalning kan skala Azure automatiskt din distribution.
+Om du har aktiverat automatisk skalning, skalar Azure automatiskt din distribution.
 
-Ett exempel för att distribuera en modell som en webbtjänst finns i den [distribuera en modell för klassificering av avbildning i Azure Container Instance](tutorial-deploy-models-with-aml.md) dokumentet.
+Ett exempel för att distribuera en modell som en webbtjänst finns i [distribuera en modell för klassificering av avbildning i Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### <a name="iot-module"></a>IoT-modul
 
-En distribuerad IoT-modul är en Docker-behållare som innehåller din modell och associerade skript eller program och eventuella ytterligare beroenden. Dessa moduler distribueras med hjälp av Azure IoT Edge på edge-enheter. 
+En distribuerad IoT-modul är en Docker-behållare som innehåller din modell och associerade skript eller program och eventuella ytterligare beroenden. Du kan distribuera dessa moduler med hjälp av Azure IoT Edge på Edge-enheter. 
 
-Om du har aktiverat övervakning, Azure att samlar in telemetridata från modellen i Azure IoT Edge-modul. Dessa data är endast tillgänglig för dig och lagras i din instans av storage-konto.
+Om du har aktiverat övervakning, Azure att samlar in telemetridata från modellen i Azure IoT Edge-modul. Dessa data är tillgänglig för dig och lagras i din instans av storage-konto.
 
-Azure IoT Edge säkerställer att din modul körs och övervaka den enhet som är värd för den.
+Azure IoT Edge säkerställer att din modul körs och det övervakar den enhet som är värd för den.
 
 ## <a name="datastore"></a>Datalager
 
-Ett datalager är en abstraktion av storage via Azure Storage-kontot. Datalagringen kan använda en Azure blob-behållare eller en Azure-filresurs som backend-lagring. Varje arbetsyta har ett standard-datalager, och du kan registrera dig ytterligare datalager. 
+Ett datalager är en abstraktion av lagring via ett Azure storage-konto. Datalagringen kan använda en Azure blob-behållare eller en Azure-filresurs som backend-lagring. Varje arbetsyta har ett standard-datalager, och du kan registrera ytterligare datalager. 
 
-Använda Python SDK API eller Azure Machine Learning CLI för att lagra och hämta filer från databasen. 
+Använda Python SDK-API eller Azure Machine Learning CLI för att lagra och hämta filer från databasen. 
 
 ## <a name="run"></a>Kör
 
 En körning är en post som innehåller följande information:
 
-* Metadata om körningen (tidsstämpel, varaktighet osv.)
-* Mått som loggats av skriptet
-* Utdata filer autocollected av experimentet eller överförs uttryckligen av dig.
+* Metadata om körningen (tidsstämpel, varaktighet och så vidare)
+* Mått som loggas av skriptet
+* Utdatafilerna som autocollected av experimentet eller uttryckligen överförts av dig
 * En ögonblicksbild av den katalog som innehåller dina skript innan körningen
 
-En körning skapas när du skickar in ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Så det översta kör kan ha två underordnade körningar, som kan ha körs sina egna underordnade.
+Du kan skapa en körning när du skickar in ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Den översta körningen kan till exempel ha två underordnade körningar, som kan ha sin egen underordnade kör.
 
-Ett exempel på Visa körs producerade genom att träna en modell finns i den [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
+Ett exempel med att visa körningar som genereras av träna en modell finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
 
 ## <a name="experiment"></a>Experiment
 
-Ett experiment är en gruppering av många körs från ett givet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar en körning och ange ett namn på experiment som inte finns, skapas automatiskt ett nytt experiment med det namnet.
+Ett experiment är en gruppering av många körs från ett angivet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar en körning och ange ett namn på experiment som inte finns, skapas automatiskt ett nytt experiment med det nyss angivna namnet.
 
-Ett exempel på hur du använder ett experiment finns i den [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
+Ett exempel på hur du använder ett experiment finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
 
 ## <a name="pipeline"></a>Pipeline
 
-Machine learning pipelines används för att skapa och hantera arbetsflöden som sätta ihop machine learning-faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferensjobb faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
+Använder du machine learning pipelines för att skapa och hantera arbetsflöden som sätta ihop machine learning faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferensjobb faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
 
-Mer information om machine learning pipelines med den här tjänsten finns i artikeln [Pipelines och Azure Machine Learning](concept-ml-pipelines.md).
+Mer information om machine learning pipelines med den här tjänsten finns i [Pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="compute-target"></a>Beräkningsmål
 
@@ -174,7 +173,7 @@ Beräkningsmål är beräkningsresursen som används för att köra skriptet utb
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark för HDInsight | ✓ | &nbsp; |
-| Azure Container-instans | &nbsp; | ✓ |
+| Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
@@ -183,35 +182,37 @@ Beräkningsmål är kopplade till en arbetsyta. Compute mål än den lokala dato
 
 ### <a name="managed-and-unmanaged-compute-targets"></a>Hanterade och ohanterade beräkningsmål
 
-**Hanterade** compute mål skapas och hanteras av Azure Machine Learning-tjänsten. Dessa beräkningsalternativ mål är optimerade för ML-arbetsbelastningar. __Beräkning av Azure Machine Learning__ är den enda hanterade beräkningsmål just nu (4 December 2018). Ytterligare hanterade beräkningsmål kan läggas till i framtiden. ML-instanserna kan skapas direkt via arbetsytan med hjälp av Azure-portalen, Azure Machine Learning SDK eller Azure CLI. Alla andra beräkningsmål måste skapas utanför arbetsytan och sedan ansluts till den.
+* **Hanterade**: Beräkningsmål som skapas och hanteras av Azure Machine Learning-tjänsten. Dessa beräkningsalternativ mål är optimerade för machine learning-arbetsbelastningar. Azure Machine Learning-instanser är den enda hanterade beräkningsmål från och med 4 December 2018. Ytterligare hanterade beräkningsmål kan läggas till i framtiden. 
 
-**Ohanterade** beräkning som riktar inte sig hanteras av Azure Machine Learning-tjänsten. Du kan behöva skapa dem utanför Azure Machine Learning och sedan koppla dem till din arbetsyta före användning. Dessa beräkningsalternativ mål kan kräva ytterligare steg för att underhålla eller förbättra prestanda för ML-arbetsbelastningar.
+    Du kan skapa machine learning beräkningsinstanser direkt via arbetsytan med hjälp av Azure-portalen, Azure Machine Learning SDK eller Azure CLI. Alla andra beräkningsmål måste skapas utanför arbetsytan och sedan ansluts till den.
 
-Information om att välja beräkningsmål för träning, finns det [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md) dokumentet.
+* **Ohanterade**: Beräkningsmål som är *inte* hanteras av Azure Machine Learning-tjänsten. Du kan behöva skapa dem utanför Azure Machine Learning och sedan koppla dem till din arbetsyta före användning. Ohanterade beräkningsmål kan kräva ytterligare steg för att underhålla eller förbättra prestanda för arbetsbelastningar för machine learning.
 
-Information om att välja beräkningsmål för distribution finns i den [distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md) dokumentet.
+Information om att välja beräkningsmål för träning, finns i [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md).
+
+Information om att välja beräkningsmål för distribution finns i den [distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
 
 ## <a name="run-configuration"></a>Köra konfiguration
 
-En kör konfiguration är en uppsättning instruktioner som definierar hur ett skript ska köras i en viss beräkningsmål. Den innehåller en bred uppsättning beteende definitioner, till exempel om du vill använda en befintlig Python-miljö eller använda en Conda-miljö som bygger på specifikationen.
+En kör konfiguration är en uppsättning instruktioner som definierar hur ett skript ska köras i en angiven beräkningsmål. Konfigurationen innehåller en bred uppsättning beteende definitioner, till exempel om du vill använda en befintlig Python-miljö eller använda en Conda-miljö som är byggd från en specifikation.
 
-En kör konfiguration kan vara kvar i en fil på den katalog som innehåller skriptet utbildning, eller skapas som ett objekt i minnet och används för att skicka en körning.
+En kör konfiguration kan vara kvar i en fil på den katalog som innehåller utbildning skriptet eller den kan konstrueras som ett objekt i minnet och används för att skicka en körning.
 
-Till exempel kör konfigurationer, finns i den [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md) dokumentet.
+Till exempel kör konfigurationer, se [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md).
 
 ## <a name="training-script"></a>Inlärningsskript
 
-För att träna en modell kan du ange den katalog som innehåller inlärningsskript och tillhörande filer. Du kan även ange ett namn på experiment, som används för att lagra information som samlas in under utbildningen. Hela katalogen kopieras till miljön (beräkningsmål) vid träning, och skriptet som anges av körningskonfigurationen har startats. En ögonblicksbild av katalogen lagras också under experiment på arbetsytan.
+För att träna en modell kan du ange den katalog som innehåller inlärningsskript och tillhörande filer. Du kan även ange ett namn på experiment, som används för att lagra information som samlas in under utbildning. Hela katalogen kopieras till miljön (beräkningsmål) vid träning, och skriptet som anges av körningskonfigurationen har startats. En ögonblicksbild av katalogen lagras också under experiment på arbetsytan.
 
-Ett exempel finns i [skapa en arbetsyta med Python](quickstart-get-started.md)
+Ett exempel finns i [skapa en arbetsyta med Python](quickstart-get-started.md).
 
 ## <a name="logging"></a>Loggning
 
-När du utvecklar din lösning, använda Azure Machine Learning Python SDK i ditt Python-skript för att logga godtyckligt mått. När du kör, fråga om mått för att avgöra om körningen produceras modellen som du vill distribuera. 
+När du utvecklar din lösning kan du använda Azure Machine Learning Python SDK i ditt Python-skript för att logga godtyckligt mått. När du kör, fråga om mått för att avgöra om körningen har producerat modellen som du vill distribuera. 
 
 ## <a name="snapshot"></a>Ögonblicksbild
 
-När du skickar en körning komprimerar katalogen som innehåller skriptet som en zip-fil och skickar dem till beräkningsmål-i Azure Machine Learning. ZIP-filen expanderas sedan och skriptet körs det. Azure Machine Learning lagrar också zip-filen som en ögonblicksbild som en del av den kör posten. Alla som har åtkomst till arbetsytan kan bläddra en kör post och ladda ned ögonblicksbilden.
+När du skickar en körning komprimerar katalogen som innehåller skriptet som en zip-fil och skickar dem till beräkningsmål-i Azure Machine Learning. Zip-filen hämtas sedan och skriptet körs det. Azure Machine Learning lagrar också zip-filen som en ögonblicksbild som en del av den kör posten. Alla som har åtkomst till arbetsytan kan bläddra en kör post och ladda ned ögonblicksbilden.
 
 ## <a name="activity"></a>Aktivitet
 
@@ -220,12 +221,12 @@ En aktivitet representerar en långvarig åtgärd. Följande åtgärder är exem
 * Skapa eller ta bort ett beräkningsmål
 * Köra ett skript på ett beräkningsmål
 
-Aktiviteter kan ge meddelanden från SDK eller Webbgränssnittet så att du enkelt kan övervaka förloppet för dessa åtgärder.
+Aktiviteter kan ge meddelanden via SDK eller webbläsaren så att du enkelt kan övervaka förloppet för dessa åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd följande länkar för att komma igång med Azure Machine Learning:
+Kom igång med Azure Machine Learning-tjänsten, se:
 
 * [Vad är Azure Machine Learning-tjänsten?](overview-what-is-azure-ml.md)
 * [Snabbstart: Skapa en arbetsyta med Python](quickstart-get-started.md)
-* [Självstudiekurs: Träna en modell](tutorial-train-models-with-aml.md)
+* [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)

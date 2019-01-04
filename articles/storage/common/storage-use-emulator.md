@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22c7adc5db044568b4aa49dbbb0e36d2c919f6a6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052551"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629636"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -88,21 +88,24 @@ När du har installerat och igång av storage-emulatorn kan testa du koden mot d
 Mer information om anslutningssträngar finns i [konfigurera Azure Storage-anslutningssträngar](../storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Auktorisera med signatur för delad åtkomst
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Vissa Azure storage, klientbiblioteken, till exempel Xamarin-klientbibliotek har endast stöd för autentisering med signatur för delad åtkomsttoken. Du kan skapa SAS-token med ett verktyg som de [Lagringsutforskaren](http://storageexplorer.com/) eller ett annat program som har stöd för autentisering med delad nyckel.
 
 Du kan också generera en SAS-token med hjälp av Azure PowerShell. I följande exempel skapar en SAS-token med fullständig behörighet till en blobbehållare:
 
-1. Installera Azure PowerShell om du inte redan gjort med (den senaste versionen av Azure PowerShell cmdlet: ar rekommenderas). Installationsanvisningar finns i [installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Installera Azure PowerShell om du inte redan gjort med (den senaste versionen av Azure PowerShell cmdlet: ar rekommenderas). Installationsanvisningar finns i [installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 2. Öppna Azure PowerShell och kör följande kommandon och Ersätt `CONTAINER_NAME` med ett namn du väljer:
 
 ```powershell
-$context = New-AzureStorageContext -Local
+$context = New-AzStorageContext -Local
 
-New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
 $now = Get-Date
 
-New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
 Den resulterande signaturen för delad åtkomst URI för den nya behållaren ska vara liknar:
@@ -166,11 +169,11 @@ Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 
 | Alternativ | Beskrivning | Kommando | Argument |
 | --- | --- | --- | --- |
-| **Börja** |Startar storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: starta emulatorn i den aktuella processen istället för att skapa en ny process. |
+| **Börja** |Startar storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Starta emulatorn i den aktuella processen istället för att skapa en ny process. |
 | **Stanna** |Stoppar storage-emulatorn. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Skriver status för storage-emulatorn. |`AzureStorageEmulator.exe status` | |
-| **Rensa** |Tar bort data i alla tjänster som anges på kommandoraden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: raderar blob-data. <br/>*kön*: tar bort kön data. <br/>*tabellen*: tar bort tabelldata. <br/>*alla*: tar bort alla data i alla tjänster. |
-| **Init** |Utför enstaka initiering att konfigurera emulatorn. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-servern ServerNamn\InstansNamn*: Anger den server som är värd för SQL-instansen. <br/>*-sqlinstance instanceName*: Anger namnet på den SQL-instansen som ska användas i standardserverinstansen. <br/>*-forcecreate*: tvingar skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate*: hoppar över skapandet av SQL-databasen. Detta har företräde framför - forcecreate.<br/>*-reserveports*: försöker att reservera HTTP-portar som är associerade med tjänsterna.<br/>*-unreserveports*: försök att ta bort reservationer för HTTP-portar som är associerade med tjänsterna. Detta har företräde framför - reserveports.<br/>*-inprocess*: utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med förhöjd behörighet om ändring av porten reservationer. |
+| **Rensa** |Tar bort data i alla tjänster som anges på kommandoraden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: Raderar blob-data. <br/>*kön*: Tar bort kön data. <br/>*tabellen*: Raderar tabelldata. <br/>*Alla*: Tar bort alla data i alla tjänster. |
+| **Init** |Utför enstaka initiering att konfigurera emulatorn. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-servern ServerNamn\InstansNamn*: Anger den server som är värd för SQL-instansen. <br/>*-sqlinstance instanceName*: Anger namnet på den SQL-instansen som ska användas i standardserverinstansen. <br/>*-forcecreate*: Tvingar skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate*: Hoppar över skapandet av SQL-databasen. Detta har företräde framför - forcecreate.<br/>*-reserveports*: Försök att reservera HTTP-portar som är associerade med tjänsterna.<br/>*-unreserveports*: Försöker ta bort reservationer för HTTP-portar som är associerade med tjänsterna. Detta har företräde framför - reserveports.<br/>*-inprocess*: Utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med förhöjd behörighet om ändring av porten reservationer. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Skillnader mellan storage-emulatorn och Azure Storage
 Eftersom storage-emulatorn är en emulerade miljö som körs i en lokal SQL-instans, finns det skillnader i funktionalitet mellan emulatorn och ett Azure storage-konto i molnet:

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 827990e03ca1bbb4bfd2ca9cf8bf0a9ceccfb51b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342875"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719395"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i varaktiga funktioner - Phone verifiering exemplet
 
@@ -155,6 +155,9 @@ Content-Length: 145
 ## <a name="visual-studio-sample-code"></a>Visual Studio-exempelkod
 
 Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
+
+> [!NOTE]
+> Du måste installera den `Microsoft.Azure.WebJobs.Extensions.Twilio` nuget för att köra exempelkoden nedan.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

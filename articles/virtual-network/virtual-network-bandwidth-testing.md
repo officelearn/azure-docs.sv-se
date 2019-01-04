@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023838"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793547"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Bandbredd/dataflöde testning (NTTTCP)
 
@@ -29,13 +29,14 @@ Kopiera verktyget till två virtuella Azure-datorer av samma storlek. En virtuel
 
 #### <a name="deploying-vms-for-testing"></a>Distribuera virtuella datorer för testning
 För det här testet, ska de två virtuella datorerna vara i samma molntjänst eller i samma Tillgänglighetsuppsättning så att vi kan använda sina interna IP-adresser och undanta Belastningsutjämnarna från testet. Det är möjligt att testa med VIP-Adressen men den här typen av testning ligger utanför omfånget för det här dokumentet.
- 
+
 Anteckna MOTTAGARENS IP-adress. Vi kan kalla den IP ”a.b.c.r”
 
-Anteckna antalet kärnor på den virtuella datorn. Vi kallar detta ”\#num\_kärnor”  
+Anteckna antalet kärnor på den virtuella datorn. Vi kallar detta ”\#num\_kärnor”
+
 Kör testet NTTTCP för 300 sekunder (eller 5 minuter) på VM-avsändaren och mottagaren VM.
 
-Tips: När du konfigurerar det här testet för första gången du kan prova en kortare period test för att få feedback tidigare. När verktyget fungerar som förväntat, kan du utöka testperioden på 300 sekunder för bästa resultat.
+Tips: När du konfigurerar det här testet för första gången, kan du försöka en kortare period test för att få feedback tidigare. När verktyget fungerar som förväntat, kan du utöka testperioden på 300 sekunder för bästa resultat.
 
 > [!NOTE]
 > Avsändaren **och** mottagare måste ange **samma** testa varaktighet parameter (-t).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: 351213749dcec2b4c16728c04230c75a12179118
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411025"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557877"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Uppgradera Windows Server 2012 R2-värdar, SCVMM 2012 R2 som konfigurerats med Azure Site Recovery till Windows Server 2016 & SCVMM 2016
 
@@ -49,7 +49,7 @@ Observera följande innan du uppgraderar:-
     - Anteckna VMM-ID för 2012R2 primära såväl recovery VMM-servrar. ID för VMM finns i registret ”HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup”.
     - Kontrollera att du de nya SCVMMs som du lägger till i klustret har samma namn som hade tidigare. 
 
-- Om du replikerar mellan två av du är dina webbplatser som hanteras av SCVMMs på båda sidorna, se till att du uppgraderar din återställningssidan först innan du uppgraderar den primära sidan.
+- Se till att du uppgraderar din återställningssidan först innan du uppgraderar den primära sidan om du replikerar mellan två av dina webbplatser som hanteras av SCVMMs på båda sidorna.
 > [!WARNING]
 > När du uppgraderar SCVMM 2012 R2 under hantering av distribuerad nyckel, väljer du att **lagra krypteringsnycklar i Active Directory**. Välj noga inställningarna för tjänstkonto och hantering av distribuerad nyckel. Baserat på ditt val av påverka krypterade data som lösenord i mallar inte kan vara tillgängliga efter uppgraderingen och kan potentiellt replikeringen med Azure Site Recovery
 
@@ -109,5 +109,5 @@ Innan du uppgraderar dina Windows Server 2012 R2-värdar kan behöva du uppgrade
 4.  Gå till Azure-portalen och kontrollera replikerade hälsotillståndet för de virtuella datorerna i Recovery Services-valvet. 
 
 ## <a name="next-steps"></a>Nästa steg
-När uppgraderingen av värdarna utförs, kan du utföra en [redundanstest](tutorial-dr-drill-azure.md) att testa hälsotillståndet för din datareplikering och återställning vid recovey status.
+När uppgraderingen av värdarna utförs, kan du utföra en [redundanstest](tutorial-dr-drill-azure.md) att testa hälsotillståndet för din replikering och disaster recovery-status.
 

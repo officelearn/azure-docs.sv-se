@@ -1,6 +1,6 @@
 ---
-title: Konfigurera webbappar – Azure App Service
-description: Så här konfigurerar du en webbapp i Azure App Services
+title: Konfigurera appar – Azure App Service
+description: Så här konfigurerar du en app i Azure App Service
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269438"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716471"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
+# <a name="configure-apps-in-azure-app-service"></a>Konfigurera appar i Azure App Service
 
-Det här avsnittet förklarar hur du konfigurerar en webbapp med den [Azure Portal].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Det här avsnittet förklarar hur du konfigurerar en webbapp, en mobil serverdel eller en API med hjälp av den [Azure Portal].
 
 ## <a name="application-settings"></a>Programinställningar
-1. I den [Azure Portal], öppnar du bladet för webbappen.
-3. Klicka på **Programinställningar**.
+1. I den [Azure Portal], öppnar du bladet för appen.
+2. Klicka på **Programinställningar**.
 
 ![Programinställningar][configure01]
 
@@ -47,14 +45,14 @@ Den **programinställningar** bladet har inställningar som är grupperade under
 För tekniska skäl inaktiveras om du aktiverar Java för din app alternativen .NET, PHP och Python.
 
 <a name="platform"></a>
-**Plattformen**. Anger om din webbapp körs i en 32-bitars eller 64-bitars miljö. 64-bitars-miljö kräver Basic eller Standard-nivån. Kostnadsfri och delad klient körs alltid i en 32-bitars-miljö.
+**Plattformen**. Anger om din app körs i en 32-bitars eller 64-bitars. 64-bitars-miljö kräver Basic eller Standard-nivån. Kostnadsfri och delad klient körs alltid i en 32-bitars-miljö.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Ange **på** att aktivera WebSocket-protokoll, till exempel, om din webbapp använder [ASP.NET SignalR] eller [socket.io](https://socket.io/).
+**Web Sockets**. Ange **på** att aktivera WebSocket-protokoll, till exempel, om din app använder [ASP.NET SignalR] eller [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. Som standard inaktiveras webbappar om de är inaktiva under en viss tidsperiod. På så sätt kan systemet spara resurser. I Basic eller Standard-läge kan du aktivera **Always On** att hålla appen att läsa in hela tiden. Om din app körs kontinuerliga WebJobs eller körs WebJobs utlöses med hjälp av ett CRON-uttryck, bör du aktivera **alltid på**, eller webbjobb körs inte på ett tillförlitligt sätt.
+**Always On**. Som standard inaktiveras appar om de är inaktiva under en viss tidsperiod. På så sätt kan systemet spara resurser. I Basic eller Standard-läge kan du aktivera **Always On** att hålla appen att läsa in hela tiden. Om din app körs kontinuerliga WebJobs eller körs WebJobs utlöses med hjälp av ett CRON-uttryck, bör du aktivera **alltid på**, eller webbjobb körs inte på ett tillförlitligt sätt.
 
 **Hanterad Pipelineversion**. Anger IIS [Pipeline-läge]. Lämna den här uppsättningen integrerad (standard) om du inte har en äldre app som kräver en äldre version av IIS.
 
@@ -65,13 +63,13 @@ För tekniska skäl inaktiveras om du aktiverar Java för din app alternativen .
 
 **ARR-tillhörighet**. I en app som skalas ut till flera VM-instanser, ARR-tillhörighet cookies garanterar att klienten dirigeras till samma-instans för resten av sessionen. För att förbättra prestandan för tillståndslösa program, välja alternativet **av**.   
 
-**Automatisk växling**. Om du aktiverar automatisk växling för ett distributionsfack App Service automatiskt att växla som webbappen till produktion när du skickar en uppdatering till platsen. Mer information finns i [distribuera till mellanlagringsplatser för web apps i Azure App Service](web-sites-staged-publishing.md).
+**Automatisk växling**. Om du aktiverar automatisk växling för ett distributionsfack App Service automatiskt att växla som appen till produktion när du skickar en uppdatering till platsen. Mer information finns i [distribuera till mellanlagringsplatser för appar i Azure App Service](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Felsökning
-**Fjärrfelsökning**. Gör det möjligt att fjärrfelsökning. När aktiverad kan du använda fjärrfelsökningsprogrammet i Visual Studio för att ansluta direkt till din webbapp. Fjärrfelsökning förblir aktiverat i 48 timmar. 
+**Fjärrfelsökning**. Gör det möjligt att fjärrfelsökning. När aktiverad kan du använda fjärrfelsökningsprogrammet i Visual Studio för att ansluta direkt till din app. Fjärrfelsökning förblir aktiverat i 48 timmar. 
 
 ### <a name="app-settings"></a>Appinställningar
-Det här avsnittet innehåller namn/värde-par som webbappen ska läsas in på start upp. 
+Det här avsnittet innehåller namn/värde-par som din app ska läsas in på start upp. 
 
 * För .NET-appar är de här inställningarna införs i din .NET-konfiguration `AppSettings` vid körning, åsidosätter befintliga inställningar. 
 * För App Service på Linux eller Web App for Containers, om du har kapslad json nyckelstruktur i ditt namn som `ApplicationInsights:InstrumentationKey` behöver du ha `ApplicationInsights__InstrumentationKey` som namn. Observera så att alla `:` ska ersättas med `__` (dvs. dubbla understreck).
@@ -102,7 +100,7 @@ Anslutningssträngar kan lösas från Key Vault med [Key Vault refererar till](a
 ### <a name="default-documents"></a>Standarddokument
 Standarddokument är den webbsida som visas på rot-URL för en webbplats.  Den första matchande filen i listan används. 
 
-Webbappar kan använda moduler att vägen baserat på URL i stället för tillhandahåller statiskt innehåll, då det finns inga standarddokument som sådana.    
+Appar kan använda moduler att vägen baserat på URL i stället för tillhandahåller statiskt innehåll, då det finns inga standarddokument som sådana.    
 
 ### <a name="handler-mappings"></a>Hanterarmappningar
 Använd det här området för att lägga till processorer för anpassat skript för att hantera begäranden för specifika filtillägg. 
@@ -117,7 +115,7 @@ Ange varje virtuell katalog och dess motsvarande fysisk sökväg i förhållande
 ## <a name="enabling-diagnostic-logs"></a>Aktiverar diagnostikloggar
 Aktivera diagnostikloggar:
 
-1. I bladet för din webbapp, klickar du på **alla inställningar**.
+1. I bladet för din app, klickar du på **alla inställningar**.
 2. Klicka på **Diagnostikloggar**. 
 
 Alternativ för att skriva diagnostikloggar från ett webbprogram som har stöd för loggning: 
@@ -134,31 +132,31 @@ Alternativ för att skriva diagnostikloggar från ett webbprogram som har stöd 
 
 Om du vill visa loggfilerna, måste du skapa FTP-autentiseringsuppgifter på följande sätt:
 
-1. I bladet för din webbapp, klickar du på **alla inställningar**.
+1. I bladet för din app, klickar du på **alla inställningar**.
 2. Klicka på **distributionsbehörigheterna**.
 3. Ange ett användarnamn och lösenord.
 4. Klicka på **Spara**.
 
 ![Ange autentiseringsuppgifter för distribution][configure03]
 
-Fullständig FTP-användarnamnet är ”app\username” där *app* är namnet på din webbapp. Användarnamnet visas i webbappsbladet, under **Essentials**.
+Fullständig FTP-användarnamnet är ”app\username” där *app* är namnet på din app. Användarnamnet visas i bladet under **Essentials**.
 
 ![FTP-autentiseringsuppgifter för distribution][configure02]
 
 ## <a name="other-configuration-tasks"></a>Andra konfigurationsåtgärder
 ### <a name="ssl"></a>SSL
-Du kan ladda upp SSL-certifikat för en anpassad domän i Basic eller Standard-läge. Mer information finns i [aktivera HTTPS för en webbapp](app-service-web-tutorial-custom-ssl.md). 
+Du kan ladda upp SSL-certifikat för en anpassad domän i Basic eller Standard-läge. Mer information finns i [aktivera HTTPS för en app](app-service-web-tutorial-custom-ssl.md). 
 
 Om du vill visa dina uppladdade certifikat klickar du på **alla inställningar** > **anpassade domäner och SSL**.
 
 ### <a name="domain-names"></a>Domännamn
-Lägga till anpassade domännamn för din webbapp. Mer information finns i [konfigurera ett anpassat domännamn för en webbapp i Azure App Service](app-service-web-tutorial-custom-domain.md).
+Lägga till anpassade domännamn för din app. Mer information finns i [konfigurera ett anpassat domännamn för en app i Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Du kan visa dina domännamn genom att klicka på **alla inställningar** > **anpassade domäner och SSL**.
 
 ### <a name="deployments"></a>Distributioner
-* Konfigurera kontinuerlig distribution. Se [med hjälp av Git för att distribuera Web Apps i Azure App Service](app-service-deploy-local-git.md).
-* Distributionsplatser. Se [distribuera till Mellanlagringsmiljöer för Webbappar i Azure App Service].
+* Konfigurera kontinuerlig distribution. Se [med hjälp av Git för att distribuera appar i Azure App Service](deploy-local-git.md).
+* Distributionsplatser. Se [distribuera till Mellanlagringsmiljöer för Azure App Service].
 
 Om du vill visa dina distributionsplatser, klickar du på **alla inställningar** > **distributionsfack**.
 
@@ -167,29 +165,23 @@ Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter, från upp till
 
 Mer information finns i [Hur: Övervaka status för web-slutpunkt].
 
-> [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service]. Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
-> 
-> 
-
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurera ett anpassat domännamn i Azure App Service]
 * [Aktivera HTTPS för en app i Azure App Service]
-* [Skala en webbapp i Azure App Service]
-* [Grundläggande övervakning för Web Apps i Azure App Service]
+* [Skala en app i Azure App Service]
+* [Övervakning av grunderna i Azure App Service]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Distribuera till Mellanlagringsmiljöer för Webbappar i Azure App Service]: ./web-sites-staged-publishing.md
+[Distribuera till Mellanlagringsmiljöer för Azure App Service]: ./deploy-staging-slots.md
 [Aktivera HTTPS för en app i Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Hur: Övervaka status för web-slutpunkt]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Grundläggande övervakning för Web Apps i Azure App Service]: ./web-sites-monitor.md
+[Övervakning av grunderna i Azure App Service]: ./web-sites-monitor.md
 [Pipeline-läge]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Skala en webbapp i Azure App Service]: ./web-sites-scale.md
-[Prova App Service]: https://azure.microsoft.com/try/app-service/
+[Skala en app i Azure App Service]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

@@ -5,46 +5,42 @@ items:
   items:
   - name: Vad är API för Bing Visual Search?
     href: overview.md
-- name: Snabbstarter för REST API
+- name: Snabbstarter
   items:
-  - name: Första frågan i C#
-    href: quickstarts/csharp.md
-  - name: Första frågan i Java
-    href: quickstarts/java.md
-  - name: Första frågan för Node.js
-    href: quickstarts/nodejs.md
-  - name: Första frågan i Python
-    href: quickstarts/python.md
-  expanded: true
-- name: SDK
-  items:
-  - name: Översikt över SDK-exempel
-    href: sdk.md
-  - name: SDK i C#
-    href: visual-search-sdk-c-sharp.md
-  - name: SDK i Node
-    href: visual-search-sdk-node.md
-  - name: SDK i Python
-    href: visual-search-sdk-python.md
-  expanded: true
+  - name: REST-API
+    items:
+    - name: Använd C#
+      href: quickstarts/csharp.md
+    - name: Använda Java
+      href: quickstarts/java.md
+    - name: Använda Node.js
+      href: quickstarts/nodejs.md
+    - name: Använda Python
+      href: quickstarts/python.md
+    expanded: true
+  - name: SDK
+    items:
+    - name: Använd C#
+      href: visual-search-sdk-c-sharp.md
+    - name: Använda Node.js
+      href: visual-search-sdk-node.md
+    - name: Använda Python
+      href: visual-search-sdk-python.md
+    expanded: true
 - name: Självstudier
   items:
-  - name: Webbapp för bilduppladdning
+  - name: Ladda upp en avbildning
     href: tutorial-visual-search-image-upload.md
-  - name: Enkelsidig webbapp
-    href: tutorial-bing-visual-search-single-page-app.md
-  - name: Enkelsidig webbapp (källkod)
-    href: tutorial-bing-visual-search-single-page-app-source.md
-  - name: SDK för visuell sökning i Bing, bildbeskärningsområde och resultat
+  - name: Beskära och söka i en del av en avbildning
     href: tutorial-visual-search-crop-area-results.md
-  - name: SDK för visuell sökning i Bing, ImageInsightsToken och resultat
-    href: tutorial-visual-search-insights-token.md
 - name: Exempel
   items:
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Begrepp
   items:
+  - name: Skicka frågor
+    href: concepts/sending-queries.md
   - name: Insikter om standardbilder
     href: default-insights-tag.md
   - name: Användning av insikter i Bing
@@ -59,11 +55,22 @@ items:
     href: use-and-display-requirements.md
   - name: Ändra storlek på och beskär miniatyrer
     href: resize-and-crop-thumbnails.md
+  - name: Söka efter en avbildning med token för avbildningsinsikter
+    href: tutorial-visual-search-insights-token.md
+  - name: Skapa en enkelsidig webbapp
+    href: tutorial-bing-visual-search-single-page-app.md
 - name: Referens
   items:
   - name: REST v7 API
     href: https://aka.ms/bingvisualsearchreferencedoc
-  expanded: true
+  - name: SDK:er
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
 - name: Resurser
   items:
   - name: Stöd för språk och region
@@ -76,9 +83,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: f33e0fe7c13a7686c244d10297fd23e7ca59d452
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6291b480d8c1ba44f6c0306c090cdee3df1fec95
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432434"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789185"

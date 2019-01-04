@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 022ffeaf75f8f03447b931ed9c3a474286a17f89
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067813"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969003"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure Files i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Mer information om Kubernetes beständiga volymer finns i [Kubernetes beständig
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -184,7 +184,7 @@ Skapa en pod med den [kubectl gäller] [ kubectl-apply] kommando.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Nu har du en aktiv pod med din Azure-disken monteras i den */mnt/azure* directory. Den här konfigurationen kan visas vid kontroll av din pod via `kubectl describe pod mypod`. Följande komprimerade exempel på utdata visar volym monteras i behållaren:
+Nu har du en aktiv pod med din Azure Files-resurs som är monterad i den */mnt/azure* directory. Den här konfigurationen kan visas vid kontroll av din pod via `kubectl describe pod mypod`. Följande komprimerade exempel på utdata visar volym monteras i behållaren:
 
 ```
 Containers:

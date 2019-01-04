@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271393"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993081"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Fras funktioner i din LUIS-app
 
@@ -29,6 +29,10 @@ En lista med frasen innehåller en uppsättning värden (ord eller fraser) som t
 
 En lista med frasen lägger till vokabulär app-domänen som en signal för andra att LUIS om dessa ord.
 
+## <a name="phrase-lists-help-all-models"></a>Fras listorna hjälper att alla modeller
+
+Fras listor har länkats inte till en specifik avsikt eller enhet men har lagts till som en boost alla modeller. Syftet är att förbättra avsikt identifiering och entiteten klassificering.
+
 ## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen listor
 I appen personal [enkel enhet självstudien](luis-quickstart-primary-and-secondary-data.md), appen använder en **jobbet** frasen lista över typer av jobb som programmerare, roofer och secretary. Om du anger ett av följande värden som en dator lärt dig enhet LUIS lär sig att känna igen de andra. 
 
@@ -40,6 +44,7 @@ En lista med frasen kanske utbytbara eller icke-utbytbara. En *utbytbara* frasen
 |Icke-utbytbara|App ordförråd, specifika för din app mer så än Allmänt andra ord på det språket.|
 
 Fras visar inte bara hjälp med entiteten identifiering, men också avsikt klassificering där det är inte utbytbara rimligt som att lägga till utanför ordförråd ord som inte är på engelska.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

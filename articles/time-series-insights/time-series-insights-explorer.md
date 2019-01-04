@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights explorer-datagranskning - utforska data med hjälp av Azure Time Series Insights explorer | Microsoft Docs
+title: Utforska data med hjälp av Azure Time Series Insights explorer | Microsoft Docs
 description: Den här artikeln beskriver hur du använder Azure Time Series Insights-Utforskaren i webbläsaren för att snabbt se en global vy över dina stordata och verifiera din IoT-miljö.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273144"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556602"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Den här artikeln handlar om de olika funktioner och alternativ som är tillgängliga i Time Series Insights explorer webbapp. Du kan använda Time Series Insights explorer i webbläsaren för att skapa visualiseringar av data.

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408025"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715798"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autentisering och auktorisering i Azure App Service för appar
 
@@ -26,7 +26,7 @@ Den här artikeln beskrivs hur autentisering och auktorisering fungerar när du 
 
 Den här artikeln fokuserar på utveckling av mobilappar. Kom igång snabbt med App Service-autentisering och auktorisering för din mobilapp, ser du något av följande självstudier [Lägg till autentisering i din iOS-app] [ iOS] (eller [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], eller [Cordova]). 
 
-Information om hur autentisering och auktorisering fungerar i App Service finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md).
+Information om hur autentisering och auktorisering fungerar i App Service finns i [autentisering och auktorisering i Azure App Service](../app-service/overview-authentication-authorization.md).
 
 ## <a name="authentication-with-provider-sdk"></a>Autentisering med provider-SDK
 
@@ -44,7 +44,7 @@ När du använder en provider-SDK kan logga användare in till en upplevelse som
 
 När en provider-token hämtas, måste den skickas till App Service för verifiering. När App Service verifierar token, skapar en ny App Service-token som returneras till klienten i App Service. SDK för Mobile Apps-klient har hjälpmetoder för att hantera den här exchange och koppla token till alla begäranden till serverdelen program automatiskt. Utvecklare kan också behålla en referens till en provider-token.
 
-Läs mer på autentiseringsflödet [App Service-autentiseringsflödet](../app-service/app-service-authentication-overview.md#authentication-flow). 
+Läs mer på autentiseringsflödet [App Service-autentiseringsflödet](../app-service/overview-authentication-authorization.md#authentication-flow). 
 
 ## <a name="authentication-without-provider-sdk"></a>Autentisering utan provider-SDK
 
@@ -52,10 +52,10 @@ Om du inte vill konfigurera en provider-SDK kan du tillåta funktionen Mobile Ap
 
 Kod för att starta det här flödet ingår i självstudiekursen för autentisering för varje plattform. Klient-SDK har en App Service-token i slutet av flödet och token kopplas automatiskt till alla begäranden till serverdelen för programmet.
 
-Läs mer på autentiseringsflödet [App Service-autentiseringsflödet](../app-service/app-service-authentication-overview.md#authentication-flow). 
+Läs mer på autentiseringsflödet [App Service-autentiseringsflödet](../app-service/overview-authentication-authorization.md#authentication-flow). 
 ## <a name="more-resources"></a>Fler resurser
 
-Följande självstudier beskriver hur du lägger till autentisering till dina mobila klienter med hjälp av den [server-riktade flow](../app-service/app-service-authentication-overview.md#authentication-flow):
+Följande självstudier beskriver hur du lägger till autentisering till dina mobila klienter med hjälp av den [server-riktade flow](../app-service/overview-authentication-authorization.md#authentication-flow):
 
 * [Lägg till autentisering i din iOS-app][iOS]
 * [Lägg till autentisering i din Android-app][Android]
@@ -65,21 +65,21 @@ Följande självstudier beskriver hur du lägger till autentisering till dina mo
 * [Lägg till autentisering i din Xamarin.Forms-app][Xamarin.Forms]
 * [Lägg till autentisering i din Cordova-app][Cordova]
 
-Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/app-service-authentication-overview.md#authentication-flow) för Azure Active Directory:
+Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Azure Active Directory:
 
 * [Använd Active Directory Authentication Library för iOS][ADAL-iOS]
 * [Använda Active Directory Authentication Library för Android][ADAL-Android]
 * [Använd Active Directory Authentication Library för Windows- och Xamarin][ADAL-dotnet]
 
-Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/app-service-authentication-overview.md#authentication-flow) för Facebook:
+Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Facebook:
 
 * [Använda Facebook-SDK för iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/app-service-authentication-overview.md#authentication-flow) för Twitter:
+Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Twitter:
 
 * [Använd Twitter Fabric för iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/app-service-authentication-overview.md#authentication-flow) för Google:
+Använd följande resurser om du vill använda den [klienten dirigeras flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Google:
 
 * [Använd SDK för Google-inloggning för iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 

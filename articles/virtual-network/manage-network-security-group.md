@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d6dfd88f9349312cc81d760a2c473f32ff932885
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227528"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543095"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en grupp
 
@@ -52,7 +52,7 @@ Det finns en gräns för hur många nätverkssäkerhetsgrupper du kan skapa per 
 **Kommandon**
 
 - Azure CLI: [skapa az network nsg](/cli/azure/network/nsg#az-network-nsg-create)
-- PowerShell: [nya AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell: [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>Visa alla nätverkssäkerhetsgrupper
 
@@ -68,7 +68,7 @@ Ange i sökrutan överst på portalen *nätverkssäkerhetsgrupper*. När **nätv
 1. Ange i sökrutan överst på portalen *nätverkssäkerhetsgrupper*. När **nätverkssäkerhetsgrupper** visas i sökresultaten, markerar du den.
 2. Välj den nya nätverkssäkerhetsgruppen i listan som du vill visa information om. Under **inställningar** du kan visa den **ingående säkerhetsregler** och **utgående säkerhetsregler**, **nätverksgränssnitt** och  **Undernät** nätverkssäkerhetsgruppen är kopplad till. Du kan också aktivera eller inaktivera **diagnostikloggar** och visa **gällande säkerhetsregler**. Mer information finns i [diagnostikloggar](virtual-network-nsg-manage-log.md) och [visa gällande säkerhetsregler](diagnose-network-traffic-filter-problem.md).
 3. Mer information om vanliga Azure inställningarna finns i följande artiklar:
-    *   [Aktivitetslogg](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Aktivitetslogg](../azure-monitor/platform/activity-logs-overview.md)
     *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Lås](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -134,7 +134,7 @@ Det finns en gräns för hur många regler per nätverkssäkerhetsgrupp kan skap
 **Kommandon**
 
 - Azure CLI: [skapa az network nsg-regel](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
-- PowerShell: [nya-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell: [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>Visa alla säkerhetsregler
 
@@ -203,7 +203,7 @@ En programsäkerhetsgrupp innehåller noll eller flera nätverksgränssnitt. Mer
 **Kommandon**
 
 - Azure CLI: [az nätverket asg skapa](/cli/azure/network/asg#az-network-asg-create)
-- PowerShell: [nya-azurermapplicationsecuritygroup har till](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
+- PowerShell: [Ny-azurermapplicationsecuritygroup har till](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>Visa alla programsäkerhetsgrupper
 

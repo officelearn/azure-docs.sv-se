@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6d063eb0ae2a468bc8aa73d18b88135f1f119bec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a5b82cb5f2ea90876001fe2db0f62d8b1df64f0c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346498"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580254"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
-Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) konfigurera [nyare måttaviseringar](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) i Azure Monitor. Resource Manager-mallar kan du programmässigt ställa in aviseringar på ett konsekvent och reproducerbara sätt i alla dina miljöer. Nyare måttaviseringar finns för närvarande på [den här uppsättningen resurstyper](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) konfigurera [nyare måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Resource Manager-mallar kan du programmässigt ställa in aviseringar på ett konsekvent och reproducerbara sätt i alla dina miljöer. Nyare måttaviseringar finns för närvarande på [den här uppsättningen resurstyper](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Resource Manager-mall som angetts för måttavisering fungerar inte för resurstypen: Microsoft.OperationalInsights/workspaces; stöd för mått från Log Analytics finns i förhandsversion. Användare som vill använda förhandsversionsfunktionerna med resursmall kan kontakta [Feedback för Azure-aviseringar](mailto:azurealertsfeedback@microsoft.com)

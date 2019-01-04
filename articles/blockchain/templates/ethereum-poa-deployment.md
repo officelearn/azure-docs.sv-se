@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243507"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974054"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -198,7 +198,7 @@ Den här processen kräver en Azure-prenumeration som har stöd för distributio
 
 När en prenumeration är skyddad, går du till Azure-portalen. Välj ”+”, Marketplace (”Visa alla”), och Sök efter Ethereum PoA Consortium.
 
-Följande avsnitt vägleder dig genom att konfigurera den första medlemmen fotavtryck i nätverket. Distributionsflödet delas upp i fem steg: grundläggande distribution regioner, nätverkets storlek och prestanda, Ethereum-inställningar, Azure Monitor.
+Följande avsnitt vägleder dig genom att konfigurera den första medlemmen fotavtryck i nätverket. Distributionsflödet består av fem steg: Grunderna, distribution regioner, nätverkets storlek och prestanda, Ethereum-inställningar, Azure Monitor.
 
 #### <a name="basics"></a>Grundläggande inställningar
 
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Felsöka smarta kontrakt med Truffle
 
-Truffle har en lokal utveckla nätverk som är tillgänglig för felsökning smarta kontrakt. Du hittar den fullständiga självstudien [här](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle har en lokal utveckla nätverk som är tillgänglig för felsökning smarta kontrakt. Du hittar den fullständiga självstudien [här](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>Stöd för WebAssembly (WASM)
 

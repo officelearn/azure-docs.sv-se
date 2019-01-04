@@ -1,5 +1,5 @@
 ---
-title: Integrera Azure Time Series Insights med fjärrövervakning | Microsoft Docs
+title: Integrera Time Series Insights med fjärrövervakning – Azure | Microsoft Docs
 description: I den här anvisningen du lära dig hur du konfigurerar Time Series Insights för en befintlig fjärrövervakning lösning som inte redan innehåller Time Series Insights.
 author: aditidugar
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253824"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633750"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Sedan distribuerar Time Series Insights som ytterligare en resurs i lösningen för fjärrövervakning och ansluter den till IoT hub.
 
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **skapa en resurs** > **Internet of Things** > **Time Series Insights**.
 
@@ -164,12 +164,13 @@ Nästa steg är att konfigurera Azure Stream Analytics Manager mikrotjänster f�
 
 .NET: 
 
-```
+```cmd/sh
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java:
-```
+
+```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
@@ -178,13 +179,14 @@ docker pull azureiotpcs/asa-manager-java:1.0.2
 Hämta den senaste telemetri mikrotjänst genom att skriva följande kommando i Kommandotolken:
 
 .NET:
-```
+
+```cmd/sh
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
 Java:
 
-```
+```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
@@ -192,7 +194,7 @@ docker pull azureiotpcs/telemetry-java:1.0.2
 
 Om du vill visa enkelt dina data i Time Series Insights explorer, rekommenderar vi anpassa Gränssnittet enkelt länka till miljön. Du gör detta genom att hämta de senaste ändringarna till Webbgränssnittet med följande kommando:
 
-```
+```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
@@ -220,7 +222,7 @@ Konfigurera miljön för `basic` distributionen för den uppdaterade mikrotjäns
 
 1. Lägg till följande miljövariabler till varje mikrotjänst i docker compose yaml-fil och `env-setup` skriptet i den virtuella datorn:
 
-    ```
+    ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
     PCS_TSI_FQDN={TSI Data Access FQDN}
     PCS_AAD_TENANT={AAD Tenant Id}
@@ -244,7 +246,7 @@ Konfigurera miljön för `standard` distributionen för den uppdaterade mikrotj�
 
 1. Hitta configuration kartan för att lägga till följande nya miljövariabler för TSI:
 
-    ```
+    ```yaml
     telemetry.storage.type: "tsi"
     telemetry.tsi.fqdn: "{TSI Data Access FQDN}"
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
@@ -252,7 +254,7 @@ Konfigurera miljön för `standard` distributionen för den uppdaterade mikrotj�
 
 4. Redigera mall yaml-fil för telemetri service pod:
 
-    ```
+    ```yaml
     - name: PCS_AAD_TENANT
         valueFrom:
         configMapKeyRef:
@@ -282,7 +284,7 @@ Konfigurera miljön för `standard` distributionen för den uppdaterade mikrotj�
 
 5. Redigera mall yaml-fil för ASA manager service pod:
 
-    ```
+    ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
         valueFrom:
         configMapKeyRef:

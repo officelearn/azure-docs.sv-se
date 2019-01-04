@@ -1,5 +1,5 @@
 ---
-title: Som beskriver vuxet eller olämpligt innehåll - visuellt innehåll
+title: Beskriv vuxet eller olämpligt innehåll - visuellt innehåll
 titleSuffix: Azure Cognitive Services
 description: Begrepp för identifiering av vuxet eller olämpligt innehåll i bilder med den APi för visuellt innehåll.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 71866149e3d2dca4b39585ce8da73aae658a4d59
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: e0cca054acb7d3d649105ecd45748a60a2aa9bbb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344939"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582175"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
 
-Bland de olika visuella kategorierna är gruppen vuxet och vågat innehåll, vilket möjliggör identifiering av material som är olämpligt för barn och begränsar visningen av avbildningar som innehåller sexuellt innehåll. Filtret för vuxet och vågat innehåll kan ställas in på en glidande skala för användarens inställningar.
+Bland de olika visuella kategorierna är gruppen med innehåll som är olämpligt för barn som känner igen sådant material och begränsar bilder med sexuellt innehåll. Filtret för stötande och olämpligt innehåll kan ställas in på en skala för att passa dina preferenser.
 
 ## <a name="defining-adult-and-racy-content"></a>Definiera vuxet eller olämpligt innehåll
 

@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 05853cb494ef6cc615bea7eecb1cfac288b46f3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 54155346c7f417be8beb0ced8ef825ec22a08237
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721960"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971621"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analysera användarmönster för navigering med Användarflöden i Application Insights
 
@@ -34,7 +34,7 @@ Verktyget Användarflöden visualiserar hur användarna navigerar mellan sidor o
 Verktyget Användarflöden startar från en inledande Sidvisning, anpassad händelse eller undantag som du anger. Med den här inledande händelse kan visar Användarflöden de händelser som hände före och därefter under användarsessioner. Rader med olika tjocklek visar hur många gånger varje sökväg följdes av användare. Särskilda **Session igång** noderna visar där efterföljande noderna började en session. **Sessionen avslutat** noderna visar hur många användare skickas inga sidvisningar eller anpassade händelser efter den föregående noden markering där användare antagligen kvar din webbplats.
 
 > [!NOTE]
-> Application Insights-resursen måste innehålla sidvisningar eller anpassade händelser och använder verktyget Användarflöden. [Lär dig hur du ställer in din app för att samla in sidvisningar automatiskt med Application Insights JavaScript SDK](app-insights-javascript.md).
+> Application Insights-resursen måste innehålla sidvisningar eller anpassade händelser och använder verktyget Användarflöden. [Lär dig hur du ställer in din app för att samla in sidvisningar automatiskt med Application Insights JavaScript SDK](../azure-monitor/app/javascript.md).
 >
 >
 
@@ -59,7 +59,7 @@ Om sidvisningar eller anpassade händelser saknar som du förväntar dig att se 
 * Kontrollera den **exkluderade händelser** i avsnittet den **redigera** menyn.
 * Använd knapparna plus på **andra** noder till att inkludera mer sällan händelser i visualiseringen.
 * Om den Sidvisning eller anpassad händelse som du förväntar dig skickas sällan av användare, kan du prova att öka tidsintervallet för visualisering i den **redigera** menyn.
-* Kontrollera att sidan Visa, anpassad händelse eller undantag du förväntar dig har ställts in som ska samlas in av Application Insights SDK i källkoden för din webbplats. [Läs mer om insamling av anpassade händelser.](app-insights-api-custom-events-metrics.md)
+* Kontrollera att sidan Visa, anpassad händelse eller undantag du förväntar dig har ställts in som ska samlas in av Application Insights SDK i källkoden för din webbplats. [Läs mer om insamling av anpassade händelser.](../azure-monitor/app/api-custom-events-metrics.md)
 
 Om du vill se fler steg i visualiseringen använder den **föregående steg** och **nästa steg** listrutor ovanför visualiseringen.
 
@@ -99,4 +99,4 @@ Använd den **dela efter** alternativ i den **redigera** menyn:
 * [Användningsöversikten](app-insights-usage-overview.md)
 * [Användare, sessioner och händelser](app-insights-usage-segmentation.md)
 * [Kvarhållning](app-insights-usage-retention.md)
-* [Att lägga till anpassade händelser i din app](app-insights-api-custom-events-metrics.md)
+* [Att lägga till anpassade händelser i din app](../azure-monitor/app/api-custom-events-metrics.md)

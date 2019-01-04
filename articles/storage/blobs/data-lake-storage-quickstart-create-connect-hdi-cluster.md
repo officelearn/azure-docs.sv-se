@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: f1c42a3e091bc4b3804edfe835e521a99fcee880
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975069"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792898"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Konfigurera kluster i HDInsight
 
@@ -39,7 +39,7 @@ I följande tabell visas de olika metoderna som du kan använda för att konfigu
 | [cURL](../../hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure Resource Manager-mallar](../../hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## <a name="quick-create-basic-cluster-setup"></a>Snabbregistrering: grundläggande konfiguration
+## <a name="quick-create-basic-cluster-setup"></a>Snabbregistrering: Grundläggande konfiguration
 
 Den här artikeln vägleder dig genom installationen i den [Azure-portalen](https://portal.azure.com), där du kan skapa ett HDInsight-kluster med *Snabbregistrering* eller *anpassad*.
 
@@ -87,7 +87,7 @@ För mer information om hur du skapar domänanslutna HDInsight-kluster, se [skap
 Du kan konfigurera två användarkonton när klustret skapas med HDInsight-kluster:
 
 * HTTP-användare: Standardanvändarnamnet är *admin*. Den använder den grundläggande konfigurationen på Azure portal. Ibland kallas ”kluster användare”.
-* SSH-användare (Linux-kluster): används för att ansluta till klustret via SSH. Mer information finns i [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+* SSH-användare (Linux-kluster): Används för att ansluta till klustret via SSH. Mer information finns i [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ## <a name="location"></a>Plats (regioner) för kluster och lagring
 
@@ -102,7 +102,7 @@ Du behöver inte ange klusterplatsen uttryckligen; klustret är på samma plats 
 
 Under konfigurationen för lagringsslutpunkten standard anger du Data Lake Storage. Standardlagring innehåller program- och loggar. Alternativt kan du ange ytterligare länkade lagringskonton som har Data Lake Storage Gen2 aktiverat att klustret kan komma åt. HDInsight-kluster och beroende storage-konton måste vara i samma Azure-plats.
 
-![Inställningar för lagring: HDFS-kompatibla slutpunkter för lagring](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
+![Inställningarna för klustret: HDFS-kompatibla lagringsutrymmet slutpunkter](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Se till att **inaktivera Data Lake Store-åtkomst**. Den här inställningen refererar till gammalt *Data Lake Store* funktioner och behöver inaktiveras för *Data Lake Storage* funktioner ska fungera korrekt.
@@ -172,8 +172,8 @@ När du använder Azure-portalen för att konfigurera klustret, nodstorlek är t
 
 När du distribuerar ett kluster, Välj dataresurser baserade på lösningen som du planerar att distribuera. Följande virtuella datorer används för HDInsight-kluster:
 
-* A och virtuella datorer i D1 – 4 serien: [General-purpose Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* D11-14 virtuella datorer i serien: [minnesoptimerade Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* A och virtuella datorer i D1 – 4 serien: [Allmänna Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
+* Virtuella datorer för D11-14-serien: [Minnesoptimerade Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Att ta reda på vilket värde som du ska använda för att ange en VM-storlek när du skapar ett kluster med de olika SDK: er eller när du använder Azure PowerShell, se [storlekar som ska användas för HDInsight-kluster](../../cloud-services/cloud-services-sizes-specs.md#size-tables). Från den här länkade artikeln använder du värdet i den **storlek** kolumnen av tabellerna.
 
@@ -198,7 +198,7 @@ Ett HDInsight-program är ett program som användarna kan installera på ett Lin
 
 De flesta av HDInsight-program är installerade på en tom edge-nod.  En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfigureras enligt huvudnoden. Du kan använda gränsnoden för åtkomst till klustret, testa dina klientprogram och som är värd för dina klientprogram. Mer information finns i [använda tomma kantnoder i HDInsight](../../hdinsight/hdinsight-apps-use-edge-node.md).
 
-## <a name="advanced-settings-script-actions"></a>Avancerade inställningar: skriptåtgärder
+## <a name="advanced-settings-script-actions"></a>Avancerade inställningar: Skriptåtgärder
 
 Du kan installera ytterligare komponenter eller anpassa klusterkonfigurationen med hjälp av skript när du skapar. Skripten anropas **skriptåtgärd**, vilket är ett konfigurationsalternativ som kan användas från Azure-portalen, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärd](../../hdinsight/hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -229,7 +229,7 @@ Ibland vill du konfigurera följande konfigurationsfilerna under skapandeprocess
 
 Mer information finns i [anpassa HDInsight-kluster med Bootstrap](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Avancerade inställningar: utöka kluster med ett virtuellt nätverk
+## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Avancerade inställningar: Utöka kluster med ett virtuellt nätverk
 
 Om din lösning kräver tekniker som är fördelade på flera HDInsight-klustertyper en [Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) kan ansluta vilka krävs för klustret. Den här konfigurationen ger klustren, och all kod som du distribuerar till dem, kan kommunicera direkt med varandra.
 
@@ -239,12 +239,12 @@ Ett exempel på hur du använder två klustertyper inom en Azure-nätverk finns 
 
 ## <a name="troubleshoot-access-control-issues"></a>Felsöka åtkomstproblem för kontroll
 
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [ABFS Hadoop-filsystem-drivrutin för Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
-- [Självstudie: Extrahera, transformera och läsa in data med Apache Hive i HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
+- [Självstudier: Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
 - [Vad är HDInsight, Hadoop-ekosystemet och Hadoop-kluster?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Komma igång med Hadoop i HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Arbeta i Hadoop på HDInsight från Windows PC](../../hdinsight/hdinsight-hadoop-windows-tools.md)

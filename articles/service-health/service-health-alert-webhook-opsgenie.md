@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 213bf0cc063fa1f756a6baeacc47aadec0857a7c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e406c80e408ddcf4d1d53f4e49925bded43b650f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270526"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579489"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Konfigurera service health-aviseringar med OpsGenie
 
@@ -96,5 +96,5 @@ Den här artikeln visar hur du ställer in Azure service health-aviseringar med 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
 - Granska den [avisering webhook för aktivitetslogg](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Lär dig mer om [service health meddelanden](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Lär dig mer om [service health meddelanden](../azure-monitor/platform/service-notifications.md).
 - Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).

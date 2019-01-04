@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
 ms.author: daleche
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 53061cde5621be06df8f992278a6510d62e51934
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872586"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600564"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Felsöka problem med anslutningen till Azure SQL Database
 När anslutningen till Azure SQL Database misslyckas kan du få [felmeddelanden](sql-database-develop-error-messages.md). Den här artikeln är en centraliserad artikel som hjälper dig att felsöka anslutningsproblem för Azure SQL Database. Det introducerar [vanliga orsaker](#cause) av problem med anslutningen rekommenderar [ett verktyg för felsökning](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identitet problemet och ger felsökningssteg för att lösa [tillfälligt fel](#troubleshoot-transient-errors) och [permanenta eller icke tillfälliga fel](#troubleshoot-persistent-errors). 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240417"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972388"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurera en Always On-tillgänglighetsgrupp på virtuella Azure-datorer i olika regioner
 
@@ -84,6 +84,7 @@ Om du vill skapa en replik i en fjärransluten datacenter, gör du följande:
    - Inkludera en serverdelspool som består av virtuella datorer i samma region som belastningsutjämnaren.
    - Använd en TCP-port avsökning specifika IP-adressen.
    - Ha en regel som är specifika för SQL Server i samma region för belastningsutjämning.  
+   - Vara en Standardbelastningsutjämnare om de virtuella datorerna i serverdelspoolen inte är en del av en enskild tillgänglighetsuppsättning eller skalningsuppsättning för virtuell dator. För ytterligare information granskning [Azure Load Balancer Standard översikt](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 1. [Lägga till redundansklusterfunktionen till den nya SQL-servern](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 

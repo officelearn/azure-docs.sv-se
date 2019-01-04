@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242916"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601533"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program för flera innehavare med elastic database-verktyg och säkerhet på radnivå
 
@@ -41,7 +41,7 @@ Målet är att använda elastic database-klientbibliotek [databeroende routning]
 
 - Använd Visual Studio (2012 eller senare)
 - Skapa tre Azure SQL-databaser
-- Ladda ned exempelprojektet: [elastiska DB-verktyg för Azure SQL - fragment för flera innehavare](https://go.microsoft.com/?linkid=9888163)
+- Ladda ned exempelprojektet: [Verktyg för elastisk databas för Azure SQL - fragment för flera innehavare](https://go.microsoft.com/?linkid=9888163)
   - Fyll i information för dina databaser i början av **Program.cs** 
 
 Det här projektet utökar det som beskrivs i [elastiska DB-verktyg för Azure SQL - integrering av Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) genom att lägga till stöd för flera innehavare fragment databaser. Projektet bygger ett enkelt konsolprogram för att skapa bloggar och inlägg. Projektet innehåller fyra klienter, samt två databaser för flera innehavare fragment. Den här konfigurationen visas i föregående diagram. 
@@ -54,10 +54,10 @@ Skapa och kör programmet. Den här körningen startar karthanteraren för elast
 
 Observera att eftersom RLS inte har ännu aktiverats i fragment-databaser, var och en av de här testerna visar ett problem: klienter ska kunna visa bloggar som inte tillhör dem och programmet inte hindras från att infoga en blogg för fel klient. Resten av den här artikeln beskriver hur du löser dessa problem genom att genomdriva klientisolering med RLS. Det finns två steg: 
 
-1. **Programnivå**: ändra programkoden alltid ange den aktuella TenantId i sessionen\_KONTEXT när du har öppnat en anslutning. Exempelprojektet anger TenantId redan det här sättet. 
-2. **Datanivå**: skapa en säkerhetsprincip för RLS i varje shard-databasen för att filtrera rader baserat på TenantId lagras i sessionen\_KONTEXT. Skapa en princip för varje shard-databaser, annars rader i flera fragment inte är att filtreras. 
+1. **Programnivå**: Ändra programkoden alltid ange den aktuella TenantId i sessionen\_KONTEXT när du har öppnat en anslutning. Exempelprojektet anger TenantId redan det här sättet. 
+2. **Datanivå**: Skapa en säkerhetsprincip för RLS i varje shard-databasen för att filtrera rader baserat på TenantId lagras i sessionen\_KONTEXT. Skapa en princip för varje shard-databaser, annars rader i flera fragment inte är att filtreras. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Programnivå: Set-TenantId i sessionen\_KONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Programnivå: Ange TenantId i sessionen\_KONTEXT
 
 Först ansluta du till en shard-databas med hjälp av databeroende routning API: er av klientbiblioteket för elastiska databaser. Programmet fortfarande tala om för databasen som TenantId med hjälp av anslutningen. TenantId berättar säkerhetsprincip RLS vilka rader som måste ha filtrerats ut. som tillhör andra klienter. Store aktuella TenantId i den [SESSION\_KONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
 
@@ -213,7 +213,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Datanivå: skapa en princip för säkerhet på radnivå
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Datanivå: Skapa princip för säkerhet på radnivå
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Skapa en säkerhetsprincip för att filtrera de rader som har åtkomst till varje klient
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Underhåll
 
-- **Att lägga till nya fragmenten**: köra T-SQL-skript om du vill aktivera RLS på alla nya fragmenten, annars frågor på dessa fragment inte är att filtreras.
-- **Att lägga till nya tabeller**: lägga till ett FILTER och BLOCK-predikat i säkerhetsprincipen på alla shards varje gång en ny tabell skapas. Frågor om den nya tabellen är annars inte filtreras. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [gäller säkerhet på radnivå automatiskt till nya tabeller (blogg)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Att lägga till nya fragmenten**: Kör T-SQL-skript om du vill aktivera RLS på alla nya fragmenten, annars frågor på dessa fragment inte är att filtreras.
+- **Att lägga till nya tabeller**: Lägg till ett FILTER och BLOCK-predikat i säkerhetsprincipen på alla shards när en ny tabell skapas. Frågor om den nya tabellen är annars inte filtreras. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [gäller säkerhet på radnivå automatiskt till nya tabeller (blogg)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Sammanfattning
 

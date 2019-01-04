@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416400"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632322"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor och svar om Azure Storage-migrering
 
@@ -118,6 +118,8 @@ Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcop
 
 **Hur flyttar jag hanterade diskar till ett annat lagringskonto?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Följ de här stegen:
 
 1.  Stoppa den virtuella dator som den hanterade disken är ansluten till.
@@ -125,15 +127,15 @@ Följ de här stegen:
 2.  Kopiera den hanterade disken virtuell Hårddisk från ett område till en annan genom att köra följande Azure PowerShell-skript:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Skapa en hanterad disk med hjälp av VHD-filen i en annan region dit du kopierade den virtuella Hårddisken. Gör detta genom att köra följande Azure PowerShell-skript:  
@@ -151,9 +153,9 @@ Följ de här stegen:
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Läs mer om hur du distribuerar en virtuell dator från en hanterad disk, [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -164,7 +166,7 @@ Använda AzCopy för att hämta data. Mer information finns i [överföra data m
 
 **Hur ändrar jag den sekundära platsen till regionen Europa för ett lagringskonto?**
 
-När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Valet av den sekundära regionen är baserad på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): tvärregional replikering för Azure Storage](storage-redundancy.md).
+När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Valet av den sekundära regionen är baserad på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): Tvärregional replikering för Azure Storage](storage-redundancy.md).
 
 **Var hittar jag mer information om Azure Storage Service Encryption (SSE)?**  
   
@@ -234,7 +236,7 @@ Om du har virtuella datorer, måste du vidta ytterligare åtgärder innan du mig
 
 **Hur flyttar jag från ett klassiskt lagringskonto till ett Azure Resource Manager-lagringskonto?**
 
-Du kan använda den **Move-AzureStorageAccount** cmdlet. Denna cmdlet har flera steg (validera, Förbered, genomför). Du kan validera flytten innan du gör den.
+Du kan använda den **flytta AzStorageAccount** cmdlet. Denna cmdlet har flera steg (validera, Förbered, genomför). Du kan validera flytten innan du gör den.
 
 Om du har virtuella datorer, måste du vidta ytterligare åtgärder innan du migrerar data för storage-konto. Mer information finns i [migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -278,7 +280,7 @@ Att ge andra användare åtkomst till lagringsresurser:
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS-token**: använda en SAS-token för att komma åt data från slutpunkten. Mer information finns i [använda signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS-token**: Använda en SAS-token för att komma åt data från slutpunkten. Mer information finns i [använda signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
 
 **Hur kan jag använda en anpassad domän HTTPS med mitt lagringskonto? Till exempel hur gör jag ”https://mystorageaccountname.blob.core.windows.net/images/image.gif” visas som ”https://www.contoso.com/images/image.gif”?**
 

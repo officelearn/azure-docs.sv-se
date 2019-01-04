@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: d0180a32f2a4258cb728869e2cb9f2abd57cc545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845968"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790817"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>Installera mobilitetstjänsten manuellt på virtuella VMware-datorer och fysiska servrar
 
@@ -91,7 +91,7 @@ Användning | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Locatio
 Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 / Role | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 /InstallLocation| Valfri parameter. Anger installationsplatsen för Mobility service (valfri mapp).
-/ Plattform | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för Mware datorer/fysiska servrar. **Azure** för virtuella Azure-datorer. 
+/ Plattform | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för VMware-datorer/fysiska servrar. **Azure** för virtuella Azure-datorer. 
 / Tyst| Valfri. Anger om du vill köra installationsprogrammet i tyst läge.
 
 #### <a name="registration-settings"></a>Registreringsinställningar
@@ -129,7 +129,7 @@ Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 Användning | . / install -d <Install Location> - r < MS|MT > - v VmWare - q
 -r | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 -d | Valfri parameter. Anger installationsplatsen Mobility service: /usr/local/ASR.
--v | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för Mware datorer/fysiska servrar. **Azure** för virtuella Azure-datorer. 
+-v | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för VMware-datorer/fysiska servrar. **Azure** för virtuella Azure-datorer. 
 -q | Valfri. Anger om du vill köra installationsprogrammet i tyst läge.
 
 #### <a name="registration-settings"></a>Registreringsinställningar

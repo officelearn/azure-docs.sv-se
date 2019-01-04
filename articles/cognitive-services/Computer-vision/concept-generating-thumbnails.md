@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966746"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580866"
 ---
-# <a name="generating-thumbnails"></a>Generera miniatyrer
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generera beskärs av smarta miniatyrbilder med visuellt innehåll
 
 En miniatyr är en mindre representation av en avbildning. Miniatyrer används för att representera bilder och andra data på ett mer prisvärt och layout eget sätt. API för visuellt innehåll används smart beskärning, tillsammans med ändrar storlek på bilden, för att skapa intuitiva miniatyrer för en viss avbildning.
 
@@ -42,9 +43,9 @@ I följande tabell visas vanliga miniatyrer genereras av visuellt innehåll för
 
 | Bild | Miniatyr |
 |-------|-----------|
-|![Berg utomhus](./Images/mountain_vista.png) | ![Anpassad för utomhusbruk Mountain miniatyr](./Images/mountain_vista_thumbnail.png) |
-|![Visuellt innehåll analyserar blommor](./Images/flower.png) | ![Visuellt innehåll analyserar blommor miniatyr](./Images/flower_thumbnail.png) |
-|![Kvinna tak](./Images/woman_roof.png) | ![Kvinna tak miniatyr](./Images/woman_roof_thumbnail.png) |
+|![En person som står på en mountain rock på solnedgång](./Images/mountain_vista.png) | ![Anpassad för utomhusbruk Mountain miniatyr](./Images/mountain_vista_thumbnail.png) |
+|![En vit blommor med en grön bakgrund](./Images/flower.png) | ![Visuellt innehåll analyserar blommor miniatyr](./Images/flower_thumbnail.png) |
+|![En kvinna under taket i en innesluten byggnad](./Images/woman_roof.png) | ![Kvinna tak miniatyr](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Nästa steg
 

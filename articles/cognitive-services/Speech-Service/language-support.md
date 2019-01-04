@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342107"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632626"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
 Olika språk stöds för olika Speech Services-funktioner. Följande tabeller sammanfattar språkstöd.
 
-## <a name="speech-to-text"></a>Tal-till-text
+## <a name="speech-to-text"></a>Tal till text
 
 Microsoft taligenkänningens API stöder följande språk. Olika typer av anpassningar är tillgängliga för varje språk.
 
@@ -176,22 +176,7 @@ Röst anpassning är tillgängliga för oss engelska (en-US), fastlandet kinesis
 
 ## <a name="speech-translation"></a>Talöversättning
 
-Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara i följande tabell för tal-språk. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). En delmängd av dessa språk är tillgängliga för [talsyntes](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Talspråk
-
-| Talspråk   | Språkkod |
-|:----------- |-|
-| Arabiska (moderna Standard)      | `ar` |
-| Kinesiska (Mandarin)      | `zh` |
-| Svenska      | `en` |
-| Franska      | `fr` |
-| Tyska      | `de` |
-| Italienska      | `it` |
-| Japanska      | `jp` |
-| Portugisiska (Brasilien)     | `pt` |
-| Ryska      | `ru` |
-| Spanska      |  `es` |
+Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara från tabellen tal till Text språk. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). En delmängd av dessa språk är tillgängliga för [talsyntes](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Språken för mobilapptext
 

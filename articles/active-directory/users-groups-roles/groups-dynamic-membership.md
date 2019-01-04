@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 0c14055209c6094585e0d1df892fea24a3f3ea55
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a64f92df7592b4df419e5f70a32f631ca0504c6c
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721076"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994223"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -362,7 +362,7 @@ Du kan använda följande enhetsattribut.
  systemLabels | valfri sträng som matchar Intune enhetsegenskap för taggar Modern arbetsplats enheter | (device.systemLabels-innehåller ”M365Managed”)
 
 > [!Note]  
-> Du måste ange värdet till ”företag” för deviceOwnership när du skapar dynamiska grupper för enheter. På Intune visas ägarskap för enhet i stället som företagsenheter. Referera till [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) för mer information. 
+> Du måste ange värdet till ”företag” för deviceOwnership när du skapar dynamiska grupper för enheter. På Intune visas ägarskap för enhet i stället som företagsenheter. Referera till [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) för mer information. 
 
 ## <a name="next-steps"></a>Nästa steg
 

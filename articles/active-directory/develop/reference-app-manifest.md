@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086785"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631203"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
@@ -40,7 +40,7 @@ Konfigurera applikationsmanifestet:
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj den **Azure Active Directory** tjänsten och välj sedan **appregistreringar** eller **appregistreringar (förhandsversion)**.
 1. Välj den app som du vill konfigurera.
-1. Från appens **översikt** väljer den **Manifest** avsnittet. En webbaserad redigeringsprogrammet för applikationsmanifestet öppnas så att du kan redigera manifestet i portalen. Du kan också markera **hämta** att redigera manifestet lokalt och sedan använda **överför** för att återställa den till ditt program.
+1. På appens **översiktssida** väljer du avsnittet **Manifest**. En webbaserad redigeringsprogrammet för applikationsmanifestet öppnas så att du kan redigera manifestet i portalen. Du kan också markera **hämta** att redigera manifestet lokalt och sedan använda **överför** för att återställa den till ditt program.
 
 ## <a name="manifest-reference"></a>Manifest-referens
 
@@ -56,11 +56,11 @@ Konfigurera applikationsmanifestet:
 | `allowPublicClient` | boolesk | Anger vilken typ av återställning program. Azure AD härleder programtypen från replyUrlsWithType som standard. Det finns vissa scenarier där Azure AD inte kan fastställa typen av app klienten (t.ex. [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flöde där HTTP-begäran sker utan en URL-omdirigering). I sådana fall tolkar Azure AD programtypen baserat på värdet för den här egenskapen. Om det här värdet anges till true återställningsplats programtypen har angetts som offentlig klient, till exempel en installerad app som körs på en mobil enhet. Standardvärdet är false, vilket innebär att återställningsplats programtypen är konfidentiell klient, till exempel webbapp. | `false` |
 | `appId` | Strängen för meddelandealternatividentifieraren | Anger den unika identifieraren för den app som har tilldelats en app av Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Typ av matris | Anger samlingen av roller som en app kan deklarera. Dessa roller kan tilldelas användare, grupper eller tjänstens huvudnamn. Fler exempel och information i [Lägg till roller i ditt program och tar emot dem i token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
-| `groupMembershipClaims` | sträng | En bitmask som konfigurerar den `groups` anspråk som utfärdats i en användare eller OAuth 2.0-åtkomsttoken som förväntar sig att appen. Värdena är:<br>0: ingen<br>1: säkerhetsgrupper och Azure AD-roller<br>2: reserverad<br>4: reserverad<br>Ställa in bitmask 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD-katalogroller som den inloggade användaren är medlem i. | `1` |
+| `groupMembershipClaims` | sträng | Konfigurerar den `groups` anspråk som utfärdats i en användare eller OAuth 2.0-åtkomsttoken som förväntar sig att appen. Använd någon av följande giltiga strängvärden för att ställa in det här attributet:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (för säkerhetsgrupper och Azure AD-roller)<br/>- `"All"` (detta får alla säkerhetsgrupper, distributionsgrupper och Azure AD-katalogroller som den inloggade användaren är medlem i. | `"SecurityGroup"` |
 | `optionalClaims` | sträng | De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här specifika appen.<br>Appar som stöder både personliga konton och Azure AD (registrerad via portalen för registrering av appen) kan inte använda valfria anspråk för tillfället. Appar som är registrerade för bara Azure AD med v2.0-slutpunkten får valfria anspråk som begärts i manifestet. Mer information finns i [valfria anspråk](active-directory-optional-claims.md). | `null` |
 | `id` | Strängen för meddelandealternatividentifieraren | Den unika identifieraren för appen i katalogen. Detta ID är inte den identifierare som används för att identifiera appen i alla protokoll-transaktioner. Den används för refererar till objektet i directory-frågor. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
-| `identifierUris` | Strängmatris | Användardefinierade URI(s) som unikt identifierar en webbapp i sin Azure AD-klient eller i en verifierad anpassad domän om appen är flera innehavare. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
-| `informationalUrls` | sträng | Anger länkar till appens användningsvillkor och sekretesspolicy. Användningsvillkor och sekretesspolicy exponeras för användare via medgivande användarupplevelsen. Mer information finns i [så här: lägga till användningsvillkor och sekretesspolicy för registrerad Azure AD-appar](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
+| `identifierUris` | Strängmatris | Användardefinierade URI(s) som unikt identifierar en webbapp i sin Azure AD-klient eller i en verifierad anpassad domän om appen är flera innehavare. | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
+| `informationalUrls` | sträng | Anger länkar till appens användningsvillkor och sekretesspolicy. Användningsvillkor och sekretesspolicy exponeras för användare via medgivande användarupplevelsen. Mer information finns i [så här: Lägga till användningsvillkor och sekretesspolicy för registrerad Azure AD-appar](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
 | `keyCredentials` | Typ av matris | Innehåller referenser till app-tilldelade autentiseringsuppgifter, sträng-baserade delade hemligheter och X.509-certifikat. Dessa autentiseringsuppgifter används när du begär åtkomsttoken (när appen fungerar som en klient i stället som som resurs). | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> |
 | `knownClientApplications` | Typ av matris | Används för sammanföra medgivande om du har en lösning som består av två delar: en klientapp och en anpassad webb-API-app. Om du anger appID för klientappen i det här värdet behöver användaren bara godkänna en gång klientappen. Azure AD vet att medgivandedialogen klienten innebär implicit medgivandedialogen till webb-API och kommer automatiskt att etablera tjänsthuvudnamn för både klient- och webb-API på samma gång. Både klienten och webb-API-app måste vara registrerad i samma klientorganisation. | `[GUID]` |
 | `logoUrl` | sträng | Läsa värdet som pekar på CDN-URL: en till logotyp som laddades upp i portalen. | `https://MyRegisteredAppLogo` |

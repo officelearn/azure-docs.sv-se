@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 1f3e9be3a0048c4bf2e87ac23cbdc76b1aaa649f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61ac0eeeb177ffccbe10d4ab049d3541ac6aeb60
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166414"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810431"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -28,6 +28,12 @@ ms.locfileid: "49166414"
 
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en HTTP-slutpunkt. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
+Skillnaden mellan den här HTTP-anslutningen i [REST-anslutningsapp](connector-rest.md) och [tabell Webbanslutning](connector-web-table.md) är:
+
+- **REST-anslutningsapp** mer specifikt stöd som kopierar data från RESTful API: er; 
+- **HTTP-anslutningsappen** är generisk att hämta data från alla HTTP-slutpunkt, t.ex. att hämta filen. Innan REST-anslutningsapp blir tillgänglig, kan du råkar använda HTTP-anslutningen för att kopiera data från RESTful-API, vilket är stöds men mindre funktionella jämföra för REST-anslutningsapp.
+- **Tabellen Webbanslutning** extraherar tabellen innehåll från en HTML-webbsidan.
+
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Du kan kopiera data från en HTTP-källa till alla datalager för mottagare som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -35,10 +41,8 @@ Du kan kopiera data från en HTTP-källa till alla datalager för mottagare som 
 Du kan använda den här HTTP-anslutningen till:
 
 - Hämta data från en HTTP/S-slutpunkt med hjälp av HTTP **hämta** eller **POST** metoder.
-- Hämta data med någon av följande autentiseringar: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, eller  **ClientCertificate**.
+- Hämta data med någon av följande autentiseringar: **Anonym**, **grundläggande**, **sammanfattad**, **Windows**, eller **ClientCertificate**.
 - Kopiera HTTP-svar som – är eller parsa den med hjälp av [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
-
-Skillnaden mellan den här anslutningen och [tabell Webbanslutning](connector-web-table.md) är att tabellen Webbanslutning extraherar innehåll från en HTML-webbsidan.
 
 > [!TIP]
 > Läs mer om API-specifikationen för rubriken och brödtexten krav för att testa en HTTP-begäran för datahämtning innan du konfigurerar HTTP-anslutningen i Data Factory. Du kan använda verktyg som Postman eller en webbläsare för att verifiera.
@@ -111,7 +115,7 @@ Om du använder **certThumbprint** för autentisering och certifikatet är insta
 3. Högerklicka på certifikatet från det personliga arkivet och välj sedan **alla uppgifter** > **hantera privata nycklar**.
 3. På den **Security** fliken, lägga till användarkontot som värdtjänsten för Integration Runtime (DIAHostService) körs under, med läsbehörighet till certifikatet.
 
-**Exempel 1: Använda certThumbprint**
+**Exempel 1: Med hjälp av certThumbprint**
 
 ```json
 {
@@ -131,7 +135,7 @@ Om du använder **certThumbprint** för autentisering och certifikatet är insta
 }
 ```
 
-**Exempel 2: Använda embeddedCertData**
+**Exempel 2: Med hjälp av embeddedCertData**
 
 ```json
 {
@@ -170,13 +174,13 @@ Om du vill kopiera data från HTTP, ange den **typ** egenskapen på datauppsätt
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** (standard) och **Post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | RequestBody | Brödtexten för HTTP-begäran. | Nej |
-| Format | Om du vill hämta data från HTTP-slutpunkt som – är utan parsning och kopiera sedan data till ett filbaserade lager, hoppa över den **format** avsnittet i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa HTTP-svarsinnehåll vid kopiering format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Under **format**, ange den **typ** egenskap enligt en av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
-| Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds: **Optimal** och **snabbast**. |Nej |
+| Format | Om du vill hämta data från HTTP-slutpunkt som – är utan parsning och kopiera sedan data till ett filbaserade lager, hoppa över den **format** avsnittet i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Under **format**, ange den **typ** egenskap enligt en av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåer:  **Optimal** och **snabbaste**. |Nej |
 
 > [!NOTE]
 > Maxstorleken för HTTP-begäran nyttolasten är cirka 500 KB. Om den nyttolast som du vill skicka till din webbslutpunkt är större än 500 KB, Överväg batchbearbetning nyttolast i mindre segment.
 
-**Exempel 1: Använder Get-metoden (standard)**
+**Exempel 1: Med Get-metoden (standard)**
 
 ```json
 {
@@ -195,7 +199,7 @@ Om du vill kopiera data från HTTP, ange den **typ** egenskapen på datauppsätt
 }
 ```
 
-**Exempel 2: Med Post-metoden**
+**Exempel 2: Med hjälp av metoden Post**
 
 ```json
 {

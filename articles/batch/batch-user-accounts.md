@@ -1,8 +1,8 @@
 ---
-title: Köra uppgifter under användarkonton i Azure Batch | Microsoft Docs
+title: Köra uppgifter under användarkonton – Azure Batch | Microsoft Docs
 description: Konfigurera användarkonton för att köra uppgifter i Azure Batch
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,87 +13,88 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133037"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542840"
 ---
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Köra uppgifter under användarkonton i Batch
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Kör aktiviteter på användarkonton i Batch
 
-En aktivitet i Azure Batch körs alltid under ett användarkonto. Som standard körs uppgifter under standardanvändarkonton utan administratörsbehörighet. Dessa standardinställningarna räcker oftast. För vissa scenarier, men är det användbart för att kunna konfigurera det användarkonto som du vill att aktiviteten ska köras. Den här artikeln beskrivs vilka typer av användarkonton och hur du kan konfigurera dem för ditt scenario.
+En aktivitet i Azure Batch körs alltid under ett användarkonto. Uppgifter som körs under standardanvändarkonton utan administratörsbehörighet som standard. De här standardinställningarna är vanligtvis tillräckliga. För vissa scenarier, men är det användbart för att kunna konfigurera användarkonto under vilket du vill att en uppgift ska köras. Den här artikeln beskrivs vilka typer av användarkonton och hur du kan konfigurera dem för ditt scenario.
 
-## <a name="types-of-user-accounts"></a>Typer av användarkonton
+## <a name="types-of-user-accounts"></a>Användarkontotyper
 
-Azure Batch tillhandahåller två typer av användarkonton för pågående aktiviteter:
+Azure Batch får du två typer av användarkonton för att köra uppgifter:
 
-- **Automatisk användarkonton.** Auto-användarkonton är inbyggda användarkonton som skapas automatiskt av Batch-tjänsten. Som standard körs aktiviteter under en automatisk användarkonto. Du kan konfigurera automatisk användaren specifikationen för en aktivitet att indikera en aktivitet ska köras under vilket auto-användarkonto. Specifikationen auto-användare kan du ange höjning nivå och omfattningen av automatisk-användarkonto som ska köra uppgiften. 
+- **Automatisk användarkonton.** Automatisk användarkonton är inbyggda användarkonton som skapas automatiskt av Batch-tjänsten. Uppgifter som körs under en automatisk användarkonto som standard. Du kan konfigurera automatisk användare-specifikationen för en aktivitet att indikera en uppgift ska köras under vilket auto-användarkonto. Specifikationen automatiskt användare kan du ange höjning och i omfånget för automatisk-användarkontot som ska köra uppgiften. 
 
-- **En namngiven användarkonto.** Du kan ange en eller flera namngivna användarkonton för en pool när du skapar poolen. Varje användarkonto skapas på varje nod i poolen. Förutom kontonamnet ange användarens kontolösenord höjning nivå och, för Linux pooler privata SSH-nyckeln. När du lägger till en aktivitet kan du ange namngivna användarkontot som aktiviteten ska köras under.
+- **En namngiven användarkonto.** Du kan ange en eller flera namngivna användarkonton för en pool när du skapar poolen. Varje användarkonto skapas på varje nod i poolen. Förutom kontonamnet ange lösenordet för användarkontot, höjning nivå och, för Linux-pooler, SSH-privata nyckeln. När du lägger till en uppgift kan du ange namngivna användarkontot som aktiviteten ska köras.
 
 > [!IMPORTANT] 
-> Batch-tjänstversion 2017-01-01.4.0 introducerar en ny ändring som kräver att du uppdaterar din kod för att anropa den här versionen. Om du migrerar kod från en äldre version av Batch, Observera att den **runElevated** egenskapen stöds inte längre i klientbibliotek REST API eller Batch. Använd den nya **userIdentity** -egenskapen för en aktivitet för att ange nivån för höjning. Se avsnittet [uppdatera din kod till det senaste batchen klientbiblioteket](#update-your-code-to-the-latest-batch-client-library) snabb riktlinjer för uppdatering av Batch-kod om du använder en av klientbiblioteken.
+> Batch service-versionen 2017-01-01.4.0 introducerar en stor förändring som kräver att du uppdaterar din kod för att anropa den här versionen. Om du migrerar kod från en äldre version av Batch, Observera att den **runElevated** egenskapen stöds inte längre i REST API eller Batch-klientbibliotek. Använd den nya **userIdentity** egenskapen för en uppgift att ange höjning. Se avsnittet [uppdatera din kod till det senaste Batch-klientbiblioteket](#update-your-code-to-the-latest-batch-client-library) snabb riktlinjer för att uppdatera din Batch-kod om du använder en av klientbiblioteken.
 >
 >
 
 > [!NOTE] 
-> Användarkonton som beskrivs i den här artikeln stöder inte Remote Desktop Protocol (RDP) eller SSH (Secure Shell), av säkerhetsskäl. 
+> Användarkonton som beskrivs i den här artikeln stöder inte Remote Desktop Protocol (RDP) eller Secure Shell (SSH), av säkerhetsskäl. 
 >
-> För att ansluta till en nod som kör Linux virtuella datorkonfigurationen via SSH finns [Använd Fjärrskrivbord till en Linux-VM i Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Om du vill ansluta till noder som kör Windows via RDP finns [Anslut till en Windows Server-VM](../virtual-machines/windows/connect-logon.md).<br /><br />
-> För att ansluta till en nod som kör tjänsten molnkonfigurationen via RDP finns [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Om du vill ansluta till en nod som kör Linux VM-konfiguration via SSH, se [Använd Fjärrskrivbord till en Linux-VM i Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Om du vill ansluta till noder som kör Windows via RDP, se [Anslut till en Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Om du vill ansluta till en nod som kör molntjänstkonfigurationen via RDP, se [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
 ## <a name="user-account-access-to-files-and-directories"></a>Användarkontoåtkomst till filer och kataloger
 
-Både ett automatiskt användarkonto och ett namngivet användarkonto har läsning och skrivning åtkomst till aktivitetens arbetskatalogen delad katalog och flera instanser uppgifter directory. Båda typer av konton har läsbehörighet till Start- och förberedelse av kataloger.
+Både en automatisk användarkonto och ett konto för namngiven användare har läs-/ skrivåtkomst till aktivitetens arbetskatalog, delade katalogen och flera instanser uppgifter directory. Båda typerna av konton har läsbehörighet till de nystartade företag och jobbet förberedelse katalogerna.
 
-Om en aktivitet ska köras under samma konto som användes för att köra Startuppgiften, har skrivskyddad åtkomst till katalogen för aktiviteten starta uppgiften. På samma sätt, om en aktivitet ska köras under samma konto som användes för att köra en projektaktivitet förberedelse, aktiviteten har skrivskyddad åtkomst till katalogen jobbet förberedelse av aktiviteten. Om en aktivitet körs under ett annat konto än startuppgift eller förberedelse projektaktivitet har aktiviteten bara läsbehörighet till katalogen för respektive.
+Om en aktivitet körs under samma konto som användes för att köra en startaktivitet, har skrivskyddad åtkomst till katalogen för aktiviteten starta uppgiften. Om en aktivitet körs under samma konto som användes för att köra en jobbförberedelseaktivitet, på samma sätt har läsåtkomst till aktivitetskatalogen jobbförberedelse av uppgiften. Om en aktivitet körs under ett annat konto än startaktiviteten eller jobbförberedelseaktiviteten, har bara läsbehörighet till katalogen respektive med uppgiften.
 
-Mer information om hur du använder filer och kataloger från en aktivitet finns [utveckla storskaliga parallell compute lösningar med Batch](batch-api-basics.md#files-and-directories).
+Läs mer om hur du använder filer och kataloger från en aktivitet, [utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md#files-and-directories).
 
 ## <a name="elevated-access-for-tasks"></a>Utökad åtkomst för aktiviteter 
 
-Användarkontots höjning nivå anger om en aktivitet körs med förhöjd åtkomst. Både ett automatiskt användarkonto och ett konto för namngiven användare kan köra med högre behörighet. De två alternativen för höjning nivå är:
+Användarens höjning nivån anger om en aktivitet körs med utökad åtkomst. Både en automatisk användarkonto och ett konto för namngiven användare kan köra med utökad åtkomst. De två alternativen för höjning nivå är:
 
-- **NonAdmin:** aktiviteten körs som en vanlig användare utan utökad åtkomst. Standardnivån för höjning för ett användarkonto för Batch är alltid **NonAdmin**.
-- **Admin:** uppgiften körs som en användare med högre behörighet och fungerar med fullständig administratörsbehörighet. 
+- **NonAdmin:** Aktiviteten körs som en vanlig användare utan utökad åtkomst. Standardnivån för höjning för ett Batch-användarkonto är alltid **NonAdmin**.
+- **Administratör:** Uppgiften körs som en användare med utökad åtkomst och med fullständig administratörsbehörighet. 
 
-## <a name="auto-user-accounts"></a>Auto-användarkonton
+## <a name="auto-user-accounts"></a>Automatisk-användarkonton
 
-Som standard köra uppgifter i Batch under en auto-användarkonto som en vanlig användare utan utökad åtkomst och med aktiviteten omfattning. När specifikationen auto-användare konfigureras för omfånget för aktiviteten skapar Batch-tjänsten en automatisk användarkontot för aktiviteten endast.
+Som standard kör uppgifter i Batch under en automatisk-användarkonto som en vanlig användare utan utökad åtkomst och med aktiviteten omfång. När automatisk användare-specifikationen har konfigurerats för uppgiften omfång, skapar Batch-tjänsten ett automatiskt-användarkonto för aktiviteten endast.
 
-Alternativ till aktiviteten scope är poolen omfång. När automatisk användaren specifikationen för en aktivitet är konfigurerad för poolen omfång, körs aktiviteten under en auto-användarkonto som är tillgänglig för alla aktiviteter i poolen. Mer information om poolen scope finns i avsnittet [köra en aktivitet som automatiskt-användare med poolen scope](#run-a-task-as-the-autouser-with-pool-scope).   
+Alternativ till uppgiften omfånget är poolen omfång. När automatisk användare-specifikationen för en aktivitet har konfigurerats för poolen omfång, körs aktiviteten under en automatisk-användarkonto som är tillgängliga för alla aktiviteter i poolen. Mer information om poolen scope finns i avsnittet [kör en uppgift som automatiskt-användare med pool omfattning](#run-a-task-as-the-autouser-with-pool-scope).   
 
-Standardvärde skiljer sig på Windows- och Linux-noder:
+Standardvärde skiljer sig på Windows och Linux-noder:
 
-- På Windows-noder körs aktiviteter under scope på uppgift som standard.
-- Linux-noder kan alltid köras under poolen omfång.
+- På Windows-noder kör uppgifter under uppgiften omfång som standard.
+- Linux-noder kan alltid köras under pool omfång.
 
-Det finns fyra konfigurationer för automatisk användar-specifikationen som motsvarar ett unikt auto-konto:
+Det finns fyra möjliga konfigurationerna för specifikationen automatiskt användare som motsvarar ett unikt automatisk-användarkonto:
 
-- Icke-administratörsåtkomst med uppgiften omfattning (standardtypen användare automatiskt)
-- Administratörsåtkomst (förhöjd) med uppgiften scope
-- Icke-administratörsåtkomst med poolen scope
-- Administratörsåtkomst med poolen scope
+- Icke-administratörsåtkomst med uppgiften omfattning (standard automatiskt användare specifikation)
+- Administratörsåtkomst (förhöjd) med uppgiften omfattning
+- Icke-administratörsåtkomst med pool omfattning
+- Administratörsåtkomst med pool omfattning
 
 > [!IMPORTANT] 
-> Aktiviteter som körs under aktiviteten scope har inte faktisk åtkomst till andra aktiviteter på en nod. Men kan en obehörig användare med åtkomst till kontot undvika den här begränsningen genom att skicka en aktivitet som körs med administratörsbehörighet och har åtkomst till andra kataloger som aktiviteten. En obehörig användare kan också använda RDP eller SSH för att ansluta till en nod. Det är viktigt att skydda åtkomst till dina nycklar med Batch-konto att förhindra att ett sådant scenario. Om du misstänker att ditt konto komprometteras, måste du återskapa dina nycklar.
+> Aktiviteter som körs under definitionsområdet för aktiviteten har inte faktiska åtkomst till andra aktiviteter på en nod. Men kan en obehörig användare med åtkomst till kontot undvika den här begränsningen genom att skicka in en aktivitet som körs med administratörsbehörighet och har åtkomst till andra kataloger för uppgiften. En obehörig användare kan också använda RDP eller SSH för att ansluta till en nod. Det är viktigt att skydda åtkomsten till ditt Batch-kontonycklar för att förhindra att ett sådant scenario. Om du misstänker att ditt konto har komprometterats, måste du återskapa nycklarna.
 >
 >
 
-### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Köra en aktivitet som automatiskt-användare med högre behörighet
+### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Köra en aktivitet som automatiskt-användare med utökad åtkomst
 
-Du kan konfigurera automatisk användaren specifikationen för administratörsbehörighet när du behöver köra en aktivitet med högre behörighet. Till exempel behöva Startuppgiften utökad åtkomst till installera programvara på noden.
+Du kan konfigurera automatisk användare specifikationen för administratörsbehörighet när du vill köra en aktivitet med utökad åtkomst. Till exempel behöva en startaktivitet utökad åtkomst att installera programvara på noden.
 
 > [!NOTE] 
-> I allmänhet är det bäst att använda utökad åtkomst bara när det behövs. Bästa praxis rekommenderar bevilja det minsta privilegiet som krävs för att uppnå önskat utfall. Till exempel om Startuppgiften installerar programvara för den aktuella användaren, i stället för för alla användare, du kan undvika utökade åtkomst beviljas till aktiviteter. Du kan konfigurera automatisk användaren specifikationen för poolen omfång och icke-administratörer åtkomst för alla aktiviteter som måste köras under samma konto, inklusive Startuppgiften. 
+> I allmänhet är det bäst att använda utökad åtkomst vid behov. Bästa praxis rekommenderar beviljar den lägsta behörigheten som krävs för att uppnå önskat utfall. Till exempel om en startaktivitet installerar programvara för den aktuella användaren, i stället för för alla användare du att undvika att bevilja utökad åtkomst till aktiviteter. Du kan konfigurera automatisk användare specifikationen för poolen omfång och icke-administratörer åtkomst för alla aktiviteter som måste köras under samma konto, inklusive startaktiviteten. 
 >
 >
 
-Följande kodavsnitt visar hur du konfigurerar automatisk användar-specifikationen. Exemplen anger höjningen till `Admin` och omfång till `Task`. Uppgiften scope är standardinställningen, men finns här för enkelhetens exempel.
+I följande kodavsnitt visar hur du konfigurerar automatisk användare-specifikationen. Exemplen anger höjningen till `Admin` och omfång till `Task`. Uppgiften omfång är standardinställningen, men ingår här artikelns exempel.
 
 #### <a name="batch-net"></a>.NET för Batch
 
@@ -125,44 +126,44 @@ task = batchmodels.TaskAddParameter(
 batch_client.task.add(job_id=jobid, task=task)
 ```
 
-### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Köra en aktivitet som automatiskt-användare med poolen scope
+### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Köra en aktivitet som automatiskt-användare med pool omfattning
 
-När en nod har etablerats skapas två poolen hela auto-användarkonton på varje nod i poolen, en med högre behörighet och en utan utökad åtkomst. Ställa in automatisk-användarens omfång till poolen omfattningen för en viss aktivitet kör aktiviteten under någon av dessa två poolen hela auto-användarkonton. 
+När en nod har etablerats skapas två pool hela automatisk-användarkonton på varje nod i poolen, en med utökad åtkomst och en utan utökad åtkomst. Ställa in automatisk-användarens omfång pool omfattningen för en viss aktivitet kör aktiviteten enligt något av dessa två konton för hela poolen automatiskt användare. 
 
-När du anger poolen omfång för automatisk-användaren alla aktiviteter som körs med administratörsåtkomst köras under samma pool hela auto-användarkonto. Aktiviteter som körs utan administratörsbehörighet körs på samma sätt även under samma pool hela auto-konto. 
+När du anger poolen omfattning för automatisk-användare, alla aktiviteter som körs med administratörsåtkomst köras under samma pool hela automatisk-användarkonto. På samma sätt köra aktiviteter som körs utan administratörsbehörighet också en enda pool hela automatisk-användarkontot. 
 
 > [!NOTE] 
-> Två poolen hela auto-användarkontona är separata konton. Aktiviteter som körs under kontot poolen hela administrativa kan inte dela data med aktiviteter som körs under kontot standard och vice versa. 
+> De två kontona för hela poolen automatiskt användare är separata konton. Aktiviteter som körs under pool hela administrativt konto kan inte dela data med aktiviteter som körs under kontot som standard, och vice versa. 
 >
 >
 
-Fördelen med att köras under samma auto-användarkontot är att aktiviteter kan dela data med andra aktiviteter som körs på samma nod.
+Fördelen med att köras i samma automatisk-användarkontot är att aktiviteter ska kunna dela data med andra aktiviteter som körs på samma nod.
 
-Dela hemligheter mellan aktiviteter är ett scenario där pågående aktiviteter under en av två poolen hela auto-användarkontona är användbart. Anta exempelvis att Startuppgiften måste tillhandahålla en hemlighet på den nod som andra uppgifter kan använda. Du kan använda Windows Data Protection API (DPAPI), men det krävs administratörsbehörighet. I stället kan du skydda hemligheten på användarnivå. Aktiviteter som körs under samma användarkonto kan komma åt hemligheten utan utökad åtkomst.
+Dela hemligheter mellan aktiviteter är ett scenario där kör uppgifter enligt något av de två kontona för hela poolen automatiskt användare är användbart. Anta exempelvis att en startaktivitet måste etablera en hemlighet till den nod som andra aktiviteter kan använda. Du kan använda Windows Data Protection API (DPAPI), men det krävs administratörsbehörighet. I stället kan du skydda hemligheten på användarnivå. Aktiviteter som körs under kontot för samma användare kan komma åt hemligheten utan utökad åtkomst.
 
-Ett annat scenario där du kanske vill köra uppgifter under en automatisk användarkonto med poolen scope är en filresurs för Message Passing Interface (MPI). En filresurs för MPI är användbart när noderna i aktiviteten MPI behöver arbeta på samma fildata. Huvudnoden skapar en filresurs som underordnade noder har åtkomst till om de körs under samma auto-användarkonto. 
+Ett annat scenario där du kanske vill köra uppgifter under en automatisk användarkonto med pool omfattning är en filresurs för Message Passing Interface (MPI). En MPI-filresurs är användbart när noderna i MPI-aktiviteten behöver arbeta med samma fildata. Huvudnoden skapar en filresurs som underordnade noder har åtkomst till om de körs i samma automatisk-användarkontot. 
 
-Följande kodavsnitt anger auto-användarens omfång till poolen omfattningen för en aktivitet i Batch .NET. Nivån höjning utelämnas så aktiviteten körs under kontot poolen hela auto-standardanvändare.
+Följande kodavsnitt anger automatisk-användarens omfång till poolen omfattningen för en aktivitet i Batch .NET. Nivå för höjning utelämnas, så att aktiviteten körs i standard-pool hela automatisk-användarkontot.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
 ```
 
-## <a name="named-user-accounts"></a>Namngiven användare
+## <a name="named-user-accounts"></a>Namngivna användarkonton
 
-Du kan definiera namngivna användarkonton när du skapar en pool. En namngiven användarkonto har ett namn och lösenord som du anger. Du kan ange höjning-nivå för en namngiven användarkontot. Du kan också tillhandahålla en privata SSH-nyckel för Linux-noder.
+Du kan definiera namngivna användarkonton när du skapar en pool. En namngiven användarkontot har ett namn och lösenord som du anger. Du kan ange höjning för en namngiven användarkonto. Linux-noder kan du även ange en SSH-privata nyckel.
 
-En namngiven användarkontot finns på alla noder i poolen och är tillgänglig för alla aktiviteter som körs på noderna. Du kan definiera valfritt antal namngivna användare för en pool. När du lägger till en aktivitet eller en uppgift samling kan du ange att aktiviteten körs under ett konto för namngiven användare som definierats i poolen.
+En namngiven användarkontot finns på alla noder i poolen och är tillgänglig för alla aktiviteter som körs på dessa noder. Du kan definiera valfritt antal namngivna användare för en pool. När du lägger till en aktivitet eller uppgift samling kan du ange att aktiviteten körs under en av de namngivna användarkonton som definierats i poolen.
 
-Ett namngivet användarkonto är användbart när du vill köra alla uppgifter i ett jobb under samma användarkonto, men kan isolera dem från aktiviteter som körs i andra jobb på samma gång. Du kan till exempel skapa en namngiven användare för varje jobb och köra varje jobb uppgifter under det namngivna användarkontot. Varje jobb kan sedan delar en hemlighet med egna aktiviteter, men inte med aktiviteter som körs i andra jobb.
+En namngiven användarkontot är användbart när du vill köra alla uppgifter i ett jobb under samma användarkonto, men kunna isolera dem från aktiviteter som körs i andra jobb på samma gång. Du kan till exempel skapa en namngiven användare för varje jobb och kör varje jobbets aktiviteter under det namngivna användaren-kontot. Varje jobb kan sedan dela en hemlighet med sin egen uppgifter, men inte med aktiviteter som körs i andra jobb.
 
-Du kan också använda ett med namnet konto för att köra en aktivitet som anger behörigheter på externa resurser, till exempel filresurser. Med en namngiven användarkonto styra användarnas identitet och användarens identitet kan använda för att ange behörigheter.  
+Du kan också använda ett konto för namngiven användare för att köra en uppgift som anger behörigheter på externa resurser, till exempel filresurser. Med ett konto för namngiven användare, styra användarnas identiteter och kan använda den användaridentiteten för att ange behörigheter.  
 
-Namngiven användare aktivera lösenord mindre SSH mellan Linux-noder. Du kan använda en namngiven användarkonto med Linux-noder som behöver för att köra flera instanser uppgifter. Varje nod i poolen kan köra uppgifter under ett användarkonto som har definierats för hela poolen. Mer information om flera instanser uppgifter finns [använder flera\-instansen aktiviteter att köra MPI program](batch-mpi.md).
+Namngivna användarkonton aktivera lösenord utan SSH mellan Linux-noder. Du kan använda en namngiven användarkonto med Linux-noder som måste köra aktiviteter med flera instanser. Varje nod i poolen kan köra uppgifter under ett användarkonto som har definierats för hela poolen. Läs mer om aktiviteter med flera instanser, [använder flera\-instans aktiviteter att köra MPI-program](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Skapa namngiven användarkonton
 
-Om du vill skapa namngiven användarkonton i Batch, lägger du till en samling av användarkonton i poolen. Följande kodavsnitt visar hur du skapar namngivna användarkonton i .NET, Java och Python. Dessa kodstycken visar hur du skapar både admin och icke-administratörer med namnet konton i en pool. Exemplen skapa pooler med tjänstkonfigurationen moln, men du kan använda samma metod när du skapar en Windows- eller Linux-pool med konfigurationen av virtuella datorn.
+Lägga till en samling av användarkonton i poolen för att skapa namngiven användarkonton i Batch. I följande kodavsnitt visar hur du skapar namngivna användarkonton i .NET, Java och Python. Följande kodfragment visar hur du skapar både admin och icke-administratörer med namnet konton i en pool. Exemplen skapa pooler med hjälp av molntjänstkonfigurationen, men du kan använda samma metod när du skapar en Windows- eller Linux-pool med konfigurationen av virtuella datorn.
 
 #### <a name="batch-net-example-windows"></a>Batch .NET-exempel (Windows)
 
@@ -253,7 +254,7 @@ await pool.CommitAsync();
 ```
 
 
-#### <a name="batch-java-example"></a>Batch Java-exempel
+#### <a name="batch-java-example"></a>Batch Java-exemplet
 
 ```java
 List<UserAccount> userList = new ArrayList<>();
@@ -292,11 +293,11 @@ pool = batchmodels.PoolAddParameter(
 batch_client.pool.add(pool)
 ```
 
-### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Köra en aktivitet för en namngiven användarkonto med högre behörighet
+### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Köra en aktivitet under ett konto för namngiven användare med utökad åtkomst
 
-Ange om du vill köra en aktivitet som en förhöjd aktivitetens **UserIdentity** egenskapen till ett namngivet användarkonto som har skapats med dess **ElevationLevel** egenskapen `Admin`.
+Ange om du vill köra en uppgift som en förhöjd aktivitetens **UserIdentity** egenskapen till en namngiven användarkonto som har skapats med dess **ElevationLevel** egenskapen `Admin`.
 
-Det här kodstycket anger att aktiviteten ska köras under en namngiven användarkonto. Namngivna användarkontot har definierats för poolen när poolen har skapats. I det här fallet, har namngiven användarkontot skapats med administratörsbehörigheter:
+Det här kodfragmentet anger att aktiviteten ska köras under ett konto för namngiven användare. Det här kontot för namngiven användare har definierats för poolen när poolen skapades. I det här fallet, skapades namngiven användare-kontot med administratörsbehörighet:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
@@ -305,33 +306,33 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Uppdatera din kod till det senaste Batch-klientbiblioteket
 
-Batch-tjänstversion 2017-01-01.4.0 introducerar en ny ändring ersätter den **runElevated** egenskap som är tillgänglig i tidigare versioner med den **userIdentity** egenskapen. Följande tabeller innehåller en enkel mappning som du kan använda för att uppdatera din kod från tidigare versioner av klientbiblioteken.
+Batch service-versionen 2017-01-01.4.0 introducerar en stor förändring, ersätter den **runElevated** egenskap som är tillgänglig i tidigare versioner med den **userIdentity** egenskapen. Följande tabeller innehåller en enkel mappning som du kan använda för att uppdatera din kod från tidigare versioner av klientbiblioteken.
 
 ### <a name="batch-net"></a>.NET för Batch
 
-| Om din kod använder...                  | Uppdatera det till...                                                                                                 |
+| Om din kod använder...                  | Uppdatera den så att...                                                                                                 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` inte angetts | Ingen uppdatering krävs                                                                                               |
+| `CloudTask.RunElevated` Ej angiven | Ingen uppdatering krävs                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
-| Om din kod använder...                      | Uppdatera det till...                                                                                                                       |
+| Om din kod använder...                      | Uppdatera den så att...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` inte angetts | Ingen uppdatering krävs                                                                                                                     |
+| `CloudTask.withRunElevated` Ej angiven | Ingen uppdatering krävs                                                                                                                     |
 
 ### <a name="batch-python"></a>Python för Batch
 
-| Om din kod använder...                      | Uppdatera det till...                                                                                                                       |
+| Om din kod använder...                      | Uppdatera den så att...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
 | `run_elevated=False`                      | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated` inte angetts | Ingen uppdatering krävs                                                                                                                                  |
+| `run_elevated` Ej angiven | Ingen uppdatering krävs                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En detaljerad översikt över Batch finns [utveckla storskaliga parallell compute lösningar med Batch](batch-api-basics.md).
+* En detaljerad översikt över Batch finns [utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).

@@ -3,24 +3,22 @@ title: Konfigurera SSL-anslutning för säker anslutning till Azure Database for
 description: Instruktioner för hur du ska konfigurera Azure Database for MariaDB och associerade program använder SSL-anslutningar
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 00e8479eab927acccc8f797311a0a2d440bb96da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4bf18a44255903df09aae3382c0eb35a2a55eea5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961679"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541820"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Konfigurera SSL-anslutning i ditt program för säker anslutning till Azure Database for MariaDB
 Azure Database for MariaDB stöder anslutning av din Azure Database for MariaDB-server till klientprogram som använder Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
 
 ## <a name="obtain-ssl-certificate"></a>Skaffa SSL-certifikat
 Hämta det certifikat som krävs för kommunikation via SSL med din Azure Database for MariaDB-servern från [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och spara certifikatfilen på den lokala enheten (den här självstudien använder c:\ssl till exempel).
-**För Microsoft Internet Explorer och Microsoft Edge:** när hämtningen har slutförts kan du ändra certifikatet till BaltimoreCyberTrustRoot.crt.pem.
+**För Microsoft Internet Explorer och Microsoft Edge:** När hämtningen har slutförts kan du ändra certifikatet till BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>SSL-bindning
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Ansluta till servern med MySQL Workbench via SSL
@@ -49,7 +47,7 @@ Kör mysql **status** kommandot för att kontrollera att du har anslutit till Ma
 ```sql
 status
 ```
-Bekräfta anslutningen krypteras genom att granska utdata som ska visa: **SSL: Cipher används är AES256 SHA** 
+Bekräfta anslutningen krypteras genom att granska utdata som ska visa:  **SSL: Cipher används är AES256 SHA** 
 
 ## <a name="sample-code"></a>Exempelkod
 För att upprätta en säker anslutning till Azure Database for MariaDB över SSL från ditt program, se följande kodexempel:

@@ -3,27 +3,26 @@ title: Skapa ett tjänstobjekt för Azure Stack | Microsoft Docs
 description: Beskriver hur du skapar ett huvudnamn för tjänsten som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958322"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715842"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till Azure Stack-resurser genom att skapa tjänstens huvudnamn
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan ge ett programåtkomst till Azure Stack-resurser genom att skapa ett tjänstens huvudnamn som använder Azure Resource Manager. Ett huvudnamn för tjänsten kan du delegera specifika behörigheter med hjälp av [rollbaserad åtkomstkontroll](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ Konfiguration av Active Directory för Azure Stack avgör hur du skapar ett huvu
 
 Stegen för att tilldela ett huvudnamn för tjänsten till en roll samma för Azure AD och AD FS. När du skapar tjänstens huvudnamn, kan du [delegera behörigheter](azure-stack-create-service-principals.md#assign-role-to-service-principal) genom att tilldela den till en roll.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Skapa ett tjänstobjekt för Azure AD
+## <a name="create-service-principal-for-azure-ad"></a>Skapa tjänstens huvudnamn för Azure AD
 
 Om Azure Stack använder Azure AD som Identitetslagret, kan du skapa en tjänst huvudnamn med hjälp av samma steg som Azure, med hjälp av Azure-portalen.
 
@@ -95,11 +94,11 @@ Om du har distribuerat Azure Stack med hjälp av AD FS som Identitetslagret kan 
 * Tilldela en roll tjänstens huvudnamn.
 * Logga in med tjänstens huvudnamn identitet.
 
-Mer information om hur du skapar tjänstens huvudnamn finns i [skapa tjänstens huvudnamn för AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Mer information om hur du skapar tjänstens huvudnamn finns i [skapa tjänstens huvudnamn för AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Tilldela en roll med tjänstens huvudnamn
 
-För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: Inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 Du kan ange en Användarrollens omfång på nivån för en prenumeration, en resursgrupp eller en resurs. Behörigheter ärvs till lägre nivåer av omfång. Till exempel innebär en app med rollen Läsare för en resursgrupp att appen kan läsa någon av resurserna i resursgruppen.
@@ -114,9 +113,7 @@ Använd följande steg som en vägledning för att tilldela en roll till tjänst
 
 3. Välj **åtkomstkontroll (IAM)** för prenumerationen.
 
-     ![Välj åtkomstkontroll](./media/azure-stack-create-service-principal/image17.png)
-
-4. Välj **Lägg till**.
+4. Välj **Lägg till rolltilldelning**.
 
 5. Välj den roll som du vill tilldela till programmet.
 

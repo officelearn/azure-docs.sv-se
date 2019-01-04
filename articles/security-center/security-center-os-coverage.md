@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185587"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608842"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -30,7 +30,7 @@ Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för vi
 >
 >
 
-## <a name="supported-platforms"></a>Plattformar som stöds 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Plattformar som stöder datainsamlingsagenterna 
 
 Det här avsnittet ser du vilka plattformar som Azure Security Center-agenten kan köra och varifrån den kan samla in data.
 
@@ -43,6 +43,10 @@ Följande Windows-operativsystem som stöds:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> Integrering med Windows Defender ATP stöder endast Windows Server 2012 R2 och Windows Server 2016.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
 Följande Linux-operativsystem som stöds:
@@ -55,11 +59,6 @@ Följande Linux-operativsystem som stöds:
 * Oracle Linux-versioner 5, 6 och 7.
 * Amazon Linux 2012.09 till 2017.
 * OpenSSL 1.1.0 stöds bara på 64-bitars x86_64 plattformar.
-
-> [!NOTE]
-> Beteendeanalys för virtuell dator är ännu inte tillgängliga för Linux-operativsystem.
->
->
 
 ## <a name="vms-and-cloud-services"></a>Virtuella datorer och molntjänster
 Virtuella datorer som körs i en molntjänst stöds också. Endast cloud services webb- och worker-roller som körs i produktionsplatser övervakas. Mer information om molntjänster finns [översikt av Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).

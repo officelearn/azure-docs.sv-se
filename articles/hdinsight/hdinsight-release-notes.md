@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438871"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976978"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Viktig information för Azure HDInsight
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller information om den **senaste** uppdateringar med A
 
 ## <a name="summary"></a>Sammanfattning
 
-Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för analys av öppen källkod Apache Hadoop och Apache Spark i Azure. Med den [plus 50 procent prissänkningen på HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), kunder som flyttar till molnet de drar större besparingar än någonsin.
+Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för analys med Apache Hadoop med öppen källkod och Apache Spark på Azure. Med den [plus 50 procent prissänkningen på HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), kunder som flyttar till molnet de drar större besparingar än någonsin.
 
 ## <a name="new-features"></a>Nya funktioner
 
@@ -35,7 +35,7 @@ Nya uppdateringar och funktioner kan delas följande kategorier:
 
     a.  [**Nya funktioner i Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Nya funktioner i Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Nya funktioner i Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Uppdatera R Server 9.1 till Machine Learning Services 9.3*** – med den här versionen har vi tillhandahåller dataforskare och ingenjörer med bäst av öppen källkod, förbättrad med algoritmiska innovationer och robusta driftsättning, alla tillgängliga i deras önskat språk med hastigheten på Apache Spark. Den här versionen utökar funktionerna i R Server med stöd för Python, vilket leder till ändringen av klustret från R-Server till ML-tjänster som har lagts till. 
 
@@ -1300,9 +1300,9 @@ Det här avsnittet beskriver alla vanliga säkerhetsproblem och Exposures (CVE) 
 
 |**Apache-komponent**|**Apache JIRA**|**Sammanfattning**|**Detaljer**|
 |--|--|--|--|
-|**Spark 2.3** |**Saknas** |**Viktig information om ändringar som beskrivs i Apache Spark** |-Det finns ett ”utfasning”-dokument och en ”ändring av beteendet”-guide https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-För SQL-delen finns det en annan detaljerad ”” Migreringsguide (från 2.2 till 2.3) http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**Saknas** |**Viktig information om ändringar som beskrivs i Apache Spark** |-Det finns ett ”utfasning”-dokument och en ”ändring av beteendet”-guide https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-För SQL-delen finns det en annan detaljerad ”” Migreringsguide (från 2.2 till 2.3) https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark-jobbet har slutförts men det finns en HDFS kvot fullständiga diskfel |**Scenario:** Kör **insert skriva över** när en kvot är inställda på Papperskorgen för den användare som kör kommandot.<br /><br />**Beteende för tidigare:** Jobbet lyckas även om det inte går att flytta data till Papperskorgen. Resultatet kan felaktigt innehålla några av data som tidigare finns i tabellen.<br /><br />**Nya beteendet:** När övergången till Papperskorgen inte tas filer bort permanent.|
-|**Kafka 1.0**|**Saknas**|**Viktig information om ändringar som beskrivs i Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**Saknas**|**Viktig information om ändringar som beskrivs i Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Ytterligare ranger hive-principer som krävs för att infoga skriva över |**Scenario:** Ytterligare ranger hive-principer som krävs för **Infoga skriva över**<br /><br />**Beteende för tidigare:** Hive **Infoga skriva över** frågor lyckas som vanligt.<br /><br />**Nya beteendet:** Hive **Infoga skriva över** frågor oväntat misslyckas efter uppgraderingen till HDP-2.6.x med fel:<br /><br />Fel vid kompilering av uttryck: MISSLYCKADES: HiveAccessControlException åtkomst nekad: användaren jdoe har inte skrivprivilegier på /tmp/\*(tillstånd = 42000, kod = 40000)<br /><br />Från och med HDP-2.6.0 Hive **Infoga skriva över** frågor kräver en Ranger URI-princip för att tillåta skrivåtgärder, även om användaren har skrivprivilegier beviljas till HDFS-principen.<br /><br />**Lösning/förväntade Kundåtgärd:**<br /><br />1. Skapa en ny princip under Hive-databasen.<br />2. Välj i listrutan där du ser att databasen URI.<br />3. Uppdatera sökvägen (exempel: / tmp / *)<br />4. Lägg till användare och grupper och spara.<br />5. Försök insert-frågan.|
 |**HDFS**|**Saknas** |HDFS ska ha stöd för flera KMS-URI: er |**Beteende för tidigare:** dfs.encryption.key.provider.uri egenskap användes för att konfigurera sökväg för KMS-provider.<br /><br />**Nya beteendet:** dfs.encryption.key.provider.uri nu är inaktuell och ersatts med hadoop.security.key.provider.path att konfigurera sökväg för KMS-provider.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Alternativet för att inaktivera scheduler |**Komponent som påverkas:** Zeppelin-Server<br /><br />**Beteende för tidigare:** I tidigare versioner av Zeppelin var det inget alternativ för att inaktivera scheduler.<br /><br />**Nya beteendet:** Som standard kommer användarna inte längre visas scheduler, eftersom det är inaktiverat som standard.<br /><br />**Lösning/förväntade Kundåtgärd:** Om du vill aktivera scheduler behöver lägger du till azeppelin.notebook.cron.enable med värdet true under anpassade zeppelin plats i Zeppelin inställningar från Ambari.|
@@ -1409,6 +1409,10 @@ Det här avsnittet beskriver alla vanliga säkerhetsproblem och Exposures (CVE) 
             värde = \_.escape(val);//Line Nej: 460
             
             När du tar bort den ovanstående raden Ranger-Gränssnittet kan du skapa principer med villkor som kan innehålla specialtecken och principen utvärderingen kommer att lyckas för samma princip.
+
+**HDInsight-integrering med ADLS Gen 2: Användaren kataloger och behörigheter problemet med ESP-kluster**
+    1.  Hemkataloger för användare är inte skapas på Head nod 1. Lösningen är att skapa dem manuellt och ändra ägarskap till respektive användarens UPN.
+    2.  Behörigheter på /hdp har inte angetts till 751. Detta måste anges till en.  chmod 751 /hdp b.  chmod – R 755/hdp/appar
 
 ## <a name="deprecation"></a>Utfasning
 

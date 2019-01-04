@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: fabd21f9d7fe5ac1511f6b4cc07b8c17b055befe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 15166ae5eaab72849564ce8f03daf65eefae11f1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019947"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584045"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure CLI-exempel för Azure Cache för Redis
 
@@ -33,7 +33,7 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | [Hämta information om cache](./scripts/show-cache.md) | Hämtar information om Azure Cache för Redis-instans, inklusive Etableringsstatus. |
 | [Hämta värdnamn, portar och nycklar](./scripts/cache-keys-ports.md) | Hämtar de värdnamn, portar och nycklar för Azure Cache för Redis-instans. |
 |**Webbapp plus cache**||
-| [Ansluta en webbapp till Azure Cache för Redis](./../app-service/scripts/app-service-cli-app-service-redis.md) | Skapar en Azure webbapp och en Azure Cache för Redis och sedan lägger du till redis-anslutningsinformation inställningarna för appen. |
+| [Ansluta en webbapp till en Azure Cache for Redis](./../app-service/scripts/cli-connect-to-redis.md) | Skapar en Azure webbapp och en Azure Cache för Redis och sedan lägger du till redis-anslutningsinformation inställningarna för appen. |
 |**Ta bort cache**||
 | [Ta bort en cache](./scripts/delete-cache.md) | Tar bort en Azure-Cache för Redis-instans  |
 | | |

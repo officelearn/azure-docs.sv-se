@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496869"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631829"
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
-SCP är en plattform för att skapa realtid, tillförlitliga och konsekventa, och bearbetning av högpresterande program. Det är byggt ovanpå [Apache Storm](http://storm.incubator.apache.org/) – ett system som utformats av OSS-communities för strömbearbetning. Storm är utformad av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](http://zookeeper.apache.org/), en annan Apache-projektet för att möjliggöra tillförlitliga distribuerade samordning och tillstånd. 
+SCP är en plattform för att skapa realtid, tillförlitliga och konsekventa, och bearbetning av högpresterande program. Det är byggt ovanpå [Apache Storm](https://storm.incubator.apache.org/) – ett system som utformats av OSS-communities för strömbearbetning. Storm är utformad av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](https://zookeeper.apache.org/), en annan Apache-projektet för att möjliggöra tillförlitliga distribuerade samordning och tillstånd. 
 
 Inte bara SCP-projektet porteras Storm på Windows men även projektet till tillägg och anpassning av Windows-ekosystemet. Tilläggen innehåller utvecklarupplevelse för .NET och bibliotek, anpassningar kan vara Windows-baserade distributionen. 
 
@@ -309,7 +309,7 @@ För ISCPBatchBolt, får vi `StormTxAttempt` från `parms`, och använda den fö
 
 Generellt sett kan SCP-plugin-program köras i två lägen här:
 
-1. Lokalt testläge: I det här läget SCP-plugin-program (C\# användarkod) körs i Visual Studio under utvecklingsfasen. `LocalContext` kan användas i det här läget, vilket ger metod för att serialisera utgivna tuppeln till lokala filer och läsa dem tillbaka till minnet.
+1. Läge för lokal testning: I det här läget SCP-plugin-program (C\# användarkod) körs i Visual Studio under utvecklingsfasen. `LocalContext` kan användas i det här läget, vilket ger metod för att serialisera utgivna tuppeln till lokala filer och läsa dem tillbaka till minnet.
    
         public interface ILocalContext
         {
@@ -317,7 +317,7 @@ Generellt sett kan SCP-plugin-program köras i två lägen här:
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Standardläge: I det här läget SCP-plugin-program öppnas i storm java-processen.
+2. Standardläge: I det här läget öppnas SCP-plugin-program i storm java-processen.
    
     Här är ett exempel på Starta SCP-plugin-programmet:
    
@@ -346,7 +346,7 @@ Generellt sett kan SCP-plugin-program köras i två lägen här:
         }
 
 ## <a name="topology-specification-language"></a>Topologi-språket
-SCP-topologi, är ett domänspecifika språk för att beskriva och konfigurera SCP-topologier. Den är baserad på Storm's Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) och utökas med SCP.
+SCP-topologi, är ett domänspecifika språk för att beskriva och konfigurera SCP-topologier. Den är baserad på Storm's Clojure DSL (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) och utökas med SCP.
 
 Topologi specifikationer kan skickas direkt till storm-kluster för körning via den ***runspec*** kommando.
 
@@ -594,7 +594,7 @@ I kanal om ack är aktiverad, används en ordlista för att cachelagra tupplar s
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-Den **HelloWorldTx** exemplet visar hur du implementerar transaktionell topologi. Den har en kanal som kallas **generator**, en batch-bult kallas **partiellt antal**, och en bult commit anropas **antal samlade**. Det finns tre förinställda txt-filer: **DataSource0.txt**, **DataSource1.txt**, och **DataSource2.txt**.
+Den **HelloWorldTx** exemplet visar hur du implementerar transaktionell topologi. Den har en kanal som kallas **generator**, en batch-bult kallas **partiellt antal**, och en bult commit anropas **antal samlade**. Det finns också tre förinställda txt-filer: **DataSource0.txt**, **DataSource1.txt**, och **DataSource2.txt**.
 
 I varje transaktion, spout **generator** slumpmässigt väljer två filer skapats i förväg tre filer och generera de två fil som ska den **partiellt antal** bulten. Bulten **partiellt antal** hämtar filen namnet från den mottagna tuppeln och sedan öppna filen och räknar antalet ord i den här filen och slutligen generera word-tal till det **antal samlade** bulten. Den **antal samlade** bult sammanfattar det totala antalet.
 

@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfea3ec7380a36f937052a6a994504ca081f187
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2abf0afb3b6e1cd80168fa3f295297551b9bf7ce
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020181"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755163"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
 Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder Azure Active Directory (Azure AD) ett stort antal autentiseringsprotokoll, inklusive äldre autentisering. Äldre protokoll stöder dock inte multifaktorautentisering (MFA). MFA är ett vanligt krav adress identitetsstöld i många miljöer. 
 
@@ -91,7 +91,7 @@ Azure har en säkerhetsfunktion som hindrar dig från att skapa en princip så h
 ![Principkonfigurationen stöds inte](./media/block-legacy-authentication/04.png)
 
 
-Funktionen säkerhet är nödvändigt eftersom *blockerar alla användare och alla molnappar* finns risken för att blockera hela din organisation från att logga in på din klient. Du inkludera inte minst en användare för att uppfylla kravet på minimal bästa praxis. Du kan också 
+Funktionen säkerhet är nödvändigt eftersom *blockerar alla användare och alla molnappar* finns risken för att blockera hela din organisation från att logga in på din klient. Du inkludera inte minst en användare för att uppfylla kravet på minimal bästa praxis. Du kan också utesluta en katalogroll.
 
 ![Principkonfigurationen stöds inte](./media/block-legacy-authentication/05.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights-referensdata – hur du lägger till en referensdatauppsättning i miljön för Azure Time Series Insights | Microsoft Docs
+title: Hur du lägger till en referensdatauppsättning i miljön för Azure Time Series Insights | Microsoft Docs
 description: Den här artikeln beskriver hur du lägger till en referensdatauppsättning för att utöka data i Azure Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f0110ea79d05c0da57ac2d2e1f52194bed12152c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273846"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555565"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med hjälp av Azure portal
 

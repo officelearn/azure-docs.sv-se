@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308996"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555259"
 ---
 # <a name="view-service-fabric-health-reports"></a>Visa hälsorapporter i Service Fabric
 Azure Service Fabric introducerar en [hälsomodellen](service-fabric-health-introduction.md) med health entiteter på vilka systemkomponenter och watchdogs kan rapporten lokal villkor som de övervakar. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) aggregerar alla hälsodata för att avgöra om entiteter är felfri.
@@ -46,7 +46,7 @@ Om du vill demonstrera dessa alternativ kan vi använda ett lokalt kluster med f
 Service Fabric Explorer tillhandahåller en visuell översikt över klustret. Du kan se att i bilden nedan:
 
 * Programmet **fabric: / WordCount** är röd (i fel) eftersom den har en felhändelse som rapporteras av **MyWatchdog** för egenskapen **tillgänglighet**.
-* En av dess tjänster **fabric: / WordCount/WordCountService** är gul (i varning). Tjänsten är konfigurerad med sju repliker och klustret har fem noder, så det inte går att placera två repicas. Även om det inte visas här, service-partitionen är gul på grund av en rapport från `System.FM` säga att `Partition is below target replica or instance count`. Den gula partitionen utlöser gul tjänsten.
+* En av dess tjänster **fabric: / WordCount/WordCountService** är gul (i varning). Tjänsten är konfigurerad med sju repliker och klustret har fem noder, så det inte går att placera två repliker. Även om det inte visas här, service-partitionen är gul på grund av en rapport från `System.FM` säga att `Partition is below target replica or instance count`. Den gula partitionen utlöser gul tjänsten.
 * Klustret är röda på grund av red programmet.
 
 Utvärderingen använder standard-principer i klustermanifestet och programmanifestet. De strikta principer och tål inte eventuella fel.
@@ -464,7 +464,7 @@ För att få tjänstehälsa via API: et kan du skapa en `FabricClient` och anrop
 
 I följande exempel hämtas hälsotillståndet för en tjänst med det angivna tjänstnamnet (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,25 +1030,25 @@ Om allmänna frågor returnerar det okända hälsotillståndet för en entitet, 
 
 Frågor som innehåller **HealthState** för entiteter är:
 
-* Nodlistan: returnerar lista över noderna i klustret (växlat minne).
+* Nodlistan: Returnerar lista över noderna i klustret (växlat minne).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lista över program: returnerar listan över program i klustret (växlat minne).
+* Lista över program: Returnerar listan över program i klustret (växlat minne).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Tjänstelistan: returnerar listan över tjänster i ett program (växlat minne).
+* Tjänstlista: Returnerar listan över tjänster i ett program (växlat minne).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Partitionslista: returnerar listan över partitioner i en tjänst (växlat minne).
+* Partitionslista: Returnerar listan över partitioner i en tjänst (växlat minne).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Replikeringslistan: returnerar listan över repliker i en partition (växlat minne).
+* Replikeringslistan: Returnerar listan med repliker i en partition (växlat minne).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
-* Distribuerat programlista: returnerar listan över distribuerade program på en nod.
+* Lista över distribuerade program: Returnerar listan över distribuerade program på en nod.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* Distribuerat service paketlistan: returnerar listan över paket i ett distribuerat program.
+* Distribuerad tjänst paketlistan: Returnerar listan över paket i ett distribuerat program.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 

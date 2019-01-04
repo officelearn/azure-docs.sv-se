@@ -10,14 +10,14 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5cbdad82e25baa95c0342eb514f39c7026f1618b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345364"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753088"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använda Bing-taligenkänning REST API
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använd Bing-taligenkänning REST API
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -66,7 +66,7 @@ I följande tabell visas några exempel på service URI: er.
 | Igenkänningsläge  | Språk | Utdataformat | Tjänstens URI |
 |---|---|---|---|
 | `interactive` | pt-BR | Standard | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | sv-SE | Detaljerad |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Detaljerad |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Enkel | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
@@ -76,8 +76,8 @@ I följande tabell visas några exempel på service URI: er.
 
 Följande fält måste anges i huvudet för begäran:
 
-- `Ocp-Apim-Subscription-Key`: Varje gång som du anropa tjänsten, måste du ange din prenumerationsnyckel i den `Ocp-Apim-Subscription-Key` rubrik. Taltjänsten stöder också skicka auktorisering token i stället för prenumerationsnycklar. Mer information finns i [autentisering](../How-to/how-to-authentication.md).
-- `Content-type`: Det `Content-type` fältet beskriver format och codec för ljud dataström. För närvarande endast WAV-fil och PCM Mono 16000 kodning stöds. Content-type-värdet för det här formatet är `audio/wav; codec=audio/pcm; samplerate=16000`.
+- `Ocp-Apim-Subscription-Key`: Varje gång som du anropa tjänsten, måste du ange din prenumerationsnyckel i den `Ocp-Apim-Subscription-Key` rubrik. Taltjänsten stöder också skicka auktorisering token i stället för prenumerationsnycklar. Mer information finns i [Autentisering](../How-to/how-to-authentication.md).
+- `Content-type`: Den `Content-type` fältet beskriver format och codec för ljud dataström. För närvarande endast WAV-fil och PCM Mono 16000 kodning stöds. Content-type-värdet för det här formatet är `audio/wav; codec=audio/pcm; samplerate=16000`.
 
 Fältet `Transfer-Encoding` är valfritt. Om du anger det här fältet till `chunked`, kan du beskära ljudet i små segment. Mer information finns i [Segmentvis överföring](../How-to/how-to-chunked-transfer.md).
 
@@ -100,7 +100,7 @@ I följande exempel visas hur du skickar en begäran för igenkänning av tal ti
 > [!NOTE]
 > Ersätt `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil. Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerationsnyckel.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -135,7 +135,7 @@ Exemplet använder curl på Linux med bash. Om det inte är tillgänglig på din
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -184,7 +184,7 @@ När begäran bearbetades, returnerar Speech Service resultaten i ett svar som J
 
 Följande kodavsnitt visar ett exempel på hur du kan läsa svaret från strömmen.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -199,7 +199,7 @@ I det här exemplet returnerar curl direkt svarsmeddelandet i en sträng. Om du 
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 /*

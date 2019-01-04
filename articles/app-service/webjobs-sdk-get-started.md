@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339815"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607009"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -54,7 +54,7 @@ Anvisningarna för hur du skapar ett projekt med WebJobs SDK version 2.x. Den se
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) och erfarenhet av [appar i Azure App Service](app-service-web-overview.md). För att slutföra stegen i den här artikeln:
+Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) och erfarenhet av [appar i Azure App Service](overview.md). För att slutföra stegen i den här artikeln:
 
 * [Installera Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) med den **Azure development** arbetsbelastning. Om du redan har Visual Studio men inte har den arbetsbelastningen, lägger du till arbetsbelastningen genom att välja **Verktyg > Hämta verktyg och funktioner**.
 * [Skapa en App Service-app](app-service-web-get-started-dotnet-framework.md). Om du redan har en som du kan distribuera ett Webbjobb ska använda du som istället för att skapa en ny.

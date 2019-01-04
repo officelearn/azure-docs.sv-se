@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409532"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743879"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Apache Ambari-webbgränssnittet, JobHistory, NameNode, Apache Oozie och andra web UIs
 
@@ -47,7 +47,7 @@ Om du använder skriptåtgärder för att anpassa ditt kluster, kräver alla tj�
 
 * En webbläsare som kan konfigureras för att använda en SOCKS5-proxy.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Stöd för proxy SOCKS, inbyggd i Windows Internet-inställningar har inte stöd för SOCKS5 och fungerar inte med stegen i det här dokumentet. Följande webbläsare förlitar sig på Windows-proxyinställningar och för närvarande arbetar inte med stegen i det här dokumentet:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 ## <a name="useputty"></a>Skapa en tunnel med PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) är en grafisk SSH-klient för Windows. Om du inte är bekant med PuTTY läser den [PuTTY-dokumentationen](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Använd följande steg för att skapa en SSH-tunnel som använder PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) är en grafisk SSH-klient för Windows. Om du inte är bekant med PuTTY läser den [PuTTY-dokumentationen](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Använd följande steg för att skapa en SSH-tunnel som använder PuTTY:
 
 ### <a name="create-or-load-a-session"></a>Skapa eller läsa in en session
 
@@ -120,7 +120,7 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
    > [!NOTE]  
    > Att välja **fjärr-DNS** löser Domain Name System (DNS)-begäranden med hjälp av HDInsight-kluster. Den här inställningen löser DNS med hjälp av huvudnod i klustret.
 
-2. Kontrollera att tunneln fungerar genom att gå till en plats som [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Den returnerade IP-Adressen måste vara en används av Microsoft Azure-datacenter.
+2. Kontrollera att tunneln fungerar genom att gå till en plats som [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). Den returnerade IP-Adressen måste vara en används av Microsoft Azure-datacenter.
 
 ## <a name="verify-with-ambari-web-ui"></a>Verifiera med Ambari-webbgränssnittet
 

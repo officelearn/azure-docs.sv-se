@@ -1,7 +1,7 @@
 ---
 title: Användningsdata – Cloud Shell
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lär dig mer om att hämta information om användningen i Azure Cloud Shell för LUIS.
+description: Lär dig att hämta slutpunkten når antal användningsinformation i Azure Cloud Shell för LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,21 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 703332ece0208856bfbedb852b4b1e985d157dc9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133490"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605967"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Användningsdata för LUIS-tjänsten från Azure Cloud Shell
+
+Lär dig att hämta slutpunkten når antal användningsinformation i Azure Cloud Shell för LUIS.
+
 Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resurser. 
 
 Dessa cmdletar kan du [skapa](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) en LUIS-prenumeration, hämta information om prenumerationen, inklusive [användning](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), och [ta bort](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) prenumerationen. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud shell storage-konto och autentisering
+
 För att kunna använda PowerShell i Azure-portalen [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), måste du ha ett Azure storage-konto. Om du inte har en [lagringskonto](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), uppmanas du att skapa en. Storage-konto kan du spara PowerShell-skript i cloudshell.  
 
 Du måste också autentisera till Azure i cloudshell för att komma åt några resurser. 
@@ -31,6 +35,7 @@ Du måste också autentisera till Azure i cloudshell för att komma åt några r
 När du har ett lagringskonto och har autentiserats kan köra du PowerShell-cmdletar.
 
 ## <a name="open-cloud-shell"></a>Öppna Cloud Shell
+
 När du använder Azure portal cloudshell är du alltid den mest aktuella versionen av PowerShell. 
 
 Använd den **starta Cloud Shell** knappen för att öppna Cloud Shell eller öppna en webbläsare med [ https://shell.azure.com ](https://shell.azure.com). Välj Power Shell som miljön. Om du inte har ett Azure Storage-konto, måste du skapa en. 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623810"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554936"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -733,12 +733,12 @@ Här är ett exempelskript som du vill sluta utlösare före distributionen och 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
-    [parameter(Mandatory = $false)] [Bool] $predeployment=$true
-
+    [parameter(Mandatory = $false)] [String] $rootFolder,
+    [parameter(Mandatory = $false)] [String] $armTemplate,
+    [parameter(Mandatory = $false)] [String] $ResourceGroupName,
+    [parameter(Mandatory = $false)] [String] $DataFactoryName,
+    [parameter(Mandatory = $false)] [Bool] $predeployment=$true,
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
@@ -762,7 +762,6 @@ if ($predeployment -eq $true) {
     }
 }
 else {
-
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
@@ -789,7 +788,7 @@ else {
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
 
-    #delte resources
+    #Delete resources
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
@@ -820,7 +819,25 @@ else {
         Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
-    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    if ($deleteDeployment -eq $true) {
+        Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
+        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
+        $deploymentName = $deploymentsToConsider[0].DeploymentName
+
+       Write-Host "Deployment to be deleted: " $deploymentName
+        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
+
+        $deploymentsToDelete | ForEach-Object { 
+            Write-host "Deleting inner deployment: " $_.properties.targetResource.id
+            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+        }
+        Write-Host "Deleting deployment: " $deploymentName
+        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+    }
+
+    #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
@@ -958,3 +975,17 @@ I följande exempel visas en exempelfil för parametrar. Använd det här exempl
     }
 }
 ```
+
+## <a name="linked-resource-manager-templates"></a>Länkade Resource Manager-mallar
+
+Om du har konfigurerat kontinuerlig integrering och distribution (CI/CD) för din Datafabriker kan du se när din datafabrik växer större kan köras i Resource Manager-mall gränser, t.ex. det maximala antalet resurser eller den maximala nyttolasten i en resurs Manager-mall. För scenarier som dessa tillsammans med genererar den fullständiga Resource Manager-mallen för en fabrik genererar Data Factory nu även länkade Resource Manager-mallar. Därför kan ha du hela factory nyttolasten delas upp i flera filer så att du inte stöter på gränserna som anges.
+
+Om du har konfigurerat Git länkade mallar genereras och sparas tillsammans med de fullständiga Resource Manager-mallarna i den `adf_publish` gren, under en ny mapp med namnet `linkedTemplates`.
+
+![Länkade mappen för Resource Manager-mallar](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+Länkade Resource Manager-mallar har vanligtvis en Huvudmall och en uppsättning underordnade mallar som är länkad till huvudservern. Den överordnade mallen kallas `ArmTemplate_master.json`, och underordnade mallar kallas med mönstret `ArmTemplate_0.json`, `ArmTemplate_1.json`och så vidare. Om du vill flytta över från att använda den fullständiga Resource Manager-mallen till att använda länkade mallar, uppdatera dina CI/CD-aktivitet så att den pekar till `ArmTemplate_master.json` i stället för att peka på `ArmTemplateForFactory.json` (det vill säga fullständiga Resource Manager-mallen). Resource Manager måste du överföra de länkade mallarna till ett lagringskonto så att de kan nås av Azure under distributionen. Mer information finns i [distribuera länkade ARM-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+
+Kom ihåg att lägga till Data Factory-skript i CI/CD-pipeline före och efter distributionen uppgiften.
+
+Om du inte har konfigurerat Git länkade mallar är tillgängliga via den **exportera ARM-mallen** gest.

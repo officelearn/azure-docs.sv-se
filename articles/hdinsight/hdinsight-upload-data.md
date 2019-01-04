@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407102"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994121"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Överföra data för Apache Hadoop-jobb i HDInsight
 
@@ -171,12 +171,10 @@ eller
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-En lista över andra Hadoop-kommandon som fungerar med filer som finns i [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+En lista över andra Hadoop-kommandon som fungerar med filer som finns i [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > På Apache HBase-kluster kan standard blockstorlek som används vid skrivning av data är 256 KB. Även om detta fungerar bra när du använder HBase APIs eller REST API: er med hjälp av den `hadoop` eller `hdfs dfs` kommandon för att skriva data som är större än ~ 12 GB resulterar i ett fel. Mer information finns i den [för skrivning till blob storage-undantag](#storageexception) i den här artikeln.
->
->
 
 ### <a name="graphical-clients"></a>Grafiska klienter
 Det finns också flera program som ger ett grafiskt gränssnitt för att arbeta med Azure Storage. I följande tabell är en lista över några av dessa program:
@@ -184,17 +182,17 @@ Det finns också flera program som ger ett grafiskt gränssnitt för att arbeta 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio-verktyg för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure Storage Explorer](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio-verktyg för HDInsight
 Mer information finns i [navigera till de länkade resurserna](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer
-*Azure Storage Explorer* är användbart för att granska och ändra data i blobar. Det är en kostnadsfri öppen källkod-verktyg som kan laddas ned från [ http://storageexplorer.com/ ](http://storageexplorer.com/). Källkoden finns även den här länken.
+*Azure Storage Explorer* är användbart för att granska och ändra data i blobar. Det är en kostnadsfri öppen källkod-verktyg som kan laddas ned från [ https://storageexplorer.com/ ](https://storageexplorer.com/). Källkoden finns även den här länken.
 
 Innan du använder verktyget, vet du ditt Azure storage-konto och kontonyckeln. Anvisningar om hur du får den här informationen finns i ”så här: Visa, kopiera, och återskapa åtkomstnycklar ”avsnittet av [skapa, hantera eller ta bort ett lagringskonto][azure-create-storage-account].
 
@@ -315,7 +313,7 @@ Nu när du vet hur du hämtar data till HDInsight kan du läsa följande artikla
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

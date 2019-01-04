@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353749"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605916"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om ansluten fabrik lösningsaccelerator
 
@@ -27,7 +27,7 @@ Källkoden lagras i följande GitHub-lagringsplatsen:
 
 ### <a name="what-is-opc-ua"></a>Vad är OPC UA?
 
-OPC Unified arkitektur (UA), ut i 2008, är en plattformsoberoende, tjänst-orienterade samverkan som standard. OPC UA används av olika industriella system och enheter, till exempel bransch datorer, PLCs och sensorer. OPC UA integrerar funktionerna i de klassiska till OPC specifikationerna ett utökningsbart ramverk med inbyggd säkerhet. Det är en standard som drivs av OPC Foundation. Den [OPC Foundation](http://opcfoundation.org/) är en icke-vinstdrivande organisation med fler än 440 medlemmar. Syftet med organisationen är att använda OPC-specifikationer för att underlätta flera leverantörer, flera plattformar, säker och tillförlitlig samverkan via:
+OPC Unified arkitektur (UA), ut i 2008, är en plattformsoberoende, tjänst-orienterade samverkan som standard. OPC UA används av olika industriella system och enheter, till exempel bransch datorer, PLCs och sensorer. OPC UA integrerar funktionerna i de klassiska till OPC specifikationerna ett utökningsbart ramverk med inbyggd säkerhet. Det är en standard som drivs av OPC Foundation. Den [OPC Foundation](https://opcfoundation.org/) är en icke-vinstdrivande organisation med fler än 440 medlemmar. Syftet med organisationen är att använda OPC-specifikationer för att underlätta flera leverantörer, flera plattformar, säker och tillförlitlig samverkan via:
 
 * Infrastruktur
 * Specifikationer
@@ -78,7 +78,7 @@ Om du har distribuerat en lösning från www.azureiotsolutions.com kan logga du 
 1. Starta alla simulering behållare:
     * Exportera en gränssnittsvariabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för den **IotHubOwnerConnectionString** i den `<name of your deployment>.config.user` filen. Exempel:
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -142,7 +142,7 @@ Om du ser inga data skickas till IoT Hub är ett problem med simuleringen. Som e
 
 Du måste ha ett Azure Maps-konto om du vill aktivera en interaktiv karta i lösningen för ansluten fabrik.
 
-När du distribuerar från [www.azureiotsolutions.com](http://www.azureiotsolutions.com), distributionsprocessen lägger till ett Azure Maps-konto i resursgruppen som innehåller solution accelerator-tjänster.
+När du distribuerar från [www.azureiotsolutions.com](https://www.azureiotsolutions.com), distributionsprocessen lägger till ett Azure Maps-konto i resursgruppen som innehåller solution accelerator-tjänster.
 
 När du distribuerar med hjälp av den `build.ps1` skript i ansluten fabrik GitHub-lagringsplatsen uppsättningen miljövariabeln `$env:MapApiQueryKey` i fönstret bygga den [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Den interaktiva kartan aktiveras sedan automatiskt.
 
@@ -174,15 +174,15 @@ Skicka telemetridata från icke OPC UA enheter till ansluten fabrik:
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

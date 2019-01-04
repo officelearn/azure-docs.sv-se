@@ -1,19 +1,17 @@
 ---
 title: Serverloggar i Azure Database for PostgreSQL
 description: Den här artikeln beskriver hur Azure Database för PostgreSQL genererar loggar frågan och fel och logga hur kvarhållning har konfigurerats.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845181"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538813"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverloggar i Azure Database for PostgreSQL 
 Azure Database för PostgreSQL genererar fråge- och loggar. Fråga och felloggar kan användas för att identifiera, felsöka och reparera konfigurationsfel och icke-optimal prestanda. (Åtkomst till transaktionsloggar ingår inte). 
@@ -30,7 +28,7 @@ Om du har aktiverat loggar, kan du komma åt dem från Azure Database for Postgr
 
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
-Azure Database för PostgreSQL är integrerad med Azure Monitor-diagnostikloggar. När du har aktiverat loggar på din PostgreSQL-server, kan du låta dem anges till [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar, se avsnittet anvisningar i den [diagnostikloggar dokumentation](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
+Azure Database för PostgreSQL är integrerad med Azure Monitor-diagnostikloggar. När du har aktiverat loggar på din PostgreSQL-server, kan du låta dem anges till [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar, se avsnittet anvisningar i den [diagnostikloggar dokumentation](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 
 I följande tabell beskrivs vad som finns i varje logg. Beroende på den slutpunkt för indata som du väljer de fält som ingår och den ordning som de visas kan variera. 
@@ -49,10 +47,10 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på den slutpun
 | Resurs | Namnet på servern |
 | Kategori | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| errorLevel | Loggningsnivån, till exempel: LOG, fel, meddelande |
+| errorLevel | Loggning nivå, exempel: LOGGEN, FEL, MEDDELANDE |
 | Meddelande | Primär loggmeddelande | 
 | Domain | Server-versionen, till exempel: postgres-10 |
-| Detalj | Sekundär loggmeddelande (om tillämpligt) |
+| Information | Sekundär loggmeddelande (om tillämpligt) |
 | columnName | Namnet på kolumnen (om tillämpligt) |
 | %{SchemaName/ | Namnet på schemat (om tillämpligt) |
 | DatatypeName | Namnet på datatypen (om tillämpligt) |

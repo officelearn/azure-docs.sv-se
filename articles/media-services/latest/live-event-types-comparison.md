@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011784"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725940"
 ---
 # <a name="liveevent-types-comparison"></a>LiveEvent typer jämförelse
 
@@ -28,7 +28,7 @@ I Azure Media Services, en [LiveEvent](https://docs.microsoft.com/rest/api/media
 
 I följande tabell jämförs funktionerna i de två typerna av LiveEvent.
 
-| Funktion | Direktautentisering LiveEvent | Standard (grundläggande) LiveEvent |
+| Funktion | Direktautentisering LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Enkel bithastighet indata kodas till flera olika bithastigheter i molnet |Nej |Ja |
 | Maximal upplösning som video för bidrag feed |4K (4096 x 2160 på 60 bildrutor per sekund) |1080p (1920 x 1088 på 30 bilder per sekund)|

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871442"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722370"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Anpassa Windows-baserade HDInsight-kluster med skriptåtgärd
 **Skripta åtgärd** kan användas för att anropa [anpassade skript](hdinsight-hadoop-script-actions.md) när klustret skapas för att installera ytterligare programvara på ett kluster.
 
 Informationen i den här artikeln är specifik för Windows-baserade HDInsight-kluster. Linux-baserade kluster, se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 HDInsight-kluster kan anpassas i en mängd andra sätt, till exempel ytterligare Azure Storage-konton, ändra den [Apache Hadoop](https://hadoop.apache.org/) konfigurationsfiler (core-site.xml, hive-site.xml osv.) eller att lägga till delat bibliotek (t.ex. [Apache Hive](https://hive.apache.org/), [Apache Oozie](https://oozie.apache.org/)) till vanliga platser i klustret. Dessa anpassningar kan göras via Azure PowerShell, Azure HDInsight .NET SDK eller Azure-portalen. Mer information finns i [skapa Apache Hadoop-kluster i HDInsight][hdinsight-provision-cluster].
@@ -35,7 +35,7 @@ Skriptåtgärd används endast när ett kluster håller på att skapas. Följand
 
 När skriptet körs försätts klustret i den **ClusterCustomization** steg. I det här skedet skriptet körs under kontot system admin parallellt på alla angivna noder i klustret, och ger fullständig admin-behörighet på noderna.
 
-> [!NOTE]
+> [!NOTE]  
 > Eftersom du har administratörsbehörigheter på klusternoderna under den **ClusterCustomization** steg, du kan använda skriptet för att utföra åtgärder som att stoppa och starta tjänster, inklusive Hadoop-relaterade tjänster. Därför som en del av skriptet, måste du kontrollera att Ambari-tjänster och andra Hadoop-relaterade tjänster är igång innan körningen för skriptet. Dessa tjänster krävs för att fastställa har hälsotillstånd och status för klustret medan det skapas. Om du ändrar någon konfiguration på det kluster som påverkar dessa tjänster måste du använda hjälpfunktioner som tillhandahålls. Läs mer om hjälpfunktioner [utveckla skriptåtgärder skript till HDInsight][hdinsight-write-script].
 >
 >
@@ -288,10 +288,10 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
 
 Inbyggda komponenterna stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 
-> [!WARNING]
+> [!WARNING]  
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för tekniker med öppen källkod som där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för tekniker med öppen källkod som där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ https://apache.org ](https://apache.org), till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 >
 >
 

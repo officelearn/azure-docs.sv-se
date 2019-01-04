@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567425"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583076"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Den innehåller också information om scenarier som stöds, nödvändiga komponenter och felsökningssteg för fel.
@@ -27,6 +27,10 @@ Den här artikeln handlar om stegen för att säkerhetskopiera och återställa 
    | --- | --- | --- |
    | **Icke-hanterade virtuella datorer**  | Ja | Ja  |
    | **Hanterade virtuella datorer**  | Ja | Ja  |
+
+   > [!NOTE]
+   > Azure Backup stöder virtuella datorer som har krypterats med fristående nycklar. Valfri tangent som är en del av ett certifikat som används för att kryptera en virtuell dator stöds inte i dag.
+   >   
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Den virtuella datorn har krypterats med hjälp av [Azure Disk Encryption](../security/azure-security-disk-encryption.md).

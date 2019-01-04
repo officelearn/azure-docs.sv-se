@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8ba188db87ffc0d428c7349c902cf60bec65d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875339"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788488"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Hyper-V till Azure-haveriberedskap
 
@@ -55,11 +55,11 @@ Ja, både kryptering under överföring och [kryptering i Azure](https://docs.mi
 
 ### <a name="what-can-i-do-with-hyper-v-to-azure-replication"></a>Vad kan jag göra med Hyper-V till Azure replikering?
 
-- **Haveriberedskap**: du kan ställa in fullständig haveriberedskap. I det här scenariot kan replikera du lokala virtuella Hyper-V-datorer till Azure storage:
+- **Haveriberedskap**: Du kan ställa in fullständig haveriberedskap. I det här scenariot kan replikera du lokala virtuella Hyper-V-datorer till Azure storage:
     - Du kan replikera datorer till Azure. Om din infrastruktur på plats är tillgänglig, växlar du över till Azure.
     - När du redundansväxlar, skapas virtuella Azure-datorer med hjälp av replikerade data. Du kan komma åt appar och arbetsbelastningar på virtuella Azure-datorer.
     - När ditt datacenter på plats är tillgänglig igen, kan du växla tillbaka från Azure till din lokala plats.
-- **Migrering**: du kan använda Site Recovery för att migrera lokala virtuella Hyper-V-datorer till Azure storage. Sedan kan växla du över från den lokala till Azure. Efter redundansväxlingen är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer.
+- **Migrering**: Du kan använda Site Recovery för att migrera lokala virtuella Hyper-V-datorer till Azure storage. Sedan kan växla du över från den lokala till Azure. Efter redundansväxlingen är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer.
 
 
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver på plats?
@@ -197,8 +197,8 @@ När din lokala infrastruktur är igång igen kan du inte återställa. Återst�
 
 1. Du startar en planerad redundansväxling från Azure till den lokala platsen och använda ett par olika alternativ:
 
-    - Minimera stilleståndstiden: Om du använder det här alternativet Site Recovery synkroniserar data före redundans. Den söker efter ändrade datablock och hämtar dem till den lokala platsen, när behåller virtuell Azure-dator som kör, minimerar avbrottstid. När du anger manuellt när redundansen ska utföra, Azure-Virtuella datorn stängs av och alla slutliga deltaändringar kopieras redundansen börjar.
-    - Fullständig nedladdning: med det här alternativet synkroniseras data under en redundansväxling. Det här alternativet laddar ned hela disken. Det går snabbare eftersom ingen kontrollsummor beräknas, men det finns fler driftstopp. Använd det här alternativet om du har kört repliken virtuella Azure-datorer under en viss tid, eller om den lokala virtuella datorn har tagits bort.
+    - Minimera stilleståndstiden: Om du använder det här alternativet synkroniserar data före redundans i Site Recovery. Den söker efter ändrade datablock och hämtar dem till den lokala platsen, när behåller virtuell Azure-dator som kör, minimerar avbrottstid. När du anger manuellt när redundansen ska utföra, Azure-Virtuella datorn stängs av och alla slutliga deltaändringar kopieras redundansen börjar.
+    - Fullständig nedladdning: Med det här alternativet synkroniseras data under en redundansväxling. Det här alternativet laddar ned hela disken. Det går snabbare eftersom ingen kontrollsummor beräknas, men det finns fler driftstopp. Använd det här alternativet om du har kört repliken virtuella Azure-datorer under en viss tid, eller om den lokala virtuella datorn har tagits bort.
 
 2. Du kan välja för att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
 3. När den första synkroniseringen är klar kan välja du för att slutföra redundansen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrollera att allt fungerar som förväntat. Du kan se att den virtuella Azure-datorer har stoppats i Azure-portalen.

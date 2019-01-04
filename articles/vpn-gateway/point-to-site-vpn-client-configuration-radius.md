@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51252016"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
@@ -62,8 +62,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att ladda ned **VpnClientConfiguration.zip**. Packa upp filen om du vill visa följande mappar: 
  
-* **WindowsAmd64** och **WindowsX86**: mapparna innehåller installationsprogrammet för Windows 64-bitars och 32-bitars-paket. 
-* **Allmän**: den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration. Du behöver inte den här mappen för konfigurationer med användarnamn/lösenord autentisering.
+* **WindowsAmd64** och **WindowsX86**: Dessa mappar innehåller installationsprogrammet för Windows 64-bitars och 32-bitars-paket. 
+* **Allmän**: Den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration. Du behöver inte den här mappen för konfigurationer med användarnamn/lösenord autentisering.
 * **Mac**: Om du har konfigurerat IKEv2 när du skapade den virtuella nätverksgatewayen finns i en mapp med namnet **Mac** som innehåller en **mobileconfig** fil. Du kan använda den här filen för att konfigurera Mac-klienter.
 
 Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av den `Get-AzureRmVpnClientConfiguration` cmdlet. Men om du gör några ändringar i dina P2S VPN-konfiguration, till exempel typ av VPN-protokoll eller autentiseringstyp, konfigurationen uppdateras inte automatiskt. Du måste köra den `New-AzureRmVpnClientConfiguration` cmdlet för att skapa en ny nedladdning.
@@ -193,8 +193,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att hämta VpnClientConfiguration.zip. Packa upp filen om du vill visa följande mappar:
 
-* **WindowsAmd64** och **WindowsX86**: mapparna innehåller installationsprogrammet för Windows 64-bitars och 32-bitars-paket. 
-* **GenericDevice**: den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration.
+* **WindowsAmd64** och **WindowsX86**: Dessa mappar innehåller installationsprogrammet för Windows 64-bitars och 32-bitars-paket. 
+* **GenericDevice**: Den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration.
 
 Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av den `Get-AzureRmVpnClientConfiguration` cmdlet. Men om du gör några ändringar i dina P2S VPN-konfiguration, till exempel typ av VPN-protokoll eller autentiseringstyp, konfigurationen uppdateras inte automatiskt. Du måste köra den `New-AzureRmVpnClientConfiguration` cmdlet för att skapa en ny nedladdning.
 
@@ -267,8 +267,8 @@ Att använda olika autentiseringstyper (till exempel OTP), eller Använd en anna
 3. Den **GenenericDevice** mappen innehåller en XML-fil som heter **VpnSettings**. Den här filen innehåller informationen som krävs:
 
    * **VpnServer**: FQDN för Azure VPN-gatewayen. Det här är den adress som klienten ansluter till.
-   * **VpnType**: Tunnel som du använder för att ansluta.
-   * **Vägar**: vägar som du måste konfigurera i din profil så att endast trafik som är bunden till Azure-nätverk skickas via P2S-tunnel.
+   * **VpnType**: Tunneltyp som används för att ansluta.
+   * **Vägar**: Vägar som du måste konfigurera i din profil så att endast trafik som är bunden till Azure-nätverk skickas via P2S-tunnel.
    
    Den **GenenericDevice** mappen innehåller också en .cer-fil som heter **VpnServerRoot**. Den här filen innehåller rotcertifikat som krävs för att verifiera Azure VPN-gatewayen under installationen av P2S-anslutning. Installera certifikatet på alla enheter som ska ansluta till virtuella Azure-nätverket.
 

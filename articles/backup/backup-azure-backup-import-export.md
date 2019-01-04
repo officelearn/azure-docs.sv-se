@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955141"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974445"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -75,11 +75,11 @@ Det här avsnittet beskrivs arbetsflödet för säkerhetskopiering offline så a
 
   Beskrivning av indata är följande:
 
-    * **Mellanlagringsplatsen**: temporär lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
-    * **Azure Resource Manager-Storage-konto**: namnet på lagringskontot för Resource Manager typ i alla Azure-prenumerationer.
-    * **Azure Storage-behållare**: namnet på målblobben för lagring i Azure Storage-konto där dina säkerhetskopierade data har importerats innan den kopieras till Recovery Services-valvet.
-    * **Azure prenumerations-ID**: ID för Azure-prenumerationen där Azure Storage-kontot skapas.
-    * **Azure Importjobbets namn**: det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure. 
+    * **Mellanlagringsplatsen**: Den tillfälliga lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
+    * **Azure Resource Manager-Lagringskonto**: Namnet på lagringskontot för Resource Manager typ i alla Azure-prenumerationer.
+    * **Azure-lagringsbehållare**: Namnet på målblobben för lagring i Azure Storage-konto där dina säkerhetskopierade data har importerats innan den kopieras till Recovery Services-valvet.
+    * **Azure-prenumerations-ID**: ID för Azure-prenumerationen där Azure Storage-kontot skapas.
+    * **Namnet på Azure-importjobbet**: Det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure. 
   
   Ange indata på skärmen och klicka på **nästa**. Spara de angivna *mellanlagringsplatsen* och *Azure Importjobbets namn*, enligt den här informationen krävs för att förbereda diskarna.
 

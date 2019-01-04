@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012580"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650515"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda Apache Spark REST API för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
-Lär dig hur du använder [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API, som används för att skicka fjärrstyrda jobb till ett Azure HDInsight Spark-kluster. Detaljerad dokumentation finns i [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Lär dig hur du använder [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API, som används för att skicka fjärrstyrda jobb till ett Azure HDInsight Spark-kluster. Detaljerad dokumentation finns i [ https://livy.incubator.apache.org/ ](https://livy.incubator.apache.org/).
 
 Du kan använda Livy för att köra interaktiv Spark-gränssnitt eller skicka batch-jobb som ska köras på Spark. Den här artikeln berättar om hur du använder Livy för att skicka batchjobb. Kodfragmenten i den här artikeln använder cURL för att göra REST API-anrop till Livy Spark-slutpunkten.
 
@@ -172,9 +172,9 @@ Här följer några problem som kan uppstå när du använder Livy skicka Fjärr
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Med hjälp av en extern jar från det extra lagringsutrymmet stöds inte
 
-**Problem:** om Livy Spark-jobb refererar till en extern jar från ytterligare storage-kontot som är kopplat till klustret, jobbet har misslyckats.
+**Problem:** Om din Livy Spark-jobb refererar till en extern jar från ytterligare storage-kontot som är kopplat till klustret, misslyckas jobbet.
 
-**Lösning:** se till att JAR-filen som du vill använda är tillgänglig i standardlagring som är associerade med HDInsight-klustret.
+**Lösning:** Se till att JAR-filen som du vill använda är tillgänglig i standardlagring som är associerade med HDInsight-klustret.
 
 
 
@@ -182,7 +182,7 @@ Här följer några problem som kan uppstå när du använder Livy skicka Fjärr
 
 ## <a name="next-step"></a>Nästa steg
 
-* [Apache Livy REST API-dokumentation](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API-dokumentation](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)
 

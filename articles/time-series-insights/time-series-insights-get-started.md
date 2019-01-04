@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights skapar en miljö – skapa en Azure Time Series Insights-miljö | Microsoft Docs
+title: Skapa en Azure Time Series Insights-miljö | Microsoft Docs
 description: Den här artikeln beskriver hur du använder Azure-portalen för att skapa en ny Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: f50f0de4cff72f8eaf8304893d49ab14a68a3fc4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277309"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558540"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 Den här artikeln beskriver hur du skapar en ny Time Series Insights-miljö med Azure portal.

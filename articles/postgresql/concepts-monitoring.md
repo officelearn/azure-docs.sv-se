@@ -1,19 +1,17 @@
 ---
 title: Övervaka och finjustera i Azure Database för PostgreSQL
 description: Den här artikeln beskriver övervakning och justering funktioner i Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843690"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540919"
 ---
 # <a name="monitor-and-tune"></a>Övervaka och finjustera
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteende för din server.

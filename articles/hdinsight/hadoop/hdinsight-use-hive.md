@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 73c68e6946b3715bfa67561141e6c18e32e20c18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011767"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633971"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -25,13 +25,13 @@ Du kan projektstruktur på i stort sett Ostrukturerade data i hive. Du kan anvä
 
 HDInsight innehåller flera klustertyper som är anpassade för specifika arbetsbelastningar. Följande klustertyper av används oftast för Hive-frågor:
 
-* __Interaktiv fråga__: ett Hadoop-kluster som tillhandahåller [med låg latens analytisk bearbetning (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) funktioner för att förbättra svarstiden för interaktiva frågor. Mer information finns i den [börja med interaktiv fråga i HDInsight](../interactive-query/apache-interactive-query-get-started.md) dokumentet.
+* __Interaktiv fråga__: Ett Hadoop-kluster som tillhandahåller [med låg latens analytisk bearbetning (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) funktioner för att förbättra svarstiden för interaktiva frågor. Mer information finns i den [börja med interaktiv fråga i HDInsight](../interactive-query/apache-interactive-query-get-started.md) dokumentet.
 
-* __Hadoop__: ett Hadoop-kluster som är anpassad för arbetsbelastningar för batchbearbetning. Mer information finns i den [börja med Hadoop i HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md) dokumentet.
+* __Hadoop__: Ett Hadoop-kluster som är anpassad för arbetsbelastningar för batchbearbetning. Mer information finns i den [utgå från Apache Hadoop i HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md) dokumentet.
 
-* __Spark__: Apache Spark finns en inbyggd funktion för att arbeta med Hive. Mer information finns i den [börja med Spark på HDInsight](../spark/apache-spark-jupyter-spark-sql.md) dokumentet.
+* __Spark__: Apache Spark finns en inbyggd funktion för att arbeta med Hive. Mer information finns i den [börjar med Apache Spark i HDInsight](../spark/apache-spark-jupyter-spark-sql.md) dokumentet.
 
-* __HBase__: HiveQL kan användas för att köra frågor mot data som lagras i HBase. Mer information finns i den [börja med HBase på HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md) dokumentet.
+* __HBase__: HiveQL kan användas för att köra frågor mot data som lagras i Apache HBase. Mer information finns i den [börja med Apache HBase på HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md) dokumentet.
 
 ## <a name="how-to-use-hive"></a>Hur du använder Hive
 
@@ -100,15 +100,15 @@ Mer information finns i den [Hive interna och externa tabeller introduktion] [ c
 
 Hive kan också utökas via **användardefinierade funktioner (UDF)**. En UDF kan du implementera funktioner eller logik som inte är enkelt modellerats i HiveQL. Ett exempel på hur du använder UDF med Hive finns i följande dokument:
 
-* [Använda en Java-användardefinierade funktion med Hive](../hadoop/apache-hadoop-hive-java-udf.md)
+* [Använda en användardefinierad funktion i Java med Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Använda en användardefinierad funktion i Python med Hive](../hadoop/python-udf-hdinsight.md)
+* [Använda en Python-användardefinierade funktion med Apache Hive](../hadoop/python-udf-hdinsight.md)
 
-* [Använda en C#-användardefinierade funktion med Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Använd en C# användardefinierad funktion med Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Lägga till en anpassad Hive användardefinierad funktion i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Lägga till en anpassad Apache Hive-användardefinierade funktion i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-* [Ett exempel Hive användardefinierad funktion för att konvertera datum/tid-format till Hive-tidsstämpel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
+* [Ett exempel Apache Hive användardefinierad funktion för att konvertera datum/tid-format till Hive-tidsstämpel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## <a id="data"></a>Exempeldata
 
@@ -138,24 +138,24 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 I exemplet ovan utför HiveQL-instruktioner följande åtgärder:
 
-* `set hive.execution.engine=tez;`: Anger motorn för körning av att använda Tez. Använda Tez kan ge en ökning av frågeprestanda. Mer information om Tez finns i den [använda Apache Tez för bättre prestanda](#usetez) avsnittet.
+* `set hive.execution.engine=tez;`: Anger motorn för körning av att använda Apache Tez. Använda Tez kan ge en ökning av frågeprestanda. Mer information om Tez finns i den [använda Apache Tez för bättre prestanda](#usetez) avsnittet.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Den här instruktionen är endast krävs när du använder ett Windows-baserade HDInsight-kluster. Tez är standard-motorn för körning för Linux-baserade HDInsight.
 
-* `DROP TABLE`: Ta bort om tabellen redan finns.
+* `DROP TABLE`: Om tabellen redan finns, kan du ta bort den.
 
 * `CREATE EXTERNAL TABLE`: Skapar en ny **externa** tabellen i Hive. Externa tabeller kan du bara lagra tabelldefinitionen i Hive. Data är kvar i den ursprungliga platsen och det ursprungliga formatet.
 
-* `ROW FORMAT`: Visar Hive hur informationen har formaterats. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
+* `ROW FORMAT`: Beskriver hur informationen har formaterats Hive. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
 
-* `STORED AS TEXTFILE LOCATION`: Visar Hive där data lagras (den `example/data` directory) och att den lagras som text. Data kan finnas i en fil eller sprids över flera filer i katalogen.
+* `STORED AS TEXTFILE LOCATION`: Anger var data lagras Hive (den `example/data` directory) och att den lagras som text. Data kan finnas i en fil eller sprids över flera filer i katalogen.
 
 * `SELECT`: Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]**. Det här uttrycket returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
 * `INPUT__FILE__NAME LIKE '%.log'` -Hive försöker använda schemat för alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräpinsamling data i resultatet, meddelar den här instruktionen Hive vi bör endast returnera data från filer som slutar på. log.
 
-> [!NOTE]
+> [!NOTE]  
 > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel en automatiserade uppladdningen eller MapReduce-åtgärden.
 >
 > Tar bort en extern tabell har **inte** ta bort data, tar endast bort tabelldefinitionen.
@@ -186,7 +186,7 @@ Dessa instruktioner utför följande åtgärder:
 
 * `INSERT OVERWRITE ... SELECT`: Väljer rader från den **log4jLogs** tabell som innehåller **[fel]**, och sedan infogar data till den **felvillkoren** tabell.
 
-> [!NOTE]
+> [!NOTE]  
 > Till skillnad från externa tabeller, släppa en intern tabell tar även bort underliggande data.
 
 ## <a name="improve-hive-query-performance"></a>Förbättra prestanda för Hive-frågor
@@ -195,20 +195,20 @@ Dessa instruktioner utför följande åtgärder:
 
 [Apache Tez](https://tez.apache.org) är ett ramverk som gör att dataintensiva applikationer, som Hive, kan köras mer effektivt i större skala. Tez är aktiverat som standard för Linux-baserade HDInsight-kluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Tez är för närvarande inaktiverat som standard för Windows-baserade HDInsight-kluster och den måste aktiveras. Om du vill dra nytta av Tez, måste du ange följande värde för en Hive-fråga:
 >
 > `set hive.execution.engine=tez;`
 >
 > Tez är standard-motor för Linux-baserade HDInsight-kluster.
 
-Den [Hive i Tez designdokument](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) innehåller information om alternativ för implementering och justering konfigurationer.
+Den [Apache Hive i Tez designdokument](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) innehåller information om alternativ för implementering och justering konfigurationer.
 
 För att underlätta felsökning jobb kördes med Tez, HDInsight innehåller följande web UIs så att du kan visa information om Tez-jobb:
 
-* [Använda Ambari Tez-vyn på Linux-baserat HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Använd Apache Ambari Tez-vyn på Linux-baserat HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
-* [Använda Tez-Användargränssnittet på Windows-baserade HDInsight](../hdinsight-debug-tez-ui.md)
+* [Använda Apache Tez-Användargränssnittet på Windows-baserade HDInsight](../hdinsight-debug-tez-ui.md)
 
 ### <a name="low-latency-analytical-processing-llap"></a>Låg latens Analytical Processing (LLAP)
 
@@ -236,14 +236,14 @@ Mer information finns i den [Azure Feature Pack] [ ssispack] dokumentation.
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
-Apache Oozie är ett arbetsflöde och koordination system som hanterar Hadoop-jobb. Mer information om att använda Oozie med Hive finns i den [Använd Oozie att definiera och köra ett arbetsflöde](../hdinsight-use-oozie-linux-mac.md) dokumentet.
+Apache Oozie är ett arbetsflöde och koordination system som hanterar Hadoop-jobb. Mer information om att använda Oozie med Hive finns i den [Använd Apache Oozie att definiera och köra ett arbetsflöde](../hdinsight-use-oozie-linux-mac.md) dokumentet.
 
 ## <a id="nextsteps"></a>Nästa steg
 
 Nu när du har lärt dig vad Hive är och hur du använder det med Hadoop i HDInsight, kan du använda följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
 
 * [Överföra data till HDInsight][hdinsight-upload-data]
-* [Använda Pig med HDInsight][hdinsight-use-pig]
+* [Använda Apache Hive med HDInsight][hdinsight-use-pig]
 * [Använda MapReduce-jobb med HDInsight][hdinsight-use-mapreduce]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/

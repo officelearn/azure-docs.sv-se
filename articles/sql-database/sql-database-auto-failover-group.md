@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284943"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994648"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
-Automatisk redundans grupper är en SQL Database-funktion som låter dig hantera replikering och redundans för en grupp med databaser på en logisk server eller alla databaser i en hanterad instans till en annan region (för närvarande i förhandsversion för hanterad instans). Den använder samma underliggande teknik som [aktiv geo-replikering](sql-database-active-geo-replication.md). Du kan initiera redundans manuellt eller kan du delegera den till SQL Database-tjänsten baserat på en användardefinierad princip med hjälp av en användardefinierad princip. Det senare alternativet kan du återställa flera relaterade databaser i en sekundär region automatiskt efter ett oåterkalleligt fel eller oplanerad händelse som leder till fullständig eller partiell förlust av tillgänglighet för SQL Database-tjänsten i den primära regionen. Du kan dessutom använda läsbara sekundära databaser för att avlasta skrivskyddad frågearbetsbelastningar. Eftersom automatisk redundans grupper omfatta flera databaser, måste databaserna konfigureras på den primära servern. Både primära och sekundära servrar för databaser i redundansgruppen måste vara i samma prenumeration. Automatisk redundans grupper stöd för replikering av alla databaser i gruppen att endast en sekundär server i en annan region.
+Automatisk redundans grupper är en SQL Database-funktion som låter dig hantera replikering och redundans för en grupp med databaser på en logisk server eller alla databaser i en hanterad instans till en annan region (för närvarande i förhandsversion för hanterad instans). Den använder samma underliggande teknik som [aktiv geo-replikering](sql-database-active-geo-replication.md). Du kan initiera redundans manuellt eller kan du delegera den till SQL Database-tjänsten baserat på en användardefinierad princip. Det senare alternativet kan du återställa flera relaterade databaser i en sekundär region automatiskt efter ett oåterkalleligt fel eller oplanerad händelse som leder till fullständig eller partiell förlust av tillgänglighet för SQL Database-tjänsten i den primära regionen. Du kan dessutom använda läsbara sekundära databaser för att avlasta skrivskyddad frågearbetsbelastningar. Eftersom automatisk redundans grupper omfatta flera databaser, måste databaserna konfigureras på den primära servern. Både primära och sekundära servrar för databaser i redundansgruppen måste vara i samma prenumeration. Automatisk redundans grupper stöd för replikering av alla databaser i gruppen att endast en sekundär server i en annan region.
 
 > [!NOTE]
 > När du arbetar med enkel eller grupperade databaser på en logisk server och du vill att flera sekundära databaser i samma eller olika regioner, använda [aktiv geo-replikering](sql-database-active-geo-replication.md).
@@ -42,7 +42,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Redundansgrupp**
 
-  Redundansgruppen är en grupp med databaser som hanteras av en enda logisk server eller i en hanterad instans som kan ha redundans som en enhet till en annan region om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen.
+  Redundansgruppen är en grupp med databaser som hanteras av en enskild logisk server eller i en hanterad instans som kan ha redundans som en enhet till en annan region om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen.
 
   - **Logiska servrar**
 
@@ -81,7 +81,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Redundans skrivskyddad lyssnare**
 
-  En DNS CNAME-post formaterad som pekar på den skrivskyddade lyssnaren som pekar på den sekundära URL: en. Det gör att skrivskyddade SQL-programmen för transparent anslutning till den sekundära med hjälp av de angivna reglerna för belastningsutjämning.
+  En DNS CNAME-post formaterat som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Det gör att skrivskyddade SQL-programmen för transparent anslutning till den sekundära med hjälp av de angivna reglerna för belastningsutjämning.
 
   - **Logisk server DNS CNAME-post för skrivskyddade lyssnare**
 
@@ -203,7 +203,7 @@ Om ditt program använder Managed Instance som datanivån, följer du dessa allm
 
 - **Förberedas för perf försämring**
 
-  SQL redundans beslut är fristående från resten av programmet eller andra tjänster som används. Programmet får ”blandas” med vissa komponenter i en region och vissa i en annan. Om du vill undvika försämringen, se till att redundanta programdistributionen i regionen för Haveriberedskap och följer du dessa [network säkerhetsriktlinjer](#Failover groups-and-network-security).
+  SQL redundans beslut är fristående från resten av programmet eller andra tjänster som används. Programmet får ”blandas” med vissa komponenter i en region och vissa i en annan. Om du vill undvika försämringen, se till att redundanta programdistributionen i regionen för Haveriberedskap och följer du dessa [network säkerhetsriktlinjer](#failover-groups-and-network-security).
 
 - **Förbereda för förlust av data**
 
@@ -262,7 +262,7 @@ När du ställer in en redundansgrupper mellan primära och sekundära hanterade
     > [!IMPORTANT]
     > Felkonfigurerad NSG security regler leder till har fastnat kopia av databasåtgärder.
 
-7. Du måste konfigurera DNS-zon partner på sekundära instans. En DNS-zon är en egenskap för en hanterad instans. Representerar en del av värdnamn som följer Managed Instance name och föregår den `.database.windows.net` prefix. Det genereras som slumpmässig sträng under genereringen av den första hanterade instansen i varje virtuellt nätverk. DNS-zon kan inte ändras efter skapandet av hanterade instansen och alla hanterade instanser inom samma undernät har samma värde för DNS-zon. För hanterade instans redundans inställning delar den primära hanterade instansen och den sekundära hanterade instansen samma värde för DNS-zon. Det gör du genom att ange parametern DnsZonePartner när du skapar den sekundära hanterade instansen. Egenskapen DNS-zon partner definierar den hanterade instansen om du vill dela en redundansgrupp för instansen med. Genom att skicka till resurs-id för en annan hanterad instans som indata för DnsZonePartner ärver samma DNS-zon värde för partnern hanterad instans i den hanterade instansen håller på att skapas.
+7. Du måste konfigurera DNS-zon partner på sekundära instans. En DNS-zon är en egenskap för en hanterad instans. Representerar en del av värdnamn som följer Managed Instance name och föregår den `.database.windows.net` prefix. Det genereras som slumpmässig sträng under genereringen av den första hanterade instansen i varje virtuellt nätverk. DNS-zon kan inte ändras efter skapandet av hanterade instansen och alla hanterade instanser inom samma undernät har samma värde för DNS-zon. För hanterad instans redundans inställning delar den primära hanterade instansen och den sekundära hanterade instansen samma värde för DNS-zon. Det gör du genom att ange parametern DnsZonePartner när du skapar den sekundära hanterade instansen. Egenskapen DNS-zon partner definierar den hanterade instansen om du vill dela en redundansgrupp för instansen med. Genom att skicka till resurs-id för en annan hanterad instans som indata för DnsZonePartner ärver samma DNS-zon värde för partnern hanterad instans i den hanterade instansen håller på att skapas.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
 
@@ -306,17 +306,17 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installera den senaste versionen för tidig lansering av Powershell
 
-1. Uppdatera modulen powershellget till 1.6.5 (eller senaste förhandsversionen). Se [plats för PowerShell-förhandsversion](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Uppdatera modulen PowerShellGet till 1.6.5 (eller senaste förhandsversionen). Se [plats för PowerShell-förhandsversion](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Kör följande kommandon i ett nytt PowerShell-fönster:
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193866"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716148"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -38,17 +38,17 @@ HDInsight är tillgängligt i många Azure-regioner. Den närmaste regionen finn
 
 ### <a name="location-of-default-storage"></a>Platsen för standardlagring
 
-Standardlagring, antingen ett Azure Storage-konto eller Azure Data Lake Store måste vara på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Store Gen1 är tillgänglig i vissa regioner – finns i den aktuella Data Lake Store-tillgängligheten under *Storage* i [Azure-produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/).
+Standardlagring, antingen ett Azure Storage-konto eller Azure Data Lake Storage måste vara på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Storage Gen1 är tillgänglig i vissa regioner – finns i den aktuella Data Lake Storage-tillgängligheten under *Storage* i [Azure-produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Platsen för befintliga data
 
-Om du redan har ett lagringskonto eller Data Lake Store som innehåller dina data och vill använda den här lagringen som standard klusterlagring, måste du distribuera ditt kluster på den samma platsen.
+Om du redan har ett lagringskonto eller Data Lake Storage som innehåller dina data och vill använda den här lagringen som standard klusterlagring, måste du distribuera ditt kluster på den samma platsen.
 
 ### <a name="storage-size"></a>Lagringsstorlek
 
-När du har ett HDInsight-kluster som har distribuerats kan du koppla ytterligare Azure Storage-konton eller få åtkomst till andra Data Lake Stores. Alla lagringskonton måste finnas på samma plats som klustret. Ett Data Lake Store kan vara på en annan plats, men detta kan innebära att vissa data läsning och skrivning.
+När du har ett HDInsight-kluster som har distribuerats kan du koppla ytterligare Azure Storage-konton eller få åtkomst till andra Data Lake Storage. Alla lagringskonton måste finnas på samma plats som klustret. Ett Data Lake-lagring kan vara på en annan plats, men detta kan innebära att vissa data läsning och skrivning.
 
-Azure Storage har några [kapacitetsbegränsningar](../azure-subscription-service-limits.md#storage-limits), medan Data Lake Store Gen1 är praktiskt taget obegränsade.
+Azure Storage har några [kapacitetsbegränsningar](../azure-subscription-service-limits.md#storage-limits), medan Data Lake Storage Gen1 är praktiskt taget obegränsade.
 
 Ett kluster kan komma åt en kombination av olika lagringskonton. Vanliga exempel:
 
@@ -75,7 +75,7 @@ VM-storlek och typ bestäms av CPU-belastningen ström, RAM-storleken och svarst
 
 * RAM-MINNE: VM-storleken avgör också mängden RAM-minne tillgängligt på den virtuella datorn. Ha tillräckligt med minne för att passa informationen för arbetsbelastningar som lagrar data i minnet för bearbetning i stället för att läsa från disken, se till att dina arbetarnoder.
 
-* Nätverk: För de flesta klustertyper av är data som bearbetas av klustret inte på den lokala disken, men i en extern storage-tjänst, till exempel Data Lake Store eller Azure Storage. Överväg att nätverkets bandbredd och dataflödet mellan noden VM och storage-tjänsten. Nätverkets bandbredd tillgänglig för en virtuell dator ökar vanligtvis med större storlekar. Mer information finns i [Virtuella datorer översikt](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Nätverk: För de flesta klustertyper av är data som bearbetas av klustret inte på den lokala disken, men i en extern storage-tjänst, till exempel Data Lake Storage eller Azure Storage. Överväg att nätverkets bandbredd och dataflödet mellan noden VM och storage-tjänsten. Nätverkets bandbredd tillgänglig för en virtuell dator ökar vanligtvis med större storlekar. Mer information finns i [Virtuella datorer översikt](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Välj skala för kluster
 
@@ -89,7 +89,7 @@ Du kan skala ut klustret för att möta toppefterfrågan belastningen och sedan 
 
 Du debiteras för ett kluster livslängd. Om det finns endast specifika tidpunkter som du behöver dina kluster vara igång och körs, kan du [Skapa kluster på begäran med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Du kan också skapa PowerShell-skript som etablerar eller ta bort ditt kluster och sedan schemalägger du dessa skript med hjälp av [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > När ett kluster tas bort så raderas även dess standard Hive-metaarkiv. Använda extern metadatalagring som Azure Database för att bevara metaarkiv för nästa nytt skapa ett kluster eller [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontr
 1. Klicka på **nästa: Granska + skapa**.
 1. På den **granska + skapa** fliken **skapa**.
 
-> [!Note]
+> [!NOTE]  
 > Om du vill öka kärnkvoten för HDInsight i ett privat område [begära en lista över tillåtna](https://aka.ms/canaryintwhitelist).
 
 Du kan [kontakta supporten för att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

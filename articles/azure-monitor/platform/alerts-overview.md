@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346542"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976961"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -56,7 +56,7 @@ Viktiga punkter för en varningsregel är:
 
 ## <a name="what-you-can-alert-on"></a>Du kan meddela på
 
-Du kan meddela mått och loggar enligt beskrivningen i [övervakning datakällor](../../monitoring-and-diagnostics/monitoring-data-sources.md). Dessa inkludera, men är inte begränsade till:
+Du kan meddela mått och loggar enligt beskrivningen i [övervakning datakällor](../../azure-monitor/platform/data-sources-reference.md). Dessa inkludera, men är inte begränsade till:
 - Måttvärden
 - Loggsökningsfrågor
 - Händelser i aktivitetsloggen
@@ -131,7 +131,7 @@ Tidigare hade Azure Monitor, Application Insights, logganalys och Tjänstehälsa
 | **Övervaka källan** | **Signaltyp**  | **Beskrivning** | 
 |-------------|----------------|-------------|
 | Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Webbtester för tillgänglighet | Stöds ej. Se [webbtestaviseringar](../../application-insights/app-insights-monitor-web-app-availability.md). Tillgänglig för alla webbplatser som är utrustade för att skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
+| Application Insights | Webbtester för tillgänglighet | Stöds ej. Se [webbtestaviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgänglig för alla webbplatser som är utrustade för att skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
 
 
 ## <a name="all-alerts-page"></a>Alla aviseringssidan 

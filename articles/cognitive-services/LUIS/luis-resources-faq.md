@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163641"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714210"
 ---
-# <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
 Den här artikeln innehåller svar på vanliga frågor och svar om Språkförståelse (LUIS).
 
@@ -212,7 +212,7 @@ Följande funktioner har släppts på Build 2018-konferensen:
 |Integreringar|[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integrering av [attitydanalys](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Tal](https://docs.microsoft.com/azure/cognitive-services/speech) integrering av tal promotor tillsammans med [tal SDK](https://aka.ms/SpeechSDK)|
 |Dispatch-verktyget|En del av [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch kommandoraden [verktyget](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) att kombinera flera LUIS och QnA Maker appar till enkel LUIS-app för bättre taligenkänning i en robot
 
-Ytterligare redigering [API-vägar](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) ingår.
+Ytterligare redigering [API-vägar](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) ingår.
 
 Videor:
 * [Azure Friday på Build 2018: Cognitive Services – Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

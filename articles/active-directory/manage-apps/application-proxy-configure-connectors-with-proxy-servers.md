@@ -2,25 +2,21 @@
 title: Arbeta med befintliga lokala proxyservrar och Azure AD | Microsoft Docs
 description: Beskriver hur du arbetar med befintliga lokala proxyservrar.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404961"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720109"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -107,15 +103,16 @@ Det finns fyra aspekter att tänka på vid utgående proxy:
 * SSL-kontroll
 
 #### <a name="proxy-outbound-rules"></a>Proxy utgående regler
-Tillåt åtkomst till följande slutpunkter för connector service åtkomst:
+Tillåt åtkomst till följande webbadresser:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | Hur den används |
+| --- | --- |
+| \*.msappproxy.net<br>\*. servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure använder dessa webbadresser för att verifiera certifikat |
+| login.windows.net<br>login.microsoftonline.com | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
-Tillåt åtkomst till följande slutpunkter för inledande registrering:
+Om din brandvägg eller proxyserver kan du DNS-listan över tillåtna program, kan du lista över tillåtna anslutningar till \*. msappproxy.net och \*. servicebus.windows.net. Om inte, du vill tillåta åtkomst till den [Azure DataCenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervall uppdateras varje vecka.
 
-* login.windows.net
-* login.microsoftonline.com
 
 Om du inte kan du ansluta efter FQDN och måste du ange IP-intervall i stället, kan du använda följande alternativ:
 

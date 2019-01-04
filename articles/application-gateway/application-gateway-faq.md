@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425735"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994869"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Vilka resurser som stöds i dag som en del av backend-pool?
 
-Serverdelspooler kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure Web Apps. Medlemmar i Application Gateway serverdelspoolen är inte kopplade till en tillgänglighetsuppsättning. Medlemmar i serverdelspooler kan vara över kluster, Datacenter, eller utanför Azure så länge som de har IP-anslutning.
+Serverdelspooler kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure App Service. Medlemmar i Application Gateway serverdelspoolen är inte kopplade till en tillgänglighetsuppsättning. Medlemmar i serverdelspooler kan vara över kluster, Datacenter, eller utanför Azure så länge som de har IP-anslutning.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Vilka regioner är tillgängliga i tjänsten?
 
@@ -88,9 +88,11 @@ Endast en offentlig IP-adress har stöd för en Programgateway.
 Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning.
 Exempel: om en application gateway är inställd på tre instanser och ingen privat klientdels-IP, sedan ett/29 undernät storlek eller högre krävs. I det här fallet använder application gateway tre IP-adresser. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration, sedan en/28 undernät storlek eller högre krävs eftersom det krävs fyra IP-adresser.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>F. Kan jag distribuera fler än en Application Gateway-resurs till ett enda undernät? **
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>F. Kan jag distribuera fler än en Application Gateway-resurs till ett enda undernät?
 
 Ja, förutom att ha flera instanser av en viss Application Gateway-distribution, kan du etablera en annan unik Application Gateway-resurs i ett befintligt undernät som innehåller en annan resurs i Application Gateway.
+
+Blanda Standard_v2 och Standard Application Gateway i samma undernät stöds inte. Dessutom om autoskalning är aktiverat, kan ett undernät bara ha en application gateway.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway har stöd för x-vidarebefordrade-för-huvuden?
 
@@ -103,6 +105,8 @@ Application Gateway infogar också X-Original-värd-huvud som innehåller den ur
 Ny Programgateway v1 SKU-distributioner kan ta upp till 20 minuter att etablera. Ändringar i storlek/instansantal är inte störande och gatewayen förblir aktiv under den här tiden.
 
 V2-SKU-distributioner kan ta ungefär fem till sex minuter att etablera.
+
+Application Gateway har stöd för x-vidarebefordrade-för-huvuden?
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -210,7 +214,7 @@ Ja. Du kan konfigurera Anslutningstömning om du vill ändra medlemmar i en back
 
 ### <a name="what-are-application-gateway-sizes"></a>Vad är application gateway-storlekar?
 
-Application Gateway finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
+Application Gateway finns för närvarande i tre storlekar: **Små**, **medel**, och **stora**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
 
 En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -316,9 +320,9 @@ WAF övervakas via Diagnostisk loggning, mer information om Diagnostisk loggning
 
 Identifieringsläge loggar Nej, endast trafik, vilket utlöste en WAF-regel.
 
-### <a name="how-do-i-customize-waf-rules"></a>Hur jag för att anpassa WAF-regler?
+### <a name="can-i-customize-waf-rules"></a>Kan jag Anpassa WAF-regler?
 
-Ja, WAF-regler är anpassningsbara för mer information om hur du anpassar den se [anpassa WAF-regelgrupper och -regler](application-gateway-customize-waf-rules-portal.md)
+Ja, WAF-regler är anpassningsbara. Mer information finns i [anpassa WAF-regelgrupper och -regler](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>Vilka regler som är tillgängliga
 

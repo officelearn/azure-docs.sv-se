@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864952"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631982"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Efter konfigurationen av brandvägg regler kan du ansluta till Azure [SQL Databa
 > En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md). Den här självstudien gäller inte för **Azure SQL Database Managed Instance**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Obegränsade administrativa konton
-Det finns två administrativa konton (**Serveradministratör** och **Active Directory-administratör**) som fungerar som administratörer. För att identifiera dessa administratörskonton för SQL-servern öppnar du Azure-portalen och går till egenskaperna för SQL-servern.
+Det finns två administrativa konton (**Serveradministratör** och **Active Directory-administratör**) som fungerar som administratörer. Öppna Azure-portalen för att identifiera dessa administratörskonton för SQL-servern och navigera till fliken Egenskaper i din SQLServer eller SQL-databas.
 
-![SQL-serveradministratörer](./media/sql-database-manage-logins/sql-admins.png)
+![SQL-serveradministratörer](media/sql-database-manage-logins/sql-admins.png)
 
 - **Serveradministratör**   
 När du skapar en Azure SQL-server måste du ange en **Inloggning för serveradministratör**. SQL Server skapar kontot som en inloggning i huvuddatabasen. Det här kontot ansluter med hjälp av SQL Server-autentisering (användarnamn och lösenord). Endast ett av dessa konton kan finnas.   
@@ -78,7 +78,7 @@ Förutom de administrativa roller på servernivå som diskuterats, erbjuder SQL 
 En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. För att skapa en databas måste användaren vara en användare som är baserad på SQL Server-inloggning i huvuddatabasen eller en oberoende databasanvändare som är baserad på en Azure Active Directory-användare.
 
 1. Anslut till huvuddatabasen med ett administratörskonto.
-2. Alternativt steg: Skapa en SQL Server-autentiseringsinloggning med hjälp av instruktionen [SKAPA INLOGGNING](https://msdn.microsoft.com/library/ms189751.aspx). Exempel på instruktion:
+2. Valfritt steg: Skapa en SQL Server-autentiseringsinloggning med hjälp av den [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instruktionen. Exempel på instruktion:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -184,7 +184,7 @@ När du hanterar inloggningar och användare i SQL Database, bör du överväga 
 * När du kör uttryck `CREATE USER` med alternativ `FOR/FROM LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.
 * När du kör uttryck `ALTER USER` med alternativ `WITH LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.
 * För `CREATE/ALTER/DROP` behöver en användare behörighet `ALTER ANY USER` på databasen.
-* När ägaren av en databasroll försöker lägga till eller ta bort en annan databasanvändare till eller från databasrollen uppstår följande fel: **Användarens eller rollens ”Namn” finns inte i den här databasen.** Det här felet beror på att användaren inte är synlig för ägaren. Ge rollägare behörighet `VIEW DEFINITION` på användaren för att lösa problemet. 
+* När ägaren av en databasroll försöker lägga till eller ta bort en annan databasanvändare till eller från databasrollen uppstår följande fel: **Användaren eller rollen ”namn” finns inte i den här databasen.** Det här felet beror på att användaren inte är synlig för ägaren. Ge rollägare behörighet `VIEW DEFINITION` på användaren för att lösa problemet. 
 
 
 ## <a name="next-steps"></a>Nästa steg

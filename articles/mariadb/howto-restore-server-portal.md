@@ -3,17 +3,15 @@ title: Hur du återställer en Server i Azure Database for MariaDB
 description: Den här artikeln beskriver hur du återställer en server i Azure Database for MariaDB med Azure portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999059"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548773"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure portal
 
@@ -68,8 +66,8 @@ Följande steg återställer exempelservern till point-in-time:
    ![Azure Database for MariaDB - information för återställningspunkter ](./media/howto-restore-server-portal/3-restore.png)
   - **Återställningspunkt**: Välj du vill återställa till point-in-time.
   - **Målservern**: Ange ett namn för den nya servern.
-  - **Plats**: du kan inte välja region. Som standard är det samma som källservern.
-  - **Prisnivå**: du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
+  - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
+  - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
 
 4. Klicka på **OK** att återställa servern att återställa till point-in-time. 
 
@@ -81,7 +79,7 @@ Följande steg återställer exempelservern till point-in-time:
 ## <a name="geo-restore"></a>GEO-återställning
 Om du har konfigurerat din server som geografiskt redundanta säkerhetskopieringar, kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i valfri region som Azure Database for MariaDB är tillgängligt.  
 
-1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen. Typ **Azure Database for MariaDB** i sökrutan för att hitta tjänsten.
+1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen. Skriv in **Azure Database for MariaDB** i sökrutan för att hitta tjänsten.
 
    ![Alternativet ”Azure-databas för MariaDB”](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Visualisera simulering av enhetstelemetri med Azure Time Series Insights | Microsoft Docs
+title: Visualisera simulering av enhetstelemetri med Time Series Insights – Azure | Microsoft Docs
 description: Lär dig hur du konfigurerar din Time Series Insights-miljö för att utforska och analysera telemetri som genereras av Enhetssimulering lösningsaccelerator.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 49cecca4e5ebef9f43fdda16cfa1fdc2ad7b6f94
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: aea02cbde32d9485bd49ec39a6f300021c6ef927
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383121"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597706"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Använd Time Series Insights för att visualisera telemetri som skickas från lösningsaccelerator Enhetssimulering
 

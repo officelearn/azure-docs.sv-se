@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database JSON-funktioner | Microsoft Docs
+title: Arbeta med JSON-data i Azure SQL Database | Microsoft Docs
 description: Azure SQL Database kan du parsa-, fråge- och formatera data i JavaScript Object Notation (JSON)-notation.
 services: sql-database
 ms.service: sql-database
@@ -11,27 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: c3f1cb7499be57be94cc387eb40d37c1710f2f75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/17/2018
+ms.openlocfilehash: bc4e27f45b905e00c1c809a781a5cf034a0da8ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230537"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543824"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
-Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten.
-
-JSON är ett populärt dataformat som används för utbyte av data i moderna webbprogram och mobilappar. JSON används också för att lagra halvstrukturerade data i loggfiler eller i NoSQL-databaser som [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). Många REST-webbtjänsterna sökresultaten formaterade som JSON-texten eller acceptera data formaterade som JSON. De flesta Azure-tjänster som [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), och [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) har REST-slutpunkter som returnerar eller använda JSON.
-
-Azure SQL Database kan du enkelt arbeta med JSON-data och få din databas med moderna tjänster.
-
-## <a name="overview"></a>Översikt
-Azure SQL Database innehåller följande funktioner för att arbeta med JSON-data:
-
-![JSON-funktioner](./media/sql-database-json-features/image_1.png)
-
-Om du har JSON-text, du kan extrahera data från JSON eller kontrollera att JSON är korrekt formaterat med hjälp av de inbyggda funktionerna [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), och [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). Den [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) funktionen låter dig uppdatera värdet i JSON-texten. För mer avancerade frågor och analys, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) funktion kan omvandla en matris av JSON-objekt till en uppsättning rader. Alla SQL-frågor kan köras på den returnerade resultatuppsättningen. Slutligen finns en [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) satsen där du kan formatera data som lagras i din Relationstabeller som JSON-text.
+Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
+- [Formatering i relationsdata i JSON-format](#formatting-relational-data-in-json-format) med `FOR JSON` satsen.
+- [Arbeta med JSON-data](#working-with-json-data)
+- [Hämtar data från JSON](#querying-json-data) med hjälp av JSON skalära funktioner.
+- [Transformera JSON till tabellformat](#transforming-json-into-tabular-format) med `OPENJSON` funktion.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formatering i relationsdata i JSON-format
 Om du har en webbtjänst som tar data från databasen layer och ger ett svar i JSON-format eller klientens JavaScript-ramverk och bibliotek som accepterar data formaterade som JSON, kan du formatera innehållet i databasen som JSON direkt i en SQL-fråga. Du inte längre skriva programkod som formaterar resultaten från Azure SQL Database som JSON eller innehåller vissa JSON-serialiseringsbiblioteket för att konvertera tabellfråga resultat och sedan serialisera objekt till JSON-format. Använd istället FOR JSON-satsen för att formatera resultatet för SQL-frågan som JSON i Azure SQL-databas och använda den direkt i ditt program.
@@ -79,7 +72,7 @@ Utdata från den här frågan ser ut så här:
 
 I det här exemplet vi returnerade ett enda JSON-objekt i stället för en matris genom att ange den [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) alternativet. Du kan använda det här alternativet om du vet att du returnerar ett enda objekt till följd av frågan.
 
-Det huvudsakliga värdet för FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen formaterade som kapslad JSON-objekt eller matriser. I följande exempel visas hur du inkluderar beställningar som hör till kunden som en kapslad matris av order:
+Det huvudsakliga värdet för FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen formaterade som kapslad JSON-objekt eller matriser. I följande exempel visas hur du lägger till rader från den `Orders` tabellen som tillhör den `Customer` som en kapslad mängd `Orders`:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,

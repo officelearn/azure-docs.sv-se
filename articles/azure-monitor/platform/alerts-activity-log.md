@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273719"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579336"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -96,7 +96,7 @@ Följ dessa steg:
     Du kan aktivera, inaktivera, redigera eller ta bort en regel. [Läs mer](#view-and-manage-activity-log-alert-rules-in-azure-portal) om hur du hanterar aktivitet log regler.
 
 
-Du kan också en enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure-portalen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen, Följ steg 4 och senare enligt informationen i självstudien ovan.
+Du kan också en enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure-portalen](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen, Följ steg 4 och senare enligt informationen i självstudien ovan.
     
  ![ Lägg till avisering från aktivitetsloggen](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ Den *sampleActivityLogAlert.parameters.json* filen har de angivna värdena för 
 - [Webhook-schema aktivitetsloggar](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Översikt över aktivitetsloggar](../../azure-monitor/platform/activity-log-alerts.md) 
 - Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).  
-- Lär dig mer om [service health meddelanden](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Lär dig mer om [service health meddelanden](../../azure-monitor/platform/service-notifications.md).

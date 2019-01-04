@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015882"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632899"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight
 [Apache Hive](https://hive.apache.org/) ger dig möjlighet att köra [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) via ett SQL-liknande skriptspråk som kallas *[HiveQL] [ hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, fråga och analysera stora mängder data.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med hjälp av Apache Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 En av de största fördelarna med Azure HDInsight är uppdelning av lagring och beräkning. HDInsight använder Azure Blob storage för lagring av data. Ett typiskt jobb omfattar tre delar:
@@ -43,8 +43,8 @@ Den viktigaste delen av kursen visar hur du använder en Windows PowerShell-skri
 
 I bilagorna hittar du instruktionerna för överföringen flygförseningsdata, skapa/överföra en Hive-frågesträng och förbereda Azure SQL-databasen för Sqoop jobbet.
 
-> [!NOTE]
-> Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med Apache Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> [!NOTE]  
+> Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med Apache Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 ### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här självstudiekursen behöver du följande:
@@ -52,7 +52,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 * **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **En arbetsstation med Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-stöd för hantering av HDInsight-resurser med hjälp av Azure Service Manager **är föråldrat** och togs bort den 1 januari 2017. I stegen i det här dokumentet används de nya HDInsight-cmdletarna som fungerar med Azure Resource Manager.
     >
     > Följ stegen i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -242,7 +242,7 @@ Ladda upp datafilen och [HiveQL](https://cwiki.apache.org/confluence/display/Hiv
 * **Använd samma Azure Storage-konto som används av HDInsight-klustret som standardfilsystem.** Eftersom HDInsight-klustret ska ha åtkomst lagringskontonyckeln, behöver du inte göra några ytterligare ändringar.
 * **Använd ett annat Azure Storage-konto från standardfilsystemet för HDInsight-kluster.** Om så är fallet, måste du ändra skapas en del av Windows PowerShell-skript finns i [skapa HDInsight-kluster och köra Apache Hive/Sqoop jobb](#runjob) länkar lagringskontot som ett ytterligare lagringskonto. Anvisningar finns i [skapa Apache Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
 
-> [!NOTE]
+> [!NOTE]  
 > Blob storage-sökvägen för datafilen är svårt kodad i skriptfilen HiveQL. Du måste uppdatera dem enlighet med detta.
 
 **Att ladda ned flight-data**
@@ -351,7 +351,7 @@ Om du väljer att använda en annan metod för att ladda upp filer, kontrollera 
 
 Sökvägen självstudier/flightdelay/data är den virtuella mapp som du skapade när du har laddat upp filerna. Kontrollera att det finns 12 filer, en för varje månad.
 
-> [!NOTE]
+> [!NOTE]  
 > Du måste uppdatera Hive-fråga för att läsa från den nya platsen.
 >
 > Antingen måste du konfigurera behållaren åtkomstbehörigheten offentlig eller binda lagringskontot till HDInsight-klustret. I annat fall kan Hive frågesträngen inte komma åt datafilerna.
@@ -615,7 +615,7 @@ En fullständig lista över HiveQL-kommandon finns i [Apache Hive-datadefinition
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -699,12 +699,12 @@ En fullständig lista över HiveQL-kommandon finns i [Apache Hive-datadefinition
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > Skriptet använder en tjänst som representational tillstånd transfer (REST) http://bot.whatismyipaddress.com, för att hämta din externa IP-adress. IP-adressen används för att skapa en brandväggsregel för SQL-databasservern.
+   > [!NOTE]  
+   > Skriptet använder en tjänst som representational tillstånd transfer (REST) https://bot.whatismyipaddress.com, för att hämta din externa IP-adress. IP-adressen används för att skapa en brandväggsregel för SQL-databasservern.
 
     Här följer några variabler som används i skriptet:
 
-   * **$ipAddressRestService** – standardvärdet är http://bot.whatismyipaddress.com. Det är en offentlig IP-adress REST-tjänst för att hämta din externa IP-adress. Du kan använda andra tjänster om du vill. Externa IP-adress som hämtats via tjänsten används för att skapa en brandväggsregel för din Azure SQL database-server så att du har åtkomst till databasen från din arbetsstation (med hjälp av ett Windows PowerShell-skript).
+   * **$ipAddressRestService** – standardvärdet är https://bot.whatismyipaddress.com. Det är en offentlig IP-adress REST-tjänst för att hämta din externa IP-adress. Du kan använda andra tjänster om du vill. Externa IP-adress som hämtats via tjänsten används för att skapa en brandväggsregel för din Azure SQL database-server så att du har åtkomst till databasen från din arbetsstation (med hjälp av ett Windows PowerShell-skript).
    * **$fireWallRuleName** – det här är namnet på brandväggsregeln för Azure SQL database-server. Standardnamnet är <u>FlightDelay</u>. Du kan byta namn om du vill.
    * **$sqlDatabaseMaxSizeGB** – det här värdet används endast när du skapar en ny Azure SQL database-server. Standardvärdet är 10GB. 10GB är tillräckligt för den här självstudien.
    * **$sqlDatabaseName** – det här värdet används endast när du skapar en ny Azure SQL-databas. Standardvärdet är HDISqoop. Om du byter namn måste du uppdatera Sqoop Windows PowerShell-skriptet i enlighet med detta.
@@ -725,7 +725,7 @@ Nu när du förstår hur du överför en fil till Azure Blob storage, hur du fyl
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +739,9 @@ Nu när du förstår hur du överför en fil till Azure Blob storage, hur du fyl
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

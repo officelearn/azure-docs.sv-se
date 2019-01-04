@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307482"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605015"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka på HDInsight via Azure-nätverk
 
@@ -49,7 +49,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. K
 
     Mer information finns i den [Anslut till Apache Kafka med en VPN-klient](#vpnclient) avsnittet.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Den här konfigurationen rekommenderas endast för utveckling på grund av följande begränsningar:
     >
     > * Varje klient måste ansluta med hjälp av en VPN-klientprogrammet.
@@ -61,7 +61,7 @@ Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [
 
 Om du vill skapa ett Kafka-kluster som kommunicerar med ditt lokala nätverk, följer du stegen i den [ansluta HDInsight till det lokala nätverket](./../connect-on-premises-network.md) dokumentet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > När du skapar HDInsight-kluster, Välj den __Kafka__ typ av kluster.
 
 De här stegen skapar följande konfiguration:
@@ -186,7 +186,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > Det kan ta flera minuter innan den här processen skulle slutföras.
 
 5. Använd följande kod för att skapa Azure Storage-konto och blob-behållaren:
@@ -232,7 +232,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > Den här processen tar ungefär 15 minuter för att slutföra.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Konfigurera Kafka för IP-annonsering
@@ -317,7 +317,7 @@ Använd följande steg för att verifiera anslutningarna till Kafka, att skapa o
 
     Spara den returnerade informationen för användning i nästa steg.
 
-2. Använd följande för att installera den [kafka-python](http://kafka-python.readthedocs.io/) klienten:
+2. Använd följande för att installera den [kafka-python](https://kafka-python.readthedocs.io/) klienten:
 
         pip install kafka-python
 

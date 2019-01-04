@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42635852bb5c6e7b388d4dc58b9d5bfaa6212438
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980312"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725868"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
@@ -76,7 +76,7 @@ När inställningen upp ett projekt för distribution av funktioner till en funk
 ## <a id="fileupdate"></a> Så här uppdaterar du funktionen app-filer
 Funktionen redigeraren inbyggda i Azure-portalen kan du uppdatera den *function.json* fil- och kodfilen för en funktion. Överföra eller andra uppdateringsfiler som *package.json* eller *project.json* eller beroenden, som du behöver använda andra metoder för distribution.
 
-Funktionsappar bygger på App Service, så att alla de [tillgängliga distributionsalternativen till standard web apps](../app-service/app-service-deploy-local-git.md) kan också användas för funktionsappar. Här följer några metoder som du kan använda för att överföra eller uppdatera funktionen app-filer. 
+Funktionsappar bygger på App Service, så att alla de [tillgängliga distributionsalternativen till standard web apps](../app-service/deploy-local-git.md) kan också användas för funktionsappar. Här följer några metoder som du kan använda för att överföra eller uppdatera funktionen app-filer. 
 
 #### <a name="use-local-tools-and-publishing"></a>Använd lokala verktyg och publicering
 Funktionsappar kan skapas och publicerade med hjälp av olika verktyg, bland annat [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), och [Azure Functions Core Tools](./functions-develop-local.md). Mer information finns i [kod och testa Azure Functions lokalt](./functions-develop-local.md).
@@ -87,7 +87,7 @@ Funktionsappar kan skapas och publicerade med hjälp av olika verktyg, bland ann
 Följ anvisningarna i avsnittet [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Parallell körning
-När flera utlösande händelser inträffar snabbare än en single-threaded funktionskörningen kan bearbeta dem, kan körningen anropa funktionen flera gånger i parallellt.  Om en funktionsapp med hjälp av den [Förbrukningsvärdplanen](functions-scale.md#how-the-consumption-plan-works), funktionsappen genom att skala upp automatiskt.  Varje instans av function-app om appen körs på förbrukningen som är värd för plan eller en vanlig [App Service-värdplanen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), kan bearbeta samtidiga funktionsanrop parallellt med flera trådar.  Det maximala antalet samtidiga funktionsanrop i varje funktionen app-instansen varierar beroende på vilken typ av utlösare som används, samt de resurser som används av andra funktioner i funktionsappen.
+När flera utlösande händelser inträffar snabbare än en single-threaded funktionskörningen kan bearbeta dem, kan körningen anropa funktionen flera gånger i parallellt.  Om en funktionsapp med hjälp av den [Förbrukningsvärdplanen](functions-scale.md#how-the-consumption-plan-works), funktionsappen genom att skala upp automatiskt.  Varje instans av function-app om appen körs på förbrukningen som är värd för plan eller en vanlig [App Service-värdplanen](../app-service/overview-hosting-plans.md), kan bearbeta samtidiga funktionsanrop parallellt med flera trådar.  Det maximala antalet samtidiga funktionsanrop i varje funktionen app-instansen varierar beroende på vilken typ av utlösare som används, samt de resurser som används av andra funktioner i funktionsappen.
 
 ## <a name="functions-runtime-versioning"></a>Functions runtime versionshantering
 
@@ -117,7 +117,7 @@ Mer information finns i följande resurser:
 
 * [Metodtips för Azure Functions](functions-best-practices.md)
 * [Azure Functions C#-utvecklarreferens](functions-reference-csharp.md)
-* [Azure Functions F #-utvecklarreferens](functions-reference-fsharp.md)
+* [Azure Functions F# Info för utvecklare](functions-reference-fsharp.md)
 * [Azure Functions NodeJS-utvecklare](functions-reference-node.md)
 * [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
 * [Azure Functions: Vägen](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) på Azure App Service-teamets blogg. En historik över hur Azure Functions har utvecklats.

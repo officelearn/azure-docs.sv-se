@@ -46,11 +46,15 @@ items:
     items:
     - name: Förstå Azure IoT Edge-moduler
       href: iot-edge-modules.md
-    - name: Utveckling
-      href: module-development.md
     - name: Edge-agenten och hubbegenskaper
       href: module-edgeagent-edgehub.md
-  - name: Distribution av moduler
+  - name: Utveckling
+    items:
+    - name: Utveckla moduler
+      href: module-development.md
+    - name: Utvecklingsmiljö
+      href: development-environment.md
+  - name: Distribution
     items:
     - name: Distributionsmanifest
       href: module-composition.md
@@ -206,9 +210,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 1f56b5e15759bc0c386ecf9649cbc78b611705ad
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: a55b2a1ab6a814d97e750b8b17b20feb2a17e12f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558591"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790222"

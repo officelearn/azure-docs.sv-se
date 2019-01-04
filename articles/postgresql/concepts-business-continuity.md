@@ -1,20 +1,17 @@
 ---
 title: Översikt över affärskontinuitet med Azure Database for PostgreSQL
 description: Översikt över affärskontinuitet med Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717071"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559050"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Översikt över affärskontinuitet med Azure Database for PostgreSQL
 
@@ -49,7 +46,7 @@ Ett alternativ är att vänta på din server så att du är tillbaka online när
 Ett annat alternativ är att använda Azure Database för Postgresql's geo-återställning funktion som återställer servern med geo-redundanta säkerhetskopieringar. Dessa säkerhetskopior är tillgängliga även om den region som din server är värd för är offline. Du kan återställa från dessa säkerhetskopior till valfri region och ta med din server online igen.
 
 > [!IMPORTANT]
-> GEO-återställning är bara möjligt om du har etablerat på servern med geo-redundant lagring av säkerhetskopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhetskopieringar för en befintlig server måste du ta en dump Använd mysqldump av din befintliga server och återställa till en nyskapad som konfigurerats med geo-redundanta säkerhetskopieringar.
+> GEO-återställning är bara möjligt om du har etablerat på servern med geo-redundant lagring av säkerhetskopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhetskopieringar för en befintlig server måste du ta en dump med pg_dump av din befintliga server och återställa till en nyskapad som konfigurerats med geo-redundanta säkerhetskopieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om automatiska säkerhetskopior finns [säkerhetskopior i Azure Database for PostgreSQL](concepts-backup.md). 

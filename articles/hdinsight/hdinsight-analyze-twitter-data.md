@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8782db64a39ab3994c4689e7f809005c20c6dacd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017465"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635586"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Analysera Twitter-data med Apache Hive i HDInsight
 Sociala webbplatser är en av större Drivande faktorer för big data-införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en bra källa till data för att analysera och förstå populära trender.
 I de här självstudierna kommer du få tweets med ett Twitter API för strömning och sedan använda [Apache Hive](https://hive.apache.org/) på Azure HDInsight för att hämta en lista över Twitter-användare som skickade ut det mesta tweets som innehåller ett visst ord.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar om specifika till ett Linux-baserade kluster finns i [analysera Twitter-data med Apache Hive i HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -42,7 +42,7 @@ Innan du påbörjar de här självstudierna måste du ha:
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-stöd för hantering av HDInsight-resurser med hjälp av Azure Service Manager **är föråldrat** och togs bort den 1 januari 2017. I stegen i det här dokumentet används de nya HDInsight-cmdletarna som fungerar med Azure Resource Manager.
     >
     > Följ stegen i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -61,12 +61,12 @@ I följande tabell visas de filer som används i den här självstudien:
 ## <a name="get-twitter-feed"></a>Hämta Twitter-flöde
 I den här självstudien använder du den [Twitter-API: er för direktuppspelning][twitter-streaming-api]. Specifika Twitter strömmande API som du använder är [statusar/filter][twitter-statuses-filter].
 
-> [!NOTE]
+> [!NOTE]  
 > En fil som innehåller 10 000 tweets och Hive-skriptfilen (beskrivs i nästa avsnitt) har laddats upp i en offentlig blobbehållare. Du kan hoppa över det här avsnittet om du vill använda de uppladdade filerna.
 
 Tweets data lagras i JavaScript Object Notation (JSON)-format som innehåller en komplex kapslade struktur. Istället för att skriva många rader med kod med hjälp av ett vanliga programmeringsspråk, kan du omvandla den här kapslade strukturen i en Hive-tabell, så att den kan ta emot av en SQL Structured Query Language ()-likt språk som kallas HiveQL.
 
-Twitter använder OAuth för att tillhandahålla auktoriserad åtkomst till dess API. OAuth är ett autentiseringsprotokoll som tillåter användare att godkänna program så att den fungerar för deras räkning utan att dela sina lösenord. Mer information finns på [oauth.net](http://oauth.net/) eller i den utmärkt [Nybörjarguide till OAuth](http://hueniverse.com/oauth/) från Hueniverse.
+Twitter använder OAuth för att tillhandahålla auktoriserad åtkomst till dess API. OAuth är ett autentiseringsprotokoll som tillåter användare att godkänna program så att den fungerar för deras räkning utan att dela sina lösenord. Mer information finns på [oauth.net](https://oauth.net/) eller i den utmärkt [Nybörjarguide till OAuth](https://hueniverse.com/oauth/) från Hueniverse.
 
 Det första steget att använda OAuth är att skapa ett nytt program i Twitter-utvecklarwebbplatsen.
 
@@ -80,7 +80,7 @@ Det första steget att använda OAuth är att skapa ett nytt program i Twitter-u
    | --- | --- |
    |  Namn |MyHDInsightApp |
    |  Beskrivning |MyHDInsightApp |
-   |  Webbplats |http://www.myhdinsightapp.com |
+   |  Webbplats |https://www.myhdinsightapp.com |
 4. Kontrollera **Ja, jag godkänner**, och klicka sedan på **skapa ditt Twitter-program**.
 5. Klicka på den **behörigheter** fliken. Standardbehörigheten är **skrivskyddad**. Det här är tillräcklig för den här självstudiekursen.
 6. Klicka på den **nycklar och åtkomsttoken** fliken.
@@ -90,7 +90,7 @@ Det första steget att använda OAuth är att skapa ett nytt program i Twitter-u
 
 I den här självstudien använder du Windows PowerShell för att göra-webbtjänstanrop. Det andra populära verktyget för att göra de tjänstanrop för web är [ *Curl*][curl]. CURL kan laddas ned från [här][curl-download].
 
-> [!NOTE]
+> [!NOTE]  
 > När du använder curl-kommando i Windows, Använd dubbla citattecken i stället för enkla citattecken för värden för alternativ.
 
 **Att hämta tweets**
@@ -245,7 +245,7 @@ Du kan kontrollera utdatafilen, som en valideringsproceduren **/tutorials/twitte
 ## <a name="create-hiveql-script"></a>Skapa HiveQL-skript
 Med Azure PowerShell kan du köra flera [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) instruktioner som i en tid eller ett paket HiveQL-instruktionen i en skriptfil. I de här självstudierna skapar du en HiveQL-skript. Skriptfilen måste överföras till Azure Blob storage. I nästa avsnitt ska du köra skriptfilen med hjälp av Azure PowerShell.
 
-> [!NOTE]
+> [!NOTE]  
 > Hive-skriptfilen och en fil som innehåller 10 000 tweets har laddats upp i en offentlig blobbehållare. Du kan hoppa över det här avsnittet om du vill använda de uppladdade filerna.
 
 HiveQL-skript kommer att utföra följande:
@@ -453,7 +453,7 @@ Du är klar med alla förberedelse. Nu har du anropar Hive-skriptet och kontroll
 ### <a name="submit-a-hive-job"></a>Skicka ett Hive-jobb
 Du kan använda följande Windows PowerShell-skript för att köra Hive-skriptet. Du behöver du ange den första variabeln.
 
-> [!NOTE]
+> [!NOTE]  
 > Att använda tweets och [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skript som du laddade upp i de sista två avsnitten genom att ange $hqlScriptFile ”/ tutorials/twitter/twitter.hql”. Om du vill använda de som har överförts till en offentlig blob du inställd $hqlScriptFile ”wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”.
 
 ```powershell
@@ -529,7 +529,7 @@ Write-Host "==================================" -ForegroundColor Green
 #end region
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Hive-tabell använder \001 som fältavgränsaren. Avgränsaren visas inte i utdata.
 
 När analysresultaten har placerats i Azure Blob storage, kan du exportera data till en Azure SQL database/SQL server, exportera data till Excel med Power Query eller Anslut ditt program till data med hjälp av Hive ODBC-drivrutinen. Mer information finns i [Använd Apache Sqoop med HDInsight][hdinsight-use-sqoop], [analysera flygförseningsdata med HDInsight][hdinsight-analyze-flight-delay-data], [ Ansluta Excel till HDInsight med Power Query][hdinsight-power-query], och [ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc].
@@ -543,7 +543,7 @@ I den här självstudien har vi sett hur du kan omvandla en Ostrukturerade JSON-
 * [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc]
 * [Använda Apache Sqoop med HDInsight][hdinsight-use-sqoop]
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

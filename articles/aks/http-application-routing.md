@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9a096588c5a8fda64343e001fdbd895d02153f58
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362712"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742396"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -22,14 +22,14 @@ HTTP-Programlösningen routning gör det enkelt att komma åt program som distri
 När tillägget är aktiverat skapas en DNS-zon i din prenumeration. Läs mer om DNS-kostnaden [DNS priser][dns-pricing].
 
 > [!CAUTION]
-> Tillägg till routning för HTTP-program är utformat så att du snabbt skapa en ingress-kontrollanten och kommer åt dina program. Det här tillägget rekommenderas inte för användning i produktion. Produktionsklar ingress-distributioner som omfattar flera repliker och TLS stöder finns i [skapa en HTTPS-ingress-kontrollant](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
+> Tillägg till routning för HTTP-program är utformat så att du snabbt skapa en ingress-kontrollanten och kommer åt dina program. Det här tillägget rekommenderas inte för användning i produktion. Produktionsklar ingress-distributioner som omfattar flera repliker och TLS stöder finns i [skapa en HTTPS-ingress-kontrollant](https://docs.microsoft.com/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>HTTP-routning lösningsöversikt
 
 Tillägget distribuerar två komponenter: en [Kubernetes Ingress-kontrollant] [ ingress] och en [externt DNS] [ external-dns] controller.
 
-- **Ingress-kontrollant**: The Ingress-kontrollant exponeras mot internet med hjälp av en Kubernetes-tjänst av typen LoadBalancer. Ingress-kontrollant bevakar och implementerar [Kubernetes Ingress resurser][ingress-resource], vilket skapar vägar till slutpunkterna.
-- **Externa DNS-controller**: söker efter Kubernetes Ingress-resurser och skapar DNS A-poster i DNS-zonen klusterspecifika.
+- **Ingress-kontrollant**: Ingress-kontrollant exponeras mot internet med hjälp av en Kubernetes-tjänst av typen LoadBalancer. Ingress-kontrollant bevakar och implementerar [Kubernetes Ingress resurser][ingress-resource], vilket skapar vägar till slutpunkterna.
+- **Externa DNS-controller**: Söker efter Kubernetes Ingress-resurser och skapar DNS A-poster i DNS-zonen klusterspecifika.
 
 ## <a name="deploy-http-routing-cli"></a>Distribuera HTTP-routning: CLI
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>Distribuera HTTP-routning: Portal
+## <a name="deploy-http-routing-portal"></a>Distribuera HTTP-routning: Portalen
 
 Tillägg till routning för HTTP-program kan aktiveras via Azure portal när du distribuerar ett AKS-kluster.
 
@@ -174,6 +174,36 @@ HTTP-routning lösningen kan tas bort med hjälp av Azure CLI. För att göra de
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+När HTTP-programmet routning tillägget är inaktiverat, kan vissa Kubernetes-resurser kvar i klustret. De här resurserna inkluderar *configMaps* och *hemligheter*, och skapas i den *kube system* namnområde. För att underhålla en ren kluster kan du ta bort dessa resurser.
+
+Leta efter *tillägg http-program-routning* resurser med hjälp av följande [kubectl hämta] [ kubectl-get] kommandon:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+Följande Exempelutdata visar configMaps som ska tas bort:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Ta bort resurser genom att använda den [kubectl ta bort] [ kubectl-delete] kommando. Ange resurstyp, resursnamn och namnområde. I följande exempel tar bort en av de föregående configmaps:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Upprepa föregående `kubectl delete` steget för alla *tillägg http-program-routning* resurser som finns kvar i klustret.
+
 ## <a name="troubleshoot"></a>Felsöka
 
 Använd den [kubectl loggar] [ kubectl-logs] kommando för att visa programloggarna för externa DNS-programmet. Loggarna bekräftar du att en A- och DNS TXT-post har skapats.
@@ -256,6 +286,7 @@ Information om hur du installerar en HTTPS-skyddad Ingress-kontrollant i AKS fin
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

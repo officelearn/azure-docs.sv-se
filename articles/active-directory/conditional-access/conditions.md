@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5f3857480bfe6c4d5c4efe759b11761123fa4441
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410082"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973068"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
@@ -74,7 +74,7 @@ Välj:
 
 - **Alla molnappar** till baslinje-principerna ska gälla för hela organisationen. Använd detta alternativ för principer som kräver multifaktorautentisering när inloggningsrisk har identifierats för alla appar i molnet. En princip som tillämpas på **alla molnappar** gäller för åtkomst till alla webbplatser och tjänster. Den här inställningen är inte begränsat till de molnappar som visas på den **Välj appar** lista. 
 
-- **Välj spp** till målet specifika tjänster i din princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
+- **Välj appar** till målet specifika tjänster i din princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
 
 Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till. 
 

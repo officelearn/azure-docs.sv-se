@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088059"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754058"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Den här artikeln beskriver innehållet i 1809 uppdateringspaketet. Uppdateringspaketet innehåller förbättringar, korrigeringar och kända problem för den här versionen av Azure Stack. Den här artikeln innehåller också en länk så att du kan ladda ned uppdateringen. Kända problem är indelade i problem direkt relaterade till uppdateringsprocessen och problem med build (efter installationen).
 
@@ -60,10 +60,10 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 - Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Åtgärdats i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel: *gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: begärda åtgärden inte kan utföras eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
+   - Åtgärdat problemet i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel:  *Det gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: Begärt inte kan utföra åtgärden eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Skapa en hanterad disk VM med hjälp av **createOption**: **bifoga** misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”. Ytterligare information: ”ett internt körningsfel inträffade”.*
-   Felkod: InternalExecutionError ErrorMessage: ett internt körningsfel har inträffat.
+   - Skapa en hanterad disk VM med hjälp av **createOption**: **Bifoga** misslyckas med följande fel: *Tidskrävande åtgärden misslyckades med statusen ”misslyckades”. Ytterligare information: ”ett internt körningsfel inträffade”.*
+   Felkod: InternalExecutionError ErrorMessage: Ett internt körningsfel har inträffat.
    
    Det här problemet har nu åtgärdats.
 
@@ -221,16 +221,16 @@ Här följer efter installation kända problem för den här build-versionen.
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
 
    Avisera #1:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
+   - NAMN:  Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: Varning
+   - KOMPONENT: Hälsotillstånd controller
+   - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
 
   Avisera #2:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
+   - NAMN:  Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: Varning
+   - KOMPONENT: Hälsotillstånd controller
+   - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
 
   Båda aviseringarna kan ignoreras och de stängs automatiskt över tid.  
 
@@ -239,9 +239,9 @@ Här följer efter installation kända problem för den här build-versionen.
 - Du kan se en avisering för den **Storage** komponent som innehåller följande information:
 
    - NAMN: Internt kommunikationsfel vid lagring  
-   - ALLVARLIGHETSGRAD: kritisk  
+   - ALLVARLIGHETSGRAD: Kritisk  
    - KOMPONENT: Storage  
-   - Beskrivning: Storage internt kommunikationsfel inträffade när begäranden skickas till följande noder.  
+   - DESCRIPTION (BESKRIVNING): Storage-tjänsten internt kommunikationsfel inträffade när begäranden skickas till följande noder.  
 
     Aviseringen kan ignoreras, men du måste stänga aviseringen manuellt.
 
@@ -257,12 +257,12 @@ Här följer efter installation kända problem för den här build-versionen.
 - När du skapar en ny virtuell dator (VM) med hjälp av Azure Stack-portalen och du väljer virtuella datorstorlek, kolumnen USD/månad visas med en **ej tillgänglig** meddelande. Den här kolumnen visas inte; Visar den virtuella datorn stöds prissättning kolumn inte i Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 
+- När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan misslyckas cmdleten med följande fel: *Tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 
 
 <!--  2795678 – IS, ASDK --> 
 - När du använder portalen för att skapa virtuella datorer (VM) i en premium VM-storlek (DS, Ds_v2, FS, FSv2), skapas den virtuella datorn i ett standardlagringskonto. Du skapar i ett standardlagringskonto påverkar inte samma funktioner, IOPs, eller fakturering. 
 
-   Du kan ignorera varningen där det står: *du har valt att använda en standardisk med en storlek som har stöd för premiumdiskar. Detta kan påverka operativsystemets prestanda och rekommenderas inte. Överväg att använda premium storage (SSD) i stället.*
+   Du kan ignorera varningen där det står: *Du har valt att använda en standardisk med en storlek som har stöd för premiumdiskar. Detta kan påverka operativsystemets prestanda och rekommenderas inte. Överväg att använda premium storage (SSD) i stället.*
 
 <!-- 2967447 - IS, ASDK --> 
 - Upplevelse VM scale set (VMSS) när du skapar innehåller 7.2 CentOS-baserade som ett alternativ för distribution. Välj en annan OS för din distribution eller använder en Azure Resource Manager-mall som anger en annan CentOS-avbildning som har hämtats innan den distribueras från marketplace av operatorn eftersom avbildningen inte är tillgänglig på Azure Stack.  
@@ -287,12 +287,15 @@ Här följer efter installation kända problem för den här build-versionen.
    - Av kvoter som skapats före uppdateringen 1808, visa kvot på Managed Disks 0 värden i administratörsportalen kan även om 2 048 GiB har allokerats. Du kan öka eller minska värdet utifrån dina faktiska behov och den nyligen ange kvotvärde åsidosätter 2048 GiB standard.
    - Om du uppdaterar kvotvärdet till 0, motsvarar det att standardvärdet 2 048 GiB. Som en lösning kan du ange kvotvärdet till 1.
 
-<!-- TBD - IS ASDK --> Efter att ha tillämpat 1809 uppdatera, följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
+<!-- TBD - IS ASDK --> 
+- Efter att ha tillämpat 1809 uppdatera, följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
 
    - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
       1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
       2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
    2. Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
+
+- En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för att logga in. Som en lösning kan du använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
 
 ### <a name="networking"></a>Nätverk  
 

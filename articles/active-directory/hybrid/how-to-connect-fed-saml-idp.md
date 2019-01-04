@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426417"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743535"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -167,7 +167,7 @@ Du måste aktivera kommunikationen mellan SAML 2.0-identitetsprovider och Azure 
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Installera Windows PowerShell för inloggning med SAML 2.0-identitetsprovider
 När du har konfigurerat din SAML 2.0-identitetsprovider för användning med Azure AD-inloggning, är nästa steg att ladda ned och installera Azure Active Directory-modulen för Windows PowerShell. När du har installerat ska du använda dessa cmdletar för att konfigurera Azure AD-domäner som federerade domäner.
 
-Azure Active Directory-modulen för Windows PowerShell är ett hämtningsbart program för att hantera organisationens data i Azure AD. Den här modulen installerar en uppsättning cmdlets i Windows PowerShell; du kör dessa cmdletar för att konfigurera enkel inloggning till Azure AD och i sin tur till alla molntjänsterna som du prenumererar på. Anvisningar om hur du hämtar och installerar cmdletar finns i [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
+Azure Active Directory-modulen för Windows PowerShell är ett hämtningsbart program för att hantera organisationens data i Azure AD. Den här modulen installerar en uppsättning cmdlets i Windows PowerShell; du kör dessa cmdletar för att konfigurera enkel inloggning till Azure AD och i sin tur till alla molntjänsterna som du prenumererar på. Anvisningar om hur du hämtar och installerar cmdletar finns i [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Skapa ett förtroende mellan din SAML-identitetsprovider och Azure AD
 Innan du konfigurerar federation på en Azure AD-domän, måste den ha en anpassad domän som har konfigurerats. Du kan inte federera standarddomän som tillhandahålls av Microsoft. Standarddomän från Microsoft som slutar med tillägget ”onmicrosoft.com”.
@@ -183,14 +183,14 @@ Följande procedur beskriver hur du konverterar en befintlig domän som standard
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Konfigurera en domän i din Azure AD-katalog för federation
 
 
-1. Ansluta till din Azure AD-katalog som en Innehavaradministratör: Anslut MsolService.
+1. Anslut till din Azure AD-katalog som en Innehavaradministratör: Anslut MsolService.
 2.  Konfigurera din önskade Office 365-domän för att använda federation med SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  Du kan hämta signeringscertifikat certifikat base64-kodad sträng från din IDP-metadatafil. Ett exempel på den här platsen har angetts men kan skilja sig något beroende på din implementering.
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Läs mer om ”Set-MsolDomainAuthentication”: [ https://technet.microsoft.com/library/dn194112.aspx ](httpss://technet.microsoft.com/library/dn194112.aspx).
+Läs mer om ”Set-MsolDomainAuthentication”: [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Du måste köra användning ”$ecpUrl =”https://WS2012R2-0.contoso.com/PAOS”” bara om du har konfigurerat ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på ett INLÄGG baserat active slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för dessa omfattande klienter kan interagera med Exchange Online-tjänsten.
@@ -207,7 +207,7 @@ Windows PowerShell kan också användas för att automatisera lägger till nya a
 Den här proceduren visar hur du lägger till en enskild användare till Azure AD.
 
 
-1. Ansluta till din Azure AD-katalog som en Innehavaradministratör: Anslut MsolService.
+1. Anslut till din Azure AD-katalog som en Innehavaradministratör: Anslut MsolService.
 2.  Skapa ett nytt huvudnamn för användaren: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
@@ -218,7 +218,7 @@ Den här proceduren visar hur du lägger till en enskild användare till Azure A
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Mer information om ”New-MsolUser” utcheckning [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)
+Mer information om ”New-MsolUser” utcheckning [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >”UserPrinciplName”-värdet måste matcha det värde som du skickar för ”IDPEmail” i SAML 2.0-anspråk och ”ImmutableID”-värdet måste överensstämma med värdet som skickas som ”NameID”-kontrollen.
@@ -260,7 +260,7 @@ Microsoft tillhandahåller ett verktyg som du kan använda för att testa din ba
 7. Det här fönstret visar misslyckade resultatet av testning. Att klicka på granska detaljerade resultat att visa information om resultaten för varje test som har utförts. Du kan också spara resultaten till disk för att kunna dela dem.
  
 >[!NOTE]
->Connectivity analyzer också testar aktiv Federation med WS *-baserade och ECP/PAOS protokoll. Om du inte använder dessa kan du hoppa över följande fel: testa Active inloggning flödet med hjälp av din identitetsprovider aktiv federation slutpunkt.
+>Connectivity analyzer också testar aktiv Federation med WS *-baserade och ECP/PAOS protokoll. Om du inte använder dessa kan du hoppa över följande fel: Testa Active inloggning flödet med hjälp av din identitetsprovider aktiv federation slutpunkt.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Verifiera manuellt att enkel inloggning har konfigurerats korrekt
 Manuell verifiering ger ytterligare steg som du kan vidta för att se till att din SAML 2.0-identitet providern fungerar i många scenarier.
@@ -268,7 +268,7 @@ För att verifiera att enkel inloggning har konfigurerats korrekt, gör du följ
 
 
 1. På en domänansluten dator, logga in till din molntjänst med samma inloggningsnamn som du använder för företagets autentiseringsuppgifter.
-2.  Klicka i lösenordsrutan. Om enkel inloggning har ställts in, lösenordsrutan blir skuggade och följande meddelande visas ”: måste du logga in på &lt;företaget&gt;”.
+2.  Klicka i lösenordsrutan. Om enkel inloggning har konfigurerats, lösenordsrutan skuggade och följande meddelande visas: ”Du måste nu logga in på &lt;företaget&gt;”.
 3.  Klicka på inloggning på &lt;företaget&gt; länk. Om du kan har logga in, sedan enkel inloggning ställts in.
 
 ## <a name="next-steps"></a>Nästa steg

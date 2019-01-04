@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ansluten fabrik-topologi | Microsoft Docs
+title: Konfigurera topologi för ansluten fabrik – Azure | Microsoft Docs
 description: Så här konfigurerar du topologin för en ansluten fabrik-lösningsaccelerator.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746987"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602281"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera ansluten fabrik lösningsaccelerator
 
@@ -85,7 +85,7 @@ Följande kodavsnitt visar en översikt över den `ContosoTopologyDescription.js
 }
 ```
 
-Gemensamma egenskaper för `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, och `<station_configuration>` är:
+Gemensamma egenskaper för `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, och `<station_configuration>` är:
 
 * **Namn på** (typen sträng)
 
@@ -282,7 +282,7 @@ OEE/KPI-siffror för ansluten fabrik simuleringen parametriseras genom att:
 * OPC UA-nodvärden ska tas med i beräkningen.
 * Hur bilden beräknas från telemetrivärden.
 
-Ansluten fabrik använder OEE-formler som publicerats av den http://www.oeefoundation.org.
+Ansluten fabrik använder OEE-formler som publicerats av den https://www.oeefoundation.org.
 
 Objekt för OPC UA-noden i stationer aktivera tagga för användning i OEE/KPI-beräkning. Den **relevans** egenskapen anger för vilken OEE/KPI-bild OPC UA-noden värdet ska användas. Den **OpCode** egenskapen definierar hur värdet är med i beräkningen.
 
@@ -291,7 +291,7 @@ Objekt för OPC UA-noden i stationer aktivera tagga för användning i OEE/KPI-b
 Ansluten fabrik stöder en mekanism för enkel gränsvärden tröskelbaserade genereringen. Det finns ett antal fördefinierade åtgärder som du kan konfigurera som svar på dessa aviseringar. Följande egenskaper styr den här mekanismen:
 
 * Maximal
-* Minimal
+* Minimum
 * MaximumAlertActions
 * MinimumAlertActions
 

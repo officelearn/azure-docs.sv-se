@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 54b2ada0f269bca681305efc2e1eb7c2f9776ab7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075360"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543010"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Etablera dataflöde för Azure Cosmos-behållare och databaser
 
@@ -47,7 +47,7 @@ Vi rekommenderar att du konfigurerar dataflödet för en databas när du vill de
 
 * Dela dataflöde för en databas i en behållare är användbart när du migrerar en NoSQL-databas (till exempel MongoDB, Cassandra) som finns från ett kluster av virtuella datorer eller från lokala fysiska servrar till Azure Cosmos DB. Du kan föreställa dig det etablerade dataflödet som konfigurerats på din Azure Cosmos-databas som en logiska motsvarigheten (men mer kostnadseffektiv och elastiska) med beräkningskapaciteten för din MongoDB- eller Cassandra-kluster.  
 
-Vid en given tidpunkt tid fördelas det dataflöde som allokeras till en behållare i en databas för alla logiska partitioner för behållaren. När du har en behållare som delar etablerat dataflöde på en databas, kan du selektivt använder dataflödet till en specifik behållare eller en logisk partition. Om arbetsbelastningen för en logisk partition förbrukar mer än det dataflöde som tilldelas en specifik logisk partition, kommer din verksamhet att rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
+Alla behållare som skapas i en databas med etablerat dataflöde måste skapas med en partitionsnyckel. Vid en given tidpunkt tid fördelas det dataflöde som allokeras till en behållare i en databas för alla logiska partitioner för behållaren. När du har en behållare som delar etablerat dataflöde på en databas, kan du selektivt använder dataflödet till en specifik behållare eller en logisk partition. Om arbetsbelastningen för en logisk partition förbrukar mer än det dataflöde som tilldelas en specifik logisk partition, kommer din verksamhet att rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
 Flera logiska partitioner som delar dataflödet som tillhandahållits till en databas kan finnas på en enskild resurs-partition. När en enskild logisk partition för en behållare är alltid begränsade inom en resurspartition, ”L” logiska partitioner mellan ”C”-behållare som delar det etablerade dataflödet för en databas mappade och finns i ”R” fysiska partitioner. Följande bild visar hur en resurspartition kan vara värd för en eller flera logiska partitioner som hör till olika behållare i en databas:
 

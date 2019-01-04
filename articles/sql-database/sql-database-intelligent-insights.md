@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278142"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608008"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights med hjälp av AI att övervaka och felsöka databasen prestanda
 
@@ -97,7 +97,7 @@ I följande exempel visas ett Intelligent Insights visas via Azure SQL Analytics
 
 ### <a name="set-up-with-event-hubs"></a>Konfigurera med Event Hubs
 
-För att använda smarta insikter med Event Hubs, konfigurera smarta insikter loggdata strömma till Event Hubs kan du läsa [Stream Azure-diagnostikloggar till Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+För att använda smarta insikter med Event Hubs, konfigurera smarta insikter loggdata strömma till Event Hubs kan du läsa [Stream Azure-diagnostikloggar till Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
 Om du vill använda Event Hubs för att konfigurera anpassade övervakning och avisering, se [vad du gör med mått och diagnostik för loggar i Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -180,4 +180,4 @@ Om någon av de övervakade kritiska undantag mellan de absoluta tröskelvärden
 - Lär dig hur du [Felsöka prestandaproblem för SQL-databas med intelligenta insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Använd den [diagnostikloggen för Intelligent Insights SQL Database prestanda](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Lär dig hur du [övervaka SQL-databas med hjälp av SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md).

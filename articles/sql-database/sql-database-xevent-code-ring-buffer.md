@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 522561d8afcf6fe1bdd2887f7fd5180b79565a61
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aaab17f3ba9352e2ee9448acbbc2d2ca2b9d077
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874625"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607650"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ringbuffertens målkod för utökade händelser i SQL-databas
 
@@ -348,7 +348,7 @@ Primär avsnittet för utökade händelser på Azure SQL Database är:
 
 Andra exempel ämnen i koden för utökade händelser finns på följande länkar. Du måste regelbundet kontrollera eventuella exemplet för att se om exemplet riktar sig mot Microsoft SQL Server och Azure SQL Database. Därefter kan du bestämma om mindre ändringar behövs för att köra exemplet.
 
-* Kodexempel för Azure SQL Database: [händelse målkod för utökade händelser i SQL-databas](sql-database-xevent-code-event-file.md)
+* Kodexempel för Azure SQL Database: [Händelsefilens målkod för utökade händelser i SQL-databas](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

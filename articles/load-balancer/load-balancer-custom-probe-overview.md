@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: f9ada3518c4354b112e9e288da89ee9659629b1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 51d781f331bcbc08642dc32c21baa150e9e5eee6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435131"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538693"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -201,7 +201,7 @@ Om du inte tillåter den [käll-IP](#probesource) sondens i din Brandväggsprinc
 
 För Belastningsutjämnarens hälsoavsökning att märka din instans du **måste** tillåter denna IP-adress i alla Azure [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper.  Som standard varje grupp innehåller de [tjänsttaggen](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer att tillåta trafik för avsökning av hälsotillstånd.
 
-Om du vill testa en avsökning uteblivna eller skriva ned en enskild instans kan du använda en [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) till explicita blockera hälsoavsökningen (målport eller [käll-IP](#probesource)) och simulering av den fel på en avsökning.
+Om du vill testa en avsökning uteblivna eller skriva ned en enskild instans kan du använda en [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) att uttryckligen blockera hälsoavsökningen (målport eller [käll-IP](#probesource)) och simulering av den fel på en avsökning.
 
 Konfigurera inte ditt virtuella nätverk med Microsoft som ägs av IP-adressintervall som innehåller 168.63.129.16.  Sådana konfigurationer kommer står i konflikt med IP-adressen för hälsoavsökningen och kan orsaka scenariot misslyckas.
 

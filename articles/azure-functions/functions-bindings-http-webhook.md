@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317448"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727011"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -491,7 +491,7 @@ Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa el
 
 ### <a name="working-with-client-identities"></a>Arbeta med klient-identiteter
 
-Om din funktionsapp använder [App Service-autentisering / auktorisering](../app-service/app-service-authentication-overview.md), du kan visa information om autentiserade klienter från din kod. Den här informationen är tillgänglig som [begärandehuvuden matas in av plattformen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+Om din funktionsapp använder [App Service-autentisering / auktorisering](../app-service/overview-authentication-authorization.md), du kan visa information om autentiserade klienter från din kod. Den här informationen är tillgänglig som [begärandehuvuden matas in av plattformen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 Du kan också läsa den här informationen från binda data. Den här funktionen är endast tillgängligt för funktioner 2.x-körningen. Det är också för närvarande endast tillgängliga för .NET-språk.
 
@@ -577,7 +577,7 @@ Du kan tillåta anonyma begäranden som inte kräver nycklar. Du kan också krä
 
 För att fullständigt skydda dina slutpunkter för funktionen i produktion, bör du implementering av en av följande alternativ för funktionen säkerhet på radnivå app:
 
-* Aktivera App Service-autentisering / auktorisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD) och flera Identitetsproviders från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade regler för dina funktioner och du kan arbeta med användarinformation från funktionskoden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md) och [arbeta med klient-identiteter](#working-with-client-identities).
+* Aktivera App Service-autentisering / auktorisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD) och flera Identitetsproviders från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade regler för dina funktioner och du kan arbeta med användarinformation från funktionskoden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/overview-authentication-authorization.md) och [arbeta med klient-identiteter](#working-with-client-identities).
 
 * Använd Azure API Management (APIM) för att autentisera begäranden. APIM erbjuder en mängd olika API säkerhetsalternativ för inkommande begäranden. Mer information finns i [API Management autentiseringsprinciper](../api-management/api-management-authentication-policies.md). Med APIM på plats kan du konfigurera funktionsappen för att godkänna begäranden endast från IP-adressen för din APIM-instansen. Mer information finns i [IP-adressbegränsningar](ip-addresses.md#ip-address-restrictions).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400298"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594285"
 ---
 # <a name="enable-write-accelerator"></a>Aktiverar du Write Accelerator
 
@@ -41,7 +41,7 @@ Aktivera Write Accelerator för OS-diskar får inte vara nödvändiga för SAP-r
 Dessa begränsningar gäller när du använder Write Accelerator för en Azure-disk/VHD:
 
 - Cachelagring för Premium disk måste anges till ”ingen” eller ”skrivskyddad”. Alla andra lägen för cachelagring stöds inte.
-- Ögonblicksbilder på en disk med Write Accelerator-aktiverade stöds inte ännu. Den här begränsningen blockerar Azure Backup-tjänsten möjligheten att utföra en programkonsekvent ögonblicksbild för alla diskar på den virtuella datorn.
+- Ögonblicksbilder stöds inte för närvarande för Write Accelerator-aktiverade diskar. Under säkerhetskopieringen är inkluderas tjänsten Azure Backup Write Accelerator-aktiverade diskar som är anslutna till den virtuella datorn.
 - Endast mindre i/o-storlekar (< = 32 KiB) tar snabbare sökvägen. I arbetsbelastningen situationer där data får bulk lästs in, eller om transaktionen log buffertar av olika DBMS är ifyllt i större utsträckning innan komma beständiga lagringen, risken är att i/o som skrivs till disk inte tar snabbare sökvägen.
 
 Det finns gränser för Azure Premium Storage virtuella hårddiskar per virtuell dator som stöds av Write Accelerator. De aktuella gränserna är:

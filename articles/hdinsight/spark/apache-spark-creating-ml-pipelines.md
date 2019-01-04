@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499403"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597485"
 ---
-# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Skapa ett Apache Spark-machine learning-pipeline
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Skapa en Apache Spark-maskininlärningspipeline
 
-Apache Spark skalbar machine learning-biblioteket (MLlib) ger funktioner för modellering till en distribuerad miljö. Spark-paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning avancerade API: er som bygger på dataramar. Dessa API: er för att skapa och finjustera praktiska machine learning pipelines.  *Spark-maskininlärning* refererar till den här MLlib DataFrame-baserat API inte äldre RDD-baserade pipelinen API.
+Apache Spark skalbar machine learning-biblioteket (MLlib) ger funktioner för modellering till en distribuerad miljö. Spark-paket [ `spark.ml` ](https://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning avancerade API: er som bygger på dataramar. Dessa API: er för att skapa och finjustera praktiska machine learning pipelines.  *Spark-maskininlärning* refererar till den här MLlib DataFrame-baserat API inte äldre RDD-baserade pipelinen API.
 
 Machine learning-pipeline (ML) är en fullständig arbetsflöde kombinera flera machine learning-algoritmer tillsammans. Det kan finnas många steg som krävs för att bearbeta och lära sig från data, som kräver en sekvens av algoritmer. Pipelines definiera stegen och Standardordning för machine learning-processen. I MLlib representeras faser i en pipeline av en viss sekvens av PipelineStages, där en omvandlare och en kostnadsuppskattning uppgifter.
 
@@ -30,7 +30,7 @@ Varje tillståndslösa instans av en omvandlare eller en kostnadsuppskattning ha
 
 ## <a name="pipeline-example"></a>Pipeline-exempel
 
-För att demonstrera en praktisk användning av en ML-pipeline, det här exemplet använder exemplet `HVAC.csv` datafil som är förinstallerade på standardlagringen för ditt HDInsight-kluster, antingen Azure Storage eller Data Lake Store. Om du vill visa innehållet i filen, navigera till den `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` innehåller en uppsättning med både mål- och faktiska temperaturer för HVAC (*uppvärmning, ventilation och luftkonditionering*) system i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperaturen för en viss byggnad.
+För att demonstrera en praktisk användning av en ML-pipeline, det här exemplet använder exemplet `HVAC.csv` datafil som är förinstallerade på standardlagringen för ditt HDInsight-kluster, antingen Azure Storage eller Data Lake Storage. Om du vill visa innehållet i filen, navigera till den `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` innehåller en uppsättning med både mål- och faktiska temperaturer för HVAC (*uppvärmning, ventilation och luftkonditionering*) system i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperaturen för en viss byggnad.
 
 Följande kod:
 

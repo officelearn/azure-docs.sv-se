@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270142"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546869"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
 
@@ -32,7 +32,7 @@ Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten,
 
 Planerat underhåll som kräver omstart schemaläggs i vågor. Varje våg har olika omfång (regioner):
 
-- En våg börjar med ett meddelande till kunderna. Som standard skickas meddelandet till Prenumerationens ägare och Medägare. Du kan lägga till mottagarna och meddelandeinställningarna som e-post, SMS och webhooks meddelanden med hjälp av Azure [aktivitetsloggsaviseringar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- En våg börjar med ett meddelande till kunderna. Som standard skickas meddelandet till Prenumerationens ägare och Medägare. Du kan lägga till mottagarna och meddelandeinställningarna som e-post, SMS och webhooks meddelanden med hjälp av Azure [aktivitetsloggsaviseringar](../azure-monitor/platform/activity-logs-overview.md).  
 - Med meddelande, en *självbetjäning fönstret* är tillgänglig. Under det här fönstret kan hitta du vilka av dina virtuella datorer som ingår i wave. Du kan starta Underhåll proaktivt efter behov schemaläggning.
 - När fönstret självbetjäning en *schemalagda underhållsperiod* börjar. Någon gång under det här fönstret Azure schemalägger och gäller det nödvändiga underhållet för den virtuella datorn. 
 
@@ -95,7 +95,7 @@ Den **självbetjäningsunderhållet** kolumnen visas nu i listan över VM-skalni
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och aviseringar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till mottagarna och kanaler denna kommunikation genom att skapa aviseringar för aktivitetsloggen. Mer information finns i [övervaka prenumeration med Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till mottagarna och kanaler denna kommunikation genom att skapa aviseringar för aktivitetsloggen. Mer information finns i [övervaka prenumeration med Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I den vänstra menyn väljer du **övervakaren**. 

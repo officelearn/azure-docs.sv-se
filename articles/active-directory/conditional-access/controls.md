@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2018
+ms.date: 12/22/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 042be0b818ba448d64aa5e8631926420f00f4b5e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 367a9b2bd7b4a32d69974639a13f67340ea56518
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679672"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745014"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst? 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?
 
-Med [villkorlig åtkomst i Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina appar i molnet. I en princip för villkorlig åtkomst definierar du svaret (”gör du”) att orsaken för att utlösa principen (”när detta sker”). 
+Med [villkorlig åtkomst i Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina appar i molnet. I en princip för villkorlig åtkomst definierar du svaret (”gör du”) att orsaken för att utlösa principen (”när detta sker”).
 
 ![Kontroll](./media/controls/10.png)
 
-
-I samband med villkorlig åtkomst 
+I samband med villkorlig åtkomst
 
 - ”**Om det här händer**” kallas **villkor**
 
 - ”**Gör detta**” kallas **åtkomstkontroller**
 
-
 Kombinationen av en villkorssatsen med din kontroller representerar en princip för villkorlig åtkomst.
 
 ![Kontroll](./media/controls/61.png)
 
-Alla kontroller är antingen ett krav som måste uppfyllas av personen eller system som loggar in, eller en begränsning på vad användaren kan göra när du loggar in. 
+Alla kontroller är antingen ett krav som måste uppfyllas av personen eller system som loggar in, eller en begränsning på vad användaren kan göra när du loggar in.
 
-Det finns två typer av kontroller: 
+Det finns två typer av kontroller:
 
 - **Bevilja kontroller** – du förhindrar åtkomst
 
@@ -56,24 +54,20 @@ Det här avsnittet beskrivs de olika kontroller som är tillgängliga i Azure AD
 
 Med bevilja kontroller du antingen blockera åtkomsten helt eller tillåta åtkomst med ytterligare krav genom att välja önskad kontroller. Du kan kräva för flera kontroller:
 
-- Alla markerade kontroller är uppfyllda (*och*) 
+- Alla markerade kontroller är uppfyllda (*och*)
 - En vald kontroll uppfylls (*eller*)
 
 ![Kontroll](./media/controls/17.png)
 
-
-
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Du kan använda den här kontrollen för att kräva multifaktorautentisering att få åtkomst till angivna molnappen. Den här kontrollen stöder följande Multi-Factor Authentication-providers: 
+Du kan använda den här kontrollen för att kräva multifaktorautentisering att få åtkomst till angivna molnappen. Den här kontrollen stöder följande Multi-Factor Authentication-providers:
 
-- Azure Multi-Factor Authentication 
+- Azure Multi-Factor Authentication
 
 - En lokal Multi-Factor authentication-provider i kombination med Active Directory Federation Services (AD FS).
- 
+
 Multi-Factor Authentication hjälper till att skydda resurser från används av en obehörig användare som kan ha fått åtkomst till de primära autentiseringsuppgifterna för en giltig användare.
-
-
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
@@ -87,25 +81,18 @@ Kräver att en Hybrid Azure AD-domänansluten enhet är ett annat alternativ som
 
 Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](require-managed-devices.md).
 
-
-
-
-
 ### <a name="approved-client-app"></a>Godkänd klientapp
 
 Eftersom dina anställda använder mobila enheter för både personliga och arbetsuppgifter, kanske du vill ha möjlighet att skydda företagsdata som nås med enheter även i de fall där de inte hanteras av dig.
 Du kan använda [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data som är oberoende av någon lösning för hantering av mobila enheter (MDM).
 
-
 Med godkända appar, behöver du en klientapp som försöker få åtkomst till dina appar i molnet som stöd för [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy). Du kan exempelvis begränsa åtkomsten till Exchange Online för Outlook-appen. Principer för villkorlig åtkomst som kräver godkända klientappar kallas även [appbaserad villkorlig åtkomstprincip](app-based-conditional-access.md). En lista över godkända klientappar som stöds finns i [godkända kravet på klienten app](technical-reference.md#approved-client-app-requirement).
-
 
 ### <a name="terms-of-use"></a>Användningsvillkor
 
-Du kan kräva att en användare i din klient samtycker till att användningsvillkoren innan de ges tillgång till en resurs. Som administratör kan du konfigurera och anpassa användningsvillkoren genom att överföra en PDF-dokumentet. Om en användare som ingår i beviljas omfånget för den här kontrollen åtkomst till ett program endast om det har har accepterat användningsvillkoren. 
+Du kan kräva att en användare i din klient samtycker till att användningsvillkoren innan de ges tillgång till en resurs. Som administratör kan du konfigurera och anpassa användningsvillkoren genom att överföra en PDF-dokumentet. Om en användare som ingår i beviljas omfånget för den här kontrollen åtkomst till ett program endast om det har har accepterat användningsvillkoren.
 
-
-### <a name="custom-controls-preview"></a>Anpassade kontroller (förhandsversion) 
+### <a name="custom-controls-preview"></a>Anpassade kontroller (förhandsversion)
 
 Du kan skapa anpassade kontroller för villkorlig åtkomst som omdirigerar användarna till en kompatibel tjänst för att uppfylla ytterligare krav utanför Azure Active Directory. På så sätt kan du använda vissa externa multifaktorautentisering och verifiering leverantörer att genomdriva regler för villkorlig åtkomst eller för att skapa din egen anpassade tjänst. För att uppfylla den här kontrollen, en användares webbläsare omdirigeras till den externa tjänsten, utför alla nödvändiga autentisering eller validering aktiviteter och sedan omdirigeras tillbaka till Azure Active Directory. Om användaren har har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst. 
 
@@ -121,6 +108,7 @@ Leverantörer som för närvarande har en kompatibel tjänst är:
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
@@ -138,9 +126,7 @@ Alternativet för att skapa en anpassad kontroll som finns i den **hantera** del
 
 Klicka på **ny anpassad kontroll**, öppnas ett blad med en textruta för JSON-data för din kontroll.  
 
-
 ![Kontroll](./media/controls/81.png)
-
 
 ### <a name="deleting-custom-controls"></a>Ta bort anpassade kontroller
 
@@ -156,9 +142,6 @@ Om du vill ta bort en anpassad kontroll, måste du först kontrollera att det in
 
 Om du vill redigera en anpassad kontroll, måste du ta bort den aktuella kontrollen och skapa en ny kontroll med den uppdaterade informationen.
 
-
-
-
 ## <a name="session-controls"></a>Sessionskontroller
 
 Sessionskontroller aktiverar en begränsad upplevelse inom en molnapp. Sessionskontroller tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD för att appen om sessionen.
@@ -171,15 +154,12 @@ Du kan använda den här kontrollen för att kräva Azure AD för att skicka enh
 
 Du kan läsa mer här:
 
-- [Att aktivera begränsad åtkomst med SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+- [Att aktivera begränsad åtkomst med SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
 - [Att aktivera begränsad åtkomst med Exchange Online](https://aka.ms/owalimitedaccess)
-
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md).

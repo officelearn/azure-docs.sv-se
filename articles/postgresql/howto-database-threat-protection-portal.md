@@ -1,19 +1,17 @@
 ---
-title: Avancerat skydd – Azure Database för PostgreSQL | Microsoft Docs
+title: Avancerat skydd – Azure Database för PostgreSQL
 description: Skydd mot hot identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
-services: postgresql
 author: bolzmj
-manager: kfile
-ms.service: postgresql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: ab32cc9a4aafd9fc716eff8104fb2b5117f233a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047828"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536159"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Avancerat skydd för Azure Database för PostgreSQL
 
@@ -22,7 +20,7 @@ Advanced Threat Protection för Azure Database for PostgreSQL identifierar avvik
 Avancerat skydd är en del av erbjudandet avancerad säkerhet för Data, vilket är en enhetlig paketet för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via den [Azure-portalen](https://portal.azure.com) och förhandsvisas just nu.
 
 > [!NOTE]
-> Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: USA Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad region Virginia, USA DoD, östra, USA DoD centrala, Tyskland centrala, Tyskland Norra Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
+> Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: US Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad Virginia, USA DoD, östra, US DoD, centrala, Tyskland-centrala, Tyskland Nord, Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
 >
 
 ## <a name="set-up-threat-detection"></a>Konfigurera identifiering av hot

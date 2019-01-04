@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436967"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583467"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -65,9 +65,10 @@ Följ den här [exempel notebook](https://github.com/Azure/MachineLearningNotebo
 ## <a name="next-steps"></a>Nästa steg
 
 Se exempel och lär dig hur du skapar modeller med hjälp av automatisk Machine Learning:
++ [Exempel: Använda Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten](samples-notebooks.md#automated-ml-setup)
 
-+ [Självstudiekurs: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
++ [Självstudier: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
+
++ [Använda automatisk utbildning på en fjärransluten resurs](how-to-auto-train-remote.md)
 
 + [Konfigurera inställningar för automatisk utbildning](how-to-configure-auto-train.md)
-
-+ [Använda automatisk utbildning på en fjärransluten resurs](how-to-auto-train-remote.md) 

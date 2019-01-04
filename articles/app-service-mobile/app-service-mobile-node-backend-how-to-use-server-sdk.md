@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409266"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725039"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
 
@@ -153,14 +153,14 @@ När du skapar en Node.js Mobile Apps-serverdelen med hjälp av portalen **Snabb
 Följande procedur använder en Git-lagringsplats för att hämta snabbstartskoden för projektet:
 
 1. Installera Git om du inte redan gjort det. De steg som krävs för att installera Git variera mellan olika operativsystem. Operativsystemspecifika distributioner och installationer finns i [installerar Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. Se [förbereda din lagringsplats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) att aktivera Git-lagringsplats för backend-webbplatsen. Anteckna distributionsanvändarnamn och lösenord.
-1. I fönstret för Mobile Apps-serverdel, notera den **URL för Git-klonen** inställningen.
-1. Kör den `git clone` kommandot med hjälp av URL för Git-klonen. Ange lösenordet vid behov, som i följande exempel:
+2. Se [förbereda din lagringsplats](../app-service/deploy-local-git.md#prepare-your-repository) att aktivera Git-lagringsplats för backend-webbplatsen. Anteckna distributionsanvändarnamn och lösenord.
+3. I fönstret för Mobile Apps-serverdel, notera den **URL för Git-klonen** inställningen.
+4. Kör den `git clone` kommandot med hjälp av URL för Git-klonen. Ange lösenordet vid behov, som i följande exempel:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Bläddra till den lokala katalogen (`/todolist` i föregående exempel), och Lägg märke till att project-filer har laddats ned. Leta upp filen todoitem.json i den `/tables` directory. Den här filen definierar behörigheter för tabellen. Filen todoitem.js finns i samma katalog. Den definierar CRUD-skript för åtgärden för tabellen.
-1. När du gör ändringar i projektfiler, kör följande kommandon för att lägga till, genomför och överför sedan ändringarna till platsen:
+5. Bläddra till den lokala katalogen (`/todolist` i föregående exempel), och Lägg märke till att project-filer har laddats ned. Leta upp filen todoitem.json i den `/tables` directory. Den här filen definierar behörigheter för tabellen. Filen todoitem.js finns i samma katalog. Den definierar CRUD-skript för åtgärden för tabellen.
+6. När du gör ändringar i projektfiler, kör följande kommandon för att lägga till, genomför och överför sedan ändringarna till platsen:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -968,10 +968,10 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 [Konfigurera Google-autentisering]: ../app-service/configure-authentication-provider-google.md
 [Konfigurera Microsoft-autentisering]: ../app-service/configure-authentication-provider-microsoft.md
 [Konfigurera Twitter-autentisering]: ../app-service/configure-authentication-provider-twitter.md
-[Azure App Service-Distributionsguide]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service-Distributionsguide]: ../app-service/deploy-local-git.md
 [Övervakning av Azure App Service]: ../app-service/web-sites-monitor.md
-[Aktivera Diagnostisk loggning i Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
-[Felsöka Azure App Service i Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Aktivera Diagnostisk loggning i Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Felsöka Azure App Service i Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [Ange nodversionen]: ../nodejs-specify-node-version-azure-apps.md
 [använda Node-moduler]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

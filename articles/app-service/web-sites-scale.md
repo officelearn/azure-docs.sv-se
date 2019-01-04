@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251068"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727487"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Skala upp en app i Azure
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du skalar din app i Azure App Service. Det finns tv�
 * [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Öka antalet VM-instanser som kör din app.
   Du kan skala ut till upp till 20 instanser, beroende på vilken prisnivå. [App Service-miljöer](environment/intro.md) i **isolerad** ytterligare nivå ökar din skala ut antalet till 100 instanser. Läs mer om att skala ut [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md). Där kan ta du reda på hur du använder automatisk skalning, vilket är att skala instansantalet automatiskt baserat på fördefinierade regler och scheman.
 
-Inställningarna för tar bara några sekunder att tillämpa och påverkar alla appar i din [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Inställningarna för tar bara några sekunder att tillämpa och påverkar alla appar i din [App Service-plan](../app-service/overview-hosting-plans.md).
 De kräver inte att ändra koden eller distribuera om ditt program.
 
 Information om priser och funktioner i enskilda App Service-planer finns i [prisinformation för App Service](https://azure.microsoft.com/pricing/details/web-sites/).  

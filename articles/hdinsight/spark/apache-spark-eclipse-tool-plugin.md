@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit för Eclipse: skapa Scala-appar för HDInsight Spark '
+title: 'Azure Toolkit för Eclipse: Skapa Scala-appar för HDInsight Spark '
 description: Använda HDInsight-verktygen i Azure Toolkit för Eclipse för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster direkt från Eclipse IDE.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496596"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602757"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
 Använda HDInsight-verktygen i Azure Toolkit för [Eclipse](https://www.eclipse.org/) att utveckla [Apache Spark](https://spark.apache.org/) program som skrivits i [Scala](https://www.scala-lang.org/) och skicka dem till ett Azure HDInsight Spark-kluster direkt från Eclipse IDE. Du kan använda HDInsight-verktyg plugin-programmet på ett par olika sätt:
 
-* Att utveckla och skicka in ett Scala Spark-program på ett HDInsight Spark-kluster
-* Åtkomst till dina Azure HDInsight Spark-klusterresurser
-* Att utveckla och kör ett Scala Spark-program lokalt
+* Att utveckla och skicka in ett Scala Spark-program på ett HDInsight Spark-kluster.
+* Åtkomst till dina Azure HDInsight Spark-klusterresurser.
+* Att utveckla och kör ett Scala Spark-program lokalt.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Du kan använda det här verktyget för att skapa och skicka program bara för ett HDInsight Spark-kluster på Linux.
 > 
 > 
@@ -78,7 +78,7 @@ Du kan länka ett normalt kluster med hjälp av Ambari hanteras användarnamnet.
    
    ![länka kluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både loggas i Azure-prenumeration och länkad ett kluster.
    > ![Storage explorer i Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -207,7 +207,7 @@ Du kan använda HDInsight-verktyg i Azure Toolkit för Eclipse för att köra Sp
 ### <a name="prerequisite"></a>Krav
 När du använder den lokala Spark Scala-appen på en Windows-dator kan du få ett undantag som beskrivs i [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Det här undantaget inträffar eftersom **WinUtils.exe** saknas i Windows. 
 
-Du behöver för att lösa det här felet, [ladda ned den körbara filen](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats som **C:\WinUtils\bin**, och Lägg sedan till miljövariabeln **HADOOP_HOME** och ange värdet för variabeln för **C\WinUtils**.
+Du behöver för att lösa det här felet, [ladda ned den körbara filen](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats som **C:\WinUtils\bin**, och Lägg sedan till miljövariabeln **HADOOP_HOME** och ange värdet för variabeln för **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Köra ett lokalt Spark Scala-program
 1. Starta Eclipse och skapa ett projekt. I den **nytt projekt** dialogrutan gör du följande val och välj sedan **nästa**.
@@ -242,17 +242,17 @@ Det finns två lägen för att skicka jobb. Om storage-autentiseringsuppgifter h
 Om du har feedback, eller om du stöter på andra problem när du använder det här verktyget, skicka oss ett e-postmeddelande på hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Se även
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använd Azure Toolkit för IntelliJ för att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)

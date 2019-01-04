@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857830"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603835"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Översikt över Azure Cloud Services
-Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Som [Azure App Service](../app-service/app-service-web-overview.md), den här tekniken är utformad för att stödja program som är skalbara, tillförlitliga och billiga att hantera. På samma sätt som att App Service finns på virtuella datorer (VM), så är för Azure Cloud Services. Du kan dock mer kontroll över de virtuella datorerna. Du kan installera din egen programvara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärranslutning.
+Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Som [Azure App Service](../app-service/overview.md), den här tekniken är utformad för att stödja program som är skalbara, tillförlitliga och billiga att hantera. På samma sätt som att App Service finns på virtuella datorer (VM), så är för Azure Cloud Services. Du kan dock mer kontroll över de virtuella datorerna. Du kan installera din egen programvara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärranslutning.
 
 ![Azure Cloud Services-diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -29,9 +29,9 @@ Mer kontroll innebär även mindre användarvänlighet. Om du inte behöver alte
 
 Det finns två typer av Azure Cloud Services-roller. Den enda skillnaden mellan två är hur din roll finns på de virtuella datorerna:
 
-* **Webbroll**: automatiskt distribuerar och är värd för din app via IIS.
+* **Webbroll**: Distribuerar och är värd för din app via IIS automatiskt.
 
-* **Arbetsroll**: inte använder IIS och kör din app fristående.
+* **Arbetsroll**: Använder inte IIS och kör din app fristående.
 
 Ett enkelt program kan exempelvis använda bara en enda web-roll, som en webbplats. Ett mer komplext program kan använda en webbroll för att hantera inkommande begäranden från användare och skicka dessa begäranden till en arbetsroll för bearbetning. (Den här kommunikationen kan använda [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) eller [Azure Queue storage](../storage/common/storage-introduction.md).)
 

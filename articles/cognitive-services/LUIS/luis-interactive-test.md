@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141585"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601975"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa LUIS-appen i LUIS-portalen
 <a name="train-your-app"></a>
@@ -51,11 +51,11 @@ Du kan se mer information om testresultat i den **granska** panelen.
  
 1. Med den **Test** bild ut panelen öppen, väljer **granska** för ett uttryck som du vill jämföra. 
 
-    ![Inspektera knappen](./media/luis-how-to-interactive-test/inspect.png)
+    ![Välj granska för att visa mer information om testresultat](./media/luis-how-to-interactive-test/inspect.png)
 
 2. Den **inspektion** visas panelen. Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.
 
-    ![Inspektera knappen](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>Rätt upp bedömning avsikt
 

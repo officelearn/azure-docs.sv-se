@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497098"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715349"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster
 
@@ -26,7 +26,7 @@ När du skapar ett kluster kan använda du en skriptåtgärd för att ändra nod
 
 När du skapar klustret skriptet räknar upp filerna, kopierar dem till den `/usr/lib/customhivelibs/` katalog på huvud- och worker-noder läggs sedan till den `hive.aux.jars.path` -egenskapen i den `core-site.xml` filen. På Linux-baserade kluster, även uppdateras den `hive-env.sh` filen med platsen för filerna.
 
-> [!NOTE]
+> [!NOTE]  
 > Med åtgärderna som skript i den här artikeln gör bibliotek som är tillgängliga i följande scenarier:
 >
 > * **Linux-baserade HDInsight** – när du använder en Hive-klient **WebHCat**, och **HiveServer2**.
@@ -40,7 +40,7 @@ För **Linux-baserade kluster**: [https://hdiconfigactions.blob.core.windows.net
 
 För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Krav**
@@ -53,14 +53,14 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
 * WASB-sökväg till behållaren måste anges som en parameter för att skriptåtgärd. Exempel: om de JAR-filer som lagras i en behållare med namnet **libs** i ett lagringskonto med namnet **mystorage**, parametern skulle vara **wasb://libs@mystorage.blob.core.windows.net/**.
 
-  > [!NOTE]
+  > [!NOTE]  
   > Det här dokumentet förutsätter att du har redan skapat ett lagringskonto, blob-behållare och överfört filerna till den.
   >
-  > Om du inte har skapat ett lagringskonto kan du göra så via den [Azure-portalen](https://portal.azure.com). Du kan sedan använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/) att skapa en behållare i kontot och ladda upp filer till den.
+  > Om du inte har skapat ett lagringskonto kan du göra så via den [Azure-portalen](https://portal.azure.com). Du kan sedan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/) att skapa en behållare i kontot och ladda upp filer till den.
 
 ## <a name="create-a-cluster-using-the-script"></a>Skapa ett kluster med hjälp av skript
 
-> [!NOTE]
+> [!NOTE]  
 > Följande steg skapar ett Linux-baserade HDInsight-kluster. Om du vill skapa ett Windows-baserat kluster, Välj **Windows** som klustret OS när du skapar klustret och Använd Windows (PowerShell) skript i stället för bash-skript.
 >
 > Du kan också använda Azure PowerShell eller HDInsight .NET SDK för att skapa ett kluster med hjälp av det här skriptet. Läs mer om hur du använder dessa metoder, [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
@@ -69,15 +69,15 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
 2. På den **valfri konfiguration** väljer **skriptåtgärder**, och ange följande information:
 
-   * **NAMN på**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
 
-   * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.
 
    * **HEAD**: Markera det här alternativet.
 
    * **WORKER**: Markera det här alternativet.
 
-   * **ZOOKEEPER**: lämna fältet tomt.
+   * **ZOOKEEPER**: Låt den vara tom.
 
    * **PARAMETRAR**: Ange WASB-adressen till behållaren och storage-kontot som innehåller de JAR-filer. Till exempel **wasb://libs@mystorage.blob.core.windows.net/**.
 

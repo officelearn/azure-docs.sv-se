@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435556"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744351"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix i HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) är en öppen källkod, massivt parallella relationsdatabaslager bygger på [Apache HBase](hbase/apache-hbase-overview.md). Phoenix kan du använda SQL-liknande frågor över HBase. Phoenix använder JDBC-drivrutiner under så att användarna kan skapa, ta bort, ändra SQL-tabeller, index, vyer och sekvenser och upsert rader individuellt och gruppvis. Phoenix används noSQL interna kompilering i stället för att använda MapReduce för att kompilera frågor att aktivera skapandet av låg latens program ovanpå HBase. Phoenix lägger till coprocessors om du vill kan du köra klienten anger kod i adressutrymmet för servern, köra koden samordnat med data. Denna metod minimerar klient/server-dataöverföring.
+[Apache Phoenix](https://phoenix.apache.org/) är en öppen källkod, massivt parallella relationsdatabaslager bygger på [Apache HBase](hbase/apache-hbase-overview.md). Phoenix kan du använda SQL-liknande frågor över HBase. Phoenix använder JDBC-drivrutiner under så att användarna kan skapa, ta bort, ändra SQL-tabeller, index, vyer och sekvenser och upsert rader individuellt och gruppvis. Phoenix används noSQL interna kompilering i stället för att använda MapReduce för att kompilera frågor att aktivera skapandet av låg latens program ovanpå HBase. Phoenix lägger till coprocessors om du vill kan du köra klienten anger kod i adressutrymmet för servern, köra koden samordnat med data. Denna metod minimerar klient/server-dataöverföring.
 
-Apache Phoenix öppnas stordatafrågor för icke-utvecklare som kan använda en SQL-liknande syntax i stället för programmering. Phoenix är optimerade för HBase, till skillnad från andra verktyg som [Hive](hadoop/hdinsight-use-hive.md) och Apache Spark SQL. Fördelen för utvecklare skriver med hög prestanda frågor med mycket mindre kod.
+Apache Phoenix öppnas stordatafrågor för icke-utvecklare som kan använda en SQL-liknande syntax i stället för programmering. Phoenix är optimerade för HBase, till skillnad från andra verktyg som [Apache Hive](hadoop/hdinsight-use-hive.md) och Apache Spark SQL. Fördelen för utvecklare skriver med hög prestanda frågor med mycket mindre kod.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 När du skickar in en SQL-fråga, Phoenix kompilerar frågan till HBase interna anrop och kör genomsökningen (eller planerar) parallellt för optimering. Det här lagret Abstraktionslager Frigör utvecklare från att skriva MapReduce-jobb, i stället fokusera på affärslogiken och arbetsflöde för sina program runt Phoenix's big datalagring.
@@ -70,17 +70,17 @@ Om du vill lägga till fler kolumner senare använda den `ALTER VIEW` instruktio
 
 ### <a name="skip-scan"></a>Hoppa över sökning
 
-Hoppa över sökning använder en eller flera kolumner i ett sammansatt index för att hitta distinkta värden. Till skillnad från en genomsökning för intervallet, hoppa över sökning implementerar intra-raden genomsökning, väjande [förbättrad prestanda](http://phoenix.apache.org/performance.html#Skip-Scan). Vid sökning hoppas det första matchade värdet tillsammans med indexet tills nästa värde hittas.
+Hoppa över sökning använder en eller flera kolumner i ett sammansatt index för att hitta distinkta värden. Till skillnad från en genomsökning för intervallet, hoppa över sökning implementerar intra-raden genomsökning, väjande [förbättrad prestanda](https://phoenix.apache.org/performance.html#Skip-Scan). Vid sökning hoppas det första matchade värdet tillsammans med indexet tills nästa värde hittas.
 
 En hoppa över sökning använder den `SEEK_NEXT_USING_HINT` uppräkning av HBase-filtret. Med hjälp av `SEEK_NEXT_USING_HINT`, hoppa över sökning håller reda på vilken uppsättning nycklar eller intervall av nycklar, genomsöks efter i varje kolumn. Alternativet Hoppa över skanna och sedan tar en nyckel som skickades till den under filter utvärdering och bestämmer om det är en av kombinationerna. Annars kan du hoppa över sökning utvärderar till går du vidare till nästa högsta nyckeln.
 
 ### <a name="transactions"></a>Transaktioner
 
-Medan HBase ger på radnivå transaktioner, Phoenix kan integreras med [Tephra](http://tephra.io/) att lägga till stöd för flera rader och korstabell transaktioner med fullständig [ACID](https://en.wikipedia.org/wiki/ACID) semantik.
+Medan HBase ger på radnivå transaktioner, Phoenix kan integreras med [Tephra](https://tephra.io/) att lägga till stöd för flera rader och korstabell transaktioner med fullständig [ACID](https://en.wikipedia.org/wiki/ACID) semantik.
 
 Som med traditionella SQL-transaktioner kan transaktioner som tillhandahålls via transaktionshanteraren Phoenix du se till att en atomisk enhet med data är har upserted, återställer transaktionen om upsert-åtgärden misslyckas i en transaktion-aktiverade tabell.
 
-För att aktivera Phoenix transaktioner, se den [Apache Phoenix transaktion dokumentation](http://phoenix.apache.org/transactions.html).
+För att aktivera Phoenix transaktioner, se den [Apache Phoenix transaktion dokumentation](https://phoenix.apache.org/transactions.html).
 
 Om du vill skapa en ny tabell med transaktioner som har aktiverats, ange den `TRANSACTIONAL` egenskap `true` i en `CREATE` instruktionen:
 
@@ -94,7 +94,7 @@ Om du vill ändra en befintlig tabell för att vara en transaktionskö, använde
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan inte byta en transaktionell tabell tillbaka för att vara icke-transaktionell.
 
 ### <a name="salted-tables"></a>Saltat tabeller

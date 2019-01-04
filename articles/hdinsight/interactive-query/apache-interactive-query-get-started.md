@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6086c03961294a18fbf6a106188593c79c88d663
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b34d67e640f09ac6949e992d3af9388581851622
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310005"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629534"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Använda interaktiv fråga med HDInsight
 Interaktiv fråga (kallas även Apache Hive-LLAP eller [med låg latens Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är ett Azure HDInsight [klustertyp](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiv fråga har stöd för cachelagring i minnet, vilket gör Apache Hive-frågor snabbare och mycket mer interaktivt.
@@ -23,10 +23,8 @@ Interaktiv fråga (kallas även Apache Hive-LLAP eller [med låg latens Analytic
 
 Ett interaktivt frågekluster skiljer sig från ett Apache Hadoop-kluster. Den innehåller endast Hive-tjänsten. 
 
-> [!NOTE]
+> [!NOTE]  
 > Du kan komma åt tjänsten Hive i klustret för interaktiv fråga endast via Apache Ambari Hive-vy, Beeline och Microsoft Hive Open Database Connectivity-drivrutinen (Hive ODBC). Du kan inte komma åt den via Hive-konsolen, Templeton, klassiska Azure-CLI eller Azure PowerShell. 
-> 
-> 
 
 ## <a name="create-an-interactive-query-cluster"></a>Skapa ett interaktivt frågekluster
 Information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Välj klustertyp interaktiv fråga.
@@ -34,7 +32,7 @@ Information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop-
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Kör Apache Hive-frågor från interaktiv fråga
 För att köra Hive-frågor, har du följande alternativ:
 
-* Använda Power BI
+* Använd Microsoft Power BI
 
     Se [visualisera Interactive Query Apache Hive-data med Power BI i Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) Se [visualisera big data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
  
@@ -44,7 +42,7 @@ För att köra Hive-frågor, har du följande alternativ:
 
 * Använd Visual Studio
 
-    Se [Anslut till Azure HDInsight och köra Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
+    Se [Anslut till Azure HDInsight och köra Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 
 * Använd Visual Studio Code
 
@@ -75,7 +73,7 @@ Hitta anslutningssträngen Java Database Connectivity (JDBC):
 * Lär dig hur du [skapa interaktiva frågekluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Lär dig hur du [visualisera big data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
 * Lär dig hur du [använder Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
-* Lär dig hur du [kör Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
+* Lär dig hur du [kör Apache Hive-frågor med Data Lake Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 * Lär dig hur du [använder HDInsight Tools för Visual Studio Code](../hdinsight-for-vscode.md).
 * Lär dig hur du [använda Apache Hive-vy med Apache Hadoop i HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)
 * Lär dig hur du [använda Beeline för att skicka Apache Hive-frågor i HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md).

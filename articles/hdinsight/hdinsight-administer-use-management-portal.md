@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 378f52f0418c8c99e9ce6ca393ca10a77504698d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499585"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632033"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -55,12 +55,10 @@ HDInsight fungerar med en bred intervallet av Apache Hadoop-komponenter. Lista �
 * Använd anpassning Klusterparametrar i HDInsight .NET SDK eller Azure PowerShell när klustret skapas. De här konfigurationsändringarna bevaras sedan igenom livslängden för klustret och påverkas inte av klustret noden avbildningen som Azure-plattformen utför med jämna mellanrum för underhåll. Läs mer om hur du använder anpassning Klusterparametrar [skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 * Vissa interna Java-komponenter som [Apache Mahout](https://mahout.apache.org/) och [kaskad](https://www.cascading.org/), kan köras på klustret som JAR-filerna. De här JAR-filerna kan distribueras till Azure Blob storage och skickas till HDInsight-kluster via Hadoop-jobb skickas mekanismer. Mer information finns i [skicka Apache Hadoop-jobb programmässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
-  > [!NOTE]
+  > [!NOTE]  
   > Om du har problem när du distribuerar JAR-filerna till HDInsight-kluster eller anropa JAR-filerna på HDInsight-kluster, kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).
   >
   > Sammanhängande stöds inte av HDInsight och är inte berättigade till Microsoft Support. För listor över stödda komponenter som finns i [vad är nytt i klusterversionerna från HDInsight](hdinsight-component-versioning.md).
-  >
-  >
 
 Installationen av anpassad programvara i klustret med hjälp av anslutning till fjärrskrivbord stöds inte. Du bör inte lagra filer på enheter för huvudnoden, eftersom de kommer att gå förlorade om du behöver återskapa klustren. Vi rekommenderar att du lagrar filer på Azure Blob storage. BLOB storage är permanent.
 
@@ -76,58 +74,54 @@ Installationen av anpassad programvara i klustret med hjälp av anslutning till 
 
    * Om du vill anpassa menyn, högerklickar du någonstans på menyn och klicka sedan på **anpassa**.
    * **Inställningar för** och **alla inställningar**: Visar den **inställningar** bladet för kluster, vilket ger dig tillgång till mer information om konfigurationen för klustret.
-   * **Instrumentpanelen**, **Klusterinstrumentpanel** och **URL**: det här är alla sätt att komma åt instrumentpanelen för klustret, vilket är Ambari Web för Linux-baserade kluster.
+   * **Instrumentpanelen**, **kluster instrumentpanelen** och **URL**: Det här är alla sätt att komma åt instrumentpanelen för klustret, vilket är Ambari Web för Linux-baserade kluster.
    * **Secure Shell**: Visar instruktioner för att ansluta till klustret med Secure Shell (SSH)-anslutning.
-   * **Skala kluster**: gör att du kan ändra antalet arbetsnoder för det här klustret.
-   * **Ta bort**: tar bort klustret.
+   * **Skala kluster**: Kan du ändra antalet arbetarnoder för det här klustret.
+   * **Ta bort**: Tar bort klustret.
    * **Snabbstart**: Visar information som hjälper dig att komma igång med HDInsight.
-   * **Användare**: gör att du kan ange behörigheter för *portal management* för detta kluster för andra användare på din Azure-prenumeration.
+   * **Användare**: Gör att du kan ange behörigheter för *portal management* för detta kluster för andra användare på din Azure-prenumeration.
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > Detta *endast* påverkar åtkomst och behörighet till det här klustret i Azure-portalen och har ingen effekt på vem som kan ansluta till eller skicka jobb till HDInsight-klustret.
-     >
-     >
-   * **Taggar**: taggar kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.
-   * **Ambari-vyer**: länkar till Ambari Web.
 
-     > [!IMPORTANT]
+   * **Taggar**: Taggar kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.
+   * **Ambari-vyer**: Länkar till Ambari Web.
+
+     > [!IMPORTANT]  
      > För att hantera de tjänster som tillhandahålls av HDInsight-klustret, måste du använda Ambari Web eller Ambari REST API. Läs mer om hur du använder Ambari [hantera HDInsight-kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-     >
-     >
 
      **Användning**:
 
      ![Azure portal HDInsight-kluster-användning](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
-5. Klicka på **inställningar**.
+5. Klicka på **Inställningar**.
 
     ![Azure portal HDInsight-kluster-användning](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Egenskaper för**: Visa egenskaper för klustret.
    * **Kluster AAD-identitet**:
    * **Azure Storage-nycklar**: Visa standardkontot för lagring och dess nyckel. Lagringskontot är konfiguration när klustret skapas.
-   * **Kluster-inloggningen**: ändra kluster HTTP-användarnamn och lösenord.
-   * **Externa Metastores**: visa den [Apache Hive](https://hive.apache.org/) och [Apache Oozie](https://oozie.apache.org/) metastores. Metastores kan bara konfigureras när klustret skapas.
-   * **Skala kluster**: öka och minska antalet arbetarnoder i klustret.
-   * **Fjärrskrivbord**: aktivera och inaktivera åtkomst för fjärrskrivbord (RDP) och konfigurera RDP-användarnamnet.  RDP-användarnamnet måste skilja sig från användarnamnet HTTP.
+   * **Kluster-inloggningen**: Ändra kluster HTTP-användarnamn och lösenord.
+   * **Externa Metastores**: Visa den [Apache Hive](https://hive.apache.org/) och [Apache Oozie](https://oozie.apache.org/) metastores. Metastores kan bara konfigureras när klustret skapas.
+   * **Skala kluster**: Öka och minska antalet arbetarnoder i klustret.
+   * **Fjärrskrivbord**: Aktivera och inaktivera Fjärrskrivbord (RDP) fjärråtkomst och konfigurera RDP-användarnamnet.  RDP-användarnamnet måste skilja sig från användarnamnet HTTP.
    * **Partnern för posten**:
 
-     > [!NOTE]
+     > [!NOTE]  
      > Det här är en allmän lista över tillgängliga inställningar. inte alla ska vara tillgänglig för alla typer av klustret.
-     >
-     >
+
 6. Klicka på **egenskaper**:
 
     Egenskapsavsnittet visas följande:
 
-   * **Hostname**: klustrets namn.
+   * **Hostname**: Klustrets namn.
    * **Klustrets URL**.
-   * **Status för**: inkludera avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
+   * **Status för**: Inkludera avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ClusterCustomization
    * **Region**: Azure-plats. En lista över platser som stöds Azure finns i den **Region** nedrullningsbara listrutan på [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Data som har skapats**.
-   * **Operativsystemet**: antingen **Windows** eller **Linux**.
+   * **Operativsystem**: Antingen **Windows** eller **Linux**.
    * **Typ**: Hadoop, HBase, Storm, Spark.
    * **Version**. Se [HDInsight-versioner](hdinsight-component-versioning.md)
-   * **Prenumeration**: prenumerationsnamn.
+   * **Prenumeration**: Prenumerationsnamn.
    * **Prenumerations-ID**.
    * **Primära datakälla**. Azure Blob storage-konto som används som standard Hadoop-filsystem.
    * **Arbetsnoderna prisnivån**.
@@ -145,10 +139,8 @@ Se även [pausa/Stäng kluster](#pauseshut-down-clusters).
 ## <a name="scale-clusters"></a>Skala kluster
 Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av ett kluster som körs i Azure HDInsight utan att behöva återskapa klustret.
 
-> [!NOTE]
+> [!NOTE]  
 > Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](#list-and-show-clusters).
->
->
 
 Effekten av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
 
@@ -175,7 +167,7 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
   * Apache Storm-Webbgränssnittet
   * Verktyget kommandoradsgränssnittet (CLI)
 
-    Finns det [Apache Storm-dokumentationen](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
+    Finns det [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
 
     Storm-webbgränssnittet finns på HDInsight-klustret:
 
@@ -234,10 +226,8 @@ HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RES
 
 Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst från Azure-portalen.
 
-> [!NOTE]
+> [!NOTE]  
 > Genom att bevilja/återkalla åtkomst, ska du återställa klustret användarnamn och lösenord.
->
->
 
 **Att bevilja/återkalla åtkomst HTTP web services-åtkomst**
 
@@ -264,10 +254,10 @@ Se [lista och visa kluster](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Öppna konsolen för HDInsight-fråga
 HDInsight frågekonsolen innehåller följande funktioner:
 
-* **Hive-redigeraren**: A GUI Webbgränssnitt för att skicka Hive-jobb.  Se [kör Apache Hive-frågor med Frågekonsolen](hadoop/apache-hadoop-use-hive-query-console.md).
+* **Hive-redigeraren**: Ett GUI-Webbgränssnitt för att skicka Hive-jobb.  Se [kör Apache Hive-frågor med Frågekonsolen](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive-redigeraren](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
-* **Jobbhistorik**: övervaka Hadoop-jobb.  
+* **Jobbhistorik**: Övervaka Hadoop-jobb.  
 
     ![HDInsight portal jobbhistorik](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
@@ -300,10 +290,8 @@ Du kan också använda den **Bläddra i filsystemet** utility från den **Hadoop
 ## <a name="monitor-cluster-usage"></a>Övervaka kluster användning
 Den **användning** på HDInsight-klusterbladet visar information om hur många kärnor tillgängliga i prenumerationen för användning med HDInsight, samt antalet kärnor som allokerats till det här klustret och hur de är allokerade för noder i det här klustret. Se [lista och visa kluster](#list-and-show-clusters).
 
-> [!IMPORTANT]
-> För att övervaka de tjänster som tillhandahålls av HDInsight-klustret, måste du använda Ambari Web eller Ambari REST API. Läs mer om hur du använder Ambari [hantera HDInsight-kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
+> [!IMPORTANT]  
+> För att övervaka de tjänster som tillhandahålls av HDInsight-klustret, måste du använda Ambari Web eller Ambari REST API. Läs mer om hur du använder Ambari [hantera HDInsight-kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="open-hadoop-ui"></a>Öppna Användargränssnittet för Hadoop
 För att övervaka klustret, bläddra i filsystemet och kontrollera loggarna, klickar du på **Hadoop UI** i HDInsight frågekonsolen. Se [öppna HDInsight frågekonsol](#open-hdinsight-query-console).
@@ -325,10 +313,8 @@ Autentiseringsuppgifterna för det kluster som du angav när den har skapandet g
 
     Standardvärden för upphör att gälla på är en vecka.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också använda HDInsight .NET SDK för att aktivera Fjärrskrivbord i ett kluster. Använd den **EnableRdp** metoden på HDInsight-klientobjekt på följande sätt: **klienten. EnableRdp (klusternamn, plats, ”rdpuser”, ”rdppassword”, DateTime.Now.AddDays(6))**. På samma sätt för att inaktivera Fjärrskrivbord på klustret, du kan använda **klienten. DisableRdp (klusternamn, plats)**. Läs mer om dessa metoder, [HDInsight .NET SDK-referens](https://go.microsoft.com/fwlink/?LinkId=529017). Detta gäller endast för HDInsight-kluster som körs på Windows.
-   >
-   >
 
 **Att ansluta till ett kluster med RDP**
 
@@ -347,7 +333,7 @@ Om du vill ansluta till klustret med hjälp av fjärrskrivbord och använder Had
 
     ![HDI. HadoopCommandLine][image-hadoopcommandline]
 
-    Mer information om Hadoop-kommandon finns i [Apache Hadoop-kommandon referens](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    Mer information om Hadoop-kommandon finns i [Apache Hadoop-kommandon referens](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 Mappnamnet har Hadoop-versionsnumret som är inbäddad i föregående skärmbild. Versionsnumret kan ändras baserat på vilken version av Hadoop-komponenterna installeras i klustret. Du kan använda Hadoop miljövariabler för att referera till dessa mappar. Exempel:
 

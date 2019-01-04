@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341396"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727385"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner – Cloud backup-exempel
 
@@ -172,6 +172,9 @@ Nu kan du se att dirigering är klar och ungefär hur lång tid det tog för att
 ## <a name="visual-studio-sample-code"></a>Visual Studio-exempelkod
 
 Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
+
+> [!NOTE]
+> Du måste installera den `Microsoft.Azure.WebJobs.Extensions.Storage` nuget för att köra exempelkoden nedan.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

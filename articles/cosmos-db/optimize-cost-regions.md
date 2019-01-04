@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ec603df7005b9151f1cf760df80de9aaffc78b3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263904"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539712"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Optimera kostnader för distributioner över flera regioner i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Du kan lägga till och ta bort regioner till ditt Azure Cosmos-konto när som he
 
 1. `T x (N+1) RU/s` Om ditt Azure Cosmos-konto har konfigurerats med alla regioner som kan bearbeta skrivningar. 
 
-Etablerat dataflöde med enkel skrivregionen kostar $0.008/ timme per 100 RU/s och etablerat dataflöde med flera skrivbara regioner kostar $0.016 / per timme per 100 RU/s. Mer information finns i Cosmos DB [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Etablerat dataflöde med enkel skrivregionen kostar $0.008/ timme per 100 RU/s och etablerat dataflöde med flera skrivbara regioner kostar $0.016 / per timme per 100 RU/s. Mer information finns i Azure Cosmos DB [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="costs-for-multiple-write-regions"></a>Kostnaderna för flera Skriv-regioner
 

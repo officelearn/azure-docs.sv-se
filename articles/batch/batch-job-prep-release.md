@@ -3,7 +3,7 @@ title: Skapa uppgifter för att förbereda jobb och fullständig jobb på beräk
 description: Använd jobbnivå förberedande uppgifter för att minimera dataöverföringen till Azure Batch compute-noder och publiceringsuppgifter för noden rensning när jobbet har slutförts.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da69cc22fbb071ce3fa4b2c53aaf0b1ec4ba5e46
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096318"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548705"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Kör jobbförberedelse- och jobbpubliceringsaktiviteter på Batch compute-noder
 
@@ -195,9 +195,9 @@ Den här MSDN-foruminlägg innehåller en översikt över flera metoder för att
 
 Skrivna med ett Azure Batch-gruppmedlemmar beskrivs den flera metoder som du kan använda för att distribuera program och data för att beräkna noder.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease

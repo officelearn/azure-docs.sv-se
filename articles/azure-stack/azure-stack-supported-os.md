@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405605"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810787"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gästoperativsystem som stöds på Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
@@ -71,11 +71,11 @@ Linux-distributioner som är listat som är tillgänglig i Marketplace innehåll
 | Ubuntu 16.04-LTS | 64-bitars | Canonical | Ja |
 | Ubuntu 18.04-LTS | 64-bitars | Canonical | Ja |
 
-Red Hat Enterprise Linux supportinformation i [Red Hat och Azure Stack: vanliga frågor och svar](https://access.redhat.com/articles/3413531).
+Red Hat Enterprise Linux supportinformation finns i [Red Hat och Azure Stack: Vanliga frågor och svar](https://access.redhat.com/articles/3413531).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure Stack Marketplace finns i följande artiklar:
 
-[Hämta Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)  
-[Skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md)
+- [Hämta Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)  
+- [Skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md)

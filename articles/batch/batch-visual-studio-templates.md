@@ -1,9 +1,9 @@
 ---
-title: Skapa Batch-lösningar med Visual Studio-mallar – Azure | Microsoft Docs
+title: Skapa lösningar med Visual Studio-mallar – Azure Batch | Microsoft Docs
 description: Lär dig hur Visual Studio-projektmallar kan hjälpa dig att implementera och kör dina beräkningsintensiva arbetsbelastningar på Azure Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114104"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538131"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar för att ge Batch-lösningar
 
@@ -62,7 +62,7 @@ För att använda Batch-mallar, behöver du följande:
     
     * Azure Batch Job Manager med delningslist för jobbet
     * Azure Batch uppgift-Processor
-  * Hämta mallar från galleriet online för Visual Studio: [projektmallar för Microsoft Azure Batch][vs_gallery_templates]
+  * Hämta mallar från galleriet online för Visual Studio: [Projektmallar för Microsoft Azure Batch][vs_gallery_templates]
 * Om du planerar att använda den [programpaket](batch-application-packages.md) funktion för att distribuera jobbhanteraren och uppgiften processor till Batch-beräkningsnoder, du behöver länka ett lagringskonto till Batch-kontot.
 
 ## <a name="preparation"></a>Förberedelse
@@ -111,7 +111,7 @@ Resten av det här avsnittet beskrivs de olika filerna och deras kodstruktur och
 
 **Framework-filer**
 
-* `Configuration.cs`: Innehåller inläsningen av jobbet konfigurationsdata som Batch-kontoinformation, autentiseringsuppgifterna för länkade lagringskontot, jobb och aktivitetsinformation och jobbparametrar. Det ger också åtkomst till Batch-definierade miljövariabler (se miljöinställningar för aktiviteter i Batch-dokumentation) via Configuration.EnvironmentVariable-klassen.
+* `Configuration.cs`: Kapslar in inläsningen av jobbet konfigurationsdata som Batch-kontoinformation, autentiseringsuppgifterna för länkade lagringskontot, jobb och aktivitetsinformation och jobbparametrar. Det ger också åtkomst till Batch-definierade miljövariabler (se miljöinställningar för aktiviteter i Batch-dokumentation) via Configuration.EnvironmentVariable-klassen.
 * `IConfiguration.cs`: Avlägsnar implementeringen av klassen konfiguration, så att du kan enhetstest din delningslist för jobbet med hjälp av en förfalskad eller fingerad konfigurationsobjektet.
 * `JobManager.cs`: Samordnar komponenterna i job manager-program. Den är ansvarig för att initiera jobb delare, anropar delningslist för jobb och skicka de uppgifter som returneras av delningslist för jobbet att uppgiften inlämnare.
 * `JobManagerException.cs`: Representerar ett fel som kräver jobbhanteraren avslutas. JobManagerException används för att omsluta 'förväntade' fel där specifika diagnostisk information kan anges som en del av uppsägning.
@@ -124,7 +124,7 @@ Resten av det här avsnittet beskrivs de olika filerna och deras kodstruktur och
 **Standard projektfiler för .NET-kommandorad**
 
 * `App.config`: Standard .NET-programkonfigurationsfilen.
-* `Packages.config`: Standard NuGet-paketet beroende fil.
+* `Packages.config`: NuGet-paketet beroende standardfil.
 * `Program.cs`: Innehåller startpunkt för programmet och översta undantagshantering.
 
 ### <a name="implementing-the-job-splitter"></a>Implementera delningslist för jobbet
@@ -280,7 +280,7 @@ Resten av det här avsnittet beskrivs de olika filerna och deras kodstruktur och
 
 **Framework-filer**
 
-* `Configuration.cs`: Innehåller inläsningen av jobbet konfigurationsdata som Batch-kontoinformation, autentiseringsuppgifterna för länkade lagringskontot, jobb och aktivitetsinformation och jobbparametrar. Det ger också åtkomst till Batch-definierade miljövariabler (se miljöinställningar för aktiviteter i Batch-dokumentation) via Configuration.EnvironmentVariable-klassen.
+* `Configuration.cs`: Kapslar in inläsningen av jobbet konfigurationsdata som Batch-kontoinformation, autentiseringsuppgifterna för länkade lagringskontot, jobb och aktivitetsinformation och jobbparametrar. Det ger också åtkomst till Batch-definierade miljövariabler (se miljöinställningar för aktiviteter i Batch-dokumentation) via Configuration.EnvironmentVariable-klassen.
 * `IConfiguration.cs`: Avlägsnar implementeringen av klassen konfiguration, så att du kan enhetstest din delningslist för jobbet med hjälp av en förfalskad eller fingerad konfigurationsobjektet.
 * `TaskProcessorException.cs`: Representerar ett fel som kräver jobbhanteraren avslutas. TaskProcessorException används för att omsluta 'förväntade' fel där specifika diagnostisk information kan anges som en del av uppsägning.
 
@@ -298,7 +298,7 @@ Resten av det här avsnittet beskrivs de olika filerna och deras kodstruktur och
 **Standard projektfiler för .NET-kommandorad**
 
 * `App.config`: Standard .NET-programkonfigurationsfilen.
-* `Packages.config`: Standard NuGet-paketet beroende fil.
+* `Packages.config`: NuGet-paketet beroende standardfil.
 * `Program.cs`: Innehåller startpunkt för programmet och översta undantagshantering.
 
 ## <a name="implementing-the-task-processor"></a>Implementera uppgift-processor

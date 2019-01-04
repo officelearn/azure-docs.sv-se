@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957307"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994444"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure Monitor-API: er (REST och .net) och lösningar för dataanalys, till exempel Händelsehubbar. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md) i Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Åtkomst-mått i Azure portal
 
@@ -332,39 +332,39 @@ Azure Storage tillhandahåller följande kapacitet i Azure Monitor.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| UsedCapacity | Mängden lagringsutrymme som används av storage-konto. För standardlagringskonton är det summan av kapacitet som används av blob-, tabell-, fil- och kö. Det är samma som BlobCapacity för premium storage-konton och Blob storage-konton. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Värdeexempel: 1024 |
+| UsedCapacity | Mängden lagringsutrymme som används av storage-konto. För standardlagringskonton är det summan av kapacitet som används av blob-, tabell-, fil- och kö. Det är samma som BlobCapacity för premium storage-konton och Blob storage-konton. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Värdeexempel: 1024 <br/> Dimensionen: BlobType ([Definition](#metrics-dimensions)) |
-| BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Värdeexempel: 1024 <br/> Dimensionen: BlobType ([Definition](#metrics-dimensions)) |
-| ContainerCount    | Antalet behållare i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
+| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: BlobType ([Definition](#metrics-dimensions)) |
+| ContainerCount    | Antalet behållare i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| TableCapacity | Mängden tabellagring som används av storage-konto. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
-| TableCount   | Antalet tabeller i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
-| TableEntityCount | Antalet tabellentiteter i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
+| TableCapacity | Mängden tabellagring som används av storage-konto. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| TableCount   | Antalet tabeller i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| TableEntityCount | Antalet tabellentiteter i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
 ### <a name="queue-storage"></a>Queue Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| QueueCapacity | Mängden kölagring som används av storage-konto. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
-| QueueCount   | Antalet köer i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
-| QueueMessageCount | Antal läggs Kömeddelanden i lagringskontot. <br/><br/>Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
+| QueueCapacity | Mängden kölagring som används av storage-konto. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| QueueCount   | Antalet köer i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| QueueMessageCount | Antal läggs Kömeddelanden i lagringskontot. <br/><br/>Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
 ### <a name="file-storage"></a>File Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| FileCapacity | Mängden fillagring som används av storage-konto. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
-| FileCount   | Antal filer i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
-| FileShareCount | Antal filresurser i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
+| FileCapacity | Mängden fillagring som används av storage-konto. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| FileCount   | Antal filer i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| FileShareCount | Antal filresurser i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
 ## <a name="transaction-metrics"></a>Transaktionsmått
 
@@ -374,12 +374,12 @@ Azure Storage tillhandahåller följande transaktionsmått i Azure Monitor.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Transaktioner | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: ResponseType, GeoType, ApiName och autentisering ([Definition](#metrics-dimensions))<br/> Värdeexempel: 1024 |
-| Ingress | Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
-| Egress | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
-| SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: millisekunder <br/> Sammansättningstyp: genomsnittlig <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
-| SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: millisekunder <br/> Sammansättningstyp: genomsnittlig <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
-| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att använda värdet för totalt antal debiterbara begäranden och dividera det med antalet tillämpliga förfrågningar, inklusive de begäranden som genererat ett oväntat fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: procent <br/> Sammansättningstyp: genomsnittlig <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 99,99 |
+| Transaktioner | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. <br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Tillämpliga mått: ResponseType, GeoType, ApiName och autentisering ([Definition](#metrics-dimensions))<br/> Värdeexempel: 1024 |
+| Ingress | Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. <br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
+| Egress | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
+| SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: Millisekunder <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
+| SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: Millisekunder <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
+| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att använda värdet för totalt antal debiterbara begäranden och dividera det med antalet tillämpliga förfrågningar, inklusive de begäranden som genererat ett oväntat fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: Procent <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 99,99 |
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
@@ -388,7 +388,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
 | BlobType | Typen av blobb endast Blob-mått. Godkända värden är **BlockBlob** och **PageBlob**. Lägg till Blob som ingår i BlockBlob. |
-| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla serversidan fel förutom beskrivs de </li> <li> ServerBusyError: Autentiserad begäran som returnerade statuskoden HTTP 503-fel. </li> <li> ServerTimeoutError: Tidsgränsen autentiserad begäran som returnerade ett HTTP 500-statuskoden. Timeout uppstod på grund av ett serverfel. </li> <li> AuthorizationError: Autentiserad begäran som misslyckades på grund av obehörig åtkomst av data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiserad begäran som misslyckades på grund av nätverksfel. Inträffar vanligen när en klient stängs för tidigt en anslutning innan tidsgränsen upphör att gälla. </li> <li>    ClientThrottlingError: Begränsning på klientsidan fel. </li> <li> ClientTimeoutError: Tidsgränsen autentiserad begäran som returnerade ett HTTP 500-statuskoden. Om klientens tidsgränsen uppnåddes för nätverket eller timeout för begäran har angetts till ett lägre värde än förväntat genom att lagringstjänsten är det en förväntad timeout. Annars rapporteras den som en ServerTimeoutError. </li> <li> ClientOtherError: Alla andra klientsidan fel utom beskrivs de. </li> <li> Lyckades: Lyckad begäran|
+| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla andra serversidan fel förutom beskrivs de </li> <li> ServerBusyError: Autentiserad begäran som returnerade statuskoden HTTP 503-fel. </li> <li> ServerTimeoutError: Tidsgränsen nåddes för autentiserad begäran som returnerade ett HTTP 500-statuskoden. Timeout uppstod på grund av ett serverfel. </li> <li> AuthorizationError: Autentiserad begäran som misslyckades på grund av obehörig åtkomst av data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiserad begäran som misslyckades på grund av nätverksfel. Inträffar vanligen när en klient stängs för tidigt en anslutning innan tidsgränsen upphör att gälla. </li> <li>    ClientThrottlingError: Klientsidan begränsning fel. </li> <li> ClientTimeoutError: Tidsgränsen nåddes för autentiserad begäran som returnerade ett HTTP 500-statuskoden. Om klientens tidsgränsen uppnåddes för nätverket eller timeout för begäran har angetts till ett lägre värde än förväntat genom att lagringstjänsten är det en förväntad timeout. Annars rapporteras den som en ServerTimeoutError. </li> <li> ClientOtherError: Alla andra klientsidan fel utom beskrivs de. </li> <li> Klart: Förfrågan klar|
 | GeoType | Transaktionen från primär eller sekundär kluster. Tillgängliga värden är primär och sekundär. Den gäller Read Access Geo Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
 | ApiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokumentet](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 | Autentisering | Autentiseringstypen som används i transaktioner. Tillgängliga värden är: <br/> <li>AccountKey: Transaktionen har verifierats med din lagringskontonyckel.</li> <li>SAS: Transaktionen har verifierats med signaturer för delad åtkomst.</li> <li>OAuth: Transaktionen har verifierats med OAuth-åtkomsttoken.</li> <li>Anonym: Transaktionen har begärts anonymt. De omfattar inte preflight-begäranden.</li> <li>AnonymousPreflight: Transaktionen är preflight-begäran.</li> |

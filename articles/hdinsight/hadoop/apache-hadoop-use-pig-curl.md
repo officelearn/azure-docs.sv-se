@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 855ee1b7396be97c6529480b8fa8200bb8167ee6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434026"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715434"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Kör Apache Pig-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
@@ -101,7 +101,7 @@ Lär dig hur du kör Apache Pig Latin-jobb genom att göra REST-begäranden till
 
 När tillståndet för jobbet har ändrats till **lyckades**, du kan hämta resultatet av jobbet. Den `statusdir` -parameter som överförs med frågan innehåller platsen för utdatafilen; i det här fallet `/example/pigcurl`.
 
-HDInsight kan använda antingen Azure Storage eller Azure Data Lake Storage som datalager för standard. Det finns olika sätt att hämta data beroende på vad du använder. Mer information finns i avsnittet för lagring av den [information för Linux-baserade HDInsight](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) dokumentet.
+HDInsight kan använda antingen Azure Storage eller Azure Data Lake Storage som datalager för standard. Det finns olika sätt att hämta data beroende på vad du använder. Mer information finns i avsnittet för lagring av den [information för Linux-baserade HDInsight](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage) dokumentet.
 
 ## <a id="summary"></a>Sammanfattning
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: ef93c62a2e2084a43eeda578c889a568d04db4f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53740900"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
@@ -26,11 +26,13 @@ Azure Function-aktiviteten kan du köra [Azure Functions](../azure-functions/fun
 
 ## <a name="azure-function-linked-service"></a>Azure funktion länkad tjänst
 
+Returtypen för Azure-funktionen måste vara en giltig JObject. Allt annat misslyckas och genererar en allmän användarfel *fel anropande endpoint*.
+
 | **Egenskap** | **Beskrivning** | **Krävs** |
 | --- | --- | --- |
 | typ   | Type-egenskapen måste anges till: **AzureFunction** | ja |
 | funktionen app-url | URL för Azure Functions-App. Formatet är `https://<accountname>.azurewebsites.net`. Denna URL är värdet under **URL** avsnittet när du visar Funktionsappen i Azure portal  | ja |
-| Funktionsnyckel | Åtkomstnyckel för Azure-funktion. Klicka på den **hantera** för respektive funktion och kopiera antingen den **funktionsnyckel** eller **värdnyckeln**. Ta reda på mer här: [Azure Functions HTTP-utlösare och bindningar](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | ja |
+| Funktionsnyckel | Åtkomstnyckel för Azure-funktion. Klicka på den **hantera** för respektive funktion och kopiera antingen den **funktionsnyckel** eller **värdnyckeln**. Läs mer här: [Azure Functions HTTP-utlösare och bindningar](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | ja |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Azure Function-aktivitet
@@ -41,12 +43,18 @@ Azure Function-aktiviteten kan du köra [Azure Functions](../azure-functions/fun
 | typ  | Aktiviteten är 'AzureFunctionActivity' | Sträng | ja |
 | Länkad tjänst | Azure-funktion som är länkad tjänst för motsvarande Azure Function-App  | Länkade tjänstreferensen | ja |
 | Funktionsnamn  | Namnet på funktionen i Azure Function-App som anropar den här aktiviteten | Sträng | ja |
-| metod  | REST API-metoden för funktionsanropet | Sträng typer som stöds: ”GET”, ”efter”, ”PUT”   | ja |
+| metod  | REST API-metoden för funktionsanropet | Sträng typer som stöds: ”HÄMTA”, ”POST”, ”PUT”   | ja |
 | sidhuvud  | Rubriker som skickas till begäran. Till exempel vill ange språk och typ för en begäran: ”headers”: {”Accept-språk” ”: en-us”, ”Content-Type”: ”application/json”} | Sträng (eller ett uttryck med resultType av sträng) | Nej |
-| brödtext  | texten som skickas tillsammans med begäran till funktionen api-metoden  | Sträng (eller uttryck med resultType av sträng).   | Krävs för PUT/POST-metoder |
+| brödtext  | texten som skickas tillsammans med begäran till funktionen api-metoden  | Sträng (eller ett uttryck med resultType av sträng) eller ett objekt.   | Krävs för PUT/POST-metoder |
 |   |   |   | |
 
 Se schemat för nyttolasten i begäran i [begäran nyttolast schemat](control-flow-web-activity.md#request-payload-schema) avsnittet.
+
+## <a name="more-info"></a>Mer information
+
+Aktivitet för Azure-funktionen stöder **routning**. Exempel: om din app använder följande routning - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - kommer `functionName` är `functionName/{value}`, som du kan Parameterisera ange önskad `functionName` vid körning.
+
+Aktivitet för Azure-funktionen stöder även **frågor**. En fråga måste vara en del av den `functionName` , till exempel `HttpTriggerCSharp2?name=hello` – där den `function name` är `HttpTriggerCSharp2`.
 
 ## <a name="next-steps"></a>Nästa steg
 

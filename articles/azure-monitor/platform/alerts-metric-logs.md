@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 76355723baa7727c0dda10ace449603d6ebefbe1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bfa5cc9a5c04d4c6a692d9a70844f2ec0c35e132
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435862"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579183"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa Måttaviseringar för loggar i Azure Monitor  
 
 ## <a name="overview"></a>Översikt
-Azure Monitor stöder [måttaviseringstypen](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) som har fördelar över den [klassiska aviseringar](../../azure-monitor/platform/alerts-classic-portal.md). Mått är tillgängliga för [lång lista med Azure-tjänster](../../azure-monitor/platform/metrics-supported.md). Den här artikeln beskriver användningen av en delmängd (det vill säga) för resurs - `Microsoft.OperationalInsights/workspaces`. 
+Azure Monitor stöder [måttaviseringstypen](../../azure-monitor/platform/alerts-metric-near-real-time.md) som har fördelar över den [klassiska aviseringar](../../azure-monitor/platform/alerts-classic-portal.md). Mått är tillgängliga för [lång lista med Azure-tjänster](../../azure-monitor/platform/metrics-supported.md). Den här artikeln beskriver användningen av en delmängd (det vill säga) för resurs - `Microsoft.OperationalInsights/workspaces`. 
 
 Du kan använda måttaviseringar på den populära Log Analytics loggar extraherade som mått som en del av mått från loggar, inklusive resurser i Azure eller lokalt. De Log Analytics-lösningarna som stöds finns nedan:
 - [Prestandaräknare](../../azure-monitor/platform/data-sources-performance-counters.md) för Windows och Linux-datorer
@@ -51,7 +51,7 @@ Innan mått för loggar som samlats in på Log Analytics data fungerar kan måst
 4. **Logga Analyslösningar som konfigurerats för att skicka loggar**: Log Analytics-lösning bör ha det nödvändiga loggar/data som motsvarar [mått som stöds för Log Analytics-arbetsytor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) aktiverat. Till exempel för *% tillgängligt minne* räknare för den måste konfigureras i [prestandaräknare](../../azure-monitor/platform/data-sources-performance-counters.md) lösning första.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurera metrisk varning för loggar
- måttaviseringar kan skapas och hanteras med hjälp av Azure portal, Resource Manager-mallar, REST API, PowerShell och Azure CLI. Eftersom mått aviseringar för loggar är en variant av måttaviseringar - när kraven är klar, kan du skapa metrisk varning för loggar för angivna Log Analytics-arbetsyta. Alla egenskaper och funktioner för [ måttaviseringar](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) kommer att användas på måttaviseringar för loggar också, inklusive nyttolast schemat och tillämpliga kvotgränser faktureras pris.
+ måttaviseringar kan skapas och hanteras med hjälp av Azure portal, Resource Manager-mallar, REST API, PowerShell och Azure CLI. Eftersom mått aviseringar för loggar är en variant av måttaviseringar - när kraven är klar, kan du skapa metrisk varning för loggar för angivna Log Analytics-arbetsyta. Alla egenskaper och funktioner för [ måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) kommer att användas på måttaviseringar för loggar också, inklusive nyttolast schemat och tillämpliga kvotgränser faktureras pris.
 
 Steg för steg-information och exempel – i [skapa och hantera måttaviseringar](https://aka.ms/createmetricalert). Mer specifikt för mått aviseringar för loggar – Följ instruktionerna för att hantera aviseringar för mått och kontrollera följande:
 - Mål för metrisk varning är ett giltigt *Log Analytics-arbetsyta*

@@ -1,24 +1,21 @@
 ---
-title: 'En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv'
-description: Skydda virtuella datorer i Azure med ett Recovery Services-valv. Använd säkerhetskopior av Resource Manager-distribuerade virtuella datorer och klassiskt distribuerade virtuella datorer samt virtuella datorer med Premium Storage, krypterade virtuella datorer, virtuella datorer på hanterade diskar för att skydda dina data. Skapa och registrera ett Recovery Services-valv. Registrera virtuella datorer, skapa en princip och skydda virtuella datorer i Azure.
+title: Säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten
+description: Lär dig hur du säkerhetskopierar virtuella Azure-datorer med Azure Backup-tjänsten
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: säkerhetskopior. säkerhetskopiering av virtuella datorer
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869936"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631591"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten
 
 Den här artikeln förklarar hur du konfigurerar skydd för en virtuell dator från virtuella datorer Arkiv-menyn eller Recovery Services-valvet. Recovery Services-valv skyddar:
 
@@ -32,7 +29,7 @@ Den här artikeln förklarar hur du konfigurerar skydd för en virtuell dator fr
 
 Mer information om hur du skyddar virtuella datorer med Premium Storage finns i artikeln [Säkerhetskopiera och återställa virtuella datorer i Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Mer information om stöd för hanterade virtuella datordiskar finns i [Säkerhetskopiering och återställning av virtuella datorer på hanterade diskar](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Mer information om ramverket för förskript och efterskript för säkerhetskopiering av virtuella Linux-datorer finns i [Programkonsekvent säkerhetskopiering av virtuella Linux-datorer med förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Du hittar mer information om vad du kan se och kan inte säkerhetskopiera [förbereda din miljö för att säkerhetskopiera virtuella Azure-datorer](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Du hittar mer information om vad du kan se och kan inte säkerhetskopiera [förbereda din miljö för att säkerhetskopiera virtuella Azure-datorer](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten.
@@ -337,7 +334,9 @@ Backup-tjänsten installerar tillägget för säkerhetskopiering även om den vi
 Om du har problem med att utföra vissa uppgifter i den här artikeln läser du [felsökningsanvisningarna](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Prissättning
-Kostnaden för att säkerhetskopiera virtuella datorer i Azure baseras på hur många instanser som skyddas. I [Vad är en skyddad instans](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) definieras begreppet skyddad instans. I avsnittet om att [beräkna skyddade instanser](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) ges ett exempel på hur du kan beräkna kostnaden för säkerhetskopiering av en virtuell dator. På sidan med prissättning för Azure-säkerhetskopiering finns information om [priser för säkerhetskopiering](https://azure.microsoft.com/pricing/details/backup/).
+Kostnaden för att säkerhetskopiera virtuella datorer i Azure baseras på hur många instanser som skyddas. I [Vad är en skyddad instans](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) definieras begreppet skyddad instans. På sidan med prissättning för Azure-säkerhetskopiering finns information om [priser för säkerhetskopiering](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="questions"></a>Har du några frågor?
-Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Nästa steg
+
+[Hantera](backup-azure-manage-vms.md) säkerhetskopiorna.
+

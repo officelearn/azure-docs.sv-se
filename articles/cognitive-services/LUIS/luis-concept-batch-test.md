@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133155"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993175"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testning med 1000 yttranden LUIS-portalen
 
@@ -48,7 +48,7 @@ Alla anpassade entiteter i modellen visas i filtret batch test entiteter även o
 
 Kommandofilen består av yttranden. Varje uttryck måste ha en förväntade avsikt förutsägelse tillsammans med eventuella [datorn lärt dig entiteter](luis-concept-entity-types.md#types-of-entities) du förväntar dig att identifieras. 
 
-## <a name="batch-syntax-template"></a>Mall för batch-syntax
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Mall för batch-syntax för avsikter med entiteter
 
 Använd följande mall för att starta kommandofilen:
 
@@ -75,6 +75,22 @@ Använd följande mall för att starta kommandofilen:
 ```
 
 Batchfilen använder den **startPos** och **endPos** egenskaper att notera i början och slutet av en entitet. Värdena får är nollbaserat och inte börja eller sluta på ett blanksteg. Detta skiljer sig från frågeloggar som använder startIndex och endIndex egenskaper. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Batch syntax mall för avsikter utan entiteter
+
+Använd följande mall för att starta kommandofilen utan entiteter:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+Om du inte vill testa entiteter omfattar den `entities` egenskap och ange en tom matris `[]`.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Vanliga fel som importerar en batch

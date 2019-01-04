@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 245372b39f4b730128c593ddd04225bd82875393
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387105"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601567"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -32,7 +32,7 @@ Azure SQL-databas, elastiska pooler, Managed Instance och databaser i Managed In
 Mer information om mått och loggfiler kategorier som stöds av olika Azure-tjänster finns:
 
 * [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Översikt över Azure-diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Den här artikeln innehåller riktlinjer som hjälper dig att aktivera diagnostiktelemetri för databaser, elastiska pooler och hanterad instans. Det också kan hjälpa dig att förstå hur du konfigurerar Azure SQL Analytics som ett övervakningsverktyg för att visa diagnostik databastelemetri.
 
@@ -691,7 +691,7 @@ Läs mer om den [smarta insikter loggformat](sql-database-intelligent-insights-u
 Lär dig hur du aktiverar loggning och för att förstå mått och loggar kategorier som stöds av olika Azure-tjänsterna, se:
 
 * [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Översikt över Azure-diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Läs mer om Event Hubs finns:
 

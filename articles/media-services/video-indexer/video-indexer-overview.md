@@ -7,46 +7,46 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: ae8634fbfdaa250cbabda6189c6c2eeef8e5e4f1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 58124ab5938c7bee9f83a8c37ab5c5618b4b7d54
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292497"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789831"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
 Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service). Det gör det möjligt att extrahera insikter från dina videor med Video Indexer-modeller som beskrivs nedan:
  
-- **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och portugisiska (Brasilien). Om språket inte kan identifieras används engelska.
-- **Ljudtranskription**: Konverterar tal till text på 10 språk och stöder tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska och portugisiska (Brasilien).
-- **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
-- **Bearbetning av två kanaler**: Identifierar automatiskt, avgränsar avskrift och slår samman till en enda tidslinje.
-- **Brusreducering**: Rensar telefoniljud eller inspelningar med störningar (baserat på Skype-filter).
-- **Avskriftsanpassning (CRIS)**: Tränar och kör utökade anpassade tal till text-modeller för att skapa branschspecifika avskrifter.
-- **Talaruppräkning**: Mappar och förstår vilken talare som sa vilka ord och när.
-- **Talarstatistik**: Ger statistik om talförhållanden för talare.
-- **Visuell textigenkänning (OCR)**: Extraherar text som visas i videon.
-- **Extrahering av bildrutor**: Identifierar stabila nyckelbilder i en video.
-- **Attitydanalys**: Identifierar positiva, negativa och neutrala attityder i tal och visuell text.
-- **Moderering av visuellt innehåll**: Identifierar vuxna och/eller vågade visuella objekt.
-- **Extrahering av nyckelord**: Extraherar nyckelord från tal och visuell text.
-- **Identifiering av etiketter**: Identifierar visuella objekt och åtgärder som visas.
-- **Extrahering av varumärken**: Extraherar varumärken från tal och visuell text.
-- **Ansiktsigenkänning**: Identifierar och grupperar ansikten som visas i videon.
-- **Extrahering av miniatyrer för ansikten (”bästa ansikte”)**: Identifierar automatiskt det bäst avbildade ansiktet i varje grupp med ansikten (baserat på kvalitet, storlek och position framifrån) och extraherar det som en bildtillgång.
-- **Identifiering av kända personer**: Video Indexer identifierar automatiskt över en miljon kända personer – som världsledare, skådespelare, idrottsprofiler, forskare, affärs- och teknikledare från hela världen. Information om dessa kändisar kan också finnas på olika kända webbplatser, till exempel IMDB och Wikipedia.
-- **Kontobaserad ansiktsidentifiering**: Video Indexer tränar en modell för ett visst konto. Sedan kan det identifiera ansikten i videor baserat på modellen som tränats specifikt för videor i det kontot.
-- **Moderering av textinnehåll**: Identifierar stötande text i ljudavskriften.
-- **Scenidentifiering**: Avgör när en scen ändras i videon.
-- **Identifiering av svarta bildrutor**: Identifierar svarta bildrutor som visas i videon.
-- **Ljudeffekter**: Identifierar ljudeffekter, till exempel handklappningar, tal och tystnad.
-- **Ämnesinferens**: Skapar inferens av huvudämnen från avskrifter. [IPTC](https://iptc.org/standards/media-topics/)-taxonomi på första nivån ingår.
-- **Känsloigenkänning**: Identifierar känslor baserat på tal och ljudtips. Känslan kan vara: glädje, sorg, ilska eller rädsla.
-- **Artefakter**: Extraherar en omfattande uppsättning ”nästa detaljnivå”-artefakter för de olika modellerna.
-- **Översättning**: Skapar översättningar av ljudavskriften till 54 olika språk.
+- **Automatisk språkidentifiering**: Identifierar automatiskt dominerande talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och portugisiska (Brasilien). Om språket inte kan identifieras används engelska.
+- **Ljudutskrift**: Konverterar tal till text i 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, portugisiska (Brasilien), Hindi och koreanska.
+- **Textning**: Skapar textning i tre format: VTT, TTML, SRT.
+- **Två channel bearbetning**: Automatiskt identifierar, avgränsa avskrift och slår ihop till en enda tidslinje.
+- **Buller minskning**:  Rensar upp telefoni ljud- eller störningar inspelningar (baserat på Skype filter).
+- **Avskriften anpassning (CRIS)**: Träna och kör utökade anpassad tal till text modeller för att skapa branschspecifika avskrifter.
+- **Talare uppräkning**:  Mappar och förstår vilka talare ekrar vilka ord och när.
+- **Talare statistik**: Innehåller statistik för talare tal förhållanden.
+- **Visual text teckenigenkänning (OCR)**: Extraherar text som visas visuellt i videon.
+- **Extrahering av bildrutan**: Identifierar stabil nyckelrutor i en video.
+- **Attitydanalys**: Identifierar positivt, negativt och neutral sentiment från tal- och visual text.
+- **Visual innehållsmoderering**: Identifierar vuxet/vågat eller visuella objekt.
+- **Extrahering av nyckelord**: Extraherar nyckelord från tal- och visual text.
+- **ID för etiketten**: Identifierar visuella objekt och åtgärder som visas.
+- **Anpassar extrahering**: Extraherar varumärken från tal- och visual text.
+- **Ansiktsspårning**: Identifierar och grupperar ansikten visas i videon.
+- **Miniatyr extrahering för ansikten (”bästa framsidan”)**: Automatiskt identifierar bäst avbildade ansikte i varje grupp med ansikten (baserat på kvalitet, storlek och främre placering) och extrahera den som en bild tillgång.
+- **Kändisar identifiering**: Video Indexer identifierar automatiskt över 1 miljon kändisar – till exempel world ledare, aktörer och actresses, tävlande, forskare, företag och tekniska ledare i hela världen. Information om dessa kändisar kan också finnas på olika kända webbplatser, till exempel IMDB och Wikipedia.
+- **Baserade ansiktsidentifiering**: Video Indexer träna en modell för ett visst konto. Sedan kan det identifiera ansikten i videor baserat på modellen som tränats specifikt för videor i det kontot.
+- **Textbaserade innehållsmoderering**: Identifierar explicit text i ljudavskrifter.
+- **Som identifiering av**: Anger när en scen ändras i videon.
+- **Svart ramtyp**: Identifierar svart ramar som visas i videon.
+- **Ljud effekterna**: Identifierar ljud effekter som hand applåder, tal och åsidosatt inaktivitet.
+- **Avsnittet inferens**: Gör inferens av viktigaste avsnitten från avskrifter. [IPTC](https://iptc.org/standards/media-topics/)-taxonomi på första nivån ingår.
+- **Känsloigenkänning**: Identifierar känslor baserat på tal- och ljud tips. Känslan kan vara: glädje, sorg, ilska eller rädsla.
+- **Artefakter**: Extraherar omfattande uppsättning ”nästa nivå med information om” artefakter för de olika modellerna.
+- **Översättning**: Skapar översättningar av ljudavskrifter till 54 olika språk.
 
 När Video Indexer är klar med bearbetning och analys kan du granska, moderera, söka och publicera videoinsikterna.
 

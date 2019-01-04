@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465728"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635773"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
 
@@ -37,7 +37,7 @@ Många administrativa uppgifter med en säkerhetskopiering av virtuella datorer 
 ![Fullständig vy med skjutreglaget](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Öppna Recovery Services-valvet i instrumentpanelen:
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -77,15 +77,15 @@ I föregående procedur öppnas instrumentpanelen för valvet. Öppna instrument
 
     ![Objekt att säkerhetskopiera instrumentpanel med bladet inställningar](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    Från instrumentpanelen för valvet objekt kan du utföra många viktiga hanteringsaktiviteter som:
+    Från instrumentpanelen för valvet objekt kan du utföra många viktiga uppgifter, till exempel:
 
    * Ändra principer eller skapa en ny säkerhetskopieringsprincip
    * Visa återställningspunkter och se deras konsekvens-tillstånd
-   * säkerhetskopiering på begäran för en virtuell dator
-   * sluta skydda virtuella datorer
-   * återuppta skyddet av en virtuell dator
+   * Säkerhetskopiering på begäran för en virtuell dator
+   * Sluta skydda virtuella datorer
+   * Återuppta skyddet av en virtuell dator
    * ta bort säkerhetskopierade data (eller återställningspunkt)
-   * [återställa säkerhetskopior](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [återställa säkerhetskopior](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 Med följande metoder för är startpunkten instrumentpanelen för valvet objekt.
 

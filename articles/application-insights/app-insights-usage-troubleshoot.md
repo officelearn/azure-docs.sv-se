@@ -13,26 +13,26 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a0284675417ae31c2e16651a312f4c11c4e238ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995534"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969360"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka användaren beteende analysverktyg i Application Insights
-Om du har frågor om den [användaren beteende analysverktyg i Application Insights](app-insights-usage-overview.md): [användare, sessioner, händelser](app-insights-usage-segmentation.md), [Trattar](usage-funnels.md), [Användarflöden](app-insights-usage-flows.md), [Kvarhållning](app-insights-usage-retention.md), eller kohorter? Här är några svar.
+Om du har frågor om den [användaren beteende analysverktyg i Application Insights](app-insights-usage-overview.md): [Användare, sessioner, händelser](app-insights-usage-segmentation.md), [Trattar](usage-funnels.md), [Användarflöden](app-insights-usage-flows.md), [kvarhållning](app-insights-usage-retention.md), eller kohorter? Här är några svar.
 
 ## <a name="counting-users"></a>Räkna användare
 **Analysverktyg för användaren beteende visar att min app har en användarsession, men jag min app har många användare/sessioner. Hur kan jag åtgärda de här felaktiga antal?**
 
-Alla händelser i Application Insights har en [anonym användar-ID](application-insights-data-model-context.md) och en [sessions-ID](application-insights-data-model-context.md) som två av deras standardegenskaper. Som standard räknas alla analysverktyg användning användare och sessioner baserat på dessa ID: N. Om dessa standardegenskaper inte uppdateras med unika ID: N för varje användare och sessioner av din app, visas ett felaktigt antal användare och sessioner i analysverktyg för användning.
+Alla händelser i Application Insights har en [anonym användar-ID](../azure-monitor/app/data-model-context.md) och en [sessions-ID](../azure-monitor/app/data-model-context.md) som två av deras standardegenskaper. Som standard räknas alla analysverktyg användning användare och sessioner baserat på dessa ID: N. Om dessa standardegenskaper inte uppdateras med unika ID: N för varje användare och sessioner av din app, visas ett felaktigt antal användare och sessioner i analysverktyg för användning.
 
-Om du övervakar en webbapp, den enklaste lösningen är att lägga till den [Application Insights JavaScript SDK](app-insights-javascript.md) till din app och kontrollera att skriptet kodfragmentet har lästs in på varje sida som du vill övervaka. JavaScript SDK kan du automatiskt genererar anonym användare och sessioner ID: N och sedan fylls telemetrihändelser med dessa ID: N som de har skickats från din app.
+Om du övervakar en webbapp, den enklaste lösningen är att lägga till den [Application Insights JavaScript SDK](../azure-monitor/app/javascript.md) till din app och kontrollera att skriptet kodfragmentet har lästs in på varje sida som du vill övervaka. JavaScript SDK kan du automatiskt genererar anonym användare och sessioner ID: N och sedan fylls telemetrihändelser med dessa ID: N som de har skickats från din app.
 
 Om du övervakar en webbtjänst (inget användargränssnitt) [skapa en telemetri-initierare som fyller på egenskaperna för anonyma användare-ID och session-ID](app-insights-usage-send-user-context.md) enligt din tjänsts begrepp för unika användare och sessioner.
 
-Om din app skickar [autentiserad användar-ID](app-insights-api-custom-events-metrics.md#authenticated-users), du kan räkna utifrån autentiserat användar-ID i verktyget användare. I listrutan ”Visa” Välj ”autentiserade användare”.
+Om din app skickar [autentiserad användar-ID](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), du kan räkna utifrån autentiserat användar-ID i verktyget användare. I listrutan ”Visa” Välj ”autentiserade användare”.
 
 Analysverktyg för användaren beteende stöder för närvarande inte cykliska användare eller sessioner baserat på egenskaper än anonym användar-ID, autentiserat användar-ID eller sessions-ID.
 

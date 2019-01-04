@@ -1,7 +1,7 @@
 ---
 title: Versionshantering
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lär dig hur du använder versioner för att hantera ändringar i Språkförståelse (LUIS)
+description: Versioner i LUIS, liknar versioner i traditionella programmering. Varje version är en ögonblicksbild i gång av appen. Skapa en ny version innan du gör ändringar i appen. Det är lättare att gå tillbaka till exakt appen, sedan att försöka unpeel och appens avsikt och yttranden till ett tidigare tillstånd.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 3dae1256e93bb15777225ada742539c5a0ebdccc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 522f1cff2d735081daecc8be6384badcd378fd75
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015576"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599594"
 ---
-# <a name="versions"></a>Versioner
+# <a name="understand-how-and-when-to-use-a-luis-version"></a>Förstå hur och när du använder en LUIS-version
+
+Versioner i LUIS, liknar versioner i traditionella programmering. Varje version är en ögonblicksbild i gång av appen. Skapa en ny version innan du gör ändringar i appen. Det är lättare att gå tillbaka till exakt appen, sedan att försöka unpeel och appens avsikt och yttranden till ett tidigare tillstånd. 
+
 Skapa olika modeller av samma app med [versioner](luis-how-to-manage-versions.md). 
 
 ## <a name="version-id"></a>Versions-ID

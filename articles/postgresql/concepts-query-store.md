@@ -1,18 +1,17 @@
 ---
 title: Query Store i Azure Database för PostgreSQL
 description: Den här artikeln beskriver funktionen Query Store i Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379169"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546920"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
@@ -114,30 +113,30 @@ Den här vyn returnerar alla data i Query Store. Det finns en rad för varje dis
 |runtime_stats_entry_id |bigint | | ID: T från tabellen runtime_stats_entries|
 |user_id    |OID    |pg_authid.OID  |OID för användare som har utfört instruktionen|
 |t %{db_id/  |OID    |pg_database.OID    |OID för databasen där instruktionen kördes|
-|query_id   |bigint  || Intern hash-koden som beräknas från utdragets parsningsträd|
-|query_sql_text |Varchar(10000)  || Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
+|query_id   |bigint  || Intern hash-koden som beräknas från utdragets parsningsträd|
+|query_sql_text |Varchar(10000)  || Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
 |plan_id    |bigint |   |ID för den plan som motsvarar den här frågan är inte tillgängligt ännu|
 |Starttid |tidsstämpel  ||  Frågor samlas genom tid buckets - omfånget på en bucket är 15 minuter som standard. Det här är starttiden för enheten för den här posten.|
 |end_time   |tidsstämpel  ||  Sluttid för enheten för den här posten.|
-|anrop  |bigint  || Antal gånger som frågan körs|
-|total_time |dubbel precision   ||  Totalt antal fråga körningstid, i millisekunder|
+|anrop  |bigint  || Antal gånger som frågan körs|
+|total_time |dubbel precision   ||  Totalt antal fråga körningstid, i millisekunder|
 |min_time   |dubbel precision   ||  Minsta fråga körningstid, i millisekunder|
 |max_time   |dubbel precision   ||  Maximal körningstid, i millisekunder|
 |mean_time  |dubbel precision   ||  Innebär att fråga körningstid, i millisekunder|
 |stddev_time|   dubbel precision    ||  Standardavvikelse fråga körningstid, i millisekunder |
-|rader   |bigint ||  Totalt antal rader hämtas eller påverkas av instruktionen|
-|shared_blks_hit|   bigint  ||  Totalt antal cacheträffar för delade block av instruktionen|
+|rader   |bigint ||  Totalt antal rader hämtas eller påverkas av instruktionen|
+|shared_blks_hit|   bigint  ||  Totalt antal cacheträffar för delade block av instruktionen|
 |shared_blks_read|  bigint  ||  Totalt antal delade läses av instruktionen|
-|shared_blks_dirtied|   bigint   || Totalt antal delade dirtied av instruktionen |
-|shared_blks_written|   bigint  ||  Totalt antal delade skrivits av instruktionen|
+|shared_blks_dirtied|   bigint   || Totalt antal delade dirtied av instruktionen |
+|shared_blks_written|   bigint  ||  Totalt antal delade skrivits av instruktionen|
 |local_blks_hit|    bigint ||   Totalt antal cacheträffar för lokala block av instruktionen|
-|local_blks_read|   bigint   || Totalt antal lokala läses av instruktionen|
-|local_blks_dirtied|    bigint  ||  Totalt antal lokala dirtied av instruktionen|
-|local_blks_written|    bigint  ||  Totalt antal lokala skrivits av instruktionen|
-|temp_blks_read |bigint  || Totalt antal temp läses av instruktionen|
-|temp_blks_written| bigint   || Totalt antal temp skrivits av instruktionen|
-|blk_read_time  |dubbel precision    || Total tid instruktionen läsning block i millisekunder (om track_io_timing är aktiverad, annars noll)|
-|blk_write_time |dubbel precision    || Total tid instruktionen skrivs block i millisekunder (om track_io_timing är aktiverad, annars noll)|
+|local_blks_read|   bigint   || Totalt antal lokala läses av instruktionen|
+|local_blks_dirtied|    bigint  ||  Totalt antal lokala dirtied av instruktionen|
+|local_blks_written|    bigint  ||  Totalt antal lokala skrivits av instruktionen|
+|temp_blks_read |bigint  || Totalt antal temp läses av instruktionen|
+|temp_blks_written| bigint   || Totalt antal temp skrivits av instruktionen|
+|blk_read_time  |dubbel precision    || Total tid instruktionen läsning block i millisekunder (om track_io_timing är aktiverad, annars noll)|
+|blk_write_time |dubbel precision    || Total tid instruktionen skrivs block i millisekunder (om track_io_timing är aktiverad, annars noll)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Den här vyn returnerar frågan textdata i Query Store. Det finns en rad för varje distinkt fråga.
@@ -145,7 +144,7 @@ Den här vyn returnerar frågan textdata i Query Store. Det finns en rad för va
 |**Namn**|  **Typ**|   **Beskrivning**|
 |---|---|---|
 |query_text_id  |bigint     |ID för tabellen query_texts|
-|query_sql_text |Varchar(10000)     |Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
+|query_sql_text |Varchar(10000)     |Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
@@ -154,8 +153,8 @@ Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad fö
 |---|---|---|---|
 |user_id    |OID    |pg_authid.OID  |OID för användare som har utfört instruktionen|
 |t %{db_id/  |OID    |pg_database.OID    |OID för databasen där instruktionen kördes|
-|query_id   |bigint     ||Intern hash-koden som beräknas från utdragets parsningsträd|
-|event_type |text       ||Vilken typ av händelse som väntar på serverdelen|
+|query_id   |bigint     ||Intern hash-koden som beräknas från utdragets parsningsträd|
+|event_type |text       ||Vilken typ av händelse som väntar på serverdelen|
 |händelse  |text       ||Vänta händelsenamn om serverdelen väntar på|
 |anrop  |Integer        ||Antal samma händelse avbildas|
 
@@ -163,11 +162,11 @@ Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad fö
 ### <a name="functions"></a>Functions
 Query_store.qs_reset() returnerar void
 
-`qs_reset` tar bort all statistik som samlas in hittills av Query Store. Den här funktionen kan endast utföras av administratörsrollen.
+`qs_reset` tar bort all statistik som samlas in hittills av Query Store. Den här funktionen kan endast utföras av administratörsrollen.
 
 Query_store.staging_data_reset() returnerar void
 
-`staging_data_reset` tar bort all statistik som samlas in i minnet av Query Store (d.v.s. data i minnet som inte har rensats ännu till databasen). Den här funktionen kan endast utföras av administratörsrollen.
+`staging_data_reset` tar bort all statistik som samlas in i minnet av Query Store (d.v.s. data i minnet som inte har rensats ännu till databasen). Den här funktionen kan endast utföras av administratörsrollen.
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 - Om en PostgreSQL-server har parametern-default_transaction_read_only, Query Store kan inte samla in data.

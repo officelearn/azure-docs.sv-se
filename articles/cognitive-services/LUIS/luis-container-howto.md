@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013824"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970284"
 ---
-# <a name="install-and-run-containers"></a>Installera och köra containrar
+# <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
 Behållaren för Språkförståelse (LUIS) läser in din tränade eller publicerade Language Understanding-modell, det vill säga som en [LUIS-app](https://www.luis.ai), i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till Azure Language Understanding-modellen för att förbättra appens prognosens noggrannhet.
 
@@ -34,17 +34,17 @@ För att kunna köra LUIS-behållare, måste du ha följande:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| För att slutföra den här förhandsversionen måste Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
+|Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
-|Språkresursen för Språkförståelse (LUIS) och tillhörande app |För att kunna använda behållaren måste du ha:<br><br>* A [ _Språkförståelse_ Azure-resurs](luis-how-to-azure-subscription.md), tillsammans med den associerade slutpunktsnyckel och slutpunkt URI (som används som fakturering slutpunkt).<br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID.<br>* På redigering för att hämta app-paket om du gör detta API.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}** : Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Detta ID används för att markera App. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Språkförståelse_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan. Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
+|Språkresursen för Språkförståelse (LUIS) och tillhörande app |För att kunna använda behållaren måste du ha:<br><br>* A [ _Språkförståelse_ Azure-resurs](luis-how-to-azure-subscription.md), tillsammans med den associerade slutpunktsnyckel och slutpunkt URI (som används som fakturering slutpunkt).<br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID.<br>* På redigering för att hämta app-paket om du gör detta API.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}** : Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Språkförståelse_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan. Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
 
 ### <a name="the-host-computer"></a>Värddatorn
 
 Den **värden** är den dator som kör docker-behållaren. Det kan vara en dator i din lokala enhet eller en docker som är värd för tjänsten i Azure, inklusive:
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](/azure/azure-stack/). Mer information finns i [distribuera Kubernetes i Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](../../azure-stack/index.yml). Mer information finns i [distribuera Kubernetes i Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
@@ -113,7 +113,7 @@ Inkommande avbildningskatalog kan innehålla den **produktion**, **mellanlagring
 |Mellanlagring|Get, Post|Azure och behållare|`{APPLICATION_ID}_STAGING.gz`|
 |Produktion|Get, Post|Azure och behållare|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Viktigt:** inte byta namn på, ändra eller expandera LUIS-paketfilerna.
+>**Viktigt!** Inte byta namn på, ändra eller expandera LUIS-paketfilerna.
 
 ### <a name="packaging-prerequisites"></a>Paketering krav
 

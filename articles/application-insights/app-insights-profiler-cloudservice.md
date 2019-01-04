@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721858"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789391"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera live-Azure cloud services med Programinsikter
 
 Du kan också distribuera Application Insights profiler på de här tjänsterna:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric-program](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler har installerats med Windows Azure Diagnostics SÄKERHETSSPECIFIKA-tillägget. Du behöver bara konfigurera WAD för att installera profiler och skicka profiler till Application Insights-resursen.
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Aktivera profiler för din Azure-molntjänst
-1. Kontrollera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare.  Det räcker att bekräfta att den *ServiceConfiguration.\*. cscfg* filer har en `osFamily` värdet av ”5” eller senare.
-1. Lägg till [Application Insights SDK till Molntjänsten](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Kontrollera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare.  Det räcker att bekräfta att den *ServiceConfiguration.\*.cscfg* filer har en `osFamily` värdet av ”5” eller senare.
+1. Lägg till [Application Insights SDK till Molntjänsten](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Spåra begäranden med Application Insights:
 
     För ASP.Net web-roller, kan Application Insights spåra begäranden automatiskt.
@@ -63,12 +63,12 @@ Application Insights Profiler har installerats med Windows Azure Diagnostics SÄ
       </WadCfg>
       ```
 
-    >   **Obs:** om den *diagnostics.wadcfgx* -filen innehåller också en annan mottagare av typen `ApplicationInsights`, alla tre av följande instrumenteringsnycklar måste matcha:  
+    >   **OBS:** Om den *diagnostics.wadcfgx* -filen innehåller också en annan mottagare av typen `ApplicationInsights`, alla tre av följande instrumenteringsnycklar måste matcha:  
     >  * Den nyckel som används av ditt program.  
     >  * Den nyckel som används av den `ApplicationInsights` mottagare.  
     >  * Den nyckel som används av den `ApplicationInsightsProfiler` mottagare.  
     >
-    > Du kan hitta faktiska instrumentation nyckelvärdet som används av den `ApplicationInsights` mottagare den *ServiceConfiguration.\*. cscfg* filer.  
+    > Du kan hitta faktiska instrumentation nyckelvärdet som används av den `ApplicationInsights` mottagare den *ServiceConfiguration.\*.cscfg* filer.  
     > När du har Visual Studio 15.5 Azure SDK-versionen kan endast instrumenteringsnycklar som används av programmet och `ApplicationInsightsProfiler` mottagare behöver matchar varandra.
 1. Distribuera din tjänst med den nya diagnostiska konfigurationen och Application Insights Profiler kommer att konfigureras för att köras på din tjänst.
  

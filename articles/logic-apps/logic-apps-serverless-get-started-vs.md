@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c172519984cce765217a713b276db5ccc8f67183
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297476"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558608"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Skapa ditt första serverlösa program med Azure Logic Apps och Azure Functions – Visual Studio
 
@@ -36,23 +36,21 @@ Om du vill skapa en app utan server i Visual Studio, behöver du följande objek
 
 * [Azure Logic Apps Tools för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) eller för [Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)
 
-  Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller [Lär dig hur du installerar tillägget från i Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
-  Kontrollera att du startar om Visual Studio när installationen är klar. 
+  Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller [Lär dig hur du installerar tillägget från i Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Kontrollera att du startar om Visual Studio när installationen är klar.
 
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) för felsökning Functions lokalt
 
 * Åtkomst till Internet när du använder Logic App Designer som är inbäddad i Visual Studio
 
-  Designer kräver en Internetanslutning för att kunna skapa resurser i Azure och läsa in egenskaper och data från anslutningarna i din logikapp. 
-  Om du t.ex. använder Dynamics CRM Online-anslutningen kontrollerar Designer om CRM-instansen har några standardegenskaper och anpassade egenskaper.
+  Designer kräver en Internetanslutning för att kunna skapa resurser i Azure och läsa in egenskaper och data från anslutningarna i din logikapp. Om du t.ex. använder Dynamics CRM Online-anslutningen kontrollerar Designer om CRM-instansen har några standardegenskaper och anpassade egenskaper.
 
 ## <a name="create-resource-group-project"></a>Skapa resursgrupp-projekt
 
 Kom igång genom att skapa en [Azure-resursgruppsprojekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) för din app utan server. I Azure måste skapa du resurser i en resursgrupp är en logisk samling som du använder för Ordna, hantera och distribuera resurser för en hel app som ett enskilt objekt. För en app utan server i Azure innehåller resursgruppen resurser för både Azure Logic Apps och Azure Functions. Läs mer om [Azure-resursgrupper och resurser](../azure-resource-manager/resource-group-overview.md).
 
-1. Starta Visual Studio och logga in med ditt Azure-konto. 
+1. Starta Visual Studio och logga in med ditt Azure-konto.
 
-1. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**. 
+1. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**.
 
    ![Skapa nytt projekt i Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
@@ -60,26 +58,23 @@ Kom igång genom att skapa en [Azure-resursgruppsprojekt](../azure-resource-mana
 
    Om den **molnet** kategori eller **Azure-resursgrupp** projektet inte finns, kontrollera att du har installerat Azure SDK för Visual Studio.
 
-1. Ge projektet ett namn och en plats och välj sedan **OK**. 
+1. Ge projektet ett namn och en plats och välj sedan **OK**.
 
-   Visual Studio uppmanas du att välja en mall. 
-   Du kan börja med en tom Logikapp eller andra mallar, men det här exemplet används en Azure-Snabbstartsmall för att skapa en app som innehåller en logikapp och ett anrop till en Azure-funktion utan server.
+   Visual Studio uppmanas du att välja en mall. Du kan börja med en tom Logikapp eller andra mallar, men det här exemplet används en Azure-Snabbstartsmall för att skapa en app som innehåller en logikapp och ett anrop till en Azure-funktion utan server.
 
    Om du vill skapa en logikapp i Visual Studio, Välj den **Logikapp** mall. Den här mallen skapar en tom logikapp som öppnas i Logic App Designer utan att behöva fördistribuera din lösning till en Azure-resursgrupp.
 
-1. Under **Visa mallar från den här platsen**väljer **Azure Quickstart (github/Azure/azure-snabbstartsmallar)**. 
+1. Under **Visa mallar från den här platsen**väljer **Azure Quickstart (GitHub/Azure/azure-snabbstartsmallar)**.
 
-1. Ange ”logikapp” i sökrutan som filter, och välj den här serverlösa quickstart-mallen och välj **OK**: **101-logic-app-and-function-app**
+1. Ange ”logikapp” i sökrutan som filter, och välj den här serverlösa quickstart-mallen och välj **OK**: **101-Logic-App-and-Function-App**
 
    ![Välj Azure-snabbstartsmall](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
-   Visual Studio skapar och öppnar en lösning för ditt resursgrupp-projekt. 
-   Quickstart-mallen som du har valt skapar en Distributionsmall med namnet `azuredeploy.json` i resursgruppsprojektet. 
-   Den här distributionsmallen innehåller definitionen för en enkel logikapp som utlöser på en HTTP-begäran, anropar en Azure-funktion och returnerar resultatet som ett HTTP-svar. 
+   Visual Studio skapar och öppnar en lösning för ditt resursgrupp-projekt. Quickstart-mallen som du har valt skapar en Distributionsmall med namnet `azuredeploy.json` i resursgruppsprojektet. Den här distributionsmallen innehåller definitionen för en enkel logikapp som utlöser på en HTTP-begäran, anropar en Azure-funktion och returnerar resultatet som ett HTTP-svar.
    
    ![Ny serverlös lösning](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
-1. Därefter måste du distribuera din lösning till Azure innan du kan öppna distributionsmallen för och granska resurser för din app utan server. 
+1. Därefter måste du distribuera din lösning till Azure innan du kan öppna distributionsmallen för och granska resurser för din app utan server.
 
 ## <a name="deploy-your-solution"></a>Distribuera din lösning
 
@@ -97,8 +92,7 @@ Innan du kan öppna din logikapp med Logic App Designer i Visual Studio, måste 
 
    ![Ange namn för din logikapp och en funktionsapp](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
 
-   När Visual Studio startar distributionen till den angivna resursgruppen lösningens distributionens status visas i Visual Studio **utdata** fönster. 
-   När distributionen är klar är din logikapp live i Azure-portalen.
+   När Visual Studio startar distributionen till den angivna resursgruppen lösningens distributionens status visas i Visual Studio **utdata** fönster. När distributionen är klar är din logikapp live i Azure-portalen.
 
 ## <a name="edit-logic-app-in-visual-studio"></a>Redigera logic app i Visual Studio
 
@@ -118,7 +112,7 @@ Nu när lösningen har distribuerats i resursgruppen, måste du öppna din logik
 
 ## <a name="create-azure-functions-project"></a>Skapa Azure Functions-projekt
 
-För att skapa din Functions-projekt och en funktion med JavaScript, Python, F #, PowerShell, Batch, eller Bash, följer du stegen i artikeln [arbeta med Azure Functions Core Tools](../azure-functions/functions-run-local.md). För att utveckla dina Azure-funktion med C# i lösningen kan du använda en C#-klassbibliotek genom att följa stegen i artikeln [publicera en .NET-klassbiblioteket som Funktionsapp](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+Att skapa din Functions-projekt och funktionen med JavaScript, Python, F#, PowerShell, Batch eller Bash, följer du stegen i artikeln [arbeta med Azure Functions Core Tools](../azure-functions/functions-run-local.md). För att utveckla dina Azure-funktion med C# i lösningen kan du använda en C#-klassbibliotek genom att följa stegen i artikeln [publicera en .NET-klassbiblioteket som Funktionsapp](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuera funktioner från Visual Studio
 
@@ -126,13 +120,13 @@ Din Distributionsmall distribuerar alla Azure-funktioner som du har i din lösni
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Hantera logic apps och visa körningshistorik
 
-För logic apps som redan har distribuerats i Azure kan du fortfarande redigera, hantera, visa körningshistorik och inaktivera dessa appar från Visual Studio. 
+För logic apps som redan har distribuerats i Azure kan du fortfarande redigera, hantera, visa körningshistorik och inaktivera dessa appar från Visual Studio.
 
-1. Från den **visa** menyn i Visual Studio, öppna **Cloud Explorer**. 
+1. Från den **visa** menyn i Visual Studio, öppna **Cloud Explorer**.
 
 1. Under **alla prenumerationer**, ange den prenumeration som är associerade med logikappar som du vill hantera och välj **tillämpa**.
 
-1. Under **Logikappar**, Välj din logikapp. Appens snabbmenyn och välj **öppna med Logic App Editor**. 
+1. Under **Logikappar**, Välj din logikapp. Appens snabbmenyn och välj **öppna med Logic App Editor**.
 
 Du kan nu hämta redan publicerat logikappen till ditt resursgrupp-projekt. Så även om du kanske har startat en logikapp i Azure-portalen kan kan du fortfarande importera och hantera appen i Visual Studio. Mer information finns i [hantera logic apps i Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 

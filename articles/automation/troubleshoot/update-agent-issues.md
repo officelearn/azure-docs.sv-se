@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434774"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582566"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Förstå Windows-agenten kontrollera resultaten i hantering av uppdateringar
 
 Det kan finnas många orsaker till din dator inte visas **redo** i hantering av uppdateringar. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskrivs hur du kör Felsökaren för datorer i Azure från Azure-portalen och icke-Azure-datorer i den [offlinescenario](#troubleshoot-offline).
+
+I följande lista är en dator kan vara i för tre beredskapstillstånd:
+
+* **Redo** -update-agenten har distribuerats och sågs senast mindre än 1 timme sedan.
+* **Frånkopplad** -update-agenten har distribuerats och sågs senast över 1 timme sedan.
+* **Inte konfigurerad** -update-agenten inte hittas eller har inte slutförts onboarding.
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 

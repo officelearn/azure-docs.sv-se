@@ -3,16 +3,17 @@ title: Planera kapacitet för Hyper-V-haveriberedskap med Azure Site Recovery | 
 description: Använd den här artikeln för att beräkna kapacitet när du konfigurerar haveriberedskap med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844948"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976723"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för Hyper-V VM-katastrofåterställning 
 
@@ -33,8 +34,8 @@ Använd Site Recovery Capacity Planner för att analysera din källmiljö och ar
 
 Du kan köra verktyget i två lägen:
 
-* **Snabb planering**: ger nätverks- och projektioner baserat på det genomsnittliga antalet virtuella datorer, diskar, lagring och förändringstakten.
-* **Detaljerad planera**: innehåller information om varje arbetsbelastning på VM-nivå. Analysera VM-kompatibilitet och få nätverks- och projektioner.
+* **Snabb planering**: Ger nätverks- och projektioner baserat på det genomsnittliga antalet virtuella datorer, diskar, lagring och förändringstakten.
+* **Detaljerad planera**: Innehåller information om varje arbetsbelastning på VM-nivå. Analysera VM-kompatibilitet och få nätverks- och projektioner.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -65,16 +66,16 @@ Du kan köra verktyget i två lägen:
 
 4. När du har angett värden för källmiljön innehåller visas utdata:
 
-   * **Bandbredd som krävs för deltareplikering (i megabit per sekund)**: nätverkets bandbredd för deltareplikering beräknas på den genomsnittliga dagliga förändringstakten för data.
-   * **Bandbredd som krävs för inledande replikering (i megabit per sekund)**: nätverkets bandbredd för inledande replikering beräknas på den inledande replikeringen värdena som du anger.
+   * **Bandbredd som krävs för deltareplikering (i megabit per sekund)**: Nätverkets bandbredd för deltareplikering beräknas på den genomsnittliga dagliga förändringstakten för data.
+   * **Bandbredd som krävs för inledande replikering (i megabit per sekund)**: Nätverkets bandbredd för inledande replikering beräknas på den inledande replikeringen värdena som du anger.
    * **Lagring som krävs (i GB)**: Totalt antal Azure storage krävs.
-   * **Totalt antal IOPS med standardlagring**: antalet beräknas baserat på 8 kB IOPS enhetens storlek på totalt antal standard storage-konton. Hur många beräknas baserat på alla diskar för käll-VM och daglig dataändringshastighet för snabb Planner. För detaljerad Planner antalet beräknas baserat på det totala antalet virtuella datorer som är mappade till standard virtuella Azure-datorer och dataändringshastighet på de virtuella datorerna.
-   * **Antal Standard storage-konton som krävs för**: det totala antalet standard storage-konton som krävs för att skydda de virtuella datorerna. Ett standardlagringskonto kan innehålla upp till 20 000 IOPS i alla virtuella datorer i standardlagring. Finns stöd för högst 500 IOPS per disk.
-   * **Antal Blob-diskar som måste**: antalet diskar som skapas på Azure storage.
-   * **Antal premium-konton som krävs för**: det totala antalet premium storage-konton som krävs för att skydda de virtuella datorerna. En källa för virtuell dator med hög IOPS (större än 20 000) måste ett premium storage-konto. Ett premium storage-konto kan innehålla upp till 80 000 IOPS.
-   * **Totalt antal IOPS på Premium Storage**: antalet beräknas baserat på 256 kB IOPS enhetens storlek på de totala premium storage-kontona. Hur många beräknas baserat på alla diskar för käll-VM och daglig dataändringshastighet för snabb Planner. För detaljerad Planner antalet beräknas baserat på det totala antalet virtuella datorer som är mappade till premium virtuella Azure-datorer (DS- och GS-serien) och dataändringshastighet på de virtuella datorerna.
+   * **Totalt antal IOPS med standardlagring**: Hur många beräknas baserat på 8 kB IOPS enhetens storlek på totalt antal standard storage-konton. Hur många beräknas baserat på alla diskar för käll-VM och daglig dataändringshastighet för snabb Planner. För detaljerad Planner antalet beräknas baserat på det totala antalet virtuella datorer som är mappade till standard virtuella Azure-datorer och dataändringshastighet på de virtuella datorerna.
+   * **Antal Standard storage-konton som krävs för**: Totalt antal standard storage-konton som krävs för att skydda de virtuella datorerna. Ett standardlagringskonto kan innehålla upp till 20 000 IOPS i alla virtuella datorer i standardlagring. Finns stöd för högst 500 IOPS per disk.
+   * **Antal Blob-diskar som måste**: Antalet diskar som skapas på Azure storage.
+   * **Antal premium-konton som krävs för**: Det totala antalet premium storage-konton som behövs för att skydda virtuella datorer. En källa för virtuell dator med hög IOPS (större än 20 000) måste ett premium storage-konto. Ett premium storage-konto kan innehålla upp till 80 000 IOPS.
+   * **Totalt antal IOPS på Premium Storage**: Hur många beräknas baserat på 256 kB IOPS enhetens storlek på de totala premium storage-kontona. Hur många beräknas baserat på alla diskar för käll-VM och daglig dataändringshastighet för snabb Planner. För detaljerad Planner antalet beräknas baserat på det totala antalet virtuella datorer som är mappade till premium virtuella Azure-datorer (DS- och GS-serien) och dataändringshastighet på de virtuella datorerna.
    * **Antalet Konfigurationsservrar krävs**: Visar hur många konfigurationsservrar krävs för distributionen.
-   * **Antal ytterligare Processervrar som krävs för**: visar huruvida ytterligare processervrar är krävs, förutom den processerver som körs på konfigurationsservern som standard.
+   * **Antal ytterligare Processervrar som krävs för**: Visar huruvida ytterligare processervrar är krävs, förutom den processerver som körs på konfigurationsservern som standard.
    * **100% ytterligare lagringsutrymme på källan**: Visar om ytterligare lagringsutrymme krävs på källplatsen.
 
       ![Resultat](./media/site-recovery-capacity-planner/output.png)

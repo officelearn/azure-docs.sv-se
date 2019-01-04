@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270407"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541632"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
 
@@ -51,11 +51,11 @@ Både den DTU- och den vCore-baserade modellen kommer att finnas kvar fortsättn
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Hur ska jag välja mellan vs DTU-baserade inköpschef modellen den vCore-baserade inköpsmodellen
 
-Dataöverföringsenheten (DTU, Database Transaction Unit) baseras på ett blandat mått av CPU, minne, läsningar och skrivningar. DTU-baserade storlekar motsvarar förkonfigurerade paket av resurser för att driva olika nivåer av programprestanda. Kunder som inte vill bekymra dig om de underliggande resurserna och föredrar enkelheten med ett förkonfigurerat paket samtidigt och betala en fast mängd varje månad kanske den DTU-baserade modellen passar deras behov. För kunder som behöver mer information om de underliggande resurserna eller behöver skala dem oberoende av varandra för att uppnå optimala prestanda, kommer dock den vCore-baserade modellen vara det bästa valet.  Om en kund har en aktiv Software Assurance (SA) för SQL Server kan de dessutom utnyttja sina befintliga investering och spara upp till 30% med [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Alternativen i var och en inköpsmodellerna ger dig fördelarna med en fullständigt hanterad tjänst som automatiska säkerhetskopieringar, uppdateringar och korrigeringar.
+Dataöverföringsenheten (DTU, Database Transaction Unit) baseras på ett blandat mått av CPU, minne, läsningar och skrivningar. DTU-baserade storlekar motsvarar förkonfigurerade paket av resurser för att driva olika nivåer av programprestanda. Kunder som inte vill bekymra dig om de underliggande resurserna och föredrar enkelheten med ett förkonfigurerat paket samtidigt och betala en fast mängd varje månad kanske den DTU-baserade modellen passar deras behov. För kunder som behöver mer information om de underliggande resurserna eller behöver skala dem oberoende av varandra för att uppnå optimala prestanda, kommer dock den vCore-baserade modellen vara det bästa valet.  Om en kund har en aktiv Software Assurance (SA) för SQL Server kan de dessutom utnyttja sina befintliga investering och spara upp till 30% med [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Alternativen i var och en inköpsmodellerna ger dig fördelarna med en fullständigt hanterad tjänst som automatiska säkerhetskopieringar, uppdateringar och korrigeringar.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Vad är Azure Hybrid-förmånen för SQL Server
 
-Den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) hjälper dig att maximera värdet från dina nuvarande licensinvesteringar och snabba migreringen till molnet. Azure Hybrid-förmånen för SQL Server är en Azure-baserad förmån som gör att du kan använda SQL Server-licenser med Software Assurance för att betala en reducerad avgift (”grundpris”) i SQL-databas. Azure Hybrid-förmånen för SQL Server är tillgänglig i den offentliga förhandsversionen av den vCore-baserade inköpsmodellen för SQL Database enskilda databaser och elastiska pooler. Du kan använda den här förmånen även om SKU är aktiv, men Observera baspriset tillämpas från den tidpunkt som du väljer i Azure-portalen. Ingen kredit utfärdas retroaktivt.
+Den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) hjälper dig att maximera värdet från dina nuvarande licensinvesteringar och snabba migreringen till molnet. Azure Hybrid-förmånen för SQL Server är en Azure-baserad förmån som gör att du kan använda SQL Server-licenser med Software Assurance för att betala en reducerad avgift (”grundpris”) i SQL-databas. Azure Hybrid-förmånen för SQL Server är tillgänglig i den offentliga förhandsversionen av den vCore-baserade inköpsmodellen för SQL Database enskilda databaser och elastiska pooler. Du kan använda den här förmånen även om SKU är aktiv, men Observera baspriset tillämpas från den tidpunkt som du väljer i Azure-portalen. Ingen kredit utfärdas retroaktivt.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Finns det dubbla användningsrättigheter med Azure Hybrid-förmånen för SQL Server
 
@@ -127,13 +127,13 @@ Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med h
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Jag kan uppgradera eller nedgradera mellan generell användning och affärskritisk-tjänstnivåer
 
-Ja, med vissa begränsningar. Ditt mål-SKU måste uppfylla maximala databas eller elastisk pool-storlek som du har konfigurerat för den befintliga distributionen. Om du använder [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), SKU affärskritisk är endast tillgänglig för kunder med Enterprise Edition-licenser. Endast de användare som migrerats från en lokal plats till generell användning med Azure Hybrid-förmånen för SQL Server med Enterprise Edition-licenser kan uppgradera till affärskritisk. Mer information finns i [vad är Azure Hybrid-förmånen för SQL Server specifika rättigheter](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Ja, med vissa begränsningar. Ditt mål-SKU måste uppfylla maximala databas eller elastisk pool-storlek som du har konfigurerat för den befintliga distributionen. Om du använder [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), SKU affärskritisk är endast tillgänglig för kunder med Enterprise Edition-licenser. Endast de användare som migrerats från en lokal plats till generell användning med Azure Hybrid-förmånen för SQL Server med Enterprise Edition-licenser kan uppgradera till affärskritisk. Mer information finns i [vad är Azure Hybrid-förmånen för SQL Server specifika rättigheter](https://azure.microsoft.com/pricing/hybrid-benefit/)?
 
 Den här konverteringen resulterar inte i driftstopp och kan inledas via Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Jag använder en Premium RS-databas som inte är allmänt tillgängliga – kan jag uppgradera den till en ny nivå och få en fördel med liknande pris/prestanda
 
-Eftersom den vCore-modellen kan oberoende kontroll över mängden etablerade beräkningen och lagringen, kan du mer effektivt hantera resulterande kostnaderna, vilket gör det till ett attraktivt mål för Premium RS-databaser. Dessutom kan den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ger en betydande rabatt när den vCore-baserade modellen används.
+Eftersom den vCore-modellen kan oberoende kontroll över mängden etablerade beräkningen och lagringen, kan du mer effektivt hantera resulterande kostnaderna, vilket gör det till ett attraktivt mål för Premium RS-databaser. Dessutom kan den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) ger en betydande rabatt när den vCore-baserade modellen används.
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Hur ofta kan jag justera resurserna per pool
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824310"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976380"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -40,7 +40,7 @@ När du försöker aktivera en Windows Azure-dator, du får ett felmeddelande me
 **Fel: 0xC004F074 programvara LicensingService rapporterade att datorn inte kunde aktiveras. Ingen nyckel ManagementService (KMS) kunde nås. Finns i programmets händelselogg för ytterligare information.**
 
 ## <a name="cause"></a>Orsak
-I allmänhet inträffa Azure VM aktiveringsproblem om den virtuella Windows-datorn inte har konfigurerats med hjälp av lämplig Konfigurationsnyckel för KMS-klienten eller Windows-VM har anslutningsproblem till Azure KMS-tjänsten (kms.core.windows.net, port 1668). 
+I allmänhet inträffa Azure VM aktiveringsproblem om den virtuella Windows-datorn inte har konfigurerats med hjälp av lämplig Konfigurationsnyckel för KMS-klienten eller Windows-VM har anslutningsproblem till Azure KMS-tjänsten (kms.core.windows.net, port 1688). 
 
 ## <a name="solution"></a>Lösning
 
@@ -86,7 +86,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    Kommandot ska returnera: nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
+    Kommandot ska returnera: Nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
 
 4. Kontrollera med hjälp av Psping att du är ansluten till KMS-servern. Växla till den mapp där du extraherade Pstools.zip nedladdningen och kör sedan följande:
   
@@ -94,7 +94,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
     \psping.exe kms.core.windows.net:1688
     ```
   
-  Se till att du ser i den andra och sista raden i utdata: skickas = 4, mottagna = 4, förlorad = 0 (0% förlust).
+  Kontrollera att du ser i den andra och sista raden i utdata: Skickade = 4, mottagna = 4, förlorad = 0 (0% förlust).
 
   Om förlorad är större än 0 (noll), har den virtuella datorn inte anslutning till KMS-servern. I det här fallet är om den virtuella datorn är i ett virtuellt nätverk och har en anpassad DNS-server har angetts, måste du kontrollera att DNS-servern kan matcha kms.core.windows.net. Eller så ändrar du DNS-servern till ett som matchar kms.core.windows.net.
 

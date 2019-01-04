@@ -2,24 +2,27 @@
 title: Schemat för enheten i fjärrövervakningslösningen – Azure | Microsoft Docs
 description: Den här artikeln beskriver JSON-schemat som definierar en simulerad enhet i fjärrövervakningslösningen.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338863"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635535"
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå schemat för enhetsmodellen
 
-Du kan använda simulerade enheter i lösningen för fjärrövervakning för att testa sitt beteende. När du distribuerar lösningen för fjärrövervakning kan etableras automatiskt en uppsättning simulerade enheter. Du kan anpassa befintliga simulerade enheter eller skapa egna.
+Du kan använda simulerade enheter i lösningen för fjärrövervakning för att testa sitt beteende. Fjärrövervakning-lösningen innehåller en tjänst för simulering av enheten för att köra simulerade enheter. När du distribuerar lösningen för fjärrövervakning kan etableras automatiskt en uppsättning simulerade enheter. Du kan anpassa befintliga simulerade enheter eller skapa egna.
 
 Den här artikeln beskriver schemat för enhetsmodellen som anger funktioner och beteenden för en simulerad enhet. Enhetsmodell lagras i en JSON-fil.
+
+> [!NOTE]
+> Det här schemat för enhetsmodellen är endast för simulerade enheter i device simulering-tjänsten. Om du vill skapa en fysisk enhet Se [ansluta enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
 
 I följande artiklar är relaterade till den aktuella artikeln:
 

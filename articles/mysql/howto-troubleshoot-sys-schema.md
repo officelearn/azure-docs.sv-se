@@ -1,20 +1,17 @@
 ---
 title: Så här används sys_schema för prestandajustering och databasunderhåll i Azure Database for MySQL
 description: Den här artikeln beskriver hur du använder sys_schema för att hitta problem med prestanda och underhåll databas i Azure Database för MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446915"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542857"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Hur du använder sys_schema för justering och databasen Underhåll i Azure Database for MySQL
 
@@ -24,15 +21,15 @@ MySQL-performance_schema, först i MySQL 5.5 innehåller instrumentering för m�
 
 Det finns 52 vyer i sys_schema och vyerna har en av följande prefix:
 
-- Host_summary eller i/o: i/o relaterade svarstider.
+- Host_summary eller i/o: I/o-relaterade svarstider.
 - InnoDB: InnoDB Bufferstatus och lås.
 - Minne: Minnesanvändning för värd och användare.
-- Schema: Schema-relaterad information, till exempel automatisk ökning, index, osv.
+- Schema: Schema-relaterad information, om du till exempel automatisk ökning, index, osv.
 - Instruktion: Information om SQL-uttryck Det kan vara instruktionen som resulterade i fullständig tabellsökning eller lång Frågetid.
-- Användare: Resurser som förbrukas och grupperade efter användare. Exempel är filen I/o, anslutningar och minne.
+- Användare: Resurser som används och grupperade efter användare. Exempel är filen I/o, anslutningar och minne.
 - Vänta: Vänta händelser grupperade efter värden eller användare.
 
-Nu ska vi titta på några vanliga användningsmönster för av sys_schema. Vi ska börja med att gruppera användningsmönster i två kategorier: **prestandajustering** och **databasen Underhåll**.
+Nu ska vi titta på några vanliga användningsmönster för av sys_schema. Vi ska börja med att gruppera användningsmönster i två kategorier: **Prestandajustering** och **databasen Underhåll**.
 
 ## <a name="performance-tuning"></a>Prestandajustering
 
@@ -48,7 +45,7 @@ Eftersom Azure Database for MySQL kan skalas i/o med avseende på lagring, efter
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 
-Många frågor kan fortfarande resultera i fullständiga genomsökningar trots noggrann planering. Mer information om vilka typer av index och hur du optimerar dem kan du referera till den här artikeln: [felsökning av frågeprestanda](./howto-troubleshoot-query-performance.md). Fullständig tabellsökningar är resurskrävande och försämra databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabellsökning är att fråga den *sys.schema_tables_with_full_table_scans* vy.
+Många frågor kan fortfarande resultera i fullständiga genomsökningar trots noggrann planering. Mer information om vilka typer av index och hur du optimerar dem kan du referera till den här artikeln: [Så här felsöker du frågeprestanda](./howto-troubleshoot-query-performance.md). Fullständig tabellsökningar är resurskrävande och försämra databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabellsökning är att fråga den *sys.schema_tables_with_full_table_scans* vy.
 
 ![fullständig tabellsökningar](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 

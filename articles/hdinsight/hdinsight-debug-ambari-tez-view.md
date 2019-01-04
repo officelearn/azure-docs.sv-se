@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012359"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719701"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight
 
 Den [Apache Ambari](https://ambari.apache.org/) Webbgränssnittet för HDInsight innehåller en [Apache TEZ](https://tez.apache.org/) vy som kan användas för att förstå och felsöka jobb som använder Tez. Tez-vy kan du visualisera för jobbet som ett diagram över anslutna objekt, öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versionshantering för HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -90,9 +90,9 @@ Använd följande steg för att köra en Hive-fråga som använder Tez:
 
 5. Flikarna på den här sidan kan du se följande information:
 
-    * **Frågedetaljer**: information om Hive-frågan.
+    * **Frågedetaljer**: Information om Hive-frågan.
     * **Tidslinje**: Information om hur lång tid varje steg i processen tog.
-    * **Konfigurationer**: den konfiguration som använts för den här frågan.
+    * **Konfigurationer**: Konfigurationen används för den här frågan.
 
     Från __Frågedetaljer__ du kan använda länkar för att hitta information om den __programmet__ eller __DAG__ för den här frågan.
     

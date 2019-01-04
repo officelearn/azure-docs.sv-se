@@ -1,20 +1,7 @@
 ---
-title: Konfigurera haveriberedskap för lokala Hyper-V-datorer i VMM-moln till Azure med Azure Site Recovery | Microsoft Docs
-description: Lär dig hur du konfigurerar haveriberedskap för lokala Hyper-V-datorer i System Center VMM-moln till Azure med Azure Site Recovery-tjänsten.
-services: site-recovery
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846443"
----
+Rubrik: Konfigurera haveriberedskap för lokala Hyper-V-datorer i VMM-moln till Azure med Azure Site Recovery | Microsoft Docs beskrivning: Lär dig hur du konfigurerar haveriberedskap för lokala Hyper-V-datorer i System Center VMM-moln till Azure med Azure Site Recovery-tjänsten.
+tjänster: site recovery författare: rayne wiselman ms.service: site recovery ms.topic: Konceptuell ms.date: 12/27/2018 ms.author: raynew ms.custom: MVC
+
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurera haveriberedskap för lokala Hyper-V-datorer i VMM-moln till Azure
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.

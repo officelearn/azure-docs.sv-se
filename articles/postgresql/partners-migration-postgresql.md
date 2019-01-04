@@ -1,25 +1,24 @@
 ---
-title: Azure Database for PostgreSQL-Migreringspartner | Microsoft Docs
+title: Azure Database for PostgreSQL-migreringspartner
 description: Listor med tredje parts migreringspartner med lösningar som har stöd för Azure Database för PostgreSQL.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 11069e4e5ff9a6ad6b91fc554036955afa805443
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626462"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536244"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Azure Database for PostgreSQL-migreringspartner
 Du kan välja från ett brett utbud av branschledande partners och verktyg för att stödja brett din Azure Database för PostgreSQL-lösningen. Den här artikeln visar Microsoft-partner med lösningar som har stöd för Azure Database för PostgreSQL.
 
 ## <a name="migration-partners"></a>Migreringspartner
-| Partner | Beskrivning | Länkar | Videor |
+| Partner | Beskrivning | Länkar | Videoklipp |
 | --- | --- | --- | --- |
 | ![SNP tekniker][1] |**SNP tekniker**<br>SNP Technologies är en molnbaserad leverantör, att skapa säkra och tillförlitliga lösningar för företag i framtiden. Företaget anser i genereringen av verkliga värdet för din verksamhet. Från ansedda fjärrkörning av delar SNP tekniker en gemensam syftet med klienter är att aktivera sina investeringar i en fördel.|[Webbplats][snp_website]<br>[Twitter][snp_twitter]<br>[Kontakta][snp_contact] | |
 | ![DB bästa tekniker, LLC][2] |**DB bästa tekniker, LLC**<br>DB bästa hjälper kunderna att få ut mest av en hanterad databastjänst för Azure. Företaget erbjuder flera olika sätt för dig att komma igång, inklusive [framtiden tillstånd arkitektoniska Design](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Data Management optimering för Microsofts dataplattform](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fdata-management-optimization-for-microsoft-data-platform%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261204561&sdata=DYF9EeMaMdKZP%2FJ9d3mw%2F67hUAxWmINcI1rMbEQZ1DM%3D&reserved=0), [Microsoft Azure Distributionsplanerings-tjänster](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fmicrosoft-azure-deployment-planning-services%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=Q%2FNJaHWXrrln6eXaVmU1iVb4tJCoKVgSA8cEBQiZaDk%3D&reserved=0), och [Azure Data Platform beredskap utbildning](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fazure-data-platform-readiness-training%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=dX%2BBGSCyq4x9ZPkTN74Y%2FUgHJ%2FqtsNgwEFDJft%2FTkc0%3D&reserved=0).|[Webbplats][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Kontakta][dbbest_contact] | |

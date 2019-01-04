@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012563"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635706"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Använd Apache Sqoop för att importera och exportera data mellan Apache Hadoop på HDInsight och SQL Database
 
@@ -23,10 +23,10 @@ ms.locfileid: "53012563"
 
 Lär dig hur du använder Apache Sqoop för att importera och exportera mellan en Apache Hadoop-kluster i Azure HDInsight och Azure SQL Database eller Microsoft SQL Server-databasen. Stegen i det här dokumentet används de `sqoop` direkt från huvudnoden av Hadoop-kluster. Du kan använda SSH för att ansluta till klustrets huvudnod och kör kommandon i det här dokumentet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet fungerar bara med HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!WARNING]
+> [!WARNING]  
 > I det här dokumentet förutsätter vi att du redan har skapat en Azure SQL-databas med namnet `sqooptest`.
 >
 > Det här dokumentet innehåller instruktioner för T-SQL som används för att skapa och fråga en tabell i SQL-databas. Det finns många klienter som du kan använda dessa instruktioner med SQL Database. Vi rekommenderar följande klienter:
@@ -37,7 +37,7 @@ Lär dig hur du använder Apache Sqoop för att importera och exportera mellan e
 
 ## <a name="create-the-table-in-sql-database"></a>Skapa tabell i SQL-databas
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Om du använder HDInsight-klustret och SQL-databas som skapats i [skapa klustret och SQL database](hdinsight-use-sqoop.md), hoppa över stegen i det här avsnittet. Databasen och tabellen har skapats som en del av stegen i den [skapa klustret och SQL database](hdinsight-use-sqoop.md) dokumentet.
 
 Använd en SQL-klient för att ansluta till den `sqooptest` din SQL database. Sedan använder följande T-SQL för att skapa en tabell med namnet `mobiledata`:
@@ -104,8 +104,8 @@ GO
 
     Fält i datamängden avgränsas med ett tabbtecken och linjerna avslutas med ett tecken för ny rad.
 
-    > [!IMPORTANT]
-    > Den `wasb:///` sökvägen fungerar med kluster som använder Azure Storage som standardklusterlagringen. För kluster som använder Azure Data Lake Store kan använda `adl:///` i stället.
+    > [!IMPORTANT]  
+    > Den `wasb:///` sökvägen fungerar med kluster som använder Azure Storage som standardklusterlagringen. För kluster som använder Azure Data Lake Storage kan du använda `adl:///` i stället.
 
 2. När importen har slutförts, använder du följande kommando för att visa data i den nya katalogen:
 
@@ -160,9 +160,9 @@ Du kan också använda Sqoop för att importera och exportera data från SQL Ser
 
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
-* [Använda Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
-* [Analysera flygförseningsdata med HDInsight](../hdinsight-analyze-flight-delay-data.md): använda Hive för att analysera flygning fördröjning data och Använd sedan Sqoop för att exportera data till en Azure SQL database.
-* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): hitta andra metoder för att ladda upp data till HDInsight/Azure Blob storage.
+* [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
+* [Analysera flygförseningsdata med HDInsight](../hdinsight-analyze-flight-delay-data.md): Använda Apache Hive för att analysera flygförseningsdata och Använd sedan Sqoop för att exportera data till en Azure SQL database.
+* [Ladda upp data till HDInsight](../hdinsight-upload-data.md): Hitta andra metoder för att ladda upp data till HDInsight/Azure Blob storage.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

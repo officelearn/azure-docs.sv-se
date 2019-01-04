@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437137"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743654"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster
 
@@ -119,7 +119,7 @@ Det här avsnittet innehåller information om skillnader i klustret har skapats.
 
 ### <a name="ssh-user"></a>SSH användare
 
-Linux-baserade HDInsight-kluster används den **Secure Shell (SSH)** protokoll som ska ge fjärråtkomst till klusternoderna. Till skillnad från Remote Desktop för Windows-baserade kluster anger de flesta SSH-klienter inte ett grafiskt användargränssnitt. SSH-klienter ger i stället en kommandorad som gör att du kan köra kommandon på klustret. Vissa klienter (till exempel [MobaXterm](http://mobaxterm.mobatek.net/)) tillhandahåller en grafisk filläsare system förutom en fjärransluten kommandorad.
+Linux-baserade HDInsight-kluster används den **Secure Shell (SSH)** protokoll som ska ge fjärråtkomst till klusternoderna. Till skillnad från Remote Desktop för Windows-baserade kluster anger de flesta SSH-klienter inte ett grafiskt användargränssnitt. SSH-klienter ger i stället en kommandorad som gör att du kan köra kommandon på klustret. Vissa klienter (till exempel [MobaXterm](https://mobaxterm.mobatek.net/)) tillhandahåller en grafisk filläsare system förutom en fjärransluten kommandorad.
 
 När du skapar klustret måste du ange en SSH-användare och antingen en **lösenord** eller **offentliga nyckelcertifikat** för autentisering.
 
@@ -199,7 +199,7 @@ Följande diagram innehåller råd om hur du migrerar dina Hive-arbetsbelastning
 | `set hive.execution.engine=tez;` Aktivera Tez |Apache Tez är standard-motorn för körning för Linux-baserade kluster så set-instruktionen är inte längre behövs. |
 | C#-användardefinierade funktioner | Information om hur du verifierar C#-komponenter med Linux-baserat HDInsight finns i [migrera .NET-lösningar till Linux-baserat HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-filer eller skript på den server som anropas som en del av ett Hive-jobb |Använd Bash-skript |
-| `hive` kommando från fjärrskrivbord |Använd [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) eller [Apache Hive från en SSH-session](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` kommando från fjärrskrivbord |Använd [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) eller [Apache Hive från en SSH-session](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ Följande diagram innehåller råd om hur du migrerar dina Hive-arbetsbelastning
 > [!IMPORTANT]  
 > Om du använder en extern Oozie metastore, bör du säkerhetskopiera metaarkiv innan du använder den med Linux-baserade HDInsight. Linux-baserade HDInsight är tillgängligt med nyare versioner av Oozie som kan ha inkompatibiliteter med metastores som skapats av tidigare versioner.
 
-Oozie arbetsflöden kan shell-åtgärder. Shell-åtgärder använder standardgränssnittet för operativsystemet för att köra kommandon på kommandoraden. Om du har Oozie-arbetsflöden som förlitar sig på Windows-gränssnittet, måste du skriva arbetsflöden för att förlita dig på Linux shell-miljön (Bash). Läs mer om hur du använder shell åtgärder med Oozie [Oozie shell åtgärdstillägget](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+Oozie arbetsflöden kan shell-åtgärder. Shell-åtgärder använder standardgränssnittet för operativsystemet för att köra kommandon på kommandoraden. Om du har Oozie-arbetsflöden som förlitar sig på Windows-gränssnittet, måste du skriva arbetsflöden för att förlita dig på Linux shell-miljön (Bash). Läs mer om hur du använder shell åtgärder med Oozie [Oozie shell åtgärdstillägget](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 Om du har ett arbetsflöde som använder ett C#-program kan du verifiera dessa program i en Linux-miljö. Mer information finns i [migrera .NET-lösningar till Linux-baserade HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 

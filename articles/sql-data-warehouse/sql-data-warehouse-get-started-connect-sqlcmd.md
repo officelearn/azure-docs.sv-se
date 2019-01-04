@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och hämta information från ett Azure SQL Data Warehouse.
+description: Du kan använda kommandoradsverktyget SQLCMD för att ansluta till och fråga en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247721"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976417"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Anslut till SQL Data Warehouse med sqlcmd
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och hämta 
 Du kommer igång med [sqlcmd][sqlcmd] genom att öppna kommandotolken och ange **sqlcmd** följt av anslutningssträngen för din SQL Data Warehouse-databas. Anslutningssträngen kräver följande parametrar:
 
 * **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
-* **Databas (-d):** Databasens namn.
-* **Aktivera identifierare inom citattecken (-I):** Identifierare inom citattecken måste vara aktiverat för att kunna ansluta till en instans av SQL Data Warehouse.
+* **Databas (-d):** Databasnamnet.
+* **Aktivera identifierare (– jag):** Identifierare måste aktiveras för att ansluta till en instans av SQL Data Warehouse.
 
 Om du vill använda SQL Server-autentisering måste du lägga till användarnamn/lösenordsparametrar:
 
-* **Användare (-U):** Serveranvändare i formatet `<`Användare`>`
-* **Lösenord (-P):** Lösenord som är associerat med användaren.
+* **Användare (-U):** Serveranvändare i formatet `<`användare`>`
+* **Lösenord (-P):** Lösenordet som är associerat med användaren.
 
 Anslutningssträngen kan se ut ungefär så här:
 
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. Fråga
+## <a name="2-query"></a>2. Söka i data
 Du kan utfärda alla Transact-SQL-uttryck som stöds mot instansen efter anslutning.  I det här exemplet skickas frågor i interaktivt läge.
 
 ```sql

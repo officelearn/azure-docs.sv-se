@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10044f17baee8fb4d7afe9223abdbb518952e71f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: da5064c7a064498378b37972fd76dc1c9a8d16e0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52741866"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807898"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
-Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application Insights. Den enda begränsningen är behovet av att [tillåta kommunikation](app-insights-ip-addresses.md) till Application Insights-tjänsten. För övervakning av UWP-program (Universell Windows-plattform) rekommenderar vi [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
+Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application Insights. Den enda begränsningen är behovet av att [tillåta kommunikation](../azure-monitor/app/ip-addresses.md) till Application Insights-tjänsten. För övervakning av UWP-program (Universell Windows-plattform) rekommenderar vi [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Så här skickar du telemetri till Application Insights från ett klassiskt Windows-program
 1. [Skapa en Application Insights-resurs](app-insights-create-new-resource.md) på [Azure Portal](https://portal.azure.com). Välj ASP.NET-app för programtyp.
@@ -36,7 +36,7 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
     `<InstrumentationKey>`*din nyckel*`</InstrumentationKey>` 
    
     Om du använder ApplicationInsights.config, kontrollera att egenskaperna i Solution Explorer är inställda på **Byggåtgärd = Innehåll, Kopiera till utdatakatalog = Kopiera**.
-5. [Använda API](app-insights-api-custom-events-metrics.md) att skicka telemetri.
+5. [Använda API](../azure-monitor/app/api-custom-events-metrics.md) att skicka telemetri.
 6. Kör din app och se telemetri i den resurs du skapat i Azure Portal.
 
 ## <a name="telemetry"></a>Exempelkod
@@ -77,8 +77,8 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en instrumentpanel](app-insights-dashboards.md)
-* [Diagnostiksökning](app-insights-diagnostic-search.md)
+* [Skapa en instrumentpanel](../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostiksökning](../azure-monitor/app/diagnostic-search.md)
 * [Utforska mått](app-insights-metrics-explorer.md)
-* [Skriv analysfrågor](app-insights-analytics.md)
+* [Skriv analysfrågor](../azure-monitor/app/analytics.md)
 

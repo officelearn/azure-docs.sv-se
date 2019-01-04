@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 322c7164c0ecda550bf1bfe6a55075759bf95735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583167"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630524"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Windows-baserade HDInsight
 
-Den [Apache Storm](http://storm.apache.org/) instrumentpanel kan du enkelt distribuera och köra Apache Storm-topologier till dina HDInsight-kluster med hjälp av webbläsaren. Du kan också använda instrumentpanelen för att övervaka och hantera topologier som körs. Om du använder Visual Studio, tillhandahåller HDInsight Tools för Visual Studio liknande funktioner i Visual Studio.
+Den [Apache Storm](https://storm.apache.org/) instrumentpanel kan du enkelt distribuera och köra Apache Storm-topologier till dina HDInsight-kluster med hjälp av webbläsaren. Du kan också använda instrumentpanelen för att övervaka och hantera topologier som körs. Om du använder Visual Studio, tillhandahåller HDInsight Tools för Visual Studio liknande funktioner i Visual Studio.
 
 Storm-instrumentpanelen och funktionerna som Storm i HDInsight-verktyg beroende Storm REST API, som kan användas för att skapa egna övervakning och lösningar för hantering.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver ett Storm på HDInsight-kluster som använder Windows som operativsystemet. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Information om att distribuera och hantera Storm-topologier med HDInsight-kluster som använder Linux finns i [distribuera och hantera Apache Storm-topologier på Linux-baserat HDInsight](apache-storm-deploy-monitor-topology-linux.md)
@@ -31,7 +31,7 @@ Storm-instrumentpanelen och funktionerna som Storm i HDInsight-verktyg beroende 
 
 * **Apache Storm på HDInsight** – Se [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md) anvisningar om hur du skapar ett kluster.
 
-* För den **Storm-instrumentpanelen**: en modern webbläsare som stöder HTML5.
+* För den **Storm-instrumentpanelen**: En modern webbläsare som stöder HTML5.
 
 * För **Visual Studio** – Azure SDK 2.5.1 eller senare och HDInsight Tools för Visual Studio. Se [kommer igång med HDInsight Tools för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md) att installera och konfigurera HDInsight-verktyg för Visual Studio.
 
@@ -59,16 +59,16 @@ Storm-instrumentpanelen väljer du den **Storm-Användargränssnittet** länk. D
 
 ![storm-användargränssnittet][storm-dashboard-ui]
 
-> [!NOTE]
+> [!NOTE]  
 > Med vissa versioner av Internet Explorer kan du identifiera Storm-Användargränssnittet inte uppdateras när du har besökt det först. Det kan till exempel inte visa nya topologier du skickat, eller den kan visa en topologi som aktiv när du tidigare har inaktiverats. Microsoft är medvetna om problemet och arbetar på en lösning.
 
 #### <a name="main-page"></a>Huvudsida
 
 Huvudsidan för Storm-Användargränssnittet innehåller följande information:
 
-* **Klustersammanfattning**: grundläggande information om Storm-kluster.
+* **Klustersammanfattning**: Grundläggande information om Storm-kluster.
 
-* **Sammanfattning av topologi**: en lista över topologier som körs. Använd länkarna i det här avsnittet om du vill visa mer information om specifika topologier.
+* **Sammanfattning av topologi**: En lista över topologier som körs. Använd länkarna i det här avsnittet om du vill visa mer information om specifika topologier.
 
 * **Övervakaren sammanfattning**: Information om Storm-övervakaren.
 
@@ -78,43 +78,43 @@ Huvudsidan för Storm-Användargränssnittet innehåller följande information:
 
 Att välja en länk från den **Topology summary** avsnittet visar följande information om topologin:
 
-* **Sammanfattning av topologi**: grundläggande information om topologin.
+* **Sammanfattning av topologi**: Grundläggande information om topologin.
 
-* **Topologi åtgärder**: hanteringsåtgärder som du kan utföra för topologin.
+* **Topologi åtgärder**: Management-åtgärder som du kan utföra för topologin.
 
-  * **Aktivera**: återupptar bearbetningen av en inaktiverad topologi.
+  * **Aktivera**: Återupptar bearbetningen av en inaktiverad topologi.
 
-  * **Inaktivera**: pausar en topologi som körs.
+  * **Inaktivera**: Pausar en topologi som körs.
 
-  * **Balansera om**: justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Detta gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
+  * **Balansera om**: Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Detta gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
 
-      Mer information finns i [förstå parallellitet i en Apache Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Mer information finns i [förstå parallellitet i en Apache Storm-topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-  * **Avsluta**: avslutar en Storm-topologi efter en angiven tidsgräns.
+  * **Avsluta**: Avslutar en Storm-topologi efter en angiven tidsgräns.
 
-* **Topology stats**: statistik om topologin. Använda länkar i den **fönstret** kolumnen för att ange en mer specifik tidsram för de övriga objekten på sidan.
+* **Topology stats**: Statistik om topologin. Använda länkar i den **fönstret** kolumnen för att ange en mer specifik tidsram för de övriga objekten på sidan.
 
-* **Spouts**: kanaler som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika kanaler.
+* **Spouts**: Kanaler som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika kanaler.
 
-* **Bolts**: bultar som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika bultar.
+* **Bolts**: Bultar som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika bultar.
 
-* **Topologikonfiguration**: konfigurationen av den valda topologin.
+* **Topologikonfiguration**: Konfiguration av den valda topologin.
 
 #### <a name="spout-and-bolt-summary"></a>Spout och bult sammanfattning
 
 Att välja en kanal från den **Spouts** eller **Bolts** avsnitt visar följande information om det markerade objektet:
 
-* **Översikt över komponenterna**: grundläggande information om den kanal eller en bult.
+* **Översikt över komponenterna**: Grundläggande information om den kanal eller en bult.
 
-* **Spout/bult stats**: statistik om den kanal eller en bult. Använda länkar i den **fönstret** kolumnen för att ange en mer specifik tidsram för de övriga objekten på sidan.
+* **Spout/bult stats**: Statistik om den kanal eller en bult. Använda länkar i den **fönstret** kolumnen för att ange en mer specifik tidsram för de övriga objekten på sidan.
 
 * **Input stats** (endast bultar): Information om indataströmmar som används av bulten.
 
-* **Utdata stats**: Information om de strömmar som av detta kanalen eller bultar.
+* **Utdata stats**: Information om strömmar som orsakats av den här kanal eller en bult.
 
 * **Executors**: Information om instanser av den kanal eller en bult. Välj den **Port** post för en specifik executor att visa en logg över diagnostikinformation produceras för den här instansen.
 
-* **Fel**: någon information om fel för den här kanalen eller bultar.
+* **Fel**: Information om eventuella fel för den här kanal eller en bult.
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>HDInsight Tools för Visual Studio
 
@@ -132,7 +132,7 @@ Använd följande steg för att distribuera ett exempel till ditt Storm på HDIn
 
 4. I **Solution Explorer**, högerklicka på projektet och välj **skicka till Storm på HDInsight**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Om du uppmanas, anger du inloggningsuppgifterna för din Azure-prenumeration. Om du har mer än en prenumeration kan du logga in på det som innehåller ditt Storm på HDInsight-kluster.
 
 5. Välj ditt Storm på HDInsight-kluster från den **Storm-kluster** listrutan och välj sedan **skicka**. Du kan övervaka om överföringen har genomförts med den **utdata** fönster.
@@ -141,17 +141,17 @@ Använd följande steg för att distribuera ett exempel till ditt Storm på HDIn
 
     ![Övervakare för Visual studio](./media/apache-storm-deploy-monitor-topology/vsmonitor.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Du kan också visa **Storm-topologier** från **Server Explorer** genom att expandera **Azure** > **HDInsight**, och sedan att högerklicka på ett Storm på HDInsight-kluster och välja **Zobrazit Topologie Stormu**.
 
     Markera formen för kanaler eller bultar att visa information om dessa komponenter. Ett nytt fönster öppnas för varje objekt har valts.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Namnet på topologin är klassnamnet för topologin (i det här fallet `HelloWord`,) med en tidsstämpel som bifogats.
 
 7. Från den **Topology Summary** väljer **Kill** att stoppa topologin.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Storm-topologier fortsätter att köras tills de stoppas eller klustret tas bort.
 
 
@@ -169,7 +169,7 @@ Bas-URI för REST-API i HDInsight-kluster är **https://&lt;klusternamn >.azureh
 
 REST API-begäranden måste använda **grundläggande autentisering**, så att du använder HDInsight-kluster databasadministratörens namn och lösenord.
 
-> [!NOTE]
+> [!NOTE]  
 > Eftersom grundläggande autentisering skickas i klartext, bör du **alltid** använder HTTPS för att skydda kommunikationen med klustret.
 
 ### <a name="return-values"></a>Returvärden

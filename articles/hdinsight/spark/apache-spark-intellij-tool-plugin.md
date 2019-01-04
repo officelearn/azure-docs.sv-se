@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit för IntelliJ: skapa Spark-program för ett HDInsight-kluster '
+title: 'Azure Toolkit för IntelliJ: Skapa Spark-program för ett HDInsight-kluster '
 description: Använd Azure Toolkit för IntelliJ för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: b2bf79d90c741e09c683e4520b05b31ba2fee1da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 621d41c5c9558b5cb17d2a1e5a03d68f8af0df19
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582776"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600649"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -26,7 +26,7 @@ Använd Azure Toolkit för IntelliJ plugin-programmet för att utveckla [Apache 
 
 För att skapa ditt projekt, visa den [skapa Apache Spark-program med Azure Toolkit för IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Du kan använda det här plugin-programmet för att skapa och skicka program bara för ett HDInsight Spark-kluster på Linux.
 > 
 
@@ -180,22 +180,22 @@ När du har skapat ett Scala-program, kan du skicka den till klustret.
 
     * Välj en artefakt från projektet IntelliJ eller välj en från hårddisken.
 
-    * **Viktigaste klassnamn** fält: standardvärdet är huvudklass från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...** ) och välja en annan klass.   
+    * **Viktigaste klassnamn** fält: Standardvärdet är huvudklass från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...** ) och välja en annan klass.   
 
-    * **Jobbkonfigurationer** fält: standardvärden anges som bild som visas ovan. Du kan ändra värdet eller Lägg till ny nyckel/värde för ditt bidrag för jobbet. Mer information: [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
+    * **Jobbkonfigurationer** fält:  Standardvärdena är inställda som bild som visas ovan. Du kan ändra värdet eller Lägg till ny nyckel/värde för ditt bidrag för jobbet. Mer information: [Apache Livy REST-API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
       ![Spark-bidrag dialogrutan box jobbet configuration betydelse](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
-    * **Kommandoradsargument** fält: du kan ange argument-värden som delas av utrymme för huvudklass om det behövs.
+    * **Kommandoradsargument** fält: Du kan ange argument värdena dela efter utrymme för huvudklass om det behövs.
 
-    * **Referera till JAR-filer** och **refereras filer** fält: du kan ange sökvägarna för den refererade JAR-filer och filer eventuellt. Mer information: [Apache Spark-konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
+    * **Referera till JAR-filer** och **refereras filer** fält: Du kan ange sökvägarna för den refererade JAR-filer och filer eventuellt. Mer information: [Apache Spark-konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Spark-bidrag dialogrutan box jar-filer vilket innebär att](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
-       > Om du vill överföra dina referera till JAR: er och refererar till filer, se: [ladda upp resurser ska ingå i klustret](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
+       > [!NOTE]  
+       > Om du vill överföra dina referera till JAR: er och refererar till filer, se: [Ladda upp resurser ska ingå i klustret](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **Ladda upp sökväg**: du kan ange lagringsplats för Jar eller Scala projekt resurser programobjektet skulle skickas. Det finns tre lagringstyper som stöds: **Azure Blob**, **använda Spark interaktiva sessionen för att ladda upp artefakter**, och **använda kluster standardkontot för lagring**, och **ADLS Gen1**. Skärmbilden nedan är ett exempel för Azure Blob.
+    * **Ladda upp sökväg**: Du kan ange lagringsplats för Jar eller Scala projekt resurser programobjektet skulle skickas. Det finns tre lagringstyper som stöds: **Azure Blob**, **använda Spark interaktiva sessionen för att ladda upp artefakter**, och **använda kluster standardkontot för lagring**, och **ADLS Gen1**. Skärmbilden nedan är ett exempel för Azure Blob.
 
         ![Dialogrutan Skicka Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -310,7 +310,7 @@ Du kan konvertera befintliga Spark Scala program som du skapade i IntelliJ IDEA 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>Fel vid lokal körning: *Använd en större heap-storlek*
+### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>Fel i lokal körning: *Använd en större heap-storlek*
 Om du använder en 32-bitars Java SDK vid lokal körning i Spark 1.6 kan du uppstå följande fel:
 
     Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
@@ -347,21 +347,21 @@ För närvarande stöds visa Spark utdata direkt inte.
 Om du har förslag eller feedback, eller om du stöter på problem när du använder det här plugin-programmet, maila hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Nästa steg
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
-* Skapa Scala-projekt (video): [skapa Apache Spark Scala-appar](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Fjärrfelsök (video): [Använd Azure Toolkit för IntelliJ för att felsöka Apache Spark-program via fjärranslutning på HDInsight-kluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Skapa Scala-projekt (video): [Skapa Apache Spark Scala-appar](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Fjärrfelsök (video): [Felsöka Apache Spark-program via fjärranslutning på HDInsight-kluster med hjälp av Azure Toolkit för IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Felsöka Apache Spark-program via fjärranslutning via VPN med hjälp av Azure Toolkit för IntelliJ](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

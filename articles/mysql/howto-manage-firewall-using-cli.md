@@ -1,21 +1,18 @@
 ---
 title: Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI
 description: Den här artikeln beskriver hur du skapar och hanterar en Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI-kommandoraden.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134904"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549011"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för MySQL-brandväggar, se [Azure Database for MySQL-serverbrandväggsregler](./concepts-firewall-rules.md)
@@ -28,11 +25,11 @@ Brandväggsregler på servernivå kan administratörer hantera åtkomst till en 
 Den **az mysql server firewall-rule** används med Azure CLI för att skapa, ta bort, lista, visa och uppdatera brandväggsregler.
 
 Kommandon:
-- **Skapa**: skapa en brandväggsregel för Azure MySQL-server.
-- **ta bort**: ta bort en brandväggsregel för Azure MySQL-server.
-- **lista**: lista brandväggsregler för Azure MySQL-servern.
-- **Visa**: visa information om en Azure MySQL-server brandväggsregel.
-- **Uppdatera**: uppdatera en brandväggsregel för Azure MySQL-server.
+- **Skapa**: Skapa en brandväggsregel för Azure MySQL-server.
+- **Ta bort**: Ta bort en brandväggsregel för Azure MySQL-server.
+- **Lista**: Lista över brandväggsregler för Azure MySQL-servern.
+- **Visa**: Visa information om en Azure MySQL-server brandväggsregel.
+- **Uppdatera**: Uppdatera en brandväggsregel för Azure MySQL-server.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Logga in på Azure och lista din Azure Database för MySQL-servrar
 På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-inloggning** kommando.

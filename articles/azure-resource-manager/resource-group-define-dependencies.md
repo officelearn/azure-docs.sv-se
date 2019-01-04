@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295571"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727810"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager-mallar
 För en viss resurs, kan det finnas andra resurser som måste finnas innan resursen är distribuerad. Till exempel måste en SQL-server finnas innan du distribuerar en SQL-databas. Du kan definiera den här relationen genom att markera en resurs som är beroende av andra resursen. Du definierar ett beroende med den **dependsOn** element, eller genom att använda den **referens** funktion. 
@@ -145,16 +145,7 @@ Du kan använda det här elementet eller dependsOn-element för att ange beroend
 
 Mer information finns i [refererar till funktionen](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Rekommendationer för att ställa in beroenden
-
-Använd följande riktlinjer när du bestämmer vilka beroenden för att ställa in:
-
-* Ange beroenden för så lite som möjligt.
-* Ange en underordnad resurs som är beroende av dess överordnade.
-* Använd den **referens** fungerar och ange resursnamnet att ställa in implicit beroenden mellan resurser som behöver dela en egenskap. Lägg inte till beroende av ett explicit (**dependsOn**) när du redan har definierat beroende av ett implicit. Den här metoden minskar risken för onödig beroenden. 
-* Ange ett beroende när en resurs inte kan vara **skapade** utan funktioner från en annan resurs. När du inte ange ett beroende om resurserna som bara interagera efter distributionen.
-* Låt beroenden cascade utan att ange dem explicit. Till exempel den virtuella datorn är beroende av ett virtuellt nätverksgränssnitt och virtuella nätverksgränssnittet är beroende av ett virtuellt nätverk och offentliga IP-adresser. Därför kan den virtuella datorn är distribuerad när alla tre resurser, men uttryckligen ange inte den virtuella datorn som beroende på alla tre resurser. Den här metoden visar beroendeordningen och gör det lättare att ändra mallen senare.
-* Om ett värde kan fastställas före distributionen, försök att distribuera resursen utan koppling. Om ett konfigurationsvärde måste namnet på en annan resurs, kan du inte behöver ett beroende. Den här vägledningen fungerar inte alltid eftersom vissa resurser verifiera att den andra resursen. Om du får ett fel, lägger du till ett beroende. 
+## <a name="circular-dependencies"></a>Cirkulärt tjänstberoende
 
 Resource Manager identifierar cirkulärt tjänstberoende under mallverifieringen. Om du får ett felmeddelande om att det finns ett cirkulärt beroende, utvärdera din mall för att se om några beroenden som inte behövs och kan tas bort. Om du tar bort beroenden inte fungerar kan undvika du cirkulärt tjänstberoende genom att flytta vissa distributionsåtgärder till underordnade resurser som distribueras efter de resurser som har det cirkulära beroendet. Anta exempelvis att du distribuerar två virtuella datorer men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
 
@@ -168,6 +159,7 @@ Läs om hur utvärdera distributionsordning och kodproblem beroende [felsöka va
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill gå igenom en självstudiekurs, se [självstudie: skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Rekommendationer när du ställer in beroenden finns i [Metodtips för Azure Resource Manager-mall](template-best-practices.md).
 * Läs om hur du felsöker beroenden under distributionen i [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Läs om hur du skapar Azure Resource Manager-mallar i [Webbsidemallar](resource-group-authoring-templates.md). 
 * En lista över tillgängliga funktioner i en mall finns i [Mallfunktioner](resource-group-template-functions.md).

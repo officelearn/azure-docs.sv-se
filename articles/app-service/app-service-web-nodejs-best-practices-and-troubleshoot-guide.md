@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315731"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632695"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
 
-I den här artikeln får du lära dig metodtips och felsökning av [nodprogram](app-service-web-get-started-nodejs.md) som körs på Azure Web Apps (med [iisnode](https://github.com/azure/iisnode)).
+I den här artikeln får du lära dig metodtips och felsökning av [nodprogram](app-service-web-get-started-nodejs.md) som körs på Azure App Service (med [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Var försiktig när du använder felsökningssteg på din produktionsplats. Rekommendationen är att felsöka din app på en icke-produktion-konfiguration till exempel din mellanlagringsplats och när problemet är löst växla din mellanlagringsplats med din produktionsplatsen.
@@ -44,18 +44,18 @@ Den här inställningen styr sökvägen till node.exe. Du kan ange ett värde s�
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Den här inställningen styr det maximala antalet samtidiga begäranden som skickas av iisnode till varje node.exe. Standardvärdet är oändligt i Azure Web Apps. När de inte ligger i Azure Web Apps, är standardvärdet 1024. Du kan konfigurera värde, beroende på hur många begäranden som programmet tar emot och hur snabbt ditt program bearbetar varje begäran.
+Den här inställningen styr det maximala antalet samtidiga begäranden som skickas av iisnode till varje node.exe. Standardvärdet är oändligt på Azure App Service. Du kan konfigurera värde, beroende på hur många begäranden som programmet tar emot och hur snabbt ditt program bearbetar varje begäran.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Den här inställningen styr det maximala antalet gånger iisnode återförsök som gör anslutningen på en namngiven pipe att skicka begäranden till node.exe. Den här inställningen i kombination med namedPipeConnectionRetryDelay avgör den totala tidsgränsen för varje begärande i iisnode. Standardvärdet är 200 på Azure Web Apps. Total tidsgräns i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Den här inställningen styr det maximala antalet gånger iisnode återförsök som gör anslutningen på en namngiven pipe att skicka begäranden till node.exe. Den här inställningen i kombination med namedPipeConnectionRetryDelay avgör den totala tidsgränsen för varje begärande i iisnode. Standardvärdet är 200 på Azure App Service. Total tidsgräns i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Den här inställningen styr hur lång tid (i ms) iisnode väntar mellan varje nytt försök att skicka begäran till node.exe via en namngiven pipe. Standardvärdet är 250 ms.
 Total tidsgräns i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-Som standard är den totala tidsgränsen i iisnode i Azure Web Apps 200 \* 250 ms = 50 sekunder.
+Den totala tidsgränsen i iisnode på Azure App Service är som standard 200 \* 250 ms = 50 sekunder.
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ Läs [Felsök node.js-program på Windows](https://tomasz.janczuk.org/2011/11/de
 
 Många program bör du se utgående anslutningar som en del av deras vanliga funktion. Till exempel när en begäran kommer in, kan node-app kontakta en REST-API någon annanstans och hämta viss information för att bearbeta begäran. Du kan använda en agent för keep-alive när http eller https-anrop. Du kan använda modulen agentkeepalive ditt keep-alive ombud när du gör dessa utgående anrop.
 
-Modulen agentkeepalive säkerställer att sockets återanvänds på din Azure webapp VM. Skapa en ny socket för varje utgående begäran lägger till overhead i ditt program. Programmets återanvända sockets för utgående begäranden försäkrar du dig att ditt program inte överstiger maxsocket som allokeras per virtuell dator. Rekommendationen i Azure Web Apps är att ange värdet agentKeepAlive maxsocket totalt (4 instanser av node.exe \* 40 maxsocket/instans) 160 sockets per virtuell dator.
+Modulen agentkeepalive säkerställer att sockets återanvänds på din Azure webapp VM. Skapa en ny socket för varje utgående begäran lägger till overhead i ditt program. Programmets återanvända sockets för utgående begäranden försäkrar du dig att ditt program inte överstiger maxsocket som allokeras per virtuell dator. Rekommendationen på Azure App Service är att ange värdet agentKeepAlive maxsocket totalt (4 instanser av node.exe \* 40 maxsocket/instans) 160 sockets per virtuell dator.
 
 Exempel [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) konfiguration:
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Min noden program förbrukar för mycket CPU
 
-Du får en rekommendation från Azure Web Apps på din portal om hög cpu-förbrukning. Du kan också ställa in Övervakare kan du titta på vissa [mått](web-sites-monitor.md). Vid kontroll av CPU-användningen på den [instrumentpanelen för Azure-portalen](../application-insights/app-insights-web-monitor-performance.md), kontrollerar du de högsta värdena för processor så att du inte missar högsta värden.
+Du får en rekommendation från Azure App Service på din portal om hög cpu-förbrukning. Du kan också ställa in Övervakare kan du titta på vissa [mått](web-sites-monitor.md). Vid kontroll av CPU-användningen på den [instrumentpanelen för Azure-portalen](../application-insights/app-insights-web-monitor-performance.md), kontrollerar du de högsta värdena för processor så att du inte missar högsta värden.
 Du kan profilera node-programmet för att ta reda på om du tror att ditt program förbrukar för mycket CPU och du kan förklara varför.
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>Profilering nodprogrammet på Azure Web Apps med V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilering nodprogrammet på Azure App Service med V8-Profiler
 
 Anta exempelvis att du har en hello world-app som du vill profilera på följande sätt:
 
@@ -220,7 +220,7 @@ Du kan se att 95% av tiden har förbrukats av funktionen WriteConsoleLog. Utdata
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Min noden program förbrukar för mycket minne
 
-Om ditt program förbrukar för mycket minne, visas ett meddelande från Azure Web Apps på din portal om hög minnesförbrukning. Du kan ställa in Övervakare kan du titta på vissa [mått](web-sites-monitor.md). Vid kontroll av minnesanvändningen på de [instrumentpanelen för Azure-portalen](../application-insights/app-insights-web-monitor-performance.md), bör du kontrollera de högsta värdena för minne så att du inte missar högsta värden.
+Om ditt program förbrukar för mycket minne, visas ett meddelande i Azure App Service på din portal om hög minnesförbrukning. Du kan ställa in Övervakare kan du titta på vissa [mått](web-sites-monitor.md). Vid kontroll av minnesanvändningen på de [instrumentpanelen för Azure-portalen](../application-insights/app-insights-web-monitor-performance.md), bör du kontrollera de högsta värdena för minne så att du inte missar högsta värden.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Upptäcka läckor och Heap Diff för node.js
 
@@ -249,12 +249,12 @@ Programmet som utlöste undantagsfel utan felhantering – Kontrollera `d:\\home
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Min node-programmet tar för lång tid att starta (kalla Start)
 
-Den vanliga orsaken till länge application starttider är ett stort antal filer i noden\_moduler. Ett program försöker läsa in de flesta av dessa filer när du börjar. Som standard eftersom filerna lagras på nätverksresursen på Azure Web Apps, kan läser in många filer ta tid.
+Den vanliga orsaken till länge application starttider är ett stort antal filer i noden\_moduler. Ett program försöker läsa in de flesta av dessa filer när du börjar. Som standard eftersom filerna lagras på nätverksresursen på Azure App Service, kan läser in många filer ta tid.
 Vissa lösningar för att den här processen snabbare är:
 
 1. Måste du ha en fast beroende struktur och inga dubbla beroenden med hjälp av npm3 för att installera modulerna.
 2. Försök att lazy läsa in din nod\_moduler och inte att läsa in alla moduler vid programstart. Lazy belastningen modulerna ska anropet till require('module') tänka på när du verkligen behöver modul i funktionen innan den första körningen av modulen kod.
-3. Azure Web Apps erbjuder en funktion som kallas lokala cachen. Den här funktionen kopierar innehållet från nätverksresursen till den lokala disken på den virtuella datorn. Eftersom filerna är local, inläsningstiden för noden\_moduler är mycket snabbare.
+3. Azure App Service erbjuder en funktion som kallas lokala cachen. Den här funktionen kopierar innehållet från nätverksresursen till den lokala disken på den virtuella datorn. Eftersom filerna är local, inläsningstiden för noden\_moduler är mycket snabbare.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http-status och understatus
 
@@ -274,13 +274,13 @@ Aktivera FREB för ditt program att se win32-felkoden (vara säker på att du ak
 | 503 |1002 |Kontrollera win32-felkoden faktiska orsak – begäran kunde inte skickas till en node.exe. |
 | 503 |1003 |Namngiven pipe är upptagen – kontrollera om node.exe förbrukar mycket Processorkraft |
 
-NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES`. Som standard är det här värdet 4 när de inte distribueras på Azure Web Apps. Vilket innebär att node.exe kan bara godkänna fyra begäranden i taget på en namngiven pipe. Det här värdet anges till 5 000 på Azure Web Apps. Det här värdet ska vara tillräckligt bra för de flesta node.js-program som körs på Azure Web Apps. Du bör inte se 503.1003 på Azure Web Apps på grund av högt värde för den `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES`. Det här värdet anges till 5 000 på Azure App Service. Vilket innebär att node.exe kan acceptera 5000 begäranden i taget på en namngiven pipe. Det här värdet ska vara tillräckligt bra för de flesta node.js-program som körs på Azure App Service. Du bör inte se 503.1003 på Azure App Service på grund av högt värde för den `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Fler resurser
 
 Du kan följa dessa länkar om du vill veta mer om node.js-program på Azure App Service.
 
-* [Kom igång med Node.js-Webbappar i Azure App Service](app-service-web-get-started-nodejs.md)
+* [Kom igång med Node.js-webbappar i Azure App Service](app-service-web-get-started-nodejs.md)
 * [Felsöka en Node.js-webbapp i Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

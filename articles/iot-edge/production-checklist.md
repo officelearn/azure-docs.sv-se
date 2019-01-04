@@ -1,19 +1,20 @@
 ---
-title: Förbereda för en Azure IoT Edge-lösning i produktionsmiljön | Microsoft Docs
+title: Förbereda enheter och distributioner för produktion - Azure IoT Edge | Microsoft Docs
 description: Lär dig ta din Azure IoT Edge-lösning från utveckling till produktion, och konfigurera dina enheter med tillämpliga certifikat och göra en distributionsplan för framtida uppdateringar.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48fd774d6d887a12ed1c1ad9689ca34f5d866367
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585593"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652633"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbereda för distribution av din IoT Edge-lösning i produktion
 
@@ -161,6 +162,17 @@ Om ditt nätverk installationen kräver att du uttryckligen lista över tillåtn
 I samtliga tre fall DNS-namnet matchar mönstret \*.azure devices.net. 
 
 Dessutom kan den **Container engine** anropar behållarregister via HTTPS. Om du vill hämta behållaravbildningar för IoT Edge-körning, är DNS-namnet mcr.microsoft.com. Behållare-motorn ansluter till andra register som konfigurerats i distributionen. 
+
+Den här checklistan är en startpunkt för brandväggsregler:
+
+   | URL: en (\* = jokertecken) | Utgående TCP-portar | Användning |
+   | ----- | ----- | ----- |
+   | MCR.microsoft.com  | 443 | Microsoft behållarregister |
+   | Global.Azure-enheter – provisioning.net  | 443 | DPS-åtkomst (valfritt) |
+   | \*. azurecr.io | 443 | Personliga och 3 part behållarregister |
+   | \*.blob.core.windows.net | 443 | Nedladdningen av bilden deltan | 
+   | \*.Azure devices.net | 5671, 8883, 443 | IoT Hub-åtkomst |
+   | \*. docker.io  | 443 | Docker-åtkomst (valfritt) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Konfigurera kommunikation via en proxyserver
 

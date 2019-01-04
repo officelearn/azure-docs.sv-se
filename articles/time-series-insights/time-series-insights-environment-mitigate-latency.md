@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights-prestanda och begränsning, hur du övervakar och minska begränsning i Azure Time Series Insights | Microsoft Docs
+title: Hur du övervakar och minska begränsning i Azure Time Series Insights | Microsoft Docs
 description: Den här artikeln beskriver hur du övervaka, diagnostisera och minska prestandaproblem med som orsakar svarstid och begränsning i Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 34f7128a6ab86a23d911f9bc92908102df4dee92
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278431"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556755"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningar om du vill minska svarstiden i Azure Time Series Insights
 När mängden inkommande data överskrider konfigurationen för din miljö kan uppstår du fördröjning eller begränsning i Azure Time Series Insights.

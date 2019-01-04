@@ -1,7 +1,7 @@
 ---
 title: Kategorisera bilder - visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för att kategorisera bilder med hjälp av den API för visuellt innehåll.
+description: Lär dig begrepp för funktionen bild kategorisering av den API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333487"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579506"
 ---
-# <a name="categorizing-images"></a>Kategorisera bilder
+# <a name="image-categorization-with-computer-vision"></a>Bild kategorisering med visuellt innehåll
 
 Förutom taggning och beskrivningar returnerar för visuellt innehåll taxonomi-baserade kategorier som definierats i tidigare versioner. Kategorierna är ordnade som en taxonomi med ärftliga överordnade/underordnade hierarkier. Alla kategorier är på engelska. De kan användas fristående eller med vår nya taggning modeller.
 
@@ -31,7 +32,7 @@ Baserat på en lista över 86 begrepp som visas i följande diagram, kan en bild
 
 Följande JSON-svar visar vad för visuellt innehåll returnerar när kategorisera exempelbild baserat på dess visuella funktioner.
 
-![Kvinna tak](./Images/woman_roof.png)
+![En kvinna under taket i en innesluten byggnad](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ I följande tabell visas en typisk bild-uppsättning och den kategori som return
 
 | Bild | Kategori |
 |-------|----------|
-| ![Familjefoto](./Images/family_photo.png) | people_group |
-| ![Gullig hund](./Images/cute_dog.png) | animal_dog |
-| ![Berg utomhus](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Visuell analys mat bröd](./Images/bread.png) | food_bread |
+| ![Fyra personer lösenordsbaserat tillsammans som en serie](./Images/family_photo.png) | people_group |
+| ![En Hundvalp som sitter i ett grassy fält](./Images/cute_dog.png) | animal_dog |
+| ![En person som står på en mountain rock på solnedgång](./Images/mountain_vista.png) | outdoor_mountain |
+| ![En stapel med bröd roller på en tabell](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Nästa steg
 

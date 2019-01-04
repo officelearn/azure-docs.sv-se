@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261831"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715613"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
 Den här artikeln sammanfattas Metodtips för [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ När du ser en app förbrukar mer minne än förväntat som anges via övervakni
 ## <a name="CPUresources"></a>När appar använder mer Processorkraft än förväntat
 När du upptäcker en app förbrukar mer Processorkraft än förväntat eller upplevelser upprepade processoranvändning som anges via övervakning eller tjänsten rekommendationer, Överväg att skala upp eller skala ut App Service-planen. Om ditt program är tillståndskänsliga, är skala upp det enda alternativet om programmet är tillståndslösa, skala ut ger större flexibilitet och högre skala potential. 
 
-Mer information om ”tillståndskänsliga” vs ”tillståndslösa” program kan du titta på den här videon: [Planera en skalbar slutpunkt till slutpunkt-Flernivåapp på Microsoft Azure Webbapp](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och automatisk skalning av App Service finns i [skala en Webbapp i Azure App Service](web-sites-scale.md).  
+Mer information om ”tillståndskänsliga” vs ”tillståndslösa” program kan du titta på den här videon: [Planera en skalbar slutpunkt till slutpunkt-Flernivåapp i Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och automatisk skalning av App Service finns i [skala en Webbapp i Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>När socketresurser slut
 En vanlig orsak till förbrukar utgående TCP-anslutningar är användningen av klientbibliotek som implementeras inte återanvända TCP-anslutningar eller när en högre nivå protokoll som HTTP - Keep-Alive används inte. Läs dokumentationen för varje bibliotek som refereras av appar i din App Service-Plan att se till att de är konfigurerade eller används i koden för effektiv återanvändning av utgående anslutningar. Också följa riktlinjerna för biblioteket-dokumentationen för rätt skapande och versionen eller rensa för att undvika läcker anslutningar. Sådana klienten bibliotek undersökningar är pågår, kan du minimera effekten genom att skala ut till flera instanser.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>När din app säkerhetskopiera börjar misslyckas
 De två vanligaste orsakerna till varför app säkerhetskopiering misslyckas är: ogiltiga Lagringsinställningar och ogiltig konfiguration. Dessa fel sker vanligtvis när det finns ändringar till lagring eller databas resurser eller ändringar för hur du kommer åt dessa resurser (till exempel autentiseringsuppgifter som uppdateras för den markerade i säkerhetskopieringsinställningarna databasen). Säkerhetskopior normalt körs enligt ett schema och kräver åtkomst till (för att mata ut de säkerhetskopierade filerna) och databaser (för kopiera och läsning av innehållet som ska ingå i säkerhetskopieringen). Resultatet för att få åtkomst till någon av dessa resurser inte är konsekvent säkerhetskopieringen har misslyckats. 
 
-Granska de senaste resultaten för att förstå vilken typ av fel som händer när Säkerhetskopieringsfel uppstår. För åtkomst av lagringsfel, granska och uppdatera lagringsinställningarna som används i konfigurationen för säkerhetskopiering. För åtkomst av databasfel, granska och uppdatera dina anslutningar strängar som en del av appen inställningar. Fortsätt sedan med att uppdatera din säkerhetskopieringskonfiguration korrekt med databaserna som krävs. Mer information om säkerhetskopior av appar finns i [säkerhetskopiera en webbapp i Azure App Service](web-sites-backup.md).
+Granska de senaste resultaten för att förstå vilken typ av fel som händer när Säkerhetskopieringsfel uppstår. För åtkomst av lagringsfel, granska och uppdatera lagringsinställningarna som används i konfigurationen för säkerhetskopiering. För åtkomst av databasfel, granska och uppdatera dina anslutningar strängar som en del av appen inställningar. Fortsätt sedan med att uppdatera din säkerhetskopieringskonfiguration korrekt med databaserna som krävs. Mer information om säkerhetskopior av appar finns i [säkerhetskopiera en webbapp i Azure App Service](manage-backup.md).
 
 ## <a name="nodejs"></a>När nya Node.js-appar har distribuerats till Azure App Service
 Azure App Service-standardkonfigurationen för Node.js-appar är avsedd att de passar behoven hos de vanligaste appar. Om konfigurationen för din Node.js-app skulle ha nytta av anpassade justering för att förbättra prestanda eller Optimera resursanvändningen för CPU/minne/nätverksresurser kan du läsa [metodtips och felsökningsguide för nodprogram i Azure-App Tjänsten](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Den här artikeln beskriver iisnode-inställningar du kan behöva konfigurera för din Node.js-app, beskriver olika scenarier eller problem med att din app får och visar hur du kan lösa dessa problem.

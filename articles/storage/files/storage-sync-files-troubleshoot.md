@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409470"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794557"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -23,6 +23,8 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [UserVoice för Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på Min server (sync, cloud lagringsnivåer, etc.). Ta bort och återskapa min serverslutpunkt
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -130,11 +132,11 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 Det här problemet kan inträffa om Övervakaren för synkronisering av lagring-processen körs inte eller servern kan inte kommunicera med Azure File Sync-tjänsten på grund av en proxy eller brandvägg.
 
-Utför följande steg för att lösa problemet:
+Åtgärda problemet genom att följa dessa steg:
 
-1. Öppna Aktivitetshanteraren på servern och kontrollera övervakaren lagring för synkronisering (AzureStorageSyncMonitor.exe)-processen körs. Om processen inte körs, först försöka starta om servern. Om du startar om servern inte löser problemet, uppgradera till den senaste Azure File Sync [agentversion](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
+1. Öppna Aktivitetshanteraren på servern och kontrollera att Storage Sync Monitor-processen (AzureStorageSyncMonitor.exe) körs. Om processen inte körs provar du först att starta om servern. Om du startar om servern inte löser problemet, uppgradera till den senaste Azure File Sync [agentversion](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Kontrollera inställningarna för brandväggen och proxyservern är korrekt konfigurerade:
-    - Om servern finns bakom en brandvägg kan du kontrollera att port 443 för utgående trafik tillåts. Om brandväggen begränsar trafik till specifika domäner, kontrollerar du de domäner som anges i brandväggen [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
+    - Om servern finns bakom en brandvägg kontrollerar du att port 443 för utgående trafik tillåts. Om brandväggen begränsar trafik till specifika domäner, kontrollerar du de domäner som anges i brandväggen [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
     - Om servern finns bakom en proxyserver kan du konfigurera datoromfattande eller appspecifika proxyinställningarna genom att följa stegen i proxyn [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Serverslutpunkten har en hälsostatus ”ingen aktivitet” och Servertillstånd på bladet registrerade servrar är ”Online”**  
@@ -468,15 +470,23 @@ När det här registervärdet har angetts godkänner Azure File Sync-agenten all
 | **Felsträng** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Reparation krävs** | Ja |
 
-Det här felet uppstår ofta eftersom servertiden är felaktig eller certifikatet som används för autentisering har upphört att gälla. Utför följande steg för att förnya utgångna certifikat om servertiden stämmer:
+Det här felet kan orsakas av:
 
-1. Öppna snapin-modulen MMC certifikat, Välj datorkontot och navigera till \Personal\Certificates certifikat (lokal dator).
-2. Kontrollera om certifikatet för klientautentisering har upphört att gälla. Om certifikatet har upphört att gälla, stänger du MMC snapin-modulen certifikat och proceeed med återstående steg. 
-3. Verifiera Azure File Sync-agenten version 4.0.1.0 eller senare är installerat.
-4. Kör följande PowerShell-kommandon på servern:
+- Servertid är felaktig
+- Borttagningen av serverslutpunkten misslyckades
+- Certifikatet som används för autentisering har upphört att gälla. 
+    Utför följande steg för att kontrollera om certifikatet har upphört att gälla:  
+    1. Öppna snapin-modulen MMC certifikat, Välj datorkontot och navigera till \Personal\Certificates certifikat (lokal dator).
+    2. Kontrollera om certifikatet för klientautentisering har upphört att gälla.
+
+Utför följande steg för att lösa problemet om servertiden stämmer:
+
+1. Verifiera Azure File Sync-agenten version 4.0.1.0 eller senare är installerat.
+2. Kör följande PowerShell-kommandon på servern:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
@@ -562,14 +572,14 @@ Det här felet uppstår på grund av ett internt problem med av synkroniseringsd
 
 ### <a name="common-troubleshooting-steps"></a>Vanliga åtgärder för felsökning
 <a id="troubleshoot-storage-account"></a>**Kontrollera att lagringskontot finns.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Gå till synkroniseringsgruppen inom Storage Sync-tjänsten.
 2. Välj molnslutpunkten i synkroniseringsgruppen.
 3. Observera Azure filresursens namn i fönstret öppnade.
 4. Välj det länkade storage-kontot. Om den här länken inte har refererade storage-konto tagits bort.
     ![En skärmbild som visar fönstret cloud endpoint detaljerad med en länk till lagringskontot.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -583,20 +593,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzureRmAccount
+$acctInfo = Connect-AzAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -609,7 +619,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -656,7 +666,7 @@ $cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -667,12 +677,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Kontrollera att lagringskontot inte innehåller några Nätverksregler.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. En gång i storage-konto, väljer **brandväggar och virtuella nätverk** på vänster sida av storage-konto.
 2. I storage-konto i **tillåta åtkomst från alla nätverk** alternativknappen måste väljas.
     ![En skärmbild som visar storage-konto brandväggs- och regler inaktiveras.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -683,12 +693,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Kontrollera Azure-filresursen finns.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **översikt** på den vänstra innehållsförteckningen att återgå till sidan för huvudsakliga lagringskontot.
 2. Välj **filer** att visa en lista över filresurser.
 3. Kontrollera filresursen som refereras av molnslutpunkten visas i listan över filresurser (du bör ha antecknat detta i steg 1 ovan).
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -702,7 +712,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Kontrollera Azure File Sync har åtkomst till lagringskontot.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **åtkomstkontroll (IAM)** på den vänstra innehållsförteckningen.
 1. Klicka på den **rolltilldelningar** fliken i listan med användare och program (*tjänsthuvudnamn*) som har åtkomst till ditt lagringskonto.
 1. Kontrollera **Hybrid Filsynkroniseringstjänstens** visas i listan med de **läsare och dataåtkomst** roll. 
@@ -715,10 +725,10 @@ if ($fileShare -eq $null) {
     - I den **rollen** väljer **läsare och dataåtkomst**.
     - I den **Välj** skriver **Hybrid Filsynkroniseringstjänstens**, markerar du rollen och klickar på **spara**.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {
@@ -829,11 +839,11 @@ Om filerna inte kan återställas:
 > En händelse-ID 9006 loggas en gång i timmen i händelseloggen telemetri om det inte går att återställa en fil (en händelse loggas per felkod). Drift- och diagnostikloggar till event ska användas om ytterligare information behövs för att diagnostisera problem.
 
 <a id="files-unexpectedly-recalled"></a>**Felsöka filer som oväntat återställs på en server**  
-Antivirusprogram, säkerhetskopiering och andra program som läser stort antal filer leda till oönskade konsumenternas om de inte respekterar attributet hoppa över offline och hoppar över att läsa innehållet i filerna. Hoppar över offlinefiler för de produkter som har stöd för det här alternativet hjälper dig att undvika oönskade konsumenternas under åtgärder som att virusgenomsökning eller säkerhetskopieringsjobb.
+Antivirusprogram, säkerhetskopiering och andra program som läser stort antal filer leda till oönskade konsumenternas om de inte respekterar attributet hoppa över offline och hoppar över att läsa innehållet i filerna. Genom att hoppa över filer för produkter som stöder det här alternativet kan oönskad återkallning undvikas i samband med aktiviteter som virusgenomsökningar eller säkerhetskopieringsjobb.
 
-Kontakta programleverantören för att lära dig hur du konfigurerar sin lösning om du vill hoppa över läsning av offline-filer.
+Kontakta programleverantören för information om hur du konfigurerar deras lösning så att offlinefiler ignoreras.
 
-Oönskade konsumenternas kan uppstå i andra scenarier, t.ex. när du försöker nå filer i Utforskaren. Öppna en mapp med cloud-nivåindelade filer i Utforskaren på servern kan resultera i oväntade konsumenternas. Det är ännu mer troligt om en antiviruslösning är aktiverat på servern.
+Oönskade konsumenternas kan uppstå i andra scenarier, t.ex. när du försöker nå filer i Utforskaren. Om en mapp med filer på molnnivå öppnas i Utforskaren på servern kan det leda till oväntad återkallning. Det är ännu mer troligt om en antiviruslösning är aktiverad på servern.
 
 ## <a name="general-troubleshooting"></a>Allmän felsökning
 Om du stöter på problem med Azure File Sync på en server kan starta genom att utföra följande steg:

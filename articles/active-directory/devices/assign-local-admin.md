@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 702ebdc0966a72396ac644b154ba13d2321fd5d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238734"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631353"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
 
@@ -88,7 +88,7 @@ Som standard Azure AD lägger du till användaren som utför Azure AD-anslutning
 
 Förutom att använda Azure AD join-processen, kan du också manuellt höja en vanlig användare om att bli en lokal administratör på en specifik enhet. Det här steget kräver att du redan är medlem i gruppen lokala administratörer. 
 
-Från och med den **Windows 10 1709** versionen kan du utföra den här uppgiften från **Inställningar -> konton -> andra användare** genom att välja **lägga till en arbets- eller skolkonto användare**.
+Från och med den **Windows 10 1709** versionen kan du utföra den här uppgiften från **Inställningar -> konton -> andra användare**. Välj **lägga till en arbets- eller skolkonto användare**, ange användarens UPN under **användarkonto** och välj *administratör* under **kontotyp**  
  
 Dessutom kan du lägga till användare med hjälp av Kommandotolken:
 

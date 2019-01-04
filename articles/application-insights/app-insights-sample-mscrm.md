@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f3746fc340b382c58f7a9501cb0828a6b6befe8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002139"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976043"
 ---
-# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
+# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Steg-för-steg-beskrivning: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
 Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights-skriptet till ditt program, samla in data och datavisualisering.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Om du vill övervaka programmet du lägga till en Application Insights SDK till 
     ![Klicka på +, Utvecklartjänster, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Välj ASP.NET som programtypen.
-3. Följ anvisningarna för att [hämta JavaScript SDK-skriptet för din app](app-insights-javascript.md#set-up-application-insights-for-your-web-page), kopiera JavaScript-kodavsnitt och Ersätt Instrumenteringsnyckeln med rätt värde för Application Insights-resursen.
+3. Följ anvisningarna för att [hämta JavaScript SDK-skriptet för din app](../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), kopiera JavaScript-kodavsnitt och Ersätt Instrumenteringsnyckeln med rätt värde för Application Insights-resursen.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Skapa en webbresurs i JavaScript i Microsoft Dynamics CRM
 1. Öppna din CRM Online-instans och logga in med administratörsbehörighet.
@@ -134,5 +134,5 @@ Du kan göra djupare analys om du [exportera data till Microsoft Power BI](app-i
 
 ## <a name="learn-more"></a>Läs mer
 * [Vad är Application Insights?](app-insights-overview.md)
-* [Application Insights för webbsidor](app-insights-javascript.md)
+* [Application Insights för webbsidor](../azure-monitor/app/javascript.md)
 * [Fler exempel och genomgångar](app-insights-overview.md)

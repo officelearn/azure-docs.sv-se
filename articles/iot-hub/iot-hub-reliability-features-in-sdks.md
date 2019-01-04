@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957460"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994750"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Hantering av anslutningar och tillförlitlig meddelandehantering med hjälp av SDK: er för Azure IoT Hub-enheter
 
@@ -62,15 +62,15 @@ Följande steg beskriver hur återförsök när fel identifieras:
 1. SDK: N identifierar felet och det tillhörande felet i nätverket, protokoll eller program.
 1. SDK: N använder fel filtret för att fastställa feltypen av och bestämma om ett nytt försök krävs.
 1. Om SDK: N identifierar en **oåterkalleligt fel**, åtgärder som anslutning, skicka och ta emot har stoppats. SDK meddelar användaren. Exempel på ett oåterkalleligt fel är ett autentiseringsfel och en felaktig endpoint-fel.
-1. Om SDK: N identifierar en **oåterkalleligt fel**, ett nytt försök görs enligt dina angivna återförsöksprincipen tills den definierade tidsgränsen har gått ut måste.
+1. Om SDK: N identifierar en **oåterkalleligt fel**, ett nytt försök görs enligt angivna återförsöksprincipen tills den definierade tidsgränsen har gått ut måste.  Observera att SDK: N använder **exponenten-backoff med jitter** återförsöksprincip som standard.
 1. När definierade tidsgränsen har nåtts, stannar SDK: N försöker ansluta eller skicka. Den meddelar användaren.
 1. SDK: N används att koppla ett återanrop för att ta emot status ändras.
 
 SDK: erna innehåller tre återförsöksprinciper:
 
-- **Exponentiell backoff med jitter**: den här standardprincipen för återförsök tenderar att vara aggressivt i början och långsamt över tid tills den når en maximal fördröjning. Designen baseras på [försök vägledning från Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-- **Anpassat återförsök**: för vissa SDK-språk, kan du utforma en egen återförsöksprincip som passar bättre för ditt scenario och mata in det i RetryPolicy. Anpassat återförsök är inte tillgängligt i C SDK.
-- **Inga återförsök**: du kan ange återförsöksprincipen för ”Inga återförsök”, vilket inaktiverar logik för omprövning. SDK försöker ansluta en gång och skicka ett meddelande om en gång, förutsatt att anslutningen har upprättats. Den här principen används vanligtvis i scenarier med bandbredd eller kostnaden frågor. Om du väljer det här alternativet går förlorade meddelanden som inte vill skicka och kan inte återställas.
+- **Exponentiell backoff med jitter**: Den här standardprincipen för återförsök tenderar att vara aggressivt i början och långsamt över tid tills den når en maximal fördröjning. Designen baseras på [försök vägledning från Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
+- **Anpassat återförsök**: Du kan utforma en egen återförsöksprincip som passar bättre för ditt scenario och mata in det i RetryPolicy för vissa SDK-språk. Anpassat återförsök är inte tillgängligt i C SDK.
+- **Inga återförsök**: Du kan ange återförsöksprincipen för ”Inga återförsök”, vilket inaktiverar logik för omprövning. SDK försöker ansluta en gång och skicka ett meddelande om en gång, förutsatt att anslutningen har upprättats. Den här principen används vanligtvis i scenarier med bandbredd eller kostnaden frågor. Om du väljer det här alternativet går förlorade meddelanden som inte vill skicka och kan inte återställas.
 
 ### <a name="retry-policy-apis"></a>Återförsöksprincip API: er
 

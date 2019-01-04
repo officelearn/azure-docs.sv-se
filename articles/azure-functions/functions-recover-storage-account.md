@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887226"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604981"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du ”functions-körning kan inte nås”
 
@@ -92,5 +92,5 @@ Nu när Funktionsappen är backend och fungerar kan du ta en titt på våra snab
   Beskriver olika verktyg och tekniker för att testa funktioner.
 * [Så här skalar du Azure Functions](functions-scale.md)  
   Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
-* [Läs mer om Azure App Service](../app-service/app-service-web-overview.md)  
+* [Läs mer om Azure App Service](../app-service/overview.md)  
   Azure Functions använder Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 

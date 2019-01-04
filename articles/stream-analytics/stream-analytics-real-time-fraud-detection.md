@@ -4,19 +4,19 @@ description: Lär dig hur du skapar en lösning för identifiering av bedrägeri
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986040"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558183"
 ---
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: bedrägerier i realtid
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: Identifiering av bedrägerier i realtid
 
 Den här självstudien innehåller en illustration av hur du använder Azure Stream Analytics. Lär dig att: 
 
@@ -44,7 +44,7 @@ Se till att du har följande innan du börjar:
     >[!NOTE]
     >Windows kan blockera hämtade ZIP-filen. Om du det går inte att packa upp den, högerklicka på filen och välj **egenskaper**. Om du ser meddelandet ”den här filen kommer från en annan dator och blockeras för att skydda den här datorn” väljer du den **avblockera** alternativ och klickar sedan på **tillämpa**.
 
-Om du vill granska resultaten för Streaming Analytics-jobb måste du också ett verktyg för att visa innehållet i en Azure Blob Storage-behållare. Om du använder Visual Studio kan du använda [Azure Tools för Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) eller [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Du kan också installera fristående verktyg som [Azure Storage Explorer](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Om du vill granska resultaten för Streaming Analytics-jobb måste du också ett verktyg för att visa innehållet i en Azure Blob Storage-behållare. Om du använder Visual Studio kan du använda [Azure Tools för Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) eller [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Du kan också installera fristående verktyg som [Azure Storage Explorer](https://storageexplorer.com/) eller [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Skapa en Azure Event Hubs för att mata in händelser
 
@@ -62,7 +62,7 @@ I den här proceduren måste du först skapa ett händelsehubbnamnområde och se
     
 3. Välj en prenumeration och skapa eller välj en resursgrupp och sedan klicka på **skapa**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 4. När namnområdet har slutfört distributionen, hitta händelsehubbens namnområde i din lista över Azure-resurser. 
 
@@ -72,7 +72,7 @@ I den här proceduren måste du först skapa ett händelsehubbnamnområde och se
  
 6. Namnge den nya händelsehubben `asa-eh-frauddetection-demo`. Du kan använda ett annat namn. Om du gör notera av det, eftersom du behöver namnet senare. Du behöver inte ange några andra alternativ för event hub just nu.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
 7. Klicka på **Skapa**.
@@ -90,7 +90,7 @@ Innan en process kan skicka data till en händelsehubb, måste event hub ha en p
 
 3.  Lägg till en princip med namnet `sa-policy-manage-demo` och för **anspråk**väljer **hantera**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
 4.  Klicka på **Skapa**.
 
@@ -98,7 +98,7 @@ Innan en process kan skicka data till en händelsehubb, måste event hub ha en p
 
 6.  I listrutan **ANSLUTNINGSSTRÄNG – primär nyckel** och klicka på kopieringsknappen bredvid anslutningssträngen. 
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
 7.  Klistra in anslutningssträngen i en textredigerare. Du behöver den här anslutningssträngen för nästa avsnitt när du har gjort mindre ändringar till den.
 
@@ -125,7 +125,7 @@ Innan du startar appen TelcoGenerator måste du konfigurera den så att anropet 
 
     Den `<appSettings>` avsnittet kommer att se ut som i följande exempel. (För tydlighetens skull raderna omsluts och vissa tecken har tagits bort från autentiseringstoken.)
 
-   ![Konfigurationsfilen för TelcoGenerator-appen som visar namn och -anslutningssträngen för hubben](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ![Konfigurationsfilen för TelcoGenerator visar event hub-namn och anslutningssträng](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
 4.  Spara filen. 
 
@@ -133,7 +133,9 @@ Innan du startar appen TelcoGenerator måste du konfigurera den så att anropet 
 1.  Öppna ett kommandofönster och gå till mappen där appen TelcoGenerator är uppzippade.
 2.  Ange följande kommando:
 
+        ```cmd
         telcodatagen.exe 1000 0.2 2
+        ```
 
     Parametrarna är: 
 
@@ -167,7 +169,7 @@ Nu när du har en ström av anropshändelser kan du konfigurera ett Stream Analy
 
     Det är en bra idé att placera jobbet och händelsehubben i samma region för bästa prestanda och så att du inte behöver betala att överföra data mellan regioner.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
 3. Klicka på **Skapa**.
 
@@ -190,7 +192,7 @@ Nu när du har en ström av anropshändelser kan du konfigurera ett Stream Analy
    |Namn på händelsehubb  | asa-FT-frauddetection-demo | Välj namnet på din Event Hub.   |
    |Principnamn för Event Hub  | asa-princip-hantera-demo | Välj den åtkomstprincip som du skapade tidigare.   |
     </br>
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
 4. Klicka på **Skapa**.
@@ -219,7 +221,7 @@ Appen TelcoGenerator skickar anrop poster till event hub och ditt Stream Analyti
 
 5. Ange **minuter** till 3 och klicka sedan på **OK**. 
     
-   ![Alternativ för sampling Indataströmmen, med ”3 minuter” som valts.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
+   ![Alternativ för sampling Indataströmmen med 3 minuter som har valts](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
     Azure-exempel 3 minuter leverantör av data från Indataströmmen och meddelar dig när exempeldata är klara. (Detta tar en liten stund.) 
 
@@ -232,11 +234,13 @@ Alternativt kan du hämta en JSON-fil som innehåller exempeldata i den [från G
 Du kan använda en direktfråga för att läsa alla fält i nyttolasten för händelsen om du vill arkivera varje händelse.
 
 1. Ange den här frågan i frågefönstret:
-
-        SELECT 
-            *
-        FROM 
-            CallStream
+        
+   ```SQL
+   SELECT 
+       *
+   FROM 
+       CallStream
+   ```
 
     >[!NOTE]
     >Precis som med SQL, nyckelord är inte skiftlägeskänsliga och blanksteg är inte särskilt stor.
@@ -257,15 +261,17 @@ I många fall behöver din analys inte alla kolumner från Indataströmmen. Du k
 
 1. Ändra frågan i kodredigeraren till följande:
 
-        SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
-        FROM 
-            CallStream
+   ```SQL
+   SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+   FROM 
+       CallStream
+   ```
 
 2. Klicka på **Test** igen. 
 
-   ![Stream Analytics-jobbutdata för projektion, som visar 25 poster som genererats](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+   ![Stream Analytics-jobbutdata för projektion visar 25 poster](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
-### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>Antal inkommande anrop per region: rullande fönster med aggregering
+### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>Antal inkommande anrop per region: Rullande fönster med aggregering
 
 Anta att du vill räkna antalet inkommande anrop per region. När du vill utföra mängdfunktioner som inventering, i strömmande data måste du segmentera strömmen i den temporala enheter (eftersom själva dataströmmen är effektivt oändliga). Du gör detta med hjälp av ett Streaming Analytics [fönsterfunktion används](stream-analytics-window-functions.md). Du kan sedan arbeta med data i fönstret som en enhet.
 
@@ -273,11 +279,13 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
 
 1. Ändra frågan i kodredigeraren till följande:
 
+        ```SQL
         SELECT 
             System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
         FROM
             CallStream TIMESTAMP BY CallRecTime 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+        ```
 
     Den här frågan använder den `Timestamp By` nyckelord i den `FROM` -satsen för att ange vilka tidsstämpelsfält i Indataströmmen du använder för att definiera utlösare för rullande fönster. I det här fallet fönstret delar in data i segment av den `CallRecTime` i varje post. (Om inget fält anges, används den tid som varje händelse anländer till event hub med fönsterhantering igen. Se ”tid Vs programmet ankomsttid” i [Stream Analytics Frågespråksreferens](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
 
@@ -287,7 +295,7 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
 
 2. Klicka på **Test** igen. Observera att i resultaten tidsstämplar under **WindowEnd** finns i steg om 5-sekundersintervall.
 
-   ![Stream Analytics-jobbutdata för aggregering, som visar 13 poster som genererats](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![Stream Analytics-jobbutdata för aggregering 13 posterna](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Identifiera SIM bedrägerier med hjälp av en självkoppling
 
@@ -299,6 +307,7 @@ När du använder en koppling med strömmande data måste kopplingen tillhandah�
 
 1. Ändra frågan i kodredigeraren till följande: 
 
+        ```SQL
         SELECT  System.Timestamp as Time, 
             CS1.CallingIMSI, 
             CS1.CallingNum as CallingNum1, 
@@ -310,6 +319,7 @@ När du använder en koppling med strömmande data måste kopplingen tillhandah�
             ON CS1.CallingIMSI = CS2.CallingIMSI 
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
+        ```
 
     Den här frågan är som alla SQL-koppling förutom för de `DATEDIFF` funktion i kopplingen. Den här versionen av `DATEDIFF` är specifik för Streaming Analytics och måste visas i den `ON...BETWEEN` satsen. Parametrarna är en tidsenhet (sekunder i det här exemplet) och alias två källor för kopplingen. Detta skiljer sig från standard SQL `DATEDIFF` funktion.
 
@@ -321,7 +331,7 @@ När du använder en koppling med strömmande data måste kopplingen tillhandah�
 
 3. Klicka på **spara** att spara frågan självkoppling som en del av Streaming Analytics-jobbet. (Det inte att spara exempeldata.)
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
 ## <a name="create-an-output-sink-to-store-transformed-data"></a>Skapa en utdatamottagare för att lagra transformerade data
 
@@ -335,7 +345,7 @@ Om du har ett befintligt blob storage-konto kan använda du som. För den här s
 
 1. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll jobbsidan för Lagringskontot med **namn** inställd på ”asaehstorage” **plats** inställd på ”östra USA”, **resursgrupp** inställd på ”asa-FT-ns-rg” (host lagringskontot i samma resursgrupp som Streaming-jobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
 
-   ![Skapa lagringskonto](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
+   ![Skapa lagringskonto i Azure-portalen](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
 2. Gå tillbaka till jobbfönstret för Streaming Analytics i Azure-portalen. (Om du har stängt rutan Sök efter `asa_frauddetection_job_demo` i den **alla resurser** fönstret.)
 
@@ -350,7 +360,7 @@ Om du har ett befintligt blob storage-konto kan använda du som. För den här s
    |Lagringskonto  |  asaehstorage |  Ange namnet på det lagringskonto du skapade. |
    |Container  | asa-fraudulentcalls-demo | Välj Skapa nytt och ange ett behållarnamn. |
     <br/>
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
 5. Klicka på **Spara**. 
 
@@ -371,7 +381,7 @@ Jobbet har nu konfigurerats. Du har angett indata (händelsehubb), en transforma
 
 Nu har du en fullständig Streaming Analytics-jobbet. Jobbet undersöka en dataström med telefonsamtal metadata, letar du efter bedrägliga samtal i realtid och skriva information om dessa bedrägliga samtal till lagring. 
 
-Den här kursen kan du titta på de data som inhämtas av Streaming Analytics-jobbet. Data skrivs till Azure BLOB-lagring i segment (filer). Du kan använda ett verktyg som läser Azure Blob Storage. Enligt vad som anges i avsnittet förutsättningar, du kan använda Azure-tillägg i Visual Studio eller du kan använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Den här kursen kan du titta på de data som inhämtas av Streaming Analytics-jobbet. Data skrivs till Azure BLOB-lagring i segment (filer). Du kan använda ett verktyg som läser Azure Blob Storage. Enligt vad som anges i avsnittet förutsättningar, du kan använda Azure-tillägg i Visual Studio eller du kan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/) eller [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
 
 När du undersöker innehållet i en fil i blob storage, se något som liknar följande:
 
@@ -399,7 +409,7 @@ För mer hjälp kan du prova den [Azure Stream Analytics-forum](https://social.m
 
 Du kan fortsätta den här självstudien med följande artikel:
 
-* [Stream Analytics och Power BI: en instrumentpanel för analys i realtid för strömmande data](stream-analytics-power-bi-dashboard.md). Den här artikeln visar hur du skickar TelCo utdata från Stream Analytics-jobb till Power BI för visualisering i realtid och analys.
+* [Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data](stream-analytics-power-bi-dashboard.md). Den här artikeln visar hur du skickar TelCo utdata från Stream Analytics-jobb till Power BI för visualisering i realtid och analys.
 
 Mer information om Stream Analytics i allmänhet finns i följande artiklar:
 

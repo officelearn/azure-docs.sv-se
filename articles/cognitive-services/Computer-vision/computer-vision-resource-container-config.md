@@ -1,24 +1,24 @@
 ---
-title: Konfigurera containrar
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Konfigurationsinställningar för behållare i visuellt.
+title: Konfigurera behållare – för visuellt innehåll
+titlesuffix: Azure Cognitive Services
+description: Konfigurera olika inställningar för identifiera Text behållare i visuellt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077026"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579795"
 ---
-# <a name="configure-containers"></a>Konfigurera containrar
+# <a name="configure-recognize-text-containers"></a>Konfigurera identifiera Text behållare
 
 Visuellt innehåll ger identifiera Text behållaren med ett gemensamt ramverk för konfiguration, så att du enkelt kan konfigurera och hantera inställningar för lagring, loggning och telemetri och säkerhet för dina behållare.
 
@@ -41,7 +41,7 @@ Värden för miljövariabler åsidosätta värden för kommandoradsargument, vil
 
 ### <a name="configuration-settings-as-environment-variables"></a>Konfigurationsinställningar som miljövariabler
 
-Du kan använda den [variabeln syntax för ASP.NET Core-miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) att ange konfigurationsinställningar.
+Du kan använda den [variabeln syntax för ASP.NET Core-miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) att ange konfigurationsinställningar.
 
 Behållaren läser miljövariabler för användaren när behållaren instantieras. Om det finns en miljövariabel, åsidosätter värdet för miljövariabeln standardvärdet för den angivna Konfigurationsinställningen. Fördelen med att använda miljövariabler är att flera konfigurationsinställningar kan anges innan kontrollanten behållare och flera behållare kan använda samma uppsättning inställningar automatiskt.
 
@@ -130,10 +130,10 @@ Den `Logging` konfigurationsinställningar hantera ASP.NET Core loggningsstöd f
 
   | Namn | Datatyp | Beskrivning |
   |------|-----------|-------------|
-  | `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs:** detta värde måste anges till `json` att aktivera loggning-providern. Ett fel inträffar om det här värdet anges utan att också ange en utdata mount vid instansiering en behållare. |
+  | `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs!** Det här värdet måste anges till `json` att aktivera loggning-providern. Ett fel inträffar om det här värdet anges utan att också ange en utdata mount vid instansiering en behållare. |
   | `MaxFileSize` | Integer | Den maximala storleken i megabyte (MB) på en loggfil. När storleken på den aktuella loggfilen uppfyller eller överskrider detta värde, har en ny loggfil startats med loggningsprovider. Om -1 anges begränsas storleken på loggfilen bara av den maximala filstorleken för utdata mount. Standardvärdet är 1. |
 
-Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Monterar konfigurationsinställningar
 

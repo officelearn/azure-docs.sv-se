@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
-ms.openlocfilehash: 7f0f86e783edb55bc3193df073c92c9523a90176
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 89323e584b4020613fe3ff8411df50f2ab96f156
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976041"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582739"
 ---
 # <a name="object-detection"></a>Objektidentifiering
 
-Objektidentifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar de omgivande koordinaterna för avgränsningsfält (i bildpunkter) för varje objekt hittades. Till exempel om en bild innehåller ett hund, cat och person, identifiera åtgärden visar en lista över dessa objekt tillsammans med deras koordinater i avbildningen. Du kan använda den här funktionen för att bearbeta relationerna mellan objekt i en bild. Du kan även se om det finns flera instanser av samma tagg i en bild.
+Objektidentifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar de omgivande koordinaterna för avgränsningsfält (i bildpunkter) för varje objekt hittades. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen för att bearbeta relationerna mellan objekt i en bild. Du kan även se om det finns flera instanser av samma tagg i en bild.
 
 Identifiera API: et gäller taggar baserat på antalet objekt eller en levande saker som identifierats i avbildningen. Observera att nu finns det ingen formell relation mellan taxonomi för taggning och taxonomi som används för objektidentifiering av. På en konceptuell nivå hittar API: et identifiera endast objekt och levande saker, medan tagg-API kan även inkludera sammanhangsberoende termer som ”inom”, som inte går att lokalisera med avgränsar rutorna.
 

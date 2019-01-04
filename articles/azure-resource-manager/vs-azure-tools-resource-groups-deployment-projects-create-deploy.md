@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543096"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715927"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln ska du distribuera en webbapp och SQL Database.  
@@ -132,7 +132,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
     ![Redigera parametrar](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. Ange värden för de tomma parametrarna och välj knappen **Spara**. De tomma parametrarna är **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, och **databaseName**.
    
-    **hostingPlanName** anger ett namn för [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) att skapa. 
+    **hostingPlanName** anger ett namn för [App Service plan](../app-service/overview-hosting-plans.md) att skapa. 
    
     **administratorLogin** anger SQL Server-administratörens användarnamn. Använd inte vanliga admin-namn som **sa** eller **admin**. 
    

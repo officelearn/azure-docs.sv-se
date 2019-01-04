@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950530"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719855"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
 
@@ -126,7 +126,7 @@ Application Insights kan fråga, segmentera, filtrera och analysera den anpassad
    1. Välj frågan genom att klicka var som helst på frågan i textredigeraren.
    2. Klicka sedan på **Kör** för att köra frågan. 
 
-   Läs mer om [Application Insights Analytics](app-insights-analytics.md) och [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguageReference).
+   Läs mer om [Application Insights Analytics](../azure-monitor/app/analytics.md) och [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmentera och filtrera din anpassade händelsetelemetri.** Från sidan **Översikt** i Application Insights väljer du **Användare** i innehållsförteckningen.

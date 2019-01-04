@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320786"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728116"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -122,8 +122,8 @@ Lär dig hur du använder en hanterad identitet med en virtuell Linux-dator:
 
 Lär dig hur du använder en hanterad identitet med andra Azure-tjänster:
 
-* [Azure App Service](/azure/app-service/app-service-managed-service-identity)
-* [Azure Functions](/azure/app-service/app-service-managed-service-identity)
+* [Azure App Service](/azure/app-service/overview-managed-identity)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)

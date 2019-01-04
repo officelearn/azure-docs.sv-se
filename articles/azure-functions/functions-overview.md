@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f2890fa4d8260485fa76478571aa66abe1efd35e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515411"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605452"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions  
 Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det programmeringsspråk du föredrar, till exempel C#, Node.js, Java eller PHP. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov. Azure Functions gör det möjligt att utveckla program [utan server](https://azure.microsoft.com/solutions/serverless/) på Microsoft Azure.
@@ -33,7 +33,7 @@ Här följer några viktiga funktioner i Functions:
 * **Ta med dina egna beroenden** – Functions stöder NuGet och NPM, så du kan använda dina favoritbibliotek.  
 * **Integrerad säkerhet** – Skydda HTTP-utlösta funktioner med OAuth-providrar, till exempel Azure Active Directory, Facebook, Google, Twitter och Microsoft Account.  
 * **Förenklad integration** – Utnyttja Azure-tjänster och SaaS-erbjudanden (programvara som en tjänst) enkelt. I [avsnittet Integreringar](#integrations) finns några exempel.  
-* **Flexibel utveckling** – Koda dina funktioner direkt i portalen eller ställ in kontinuerlig integration och distribuera din kod via [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) och andra [utvecklingsverktyg som stöds](../app-service/app-service-deploy-local-git.md).  
+* **Flexibel utveckling** – Koda dina funktioner direkt i portalen eller ställ in kontinuerlig integration och distribuera din kod via [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md) och andra [utvecklingsverktyg som stöds](../app-service/deploy-local-git.md).  
 * **Öppen källkod** – Functions-runtime är öppen källkod och [tillgänglig på GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Vad kan jag göra med Functions?
@@ -82,6 +82,6 @@ Mer information om värdplaner finns i [Azure Functions hosting plan comparison]
   Beskriver olika verktyg och tekniker för att testa funktioner.
 * [Så här skalar du Azure Functions](functions-scale.md)  
   Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
-* [Läs mer om Azure App Service](../app-service/app-service-web-overview.md)  
+* [Läs mer om Azure App Service](../app-service/overview.md)  
   Azure Functions använder Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 
 

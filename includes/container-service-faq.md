@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002197"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615248"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(INAKTUELL) Vanliga frågor och svar om Container Service
 
@@ -32,7 +32,7 @@ För närvarande finns stöd för Linux-containrar med alla dirigeringsverktyg. 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Rekommenderar ni något specifikt dirigeringsverktyg i Azure Container Service? 
 Vanligtvis rekommenderar vi inte något specifikt dirigeringsverktyg. Om du har erfarenheter av något av de dirigeringsverktyg som stöds kan du använda dig av det i Azure Container Service. Man kan dock säga att DC/OS är produktionstestat för stordata och IoT-arbetsbelastningar, att Kubernetes passar för molnautentiska arbetsbelastningar och att Docker Swarm är känt för sin integrering med Docker-verktyg och korta inlärningskurva.
 
-Beroende på ditt scenario kan du också skapa och hantera anpassade containerlösningar med andra Azure-tjänster. Till exempel med [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md) och [Batch](../articles/batch/batch-technical-overview.md).  
+Beroende på ditt scenario kan du också skapa och hantera anpassade containerlösningar med andra Azure-tjänster. Till exempel med [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/overview.md) och [Batch](../articles/batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Vad är skillnaden mellan Azure Container Service och ACS Engine? 
 Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure Portal, Azure kommandoradsverktyg och Azure API: er. Med tjänsten kan du snabbt implementera och hantera kluster som kör standardverktyg för containerdirigering med relativt få konfigurationsalternativ. 

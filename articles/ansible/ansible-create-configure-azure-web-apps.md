@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261763"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726739"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Skapa Azure App Service-webbappar med Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (eller bara Web Apps) är värd för webbprogram, REST API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar&mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (eller bara Web Apps) är värd för webbprogram, REST API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar&mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python.
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du använder Ansible för att skapa en webbapp med Java Runtime. 
 
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Skapa en apptjänst med hjälp av Traffic Manager
 Du kan använda [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) för att styra hur begäranden från webbklienter distribueras till appar i Azure App Service. När App Service-slutpunkter läggs till i en Azure Traffic Manager-profil spårar Traffic Manager statusen för dina App Service-appar. Statusvärden är körs, stoppad och borttagen. Traffic Manager kan sedan bestämma vilka av dess slutpunkter som ska ta emot trafik.
 
-I App Service körs en app i en [App Service-plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+I App Service körs en app i en [App Service-plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ). En App Service-plan definierar en uppsättning beräkningsresurser som en webbapp ska köra. Du kan hantera din App Service-plan och webbapp i olika grupper.
 
 I den här delen finns en Ansible-exempelspelbok som definierar följande resurser:

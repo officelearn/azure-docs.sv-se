@@ -5,18 +5,18 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: e1cce6231fbb31dac6526a01ec402533b3861a21
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9baf8c838da2201fbb588d278cbf1ce5bbe6354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956508"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713327"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Självstudie: Migrera SQL Server till Azure SQL Database Managed Instance offline med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance.md). Information om ytterligare metoder som kan kräva manuella insatser finns i artikeln om [migrering av SQL Server-instans till hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance-migrate.md).

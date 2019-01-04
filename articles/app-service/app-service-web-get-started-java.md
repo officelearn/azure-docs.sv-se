@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 45ee4a5310df699e37258996e654c87c88081266
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253172"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605151"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/).
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/).
 
 > [!NOTE]
 >

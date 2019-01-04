@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970203"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544693"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -215,7 +215,7 @@ Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, Reporti
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
+Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
 
 Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV:s gränssnitt baseras på SQL-syntax och har en schemaraduppsättning som returnerar metadata samt övervakar information om serverinstanser.
 

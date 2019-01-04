@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e65fa21eefcc103f553f8e1bc47792ac372c59e3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093479"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975448"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Självstudier: Skapa en anpassad språkmodell
 
@@ -100,9 +100,7 @@ Du måste välja rätt nationella inställningar innan du vidtar åtgärder. De 
 
 På sidan Create Language Model (Skapa språkmodell) anger du ett **Name** (Namn) och en **Description** (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan **Base Language Model** (Basspråkmodell) i listrutan. Den här modellen är startpunkten för din anpassning.
 
-Det finns två basspråkmodeller att välja mellan. Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten.
-
-Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. En ny modell som kallas ”Universal” (Universell) är också allmänt tillgänglig. Universal syftar till att hantera alla scenarier och småningom ersätta modellerna Search and Dictation och Conversational.
+Det finns två basspråkmodeller att välja mellan. Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. En ny modell som kallas ”Universal” (Universell) är också allmänt tillgänglig. Universal syftar till att hantera alla scenarier och småningom ersätta modellerna Search and Dictation och Conversational.
 
 Som du ser i följande exempel använder du efter att ha angett basspråkmodellen listrutan **Language Data** (Språkdata) för att välja den språkdatamängd som du vill använda för anpassningen.
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991688"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744557"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -33,7 +33,7 @@ För att slutföra den här snabbstarten behöver du:
 - [Installera .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Du behöver en Azure-prenumeration och en befintlig .NET Core-webbapp.
 
-Om du inte har något ASP.NET Core-webbprogram kan du använda vår guide för att [skapa en ASP.NET Core-app och lägga till Application Insights.](app-insights-asp-net-core.md)
+Om du inte har något ASP.NET Core-webbprogram kan du använda vår guide för att [skapa en ASP.NET Core-app och lägga till Application Insights.](../azure-monitor/app/asp-net-core.md)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

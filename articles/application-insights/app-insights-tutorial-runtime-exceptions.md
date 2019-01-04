@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 820f43a8caa5e0d6d9960985fd1d46271071b0fb
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084024"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742838"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -39,7 +39,7 @@ För att slutföra den här självstudien behöver du:
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Aktivera [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
-- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md). 
+- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../azure-monitor/app/asp-net.md). 
 - I självstudien spåras hur du identifierar ett undantag i ditt program, så ändra koden i din miljö för utveckling eller testning så att du genererar ett undantag. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure

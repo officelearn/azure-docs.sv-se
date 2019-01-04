@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 76ed904a90b84e7b0bac86b2ed5380289d7802c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 79375dbbc7c966f2e972389788cefe8a0fe3692d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387975"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582685"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration
 
@@ -98,4 +98,4 @@ Ta bort resursgruppen och nätverkssäkerhetsgruppen när de inte längre behöv
 I den här snabbstarten har du utfört en åtgärd för att skapa en aktivitetslogghändelse och sedan skapat en aktivitetsloggavisering för att få ett meddelande när åtgärden inträffar igen i framtiden. Sedan testade du aviseringen genom att utföra åtgärden på nytt. Azure tillgängliggör aktivitetslogghändelser från de senaste 90 dagarna. Om du vill spara händelser längre än 90 dagar kan du arkivera aktivitetsloggdata tillsammans med dina övriga övervakningsdata.
 
 > [!div class="nextstepaction"]
-> [Arkivera övervakningsdata](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [Arkivera övervakningsdata](./../../azure-monitor/learn/tutorial-archive-data.md)

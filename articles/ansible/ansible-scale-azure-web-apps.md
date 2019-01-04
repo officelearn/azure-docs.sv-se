@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: kyliel
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 4ec5a0691ce73a2ffebe07b316ce5b1dde8c2b49
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249387"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601873"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Skala Azure App Service-webbappar med hjälp av Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (eller bara Web Apps) är värd för webbprogram, REST-API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar&mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (eller bara Web Apps) är värd för webbprogram, REST-API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar&mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python.
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du använder Ansible för att skala din app i Azure App Service.
 

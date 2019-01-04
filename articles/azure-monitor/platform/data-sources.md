@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 0349e3f482923a236ea29332abfc3a9206828ba7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976893"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020140"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -96,7 +96,7 @@ När du aktiverar Application Insights för ett program genom att installera en 
 Du kan också använda Application Insights till [skapa ett anpassat mått](../../azure-monitor/app/api-custom-events-metrics.md).  På så sätt kan du definiera din egen logik för att beräkna ett numeriskt värde och sedan lagra värdet med andra mått som kan nås från Metric Explorer och används för [Autoskala](../../azure-monitor/platform/autoscale-custom-metric.md) och måttaviseringar.
 
 ### <a name="dependencies"></a>Beroenden
-Om du vill övervaka olika logiska åtgärder för ett program, måste du [samla in telemetri från flera komponenter](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights har stöd [distribuerade telemetrikorrelation](../../azure-monitor/app/correlation.md) som identifierar beroenden mellan komponenter så att du kan analysera dem tillsammans.
+Om du vill övervaka olika logiska åtgärder för ett program, måste du [samla in telemetri från flera komponenter](../../azure-monitor/app/transaction-diagnostics.md). Application Insights har stöd [distribuerade telemetrikorrelation](../../azure-monitor/app/correlation.md) som identifierar beroenden mellan komponenter så att du kan analysera dem tillsammans.
 
 ### <a name="availability-tests"></a>Tillgänglighetstester
 [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) i Application Insights kan du testa tillgängligheten och svarstiden för programmet från olika platser på Internet. Du kan göra en enklare ping-test för att verifiera att programmet är aktiv eller skapa ett webbtest som simulerar ett Användarscenario med Visual Studio.  Tillgänglighetstester kräver inte någon instrumentation i programmet.

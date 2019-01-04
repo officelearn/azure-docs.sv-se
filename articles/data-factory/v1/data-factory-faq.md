@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781921"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024050"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory – vanliga frågor och svar
 > [!NOTE]
@@ -55,7 +54,7 @@ Du kan redigera/skapa datafabriker med någon av följande verktyg/SDK: erna:
 * **Azure PowerShell** Se [skapa och övervaka Azure-Datafabrik med hjälp av Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en självstudie/genomgång för att skapa en datafabrik med hjälp av PowerShell. Se [Cmdlet-referens för Data Factory] [ adf-powershell-reference] innehållet i MSDN Library för en omfattande dokumentation om Data Factory-cmdletar.
 * **.NET-klassbiblioteket** du kan skapa datafabriker programmässigt med hjälp av Data Factory .NET SDK. Se [skapa, övervaka och hantera datafabriker med hjälp av .NET SDK](data-factory-create-data-factories-programmatically.md) en genomgång för att skapa en datafabrik med hjälp av .NET SDK. Se [biblioteksreferens för Data Factory klass] [ msdn-class-library-reference] för en omfattande dokumentation för Data Factory .NET SDK.
 * **REST API** du kan också använda REST-API som visas av Azure Data Factory-tjänsten för att skapa och distribuera datafabriker. Se [Data Factory REST API-referens] [ msdn-rest-api-reference] för en omfattande dokumentation för Data Factory REST API.
-* **Azure Resource Manager-mall** Se [självstudie: skapa din första Azure-datafabrik med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md) fo information.
+* **Azure Resource Manager-mall** Se [självstudien: Skapa din första Azure-datafabrik med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md) fo information.
 
 ### <a name="can-i-rename-a-data-factory"></a>Kan jag byta namn på en data factory?
 Nej. Namnet på en Azure-datafabrik som andra Azure-resurser kan inte ändras.
@@ -72,7 +71,7 @@ Följande tabell innehåller en lista över de beräkningsmiljöer som stöds av
 | --- | --- |
 | [HDInsight-kluster på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) eller [ett eget HDInsight-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-aktiviteter: Batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQLServer](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
 

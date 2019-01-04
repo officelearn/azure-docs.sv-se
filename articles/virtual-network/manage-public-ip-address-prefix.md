@@ -1,13 +1,10 @@
 ---
-title: Skapa, ändra eller ta bort ett Azure offentlig IP-adressprefix | Microsoft Docs
+title: Skapa, ändra eller ta bort ett Azure offentlig IP-adressprefix
+titlesuffix: Azure Virtual Network
 description: Lär dig mer om att skapa, ändra eller ta bort en offentlig IP-adressprefix.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427581"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015295"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort en offentlig IP-adressprefix
 
@@ -29,7 +26,7 @@ Läs om en offentlig IP-adressprefix och hur du skapar, ändra och ta bort ett. 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 > [!IMPORTANT]
-> Offentliga IP-Prefix är i en offentlig förhandsversion i begränsade regioner. Du kan [Lär dig vad det innebär att finnas i förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Offentliga IP-prefix är för närvarande tillgängligt i: västra centrala USA, västra USA, västra USA 2, centrala USA, Nordeuropa, Västeuropa och Sydostasien. En uppdaterad lista över regioner finns [Azure-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
+> Offentliga IP-Prefix är i en offentlig förhandsversion i begränsade regioner. Du kan [Lär dig vad det innebär att finnas i förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Offentliga IP-prefix är nu tillgänglig i: USA, västra centrala, USA, västra, USA, västra 2, centrala USA, Nordeuropa, Västeuropa och Sydostasien. En uppdaterad lista över regioner finns [Azure-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här artikeln:
 
@@ -84,7 +81,7 @@ När du skapar ett prefix, måste du skapa statiska IP-adresser från prefixet. 
 1. I rutan som innehåller texten *Sök efter resurser* högst upp på Azure-portalen, Skriv *offentliga ip-adressprefix*. När **offentliga IP-adressprefixen** visas i sökresultaten, markerar du den.
 2. Välj namnet på den offentliga IP-adressprefix som du vill visa, ändra inställningar för eller ta bort från listan.
 3. Gör något av följande alternativ, beroende på om du vill visa, ta bort eller ändra det offentliga IP-adressprefixet.
-    - **Visa**: den **översikt** visar inställningar för offentliga IP-adressprefix, till exempel prefix.
+    - **Visa**: Den **översikt** visar inställningar för offentliga IP-adressprefix, till exempel prefix.
     - **Ta bort**: Om du vill ta bort det offentliga IP-adressprefixet, markera **ta bort** i den **översikt** avsnittet. Om adresser inom prefixet som är kopplade till offentliga IP-adressresurser, måste du först radera de offentliga IP-adressresurser. Se [ta bort en offentlig IP-adress](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Kommandon**

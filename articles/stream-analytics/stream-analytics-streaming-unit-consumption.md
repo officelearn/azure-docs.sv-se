@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984986"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002662"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera Direktuppspelningsenheter
 
-Strömningsenheter (su) representerar de beräkningsresurser som allokeras för att köra ett jobb. Ju fler SUS, Ju fler resurser som CPU och minne allokeras för jobbet. Den här kapaciteten kan du fokusera på där frågans logik och sammanfattningar att behöva hantera maskinvara för att köra din Stream Analytics-jobb inom rimlig.
+Strömningsenheter (su) representerar de beräkningsresurser som allokeras för att köra ett jobb. Ju fler SU:er, desto fler processor- och minnesresurser allokeras för jobbet. Den här kapaciteten kan du fokusera på där frågans logik och sammanfattningar att behöva hantera maskinvara för att köra din Stream Analytics-jobb inom rimlig.
 
-För att uppnå bearbetning av dataströmmar med låg latens, utför Azure Stream Analytics-jobb all bearbetning i minnet. Det direktuppspelade jobbet misslyckas när slut på minne. Därför för ett produktionsjobb är det viktigt att övervaka Resursanvändning för en strömningsuppgift och kontrollera att det finns tillräckligt med resurser allokeras så att de jobb som körs 24/7.
+För att minimera svarstiderna vid bearbetningen av dataströmmar utför Azure Stream Analytics-jobb all bearbetning i minnet. Det direktuppspelade jobbet misslyckas när slut på minne. Därför för ett produktionsjobb är det viktigt att övervaka Resursanvändning för en strömningsuppgift och kontrollera att det finns tillräckligt med resurser allokeras så att de jobb som körs 24/7.
 
-SU % utnyttjande mått, som sträcker sig från 0% till 100%, beskriver minnesanvändningen för din arbetsbelastning. Detta mått är vanligtvis mellan 10 och 20% för en strömningsuppgift med minimal fotavtryck. Om SU % utnyttjande är låg och hämta eftersläpande inkommande händelser, kräver arbetsbelastningen troligt mer beräkningsresurser, vilket kräver att du vill öka antalet su: er. Det är bäst att hålla måttet SU nedan 80% med hänsyn till tillfälliga toppar. Microsoft rekommenderar att du ställer in en avisering på 80% utnyttjande SU mått att förhindra resursuttömning. Mer information finns i [självstudie: konfigurera aviseringar för Azure Stream Analytics-jobb](stream-analytics-set-up-alerts.md).
+SU % utnyttjande mått, som sträcker sig från 0% till 100%, beskriver minnesanvändningen för din arbetsbelastning. Detta mått är vanligtvis mellan 10 och 20% för en strömningsuppgift med minimal fotavtryck. Om SU % utnyttjande är låg och hämta eftersläpande inkommande händelser, kräver arbetsbelastningen troligt mer beräkningsresurser, vilket kräver att du vill öka antalet su: er. Det är bäst att hålla måttet SU nedan 80% med hänsyn till tillfälliga toppar. Microsoft rekommenderar att du ställer in en avisering på 80% utnyttjande SU mått att förhindra resursuttömning. Mer information finns i [Självstudie: Konfigurera aviseringar för Azure Stream Analytics-jobb](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurera Stream Analytics Strömningsenheter (su)
 1. Logga in på [Azure-portalen](https://portal.azure.com/)
@@ -48,7 +48,7 @@ Välja antalet nödvändiga su: er för ett visst jobb beror på partitionskonfi
 
 I allmänhet är det bästa sättet är att starta med 6 SUs för frågor som inte använder **PARTITION BY**. Sedan fastställa söta platsen genom att använda en prövningsmetod med där du ändra hur många su: er när du skickar representativa mängder data och undersöka måttet SU % utnyttjande. Det maximala antalet enheter för strömning som kan användas av ett Stream Analytics-jobb beror på hur många av stegen i frågan som definierats för jobbet och antalet partitioner i varje steg. Du kan lära dig mer om gränserna [här](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-Mer information om hur du väljer rätt antal su: er finns i den här sidan: [skala Azure Stream Analytics-jobb att öka dataflödet](stream-analytics-scale-jobs.md)
+Mer information om hur du väljer rätt antal su: er finns i den här sidan: [Skala Azure Stream Analytics-jobb för att öka dataflödet](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > Välja hur många su: er som krävs för ett specifikt jobb beror på partitionskonfigurationen för indata och frågan som definierats för jobbet. Du kan välja upp till din kvot i su: er för ett jobb. Som standard har en kvot på upp till 200 SUs för analytics-jobb i en viss region i varje Azure-prenumeration. För att öka su: er för dina prenumerationer utöver den här kvoten kan kontakta [Microsoft Support](https://support.microsoft.com). Giltiga värden för su: er per jobb är 1, 3, 6, och upp i steg 6.
@@ -57,11 +57,13 @@ Mer information om hur du väljer rätt antal su: er finns i den här sidan: [sk
 
 Temporala (time-orienterade) fråga element är den grundläggande uppsättningen tillståndskänsliga operatörer som tillhandahålls av Stream Analytics. Stream Analytics hanterar tillståndet för de här åtgärderna internt för användarens räkning genom att hantera minnesförbrukning, kontrollpunkter för återhämtning och återställning av systemtillstånd under uppgraderingar av tjänsten. Även om Stream Analytics hanterar fullständigt tillstånd, finns det ett antal rekommendationer om metodtips som användare bör tänka på.
 
+Observera att ett jobb med komplex fråga logic kan ha hög SU % utnyttjande även när den inte tar emot inkommande händelser kontinuerligt. Detta kan inträffa efter en plötslig insamling i indata- och händelser. Jobbet kan fortsätta att upprätthålla tillståndet i minnet om frågan är komplex.
+
 ## <a name="stateful-query-logicin-temporal-elements"></a>Tillståndskänsliga frågans logik i temporala element
 En av den unika funktionen för Azure Stream Analytics-jobb är att utföra tillståndskänsliga bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner. Var och en av de här operatorerna behåller statusinformation. Den maximala fönsterstorleken för de här elementen i frågan är sju dagar. 
 
 Begreppet temporalt fönster visas i flera element i Stream Analytics-fråga:
-1. Mängdfunktioner med fönster: grupp av av rullande, hoppar och glidande windows
+1. Fönsteraggregeringar: GRUPP av av rullande, hoppar och glidande windows
 
 2. Den temporala kopplingar: TRÄFFA DATEDIFF-funktionen
 

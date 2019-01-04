@@ -11,13 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e296606d219623c29bedca4fb0906a955a394b30
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218771"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013425"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -79,7 +78,7 @@ Här följer några exempel som visar vad du kan uppnå med anpassade roller:
   Det här scenariot kräver två rolltilldelningar.
 
   1. Tilldela inbyggt **deltagare** roll på nivån för data factory.
-  2. Skapa en anpassad roll med behörigheten *Microsoft.Resources/deployments/*\*. Tilldela den här anpassade rollen för användaren på resursgruppnivå.
+  2. Skapa en anpassad roll med behörigheten * Microsoft.Resources/deployments/**. Tilldela den här anpassade rollen för användaren på resursgruppnivå.
 
 - Låt en användare uppdatera en data factory från PowerShell eller SDK: N, men inte i Azure-portalen.
 

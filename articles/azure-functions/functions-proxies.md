@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538998"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017114"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
 
@@ -47,13 +47,13 @@ Du kan ändra begäranden till och -svar från backend-server med Azure Function
 
 Som standard initieras backend-begäran som en kopia av den ursprungliga begäran. Förutom att URL: en för backend-server kan du ändra till HTTP-metoden, rubriker och frågesträngsparametrarna. Ändrade värden kan referera till [programinställningar] och [parametrar från den ursprungliga klientbegäran].
 
-Backend-begäranden kan ändras i portalen av expading den *begär åsidosättning* delen av sidan proxy. 
+Backend-begäranden kan ändras i portalen genom att expandera den *begär åsidosättning* delen av sidan proxy. 
 
 ### <a name="modify-response"></a>Ändra svaret
 
 Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra Svarets statuskod, orsaksfras, rubriker och brödtext. Ändrade värden kan referera till [programinställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
 
-Backend-begäranden kan ändras i portalen av expading den *Åsidosätt svar* delen av sidan proxy. 
+Backend-begäranden kan ändras i portalen genom att expandera den *Åsidosätt svar* delen av sidan proxy. 
 
 ## <a name="using-variables"></a>Använda variabler
 
@@ -176,12 +176,13 @@ Beteendet proxy kan styras av flera appinställningar. De är alla som beskrivs 
 
 ### <a name="reservedChars"></a> Reserverade tecken (strängformatering)
 
-Proxyservrar läsa alla strängar utan tolkning, med undantag av klammerparenteser och snedstreck
+Proxyservrar läsa alla strängar utanför en JSON-fil, med hjälp av \ som en symbolen. Proxyservrar tolka också av klammerparenteser. Se en fullständig uppsättning exemplen nedan.
 
 |Tecken|Undantagstecknet|Exempel|
 |-|-|-|
 |{eller}|{{eller}}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definiera ett requestOverrides-objekt
 

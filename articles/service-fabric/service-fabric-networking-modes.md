@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866074"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024798"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
 
@@ -35,7 +35,7 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
 
 ## <a name="set-up-open-networking-mode"></a>Konfigurera öppna nätverk läge
 
-1. Ställ in Azure Resource Manager-mallen. I den **fabricSettings** aktiverar DNS-tjänsten och IP-providern: 
+1. Ställ in Azure Resource Manager-mallen. I den **fabricSettings** avsnittet klusterresursen, aktiverar DNS-tjänsten och IP-providern: 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
                 }
             ],
     ```
+    
+2. Konfigurera nätverk profilavsnittet för Virtual Machine Scale Sets-resursen. På så sätt kan flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för Windows/Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod. Registrera fem IP-adresser i Azure Load Balancer-Serverdelsadresspool för att du har fem IP-adresser som är tillgänglig från Azure Load Balancer, som visas nedan.  Du kommer också att vitbok för att lägga till variabler längst upp i din mall i variables-avsnittet.
 
-2. Konfigurera profilavsnittet nätverk för att tillåta flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för Windows/Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod. Registrera fem IP-adresser i Azure Load Balancer-Serverdelsadresspool för att du har fem IP-adresser som är tillgänglig från Azure Load Balancer, som visas nedan.
+    Lägg till det här avsnittet i variabler:
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Lägg till det här avsnittet till resursen i Virtual Machine Scale Sets:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

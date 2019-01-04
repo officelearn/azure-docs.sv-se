@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52bdeb5fe517430497c57a5c34b822df5933e3ff
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310444"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608893"
 ---
 # <a name="api-management-caching-policies"></a>API Management cachelagringsprinciperna
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -118,8 +118,8 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 | cache-inställningar               | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder en extern Azure Cache för Redis i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
 | underordnad-cachelagring-type        | Det här attributet måste anges till något av följande värden.<br /><br /> -Ingen - underordnade cachelagring är inte tillåtet.<br />-privat – underordnad privat cachelagring är tillåtet.<br />-offentliga - privata och delade underordnade cachelagring är tillåtet.                                                                                                          | Nej       | inga              |
 | måste revalidate                | När underordnade cachelagring är aktiverat det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktivet i gateway-svar.                                                                                                                                                                                                                      | Nej       | true              |
-| variera med utvecklare              | Ange `true` till cache svar per [prenumerationsnyckel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |                   |
-| variera-av-developer-groups       | Ange `true` till cache svar per [användargrupp](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
+| variera med utvecklare              | Ange `true` till cache svar per [prenumerationsnyckel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |         False          |
+| variera-av-developer-groups       | Ange `true` till cache svar per [användargrupp](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |       False            |  
 
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

@@ -1,5 +1,5 @@
 ---
-title: Övervaka programmässigt ett Azure data factory | Microsoft Docs
+title: Övervaka en Azure data factory programmässigt | Microsoft Docs
 description: Lär dig hur du övervakar en pipeline i en datafabrik med hjälp av olika software development Kit (SDK).
 services: data-factory
 documentationcenter: ''
@@ -9,30 +9,29 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 343af57cc8f3e63965dc1fe1827b2945009ea8bf
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045790"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022809"
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Övervaka ett Azure data factory programmässigt
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Övervaka en Azure data factory programmässigt
 Den här artikeln beskriver hur du övervakar en pipeline i en datafabrik med hjälp av olika software development Kit (SDK). 
 
 ## <a name="data-range"></a>Dataområdet
 
-Data Factory lagrar bara pipeline kör data för 45 dagar. När du frågar programmässigt efter data om Data Factory-pipelinen körs - exempelvis med PowerShell-kommando `Get-AzureRmDataFactoryV2PipelineRun` -det finns inga maximala datum för den valfria `LastUpdatedAfter` och `LastUpdatedBefore` parametrar. Men om frågan för data för det senaste året, till exempel frågan returnerar inte ett fel, men returnerar bara pipeline kör data från de senaste 45 dagarna.
+Data Factory lagrar bara data för pipelinekörning 45 dagar. När du fråga programmässigt efter data om Data Factory-pipeline-körningar – till exempel med PowerShell-kommando `Get-AzureRmDataFactoryV2PipelineRun` -det finns inga högsta datum för den valfria `LastUpdatedAfter` och `LastUpdatedBefore` parametrar. Men om du fråga efter data för det senaste året, till exempel frågan inte returnerar ett fel, men returnerar bara pipeline-körning data från de senaste 45 dagarna.
 
-Om du vill bevara pipeline kör data mer än 45 dagar, ställa in din egen diagnostikloggning med [Azure-Monitor](monitor-using-azure-monitor.md).
+Om du vill bevara pipelinekörning data i mer än 45 dagar, ställa in dina egna Diagnostisk loggning med [Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
-En fullständig genomgång av hur du skapar och övervakning av en pipeline med .NET SDK finns [skapa en datafabrik och pipeline med hjälp av .NET](quickstart-create-data-factory-dot-net.md).
+En fullständig genomgång för att skapa och övervaka en pipeline med hjälp av .NET SDK finns i [skapa en datafabrik och pipeline med hjälp av .NET](quickstart-create-data-factory-dot-net.md).
 
-1. Lägg till följande kod för att alltid kontrollera status för pipeline köras förrän den är klar kopiering av data.
+1. Lägg till följande kod för att kontinuerligt Kontrollera status för pipelinekörningen tills den har slutat att kopiera data.
 
     ```csharp
     // Monitor the pipeline run
@@ -49,7 +48,7 @@ En fullständig genomgång av hur du skapar och övervakning av en pipeline med 
     }
     ```
 
-2. Lägg till följande kod som hämtar kopieringsaktiviteten kör information, till exempel storleken på data lästs/skrivits.
+2. Lägg till följande kod som hämtar Kopieringsaktivitet körningsinformation, till exempel storleken på lästa/skrivna data.
 
     ```csharp
     // Check the copy activity run details
@@ -65,12 +64,12 @@ En fullständig genomgång av hur du skapar och övervakning av en pipeline med 
     Console.ReadKey();
     ```
 
-Fullständig dokumentation för .NET SDK finns [Data Factory .NET SDK referens](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Fullständig dokumentation för .NET SDK finns i [Data Factory .NET SDK-referensen](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
 
 ## <a name="python"></a>Python
-En fullständig genomgång av hur du skapar och övervakning av en pipeline med Python SDK finns [skapa en datafabrik och pipeline använder Python](quickstart-create-data-factory-python.md).
+En fullständig genomgång för att skapa och övervaka en pipeline med Python SDK finns i [skapa en datafabrik och pipeline med hjälp av Python](quickstart-create-data-factory-python.md).
 
-Lägg till följande kod för att övervaka pipeline kör:
+Om du vill övervaka pipelinekörningen lägger du till följande kod:
 
 ```python
 #Monitor the pipeline run
@@ -81,10 +80,10 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Fullständig dokumentation om Python SDK finns [Data Factory Python SDK referens](/python/api/overview/azure/datafactory?view=azure-python).
+Fullständig dokumentation om Python SDK finns [Data Factory Python SDK-referens](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## <a name="rest-api"></a>REST-API
-En fullständig genomgång av hur du skapar och övervakning av en pipeline med hjälp av REST-API finns [skapa en datafabrik och pipeline med hjälp av REST API](quickstart-create-data-factory-rest-api.md).
+En fullständig genomgång för att skapa och övervaka en pipeline med hjälp av REST API finns i [skapa en datafabrik och pipeline med REST API](quickstart-create-data-factory-rest-api.md).
  
 1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.
 
@@ -111,10 +110,10 @@ En fullständig genomgång av hur du skapar och övervakning av en pipeline med 
     $response | ConvertTo-Json
     ```
 
-Fullständig dokumentation för REST-API finns [Data Factory REST API-referensen](/rest/api/datafactory/).
+Fullständig dokumentation för REST API finns i [Data Factory REST API-referens](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-En fullständig genomgång av hur du skapar och övervakning av en pipeline som använder PowerShell Se [skapa en datafabrik och pipeline med hjälp av PowerShell](quickstart-create-data-factory-powershell.md).
+En fullständig genomgång för att skapa och övervaka en pipeline med hjälp av PowerShell finns i [skapa en datafabrik och pipeline med hjälp av PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.
 
@@ -148,8 +147,8 @@ En fullständig genomgång av hur du skapar och övervakning av en pipeline som 
     $result.Error -join "`r`n"
     ```
 
-Fullständig dokumentation för PowerShell-cmdlets finns [Data Factory PowerShell cmdlet-referens](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+Fullständig dokumentation för PowerShell-cmdlets finns i [cmdlet-referens för Data Factory PowerShell](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
 ## <a name="next-steps"></a>Nästa steg
-Se [övervakaren rörledningar med hjälp av Azure-Monitor](monitor-using-azure-monitor.md) artikeln innehåller information om hur du använder Azure-Monitor för att övervaka pipelines som Data Factory. 
+Se [övervaka pipelines med Azure Monitor](monitor-using-azure-monitor.md) du lär dig om att använda Azure Monitor för att övervaka Data Factory-pipelines. 
 

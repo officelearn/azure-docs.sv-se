@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620344"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017165"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -278,7 +277,7 @@ För att kopiera data till Dynamics, ange Mottagartyp i kopieringsaktiviteten ti
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **DynamicsSink**. | Ja |
 | WriteBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är **”Upsert”**. | Ja |
 | WriteBatchSize | Antal rader för data som skrivs till Dynamics i varje batch. | Nej (standardvärdet är 10) |
-| ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: ändra data i målobjektet inte när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **FALSKT**: uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
+| ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **FALSKT**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
 
 >[!NOTE]
 >Standardvärdet för mottagaren ”**writeBatchSize**” och Kopieringsaktivitet ”**[parallelCopies](copy-activity-performance.md#parallel-copy)**” för Dynamics-mottagaren är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
@@ -333,14 +332,14 @@ Konfigurera den motsvarande datatypen för Data Factory i en dataset-struktur ba
 | AttributeTypeCode.Boolean | Boolesk | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
-| AttributeType.Decimal | decimaltal | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double-värde | ✓ | ✓ |
 | AttributeType.EntityName | Sträng | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (med enda mål som är associerade) |
 | AttributeType.ManagedProperty | Boolesk | ✓ | |
 | AttributeType.Memo | Sträng | ✓ | ✓ |
-| AttributeType.Money | decimaltal | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |

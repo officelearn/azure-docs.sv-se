@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: da5064c7a064498378b37972fd76dc1c9a8d16e0
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 52c07ee66e37f6bc14c5c9d6414bc47a1225af65
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807898"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000381"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
@@ -79,6 +79,6 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en instrumentpanel](../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnostiksökning](../azure-monitor/app/diagnostic-search.md)
-* [Utforska mått](app-insights-metrics-explorer.md)
+* [Utforska mått](../azure-monitor/app/metrics-explorer.md)
 * [Skriv analysfrågor](../azure-monitor/app/analytics.md)
 

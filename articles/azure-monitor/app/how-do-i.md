@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 188c6148e169da62dec342e1695bf20ca57e3256
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974887"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999689"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -54,7 +54,7 @@ Eftersom aviseringar har två tillstånd, som du behöver skicka ett lågt värd
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Skapa ett diagram i [metric explorer](../../application-insights/app-insights-metrics-explorer.md) att se din larm:
+Skapa ett diagram i [metric explorer](../../azure-monitor/app/metrics-explorer.md) att se din larm:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -77,7 +77,7 @@ Några saker att tänka på:
 [Använd PowerShell för att skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Använd PowerShell för att hantera Application Insights
-* [Skapa nya resurser](../../application-insights/app-insights-powershell-script-create-resource.md)
+* [Skapa nya resurser](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separata telemetri från olika versioner
@@ -91,7 +91,7 @@ Några saker att tänka på:
 
 ## <a name="visualize-data"></a>Visualisera data
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrumentpanel med mått från flera appar
-* I [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md), anpassa ditt diagram och spara den som en favorit. Fästa den på instrumentpanelen i Azure.
+* I [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), anpassa ditt diagram och spara den som en favorit. Fästa den på instrumentpanelen i Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Instrumentpanel med data från andra källor och Application Insights
 * [Exportera telemetri till Power BI](../../application-insights/app-insights-export-power-bi.md).
@@ -132,7 +132,7 @@ Om du vill ha en lista över användare med data, till exempel vilka sidor du de
 * Begränsa antalet Ajax-anrop som rapporteras för alla sidor i dina webbsidor. I kodfragmentet skript efter `instrumentationKey:...` , infoga: `,maxAjaxCallsPerView:3` (eller ett lämpligt antal).
 * Om du använder [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), compute sammanställningen av batchar med måttvärden innan du skickar resultatet. Det finns en överlagring för TrackMetric() som tillhandahåller för som.
 
-Läs mer om [priser och kvoter](../../application-insights/app-insights-pricing.md).
+Läs mer om [priser och kvoter](../../azure-monitor/app/pricing.md).
 
 ## <a name="disable-telemetry"></a>Inaktivera telemetri
 Att **dynamiskt stoppa och starta** insamling och överföring av telemetri från servern:
@@ -159,5 +159,5 @@ Bland de mått som du kan visa i metrics explorer är en uppsättning system pre
 * **UNIX-server** - [installera insamlade](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Visa fler prestandaräknare
-* Först [lägga till ett nytt diagram](../../application-insights/app-insights-metrics-explorer.md) och se om räknaren finns i den grundläggande uppsättningen som vi erbjuder.
-* Om inte, [lägga till räknaren i uppsättningen som samlas in av modulen för prestandaräknare](../../application-insights/app-insights-performance-counters.md).
+* Först [lägga till ett nytt diagram](../../azure-monitor/app/metrics-explorer.md) och se om räknaren finns i den grundläggande uppsättningen som vi erbjuder.
+* Om inte, [lägga till räknaren i uppsättningen som samlas in av modulen för prestandaräknare](../../azure-monitor/app/performance-counters.md).

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från SAP HANA med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från SAP HANA till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
+description: Lär dig hur du kopierar data från SAP HANA till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,62 +9,61 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048092"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022979"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Aktuell version](connector-sap-hana.md)
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en SAP HANA-databas. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en SAP HANA-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från SAP HANA-databas till alla stöds sink-datalagret. En lista över datakällor som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från SAP HANA-databas till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här SAP HANA-anslutningen:
+Mer specifikt stöder den här SAP HANA-anslutningsappen:
 
 - Kopiera data från en version av SAP HANA-databas.
-- Kopiera data från **HANA informationsmodeller** (till exempel analys- och vyer) och **raden/kolumnen tabeller** med hjälp av SQL-frågor.
+- Kopiera data från **HANA-informationsmodeller** (till exempel vyer för analys och beräkning) och **rad/kolumn tabeller** med hjälp av SQL-frågor.
 - Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
 
 > [!NOTE]
-> Att kopiera data **till** SAP HANA data lagras, använder allmän ODBC-anslutningen. Se [SAP HANA sink](connector-odbc.md#sap-hana-sink) med information. Observera de länkade tjänsterna för SAP HANA-koppling och ODBC-anslutningen med annan typ, kan vilket inte återanvändas.
+> Kopiera data **till** SAP HANA data lagra, Använd allmän ODBC-anslutningsprogram. Se [SAP HANA-mottagare](connector-odbc.md#sap-hana-sink) med information. Observera de länkade tjänsterna för SAP HANA-anslutningsappen och ODBC-anslutningsprogram med annan typ kan därför inte får återanvändas.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda denna SAP HANA-anslutning måste du:
+Om du vill använda den här SAP HANA-anslutningsappen måste du:
 
-- Ställ in en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikeln för information.
-- Installera SAP HANA ODBC-drivrutinen på Integration Runtime-datorn. Du kan hämta SAP HANA ODBC-drivrutinen från den [SAP Software Download Center](https://support.sap.com/swdc). Sökning med nyckelordet **SAP HANA-klienten för Windows**.
+- Konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+- Installera SAP HANA ODBC-drivrutinen på den Integration Runtime-datorn. Du kan hämta SAP HANA ODBC-drivrutinen från den [SAP Software Download Center](https://support.sap.com/swdc). Sök med nyckelordet **SAP HANA-klienten för Windows**.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till SAP HANA-anslutningen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifik för SAP HANA-anslutningsappen.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för SAP HANA länkade tjänsten:
+Följande egenskaper har stöd för SAP HANA-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **SapHana** | Ja |
-| server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till SAP HANA-databas.<br/>Tillåtna värden är: **grundläggande**, och **Windows** | Ja |
+| typ | Type-egenskapen måste anges till: **SapHana** | Ja |
+| server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till SAP HANA-databas.<br/>Tillåtna värden är: **Grundläggande**, och **Windows** | Ja |
 | Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
-| lösenord | Lösenord för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
+| lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -92,9 +91,9 @@ Följande egenskaper stöds för SAP HANA länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA-datauppsättningen.
 
-Ange egenskapen type för datauppsättningen till för att kopiera data från SAP HANA **RelationalTable**. När det finns inga typspecifika egenskaper som stöds för SAP HANA-dataset av skriver RelationalTable.
+För att kopiera data från SAP HANA, ange typegenskapen på datauppsättningen till **RelationalTable**. Det finns inga typspecifika egenskaper som stöds för SAP HANA-datauppsättningen för skriver RelationalTable.
 
 **Exempel:**
 
@@ -114,15 +113,15 @@ Ange egenskapen type för datauppsättningen till för att kopiera data från SA
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA källan.
 
 ### <a name="sap-hana-as-source"></a>SAP HANA som källa
 
-Om du vill kopiera data från SAP HANA anger källa i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+För att kopiera data från SAP HANA, ange typ av datakälla i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Anger SQL-frågan som läser data från SAP HANA-instans. | Ja |
 
 **Exempel:**
@@ -159,9 +158,9 @@ Om du vill kopiera data från SAP HANA anger källa i kopieringsaktiviteten till
 
 ## <a name="data-type-mapping-for-sap-hana"></a>Datatypsmappningen för SAP HANA
 
-När du kopierar data från SAP HANA, används följande mappningar från SAP HANA-datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
+När du kopierar data från SAP HANA, används följande mappningar från SAP HANA-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
-| SAP HANA-datatyp | Data factory tillfälliga datatyp |
+| SAP HANA-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | ALPHANUM | Sträng |
 | BIGINT | Int64 |
@@ -169,14 +168,14 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 | BOOLESKT VÄRDE | Byte |
 | CLOB | Byte] |
 | DATE | DateTime |
-| DECIMAL | Decimal |
-| DUBBEL | Enkel |
+| DECIMALTAL | Decimal |
+| DOUBLE-VÄRDE | Enkel |
 | INT | Int32 |
 | NVARCHAR | Sträng |
-| VERKLIG | Enkel |
+| VERKLIGA | Enkel |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| TID | TimeSpan |
+| TIME | Tidsintervall |
 | TIDSSTÄMPEL | DateTime |
 | TINYINT | Byte |
 | VARCHAR | Sträng |
@@ -185,11 +184,11 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 
 Det finns några kända begränsningar när du kopierar data från SAP HANA:
 
-- NVARCHAR strängar trunkeras till högst 4 000 Unicode-tecken
+- NVARCHAR-strängar trunkeras till högst 4 000 Unicode-tecken
 - SMALLDECIMAL stöds inte
 - VARBINARY stöds inte
-- Giltiga datum är mellan 1899, 12, 30 och 9999-12-31
+- Giltiga datum är mellan 1899-12-30 och 9999-12-31
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

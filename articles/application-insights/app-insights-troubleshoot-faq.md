@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5cd720225144a34163f8d4802b63aca6a439e2c7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975261"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017675"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -39,20 +39,20 @@ ms.locfileid: "53975261"
 
 * [Webbappar på en IIS-server – lokalt eller i en virtuell dator](../azure-monitor/app/asp-net.md)
 * [Java-webbappar](../azure-monitor/app/java-get-started.md)
-* [Node.js-appar](app-insights-nodejs.md)
+* [Node.js-appar](../azure-monitor/app/nodejs.md)
 * [Web apps på Azure](../azure-monitor/app/azure-web-apps.md)
 * [Molntjänster i Azure](../azure-monitor/app/cloudservices.md)
 * [App-servrar som körs i Docker](../azure-monitor/app/docker.md)
 * [Enkelsidigt webbappar](../azure-monitor/app/javascript.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [Windows-skrivbordsapp](app-insights-windows-desktop.md)
-* [Andra plattformar](app-insights-platforms.md)
+* [Andra plattformar](../azure-monitor/app/platforms.md)
 
 ## <a name="is-it-free"></a>Är det gratis?
 
 Ja, för experiment. I grundläggande prisplanen, kan ditt program skickar en vissa datakvoten varje månad kostnadsfritt. Den kostnadsfria tilldelningen är tillräckligt stor för att cover utvecklings- och publicera en app för ett litet antal användare. Du kan ange ett tak för att förhindra att fler än en angiven mängd data som bearbetas.
 
-Större mängder telemetri debiteras Gb. Vi tillhandahåller några tips på hur du [begränsa dina kostnader för](app-insights-pricing.md).
+Större mängder telemetri debiteras Gb. Vi tillhandahåller några tips på hur du [begränsa dina kostnader för](../azure-monitor/app/pricing.md).
 
 Enterprise-avtalet utgår en avgift för varje dag som varje webbservernoden skickar telemetri. Det är lämpligt om du vill använda löpande Export i stor skala.
 
@@ -86,7 +86,7 @@ Informationen beror på vilken typ av projekt. För ett webbprogram:
 * (Nytt projekt – endast om du [Lägg till Application Insights till ett befintligt projekt][start], du behöver göra detta manuellt.) Infogar kodfragment i koden för klienten och servern att initiera dem med Application Insights-resurs-ID. Till exempel i en MVC-app matas kod in huvudsida Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur uppgraderar jag från äldre versioner av SDK?
-Se den [viktig](app-insights-release-notes.md) för SDK som är lämpliga för ditt program.
+Se den [viktig](../azure-monitor/app/release-notes.md) för SDK som är lämpliga för ditt program.
 
 ## <a name="update"></a>Hur ändrar jag mitt projekt skickar data till vilken Azure-resurs?
 I Solution Explorer högerklickar du på `ApplicationInsights.config` och välj **Update Application Insights**. Du kan skicka data till en befintlig eller ny resurs i Azure. Uppdateringsguiden ändrar instrumenteringsnyckeln i ApplicationInsights.config, vilket avgör där servern SDK skickar dina data. Om du avmarkerar ”uppdatera alla” ändras också nyckeln där visas i dina webbsidor.
@@ -104,7 +104,7 @@ Från server web apps:
 * HTTP-begäranden
 * [Beroenden](../azure-monitor/app/asp-net-dependencies.md). Anrop till: SQL-databaser. HTTP-anrop till externa tjänster. Azure Cosmos DB, tabell, blob-lagring och kö. 
 * [Undantag](../azure-monitor/app/asp-net-exceptions.md) och Stacka spårningar.
-* [Prestandaräknare](app-insights-performance-counters.md) – om du använder [statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md), [azureövervakning](../azure-monitor/app/azure-web-apps.md), eller [Application Insights insamlade skrivaren](../azure-monitor/app/java-collectd.md).
+* [Prestandaräknare](../azure-monitor/app/performance-counters.md) – om du använder [statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md), [azureövervakning](../azure-monitor/app/azure-web-apps.md), eller [Application Insights insamlade skrivaren](../azure-monitor/app/java-collectd.md).
 * [Anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md) du koda.
 * [Spårningsloggar](../azure-monitor/app/asp-net-trace-logs.md) om du konfigurerar lämpliga insamlaren.
 
@@ -201,7 +201,7 @@ Använda en enskild resurs för alla komponenter eller roller i en enda affärss
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Varför är antalen i Sök- och mått som är ojämn?
 
-[Sampling](app-insights-sampling.md) minskar antalet telemetri objekt (begäranden, anpassade händelser och så vidare) som faktiskt skickas från din app till portalen. I Search kan du se antalet objekt som faktiskt togs emot. I mått diagram som visar ett antal händelser, kan du se antalet ursprungliga händelser som inträffade. 
+[Sampling](../azure-monitor/app/sampling.md) minskar antalet telemetri objekt (begäranden, anpassade händelser och så vidare) som faktiskt skickas från din app till portalen. I Search kan du se antalet objekt som faktiskt togs emot. I mått diagram som visar ett antal händelser, kan du se antalet ursprungliga händelser som inträffade. 
 
 Varje objekt som överförs snabbare sätt att utföra en `itemCount` egenskap som visar hur många ursprungliga händelser objektet representerar. Om du vill se linjer i åtgärden kan du köra den här frågan i Analytics:
 
@@ -214,7 +214,7 @@ Varje objekt som överförs snabbare sätt att utföra en `itemCount` egenskap s
 
 ### <a name="configuring-application-insights"></a>Konfiguration av Application Insights
 
-Du kan [skriva PowerShell-skript](app-insights-powershell.md) med hjälp av Azure Resource Monitor för att:
+Du kan [skriva PowerShell-skript](../azure-monitor/app/powershell.md) med hjälp av Azure Resource Monitor för att:
 
 * Skapa och uppdatera Application Insights-resurser.
 * Ange prisplanen.
@@ -241,7 +241,7 @@ Det här inte är beroende där Application Insights-resursen finns. Det beror p
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan jag skicka telemetri till Application Insights-portalen?
 
-Vi rekommenderar att du använder våra SDK: er och använder den [SDK API](../azure-monitor/app/api-custom-events-metrics.md). Det finns olika varianter av SDK för olika [plattformar](app-insights-platforms.md). Dessa SDK: er hantera buffring, komprimering, begränsning, återförsök och så vidare. Men den [inmatning schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [endpoint protokollet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
+Vi rekommenderar att du använder våra SDK: er och använder den [SDK API](../azure-monitor/app/api-custom-events-metrics.md). Det finns olika varianter av SDK för olika [plattformar](../azure-monitor/app/platforms.md). Dessa SDK: er hantera buffring, komprimering, begränsning, återförsök och så vidare. Men den [inmatning schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [endpoint protokollet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät-webbserver?
 
@@ -299,6 +299,6 @@ De flesta Application Insights-data har en fördröjning på mindre än 5 minute
 <!--Link references-->
 
 [data]: ../azure-monitor/app/data-retention-privacy.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

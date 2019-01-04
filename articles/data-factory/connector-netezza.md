@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025665"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory 
 
@@ -50,7 +49,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| SecurityLevel | Nivån på security (SSL/TLS) som drivrutinen använder för anslutning till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast oskyddad** (**onlyUnSecured**): drivrutinen inte använda SSL.<br/>- **Önskad oskyddat (preferredUnSecured) (standard)**: om servern innehåller ett val, drivrutinen inte använda SSL. <br/>- **Önskad säker (preferredSecured)**: om servern innehåller ett val, drivrutinen använder SSL. <br/>- **Endast skyddas (onlySecured)**: drivrutinen inte går att ansluta såvida inte en SSL-anslutning är tillgänglig. | Nej |
+| SecurityLevel | Nivån på security (SSL/TLS) som drivrutinen använder för anslutning till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast oskyddad** (**onlyUnSecured**): Drivrutinen använder inte SSL.<br/>- **Önskad oskyddat (preferredUnSecured) (standard)**: Om servern innehåller ett val, använder drivrutinen inte SSL. <br/>- **Önskad säker (preferredSecured)**: Om servern innehåller ett val, använder drivrutinen SSL. <br/>- **Endast skyddas (onlySecured)**: Drivrutinen inte går att ansluta såvida inte en SSL-anslutning är tillgänglig. | Nej |
 | CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
 **Exempel**

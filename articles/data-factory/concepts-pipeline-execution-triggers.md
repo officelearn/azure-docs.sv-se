@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6d0524471ddc62e1ff6285bd0c80049917e726a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876485"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014955"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Aktuell version](concepts-pipeline-execution-triggers.md)
 
@@ -92,7 +91,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av REST API](quickstart-create-data-factory-rest-api.md).
+Ett komplett exempel finns i [snabbstarten: Skapa en datafabrik med hjälp av REST-API](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Kommandot i följande exempel visar hur du kör din pipeline manuellt med hjälp av Azure PowerShell:
@@ -118,7 +117,7 @@ Svarsnyttolasten är ett unikt ID för pipeline-körningen:
 }
 ```
 
-Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+Ett komplett exempel finns i [snabbstarten: Skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>.NET SDK
 Anropet i följande exempel visar hur du kör din pipeline manuellt med hjälp av .NET SDK:
@@ -127,7 +126,7 @@ Anropet i följande exempel visar hur du kör din pipeline manuellt med hjälp a
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md).
+Ett komplett exempel finns i [snabbstarten: Skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > Du kan använda .NET SDK till att anropa Data Factory-pipeliner från Azure Functions, från dina egna webbtjänster och så vidare.
@@ -135,11 +134,11 @@ Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av 
 <h2 id="triggers">Körning via utlösare</h2>
 Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en bearbetningsenhet som avgör när en pipeline-körning måste startas. Data Factory har för närvarande stöd för tre typer av utlösare:
 
-- Schemautlösare: en utlösare som anropar en pipeline enligt ett tidsschema.
+- Schemautlösare: En utlösare som anropar en pipeline enligt ett tidsschema.
 
-- Utlösare för rullande fönster: en utlösare som körs med ett regelbundet intervall och samtidigt bibehåller ett tillstånd.
+- Utlösare för rullande fönster: En utlösare som körs på ett regelbundet intervall och samtidigt bibehåller ett tillstånd.
 
-- Händelsebaserad utlösare: en utlösare som svarar på en händelse.
+- Händelsebaserade utlösare: En utlösare som svarar på en händelse.
 
 Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en enda pipeline, och en enda utlösare kan starta flera pipeliner. I följande utlösardefinition refererar **pipelines**-egenskapen till en lista med pipeliner som utlöses av den aktuella utlösaren. Egenskapsdefinition innehåller värden för pipelineparametrarna.
 
@@ -370,7 +369,7 @@ I följande tabell ges en jämförelse av utlösare för rullande fönster och s
 |:--- |:--- |:--- |
 | **Återfyllnadsscenarier** | Stöds. Pipelinekörningar kan schemaläggas för fönster i det förflutna. | Stöds ej. Pipelinekörningar kan bara köras i tidsperioder från nu och framöver. |
 | **Tillförlitlighet** | 100 % tillförlitlighet. Pipelinekörningar kan schemaläggas i alla fönster från ett angivet startdatum utan luckor. | Mindre tillförlitligt. |
-| **Återförsökskapacitet** | Stöds. Misslyckade pipelinekörningar har återförsöksprincipen 0 som standard, eller en policy som anges av användaren i utlösarens definition. Försöker köra pipelinen igen automatiskt när körningen misslyckas på grund av samtidighet/server/begränsningar (det vill säga statuskoderna 400: användarfel, 429: för många begäranden och 500: internt serverfel). | Stöds ej. |
+| **Återförsökskapacitet** | Stöds. Misslyckade pipelinekörningar har återförsöksprincipen 0 som standard, eller en policy som anges av användaren i utlösarens definition. Automatiskt återförsök när pipeline-körningar misslyckas på grund av samtidighet/server/begränsningar (det vill säga statuskoderna 400: Användarfel, 429: För många begäranden och 500: Internt serverfel). | Stöds ej. |
 | **Samtidighet** | Stöds. Användare kan uttryckligen ange samtidighetsgränser för utlösaren. Tillåter mellan 1 och 50 utlösta pipelinekörningar samtidigt. | Stöds ej. |
 | **Systemvariabler** | Systemvariablerna **WindowStart** och **WindowEnd** kan användas. Användare kan komma åt `triggerOutputs().windowStartTime` och `triggerOutputs().windowEndTime` som systemvariabler för utlösaren i definitionen av utlösaren. Värdena används som start- respektive sluttid för fönstret. För en utlösare för rullande fönster som körs timme i fönstret 01.00 till 02.00 är till exempel definitionen `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` och `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Stöds ej. |
 | **Relation pipeline-till-utlösare** | Har stöd för en 1:1-relation. Endast en pipeline kan utlösas. | Har stöd för många:många-relationer. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner. | 
@@ -378,6 +377,6 @@ I följande tabell ges en jämförelse av utlösare för rullande fönster och s
 ## <a name="next-steps"></a>Nästa steg
 Se följande självstudiekurser:
 
-- [Snabbstart: skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Snabbstart: Skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Skapa en schemautlösare](how-to-create-schedule-trigger.md)
 - [Skapa en utlösare för rullande fönster](how-to-create-tumbling-window-trigger.md)

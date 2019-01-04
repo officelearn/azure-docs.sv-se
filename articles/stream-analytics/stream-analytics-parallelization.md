@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091051"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000554"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågeparallellisering i Azure Stream Analytics
 Den här artikeln visar hur du drar nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -41,12 +41,13 @@ När du arbetar med Stream Analytics kan dra du nytta av partitionering i utdata
 -   Azure Functions
 -   Azure-tabell
 -   BLOB-lagring (kan ange Partitionsnyckeln uttryckligen)
--   CosmosDB (du behöver ange Partitionsnyckeln uttryckligen)
--   EventHub (du behöver ange Partitionsnyckeln uttryckligen)
+-   Cosmos DB (du behöver ange Partitionsnyckeln uttryckligen)
+-   Händelsehubbar (du behöver ange Partitionsnyckeln uttryckligen)
 -   IoT Hub (du behöver ange Partitionsnyckeln uttryckligen)
 -   Service Bus
+- SQL- och SQL Data Warehouse med valfritt partitionering: se mer information om den [utdata till Azure SQL Database-sidan](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Power BI, SQL och SQL-informationslager utdata stöd inte för partitionering. Men du kan fortfarande partitionera indata enligt beskrivningen i [i det här avsnittet](#multi-step-query-with-different-partition-by-values) 
+Powerbi stöder inte partitionering. Men du kan fortfarande partitionera indata enligt beskrivningen i [i det här avsnittet](#multi-step-query-with-different-partition-by-values) 
 
 Mer information om partitioner finns i följande artiklar:
 
@@ -91,7 +92,7 @@ Den här frågan är ett enkelt filter. Därför behöver vi inte bekymra dig om
 ### <a name="query-with-a-grouping-key"></a>Fråga med en grupperingsnyckel
 
 * Indata: Event hub med 8 partitioner
-* Utdata: Blob storage
+* Utdata: Blob Storage
 
 Fråga:
 
@@ -115,7 +116,7 @@ Det spelar i det här fallet frågan är. Om antalet inkommande partitioner inte
 
 ### <a name="query-using-non-partitioned-output"></a>Fråga med hjälp av icke-partitionerad utdata
 * Indata: Event hub med 8 partitioner
-* Utdata: PowerBI
+* Utdata: Power BI
 
 Power BI-utdata stöd inte för närvarande för partitionering. Det här scenariot är därför inte embarrassingly parallel.
 

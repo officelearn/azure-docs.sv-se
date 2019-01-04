@@ -1,13 +1,10 @@
 ---
-title: Konfigurera privata IP-adresser för virtuella datorer (klassisk) – Azure klassiskt CLI | Microsoft Docs
+title: Konfigurera privata IP-adresser för virtuella datorer (klassisk) – Azure klassiskt CLI
+titlesuffix: Azure Virtual Network
 description: Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer (klassisk) med hjälp av Azure klassiska kommandoradsgränssnittet (CLI).
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134683"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023897"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Konfigurera privata IP-adresser för en virtuell dator (klassisk) med den klassiska Azure CLI
 
@@ -103,7 +99,7 @@ Förväntad utdata:
     info:    vm static-ip remove command OK
 
 ## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>Hur du lägger till en statisk privat IP-adress till en befintlig virtuell dator
-Att lägga till en statisk privat IP-adressen till den virtuella datorn skapas med hjälp av skriptet ovan runt han följande kommando:
+Kör följande kommando för att lägga till en statisk privat IP-adress till den virtuella datorn skapas med skriptet ovan:
 
     azure vm static-ip set DNS01 192.168.1.101
 
@@ -118,7 +114,7 @@ Förväntad utdata:
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Ange IP-adresser i operativsystemet
 
-Vi rekommenderar att du inte statiskt tilldelar privat IP-adress som tilldelats virtuella Azure-datorer i operativsystemet på en virtuell dator, om inte behövs. Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adressen som tilldelas den virtuella Azure-datorn, eller du kan förlora anslutningen till den virtuella datorn. Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem.
+Vi rekommenderar att du inte statiskt tilldelar privat IP-adress som tilldelats virtuella Azure-datorer i operativsystemet på en virtuell dator, om inte behövs. Om du manuellt anger den privata IP-adressen i operativsystemet, kontrollera att det är samma adress som den privata IP-adressen som tilldelas den virtuella Azure-datorn, eller du kan förlora anslutningen till den virtuella datorn. Tilldela inte offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem manuellt.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [reserverade offentliga IP-Adressen](virtual-networks-reserved-public-ip.md) adresser.

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58afbdf3488850a643e7d4b8979bf860f93141df
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422890"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014122"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -104,10 +103,12 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | typ                  | Anpassad aktivitet aktivitetstyp av är **anpassad**. | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.  | Ja      |
 | command               | Kommandot i anpassade program som ska köras. Om programmet redan är tillgängliga på Azure Batch Pool Node, kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av Batch-Pool för Windows-nod. | Ja      |
-| resourceLinkedService | Azure Storage länkade tjänsten till det lagringskonto där programmet lagras | Nej       |
-| folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden<br/><br/>Om du har beroenden som lagras i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* -mappstrukturen för närvarande förenklas när filerna har kopierats till Azure Batch. Det vill säga kopieras alla filer till en enda mapp med utan undermappar. Överväg att komprimerar filerna, kopiera den komprimerade filen och packat upp den med anpassad kod i önskad plats för att undvika problemet. | Nej       |
+| resourceLinkedService | Azure Storage länkade tjänsten till det lagringskonto där programmet lagras | Nej&#42;       |
+| folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden<br/><br/>Om du har beroenden som lagras i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* -mappstrukturen för närvarande förenklas när filerna har kopierats till Azure Batch. Det vill säga kopieras alla filer till en enda mapp med utan undermappar. Överväg att komprimerar filerna, kopiera den komprimerade filen och packat upp den med anpassad kod i önskad plats för att undvika problemet. | Nej&#42;       |
 | referenceObjects      | En matris med befintliga länkade tjänster och datauppsättningar. Refererade länkade tjänster och datauppsättningar som skickas till det anpassa programmet i JSON-format så att din anpassade kod kan hänvisa till resurser av Data Factory | Nej       |
 | ExtendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassa programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
+
+&#42;Egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller båda utelämnas.
 
 ## <a name="custom-activity-permissions"></a>Behörigheter för anpassad aktivitet
 
@@ -353,7 +354,7 @@ Ett mer komplett exempel på hur slutpunkt till slutpunkt DLL-filen och pipeline
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning i Azure Batch
 Du kan också skapa ett Azure Batch-pool med **Autoskala** funktionen. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en formel för automatisk skalning baserat på antalet väntande aktiviteter. 
 
-Exemplet formeln här uppnår på följande: När poolen skapas, den börjar med 1 virtuell dator. $PendingTasks mått definierar antalet uppgifter i körs + aktiv (köad) tillstånd.  Formeln hittar det genomsnittliga antalet väntande aktiviteter de senaste 180 sekunderna och anger TargetDedicated därefter. Det innebär att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och autoskalning minskar storleken på de virtuella datorerna. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.
+Exemplet formeln här uppnår på följande: När poolen skapas, börjar det med 1 virtuell dator. $PendingTasks mått definierar antalet uppgifter i körs + aktiv (köad) tillstånd.  Formeln hittar det genomsnittliga antalet väntande aktiviteter de senaste 180 sekunderna och anger TargetDedicated därefter. Det innebär att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och autoskalning minskar storleken på de virtuella datorerna. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.
 
 Formel för automatisk skalning:
 

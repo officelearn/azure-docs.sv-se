@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0a31f5450ad5847951393e18e8af648060eb2e1f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2fa7c4c7dc3af28dcc49371a086c2e7555278b99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971366"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015227"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -51,7 +51,7 @@ Om du inte ännu inte har en referens i Application Insights SDK:
 
   * [ASP.NET-projekt](../../azure-monitor/app/asp-net.md)
   * [Java-projekt](../../azure-monitor/app/java-get-started.md)
-  * [Node.js-projekt](../../application-insights/app-insights-nodejs.md)
+  * [Node.js-projekt](../../azure-monitor/app/nodejs.md)
   * [JavaScript i varje webbsida](../../azure-monitor/app/javascript.md) 
 * Inkludera följande i din enhets eller webbservers kod:
 
@@ -113,7 +113,7 @@ Du kan använda i Node.js-projekt, `new applicationInsights.TelemetryClient(inst
 
 ## <a name="trackevent"></a>TrackEvent
 
-I Application Insights, en *anpassad händelse* är en datapunkt som du kan visa i [Måttutforskaren](../../application-insights/app-insights-metrics-explorer.md) ett aggregerat antal och i [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md) som enskilda förekomster. (Det är inte relaterade till MVC eller andra ramverk ”händelser”.)
+I Application Insights, en *anpassad händelse* är en datapunkt som du kan visa i [Måttutforskaren](../../azure-monitor/app/metrics-explorer.md) ett aggregerat antal och i [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md) som enskilda förekomster. (Det är inte relaterade till MVC eller andra ramverk ”händelser”.)
 
 Infoga `TrackEvent` anropar i din kod att räkna olika händelser. Hur ofta användarna välja en viss funktion, hur ofta de uppnå specifika mål eller kanske är hur ofta de gör att vissa typer av misstag.
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 Telemetri är tillgänglig i den `customEvents` tabellen i [Application Insights Analytics](analytics.md). Varje rad som representerar ett anrop till `trackEvent(..)` i din app.
 
-Om [sampling](../../application-insights/app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackEvent() processen sampling endast skickas en av dem. För att få en korrekt antal anpassade händelser, bör du använda därför använda koden som `customEvents | summarize sum(itemCount)`.
+Om [sampling](../../azure-monitor/app/sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackEvent() processen sampling endast skickas en av dem. För att få en korrekt antal anpassade händelser, bör du använda därför använda koden som `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -440,7 +440,7 @@ Se [spåra anpassade åtgärder med Application Insights SDK för .NET](../../az
 
 I [Application Insights Analytics](analytics.md), begär visa upp i den `requests` tabell.
 
-Om [sampling](../../application-insights/app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackRequest() processen sampling endast skickas en av dem. Hämta rätt antal förfrågningar och genomsnittlig varaktighet uppdelat efter namn på begäran med kod som:
+Om [sampling](../../azure-monitor/app/sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackRequest() processen sampling endast skickas en av dem. Hämta rätt antal förfrågningar och genomsnittlig varaktighet uppdelat efter namn på begäran med kod som:
 
 ```kusto
 requests
@@ -451,7 +451,7 @@ requests
 
 Skicka undantag till Application Insights:
 
-* Att [räkna dem](../../application-insights/app-insights-metrics-explorer.md), som en indikation på hur ofta ett problem.
+* Att [räkna dem](../../azure-monitor/app/metrics-explorer.md), som en indikation på hur ofta ett problem.
 * Att [granska enskilda förekomster](../../azure-monitor/app/diagnostic-search.md).
 
 Rapporterna innehåller stackspårningar.
@@ -522,7 +522,7 @@ SDK: erna fånga undantag som många automatiskt, så du behöver alltid att anr
 
 I [Application Insights Analytics](analytics.md), undantag som visas i den `exceptions` tabell.
 
-Om [sampling](../../application-insights/app-insights-sampling.md) är i drift, den `itemCount` egenskapen visar ett värde större än 1. För exempel itemCount == 10 sätt att av 10 anrop till trackException() processen sampling endast skickas en av dem. För att få en korrekt antal undantag som uppdelat efter typ av undantag kan du använda koden som:
+Om [sampling](../../azure-monitor/app/sampling.md) är i drift, den `itemCount` egenskapen visar ett värde större än 1. För exempel itemCount == 10 sätt att av 10 anrop till trackException() processen sampling endast skickas en av dem. För att få en korrekt antal undantag som uppdelat efter typ av undantag kan du använda koden som:
 
 ```kusto
 exceptions
@@ -603,7 +603,7 @@ I [Search](../../azure-monitor/app/diagnostic-search.md), sedan kan du enkelt fi
 
 I [Application Insights Analytics](analytics.md), anrop till TrackTrace som visas i den `traces` tabell.
 
-Om [sampling](../../application-insights/app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. Exempel itemCount == 10 innebär att för 10 anrop till `trackTrace()`, sampling processen överförs endast en av dem. För att få en korrekt antal spårning av anrop du bör använda därför kod som `traces | summarize sum(itemCount)`.
+Om [sampling](../../azure-monitor/app/sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. Exempel itemCount == 10 innebär att för 10 anrop till `trackTrace()`, sampling processen överförs endast en av dem. För att få en korrekt antal spårning av anrop du bör använda därför kod som `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -678,7 +678,7 @@ Om du vill inaktivera modulen standard beroende-spårning i C#, redigera [Applic
 
 I [Application Insights Analytics](analytics.md), trackDependency ringer visa upp den `dependencies` tabell.
 
-Om [sampling](../../application-insights/app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackDependency() processen sampling endast skickas en av dem. För att få en korrekt antal beroenden uppdelat efter mål-komponenten kan du använda kod som:
+Om [sampling](../../azure-monitor/app/sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackDependency() processen sampling endast skickas en av dem. För att få en korrekt antal beroenden uppdelat efter mål-komponenten kan du använda kod som:
 
 ```kusto
 dependencies
@@ -764,7 +764,7 @@ Om din app grupperar användare i konton, kan du också ange en identifierare f�
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-I [Måttutforskaren](../../application-insights/app-insights-metrics-explorer.md), du kan skapa ett diagram som räknar **autentiserad användare,**, och **användarkonton**.
+I [Måttutforskaren](../../azure-monitor/app/metrics-explorer.md), du kan skapa ett diagram som räknar **autentiserad användare,**, och **användarkonton**.
 
 Du kan också [search](../../azure-monitor/app/diagnostic-search.md) för klienten datapunkter med specifika användarnamn och -konton.
 
@@ -897,7 +897,7 @@ requests
 Observera att:
 
 * När du extrahera ett värde från customDimensions eller customMeasurements JSON, den har dynamisk typ och så måste du skicka den `tostring` eller `todouble`.
-* Med hänsyn till möjligheten att [sampling](../../application-insights/app-insights-sampling.md), bör du använda `sum(itemCount)`, inte `count()`.
+* Med hänsyn till möjligheten att [sampling](../../azure-monitor/app/sampling.md), bör du använda `sum(itemCount)`, inte `count()`.
 
 ## <a name="timed"></a> Tidsinställning händelser
 
@@ -1141,7 +1141,7 @@ Om du ställer in några av värdena själv, Överväg att ta bort den aktuella 
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-Undvik att träffa gräns för överföringshastigheten i data, använda [sampling](../../application-insights/app-insights-sampling.md).
+Undvik att träffa gräns för överföringshastigheten i data, använda [sampling](../../azure-monitor/app/sampling.md).
 
 För att bestämma hur länge data bevaras, se [kvarhållning av Data och sekretess](../../azure-monitor/app/data-retention-privacy.md).
 

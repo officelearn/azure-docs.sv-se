@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 2cffc99eade88d50e3de212b5680b640c14fa7a7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 3f60ffcde43bd1ee43b5dd7d1e86da3a8bf2c521
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812569"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002118"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-mongodb-api-by-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB (MongoDB-API) med hjälp av Azure Data Factory
 
@@ -172,7 +172,7 @@ Följande egenskaper stöds i Kopieringsaktiviteten **mottagare** avsnittet:
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **CosmosDbMongoDbApiSink**. |Ja |
 | WriteBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **infoga** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma ID redan finns, annars Infoga dokumentet.<br /><br />**Obs!** Data Factory genererar automatiskt ett ID för ett dokument om ett ID inte har angetts i det ursprungliga dokumentet eller genom kolumnmappning. Det innebär att måste du se till att, för **upsert** för att fungera som förväntat, dokumentet har ett ID. |Nej<br />(standardvärdet är **infoga**) |
-| WriteBatchSize | Den **writeBatchSize** egenskapen styr storleken på dokument att skriva i varje batch. Du kan prova att öka värdet för **writeBatchSize** att förbättra prestanda och minska värdet om dokumentstorleken på din är stor. |Nej<br />(standardvärdet är **5**) |
+| WriteBatchSize | Den **writeBatchSize** egenskapen styr storleken på dokument att skriva i varje batch. Du kan prova att öka värdet för **writeBatchSize** att förbättra prestanda och minska värdet om dokumentstorleken på din är stor. |Nej<br />(standardvärdet är **10 000**) |
 | writeBatchTimeout | Väntetid för batch Infoga åtgärden slutförs innan tidsgränsen uppnås. Tillåtna värdet är tidsintervallet. | Nej<br/>(standardvärdet är **00:30:00** – 30 minuter) |
 
 **Exempel**

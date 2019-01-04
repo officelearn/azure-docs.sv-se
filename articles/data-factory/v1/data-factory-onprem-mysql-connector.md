@@ -1,6 +1,6 @@
 ---
-title: Flytta data från MySQL med Azure Data Factory | Microsoft Docs
-description: Läs mer om hur du flyttar data från MySQL-databas med hjälp av Azure Data Factory.
+title: Flytta data från MySQL med hjälp av Azure Data Factory | Microsoft Docs
+description: Läs mer om hur du flyttar data från MySQL-databas med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,115 +9,114 @@ ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046892"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021653"
 ---
-# <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
+# <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-mysql-connector.md)
 > * [Version 2 (aktuell version)](../connector-mysql.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [MySQL-anslutningen i V2](../connector-mysql.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [MySQL connector i V2](../connector-mysql.md).
 
 
-Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal MySQL-databas. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en lokal MySQL-databas. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
-Du kan kopiera data från ett dataarkiv för lokala MySQL till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från en MySQL-databas till andra databaser, men inte för att flytta data från andra datalager till en MySQL-databasen. 
+Du kan kopiera data från ett datalager för lokal MySQL till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en MySQL-datalager till datalager, men inte för att flytta data från andra datalager till en MySQL-datalager. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Data Factory-tjänsten stöder anslutning till lokala MySQL källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway.
+Data Factory-tjänsten stöder anslutning till den lokala MySQL-källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen.
 
-Gateway krävs även om MySQL-databasen finns i en Azure IaaS-virtuella (VM). Du kan installera gatewayen på samma virtuella dator som dataarkiv eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
+Gateway krävs även om MySQL-databasen finns på Azure IaaS-datorer (VM). Du kan installera gatewayen på samma virtuella dator som datalager eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
 
 > [!NOTE]
-> Se [felsökning av problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tips om hur du felsöker anslutning /-gateway relaterade problem.
+> Se [felsöka problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tips om hur du felsöker anslutning/gateway-relaterade problem.
 
 ## <a name="supported-versions-and-installation"></a>Versioner som stöds och installation
-För Data Management Gateway att ansluta till MySQL-databas, måste du installera den [MySQL Connector/Net för Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version mellan 6.6.5 och 6.10.7) på samma system som Data Management Gateway. Den här 32-bitars-drivrutinen är kompatibel med 64-bitars Data Management Gateway. MySQL version 5.1 och senare stöds.
+För Data Management Gateway att ansluta till MySQL-databas, måste du installera den [MySQL Connector/Net för Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version mellan 6.6.5 och 6.10.7) på samma system som Data Management Gateway. Den här 32-bitars-drivrutinen är kompatibel med 64-bitars Gateway för datahantering. MySQL version 5.1 och senare stöds.
 
 > [!TIP]
-> Om du klickar på fel i ”autentisering misslyckades eftersom Fjärrpartnern har stängt transport dataströmmen”., bör du uppgradera MySQL Connector/Net till en senare version.
+> Om du stöter på fel ”autentisering misslyckades eftersom den fjärranslutna parten har stängt transport stream”. bör du överväga att uppgradera MySQL Connector/Net till en senare version.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en lokal Cassandra data store med hjälp av olika verktyg/API: er. 
+Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal Cassandra med hjälp av olika verktyg/API: er. 
 
-- Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
-Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
+Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa **länkade tjänster** att länka inkommande och utgående data lagras till din data factory.
-2. Skapa **datauppsättningar** att representera inkommande och utgående data för kopieringen. 
-3. Skapa en **pipeline** med en kopia-aktivitet som tar en datamängd som indata och en dataset som utdata. 
+1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden skapas JSON definitioner för dessa Data Factory-enheter (länkade tjänster, datauppsättningar och pipelinen) automatiskt för dig. När du använder Verktyg/API: er (utom .NET API), kan du definiera dessa Data Factory-enheter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett dataarkiv för lokala MySQL finns [JSON-exempel: kopiera data från MySQL till Azure Blob](#json-example-copy-data-from-mysql-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal MySQL finns [JSON-exempel: Kopiera data från MySQL till Azure Blob](#json-example-copy-data-from-mysql-to-azure-blob) i den här artikeln. 
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter i en MySQL-datalager:
+Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för ett datalager för MySQL:
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för MySQL länkad tjänst.
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen type måste anges till: **OnPremisesMySql** |Ja |
-| server |Namnet på MySQL-servern. |Ja |
-| databas |Namnet på MySQL-databas. |Ja |
+| typ |Type-egenskapen måste anges till: **OnPremisesMySql** |Ja |
+| server |Namnet på den MySQL-servern. |Ja |
+| databas |Namnet på MySQL-databasen. |Ja |
 | schemat |Namnet på schemat i databasen. |Nej |
-| authenticationType |Typ av autentisering som används för att ansluta till MySQL-databas. Möjliga värden är: `Basic`. |Ja |
-| användarnamn |Ange användarnamn för att ansluta till MySQL-databas. |Ja |
-| lösenord |Ange lösenordet för det användarkonto som du angett. |Ja |
-| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala MySQL-databasen. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden är: `Basic`. |Ja |
+| användarnamn |Ange användarnamn för anslutning till MySQL-databasen. |Ja |
+| lösenord |Ange lösenord för det användarkonto som du har angett. |Ja |
+| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala MySQL-databas. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av dataset (Azure SQL Azure blob, Azure-tabellen, osv.).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
 
-Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **RelationalTable** (som omfattar MySQL dataset) har följande egenskaper
+Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **RelationalTable** (som innehåller MySQL datauppsättning) har följande egenskaper
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i MySQL-databasinstans som den länkade tjänsten refererar till. |Nej (om **frågan** av **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i MySQL-databasinstansen som den länkade tjänsten refererar till. |Nej (om **fråga** av **RelationalSource** har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapar Pipelines](data-factory-create-pipelines.md) artikel. Egenskaper, till exempel namn, beskrivning, inkommande och utgående tabeller är principer är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, inkommande och utgående tabeller är principer är tillgängliga för alla typer av aktiviteter.
 
-Medan egenskaper som är tillgängliga i den **typeProperties** avsnitt i aktiviteten varierar med varje aktivitetstyp. För Kopieringsaktivitet kan variera de beroende på vilka typer av datakällor och sänkor.
+Å andra sidan Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
 
-När datakällan i en Kopieringsaktivitet är av typen **RelationalSource** (som omfattar MySQL), följande egenskaper finns i avsnittet typeProperties:
+När källan i kopieringsaktiviteten är av typen **RelationalSource** (som innehåller MySQL), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Nej (om **tableName** av **dataset** har angetts) |
+| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
 
-## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON-exempel: kopiera data från MySQL till Azure-Blob
-Det här exemplet innehåller exempel JSON definitioner som du kan använda för att skapa en pipeline med [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal MySQL-databas till en Azure Blob Storage. Dock datan kan kopieras till någon av sänkor anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av aktiviteten kopiera i Azure Data Factory.
+## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON-exempel: Kopiera data från MySQL till Azure Blob
+Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal MySQL-databas till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 > [!IMPORTANT]
-> Det här exemplet innehåller JSON kodavsnitt. Stegvisa instruktioner för att skapa datafabriken inkluderas inte. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner.
+> Det här exemplet innehåller JSON-kodfragment. Stegvisa instruktioner för att skapa data factory omfattas inte. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln stegvisa instruktioner.
 
-Exemplet har följande data factory enheter:
+Exemplet har följande data factory-entiteter:
 
 1. En länkad tjänst av typen [OnPremisesMySql](data-factory-onprem-mysql-connector.md#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Indata [dataset](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-mysql-connector.md#dataset-properties).
-4. Utdata [dataset](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med Kopieringsaktiviteten som använder [RelationalSource](data-factory-onprem-mysql-connector.md#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-mysql-connector.md#dataset-properties).
+4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [RelationalSource](data-factory-onprem-mysql-connector.md#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 Exemplet kopierar data från ett frågeresultat i MySQL-databas till en blobb per timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
 
-Som ett första steg bör du konfigurera data management gateway. Anvisningarna är i den [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikel.
+Konfigurera data management gateway som ett första steg. Anvisningarna finns i den [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln.
 
-**MySQL länkade tjänsten:**
+**MySQL-länkad tjänst:**
 
 ```JSON
     {
@@ -137,7 +136,7 @@ Som ett första steg bör du konfigurera data management gateway. Anvisningarna 
     }
 ```
 
-**Azure Storage länkade tjänsten:**
+**Länkad Azure Storage-tjänst:**
 
 ```JSON
     {
@@ -151,11 +150,11 @@ Som ett första steg bör du konfigurera data management gateway. Anvisningarna 
     }
 ```
 
-**MySQL inkommande datauppsättningen:**
+**Indatauppsättning för MySQL:**
 
-Exemplet förutsätter att du har skapat en tabell ”mytable” som prefix i MySQL och innehåller en kolumn med namnet ”timestampcolumn” för tid series-data.
+Exemplet förutsätter att du har skapat en tabell ”MyTable” i MySQL och innehåller en kolumn med namnet ”timestampcolumn” för time series-data.
 
-Inställningen ”externa”: ”true” informerar Data Factory-tjänsten att tabellen är extern till data factory och inte tillverkas av en aktivitet i datafabriken.
+Ange ”external”: ”true” informerar Data Factory-tjänsten att tabellen är extern till datafabriken och inte kommer från en aktivitet i data factory.
 
 ```JSON
     {
@@ -181,9 +180,9 @@ Inställningen ”externa”: ”true” informerar Data Factory-tjänsten att t
     }
 ```
 
-**Azure Blob utdatauppsättningen:**
+**Utdatauppsättning för Azure Blob:**
 
-Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvägen till mappen för blobben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Mappsökvägen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
 
 ```JSON
     {
@@ -241,9 +240,9 @@ Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvä
     }
 ```
 
-**Pipeline med kopieringsaktiviteten:**
+**Pipeline med Kopieringsaktivitet:**
 
-Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda indata och utdata-datauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen av **källa** är inställd på **RelationalSource** och **sink** är inställd på **BlobSink**. SQL-frågan som angetts för den **frågan** egenskapen väljer vilka data under den senaste timmen att kopiera.
+Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **RelationalSource** och **mottagare** är **BlobSink**. SQL-frågan som angetts för den **fråga** egenskapen väljer vilka data under den senaste timmen att kopiera.
 
 ```JSON
     {
@@ -293,26 +292,26 @@ Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda 
 
 
 ### <a name="type-mapping-for-mysql"></a>Mappning för MySQL
-Som anges i den [data movement aktiviteter](data-factory-data-movement-activities.md) artikeln kopieringsaktiviteten utför automatisk konverteringar från källtyper att registrera typer med följande metod i två steg:
+Som vi nämnde i den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln kopieringsaktiviteten utför automatisk konverteringar från typer av datakällor till mottagare typer med följande metod i två steg:
 
 1. Konvertera från interna källtyper till .NET-typ
-2. Konvertera från .NET-typ till interna mottagare typ.
+2. Konvertera från .NET-typ till interna mottagare
 
-När du flyttar data att MySQL används följande mappningar från MySQL-typer till .NET-typer.
+När data flyttas till MySQL, används följande mappningar från MySQL-typer till .NET-typer.
 
 | Typ av MySQL-databas | .NET framework-typ |
 | --- | --- |
 | bigint osignerade |Decimal |
 | bigint |Int64 |
-| bitar |Decimal |
+| bitars |Decimal |
 | blob |Byte] |
 | Bool |Boolesk |
 | Char |Sträng |
 | datum |DateTime |
 | datetime |DateTime |
-| Decimal |Decimal |
-| dubbel precision |Dubbel |
-| double |Dubbel |
+| decimal |Decimal |
+| dubbel precision |Double-värde |
+| double |Double-värde |
 | Enum |Sträng |
 | flyt |Enkel |
 | int osignerade |Int64 |
@@ -328,12 +327,12 @@ När du flyttar data att MySQL används följande mappningar från MySQL-typer t
 | mediumint |Int32 |
 | mediumtext |Sträng |
 | numeriskt |Decimal |
-| Verklig |Dubbel |
-| Ange |Sträng |
+| verkliga |Double-värde |
+| set |Sträng |
 | smallint osignerade |Int32 |
 | smallint |Int16 |
 | text |Sträng |
-| time |TimeSpan |
+| time |Tidsintervall |
 | tidsstämpel |DateTime |
 | tinyblob |Byte] |
 | tinyint osignerade |Int16 |
@@ -342,11 +341,11 @@ När du flyttar data att MySQL används följande mappningar från MySQL-typer t
 | varchar |Sträng |
 | år |Int |
 
-## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner
-Mer information om mappning kolumner i datauppsättningen källan till kolumner i datauppsättning mottagare, se [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
+Mer information om mappning av kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Upprepbar läsning från relationella källor
-Tänk på att undvika oväntade resultat repeterbarhet när kopiering av data från relationella data lagras. I Azure Data Factory, kan du köra en sektor manuellt. Du kan också konfigurera i principen för en dataset så att ett segment som körs när ett fel uppstår. När ett segment körs på något sätt, måste du kontrollera att samma data läses oavsett hur många gånger ett segment körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Kom ihåg att undvika oväntade resultat repeterbarhet när kopiera data från relationsdata lagras. I Azure Data Factory kan du köra en sektor manuellt. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att en sektor som körs när ett fel uppstår. När ett segment ska köras på nytt på något sätt, måste du se till att samma data läses oavsett hur många gånger som en sektor körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Prestanda och finjustering
-Se [kopiera aktivitet prestanda och justera guiden](data-factory-copy-activity-performance.md) vill veta mer om viktiga faktorer som påverkan prestanda för flytt av data (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda- och justering
+Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.

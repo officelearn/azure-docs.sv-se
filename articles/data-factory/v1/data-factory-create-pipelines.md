@@ -9,20 +9,19 @@ ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c31c57cc28b1e817cbb772154cfb2f04ff349640
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e1fe5af1769a0a1a83a3ce849a7eb1874369ce9a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973714"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023380"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-pipelines.md)
 > * [Version 2 (aktuell version)](../concepts-pipelines-activities.md)
 
@@ -147,7 +146,7 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 ### <a name="policies"></a>Principer
 Principer påverkar körningsbeteende för en aktivitet, särskilt när sektorn i en tabell har bearbetats. I följande tabell innehåller information.
 
-| Egenskap  | Tillåtna värden | Standardvärde | Beskrivning |
+| Egenskap | Tillåtna värden | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
 | samtidighet |Integer <br/><br/>Maxvärde: 10 |1 |Antal samtidiga körningar av aktiviteten.<br/><br/>Den avgör antalet körningar för parallell aktivitet som kan inträffa på olika segment. Till exempel om en aktivitet behöver genomgå påskyndar en stor mängd tillgängliga data, med ett större värde för samtidighet databearbetningen. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Anger sorteringen av datasektorer som bearbetas.<br/><br/>Till exempel om du har 2 skär (en händer klockan 4 och en ny 17: 00) och båda är väntar på att köras. Om du ställer in executionPriorityOrder vara NewestFirst bearbetas sektor 17: 00 först. På samma sätt om du ställer in executionPriorityORder vara OldestFIrst bearbetas sedan sektorn klockan 4. |

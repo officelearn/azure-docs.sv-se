@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 42a15e7513fb0aa84734f0965ad8e305cabc0b28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 21b72a6999b58e7896a79766073ba5a8fa35a734
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971857"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023016"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -87,7 +87,7 @@ Rådatapunkterna (det vill säga objekt som du kan fråga i Analytics och inspek
 
 Sammanställda data (dvs, antal, genomsnitt och andra statistiska data som du ser i Metric Explorer) finns kvar på en grain på 1 minut under 90 dagar.
 
-[Felsök ögonblicksbilder](../../application-insights/app-insights-snapshot-debugger.md) lagras i sju dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
+[Felsök ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md) lagras i sju dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 Data är synliga för dig och, om du har ett organisationskonto, dina gruppmedlemmar. 
@@ -294,7 +294,7 @@ Den här produkten innehåller GeoLite2 data som skapats av MaxMind, tillgängli
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md

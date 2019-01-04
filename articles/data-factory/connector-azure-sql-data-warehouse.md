@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d82becf209e44fe66711c964f825ce78d691b2d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093919"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024847"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -69,8 +68,8 @@ Följande egenskaper har stöd för en länkad Azure SQL Data Warehouse-tjänst:
 För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel, respektive:
 
 - [SQL-autentisering](#sql-authentication)
-- Azure AD-token-autentisering: [tjänstens huvudnamn](#service-principal-authentication)
-- Azure AD-token-autentisering: [hanterade identiteter för Azure-resurser](#managed-identity)
+- Azure AD-token-autentisering: [Tjänstens huvud](#service-principal-authentication)
+- Azure AD-token-autentisering: [Hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
 >Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
@@ -359,7 +358,7 @@ Om du vill kopiera data till Azure SQL Data Warehouse, ange Mottagartyp i Kopier
 | rejectSampleValue | Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden.<br/><br/>Tillåtna värden är 1, 2, osv. | Ja, om den **rejectType** är **procent**. |
 | useTypeDefault | Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **SANT** och **FALSKT** (standard). | Nej |
 | WriteBatchSize | Infogar data i SQL-tabell när buffertstorleken når **writeBatchSize**. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
-| writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **timespan**. Exempel ”: 00: 30:00” (30 minuter). | Nej |
+| writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **timespan**. Exempel: ”00: 30:00” (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa förinstallerade data. | Nej | (#repeatability-vid-kopia). | Ett frågeuttryck. | Nej |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse sink exempel

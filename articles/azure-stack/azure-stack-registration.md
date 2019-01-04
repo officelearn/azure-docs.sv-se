@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811026"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002492"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -309,6 +309,11 @@ Du kan använda den **regionshantering** panelen för att kontrollera att Azure 
     [ ![Panelen för hantering av region](media/azure-stack-registration/admin1sm.png "panelen för hantering av Region") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. Välj **egenskaper**. Det här bladet visar status och information om din miljö. Statusen kan vara **registrerad** eller **inte registrerad**. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure Stack, tillsammans med resursgruppen för registrering och namn.
+
+Du kan också kontrollera om din registreringen har lyckats genom att använda funktionen för hantering av Marketplace. Om du ser en lista med marketplace-objekt i bladet Marketplace hantering har registreringen slutförts. Men i frånkopplade miljöer kommer du inte att kunna se marketplace-objekt i Marketplace-hantering. Du kan dock använda verktyget offline för att verifiera registrering.
+
+> [!NOTE]
+> När registreringen är klar, visas inte längre den aktiva varningen för att inte registrera. I scenarier med frånkopplade visas ett meddelande i Marketplace management där du uppmanas att registrera och aktivera din Azure Stack, även om du har registrerats.
 
 ## <a name="renew-or-change-registration"></a>Förnya eller ändra registrering
 

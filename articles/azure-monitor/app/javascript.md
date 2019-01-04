@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 519b237b217aac8dc254a4bf7dcb447c3e4eb447
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 63ee308c50a2d5399dd395dc90c2666fae0bbf49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980849"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999466"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](../../application-insights/app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -120,7 +120,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 Inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](../../application-insights/app-insights-troubleshoot-faq.md).
 
-Bladet Webbläsare är ett [Metrics Explorer-blad](../../application-insights/app-insights-metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
+Bladet Webbläsare är ett [Metrics Explorer-blad](../../azure-monitor/app/metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 
 ## <a name="page-load-performance"></a>Sidinläsningsprestanda
 Längst upp på sidan finns ett segmenterat diagram över sidinläsningstider. Diagrammets totala höjd representerar den genomsnittliga tid det tar att läsa in och visa sidor från appen i användarnas webbläsare. Tiden mäts från tidpunkten då webbläsaren skickar den första HTTP-begäran tills alla synkrona belastningshändelser har bearbetats, inklusive layout och skriptkörning. De omfattar inte asynkrona åtgärder, till exempel inläsning av webbdelar från AJAX-anrop.

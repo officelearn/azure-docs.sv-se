@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ab6782a63c019bea11d047af8588c4489d8b580
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812525"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002220"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
@@ -51,7 +51,7 @@ Med rätt Application Insights SDK installerats och konfigurerats, samlas automa
 
 Förutom SDK: er för Application Insights stöder Application Insights även distribuerad spårning via [OpenCensus](https://opencensus.io/). OpenCensus är en öppen källkod, leverantörsoberoende enkel distribution av bibliotek för mått-samling och distribuerad spårning för tjänster. Det gör också att communityn för öppen källkod att aktivera distribuerad spårning med populära teknikerna som Redis Memcached eller MongoDB. [Microsoft samarbetar på OpenCensus med flera andra övervaknings- och cloud partner](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-Att lägga till funktioner för distribuerad spårning till ett program med OpenCensus, först [installera och konfigurera Application Insights lokala vidarebefordrare](./../../application-insights/opencensus-local-forwarder.md). Därifrån kan du konfigurera OpenCensus för att dirigera distribuerade spårningsdata via lokala vidarebefordraren. Båda [Python](./../../application-insights/opencensus-python.md) och [Gå](./../../application-insights/opencensus-go.md) stöds.
+Att lägga till funktioner för distribuerad spårning till ett program med OpenCensus, först [installera och konfigurera Application Insights lokala vidarebefordrare](./../../azure-monitor/app/opencensus-local-forwarder.md). Därifrån kan du konfigurera OpenCensus för att dirigera distribuerade spårningsdata via lokala vidarebefordraren. Båda [Python](./../../azure-monitor/app/opencensus-python.md) och [Gå](./../../azure-monitor/app/opencensus-go.md) stöds.
 
 Webbplatsen OpenCensus underhåller API-referensdokumentation för [Python](https://opencensus.io/api/python/trace/usage.html) och [Gå](https://godoc.org/go.opencensus.io), samt som olika olika guider för att använda OpenCensus. 
 

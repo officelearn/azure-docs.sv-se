@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: cbe4d3931a5e7b279218a1f56a3842efbc238780
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053575"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016502"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +59,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 | **servicePrincipalKey** | Ange programmets nyckel.           | Ja      |
 | **klient**              | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja      |
 
-**Exempel: Tjänstobjektautentisering**
+**Exempel: Autentisering av tjänstens huvudnamn**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -130,7 +129,7 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | prioritet            | Anger vilka jobb av alla som är köade ska väljas att köras först. Ju lägre nummer, desto högre prioritet. | Nej       |
 | parameters          | Parametrar som ska skickas till U-SQL-skriptet.    | Nej       |
 | runtimeVersion      | Runtime-versionen av U-SQL-motor som ska användas. | Nej       |
-| compilationMode     | <p>Kompileringsläge för U-SQL. Måste vara ett av följande värden: **semantiska:** bara utföra semantiska kontroller och nödvändiga hälsokontroller **fullständig:** utföra fullständig kompileringen, inklusive syntaxkontrollen, optimering, kodgenerering osv., **SingleBox:** utföra fullständig kompileringen med TargetType inställningen om du vill SingleBox. Om du inte anger ett värde för den här egenskapen anger servern optimala kompileringsläge. | Nej |
+| compilationMode     | <p>Kompileringsläge för U-SQL. Måste vara ett av följande värden: **Semantisk:** Endast utföra semantiska kontroller och nödvändiga hälsokontroller **fullständig:** Utföra fullständig kompileringen, inklusive syntaxkontrollen, optimering, kodgenerering, osv., **SingleBox:** Utföra fullständig kompileringen med TargetType inställningen om du vill SingleBox. Om du inte anger ett värde för den här egenskapen anger servern optimala kompileringsläge. | Nej |
 
 Data Factory skickar Se [SearchLogProcessing.txt skriptet Definition](#sample-u-sql-script) för skript-definition. 
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345223"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020531"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -255,7 +254,7 @@ För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten 
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **SqlSink** | Ja |
 | WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (standard: 10000) |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |
 | preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten till att köra innan du skriver data till SQL Server. Det ska bara anropas en gång per kopia som kör. Du kan använda den här egenskapen för att rensa tidigare inlästa data. |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen, t.ex. att göra upsertar eller transformering med egen affärslogik. <br/><br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `preCopyScript` egenskapen. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
@@ -410,7 +409,7 @@ När du kopierar data till SQL Server-databas, användarspecificerade en lagrad 
 
 En lagrad procedur kan användas när inbyggd kopiera mekanismer inte skickar syftet. Den används vanligtvis när upsert (insert + uppdatering) eller extra bearbetning (sammanslagning kolumner, leta upp ytterligare värden, infogning i flera tabeller, etc.) måste göras innan sista inmatningen av källdata i tabellen.
 
-I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Förutsatt att indata och tabellen ”marknadsföring” mottagare har tre kolumner: profil-ID, tillstånd och kategori. Utför upsert baserat på kolumnen ”profil-ID” och gäller endast för en specifik kategori.
+I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Förutsatt att indata och tabellen ”marknadsföring” mottagare har tre kolumner: Profil-ID, tillstånd och kategori. Utför upsert baserat på kolumnen ”profil-ID” och gäller endast för en specifik kategori.
 
 **Datauppsättningen för utdata**
 

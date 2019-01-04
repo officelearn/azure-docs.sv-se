@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 02699e5072801dbb8f4a8f97c88db006d31e6e0f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993302"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022044"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
@@ -111,6 +111,11 @@ Om din organisation kräver Internetåtkomst via en autentiserad proxyserver fö
 
 
 Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Om det här gäller för dig, se [hur du styr hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md).
+
+Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) till din klient, bör du ta bort det aktuella tillståndet innan du aktiverar Hybrid Azure AD-anslutning. Dubbel tillståndet för en enhet ska vara både Hybrid Azure Ad-anslutning och Azure AD-registrerad stöds inte. Följande ändringar har gjorts att undvika det här dubbel tillståndet från Windows 10 1809 version: 
+ - Alla befintliga Azure AD-registrerad tillstånd skulle tas bort automatiskt när enheten är Hybrid Azure AD-anslutna. 
+ - Du kan förhindra att dina domänansluten enhet som Azure AD-registrerad genom att lägga till den här registernyckeln - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, ”BlockAADWorkplaceJoin” = DWORD: 00000001
+
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Läs om hur du styr hybrid Azure AD-anslutning av dina enheter
 

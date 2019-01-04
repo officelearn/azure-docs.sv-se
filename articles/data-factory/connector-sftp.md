@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från SFTP-servern med hjälp av Azure Data Factory | Microsoft Docs
-description: Läs mer om MySQL-anslutningen i Azure Data Factory som låter dig kopiera data från en SFTP-server till ett dataarkiv som stöds som en mottagare.
+title: Kopiera data från SFTP-server med Azure Data Factory | Microsoft Docs
+description: Läs mer om MySQL-connector i Azure Data Factory som låter dig kopiera data från en SFTP-server till ett datalager som stöds som en mottagare.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,61 +9,60 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 3425558ac1ffa9e8d5146a5126f01c4ac55050dc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 28802b018711b3cd95946b60a8505684089dca18
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049638"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019222"
 ---
-# <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-servern med hjälp av Azure Data Factory
+# <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sftp-connector.md)
 > * [Aktuell version](connector-sftp.md)
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en SFTP-server. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en SFTP-server. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från SFTP-servern till några stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från SFTP-server till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Mer specifikt stöder den här SFTP-anslutningen:
 
-- Kopiera filer med **grundläggande** eller **SshPublicKey** autentisering.
-- Filer som kopieras-är eller parsning filer med den [filformat och komprimering codec stöds](supported-file-formats-and-compression-codecs.md).
+- Kopiering av filer med hjälp av **grundläggande** eller **SshPublicKey** autentisering.
+- Kopiera filer som-är eller parsningsfilerna med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till SFTP.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för SFTP.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för SFTP länkade tjänsten:
+Följande egenskaper har stöd för SFTP länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **Sftp**. |Ja |
-| värd | Namn eller IP-adress till SFTP-server. |Ja |
-| port | Port som avlyssnas SFTP-servern.<br/>Tillåtna värden är: heltal, standardvärdet är **22**. |Nej |
-| skipHostKeyValidation | Ange om du vill hoppa över värden viktiga validering.<br/>Tillåtna värden är: **SANT**, **FALSKT** (standard).  | Nej |
-| hostKeyFingerprint | Ange fingeravtryck för värdnyckeln. | Ja om ”skipHostKeyValidation” är inställd på false.  |
-| authenticationType | Ange autentiseringstypen.<br/>Tillåtna värden är: **grundläggande**, **SshPublicKey**. Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| typ | Type-egenskapen måste anges till: **SFTP**. |Ja |
+| värd | Namn eller IP-adressen för SFTP-servern. |Ja |
+| port | Porten som SFTP-servern lyssnar.<br/>Tillåtna värden är: heltal, standardvärdet är **22**. |Nej |
+| skipHostKeyValidation | Ange om du vill hoppa över nyckelvalidering för värden.<br/>Tillåtna värden är: **SANT**, **FALSKT** (standard).  | Nej |
+| ska hostKeyFingerprint | Ange fingeravtryck av serverns värdnyckel. | Ja om ”skipHostKeyValidation” är inställt på FALSKT.  |
+| authenticationType | Ange autentiseringstyp.<br/>Tillåtna värden är: **Grundläggande**, **SshPublicKey**. Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
-### <a name="using-basic-authentication"></a>Med grundläggande autentisering
+### <a name="using-basic-authentication"></a>Använder grundläggande autentisering
 
-Om du vill använda grundläggande autentisering för egenskapen ”authenticationType” **grundläggande**, och ange följande egenskaper förutom SFTP kopplingen generiska som introducerades i det sista avsnittet:
+Om du vill använda grundläggande autentisering för egenskapen ”authenticationType” **grundläggande**, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | Användarnamn | Användare som har åtkomst till SFTP-servern. |Ja |
-| lösenord | Lösenord för användare (användarnamn). Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Lösenordet för användaren (användarnamn). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel:**
 
@@ -94,21 +93,21 @@ Om du vill använda grundläggande autentisering för egenskapen ”authenticati
 }
 ```
 
-### <a name="using-ssh-public-key-authentication"></a>Med hjälp av autentisering med SSH offentlig nyckel
+### <a name="using-ssh-public-key-authentication"></a>Med hjälp av SSH-autentisering för offentlig nyckel
 
-Om du vill använda autentisering med SSH offentlig nyckel för egenskapen ”authenticationType” som **SshPublicKey**, och ange följande egenskaper förutom SFTP kopplingen generiska som introducerades i det sista avsnittet:
+Om du vill använda autentisering med SSH offentlig nyckel, egenskapen ”authenticationType” som **SshPublicKey**, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | Användarnamn | Användare som har åtkomst till SFTP-server |Ja |
-| privateKeyPath | Ange absolut sökväg till den fil för privat nyckel som har åtkomst till Integration Runtime. Gäller endast när automatisk värdbaserade Integration Runtime har angetts i ”connectVia”. | Ange antingen det `privateKeyPath` eller `privateKeyContent`.  |
-| privateKeyContent | Base64-kodade innehåll för SSH privat nyckel. Privata SSH-nyckeln ska vara OpenSSH-format. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ange antingen det `privateKeyPath` eller `privateKeyContent`. |
-| Lösenfrasen | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja om filen för privata nyckeln skyddas av ett lösenord. |
+| privateKeyPath | Ange absolut sökväg till filen för privat nyckel som Integration Runtime kan komma åt. Gäller bara när lokal Integration Runtime har angetts i ”connectVia”. | Ange antingen den `privateKeyPath` eller `privateKeyContent`.  |
+| privateKeyContent | Base64-kodade innehåll för SSH privat nyckel. SSH-privata nyckeln ska vara OpenSSH-format. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ange antingen den `privateKeyPath` eller `privateKeyContent`. |
+| Lösenfras | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av en godkänd fras. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja om filen för privata nyckeln skyddas av en godkänd fras. |
 
 > [!NOTE]
-> SFTP-anslutningen har stöd för RSA/DSA OpenSSH-nyckel. Kontrollera att innehållet nyckelfil som börjar med ”---BEGIN [RSA/DSA] privata NYCKELN---”. Om filen för privat nyckel är en ppk-fil, Använd Putty verktyget vid konvertering från .ppk till OpenSSH-format. 
+> SFTP-anslutningsappen har stöd för RSA/DSA OpenSSH-nyckel. Kontrollera att innehållet nyckelfil som börjar med ”---BEGIN [RSA/DSA] privata NYCKELN---”. Om den privata nyckelfilen är en fil för ppk-format, Använd Putty verktyget för att konvertera från .ppk till OpenSSH-format. 
 
-**Exempel 1: SshPublicKey autentisering med hjälp av privat nyckel filsökväg**
+**Exempel 1: SshPublicKey autentisering med hjälp av privat nyckel filePath**
 
 ```json
 {
@@ -171,23 +170,23 @@ Om du vill använda autentisering med SSH offentlig nyckel för egenskapen ”au
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SFTP dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av SFTP-datauppsättningen.
 
-Ange typegenskapen för dataset för att kopiera data från SFTP, **filresursen**. Följande egenskaper stöds:
+Kopiera data från SFTP genom att ange typegenskapen på datauppsättningen till **filresursen**. Följande egenskaper stöds:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för dataset måste anges till: **filresursen** |Ja |
-| folderPath | Sökvägen till mappen. Wildcard-filter stöds inte. Till exempel: mappen/undermappen / |Ja |
-| fileName |  **Namn eller jokertecken-filtret** för alla filer under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen dataset pekar på alla filer i mappen. <br/><br/>För filter som tillåts är jokertecken: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>-Exempel 1: `"fileName": "*.csv"`<br/>-Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undanta om din faktiska filnamnet innehåller jokertecken eller den här escape-tecken i. |Nej |
-| Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill tolka filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
-| komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **Filresurs** |Ja |
+| folderPath | Sökvägen till mappen. Jokerteckenfilter stöds inte. Till exempel: mappen/undermappen / |Ja |
+| fileName |  **Namn eller jokertecken-filtret** för den eller filerna under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i. |Nej |
+| Format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa filer med ett visst format stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
+| Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbaste**. |Nej |
 
 >[!TIP]
->Kopiera alla filer i en mapp genom att ange **folderPath** endast.<br>Om du vill kopiera en enstaka fil med ett angivet namn, ange **folderPath** med Mappdel och **fileName** med filnamn.<br>Om du vill kopiera en delmängd av filer på en mapp, ange **folderPath** med Mappdel och **fileName** med jokerteckenfiltret.
+>Kopiera alla filer i en mapp genom att ange **folderPath** endast.<br>Om du vill kopiera en enstaka fil med ett givet namn, ange **folderPath** med mappdelen och **fileName** med filnamnet.<br>Om du vill kopiera en delmängd av filerna under en mapp, anger **folderPath** med mappdelen och **fileName** med jokertecken-filtret.
 
 >[!NOTE]
->Om du använde ”fileFilter”-egenskapen för filfilter fortfarande stöds som-är, medan du rekommenderas för att använda den nya filter kapaciteten som lagts till ”fileName” framöver.
+>Om du använder ”fileFilter”-egenskapen för filtret, stöds det fortfarande som – är att medan du rekommenderas för att använda den nya funktionen för filter som lagts till i ”fileName” framöver.
 
 **Exempel:**
 
@@ -221,16 +220,16 @@ Ange typegenskapen för dataset för att kopiera data från SFTP, **filresursen*
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av SFTP källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SFTP-källa.
 
 ### <a name="sftp-as-source"></a>SFTP som källa
 
-Om du vill kopiera data från SFTP, anger du källa i kopieringsaktiviteten till **FileSystemSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+För att kopiera data från SFTP, ange typ av datakälla i kopieringsaktiviteten till **FileSystemSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
-| rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv är inställd på true och mottagare är filbaserad lagring, tom mapp/underåtgärder-folder kommer inte att kopieras/skapas på mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
+| rekursiv | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv har angetts till true och mottagare är filbaserade store, tom mapp/underanvändningsfall-folder kan inte kopieras/skapas vid mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
 
 **Exempel:**
 
@@ -266,4 +265,4 @@ Om du vill kopiera data från SFTP, anger du källa i kopieringsaktiviteten till
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

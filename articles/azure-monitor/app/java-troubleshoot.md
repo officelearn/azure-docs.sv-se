@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: a3af54b01de1966240484c7266e7906490d7db4e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1b2e1300c200619f5d1177e9761ad948c62c1239
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981181"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013816"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -48,7 +48,7 @@ Frågor eller problem med [Azure Application Insights i Java][java]? Här följe
 * Tittar du på rätt AI-resurs? . Matcha nyckeln för ditt program till den resurs där du förväntar dig telemetri. De bör vara identiska.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Jag ser inte alla data som jag förväntar mig
-* Öppna användningen och beräknad kostnad sida och kontrollera om [sampling](../../application-insights/app-insights-sampling.md) är i drift. (100% transmission innebär att sampling inte är i drift). Application Insights-tjänsten kan ställas in att godkänna en bråkdel av telemetrin som tas emot från din app. Detta gör att inom din månatliga kvot för telemetri.
+* Öppna användningen och beräknad kostnad sida och kontrollera om [sampling](../../azure-monitor/app/sampling.md) är i drift. (100% transmission innebär att sampling inte är i drift). Application Insights-tjänsten kan ställas in att godkänna en bråkdel av telemetrin som tas emot från din app. Detta gör att inom din månatliga kvot för telemetri.
 * Har du SDK Sampling aktiverad? Om Ja, skulle data samplas priset som specificeras för alla tillämpliga typer.
 * Kör du en äldre version av Java SDK? Från och med version 2.0.1, har vi lagt fault tolerance mekanism för att hantera tillfälliga nätverket och backend-fel samt datapersistence på lokala enheter.
 * Du hämtar begränsas på grund av hög telemetri? Om du aktiverar loggning av information, en logg visas meddelandet ”appen begränsas”. Våra aktuella gränsen är 32 k telemetri objekt/sekund.
@@ -165,7 +165,7 @@ Application Insights använder `org.apache.http`. Detta har flyttats i Applicati
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md
 [usage]: javascript.md
 

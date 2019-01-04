@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232503"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002407"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelsen aggregering och samling med Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Nu när du aggregering av händelser i Azure Storage, [konfigurera Log Analytics
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuera det via Azure Resource Manager-diagnostiktillägget
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Skapa ett kluster med diagnostics-tillägg
-Om du vill skapa ett kluster med hjälp av Resource Manager, som du behöver lägga till diagnostikkonfigurationen JSON till den fullständiga Resource Manager-mallen innan du skapar klustret. Vi tillhandahåller ett exempel fem VM-kluster Resource Manager-mall med diagnostiky har lagts till som en del av vår Resource Manager-exempelmallar. Du kan se dem på den här platsen i Azure-exempelgalleri: [kluster med fem noder med exempel för diagnostik Resource Manager-mall](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Du måste lägga till diagnostikkonfigurationen JSON till den fullständiga Resource Manager-mallen för att skapa ett kluster med hjälp av Resource Manager. Vi tillhandahåller ett exempel fem VM-kluster Resource Manager-mall med diagnostiky har lagts till som en del av vår Resource Manager-exempelmallar. Du kan se det på den här platsen i Azure-exempelgalleri: [Kluster med fem noder med exempel för diagnostik Resource Manager-mall](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Om du vill visa inställningen för diagnostik i Resource Manager-mallen, öppna filen azuredeploy.JSON och Sök efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen, Välj den **distribuera till Azure** knappen som är tillgängliga på den föregående länken.
 
@@ -196,24 +196,24 @@ Eftersom de tabeller som har lagts till av tillägget växer tills kvoten uppnå
 ## <a name="log-collection-configurations"></a>Konfigurationer för log-samling
 Loggar från ytterligare kanaler finns också tillgängliga för samlingen, här är några av de vanligaste konfigurationerna som du kan göra i mallen för kluster som körs i Azure.
 
-* Drift kanal - bas: Aktiverat som standard, avancerade åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som kommer upp kan ett nytt program som distribueras, eller en uppgradering återställning osv. En lista över händelser som avser [drifthändelser för kanal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Användningskanal - bas: Aktiverad som standard, avancerade åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som dyker upp, ett nytt program som ska distribueras eller en uppgradering återställning osv. En lista över händelser som avser [drifthändelser för kanal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Drift kanaler – detaljerad: Detta inkluderar rapporter om hälsotillstånd och belastningsutjämning beslut, plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Visa dessa händelser i Loggboken i Visual Studio-diagnostik Lägg till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-leverantörer.
+* Användningskanal - detaljerad: Detta inkluderar rapporter om hälsotillstånd och belastningsutjämning beslut, plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Visa dessa händelser i Loggboken i Visual Studio-diagnostik Lägg till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-leverantörer.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Data och Messaging, kanal - bas: kritiska loggar och händelser som genererats i meddelanden (för närvarande endast ReverseProxy) och datasökväg, dessutom till detaljerad användningskanal loggar. Dessa händelser är behandling av fel och andra viktiga problem i ReverseProxy, samt begäranden som bearbetas. **Det här är våra rekommendationer för omfattande loggning**. Du kan visa dessa händelser i Loggboken i Visual Studio-diagnostik genom att lägga till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-leverantörer.
+* Data och Meddelandekanalen - bas: Kritiska loggar och händelser som genererats i meddelanden (för närvarande endast ReverseProxy) och datasökväg, dessutom till detaljerad användningskanal loggar. Dessa händelser är behandling av fel och andra viktiga problem i ReverseProxy, samt begäranden som bearbetas. **Det här är våra rekommendationer för omfattande loggning**. Du kan visa dessa händelser i Loggboken i Visual Studio-diagnostik genom att lägga till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-leverantörer.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Data & Messaging, kanal - detaljerad: utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret och detaljerad operativa kanalen. För detaljerad felsökning för alla händelser för omvänd proxy kan referera till den [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).  Om du vill visa dessa händelser i Visual Studio diagnostiska Loggboken, lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000020” i listan över ETW-leverantörer.
+* Data & Meddelandekanalen - detaljerad: Utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret och detaljerad operativa kanalen. För detaljerad felsökning för alla händelser för omvänd proxy kan referera till den [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).  Om du vill visa dessa händelser i Visual Studio diagnostiska Loggboken, lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000020” i listan över ETW-leverantörer.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b7f49571aa78a262a464f9626b7b98a85f8187f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973340"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022962"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Search är en funktion i [Application Insights](../../application-insights/app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
@@ -129,7 +129,7 @@ Här följer sökuttryck som du kan använda:
 ## <a name="sampling"></a>Samling
 Om din app genererar mycket telemetri (och du använder ASP.NET SDK version 2.0.0-beta3 eller senare), den anpassningsbara insamlingsmodulen automatiskt minskar den mängd som skickas till portalen genom att skicka en representativ del av händelserna. Dock händelser som är relaterade till samma begäran markerat eller avmarkerat som en grupp, så att du kan navigera mellan relaterade händelser. 
 
-[Lär dig mer om insamling](../../application-insights/app-insights-sampling.md).
+[Lär dig mer om insamling](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Skapa arbetsobjekt
 Du kan skapa en bugg i GitHub eller Azure DevOps med information från alla telemetriobjekt. 
@@ -153,7 +153,7 @@ Förutom out-of the box telemetri som skickas av Application Insights SDK, kan d
 ## <a name="questions"></a>FRÅGOR OCH SVAR
 ### <a name="limits"></a>Hur mycket data finns kvar?
 
-Se den [gränser sammanfattning](../../application-insights/app-insights-pricing.md#limits-summary).
+Se den [gränser sammanfattning](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hur kan jag se postdata i min serverbegäranden?
 Vi loggas inte att skicka data automatiskt, men du kan använda [TrackTrace eller log anrop](../../azure-monitor/app/asp-net-trace-logs.md). Placera postdatan i parametern meddelande. Du kan inte filtrera på meddelandet på samma sätt som du kan filtrera efter egenskaper, men storleksgränsen är längre.

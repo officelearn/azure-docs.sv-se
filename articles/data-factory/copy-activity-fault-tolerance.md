@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418351"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014921"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktiviteten i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,15 +34,15 @@ Kopieringsaktivitet stöder tre scenarier för att identifiera, hoppar över och
 
 - **Inkompatibilitet mellan källdatatyp och interna Mottagartyp**. 
 
-    Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinitionen som innehåller tre kolumner av typen INT. Rader för CSV-fil som innehåller numeriska data, till exempel 123,456,789 är har kopierats till arkivet mottagare. Men de rader som innehåller icke-numeriska värden, till exempel 123,456, abc identifieras som inkompatibel och hoppas över.
+    Exempel: Kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinitionen som innehåller tre kolumner av typen INT. Rader för CSV-fil som innehåller numeriska data, till exempel 123,456,789 är har kopierats till arkivet mottagare. Men de rader som innehåller icke-numeriska värden, till exempel 123,456, abc identifieras som inkompatibel och hoppas över.
 
 - **Matchar inte antalet kolumner mellan källan och mottagaren**.
 
-    Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinitionen som innehåller sex kolumner. Rader för CSV-fil som innehåller sex kolumner är har kopierats till arkivet mottagare. Rader för CSV-fil som innehåller fler eller färre än sex kolumner identifieras som inkompatibel och hoppas över.
+    Exempel: Kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinitionen som innehåller sex kolumner. Rader för CSV-fil som innehåller sex kolumner är har kopierats till arkivet mottagare. Rader för CSV-fil som innehåller fler eller färre än sex kolumner identifieras som inkompatibel och hoppas över.
 
 - **Primär felet när du skriver till SQL Server/Azure SQL Database-/ Azure Cosmos DB**.
 
-    Till exempel: kopiera data från en SQLServer till en SQL-databas. En primärnyckel har definierats i mottagare SQL-databasen, men ingen primär nyckel har definierats i käll-SQL-servern. Duplicerade raderna som finns i källan kan inte kopieras till mottagaren. Kopieringsaktiviteten kopierar endast den första raden i källdata till mottagaren. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
+    Exempel: Kopiera data från en SQLServer till en SQL-databas. En primärnyckel har definierats i mottagare SQL-databasen, men ingen primär nyckel har definierats i käll-SQL-servern. Duplicerade raderna som finns i källan kan inte kopieras till mottagaren. Kopieringsaktiviteten kopierar endast den första raden i källdata till mottagaren. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
 
 >[!NOTE]
 >- För att läsa in data till SQL Data Warehouse med PolyBase, konfigurera Polybases interna fel inställningarna genom att ange avvisa villkorsprinciper via ”[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)” i kopieringsaktiviteten. Du kan fortfarande aktivera dirigerar om PolyBase inkompatibla rader till Blob eller ADLS som vanligt enligt nedan.

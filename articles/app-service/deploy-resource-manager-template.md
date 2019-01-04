@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731441"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015210"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning för att distribuera webbappar med hjälp av Azure Resource Manager-mallar
 
@@ -138,3 +138,4 @@ Läs en exempelmall [distribuerar ett Web App-certifikat från Key Vault-hemligh
 ## <a name="next-steps"></a>Nästa steg
 
 * En självstudiekurs om hur du distribuerar web apps med en mall finns i [etablera och distribuera mikrotjänster förutsägbart i Azure](deploy-complex-application-predictably.md).
+* Mer information om JSON-syntax och egenskaper för resurstyper i mallar, se [mallreferensen för Azure Resource Manager](/azure/templates/).

@@ -9,17 +9,16 @@ ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2498fbef8d13fe9c61fd474dbbb678aa0b133e8a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3fec0952f4b164327942d5dee108f89b17613042
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728420"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015547"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Kopiera data till och från Data Lake Storage Gen1 med Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,9 +52,9 @@ Vi rekommenderar att du använder autentisering av tjänstens huvudnamn, särski
 ## <a name="get-started"></a>Kom igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till/från ett Azure Data Lake Store med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline för att kopiera data är att använda den **Kopieringsguiden**. En självstudiekurs om hur du skapar en pipeline med hjälp av guiden Kopiera finns i [självstudie: skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+Det enklaste sättet att skapa en pipeline för att kopiera data är att använda den **Kopieringsguiden**. En självstudiekurs om hur du skapar en pipeline med hjälp av guiden Kopiera finns i [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -98,7 +97,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
 | **klient** | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja |
 
-**Exempel: Tjänstobjektautentisering**
+**Exempel: Autentisering av tjänstens huvudnamn**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -150,7 +149,7 @@ Du kan också använda användarautentisering för autentiseringsuppgifter för 
 #### <a name="token-expiration"></a>Giltighetstid för token
 Auktoriseringskod som du genererar med hjälp av den **auktorisera** knappen upphör att gälla efter en viss tidsperiod. Följande meddelande innebär att autentiseringstoken har upphört att gälla:
 
-Åtgärdsfel för autentiseringsuppgift: invalid_grant - AADSTS70002: fel vid validering av autentiseringsuppgifter. AADSTS70008: Det angivna åtkomst beviljandet har upphört att gälla eller återkallats. Trace-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Korrelations-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21-09-31Z.
+Åtgärdsfel för autentiseringsuppgift: invalid_grant - AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS70008: Det tillhandahållna åtkomst beviljandet har upphört att gälla eller återkallats. Trace-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Korrelations-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tidsstämpel: 2015-12-15 21-09-31Z.
 
 I följande tabell visas de upphör att gälla tiderna för olika typer av användarkonton:
 
@@ -192,13 +191,13 @@ Mer information om Data Factory-klasser som används i koden, finns det [AzureDa
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
-**Symptom:** när du kopierar data **till** Azure Data Lake Store, om Kopieringsaktivitet misslyckas med följande fel:
+**Symptom:** När du kopierar data **till** Azure Data Lake Store, om Kopieringsaktivitet misslyckas med följande fel:
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**Orsak:** det finns 2 möjliga orsaker:
+**Rotorsak:** Det finns 2 möjliga orsaker:
 
 1. Den `resourceGroupName` och/eller `subscriptionId` anges i Azure Data Lake Store länkad felaktiga;
 2. Användaren eller tjänstens huvudnamn har inte behörigheten som krävs.
@@ -241,9 +240,9 @@ Den **typeProperties** avsnittet för en datauppsättning av typen **AzureDataLa
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **folderPath** |Sökvägen till behållaren och mappen i Data Lake Store. |Ja |
-| **fileName** |Namnet på filen i Azure Data Lake Store. Den **fileName** egenskapen är valfri och skiftlägeskänsliga. <br/><br/>Om du anger **fileName**, aktiviteten (inklusive kopia) fungerar på den specifika filen.<br/><br/>När **fileName** inte har angetts, kopiera innehåller alla filer i **folderPath** i datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i formatet Data. _GUID_.txt'. Till exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nej |
+| **fileName** |Namnet på filen i Azure Data Lake Store. Den **fileName** egenskapen är valfri och skiftlägeskänsliga. <br/><br/>Om du anger **fileName**, aktiviteten (inklusive kopia) fungerar på den specifika filen.<br/><br/>När **fileName** inte har angetts, kopiera innehåller alla filer i **folderPath** i datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i formatet Data. _GUID_.txt'. Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nej |
 | **partitionedBy** |Den **partitionedBy** egenskapen är valfri. Du kan använda den för att ange en dynamisk sökväg och filnamn för time series-data. Till exempel **folderPath** kan parameteriseras för varje timme som data. Mer information och exempel, i [egenskapen partitionedBy](#using-partitionedby-property). |Nej |
-| **Format** | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och  **ParquetFormat**. Ange den **typ** egenskapen under **format** till någon av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitten i den [format och komprimering stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln. <br><br> Om du vill kopiera filer ”som – är” mellan filbaserade (binär kopia), hoppar du över den `format` avsnittet i både inkommande och utgående datamängd definitioner. |Nej |
+| **Format** | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Ange den **typ** egenskapen under **format** till någon av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitten i den [format och komprimering stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln. <br><br> Om du vill kopiera filer ”som – är” mellan filbaserade (binär kopia), hoppar du över den `format` avsnittet i både inkommande och utgående datamängd definitioner. |Nej |
 | **Komprimering** | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer **Optimal** och **snabbast**. Mer information finns i [format och komprimering stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 ### <a name="the-partitionedby-property"></a>Egenskapen partitionedBy
@@ -291,7 +290,7 @@ Egenskaperna som är tillgängliga i den **typeProperties** avsnittet för en ak
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **copyBehavior** |Anger kopieringsbeteendet. |<b>PreserveHierarchy</b>: bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen skapas i den första nivån i målmappen. Målfiler som skapas med automatiskt skapade namn.<br/><br/><b>MergeFiles</b>: slår samman alla filer från källmappen till en fil. Om namnet på filen / bloben har angetts, är sammanfogade filnamnet det angivna namnet. Annars är filnamnet automatiskt genererade. |Nej |
+| **copyBehavior** |Anger kopieringsbeteendet. |<b>PreserveHierarchy</b>: Bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: Alla filer från källmappen skapas i den första nivån i målmappen. Målfiler som skapas med automatiskt skapade namn.<br/><br/><b>MergeFiles</b>: Slår samman alla filer från källmappen till en fil. Om namnet på filen / bloben har angetts, är sammanfogade filnamnet det angivna namnet. Annars är filnamnet automatiskt genererade. |Nej |
 
 ### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior exempel
 Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av värden för rekursiv och copyBehavior resulterande beteende.

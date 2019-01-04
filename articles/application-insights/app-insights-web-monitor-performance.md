@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9af2dd3a17eb150d44bf69cda86e480a083a3164
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6731b19984c0b2e0a663e93b2a6ef00c530a4d48
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971213"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014649"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
@@ -116,7 +116,7 @@ Här följer några tips för att hitta och diagnostisera prestandaproblem:
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Hitta och åtgärda flaskhalsar i prestanda med upplevelse med prestandaundersökning
 
-Du kan använda upplevelsen med prestandaundersökning för att granska långsamma utför åtgärder i din webbapp. Du kan snabbt välja en viss långsam åtgärd och använda [Profiler](app-insights-profiler.md) till rot orsaka långsam åtgärderna ned kod. Med den nya varaktighetsfördelning som visas för den valda åtgärden kan du snabbt i korthet utvärdera hur allvarligt upplevelsen är för dina kunder. Du kan se hur många användarinteraktioner som har påverkats för varje långsam åtgärd. I exemplet nedan har vi valt att ta en närmare titt på upplevelsen för GET Customers/Details-åtgärden. Vi kan se att det finns tre toppar i varaktighet-distributionen. Längst till vänster topp är cirka 400 ms och representerar bra dynamiska upplevelse. Mitten topp är runt 1,2 s och representerar en medelmåttiga upplevelse. Slutligen på 3.6 s vi har en annan små topp som representerar den 99: e percentil-upplevelsen, som kan leda till våra kunder att lämna missnöjd. Den upplevelsen är tio gånger långsammare än den bästa upplevelsen för samma åtgärd. 
+Du kan använda upplevelsen med prestandaundersökning för att granska långsamma utför åtgärder i din webbapp. Du kan snabbt välja en viss långsam åtgärd och använda [Profiler](../azure-monitor/app/profiler.md) till rot orsaka långsam åtgärderna ned kod. Med den nya varaktighetsfördelning som visas för den valda åtgärden kan du snabbt i korthet utvärdera hur allvarligt upplevelsen är för dina kunder. Du kan se hur många användarinteraktioner som har påverkats för varje långsam åtgärd. I exemplet nedan har vi valt att ta en närmare titt på upplevelsen för GET Customers/Details-åtgärden. Vi kan se att det finns tre toppar i varaktighet-distributionen. Längst till vänster topp är cirka 400 ms och representerar bra dynamiska upplevelse. Mitten topp är runt 1,2 s och representerar en medelmåttiga upplevelse. Slutligen på 3.6 s vi har en annan små topp som representerar den 99: e percentil-upplevelsen, som kan leda till våra kunder att lämna missnöjd. Den upplevelsen är tio gånger långsammare än den bästa upplevelsen för samma åtgärd. 
 
 ![GET Customers/Details tre varaktighet toppar](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -159,8 +159,8 @@ Upplevelsen med prestandaundersökning visar relevant information längs sida ex
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
-[snapshot]: app-insights-snapshot-debugger.md
+[livestream]: ../azure-monitor/app/live-stream.md
+[snapshot]: ../azure-monitor/app/snapshot-debugger.md
 
 
 

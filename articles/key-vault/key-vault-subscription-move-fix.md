@@ -1,5 +1,5 @@
 ---
-title: Ändra nyckelvalvsklient-ID efter en prenumerationsflytt | Microsoft Docs
+title: Ändra den nyckelvalvsklient-ID efter en prenumerationsflytt - Azure Key Vault | Microsoft Docs
 description: Lär dig hur du växlar klient-ID för ett nyckelvalv när en prenumeration flyttas till en annan klient
 services: key-vault
 documentationcenter: ''
@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: e9acd011c76ea23dbbee2c52c5d1909168878d69
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 185a1954b1dbc3f56864b75fdbb32bdf9f18bc1a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161619"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002237"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Ändra nyckelvalvsklient-ID efter en prenumerationsflytt
-### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>F: Min prenumeration har flyttats från klient A till klient B. Hur ändrar jag klient-ID för mitt befintliga nyckelvalv och anger rätt åtkomstkontrollistor för säkerhetsobjekt i klient B?
+
+## <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>F: Min prenumeration har flyttats från klient A till klient B. Hur gör jag för att ändra klient-ID för mitt befintliga nyckelvalv och ange rätt åtkomstkontrollistor för säkerhetsobjekt i klient B?
+
 När du skapar ett nytt nyckelvalv i en prenumeration knyts det automatiskt till det standardmässiga Azure Active Directory-klient-ID:t för den prenumerationen. Alla åtkomstprincipposter knyts också till detta klient-ID. När du flyttar din Azure-prenumeration från klient A till klient B är ditt befintliga nyckelvalv otillgängligt för säkerhetsobjekten (användare och program) i klient B. Om du vill åtgärda problemet måste du:
 
 * Ändra det klient-ID som är associerat med alla befintliga nyckelvalv i den här prenumerationen till klient B.
@@ -45,5 +47,5 @@ Eftersom det här valvet fanns på klient A innan flytten är ursprungsvärdet *
 Nu när ditt valv är associerat med rätt klient-ID och gamla åtkomstprincipposter har tagits bort ska du ange nya åtkomstprincipposter med [Set AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har några frågor om Azure Key Vault kan du besöka [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
+Om du har några frågor om Azure Key Vault kan du besöka [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

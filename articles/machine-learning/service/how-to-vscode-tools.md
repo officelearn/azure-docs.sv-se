@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269605"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013153"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Kom igång med Azure Machine Learning för Visual Studio Code
 
@@ -26,7 +26,7 @@ Använd Azure Machine Learning-tillägg i Visual Studio code för att använda A
 ## <a name="prerequisite"></a>Krav
 
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
++ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 + Visual Studio Code måste installeras. VS Code är en enkel men kraftfull källkodsredigerare som körs på skrivbordet. Den innehåller inbyggt stöd för Python med mera.  [Lär dig att installera VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
@@ -80,7 +80,8 @@ Innan du börjar utbildning och distribuera maskininlärningsmodeller med VS Cod
 
 1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
-   [![sidopanelen](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![Installera](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Högerklicka på din Azure-prenumeration och välj **Skapa arbetsyta**. En lista visas. Prenumerationens namn är ”kostnadsfri utvärdering” i animerade avbildningen, och arbetsytan som är ”TeamWorkspace”. 
 
@@ -96,11 +97,11 @@ Innan du börjar utbildning och distribuera maskininlärningsmodeller med VS Cod
  
 1. Tryck på RETUR och nytt experiment skapas. Den visas i trädet nedan arbetsytans namn.
 
-1. Högerklicka på experimentnamnet på och välj **bifoga mappen till experimentet**. Den här mappen ska innehålla din lokala Python-skript. Mappen länkas sedan till arbetsytan för experimentet i molnet. 
+1. Du kan högerklicka på ett Experiment i en arbetsyta och Välj Ställ in som aktiv Experiment. Den **”aktiv”** experimentet är experimentet du använder och öppna mappen i VS Code kommer att länkas till det här experimentet i molnet. Den här mappen ska innehålla din lokala Python-skript.
 
-   Nu körs var och en av ditt experiment med experimentet så att alla viktiga mått sparas i historiken experiment och modeller du tränar får automatiskt överförs till Azure Machine Learning och lagras med dina experiment mått och loggar.
+   Nu körs var och en av ditt experiment med ditt experiment, så att alla viktiga mått sparas i historiken experiment och modeller du tränar får automatiskt överförs till Azure Machine Learning och lagras med dina experiment mått och loggar.
 
-   [![Bifoga en mapp i VS Code](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![Bifoga en mapp i VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Använda kortkommandon
 

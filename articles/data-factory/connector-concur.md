@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: cee04bd3901db7136a877643979832ed8a70cbd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 287f399d9c30da75972503abf71f9937f99c8842
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076176"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022095"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiera data från Concur med Azure Data Factory (förhandsversion)
 
@@ -48,7 +47,7 @@ Följande egenskaper har stöd för Concur länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Concur** | Ja |
+| typ | Type-egenskapen måste anges till: **Concurs** | Ja |
 | ClientId | Programmet client_id som tillhandahålls av Concurs Apphantering.  | Ja |
 | användarnamn | Användarnamnet som används för att komma åt Concurs-tjänsten.  | Ja |
 | lösenord | Lösenordet för det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

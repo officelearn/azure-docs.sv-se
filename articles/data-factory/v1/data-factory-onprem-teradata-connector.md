@@ -9,17 +9,16 @@ ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 901b44b829398ef92e63f94e0b35549e63cdd3db
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2b7a90f948f0176285f1e56bc3c84a2cda2f2577
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262258"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023539"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,8 +46,8 @@ För Data Management Gateway att ansluta till Teradata-databas, måste du instal
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal Cassandra med hjälp av olika verktyg/API: er. 
 
-- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudie: skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
@@ -56,7 +55,7 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
 3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för den lokala Teradata hittar [JSON-exempel: kopiera data från Teradata till Azure Blob](#json-example-copy-data-from-teradata-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för den lokala Teradata hittar [JSON-exempel: Kopiera data från Teradata till Azure Blob](#json-example-copy-data-from-teradata-to-azure-blob) i den här artikeln. 
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för ett Teradata-datalager:
 
@@ -67,7 +66,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | typ |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
-| authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden är: anonyma, Basic och Windows. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Teradata-databas. |Ja |
@@ -88,7 +87,7 @@ När källan är av typen **RelationalSource** (som innehåller Teradata), följ
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
-### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON-exempel: kopiera data från Teradata till Azure Blob
+### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON-exempel: Kopiera data från Teradata till Azure Blob
 I följande exempel innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från Teradata till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.   
 
 Exemplet har följande data factory-entiteter:
@@ -296,7 +295,7 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | VarByte |Byte] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| decimaltal |decimaltal |
+| Decimal |Decimal |
 | Double-värde |Double-värde |
 | Integer |Int32 |
 | Tal |Double-värde |

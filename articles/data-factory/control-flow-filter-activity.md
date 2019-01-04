@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050360"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021840"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktiviteten i Azure Data Factory
-Du kan använda en Filter-aktivitet i en pipeline för att tillämpa ett filteruttryck till en matris som indata. 
+Du kan använda aktiviteten Filter i en pipeline för att tillämpa ett filteruttryck till en matris som indata. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,18 +35,18 @@ Du kan använda en Filter-aktivitet i en pipeline för att tillämpa ett filteru
 }
 ```
 
-## <a name="type-properties"></a>Typegenskaper
+## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på den `Filter` aktivitet. | Sträng | Ja
-typ | Måste anges till **filter**. | Sträng | Ja
-tillstånd | Villkoret som ska användas för att filtrera indata. | Uttryck | Ja
+typ | Måste vara inställt på **filter**. | Sträng | Ja
+villkor | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
 objekt | Indatamatrisen som filtret ska tillämpas. | Uttryck | Ja
 
 ## <a name="example"></a>Exempel
 
-I det här exemplet har två aktiviteter i pipeline: **Filter** och **ForEach**. Aktiviteten Filter har konfigurerats för att filtrera Indatamatrisen för artiklar med ett större värde än 3. ForEach-aktiviteten sedan itererar över de filtrerade värdena och väntar på att antalet sekunder som anges av det aktuella värdet.
+I det här exemplet har pipelinen två aktiviteter: **Filtret** och **ForEach**. Aktiviteten Filter har konfigurerats för att filtrera Indatamatrisen för artiklar med ett värde som är större än 3. ForEach-aktiviteten sedan itererar över de filtrerade värdena och väntar på hur många sekunder som anges av det aktuella värdet.
 
 ```json
 {
@@ -93,7 +92,7 @@ I det här exemplet har två aktiviteter i pipeline: **Filter** och **ForEach**.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se annan kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)

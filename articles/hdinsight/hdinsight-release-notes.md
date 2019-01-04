@@ -2,19 +2,19 @@
 title: Viktig information för Azure HDInsight
 description: Senaste viktig information om Azure HDInsight. Hämta utvecklingstips och information för Hadoop, Spark, R Server, Hive och mycket mer.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/02/2019
+ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976978"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000094"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Viktig information för Azure HDInsight
 
@@ -1308,6 +1308,16 @@ Det här avsnittet beskriver alla vanliga säkerhetsproblem och Exposures (CVE) 
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Alternativet för att inaktivera scheduler |**Komponent som påverkas:** Zeppelin-Server<br /><br />**Beteende för tidigare:** I tidigare versioner av Zeppelin var det inget alternativ för att inaktivera scheduler.<br /><br />**Nya beteendet:** Som standard kommer användarna inte längre visas scheduler, eftersom det är inaktiverat som standard.<br /><br />**Lösning/förväntade Kundåtgärd:** Om du vill aktivera scheduler behöver lägger du till azeppelin.notebook.cron.enable med värdet true under anpassade zeppelin plats i Zeppelin inställningar från Ambari.|
 
 ## <a name="known-issues"></a>Kända problem
+
+-   **HDInsight-integrering med ADLS Gen 2** det finns två problem på ESP för HDInsight-kluster med Azure Data Lake Storage Gen 2 med användarkataloger och behörigheter:
+   
+   1. Hemkataloger för användare är inte skapas på Head nod 1. Som en lösning kan du skapa katalogerna manuellt och ändra ägarskap till respektive användarens UPN.
+   
+   2. Behörigheter på /hdp directory har inte angetts till 751. Det här måste vara inställt på 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 

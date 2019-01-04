@@ -9,17 +9,16 @@ ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229261"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017386"
 ---
 # <a name="use-case---product-recommendations"></a>Användningsfall - Produktrekommendationer
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite med Lösningsacceleratorer.  Se [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) för information om de här. I det här dokumentet beskrivs ett vanligt användningsfall som Azure-användare som redan har löst och implementeras med hjälp av Azure Data Factory och andra tjänster för Cortana Intelligence-komponenten.

@@ -1,5 +1,5 @@
 ---
-title: Vad du gör i händelse av en Azure-tjänsten avbrott som påverkar Azure Key Vault | Microsoft Docs
+title: Vad du gör i händelse av en Azure-tjänsten avbrott som påverkar Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Lär dig vad du gör i händelse av ett avbrott i Azure-tjänsten som påverkar Azure Key Vault.
 services: key-vault
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ab6fc207d8a7732062a51a6215c25a4a0fac006
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0479e5f7e51d02a08f6d542515212c88b3a43df5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465851"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999245"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault tillgänglighet och redundans
+
 Azure Key Vault har flera lager för redundans för att se till att dina nycklar och hemligheter finnas tillgängliga för ditt program även om enskilda komponenter i tjänsten misslyckas.
 
 Innehållet i ditt nyckelvalv replikeras inom regionen och till en sekundär region minst 150 mil bort men inom samma geografiska område. Detta upprätthåller hög hållbarhet för dina nycklar och hemligheter. Se den [parade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) dokumentet för information om specifika regionpar.

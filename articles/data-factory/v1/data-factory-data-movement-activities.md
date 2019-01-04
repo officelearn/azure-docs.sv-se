@@ -9,17 +9,16 @@ ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299868"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014689"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av Kopieringsaktivitet
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +96,7 @@ När både käll-och mottagare finns i molnet, använder Data Factory en tjänst
 | Geografisk plats för datalager som mål | Regionen för måldatalagret | Regionen som används för dataförflyttning |
 |:--- |:--- |:--- |
 | USA | Östra USA | Östra USA |
-| &nbsp; | Östra USA 2 | Östra USA 2 |
+| &nbsp; | USA, östra 2 | USA, östra 2 |
 | &nbsp; | Centrala USA | Centrala USA |
 | &nbsp; | Norra centrala USA | Norra centrala USA |
 | &nbsp; | Södra centrala USA | Södra centrala USA |
@@ -120,8 +119,8 @@ När både käll-och mottagare finns i molnet, använder Data Factory en tjänst
 | &nbsp; | Södra Indien | Indien, centrala |
 | Japan | Östra Japan | Östra Japan |
 | &nbsp; | Västra Japan | Östra Japan |
-| Korea | Centrala Korea | Centrala Korea |
-| &nbsp; | Sydkorea | Centrala Korea |
+| Korea | Sydkorea, centrala | Sydkorea, centrala |
+| &nbsp; | Sydkorea, södra | Sydkorea, centrala |
 
 Du kan också du uttryckligen ange regionen som Data Factory-tjänsten som används för att utföra kopieringen genom att ange `executionLocation` egenskapen under Kopieringsaktiviteten `typeProperties`. Värden som stöds för den här egenskapen visas i ovan **regionen används för dataförflyttning** kolumn. Observera att dina data passerar den regionen i rörelse vid kopiering. Till exempel att kopiera mellan Azure lagrar i Sydkorea, kan du ange `"executionLocation": "Japan East"` för dirigering via Japan region (se [exempel JSON](#by-using-json-scripts) som referens).
 
@@ -139,7 +138,7 @@ Du kan skapa en pipeline med Kopieringsaktivitet i ett par olika sätt:
 Data Factory-Kopieringsguiden hjälper dig att skapa en pipeline med en Kopieringsaktivitet. Den här pipelinen låter dig kopiera data från källor som stöds till mål *utan att skriva JSON* definitioner för länkade tjänster, datauppsättningar och pipeliner. Se [Data Factory-Kopieringsguide](data-factory-copy-wizard.md) mer information om guiden.  
 
 ### <a name="by-using-json-scripts"></a>Med hjälp av JSON-skript
-Du kan använda Data Factory-redigeraren i Azure portal, Visual Studio eller Azure PowerShell för att skapa en JSON-definition för en pipeline (med hjälp av Kopieringsaktivitet). Du kan distribuera den sedan för att skapa pipelinen i Datafabriken. Se [självstudie: Använd Kopieringsaktiviteten i en Azure Data Factory-pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en självstudie med stegvisa instruktioner.    
+Du kan använda Data Factory-redigeraren i Azure portal, Visual Studio eller Azure PowerShell för att skapa en JSON-definition för en pipeline (med hjälp av Kopieringsaktivitet). Du kan distribuera den sedan för att skapa pipelinen i Datafabriken. Se [självstudien: Använda Kopieringsaktivitet i en Azure Data Factory-pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en självstudie med stegvisa instruktioner.    
 
 JSON-egenskaper (till exempel namn, beskrivning, indata och utdata tabeller och principer) är tillgängliga för alla typer av aktiviteter. Egenskaper som är tillgängliga i den `typeProperties` avsnittet aktivitetens varierar med varje aktivitetstyp av.
 

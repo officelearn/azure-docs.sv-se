@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: f9b1096f2d409f46e3b9e48a2d59420930150c1a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974564"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001897"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Steg-för-steg-beskrivning: Exportera till SQL från Application Insights med hjälp av Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -70,7 +70,7 @@ Löpande export alltid matar ut data till ett Azure Storage-konto, så du måste
     ![Välj händelsetyper](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Kan vissa data ackumuleras. Luta dig tillbaka och låta personer som använder programmet ett tag. Telemetri kommer så ser du statistiska diagrammen i [metric explorer](../../application-insights/app-insights-metrics-explorer.md) och enskilda händelser i [diagnostiksökning](../../azure-monitor/app/diagnostic-search.md). 
+1. Kan vissa data ackumuleras. Luta dig tillbaka och låta personer som använder programmet ett tag. Telemetri kommer så ser du statistiska diagrammen i [metric explorer](../../azure-monitor/app/metrics-explorer.md) och enskilda händelser i [diagnostiksökning](../../azure-monitor/app/diagnostic-search.md). 
    
     Och dessutom data exporteras till din lagring. 
 2. Granska de exporterade data, antingen i portalen – Välj **Bläddra**, Välj ditt lagringskonto och sedan **behållare** - eller i Visual Studio. I Visual Studio väljer **visa / Cloud Explorer**, och öppna Azure / Storage. (Om du inte har alternativet kan du behöva installera Azure SDK: Öppna dialogrutan Nytt projekt och öppna Visual C# / i molnet / hämta Microsoft Azure SDK för .NET.)
@@ -258,7 +258,7 @@ Gå tillbaka till SQL Server Management Tools och titta på de data som flödar 
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
 [start]: ../../application-insights/app-insights-overview.md
 

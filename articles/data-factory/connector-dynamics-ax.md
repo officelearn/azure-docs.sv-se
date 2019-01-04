@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 1dca3621b31d74d2ae40156672009b15ba30e3f4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 48c6fb178b61fd65e0fbf6122d541bef5e3e9830
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339543"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014394"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Kopiera data från Dynamics AX genom att använda Azure Data Factory (förhandsversion)
 
@@ -135,7 +134,7 @@ För att kopiera data från Dynamics AX, ange den **källa** typ i Kopieringsakt
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **DynamicsAXSource**. | Ja |
-| DocumentDB | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs**: Anslutningen kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| DocumentDB | OData-frågealternativ för filtrering av data. Exempel: `"?$select=Name,Description&$top=5"`.<br/><br/>**Obs!** Anslutningen kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Mer information finns i [OData-URL komponenter](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel**
 

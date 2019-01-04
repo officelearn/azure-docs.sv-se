@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138253"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999364"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -179,7 +179,7 @@ Functions proxies kommer som standard använder en genväg för att skicka API-a
 
 |Nyckel|Värde|Beskrivning|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Anrop med en backend-url som pekar på en funktion i lokala funktionen inte längre kommer att skickas direkt till funktionen och i stället att skickas tillbaka till HTTP-klientdel för Funktionsappen|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Anrop med en backend-url som pekar på en funktion i lokalt Funktionsappen inte längre kommer att skickas direkt till funktionen och i stället att skickas tillbaka till HTTP-klientdel för Funktionsappen|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Detta är standardvärdet. Anrop med en backend-url som pekar på en funktion i lokalt Funktionsapp vidarebefordras direkt till funktionen|
 
 

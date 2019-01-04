@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 54b2ada0f269bca681305efc2e1eb7c2f9776ab7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5b2847914007df414c37397d61632567c277d1b2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543010"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999434"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Etablera dataflöde för Azure Cosmos-behållare och databaser
 
@@ -27,9 +27,9 @@ Ange dataflöde för en behållare är det vanliga alternativet. Medan du kan El
 
 Vi rekommenderar att du konfigurerar dataflöde med behållare precision när du vill att garanterade prestanda för behållaren.
 
-Etablerat en Azure Cosmos-behållaren dataflöde är jämnt fördelade för alla logiska partitioner i behållaren. Eftersom en eller flera logiska partitioner för en behållare är värd för en resurspartition, de fysiska partitionerna tillhör exklusivt behållaren och stöd för dataflödet som tillhandahållits för behållaren. Följande bild visar hur en resurspartition är värd för en eller flera logiska partitioner för en behållare:
+Etablerat en Azure Cosmos-behållaren dataflöde är jämnt fördelade för alla logiska partitioner i behållaren. Eftersom en eller flera logiska partitioner för en behållare är värd för en fysisk partition, de fysiska partitionerna tillhör exklusivt behållaren och stöd för dataflödet som tillhandahållits för behållaren. Följande bild visar hur en fysisk partition är värd för en eller flera logiska partitioner för en behållare:
 
-![Resurspartition](./media/set-throughput/resource-partition.png)
+![Fysisk partition](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Inställningen dataflöde på en databas
 
@@ -49,9 +49,9 @@ Vi rekommenderar att du konfigurerar dataflödet för en databas när du vill de
 
 Alla behållare som skapas i en databas med etablerat dataflöde måste skapas med en partitionsnyckel. Vid en given tidpunkt tid fördelas det dataflöde som allokeras till en behållare i en databas för alla logiska partitioner för behållaren. När du har en behållare som delar etablerat dataflöde på en databas, kan du selektivt använder dataflödet till en specifik behållare eller en logisk partition. Om arbetsbelastningen för en logisk partition förbrukar mer än det dataflöde som tilldelas en specifik logisk partition, kommer din verksamhet att rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Flera logiska partitioner som delar dataflödet som tillhandahållits till en databas kan finnas på en enskild resurs-partition. När en enskild logisk partition för en behållare är alltid begränsade inom en resurspartition, ”L” logiska partitioner mellan ”C”-behållare som delar det etablerade dataflödet för en databas mappade och finns i ”R” fysiska partitioner. Följande bild visar hur en resurspartition kan vara värd för en eller flera logiska partitioner som hör till olika behållare i en databas:
+Flera logiska partitioner som delar dataflödet som tillhandahållits till en databas kan finnas på en enda fysisk partition. När en enskild logisk partition för en behållare är alltid begränsade inom en fysisk partition, ”L” logiska partitioner mellan ”C”-behållare som delar det etablerade dataflödet för en databas mappade och finns i ”R” fysiska partitioner. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som hör till olika behållare i en databas:
 
-![Resurspartition](./media/set-throughput/resource-partition2.png)
+![Fysisk partition](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Ange dataflöde för en databas och en behållare
 

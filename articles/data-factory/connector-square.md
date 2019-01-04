@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 80389be735d337f72426f0745fee5717b96fa78a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100879"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013170"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiera data från ruta med Azure Data Factory (förhandsversion)
 
@@ -45,7 +44,7 @@ Följande egenskaper har stöd för kvadratisk länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **ruta** | Ja |
+| typ | Type-egenskapen måste anges till: **Ruta** | Ja |
 | värd | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
 | ClientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
 | ClientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |

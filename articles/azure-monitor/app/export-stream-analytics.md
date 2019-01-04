@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: a6e9df1b5be0565e859c866b6ceb8ef44e6b271a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812548"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001846"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för bearbetning av data [exporterats från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från olika källor. Det kan transformera och filtrera data och sedan dirigera till en mängd olika mottagare.
@@ -64,7 +64,7 @@ Löpande export alltid matar ut data till ett Azure Storage-konto, så du måste
 
     ![Välj händelsetyper](./media/export-stream-analytics/080.png)
 
-1. Kan vissa data ackumuleras. Luta dig tillbaka och låta personer som använder programmet ett tag. Telemetri kommer så ser du statistiska diagrammen i [metric explorer](../../application-insights/app-insights-metrics-explorer.md) och enskilda händelser i [diagnostiksökning](../../azure-monitor/app/diagnostic-search.md). 
+1. Kan vissa data ackumuleras. Luta dig tillbaka och låta personer som använder programmet ett tag. Telemetri kommer så ser du statistiska diagrammen i [metric explorer](../../azure-monitor/app/metrics-explorer.md) och enskilda händelser i [diagnostiksökning](../../azure-monitor/app/diagnostic-search.md). 
    
     Och dessutom data exporteras till din lagring. 
 2. Granska de exporterade data. I Visual Studio väljer **visa / Cloud Explorer**, och öppna Azure / Storage. (Om du inte har alternativet kan du behöva installera Azure SDK: Öppna dialogrutan Nytt projekt och öppna Visual C# / i molnet / hämta Microsoft Azure SDK för .NET.)

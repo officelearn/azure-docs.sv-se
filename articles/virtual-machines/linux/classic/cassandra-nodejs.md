@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b38db71e624d32e7a4a532181a374edb13f13fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021942"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Köra ett Cassandra-kluster på Linux i Azure med Node.js
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Se Resource Manager-mallar för [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) och [Spark-kluster och Cassandra på CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Översikt
-Microsoft Azure är en öppen molnplattform som kör både Microsoft och icke-Microsoft-programvara som innehåller operativsystem, programservrar, meddelanden mellanprogram samt SQL och NoSQL-databaser från båda modellerna för kommersiella öppen källkod. Att skapa elastiska tjänster på offentliga moln, inklusive Azure kräver noggrann planering och arkitektur för avsiktlig för båda programservrarna som väl storage lager. Cassandras distribuerade lagringsarkitektur hjälper naturligt att skapa högtillgängliga system som är feltoleranta för klustret. Cassandra är en NoSQL-databas som underhålls av Apache Software Foundation på cassandra.apache.org för molnskala. Cassandra är skriven i Java. Så körs på både på Windows och Linux-plattformar.
+Microsoft Azure är en öppen molnplattform som kör både Microsoft och icke-Microsoft-programvara. Den här programvaran innehåller operativsystem, programservrar, meddelanden mellanprogram samt SQL och NoSQL-databaser från båda modellerna för kommersiella öppen källkod. Att skapa elastiska tjänster på offentliga moln, inklusive Azure kräver noggrann planering och arkitektur för avsiktlig för båda programservrarna som väl storage lager. Cassandras distribuerade lagringsarkitektur hjälper naturligt att skapa högtillgängliga system som är feltoleranta för klustret. Cassandra är en NoSQL-databas som underhålls av Apache Software Foundation på cassandra.apache.org för molnskala. Cassandra är skriven i Java. Så körs på både på Windows och Linux-plattformar.
 
-Fokus i den här artikeln är att visa Cassandra-distribution på Ubuntu som ett enda och flera Datacenter-kluster som använder Azure Virtual Machines och virtuella nätverk. Klusterdistribution för optimerad produktionsarbetsbelastningar ligger utanför omfånget för den här artikeln eftersom den kräver flera disk nodkonfiguration, lämplig ring topologi utformning och datamodeller för att stödja nödvändiga replikering, datakonsekvens, genomströmning och hög kraven på tillgänglighet.
+Fokus i den här artikeln är att visa Cassandra-distribution på Ubuntu som ett enda och flera Datacenter-kluster som använder Azure Virtual Machines och virtuella nätverk. Klusterdistribution för optimerad produktionsarbetsbelastningar ligger utanför omfånget för den här artikeln eftersom den kräver flera disk nodkonfiguration, lämplig ring topologi design och datamodeller för att stödja nödvändiga replikering, datakonsekvens, dataflöde, krav och hög tillgänglighet.
 
-Den här artikeln tar en grundläggande metod för att visa vad ingår i att skapa klustret Cassandra jämfört med Docker, Chef eller Puppet som kan göra distributionen av infrastruktur mycket enklare.  
+Den här artikeln tar en grundläggande metod för att visa vad ingår i att skapa jämfört med Docker, Chef eller Puppet Cassandra-klustret. Den här metoden gör distributionen av infrastruktur mycket enklare.
 
 ## <a name="the-deployment-models"></a>Distributionsmodellerna
-Microsoft Azure-nätverk kan distributionen av isolerade privata kluster åtkomst som kan vara begränsad till att uppnå de detaljerade nätverkssäkerhet.  Eftersom den här artikeln om hur du visar Cassandra-distribution på en grundläggande nivå fokusera den inte på konsekvensnivån och optimal lagringsdesignen för dataflöde. Här är listan över nätverkskraven för hypotetiska klustret:
+Microsoft Azure-nätverk kan distributionen av isolerade privata kluster åtkomst som kan vara begränsad till att uppnå de detaljerade nätverkssäkerhet. Eftersom det är den här artikeln om hur du visar Cassandra-distribution på en grundläggande nivå, fokusera inte den på konsekvensnivån och optimal lagringsdesignen för dataflöde. Här är listan över nätverkskraven för hypotetiska klustret:
 
 * Externa system har inte åtkomst till Cassandra-databas från inom eller utanför Azure
 * Cassandra-klustret måste vara bakom en belastningsutjämnare för thrift-trafik
@@ -47,7 +47,7 @@ Microsoft Azure-nätverk kan distributionen av isolerade privata kluster åtkoms
 Cassandra kan distribueras till en enda Azure-region eller till flera regioner baserat på distribuerade natur i arbetsbelastningen. Du kan använda en modell för distribution i flera regioner för att betjäna slutanvändarna närmare till ett visst geografiskt område via samma Cassandra-infrastrukturen. Cassandras inbyggda noden replikering tar hand om synkronisering av multimaster skriver kommer från flera datacenter och anger en enhetlig vy över data till program. Distribution i flera regioner kan också hjälpa till med riskerna för bredare avbrott i Azure-tjänsten. Cassandras finjusterbar konsekvens och replikeringstopologin hjälper till att uppfylla olika RPO behov av program.
 
 ### <a name="single-region-deployment"></a>Distribution av en enda Region
-Låt oss börja med en enda region för distribution och inhämta erfarenheter i att skapa en modell för flera regioner. Azure virtuellt nätverk används för att skapa isolerat undernät så att nätverkssäkerhetskrav som nämns ovan kan uppfyllas.  Processen som beskrivs i avsnittet Skapa en enda region distributionen använder Ubuntu 14.04 LTS och Cassandra 2.08. Processen kan dock enkelt antas till andra Linux-varianter. Följande är några av de systemfel egenskaperna för en enda region-distributionen.  
+Låt oss börja med en enda region för distribution och inhämta erfarenheter i att skapa en modell för flera regioner. Azure virtuellt nätverk används för att skapa isolerat undernät så att nätverkssäkerhetskrav som nämns ovan kan uppfyllas. Processen som beskrivs i avsnittet Skapa en enda region distributionen använder Ubuntu 14.04 LTS och Cassandra 2.08. Processen kan dock enkelt antas till andra Linux-varianter. Följande är några av de systemfel egenskaperna för en enda region-distributionen.
 
 **Hög tillgänglighet:** Cassandra-noderna som visas i bild 1 har distribuerats till två tillgänglighetsuppsättningar så att noderna är fördelade mellan flera feldomäner för hög tillgänglighet. Virtuella datorer med varje tillgänglighetsuppsättning har mappats till 2 feldomäner. Azure använder begreppet feldomän för att hantera oplanerade driftstopp (till exempel maskinvaru- eller fel). Begreppet uppgraderingsdomän (till exempel värd eller gäst-OS-uppdateringar/uppgraderingar, programuppgraderingar) används för att hantera schemalagda driftstopp. Se [Haveriberedskap och hög tillgänglighet för Azure-program](https://msdn.microsoft.com/library/dn251004.aspx) roll i fel- och uppgraderingsdomäner för att uppnå hög tillgänglighet.
 
@@ -57,15 +57,15 @@ Bild 1: Distribution av en enda region
 
 Observera att när detta skrivs Azure tillåter inte att explicit mappningen för en grupp av virtuella datorer till en specifik feldomän; därför även med distributionsmodellen visas i bild 1, är det statistiskt troligt att de virtuella datorerna kan mappas till två feldomäner i stället för fyra.
 
-**Läs in belastningsutjämning Thrift trafik:** Thrift klientbibliotek i webbservern ansluter till klustret via en intern belastningsutjämnare. Detta kräver att processen att lägga till den interna belastningsutjämnaren till undernätet ”data” (se bild 1) i samband med Molntjänsten som är värd för Cassandra-klustret. När den interna belastningsutjämnaren har definierats, kräver varje nod belastningsutjämnade slutpunkten som ska läggas till med kommentarer i en belastningsutjämnad uppsättning med tidigare definierade namnet på belastningsutjämnaren. Se [Azure Internal Load Balancing ](../../../load-balancer/load-balancer-internal-overview.md)för mer information.
+**Belastningsutjämning Thrift-trafik:** Thrift klientbibliotek i webbservern ansluter till klustret via en intern belastningsutjämnare. Detta kräver att processen att lägga till den interna belastningsutjämnaren till undernätet ”data” (se bild 1) i samband med Molntjänsten som är värd för Cassandra-klustret. När den interna belastningsutjämnaren har definierats, kräver varje nod belastningsutjämnade slutpunkten som ska läggas till med kommentarer i en belastningsutjämnad uppsättning med tidigare definierade namnet på belastningsutjämnaren. Se [Azure Internal Load Balancing ](../../../load-balancer/load-balancer-internal-overview.md)för mer information.
 
-**Klustret frö:** är det viktigt att välja de flesta med hög tillgänglighet noderna för frö eftersom de nya noderna kommunicera med startvärdesnoder vill identifiera topologin i klustret. En nod från varje tillgänglighetsuppsättning har utsetts startvärdesnoder att undvika enskild felpunkt.
+**Klustret frö:** Det är viktigt att välja de flesta med hög tillgänglighet noderna för frö eftersom de nya noderna kommunicera med startvärdesnoder vill identifiera topologin i klustret. En nod från varje tillgänglighetsuppsättning har utsetts startvärdesnoder att undvika enskild felpunkt.
 
-**Replikeringsfaktor och konsekvensnivå:** Cassandras inbyggd hög tillgänglighet och data hållbarhet kännetecknas av Replikeringsfaktorn (RF - antal kopior av varje rad som lagras i klustret) och konsekvensnivå (antal repliker till vara lästa/skrivna innan resultatet returneras till anroparen.) Replikeringsfaktor anges när du skapar KEYSPACE (liknar en relationsdatabas) medan konsekvensnivån som anges vid utfärdande CRUD-frågan. Dokumentationen om Cassandra på [konfigurera för konsekvens](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) konsekvens information och formel för beräkning, kvorum.
+**Replikeringsfaktor och konsekvensnivå:** Cassandras inbyggd hög tillgänglighet och data hållbarhet kännetecknas av Replikeringsfaktorn (RF - antal kopior av varje rad som lagras i klustret) och konsekvensnivå (antal repliker är lästa/skrivna innan resultatet returneras till anroparen). Replikeringsfaktor anges när du skapar KEYSPACE (liknar en relationsdatabas) medan konsekvensnivån som anges vid utfärdande CRUD-frågan. Dokumentationen om Cassandra på [konfigurera för konsekvens](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) konsekvens information och formel för beräkning, kvorum.
 
 Cassandra stöder två typer av integritet datamodeller – konsekvens och slutlig konsekvens; Replikeringsfaktor och konsekvensnivå avgör tillsammans om data är konsekventa så fort en skrivåtgärd är slutförd eller eventuell konsekvens. Till exempel anger KVORUM som Konsekvensnivån alltid säkerställer att data konsekvens vid eventuella konsekvensnivå nedan antalet repliker som ska skrivas som behövs för att uppnå KVORUM (till exempel en) resultatet information är konsekvent.
 
-8 noder klustret som anges ovan, med replikeringsfaktorn 3 och KVORUM (2 noder läsas eller skrivas för att få konsekvens) Läs/Skriv konsekvensnivå, kan överleva teoretisk förlusten av högst 1 nod och replikeringsgrupp innan programmet start märker den fel. Detta förutsätter att alla viktiga blankstegen har även nätverksbelastning Läs/Skriv begäranden.  Följande är de parametrar som används för distribuerade klustret:
+8 noder klustret som anges ovan, med replikeringsfaktorn 3 och KVORUM (2 noder läsas eller skrivas för att få konsekvens) Läs/Skriv konsekvensnivå, kan överleva teoretisk förlusten av högst 1 nod och replikeringsgrupp innan programmet start märker den fel. Detta förutsätter att alla viktiga blankstegen har även nätverksbelastning Läs/Skriv begäranden. Följande är de parametrar som används för distribuerade klustret:
 
 Klusterkonfiguration för en enda region Cassandra:
 
@@ -78,29 +78,29 @@ Klusterkonfiguration för en enda region Cassandra:
 | Replikeringsstrategi |NetworkTopologyStrategy Se [datareplikering](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) i Cassandra-dokumentationen för mer information |Förstår topologi för distribution och placerar replikerna på noder så att alla repliker inte hamnar i samma rack. |
 | Snitch |GossipingPropertyFileSnitch Se [växlar](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) i Cassandra-dokumentationen för mer information |NetworkTopologyStrategy använder ett koncept för snitch för att förstå topologin. GossipingPropertyFileSnitch ger bättre kontroll i mappar varje nod till datacenter och rack. Klustret använder sedan ett för att sprida denna information. Detta är mycket enklare i dynamiska IP-inställningen i förhållande till PropertyFileSnitch |
 
-**Azure överväganden för Cassandra-klustret:** kapaciteten för Microsoft Azure Virtual Machines använder Azure Blob storage för diskpersistens; Azure Storage sparar tre repliker av varje disk för att ge hög tålighet. Det innebär att varje rad med data som infogats i en Cassandra-tabell lagras redan i tre repliker. Så sköts datakonsekvens redan av även om replikering faktor (RF) är 1. Huvudproblemet med Replikeringsfaktor 1 är att programmet inträffar avbrott, även om en Cassandra-nod misslyckas. Om en nod avser problem (till exempel maskinvara, programvara systemfel) identifieras av Azure-Infrastrukturkontrollanten, Etablerar det en ny nod i stället använder samma lagringsenheter. Etablera en ny nod för att ersätta den gamla servern kan ta några minuter.  På samma sätt för planerat underhållsaktiviteter som ändringar för gäst-OS, Cassandra uppgraderas och ändringar i programmet Azure-Infrastrukturkontrollanten utför löpande uppgraderingar av noderna i klustret.  Även löpande uppgraderingar kan ta bort några noder samtidigt och kan därför klustret uppleva kort driftstopp för några partitioner. Informationen är dock inte förlorade på grund av den inbyggd redundansen i Azure Storage.  
+**Azure att tänka på för Cassandra-kluster:** Microsoft Azure Virtual Machines funktionen använder Azure Blob storage för diskpersistens; Azure Storage sparar tre repliker av varje disk för att ge hög tålighet. Det innebär att varje rad med data som infogats i en Cassandra-tabell lagras redan i tre repliker. Så sköts datakonsekvens redan av även om replikering faktor (RF) är 1. Huvudproblemet med Replikeringsfaktor 1 är att programmet inträffar avbrott, även om en Cassandra-nod misslyckas. Om en nod avser problem (till exempel maskinvara, programvara systemfel) identifieras av Azure-Infrastrukturkontrollanten, Etablerar det en ny nod i stället använder samma lagringsenheter. Etablera en ny nod för att ersätta den gamla servern kan ta några minuter. På samma sätt för planerat underhållsaktiviteter som ändringar för gäst-OS, Cassandra uppgraderas och ändringar i programmet Azure-Infrastrukturkontrollanten utför löpande uppgraderingar av noderna i klustret. Även löpande uppgraderingar kan ta bort några noder samtidigt och kan därför klustret uppleva kort driftstopp för några partitioner. Informationen är dock inte förlorade på grund av den inbyggd redundansen i Azure Storage.
 
-För system som distribueras till Azure som inte kräver hög tillgänglighet (till exempel cirka 99,9 vilket motsvarar 8.76 timmar/år, se [hög tillgänglighet](http://en.wikipedia.org/wiki/High_availability) information) du kör med RF = 1 och konsekvensnivå = en.  För program med hög tillgänglighet, RF = 3 och konsekvensnivå = KVORUM kan tolerera nertid av en av noderna och en av replikerna. RF = 1 i traditionella distributioner (till exempel lokalt) kan inte användas på grund av dataförlust som härrör från problem angående diskfel.   
+För system som distribueras till Azure som inte kräver hög tillgänglighet (till exempel cirka 99,9 vilket motsvarar 8.76 timmar/år, se [hög tillgänglighet](http://en.wikipedia.org/wiki/High_availability) information) du kör med RF = 1 och konsekvensnivå = en. För program med hög tillgänglighet, RF = 3 och konsekvensnivå = KVORUM kan tolerera nertid av en av noderna och en av replikerna. RF = 1 i traditionella distributioner (till exempel lokalt) kan inte användas på grund av dataförlust som härrör från problem angående diskfel.
 
 ## <a name="multi-region-deployment"></a>Distribution i flera regioner
 Det hjälper till med distribution i flera regioner utan att behöva några externa verktyg Cassandra's data-center-medveten replikering och konsekvens modellen som beskrivs ovan. Detta skiljer sig från traditionella relationsdatabaser där konfigurerad för databasspegling för flera huvudservrar skrivningar kan vara komplexa. Cassandra i en inställning för flera regioner kan hjälpa till med Användningsscenarier, inklusive scenarier:
 
-**Närhet baserat distribution:** program för flera innehavare med tydliga mappning av klientanvändare-till-region, kan vara fått med korta svarstider för kluster för flera regioner. Till exempel en learning hanteringssystem för skolor kan distribuera ett distribuerat kluster i östra USA och västra USA-regioner för att hantera respektive Campus för transaktionell samt analytics. Data kan vara lokalt konsekvent i tid läsningar och skrivningar och kan vara konsekvent mellan de båda regionerna. Det finns andra exempel som Mediedistribution, e-handel och vad som helst och allt som har geo koncentrerade användaren grundläggande är ett bra användningsfall för den här modellen.
+**Närhet baserat distribution:** Program för flera innehavare med Rensa koppling av klientanvändare-till-region, kan vara fått med korta svarstider för kluster för flera regioner. Till exempel en learning hanteringssystem för skolor kan distribuera ett distribuerat kluster i östra USA och västra USA-regioner för att hantera respektive Campus för transaktionell samt analytics. Data kan vara lokalt konsekvent i tid läsningar och skrivningar och kan vara konsekvent mellan de båda regionerna. Det finns andra exempel som Mediedistribution, e-handel och vad som helst och allt som har geo koncentrerade användaren grundläggande är ett bra användningsfall för den här modellen.
 
-**Hög tillgänglighet:** redundans är avgörande för att uppnå hög tillgänglighet för program- och maskinvara; information finns i Skapa tillförlitliga Cloud Systems på Microsoft Azure. På Microsoft Azure är bara tillförlitligt sätt att uppnå sann redundans genom att distribuera ett kluster för flera regioner. Program kan distribueras i en aktiv-aktiv eller aktiv-passiv läge och om en av regionerna är nere kan Azure Traffic Manager kan dirigera trafik till regionen active.  Med en enda region-distribution om tillgängligheten är 99,9, en distribution i två regioner kan uppnå 99,9999 beräknas av formeln tillgänglighet: (1-(1-0.999) * (1-0,999)) * 100); finns i ovan för information.
+**Hög tillgänglighet:** Redundans är avgörande för att uppnå hög tillgänglighet för program- och maskinvara; information finns i Skapa tillförlitliga Cloud Systems på Microsoft Azure. På Microsoft Azure är bara tillförlitligt sätt att uppnå sann redundans genom att distribuera ett kluster för flera regioner. Program kan distribueras i en aktiv-aktiv eller aktiv-passiv läge och om en av regionerna är nere kan Azure Traffic Manager kan dirigera trafik till regionen active. Med en enda region-distribution om tillgängligheten är 99,9, kan en distribution i två regioner uppnå en tillgängligheten för 99,9999 beräknas av formeln: (1-(1-0.999) * (1-0,999)) * 100); finns i ovan för information.
 
-**Katastrofåterställning:** flera regioner Cassandra-klustret om korrekt utformad klarar att kritiska data center avbrott. Om en region är nere kan starta program som distribueras till andra regioner betjänar slutanvändare. Programmet måste vara feltolerant för vissa dataförluster som härrör från data i asynkrona pipelinen som alla andra business continuity-implementeringar kan. Dock gör Cassandra återställningen mycket snabbare än den tid som återställningsprocesserna för traditionell databas. Bild 2 visar den typiska distribution i flera regioner med åtta noder i varje region. Båda regionerna är speglade bilder från varandra för samma av symmetri; verkliga Designer beror på Arbetsbelastningstyp av (till exempel transaktionsappar eller analysappar), RPO, RTO, datakonsekvens och kraven på tillgänglighet.
+**Katastrofåterställning:** Kluster för flera regioner Cassandra klarar om korrekt utformad att kritiska data center avbrott. Om en region är nere kan starta program som distribueras till andra regioner betjänar slutanvändare. Programmet måste vara feltolerant för vissa dataförluster som härrör från data i asynkrona pipelinen som alla andra business continuity-implementeringar kan. Dock gör Cassandra återställningen mycket snabbare än den tid som återställningsprocesserna för traditionell databas. Bild 2 visar den typiska distribution i flera regioner med åtta noder i varje region. Båda regionerna är speglade bilder från varandra för samma av symmetri; verkliga Designer beror på Arbetsbelastningstyp av (till exempel transaktionsappar eller analysappar), RPO, RTO, datakonsekvens och kraven på tillgänglighet.
 
 ![Distribution i flera regioner](./media/cassandra-nodejs/cassandra-linux2.png)
 
-Bild 2: Distribution av flera regioner Cassandra
+Bild 2: Cassandra-distribution i flera regioner
 
 ### <a name="network-integration"></a>Nätverksintegrering
 Uppsättningar av virtuella datorer distribueras på privata nätverk som finns på två regioner som kommunicerar med varandra via en VPN-tunnel. VPN-tunneln ansluter två programvara-gateways som tillhandahålls under distributionsprocessen nätverk. Båda regioner har liknande nätverksarkitektur när det gäller ”web” och ”data” undernät; Azure-nätverk kan skapa så många undernät om det behövs och tillämpa ACL: er som krävs för nätverkssäkerhet. När du utformar klustertopologi bland data center kommunikation svarstid och ekonomiska effekten av trafik behovet av nätverk för att anses vara.
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>Datakonsekvens för distribution av flera Datacenter
 Distribuerade distributioner måste vara medveten om klustret topologi påverkan på genomströmning och hög tillgänglighet. RF och konsekvensnivå måste väljas så att kvorum inte beror på tillgängligheten för alla datacenter.
-För ett system som behöver hög konsekvens, en LOCAL_QUORUM för konsekvensnivå (för läsning och skrivning) som ser till att lokala läsningar och skrivningar uppfylls från de lokala noderna medan data replikeras asynkront till de fjärranslutna datacenter.  Tabell 2 innehåller en sammanfattning av konfigurationsinformationen för kluster för flera regioner som beskrivs senare i Skriv upp.
+För ett system som behöver hög konsekvens, en LOCAL_QUORUM för konsekvensnivå (för läsning och skrivning) som ser till att lokala läsningar och skrivningar uppfylls från de lokala noderna medan data replikeras asynkront till de fjärranslutna datacenter. Tabell 2 innehåller en sammanfattning av konfigurationsinformationen för kluster för flera regioner som beskrivs senare i Skriv upp.
 
 **Två regioner Cassandra-klusterkonfiguration**
 
@@ -129,13 +129,13 @@ Hämta all nödvändig programvara för att förenkla distributionen på skrivbo
 Ladda ned programmen ovan till en välkänd katalog för hämtade filer (till exempel %TEMP%/downloads på Windows eller ~/Downloads på de flesta Linux-distributioner eller Mac) på den lokala datorn.
 
 ### <a name="create-ubuntu-vm"></a>SKAPA VIRTUELL UBUNTU-DATOR
-I det här steget i processen skapar du Ubuntu-avbildning med programvara som krävs så att du kan återanvända avbildningen för att etablera flera Cassandra-noder.  
+I det här steget i processen skapar du Ubuntu-avbildning med programvara som krävs så att du kan återanvända avbildningen för att etablera flera Cassandra-noder.
 
-#### <a name="step-1-generate-ssh-key-pair"></a>STEG 1: Skapa SSH-nyckelpar
+#### <a name="step-1-generate-ssh-key-pair"></a>STEG 1: Generera SSH-nyckelpar
 Azure behöver en X509 offentliga nyckel som är PEM eller DER-kodad då etablering. Generera ett offentligt/privat nyckelpar med hjälp av anvisningarna som finns på hur du kan använda SSH med Linux på Azure. Om du planerar att använda putty.exe som en SSH-klient på Windows eller Linux, måste du konvertera den PEM-kodat RSA PPK-format med hjälp av puttygen.exe den privata nyckeln. Instruktioner för detta finns på webbsidan som ovan.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>STEG 2: Skapa VM-mallen för Ubuntu
-Skapa mall för virtuell dator, logga in på Azure portal och Använd följande ordning: Klicka på ny, beräkning, virtuell dator, från GALLERIET, UBUNTU, Ubuntu Server 14.04 LTS och klicka sedan på pilen till höger. En självstudiekurs som beskriver hur du skapar en Linux VM, se Skapa en virtuell dator som kör Linux.
+Logga in på Azure portal för att skapa VM-mallen, och Använd följande ordning: Klicka på ny, beräkning, virtuell dator, från GALLERIET, UBUNTU, Ubuntu Server 14.04 LTS och klicka sedan på pilen till höger. En självstudiekurs som beskriver hur du skapar en Linux VM, se Skapa en virtuell dator som kör Linux.
 
 Ange följande information på skärmen ”konfiguration av virtuell dator” #1:
 
@@ -176,81 +176,82 @@ Upprepa kommandot ovan för JRE samt för Cassandra-bitar.
 #### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>STEG 2: Förbereda katalogstrukturen och extrahera arkivet
 Logga in på den virtuella datorn och skapa katalogstrukturen och extrahera programvara som en superanvändare som med bash-skript nedan:
 
-    #!/bin/bash
-    CASS_INSTALL_DIR="/opt/cassandra"
-    JRE_INSTALL_DIR="/opt/java"
-    CASS_DATA_DIR="/var/lib/cassandra"
-    CASS_LOG_DIR="/var/log/cassandra"
-    DOWNLOADS_DIR="~/downloads"
-    JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
-    CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
-    SVC_USER="localadmin"
+```bash
+#!/bin/bash
+CASS_INSTALL_DIR="/opt/cassandra"
+JRE_INSTALL_DIR="/opt/java"
+CASS_DATA_DIR="/var/lib/cassandra"
+CASS_LOG_DIR="/var/log/cassandra"
+DOWNLOADS_DIR="~/downloads"
+JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
+CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
+SVC_USER="localadmin"
 
-    RESET_ERROR=1
-    MKDIR_ERROR=2
+RESET_ERROR=1
+MKDIR_ERROR=2
 
-    reset_installation ()
-    {
-       rm -rf $CASS_INSTALL_DIR 2> /dev/null
-       rm -rf $JRE_INSTALL_DIR 2> /dev/null
-       rm -rf $CASS_DATA_DIR 2> /dev/null
-       rm -rf $CASS_LOG_DIR 2> /dev/null
-    }
-    make_dir ()
-    {
-       if [ -z "$1" ]
-       then
-          echo "make_dir: invalid directory name"
-          exit $MKDIR_ERROR
-       fi
+reset_installation ()
+{
+  rm -rf $CASS_INSTALL_DIR 2> /dev/null
+  rm -rf $JRE_INSTALL_DIR 2> /dev/null
+  rm -rf $CASS_DATA_DIR 2> /dev/null
+  rm -rf $CASS_LOG_DIR 2> /dev/null
+}
+make_dir ()
+{
+  if [ -z "$1" ]
+  then
+    echo "make_dir: invalid directory name"
+    exit $MKDIR_ERROR
+  fi
 
-       if [ -d "$1" ]
-       then
-          echo "make_dir: directory already exists"
-          exit $MKDIR_ERROR
-       fi
+  if [ -d "$1" ]
+  then
+    echo "make_dir: directory already exists"
+    exit $MKDIR_ERROR
+  fi
 
-       mkdir $1 2>/dev/null
-       if [ $? != 0 ]
-       then
-          echo "directory creation failed"
-          exit $MKDIR_ERROR
-       fi
-    }
+  mkdir $1 2>/dev/null
+  if [ $? != 0 ]
+  then
+    echo "directory creation failed"
+    exit $MKDIR_ERROR
+  fi
+}
 
-    unzip()
-    {
-       if [ $# == 2 ]
-       then
-          tar xzf $1 -C $2
-       else
-          echo "archive error"
-       fi
+unzip()
+{
+  if [ $# == 2 ]
+  then
+    tar xzf $1 -C $2
+  else
+    echo "archive error"
+  fi
 
-    }
+}
 
-    if [ -n "$1" ]
-    then
-       SVC_USER=$1
-    fi
+if [ -n "$1" ]
+then
+  SVC_USER=$1
+fi
 
-    reset_installation
-    make_dir $CASS_INSTALL_DIR
-    make_dir $JRE_INSTALL_DIR
-    make_dir $CASS_DATA_DIR
-    make_dir $CASS_LOG_DIR
+reset_installation
+make_dir $CASS_INSTALL_DIR
+make_dir $JRE_INSTALL_DIR
+make_dir $CASS_DATA_DIR
+make_dir $CASS_LOG_DIR
 
-    #unzip JRE and Cassandra
-    unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
-    unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
+#unzip JRE and Cassandra
+unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
+unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
 
-    #Change the ownership to the service credentials
+#Change the ownership to the service credentials
 
-    chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
-    chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
-    echo "edit /etc/profile to add JRE to the PATH"
-    echo "installation is complete"
-
+chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
+chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
+echo "edit /etc/profile to add JRE to the PATH"
+echo "installation is complete"
+```
 
 Om du klistrar in det här skriptet till vim-fönstret, se till att ta bort vagnretur (”\r”) med följande kommando:
 
@@ -267,7 +268,7 @@ Lägg till följande i slutet:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>Steg 4: Installera JNA för produktionssystem
-Använd följande kommandosekvens: följande kommando installerar jna 3.2.7.jar och jna plattform 3.2.7.jar till /usr/share.java directory sudo apt-get installera libjna – java
+Använd följande kommandosekvens: Följande kommando installerar jna 3.2.7.jar och jna plattform 3.2.7.jar till /usr/share.java directory sudo apt-get installera libjna – java
 
 Skapa symboliska länkar i $CASS_HOME/lib directory så att Cassandra startskript kan hitta de här JAR-filer:
 
@@ -298,21 +299,21 @@ Använd kommandot ”sudo waagent – avetablering + användare” ta bort VM-in
 ##### <a name="2-shut-down-the-vm"></a>2: Stäng av den virtuella datorn
 Kontrollera att den virtuella datorn har markerats och klicka på länken avstängning i kommandofältet längst ned.
 
-##### <a name="3-capture-the-image"></a>3: samla in en avbildning
+##### <a name="3-capture-the-image"></a>3: Samla in en avbildning
 Kontrollera att den virtuella datorn har markerats och klicka på länken avbildning från kommandofältet längst ned. I nästa skärm, ge en AVBILDNINGENS namn (till exempel hk-cas-2-08-ub-14-04-2014071), lämplig BILDBESKRIVNING och klickar på Markera ”kontroll” om du vill slutföra bildtagningen.
 
 Den här processen tar några sekunder och avbildningen ska vara tillgänglig under Mina AVBILDNINGAR i galleriet. Den Virtuella källdatorn tas bort automatiskt när avbildningen har avbildats. 
 
 ## <a name="single-region-deployment-process"></a>Processen för distribution av en enda Region
-**Steg 1: Skapa det virtuella nätverket** logga in på Azure-portalen och skapa ett virtuellt nätverk (klassiskt) med attribut som visas i följande tabell. Se [skapa ett virtuellt nätverk (klassisk) med Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för detaljerade steg i processen.      
+**Steg 1: Skapa det virtuella nätverket** logga in på Azure-portalen och skapa ett virtuellt nätverk (klassiskt) med attribut som visas i följande tabell. Se [skapa ett virtuellt nätverk (klassisk) med Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för detaljerade steg i processen.
 
 <table>
 <tr><th>Attributnamnet för virtuell dator</th><th>Värde</th><th>Kommentarer</th></tr>
 <tr><td>Namn</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>Västra USA</td><td></td></tr>
 <tr><td>DNS-servrar</td><td>Ingen</td><td>Ignorera detta eftersom vi inte använder en DNS-Server</td></tr>
-<tr><td>Adressutrymme</td><td>10.1.0.0/16</td><td></td></tr>    
-<tr><td>Start-IP</td><td>10.1.0.0</td><td></td></tr>    
+<tr><td>Adressutrymme</td><td>10.1.0.0/16</td><td></td></tr>
+<tr><td>Start-IP</td><td>10.1.0.0</td><td></td></tr>
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
@@ -324,7 +325,7 @@ Lägg till följande undernät:
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Undernät för databasnoderna</td></tr>
 </table>
 
-Data och Web undernät kan skyddas genom nätverkssäkerhetsgrupper täckning som ligger utanför omfånget för den här artikeln.  
+Data och Web undernät kan skyddas genom nätverkssäkerhetsgrupper täckning som ligger utanför omfånget för den här artikeln.
 
 **Steg 2: Etablera virtuella datorer** med den avbildning som skapades tidigare kan du skapa följande virtuella datorer i cloud server ”hk – c-svc-, västra” och binda dem till respektive undernät enligt nedan:
 
@@ -353,58 +354,60 @@ Ovanstående procedur kan utföras med hjälp av Azure-portalen; Använd Windows
 
 **Lista 1: PowerShell-skript för etablering av virtuella datorer**
 
-        #Tested with Azure Powershell - November 2014
-        #This powershell script deployes a number of VMs from an existing image inside an Azure region
-        #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
+```powershell
+#Tested with Azure Powershell - November 2014
+#This powershell script deployes a number of VMs from an existing image inside an Azure region
+#Import your Azure subscription into the current Powershell session before proceeding
+#The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
-        #fundamental variables - change these to reflect your subscription
-        $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
-        $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
-        $subscriptionName = "Azure_subscription_name";
-        $vmSize="ExtraSmall"; $imageName="your_linux_image_name"
-        $ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
+#fundamental variables - change these to reflect your subscription
+$country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
+$numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
+$subscriptionName = "Azure_subscription_name";
+$vmSize="ExtraSmall"; $imageName="your_linux_image_name"
+$ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
 
-        #generated variables
-        $serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
+#generated variables
+$serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
 
-        $vmNames = @()
-        for ($i=0; $i -lt $numVMs; $i++)
-        {
-           $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
-        }
+$vmNames = @()
+for ($i=0; $i -lt $numVMs; $i++)
+{
+    $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
+}
 
-        #select an Azure subscription already imported into Powershell session
-        Select-AzureSubscription -SubscriptionName $subscriptionName -Current
-        Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
+#select an Azure subscription already imported into Powershell session
+Select-AzureSubscription -SubscriptionName $subscriptionName -Current
+Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
 
-        #create an empty cloud service
-        New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
-        Write-Host "Created $serviceName"
+#create an empty cloud service
+New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
+Write-Host "Created $serviceName"
 
-        $VMList= @()   # stores the list of azure vm configuration objects
-        #create the list of VMs
-        foreach($vmName in $vmNames)
-        {
-           $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
-           Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
-           Set-AzureSubnet "data"
-        }
+$VMList= @()   # stores the list of azure vm configuration objects
+#create the list of VMs
+foreach($vmName in $vmNames)
+{
+    $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
+            Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
+            Set-AzureSubnet "data"
+}
 
-        New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
+New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
 
-        #Create internal load balancer
-        Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
-        Write-Host "Created $ilbName"
-        #Add the thrift endpoint to the internal load balancer for all the VMs
-        foreach($vmName in $vmNames)
-        {
-            Get-AzureVM -ServiceName $serviceName -Name $vmName |
-                Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName |
-                Update-AzureVM
+#Create internal load balancer
+Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
+Write-Host "Created $ilbName"
+#Add the thrift endpoint to the internal load balancer for all the VMs
+foreach($vmName in $vmNames)
+{
+    Get-AzureVM -ServiceName $serviceName -Name $vmName |
+            Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName |
+            Update-AzureVM
 
-            Write-Host "created $vmName"     
-        }
+    Write-Host "created $vmName"
+}
+```
 
 **Steg 3: Konfigurera Cassandra på varje virtuell dator**
 
@@ -445,7 +448,7 @@ Använd följande steg för att testa klustret:
 3. Köra $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Använd följande CQL-kommandon för att kontrollera om klustret fungerar:
    
-     Skapa KEYSPACE customers_ks med replikering = {'class': 'SimpleStrategy', 'replication_factor': 3};   ANVÄNDA customers_ks;   Skapa tabell Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Infoga i Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, ”Jane”, ”Doe”).
+     Skapa KEYSPACE customers_ks med replikering = {'class': 'SimpleStrategy', 'replication_factor': 3}.   ANVÄNDA customers_ks;   Skapa tabell Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Infoga i Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, ”Jane”, ”Doe”).
    
      Välj * från kunder;
 
@@ -462,8 +465,8 @@ Keyspace skapade i steg 4 använder SimpleStrategy med en replication_factor 3. 
 ## <a id="tworegion"> </a>Processen för distribution i flera regioner
 Du använder en enda region-distributionen har slutförts och upprepa samma steg för att installera den andra regionen. Den stora skillnaden mellan distribution för en eller flera regioner har konfigurerats för VPN-tunnel för kommunikation mellan regioner. du börjar med nätverksinstallation, etablera de virtuella datorerna och konfigurera Cassandra.
 
-### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Steg 1: Skapa det virtuella nätverket i regionen 2
-Logga in på Azure-portalen och skapa ett virtuellt nätverk med attribut som visas i tabellen. Se [konfigurera ett virtuellt nätverk för Cloud-Only i Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för detaljerade steg i processen.      
+### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Steg 1: Skapa virtuellt nätverk i regionen 2
+Logga in på Azure-portalen och skapa ett virtuellt nätverk med attribut som visas i tabellen. Se [konfigurera ett virtuellt nätverk för Cloud-Only i Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för detaljerade steg i processen.
 
 <table>
 <tr><th>Attributnamn    </th><th>Värde    </th><th>Kommentarer</th></tr>
@@ -496,7 +499,7 @@ Skapa två lokala nätverk per följande information:
 | hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Ge en platshållare gatewayadress när du skapar det lokala nätverket. Den verkliga Gatewayadressen fylls när gatewayen har skapats. Kontrollera att adressutrymmet exakt matchar den respektive Virtuella fjärrnätverket; det virtuella nätverket skapas i det här fallet i regionen östra USA. |
 | hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Ge en platshållare gatewayadress när du skapar det lokala nätverket. Den verkliga Gatewayadressen fylls när gatewayen har skapats. Kontrollera att adressutrymmet exakt matchar den respektive Virtuella fjärrnätverket; i det här fallet det virtuella nätverket som har skapats i regionen USA, västra. |
 
-### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Steg 3: Kartan ”Local” nätverk till respektive virtuella nätverk
+### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Steg 3: Mappa ”Local” nätverk till respektive virtuella nätverk
 Välj varje virtuellt nätverk från Azure-portalen, klickar du på ”Konfigurera”, markera ”Anslut till det lokala nätverket” och välj de lokala nätverken per följande information:
 
 | Virtual Network | Lokalt nätverk |
@@ -507,7 +510,7 @@ Välj varje virtuellt nätverk från Azure-portalen, klickar du på ”Konfigure
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Steg 4: Skapa gatewayer i VNET1 och VNET2
 Klicka på Skapa GATEWAY för att utlösa en VPN-gateway etableringsprocessen från instrumentpanelen för båda de virtuella nätverken. Instrumentpanelen för varje virtuellt nätverk ska visa den faktiska Gatewayadressen efter ett par minuter.
 
-### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>Steg 5: Uppdatera ”Local” nätverk med respektive ”Gateway”-adresser
+### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>Steg 5: Uppdatera ”Local” nätverk med respektive ”gatewayadresser”
 Redigera både de lokala nätverk om du vill ersätta platshållaren gatewayens IP-adress med verkliga IP-adressen bara etablerade gateway. Använd följande mappning:
 
 <table>
@@ -543,7 +546,7 @@ Följ samma anvisningar som region #1 men använder 10.2.xxx.xxx adressutrymme.
 Logga in på den virtuella datorn och gör följande:
 
 1. Redigera $CASS_HOME/conf/cassandra-rackdc.properties för att ange egenskaper för data center och rack i formatet: dc = EASTUS rack = rack1
-2. Redigera cassandra.yaml om du vill konfigurera startvärdesnoder: frö: ”10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10”
+2. Redigera cassandra.yaml om du vill konfigurera startvärdesnoder:  Frö: ”10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10”
 
 ### <a name="step-10-start-cassandra"></a>Steg 10: Starta Cassandra
 Logga in på varje virtuell dator och starta Cassandra i bakgrunden genom att köra följande kommando: $CASS_HOME/bin/cassandra
@@ -553,7 +556,7 @@ Nu har Cassandra distribuerats till 16 noder med 8 noder i varje Azure-region. D
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>Steg 1: Hämta interna belastningsutjämnarens IP-Adressen för båda regionerna med hjälp av PowerShell
 * Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
   
     Observera de IP-adresserna (för exempel Väst - 10.1.2.101, östra – 10.2.2.101) visas.
 
@@ -561,7 +564,7 @@ Nu har Cassandra distribuerats till 16 noder med 8 noder i varje Azure-region. D
 1. Köra $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Kör följande kommandon för CQL:
    
-     Skapa KEYSPACE customers_ks med replikering = {'class': 'NetworkToplogyStrategy', 'WESTUS': 3, EASTUS: 3};   ANVÄNDA customers_ks;   Skapa tabell Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Infoga i Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, ”Jane”, ”Doe”).   Välj * från kunder;
+     Skapa KEYSPACE customers_ks med replikering = {'class': 'NetworkToplogyStrategy', 'WESTUS': 3, ”EASTUS”: 3}.   ANVÄNDA customers_ks;   Skapa tabell Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Infoga i Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, ”Jane”, ”Doe”).   Välj * från kunder;
 
 Du bör se en skärm som liknar den nedan:
 
@@ -593,95 +596,94 @@ Använder en av de Linux virtuella datorer som skapades i ”webb”-nivån kan 
 1. Installera Node.js och npm
 2. Installera noden paketet ”cassandra-klient” med npm
 3. Kör följande skript i shell-prompten som visar json-sträng för hämtade data:
-   
-        var pooledCon = require('cassandra-client').PooledConnection;
-        var ksName = "custsupport_ks";
-        var cfName = "customers_cf";
-        var hostList = ['internal_loadbalancer_ip:9160'];
-        var ksConOptions = { hosts: hostList,
-                             keyspace: ksName, use_bigints: false };
-   
-        function createKeyspace(callback){
-           var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
-           var sysConOptions = { hosts: hostList,  
-                                 keyspace: 'system', use_bigints: false };
-           var con = new pooledCon(sysConOptions);
-           con.execute(cql,[],function(err) {
-           if (err) {
-             console.log("Failed to create Keyspace: " + ksName);
-             console.log(err);
-           }
-           else {
-             console.log("Created Keyspace: " + ksName);
-             callback(ksConOptions, populateCustomerData);
-           }
-           });
-           con.shutdown();
-        }
-   
-        function createColumnFamily(ksConOptions, callback){
-          var params = ['customers_cf','custid','varint','custname',
-                        'text','custaddress','text'];
-          var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
+    
+    ```
+    var pooledCon = require('cassandra-client').PooledConnection;
+    var ksName = "custsupport_ks";
+    var cfName = "customers_cf";
+    var hostList = ['internal_loadbalancer_ip:9160'];
+    var ksConOptions = { hosts: hostList,
+                         keyspace: ksName, use_bigints: false };
+
+    function createKeyspace(callback) {
+        var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
+        var sysConOptions = { hosts: hostList,
+                              keyspace: 'system', use_bigints: false };
+        var con = new pooledCon(sysConOptions);
+        con.execute(cql,[],function(err) {
+            if (err) {
+                console.log("Failed to create Keyspace: " + ksName);
+                console.log(err);
+            }
+            else {
+                console.log("Created Keyspace: " + ksName);
+                callback(ksConOptions, populateCustomerData);
+            }
+        });
+        con.shutdown();
+    }
+
+    function createColumnFamily(ksConOptions, callback) {
+        var params = ['customers_cf','custid','varint','custname',
+                      'text','custaddress','text'];
+        var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
         var con =  new pooledCon(ksConOptions);
-          con.execute(cql,params,function(err) {
-              if (err) {
-                 console.log("Failed to create column family: " + params[0]);
-                 console.log(err);
-              }
-              else {
-                 console.log("Created column family: " + params[0]);
-                 callback();
-              }
-          });
-          con.shutdown();
-        }
-   
-        //populate Data
-        function populateCustomerData() {
-           var params = ['John','Infinity Dr, TX', 1];
-           updateCustomer(ksConOptions,params);
-   
-           params = ['Tom','Fermat Ln, WA', 2];
-           updateCustomer(ksConOptions,params);
-        }
-   
-        //update also inserts the record if none exists
-        function updateCustomer(ksConOptions,params)
-        {
-          var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
-          var con = new pooledCon(ksConOptions);
-          con.execute(cql,params,function(err) {
-              if (err) console.log(err);
-              else console.log("Inserted customer : " + params[0]);
-          });
-          con.shutdown();
-        }
-   
-        //read the two rows inserted above
-        function readCustomer(ksConOptions)
-        {
-          var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
-          var con = new pooledCon(ksConOptions);
-          con.execute(cql,[],function(err,rows) {
-              if (err)
-                 console.log(err);
-              else
-                 for (var i=0; i<rows.length; i++)
+        con.execute(cql,params,function(err) {
+            if (err) {
+                console.log("Failed to create column family: " + params[0]);
+                console.log(err);
+            }
+            else {
+                console.log("Created column family: " + params[0]);
+                callback();
+            }
+        });
+        con.shutdown();
+    }
+
+    //populate Data
+    function populateCustomerData() {
+        var params = ['John','Infinity Dr, TX', 1];
+        updateCustomer(ksConOptions,params);
+
+        params = ['Tom','Fermat Ln, WA', 2];
+        updateCustomer(ksConOptions,params);
+    }
+
+    //update also inserts the record if none exists
+    function updateCustomer(ksConOptions,params) {
+        var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
+        var con = new pooledCon(ksConOptions);
+        con.execute(cql,params,function(err) {
+            if (err) console.log(err);
+            else console.log("Inserted customer : " + params[0]);
+        });
+        con.shutdown();
+    }
+
+    //read the two rows inserted above
+    function readCustomer(ksConOptions) {
+        var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
+        var con = new pooledCon(ksConOptions);
+        con.execute(cql,[],function(err,rows) {
+            if (err)
+                console.log(err);
+            else
+                for (var i=0; i<rows.length; i++)
                     console.log(JSON.stringify(rows[i]));
             });
-           con.shutdown();
-        }
-   
-        //exectue the code
-        createKeyspace(createColumnFamily);
-        readCustomer(ksConOptions)
+        con.shutdown();
+    }
+
+    //execute the code
+    createKeyspace(createColumnFamily);
+    readCustomer(ksConOptions)
+    ```
 
 ## <a name="conclusion"></a>Sammanfattning
-Microsoft Azure är en flexibel plattform som tillåter körning av både Microsoft samt programvara med öppen källkod som visas av den här övningen. Cassandra-kluster med hög tillgänglighet kan distribueras på ett datacenter genom att klusternoderna sprids över flera feldomäner. Cassandra-kluster kan också distribueras över flera geografiskt avlägsna Azure-regioner för katastrofåterställning bevis system. Azure och Cassandra kan tillsammans konstruktion av mycket skalbar, med hög tillgänglighet och katastrofåterställning återställningsbara molntjänster behövs av dagens internet skala tjänster.  
+Microsoft Azure är en flexibel plattform som tillåter körning av både Microsoft samt programvara med öppen källkod som visas av den här övningen. Cassandra-kluster med hög tillgänglighet kan distribueras på ett datacenter genom att klusternoderna sprids över flera feldomäner. Cassandra-kluster kan också distribueras över flera geografiskt avlägsna Azure-regioner för katastrofåterställning bevis system. Azure och Cassandra kan tillsammans konstruktion av mycket skalbar, med hög tillgänglighet och katastrofåterställning återställningsbara molntjänster behövs av dagens internet skala tjänster.
 
 ## <a name="references"></a>Referenser
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
-

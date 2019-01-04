@@ -9,17 +9,16 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056233"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020157"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -30,7 +29,7 @@ ms.locfileid: "42056233"
 
 Komma igång med Azure SQL Data Warehouse är nu enklare än någonsin med **Azure Data Factory**.  Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst, som kan användas för att fylla i ett SQL Data Warehouse med data från ditt befintliga system och sparar värdefull tid när du utvärderar SQL Data Warehouse och skapa dina analyser lösningar. Här är de främsta fördelarna med att läsa in data i Azure SQL Data Warehouse med Azure Data Factory:
 
-* **Enkelt att konfigurera**: 5 steg intuitiv guide med inga skript som krävs.
+* **Enkelt att konfigurera**: steg 5 intuitiv guide med inga skript som krävs.
 * **Utforska data store har stöd för**: inbyggt stöd för ett stort utbud av lokala och molnbaserade datalager.
 * **Säker och kompatibel**: data överförs via HTTPS- eller ExpressRoute och tjänsten för global närvaro säkerställer att dina data lämnar aldrig geografiska gränser
 * **Oöverträffade prestanda med hjälp av PolyBase** – med hjälp av Polybase är det effektivaste sättet att flytta data till Azure SQL Data Warehouse. Funktionen mellanlagring blob kan uppnå du hög belastning hastigheter från alla typer av datalager förutom Azure Blob storage som Polybase stöder som standard.
@@ -42,7 +41,7 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
 > [!NOTE]
 >  Allmän information om funktionerna i Data Factory i flytta data till och från Azure SQL Data Warehouse finns i [flytta data till och från Azure SQL Data Warehouse med Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) artikeln.
 >
-> Du kan också skapa pipelines med Azure portal, Visual Studio, PowerShell, osv. Se [självstudie: kopiera data från Azure-Blob till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en snabb genomgång med stegvisa instruktioner för att använda Kopieringsaktivitet i Azure Data Factory.  
+> Du kan också skapa pipelines med Azure portal, Visual Studio, PowerShell, osv. Se [självstudien: Kopiera data från Azure-Blob till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en snabb genomgång med stegvisa instruktioner för att använda Kopieringsaktivitet i Azure Data Factory.  
 >
 >
 
@@ -118,7 +117,7 @@ Nödvändiga steg har slutförts, är vi nu redo att konfigurera kopieringsaktiv
 3. I den **ny datafabrik** fönstret:
 
    1. Ange **LoadIntoSQLDWDataFactory** för den **namn**.
-       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
+       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
    2. Välj din Azure-**prenumeration**.
    3. För resursgruppen utför du något av följande steg:
       1. Välj **Använd befintlig** och välj en befintlig resursgrupp.
@@ -147,8 +146,8 @@ På sidan **Egenskaper**:
 
     ![Kopieringsguiden – sidan Egenskaper](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
-## <a name="step-2-configure-source"></a>Steg 2: Konfigurera källa
-Det här avsnittet visas hur du konfigurerar källan: Azure-Blob som innehåller 1 TB TPC-H radobjekt filer.
+## <a name="step-2-configure-source"></a>Steg 2: Konfigurera källan
+Det här avsnittet visar hur du konfigurerar källan: Azure-Blob som innehåller 1 TB TPC-H radobjekt filer.
 
 1. Välj den **Azure Blob Storage** som de datalagring och klicka på **nästa**.
 

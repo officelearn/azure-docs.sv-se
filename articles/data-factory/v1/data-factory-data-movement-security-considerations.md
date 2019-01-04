@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960693"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015754"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsöverväganden för dataförflyttning
 
@@ -181,14 +180,14 @@ För följande datalager i molnet kräver vitlistning av IP-adressen för gatewa
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**Fråga:** kan gatewayen delas mellan olika datafabriker?
-**Svar:** vi stöder inte den här funktionen ännu. Vi arbetar på den.
+**Fråga:** Gatewayen kan delas mellan olika datafabriker?
+**Svar:** Vi stöder inte den här funktionen ännu. Vi arbetar på den.
 
-**Fråga:** vilka är portkraven för att gatewayen ska fungera?
+**Fråga:** Vilka är portkraven för att gatewayen ska fungera?
 **Svar:** Gateway gör HTTP-baserade anslutningar till öppet internet. Den **utgående portarna 443 och 80** måste vara tillgänglig för gateway att upprätta anslutningen. Öppna **inkommande Port 8050** endast på datornivå (inte på nivån för företagets brandvägg) för programmet Autentiseringshanteraren. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa / mål och sedan måste du öppna **1433** samt port. Mer information finns i [konfigurationer och listan över tillåtna IP-adresser i brandväggen](#firewall-configurations-and-whitelisting-ip-address-of gateway) avsnittet. 
 
-**Fråga:** vilka är certifikatkraven för för Gateway?
-**Svar:** aktuella gateway kräver ett certifikat som används av Autentiseringshanteraren för att på ett säkert sätt ställa in autentiseringsuppgifter för datalagring. Det här certifikatet är ett självsignerat certifikat skapas och konfigureras av gateway-installationen. Du kan använda din egen TLS / SSL-certifikat i stället. Mer information finns i [klickar du på-credential manager-program en gång](#click-once-credentials-manager-app) avsnittet. 
+**Fråga:** Vilka är certifikatkraven för Gateway?
+**Svar:** Aktuell gateway kräver ett certifikat som används av Autentiseringshanteraren för att på ett säkert sätt ställa in autentiseringsuppgifter för datalagring. Det här certifikatet är ett självsignerat certifikat skapas och konfigureras av gateway-installationen. Du kan använda din egen TLS / SSL-certifikat i stället. Mer information finns i [klickar du på-credential manager-program en gång](#click-once-credentials-manager-app) avsnittet. 
 
 ## <a name="next-steps"></a>Nästa steg
 Läs om hur prestanda för kopieringsaktiviteten [kopiera aktivitet prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md).

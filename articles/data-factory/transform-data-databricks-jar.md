@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: a47d0130cd06a936da456ec6d78bde99907072f2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a271359f09ca63e1a0c3a143994739ee7db8aab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526308"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014190"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en Jar-aktivitet i Azure Databricks
 
-Azure Databricks Jar-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör ett Spark-Jar i Azure Databricks-klustret. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks Jar-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör ett Spark-Jar i Azure Databricks-klustret. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
@@ -62,7 +61,7 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
 |beskrivning|Text som beskriver hur aktiviteten ska hantera.|Nej|
 |typ|För Databricks Jar-aktiviteten är aktivitetstypen DatabricksSparkJar.|Ja|
-|linkedServiceName|Namnet på den länkade tjänsten för Databricks som Jar-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
+|linkedServiceName|Namnet på den länkade tjänsten för Databricks som Jar-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |mainClassName|Det fullständiga namnet på den klass som innehåller main-metoden som ska köras. Den här klassen måste finnas i en JAR som tillhandahålls som ett bibliotek.|Ja|
 |parameters|Parametrar som skickas till main-metoden.  Det här är en matris med strängar.|Nej|
 |Bibliotek|En lista med bibliotek som ska installeras på det kluster som ska utföra jobbet. Det kan vara en matris med < sträng, objekt->|Ja (minst en som innehåller metoden mainClassName)|

@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a228bba9effeb803fcc664e06448646b06645d5e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723150"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015635"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -124,7 +123,7 @@ Eller du kan definiera användardefinierade vägar (Udr) för att framtvinga utg
 
 I båda fallen kan du tillämpa en väg med 0.0.0.0/0 med nästa hopptyp som **Internet** i undernät som är värd för den Azure-SSIS IR så att kommunikationen mellan Data Factory-tjänsten och Azure-SSIS IR är kan lyckas. 
 
-![Lägg till en väg](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+![Lägg till en rutt](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
 Om du är orolig för att förlora möjligheten att granska utgående Internet-trafik från undernätet, du kan också lägga till en NSG-regel på undernätet för att begränsa utgående mål till [Azure Datacenter IP-adresser](https://www.microsoft.com/download/details.aspx?id=41653). 
 

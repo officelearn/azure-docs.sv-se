@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346719"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025699"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -63,7 +62,7 @@ De här egenskaperna har stöd för en länkad Azure SQL Database-tjänst:
 För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel, respektive:
 
 - [SQL-autentisering](#sql-authentication)
-- [Azure AD-token-autentisering: tjänstens huvudnamn](#service-principal-authentication)
+- [Azure AD-token-autentisering: Tjänstens huvudnamn](#service-principal-authentication)
 - [Azure AD-token-autentisering: hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
@@ -344,7 +343,7 @@ För att kopiera data till Azure SQL Database, ange den **typ** -egenskapen i ak
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **SqlSink**. | Ja |
 | WriteBatchSize | Infogar data i SQL-tabell när buffertstorleken når **writeBatchSize**.<br/> Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
-| writeBatchTimeout | Väntetid för batch Infoga åtgärden slutförs innan tidsgränsen uppnås.<br/> Det tillåtna värdet är **timespan**. Exempel ”: 00: 30:00” (30 minuter). | Nej |
+| writeBatchTimeout | Väntetid för batch Infoga åtgärden slutförs innan tidsgränsen uppnås.<br/> Det tillåtna värdet är **timespan**. Exempel: ”00: 30:00” (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Database. Det är bara anropas en gång per kopia som kör. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
 | sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur du använder källdata till en måltabell. Ett exempel är att göra upsertar eller omvandla med egen affärslogik. <br/><br/>Den här lagrade proceduren är **anropas per batch**. Åtgärder som endast kör en gång och har inget samband med källdata, använda den `preCopyScript` egenskapen. Exempel åtgärder är delete och trunkera. | Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn och värdepar. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
@@ -503,7 +502,7 @@ När du kopierar data till Azure SQL Database kan du konfigurera och anropa en a
 
 Du kan använda en lagrad procedur när inbyggd kopiera mekanismer inte fungerar. De vanligtvis används när en upsert, insert och update eller extra bearbetningen måste göras innan sista inmatningen av källdata i måltabellen. Några extra bearbetningen exempel är merge kolumner, leta upp ytterligare värden och infogning i mer än en tabell.
 
-I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i Azure SQL Database. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
+I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i Azure SQL Database. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
 
 #### <a name="output-dataset"></a>Datauppsättningen för utdata
 

@@ -1,20 +1,20 @@
 ---
 title: Så här skapar du användardefinierade funktioner i Azure Digital Twins | Microsoft Docs
-description: Riktlinjer för hur du skapar användardefinierade funktioner och matchers rolltilldelningar med Azure Digital Twins.
+description: Så här att skapa användardefinierade funktioner, matchers och rolltilldelningar i Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 06c6d2935358650eb9f7ef1cda55d5292e203daf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993421"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019936"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Så här skapar du användardefinierade funktioner i Azure Digital Twins
 
@@ -73,19 +73,13 @@ Med JSON-texten:
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
-När matchers har skapats kan ladda upp i funktionen kodfragment med följande autentiserad HTTP **POST** begäran:
+Ladda upp i funktionen kodfragment med följande autentiserade multipart HTTP POST-begäran när matchers har skapats:
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
-
-> [!IMPORTANT]
-> - Kontrollera att rubrikerna som inkluderar: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - Den angivna brödtexten är flera delar:
->   - Den första delen innehåller metadata som krävs UDF.
->   - Den andra delen innehåller logik för JavaScript-beräkning.
-> - I den **USER_DEFINED_BOUNDARY** avsnittet, ersätter den **spaceId** (`YOUR_SPACE_IDENTIFIER`) och **matchers**(`YOUR_MATCHER_IDENTIFIER`) värden.
-> - Obs JavaScript UDF angavs som `Content-Type: text/javascript`.
 
 Använd följande JSON-texten:
 
@@ -116,6 +110,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | Ett namn i flera delar innehåll gräns |
 | YOUR_SPACE_IDENTIFIER | Identifieraren utrymme  |
 | YOUR_MATCHER_IDENTIFIER | ID för matcher som du vill använda |
+
+1. Kontrollera att rubrikerna som inkluderar: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Kontrollera att brödtexten är flera delar:
+
+   - Den första delen innehåller metadata som krävs användardefinierad funktion.
+   - Den andra delen innehåller logik för JavaScript-beräkning.
+
+1. I den **USER_DEFINED_BOUNDARY** avsnittet, ersätter den **spaceId** (`YOUR_SPACE_IDENTIFIER`) och **matchers** (`YOUR_MATCHER_IDENTIFIER`) värden.
+1. Kontrollera att användardefinierade JavaScript-funktion har angetts som `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Exempel-funktioner
 
@@ -192,14 +195,14 @@ Ett mer komplext kodexempel användardefinierad funktion finns i [användandet S
 
 Skapa en rolltilldelning för den användardefinierade funktionen ska köras. Om det finns ingen rolltilldelning för användardefinierad funktion, inte den behörighet att interagera med API Management eller behörighet att utföra åtgärder på graph-objekt. Åtgärder som kan utföra en användardefinierad funktion anges och definieras via rollbaserad åtkomstkontroll i Azure Digital Twins Management API: erna. Till exempel kan användardefinierade funktioner vara begränsad räckvidd genom att ange vissa roller eller vissa sökvägar för kontroll av åtkomst. Mer information finns i den [rollbaserad åtkomstkontroll](./security-role-based-access-control.md) dokumentation.
 
-1. [Fråga System-API: N](./security-create-manage-role-assignments.md#all) för alla roller att hämta roll-ID som du vill tilldela till din UDF. Gör du genom att göra en autentiserad HTTP GET-begäran till:
+1. [Fråga System-API: N](./security-create-manage-role-assignments.md#all) för alla roller att hämta roll-ID som du vill tilldela till din användardefinierad funktion. Gör du genom att göra en autentiserad HTTP GET-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Behåll den önskade roll-ID. Det kommer att skickas som JSON brödtext attribut **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) nedan.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) kommer att UDF-ID som du skapade tidigare.
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) blir den användardefinierade funktionen-ID som du skapade tidigare.
 1. Hitta värdet för **sökväg** (`YOUR_ACCESS_CONTROL_PATH`) genom att fråga din blankstegen med `fullpath`.
 1. Kopiera den returnerade `spacePaths` värde. Du kommer att använda som nedan. Gör en autentiserad HTTP GET-begäran till:
 
@@ -211,7 +214,7 @@ Skapa en rolltilldelning för den användardefinierade funktionen ska köras. Om
     | --- | --- |
     | YOUR_SPACE_NAME | Namnet på det utrymme som du vill använda |
 
-1. Klistra in den returnerade `spacePaths` värde i **sökväg** att skapa en rolltilldelning för UDF genom att göra en autentiserad HTTP POST-begäran till:
+1. Klistra in den returnerade `spacePaths` värde i **sökväg** att skapa en användardefinierad funktion rolltilldelning genom att göra en autentiserad HTTP POST-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +233,12 @@ Skapa en rolltilldelning för den användardefinierade funktionen ska köras. Om
     | Värde | Ersätt med |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identifierare för rollen |
-    | YOUR_USER_DEFINED_FUNCTION_ID | ID för en användardefinierad funktion som du vill använda |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | Det ID som anger vilken UDF |
+    | YOUR_USER_DEFINED_FUNCTION_ID | ID för den användardefinierade funktionen som du vill använda |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | Det ID som anger vilken användardefinierad funktion |
     | YOUR_ACCESS_CONTROL_PATH | Åtkomstväg för kontroll |
 
 >[!TIP]
-> Läs artikeln [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md) för mer information om UDF-relaterade Management API-åtgärder och slutpunkter.
+> Läs artikeln [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md) för mer information om användardefinierade funktionen Management API-åtgärder och slutpunkter.
 
 ## <a name="send-telemetry-to-be-processed"></a>Skicka telemetri som ska bearbetas
 

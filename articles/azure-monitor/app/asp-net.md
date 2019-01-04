@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 036daad8898d12874c86b22429627cbebfcfce37
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974734"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018763"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -102,14 +102,14 @@ Klicka på valfri ikon eller valfritt diagram i portalen för att visa mer infor
 [Läs mer om hur du använder Application Insights på Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
 
 ## <a name="step-4-publish-your-app"></a>Steg 4: Publicera appen
-Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../application-insights/app-insights-metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
+Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
 
 Du ser din telemetri byggas upp i Application Insights-portalen, där du kan övervaka mått, söka i telemetrin och konfigurera [instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md). Du kan också använda det kraftfulla [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguage) för att analysera användning och prestanda eller söka efter specifika händelser.
 
 Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../application-insights/app-insights-visual-studio.md) med verktyg som diagnossökning och [trender](../../application-insights/app-insights-visual-studio-trends.md).
 
 > [!NOTE]
-> Om din app skickar så mycket telemetri att det närmar sig [begränsningsgränserna](../../application-insights/app-insights-pricing.md#limits-summary) aktiveras [sampling](../../application-insights/app-insights-sampling.md) automatiskt. Sampling minskar mängden telemetri som skickas från din app, samtidigt som korrelerade informationen bevaras i diagnossyfte.
+> Om din app skickar så mycket telemetri att det närmar sig [begränsningsgränserna](../../azure-monitor/app/pricing.md#limits-summary) aktiveras [sampling](../../azure-monitor/app/sampling.md) automatiskt. Sampling minskar mängden telemetri som skickas från din app, samtidigt som korrelerade informationen bevaras i diagnossyfte.
 >
 >
 
@@ -159,4 +159,4 @@ Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 
 ### <a name="automation"></a>Automation
 
-* [Automatisera skapandet av en Application Insights-resurs](../../application-insights/app-insights-powershell.md)
+* [Automatisera skapandet av en Application Insights-resurs](../../azure-monitor/app/powershell.md)

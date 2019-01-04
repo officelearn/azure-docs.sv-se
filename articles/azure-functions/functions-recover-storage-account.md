@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604981"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000027"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du ”functions-körning kan inte nås”
 
@@ -37,6 +37,7 @@ Vi går via de fyra vanligaste fel fall, så här identifierar du och hur du lö
 1. Programinställningar för Storage-konto har tagits bort
 1. Autentiseringsuppgifter för lagringskonto ogiltig
 1. Storage-konto som är otillgänglig
+1. Kvot för daglig körning fullständig
 
 ## <a name="storage-account-deleted"></a>Storage-kontot har tagits bort
 
@@ -79,6 +80,13 @@ Funktionsappen måste kunna komma åt lagringskontot. Vanliga problem som blocke
 * Funktionsappar som distribueras till App Service-miljöer utan rätt Nätverksregler som tillåter trafik till och från storage-konto
 * Storage-konto brandväggen är aktiverad och inte konfigurerad för att tillåta trafik till och från Functions. [Läs mer om storage-konto brandväggskonfiguration här](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Kvot för daglig körning fullständig
+
+Om du har en kvot för daglig körning som konfigurerats Funktionsappen inaktiveras tillfälligt och många av portalkontroller blir otillgänglig. 
+
+* Kontrollera, kontrollera att öppna plattformsfunktioner > Funktionsappinställningar i portalen. Du ser följande meddelande om du har överskridit kvoten
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Ta bort kvoten och starta om din app för att lösa problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e5e1a415ce5c5bd14a8afef41e506259555d79f6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b5cc0004edf105d8875ff83240b659e210b18e41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970261"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019953"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Utforska .NET spårningsloggarna i Application Insights
 Om du använder NLog, log4Net eller System.Diagnostics.Trace för diagnostikspårning i ASP.NET-program, kan du använda dina loggar som skickas till [Azure Application Insights][start], där du kan utforska och söka dem. Loggarna tillsammans med den telemetri som kommer från ditt program, så att du kan identifiera spårningar som är associerade med Underhåll varje användarbegäran och korrelera dem med andra händelser och undantagsrapporter.
@@ -160,7 +160,7 @@ Du kan till exempel:
 * Spara konfigurationen av den här sidan som en favorit
 
 > [!NOTE]
-> **Sampling.** Om programmet skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare kan den anpassade samplingsfunktionen skicka bara en del av din telemetri. [Läs mer om sampling.](../../application-insights/app-insights-sampling.md)
+> **Sampling.** Om programmet skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare kan den anpassade samplingsfunktionen skicka bara en del av din telemetri. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,7 +194,7 @@ Det kan ibland ta en stund innan alla händelser och förfrågningar om att häm
 Flera faktorer som påverkar mängden data som kvarhålls. Se den [gränser](../../azure-monitor/app/api-custom-events-metrics.md#limits) delen av sidan kund händelse mått för mer information. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Jag ser inte några av de loggposter som jag förväntar mig
-Om programmet skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare kan den anpassade samplingsfunktionen skicka bara en del av din telemetri. [Läs mer om sampling.](../../application-insights/app-insights-sampling.md)
+Om programmet skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare kan den anpassade samplingsfunktionen skicka bara en del av din telemetri. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Nästa steg
 * [Konfigurera tillgänglighet och svarstider tester][availability]

@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249595"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024101"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Data Factory.  
@@ -50,7 +49,7 @@ Data Factory tillhandahåller friheten att alla flödesstilar som krävs för da
 - Deltaflöden:
     - Använd parametrar och definiera ditt övre vattenmärke för deltakopiering vid förflyttning av dimensions- eller referenstabeller från en relationslagringsplats, antingen lokalt eller i molnet, för att läsa in data i sjön. 
 
-Mer information finns i [självstudie: kontrollera flöden](tutorial-control-flow.md).
+Mer information finns i [Självstudie: Kontrollera flöden](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformera data i skala med kod kostnadsfria pipelines
 Den nya webbläsarbaserade verktyg-guiden innehåller kodfria pipeline skapande och distribution med en modern, interaktiv webbaserad upplevelse.
@@ -60,7 +59,7 @@ För utvecklare för visuella data och datatekniker är Webbgränssnittet ADF ko
 ### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Omfattande cross platform SDK: er för avancerade användare
 Om du är en avancerad användare och behöver ett programmeringsgränssnitt, ADF V2 ger en omfattande uppsättning SDK: er som kan utnyttjas för att skapa, hantera, övervaka pipelines i din favorit-IDE
 1.  Python SDK
-2.  PowerShell-CLI
+2.  PowerShell CLI
 3.  C# SDK användare kan också dra nytta av dokumenterade REST-API till gränssnitt med ADF V2
 
 ### <a name="iterative-development-and-debugging-using-visual-tools"></a>Iterativ utveckling och felsökning med visual tools
@@ -92,9 +91,9 @@ Data Factory har sedan den första offentliga förhandsversionen 2017 lägger ti
 ## <a name="what-is-integration-runtime"></a>Vad är integreringskörningen?
 Integration runtime är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla följande funktioner för dataintegrering i olika nätverksmiljöer:
 
-- **Dataförflyttning**: vid dataförflyttning flyttar Integration Runtime data mellan datalager käll- och även stöd för inbyggda anslutningsprogram, Formatkonvertering, kolumnmappning och bättre och skalbar dataöverföring.
-- **Skicka ut aktiviteter**: för transformering har Integration Runtime tillhandahålla möjlighet att köra SSIS-paket internt.
-- **Köra SSIS-paket**: internt kör SSIS-paket i en hanterad Azure compute-miljö. Med Integration Runtime kan du också skicka och övervaka transformeringsaktiviteter som körs i en rad olika beräkningstjänster som Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server och fler.
+- **Dataförflyttning**: Vid dataförflyttning flyttar Integration Runtime data mellan käll- och måldatalagren. Infrastrukturen har även stöd för inbyggda anslutningsprogram, formatkonvertering, kolumnmappning och effektiv och skalbar dataöverföring.
+- **Skicka ut aktiviteter**: För transformering har Integration Runtime inbyggt stöd för körning av SSIS-paket.
+- **Köra SSIS-paket**: Internt kör SSIS-paket i en hanterad Azure-beräkningsmiljö. Med Integration Runtime kan du också skicka och övervaka transformeringsaktiviteter som körs i en rad olika beräkningstjänster som Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server och fler.
 
 Du kan distribuera en eller flera instanser av integration runtime som krävs för att flytta och omvandla data. Integration runtime kan köras på en Azures offentliga nätverk eller i ett privat nätverk (lokalt, Azure Virtual Network eller Amazon Web Services virtuellt privat moln [VPC]). 
 
@@ -180,4 +179,4 @@ Du kan använda den `@coalesce` konstruera i uttryck att hantera null-värden ut
 Stegvisa instruktioner för att skapa en datafabrik, finns i följande Självstudier:
 
 - [Snabbstart: Skapa en datafabrik](quickstart-create-data-factory-dot-net.md)
-- [Självstudier: Kopiera data i molnet](tutorial-copy-data-dot-net.md)
+- [Självstudier: Kopieringsdata i molnet](tutorial-copy-data-dot-net.md)

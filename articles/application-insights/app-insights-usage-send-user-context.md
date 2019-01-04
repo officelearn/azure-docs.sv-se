@@ -10,16 +10,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/02/2017
+ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 5a224d7a78e35776b36b162228f6ba4c72677069
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 29e76338b8d19ce70dedea971d26a49544e9f152
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636211"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018151"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Skicka användarkontext ID: N för att aktivera användning upplevelser i Azure Application Insights
 
@@ -34,10 +34,11 @@ Application Insights kan du övervaka och spåra dina användare via en uppsätt
 
 För att kunna spåra vad en användare gör med tiden, måste ett ID för varje användare eller en session i Application Insights. Inkludera följande-ID i varje anpassad händelse eller sidvisning.
 
-- Användare, Trattar, kvarhållning och kohorter: inkludera användar-ID.
-- : Kurserna sessions-ID.
+- Användare, Trattar, kvarhållning och kohorter: Inkludera användar-ID.
+- Sessioner: Inkludera sessions-ID.
 
-Om din app är integrerad med den [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), user ID spåras automatiskt.
+> [!NOTE]
+> Det här är en avancerad artikel som beskriver de manuella stegen för att spåra användaraktivitet med Application Insights. Med många webbprogram **de här stegen kan inte krävas**, som standard serversidan SDK: er i samband med den [/webbläsare på klientsidan JavaScript SDK](app-insights-website-monitoring.md), ofta är tillräckliga för att spåra automatiskt användaraktivitet. Om du inte har konfigurerat [övervakning på klientsidan –](app-insights-website-monitoring.md) förutom SDK för serversidan, gör du detta och kontrollera om analysverktyg för användaren beteende fungerar som förväntat.
 
 ## <a name="choosing-user-ids"></a>Välja användar-ID
 

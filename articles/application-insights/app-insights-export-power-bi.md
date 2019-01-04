@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015074"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -119,7 +119,7 @@ Om du minskar den datauppsättning som kommer från analysfråga som inte uppfyl
  ```
 
 ## <a name="about-sampling"></a>Om sampling
-Beroende på mängden data som skickas av programmet, kan du använda funktionen Adaptiv sampling som skickar bara en del av din telemetri. Detsamma gäller om du har ställt in manuellt sampling i SDK: N eller på inmatning. [Läs mer om sampling](app-insights-sampling.md).
+Beroende på mängden data som skickas av programmet, kan du använda funktionen Adaptiv sampling som skickar bara en del av din telemetri. Detsamma gäller om du har ställt in manuellt sampling i SDK: N eller på inmatning. [Läs mer om sampling](../azure-monitor/app/sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI-kort (inaktuell)
 Den här metoden skapar en fullständig telemetri-instrumentpanel. Den initiala datauppsättningen är fördefinierad, men du kan lägga till mer data till den.

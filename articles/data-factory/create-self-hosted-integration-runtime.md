@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969489"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021126"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -155,8 +154,8 @@ Titta på följande videoklipp för en tolv minuters introduktion och demonstrat
 
 ### <a name="terminology"></a>Terminologi
 
-- **Delade IR**: ursprungligt lokal IR som körs på en fysisk infrastruktur.  
-- **Länkad IR**: The IR som refererar till en annan delad IR. Detta är en logisk IR och infrastrukturen i en annan lokal IR (delad).
+- **Delade IR**: Den ursprungliga lokal IR som körs på en fysisk infrastruktur.  
+- **Länkad IR**: IR som refererar till en annan delad IR. Detta är en logisk IR och infrastrukturen i en annan lokal IR (delad).
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Anvisningar för att skapa en länkad lokal IR
 
@@ -257,9 +256,9 @@ Lokal integration runtime använder proxyservern för att ansluta till Molntjän
 
 Det finns tre alternativ:
 
-- **Använd inte proxy**: den lokala integreringskörningen inte uttryckligen använder alla proxy för att ansluta till molntjänster.
-- **Använd systemproxy**: den lokala integreringskörningen använder Proxyinställningen som är konfigurerade i diahost.exe.config och diawp.exe.config. Om ingen proxy har konfigurerats i diahost.exe.config och diawp.exe.config, ansluter lokal integration runtime till Molntjänsten direkt utan att gå via en proxyserver.
-- **Använd anpassad proxy**: konfigurera HTTP-proxyinställning för lokal integration runtime, istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config. **Adress** och **Port** krävs. **Användarnamn** och **lösenord** är valfria beroende på inställningen för autentisering av din proxyserver. Alla inställningar är krypterad med Windows DPAPI på den lokala integreringskörningen och lagras lokalt på datorn.
+- **Använd inte proxy**: Lokal integration runtime använder inte uttryckligen alla proxy för att ansluta till molntjänster.
+- **Använd systemproxy**: Lokal integration runtime använder Proxyinställningen som konfigureras i diahost.exe.config och diawp.exe.config. Om ingen proxy har konfigurerats i diahost.exe.config och diawp.exe.config, ansluter lokal integration runtime till Molntjänsten direkt utan att gå via en proxyserver.
+- **Använd anpassad proxy**: Konfigurera HTTP-proxyinställning för lokal integration runtime, istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config. **Adress** och **Port** krävs. **Användarnamn** och **lösenord** är valfria beroende på inställningen för autentisering av din proxyserver. Alla inställningar är krypterad med Windows DPAPI på den lokala integreringskörningen och lagras lokalt på datorn.
 
 Integration runtime värdtjänsten startas om automatiskt när du har sparat de uppdaterade proxyinställningarna.
 
@@ -318,7 +317,7 @@ Du måste också se till att Microsoft Azure i ditt företags-vitlistan. Du kan 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Eventuella symptom för brandväggen och proxyservern serverproblem
 Om det uppstår fel som liknar det följande är det troligen på grund av felaktig konfigurering av brandvägg eller proxy-server, som blockerar den lokala integreringskörningen från att ansluta till Data Factory för att autentisera sig själv. För att säkerställa att din brandvägg och proxy server har konfigurerats korrekt, se föregående avsnitt.
 
-* När du försöker registrera den lokala integreringskörningen visas följande felmeddelande: ”Det gick inte att registrera den här Integration Runtime-noden! Bekräfta att autentiseringsnyckeln är giltig och integrationstjänsten värdtjänsten körs på den här datorn ”.
+* När du försöker registrera den lokala integreringskörningen visas följande fel: ”Det gick inte att registrera den här Integration Runtime-noden! Bekräfta att autentiseringsnyckeln är giltig och integrationstjänsten värdtjänsten körs på den här datorn ”.
 * När du öppnar Konfigurationshanteraren för Integration Runtime kan du se statusen **frånkopplad** eller **ansluter**. När du visar Windows-händelseloggar, under **Loggboken** > **program- och tjänstloggar** > **Microsoft Integration Runtime**, Du får felmeddelanden som den här:
 
     ```
@@ -345,4 +344,4 @@ Om du inte väljer att öppna port 8060 på den lokala installation av integrati
 
 
 ## <a name="next-steps"></a>Nästa steg
-Finns i följande självstudiekurs stegvisa instruktioner: [självstudie: kopiera lokala data till molnet](tutorial-hybrid-copy-powershell.md).
+Se följande självstudie för stegvisa instruktioner: [Självstudier: Kopiera lokala data till molnet](tutorial-hybrid-copy-powershell.md).

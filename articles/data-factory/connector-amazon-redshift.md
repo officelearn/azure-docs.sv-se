@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 686b602828856e75300152c41bfe4c35cd6a8219
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970169"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024373"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -214,7 +213,7 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | BOOLESKT VÄRDE |Sträng |
 | CHAR |Sträng |
 | DATE |DateTime |
-| DECIMALTAL |decimaltal |
+| DECIMALTAL |Decimal |
 | DUBBEL PRECISION |Double-värde |
 | HELTAL |Int32 |
 | VERKLIGA |Enkel |

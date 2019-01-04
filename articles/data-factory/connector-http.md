@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 61ac0eeeb177ffccbe10d4ab049d3541ac6aeb60
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b092509c1029bbff028da6bf94b9f7dbd1068b16
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810431"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020038"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -57,7 +56,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen måste anges till **HTTP-servern**. | Ja |
 | url | Den grundläggande Webbadressen till webbservern. | Ja |
@@ -69,7 +68,7 @@ Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
 Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | Användarnamn | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
 | lösenord | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -102,7 +101,7 @@ Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, e
 
 Om du vill använda ClientCertificate autentisering, ange den **authenticationType** egenskap **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodat certifikatdata. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
 | certThumbprint | Tumavtrycket för certifikatet som är installerad på din egen värd Integration Runtime-datorns certifikatarkiv. Gäller endast när typen lokal installation av Integration Runtime har angetts i den **connectVia** egenskapen. | Ange antingen **embeddedCertData** eller **certThumbprint**. |

@@ -10,16 +10,15 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457098"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024900"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadataaktivitet i Azure Data Factory
 GetMetadata-aktiviteten kan användas för att hämta **metadata** för alla data i Azure Data Factory. Den här aktiviteten kan användas i följande scenarier:
@@ -61,7 +60,7 @@ GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och u
 | Anslutning/Metadata | struktur | Antal kolumner | Det finns |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
-| Azure SQL Database Managed Instance | √ | √ | √ |
+| Hanterad Azure SQL Database-instans | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eae0dc1d38b06a451091d79946bc95ed722ac861
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994846"
+ms.locfileid: "53999228"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -31,9 +31,9 @@ Azure Monitor nyare måttavisering plattformen kommer nu att power övervakning 
 
 Ny enhetlig övervakning och aviseringar för Application Insights omfattar:
 
-- **Mätvärden för Application Insights-plattformen** – som innehåller populära fördefinierade mått från Application Insights-produkten. Mer information finns i den här artikeln om hur du använder [plattform mätvärden för Application Insights på den nya Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
+- **Mätvärden för Application Insights-plattformen** – som innehåller populära fördefinierade mått från Application Insights-produkten. Mer information finns i den här artikeln om hur du använder [plattform mätvärden för Application Insights på den nya Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights tillgänglighet och Web test** – vilket ger dig möjlighet att utvärdera svarstider och tillgängligheten för din webbapp eller en server. Mer information finns i den här artikeln om hur du använder [Tillgänglighetstester och aviseringar för Application Insights på den nya Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
-- **Mätvärden för Application Insights anpassad** – där du kan definiera och skapa egna mått för övervakning och aviseringar. Mer information finns i den här artikeln om hur du använder [anpassade mått för Application Insights på den nya Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- **Mätvärden för Application Insights anpassad** – där du kan definiera och skapa egna mått för övervakning och aviseringar. Mer information finns i den här artikeln om hur du använder [anpassade mått för Application Insights på den nya Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Felavvikelser (del av Smart identifiering) för Application Insights** – som meddelar dig automatiskt i nära realtid om din webbapp upplever en onormal ökning av misslyckade begäranden för HTTP- eller beroendeanrop. Application Insights-Felavvikelser (del av Smart identifiering) som en del av den nya Azure Monitor kommer snart att vara tillgängliga och vi kommer att uppdatera det här dokumentet med länkarna i nästa iteration ännu eftersom den är lanseras under de kommande månaderna.
 
 ## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Enhetlig mått och aviseringar för andra Azure-resurser

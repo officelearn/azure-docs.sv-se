@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096611"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022792"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vad är standardbehörigheterna för användare i Azure Active Directory?
-Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares behörighet består av typen av användare, deras [rollmedlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst.
+Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typ av användare, deras [rollmedlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst.
 
 ## <a name="member-and-guest-users"></a>Medlems- och gästanvändare
-Uppsättningen standardbehörigheter beror på om användaren är en medlem på klienten (medlemsanvändare) eller om användaren är en gäst i samband med B2B-samarbete (gästanvändare). Läs mer om B2B-samarbete i [Vad är Azure AD B2B-samarbete?](../b2b/what-is-b2b.md) för mer information om gästanvändare). 
+Uppsättningen standardbehörigheter beror på om användaren är en medlem på klienten (medlemsanvändare) eller om användaren är en gäst i samband med B2B-samarbete (gästanvändare). Läs mer om B2B-samarbete, [vad är Azure AD B2B-samarbete?](../b2b/what-is-b2b.md) för mer information om gästanvändare. 
 * Medlemsanvändare kan registrera program, hantera sina egna profilbilder och mobila telefonnummer, ändra sina egna lösenord och bjuda in B2B gäster. Dessutom kan användare läsa all kataloginformation (med några få undantag). 
 * Azure AD B2B-gästanvändare har begränsade behörigheter för katalogen. Till exempel kan gästanvändare kan inte bläddra i information från klienten utanför sin egen profilinformation. Däremot kan en gästanvändare hämta information om en annan användare genom att ange användarens huvudnamn eller objekt-ID. En gäst kan inte visa någon information om andra klientobjekt, till exempel grupper och program.
 

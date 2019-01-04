@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: ddd5bc574dcef548a62fbe7d3a0300a71ce73cf3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558846"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002764"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -306,6 +306,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |ApplicationUpgradeTimeout| TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(360)|Dynamisk| Ange tidsintervall i sekunder. Tidsgränsen för uppgradering av programmet. Om tidsgränsen är mindre än ”ActivationTimeout” deployer misslyckas. |
 |ContainerServiceArguments|sträng, standardvärdet är ”-H localhost: 2375 -H npipe: / /”|Statisk|Service Fabric (SA) hanterar docker-daemon (förutom på windows-klientdatorer som Win10). Den här konfigurationen gör att användaren anger anpassade argument som ska skickas till docker-daemon när du startar den. När anpassade argument, Service Fabric inte skickar några andra argument till Docker-motorn, förutom ”--pidfile' argumentet. Användare bör därför inte ange '--pidfile' argument som en del av deras kund-argument. De anpassade argumenten ska kontrollera också att daemon lyssnar på pipen med standardnamnet på Windows (eller Unix-domänsocket på Linux) för Service Fabric ska kunna kommunicera med den.|
 |ContainerServiceLogFileMaxSizeInKb|int, standard är 32768|Statisk|Maximal filstorlek på loggfil som genereras av docker-behållare.  Windows.|
+|ContainerImageDownloadTimeout|int, antal sekunder, standard är 1 200 (20 minuter)|Dynamisk|Antalet sekunder innan tidsgränsen uppnås för nedladdning av avbildningen.|
 |ContainerImagesToSkip|String, avbildningsnamn som avgränsas med ett lodstreck tecken standardvärdet är ””|Statisk|Namnet på en eller flera behållaravbildningar som inte ska tas bort.  Används med parametern PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|sträng, standard är ”sfcontainerlogs”|Statisk|Fil-namnprefixet för loggfiler som genererats av docker-behållare.  Windows.|
 |ContainerServiceLogFileRetentionCount|Int, standarden är 10|Statisk|Antal loggfiler som genererats av docker-behållare innan loggfilerna skrivs över.  Windows.|

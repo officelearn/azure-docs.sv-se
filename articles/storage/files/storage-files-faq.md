@@ -4,15 +4,15 @@ description: Hitta svar på vanliga frågor och svar om Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972090"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001540"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -182,7 +182,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="ad-support-regions"></a>
 **Är förhandsversionen av Azure AD via SMB för Azure Files tillgänglig i alla Azure-regioner?**
 
-    Förhandsgranskningen är tillgänglig i alla offentliga regioner förutom: Nordeuropa.
+    Förhandsgranskningen är tillgänglig i alla offentliga regioner.
 
 * <a id="ad-support-on-premises"></a>
 **Stöder autentisering med hjälp av Azure AD från lokala datorer i Azure AD-autentisering över SMB för Azure Files (förhandsversion)?**
@@ -262,7 +262,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 ## <a name="share-snapshots"></a>Ögonblicksbilder av filresurser
 
-### <a name="share-snapshots-general"></a>Dela ögonblicksbilder: Allmänt
+### <a name="share-snapshots-general"></a>Ögonblicksbilder av filresurser: Allmänt
 * <a id="what-are-snaphots"></a>
 **Vad är ögonblicksbilder av filresurser?**  
     Du kan använda Azure ögonblicksbilder av filresurser för att skapa en skrivskyddad version av dina filresurser. Du kan också använda Azure Files för att kopiera en tidigare version av säkerhetskopian innehåll till samma resurs, till en annan plats i Azure eller lokalt för flera ändringar. Läs mer om ögonblicksbilder av filresurser i den [dela ögonblicksbild översikt](storage-snapshots-files.md).

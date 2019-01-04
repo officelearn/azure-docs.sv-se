@@ -7,16 +7,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: fae74d3912bb608afec93b7aa587885f66af4e53
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115067"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017760"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser med exemplen
 
@@ -40,7 +39,7 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
 | --- | --- |
 | Skapa länkad tjänst | 2 Läs/Skriv-entitet  |
 | Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
-| Skapa Pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
+| Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
 | Hämta Pipeline | 1 Läs/Skriv-entitet |
 | Kör Pipeline | 2 aktivitetskörningar (1 för utlösare som körs, 1 för aktivitetskörningar) |
 | Kopiera Data antagandet: körningstid = 10: e minut | 10 \* 4 azure Integration Runtime (standardinställning DIU = 4) finns mer information om integrering enheter och optimera kopieringen bättre prestanda i [i den här artikeln](copy-activity-performance.md) |
@@ -71,7 +70,7 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
 | --- | --- |
 | Skapa länkad tjänst | 3 Läs/Skriv-entitet  |
 | Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
-| Skapa Pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
+| Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
 | Hämta Pipeline | 1 Läs/Skriv-entitet |
 | Kör Pipeline | 3 aktivitetskörningar (1 för utlösarkörningen, 2 för aktivitetskörningar) |
 | Kopiera Data antagandet: körningstid = 10: e minut | 10 \* 4 azure Integration Runtime (standardinställning DIU = 4) finns mer information om integrering enheter och optimera kopieringen bättre prestanda i [i den här artikeln](copy-activity-performance.md) |
@@ -105,7 +104,7 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
 | --- | --- |
 | Skapa länkad tjänst | 3 Läs/Skriv-entitet  |
 | Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
-| Skapa Pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
+| Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
 | Hämta Pipeline | 1 Läs/Skriv-entitet |
 | Kör Pipeline | 4 aktivitetskörningar (1 för utlösare som körs, 3 för aktivitetskörningar) |
 | Kopiera Data antagandet: körningstid = 10: e minut | 10 \* 4 azure Integration Runtime (standardinställning DIU = 4) finns mer information om integrering enheter och optimera kopieringen bättre prestanda i [i den här artikeln](copy-activity-performance.md) |

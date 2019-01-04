@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: db3142837c5bb2c5758e47ddf017da284b2e0f0e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017743"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
@@ -43,7 +43,7 @@ Beroende på hur din ASE konfigurerad, kan vara blockerad anropet för att kontr
 Profiler kan aktiveras manuellt med ett enda musklick. Anta att du kör ett webbtest för prestanda. Du måste spårningarna för att hjälpa dig att förstå hur ditt webbprogram fungerar under belastning. Det är viktigt att ha kontroll över när spårningssessioner samlas eftersom du vet när belastningstestet ska köras, men slumpmässiga exempelintervallet kan gå miste om den.
 Följande steg illustrerar hur det här scenariot fungerar:
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Valfritt) Steg 1: Skapa trafik till webbappen genom att starta ett webbtest för prestanda
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Valfritt) Steg 1: Generera trafik till webbappen genom att starta ett webbtest för prestanda
 
 Om din webbapp redan har inkommande trafik, eller om du bara vill generera manuellt trafik, hoppa över det här avsnittet och fortsätter du till steg 2.
 
@@ -61,7 +61,7 @@ Nytt test är först i kön, följt av statusen ”Pågående” visas.
 
 ![belastningstest körs pågår][load-test-in-progress]
 
-### <a name="step-2-start-profiler-on-demand"></a>Steg 2: Börja profiler på begäran
+### <a name="step-2-start-profiler-on-demand"></a>Steg 2: Starta profiler på begäran
 
 När belastningstestet körs kan börja vi profiler för att fånga in spårningar på webbappen medan den tar emot belastningen.
 Gå till fönstret Konfigurera Profiler:
@@ -88,7 +88,7 @@ Följ stegen nedan för att kontrollera och installera den senaste Profiler:
 1. Gå till Appinställningar för App Services och kontrollera om följande inställningar är inställda:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Ersätt med rätt instrumenteringsnyckeln för Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 om någon av dessa inställningar inte, gå till fönstret Application Insights aktivering att installera den senaste webbplatstillägg.
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 om någon av dessa inställningar inte anges, gå till fönstret Application Insights för aktivering att installera den senaste webbplatstillägg.
 
 1. Gå till Application Insights-fönstret i App Services-portalen.
 
@@ -116,15 +116,15 @@ Följ stegen nedan för att kontrollera och installera den senaste Profiler:
 ## <a name="next-steps"></a>Nästa steg
 [Aktivera Profiler och visa spår](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
-[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
-[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
-[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
-[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
-[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
-[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
-[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
-[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
+[profiler-on-demand]: ./media/app-insights-profiler-settings/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler-settings/configure-profiler-entry.png
+[create-performance-test]: ./media/app-insights-profiler-settings/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler-settings/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler-settings/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler-settings/load-test-inprogress.png
+[enable-app-insights]: ./media/app-insights-profiler-settings/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler-settings/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler-settings/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler-settings/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler-settings/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler-settings/profiler-timeout.png

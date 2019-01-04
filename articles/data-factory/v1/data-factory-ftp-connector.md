@@ -1,6 +1,6 @@
 ---
 title: Flytta data från en FTP-server med hjälp av Azure Data Factory | Microsoft Docs
-description: Läs mer om hur du flyttar data från en FTP-server med hjälp av Azure Data Factory.
+description: Läs mer om hur du flyttar data från en FTP-server med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,17 +9,16 @@ ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bbbbaab6090941141abd7a2bbd2eac6dbf9fd354
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52c89804c87348843bb7a4006ab38e4d417740ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051550"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025444"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Flytta data från en FTP-server med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,58 +26,58 @@ ms.locfileid: "37051550"
 > * [Version 2 (aktuell version)](../connector-ftp.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [FTP-anslutningen i V2](../connector-ftp.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [FTP-anslutningsappen i V2](../connector-ftp.md).
 
-Den här artikeln förklarar hur du använder kopieringsaktiviteten i Azure Data Factory för att flytta data från en FTP-server. Den bygger på den [Data movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en FTP-server. Den bygger på den [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
-Du kan kopiera data från en FTP-server till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data Factory stöder för närvarande endast flytta data från en FTP-server till andra databaser, men inte flytta data från andra data lagras på en FTP-server. Den stöder både lokalt och molntjänster FTP-servrar.
+Du kan kopiera data från en FTP-server till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data Factory stöder för närvarande endast flyttar data från en FTP-server till datalager, men inte flyttar data från andra data lagrar till en FTP-server. Den stöder både lokala och molnbaserade FTP-servrar.
 
 > [!NOTE]
-> Kopieringsaktiviteten tar inte bort källfilen när den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering, skapa en anpassad aktivitet om du vill ta bort filen och använda aktiviteten i pipeline. 
+> Kopieringsaktivitet tar inte bort källfilen efter att den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan skapa en anpassad aktivitet om du vill ta bort filen och använda aktiviteten i pipelinen. 
 
 ## <a name="enable-connectivity"></a>Aktivera anslutning
-Om du flyttar data från en **lokalt** FTP-servern till ett moln data lagra (till exempel till Azure Blob storage), installera och använda Data Management Gateway. Data Management Gateway är en klientagent som är installerad på den lokala datorn och ger molntjänster att ansluta till en lokal resurs. Mer information finns i [Data Management Gateway](data-factory-data-management-gateway.md). För stegvisa instruktioner om hur du konfigurerar gatewayen och använder den, se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md). Du kan använda gatewayen för att ansluta till en FTP-server, även om servern är på en Azure-infrastruktur som en tjänst (IaaS) virtuell dator (VM).
+Om du flyttar data från en **lokala** FTP-servern till ett moln data lagra (till exempel till Azure Blob storage), installera och använda Data Management Gateway. Data Management Gateway är en klientagent som är installerad på den lokala datorn och det gör att molntjänster för att ansluta till en lokal resurs. Mer information finns i [Data Management Gateway](data-factory-data-management-gateway.md). Stegvisa instruktioner om hur du upp gatewayen och använda det, finns i [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md). Du kan använda gatewayen för att ansluta till en FTP-server, även om servern är på en Azure-infrastruktur som en tjänst (IaaS)-dator (VM).
 
-Det är möjligt att installera gatewayen på samma lokala dator eller IaaS VM som FTP-servern. Vi rekommenderar dock att du installerar en gateway på en separat dator eller IaaS-VM att undvika resurskonflikter och bättre prestanda. När du installerar en gateway på en separat dator kan ska datorn kunna komma åt FTP-servern.
+Det går att installera gatewayen på samma lokal dator eller IaaS VM som FTP-servern. Vi rekommenderar dock att du installerar gatewayen på en separat dator eller en IaaS-VM att undvika resurskonflikter och få bättre prestanda. När du installerar gatewayen på en separat dator kan ska datorn kunna få åtkomst till FTP-servern.
 
 ## <a name="get-started"></a>Kom igång
-Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en FTP-datakälla med hjälp av olika verktyg eller API: er.
+Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en FTP-källa med hjälp av olika verktyg eller API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Data Factory kopiera guiden**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång.
+Det enklaste sättet att skapa en pipeline är att använda den **Data Factory-Kopieringsguide**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
-Om du använder verktyg eller API: er, utför följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
+Om du använder verktyg eller API: er, utför du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa **länkade tjänster** att länka inkommande och utgående data lagras till din data factory.
-2. Skapa **datauppsättningar** att representera inkommande och utgående data för kopieringen.
-3. Skapa en **pipeline** med en kopia-aktivitet som tar en datamängd som indata och en dataset som utdata.
+1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden skapas JSON definitioner för dessa Data Factory-enheter (länkade tjänster, datauppsättningar och pipelinen) automatiskt för dig. När du använder verktyg eller API: er (utom .NET API), kan du definiera dessa Data Factory-enheter med hjälp av JSON-format. Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från en FTP-datalagret finns i [JSON-exempel: kopiera data från FTP-servern till Azure blob](#json-example-copy-data-from-ftp-server-to-azure-blob) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager med FTP, finns det [JSON-exempel: Kopiera data från FTP-server till Azure-blob](#json-example-copy-data-from-ftp-server-to-azure-blob) i den här artikeln.
 
 > [!NOTE]
-> Mer information om format för stöds och komprimering ska användas finns [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+> Mer information om fil- och komprimeringsformat de format som stöds ska användas finns [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter för FTP.
+Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för FTP.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 I följande tabell beskrivs JSON-element som är specifika för en FTP-länkad tjänst.
 
 | Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
 | typ |Ange FtpServer. |Ja |&nbsp; |
-| värd |Ange namn eller IP-adressen till FTP-servern. |Ja |&nbsp; |
-| authenticationType |Ange vilken autentiseringstyp. |Ja |Grundläggande, anonyma |
+| värd |Ange namn eller IP-adressen för FTP-servern. |Ja |&nbsp; |
+| authenticationType |Ange vilken autentiseringstyp. |Ja |Basic-, anonym |
 | användarnamn |Ange den användare som har åtkomst till FTP-servern. |Nej |&nbsp; |
-| lösenord |Ange lösenord för användaren (användarnamn). |Nej |&nbsp; |
-| encryptedCredential |Ange krypterade autentiseringsuppgifter för åtkomst till FTP-servern. |Nej |&nbsp; |
+| lösenord |Ange lösenordet för användaren (användarnamn). |Nej |&nbsp; |
+| encryptedCredential |Ange de krypterade autentiseringsuppgifterna för åtkomst till FTP-servern. |Nej |&nbsp; |
 | gatewayName |Ange namnet på gatewayen i Data Management Gateway för att ansluta till en lokal FTP-server. |Nej |&nbsp; |
 | port |Ange den port som FTP-servern lyssnar. |Nej |21 |
 | enableSsl |Ange om du använder FTP över SSL/TLS-kanalen. |Nej |true |
-| enableServerCertificateValidation |Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen. |Nej |true |
+| enableServerCertificateValidation |Ange om du vill aktivera serververifiering SSL-certifikat när du använder FTP över SSL/TLS-kanalen. |Nej |true |
 
 >[!NOTE]
->FTP-anslutningen har stöd för att komma åt FTP-server utan kryptering eller explicit SSL/TLS-kryptering; Det stöder inte implicit SSL/TLS-kryptering.
+>FTP-anslutningsappen stöder åtkomst till FTP-servern utan kryptering eller explicit SSL/TLS-kryptering; Det stöder inte implicit SSL/TLS-kryptering.
 
 ### <a name="use-anonymous-authentication"></a>Använd anonym autentisering
 
@@ -150,27 +149,27 @@ I följande tabell beskrivs JSON-element som är specifika för en FTP-länkad t
 ```
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns [skapa datauppsättningar](data-factory-create-datasets.md). Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [skapar datauppsättningar](data-factory-create-datasets.md). Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av.
 
-Den **typeProperties** avsnittet är olika för varje typ av datauppsättningen. Den innehåller information som är specifik för dataset-typen. Den **typeProperties** avsnittet för en dataset av typen **filresursen** har följande egenskaper:
+Den **typeProperties** är olika för varje typ av datauppsättning. Den innehåller information som är specifik för typ av datauppsättning. Den **typeProperties** avsnittet för en datauppsättning av typen **filresursen** har följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Underordnad sökväg till mappen. Använda escape-tecknet ' \ ' för specialtecken i strängen. Se [exempel länkad tjänst-och dataset](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** har mappsökvägar baserat på sektorn start-och sluttider datum. |Ja |
-| fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en datamängd för utdata, namnet på den genererade filen är i följande format: <br/><br/>Data. <Guid>.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |
-| fileFilter |Ange ett filter som används för att välja en delmängd av filer i den **folderPath**, i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (valfritt tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** gäller för en inkommande filresursen datauppsättning. Den här egenskapen stöds inte med Hadoop Distributed File System (HDFS). |Nej |
-| partitionedBy |Används för att ange en dynamisk **folderPath** och **fileName** för tid series-data. Du kan till exempel ange en **folderPath** som har fått parametrar för varje timme av data. |Nej |
-| Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som de är mellan filbaserade butiker (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
-| komprimering | Ange typ och kompression för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**, och stöds nivåerna **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
-| useBinaryTransfer |Ange om du vill använda binär överföringsläget. Värdena är true för en binär (detta är standardvärdet) och false för ASCII. Den här egenskapen kan endast användas när den associera länkade tjänsttypen är av typen: FtpServer. |Nej |
+| folderPath |Underordnad sökväg innehavaradministratörens till mappen. Använd escape-tecknet ”\” för specialtecken i strängen. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappsökvägar baserat på sektorn start och avsluta datum / tid. |Ja |
+| fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning, namnet på den genererade filen är i följande format: <br/><br/>Data. <Guid>.txt (exempel: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt) |Nej |
+| fileFilter |Ange ett filter som används för att välja en delmängd av filerna i den **folderPath**, i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** gäller för en indatauppsättning filresursen. Den här egenskapen stöds inte med Hadoop Distributed File System (HDFS). |Nej |
+| partitionedBy |Används för att ange en dynamisk **folderPath** och **fileName** för time series-data. Du kan till exempel ange en **folderPath** som är innehåller parametrar för varje timme som data. |Nej |
+| Format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som de är mellan filbaserade (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**, och stöds nivåer är **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| useBinaryTransfer |Ange om du vill använda binär överföringsläge. Värdena är sanna för binärt läge (detta är standardvärdet), och false för ASCII. Den här egenskapen kan bara användas när den associera länkade tjänsttypen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
-> **Filnamn** och **fileFilter** kan inte användas samtidigt.
+> **fileName** och **fileFilter** kan inte användas samtidigt.
 
 ### <a name="use-the-partionedby-property"></a>Använd egenskapen partionedBy
-Som nämnts ovan kan du ange en dynamisk **folderPath** och **fileName** för tid series-data med den **partitionedBy** egenskapen.
+Som vi nämnde i föregående avsnitt, kan du ange en dynamisk **folderPath** och **fileName** för time series-data med den **partitionedBy** egenskapen.
 
-Läs om tid serien datauppsättningar schemaläggning och segment i [skapa datauppsättningar](data-factory-create-datasets.md), [schemaläggning och körning](data-factory-scheduling-and-execution.md), och [skapar pipelines](data-factory-create-pipelines.md).
+Läs om time series datauppsättningar, schemaläggning och segment i [skapar datauppsättningar](data-factory-create-datasets.md), [schemaläggning och körning](data-factory-scheduling-and-execution.md), och [skapa pipelines](data-factory-create-pipelines.md).
 
 #### <a name="sample-1"></a>Exempel 1
 
@@ -181,7 +180,7 @@ Läs om tid serien datauppsättningar schemaläggning och segment i [skapa datau
     { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 ],
 ```
-I det här exemplet {segment} ersätts med värdet från Data Factory systemvariabeln SliceStart, i det format som specificerats (YYYYMMDDHH). SliceStart refererar till starttid av sektorn. Sökvägen till mappen är olika för varje segment. (Till exempel 2014100103-wikidatagateway/wikisampledataout eller 2014100104-wikidatagateway/wikisampledataout.)
+I det här exemplet {sektorn} ersätts med värdet för Data Factory systemvariabeln SliceStart, i det format som anges (YYYYMMDDHH). SliceStart refererar starttid för sektorn. Sökvägen till mappen är olika för varje segment. (Till exempel wikidatagateway/wikisampledataout/2014100103 eller wikidatagateway/wikisampledataout/2014100104.)
 
 #### <a name="sample-2"></a>Exempel 2
 
@@ -199,30 +198,30 @@ I det här exemplet {segment} ersätts med värdet från Data Factory systemvari
 I det här exemplet år, månad, dag och tid för SliceStart extraheras till olika variabler som används av den **folderPath** och **fileName** egenskaper.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter, se [skapar pipelines](data-factory-create-pipelines.md). Egenskaper som namn, beskrivning, ingående och utgående tabeller och principer är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipelines](data-factory-create-pipelines.md). Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principer är tillgängliga för alla typer av aktiviteter.
 
-Egenskaper som är tillgängliga i den **typeProperties** avsnitt av aktivitet, å andra sidan varierar med varje aktivitetstyp. För kopieringsaktiviteten varierar Typegenskaper beroende på vilka typer av datakällor och sänkor.
+Egenskaper som är tillgängliga i den **typeProperties** delen av aktiviteten, å andra sidan varierar med varje aktivitetstyp av. Typegenskaperna varierar beroende på vilka typer av källor och mottagare för kopieringsaktiviteten.
 
-I en Kopieringsaktivitet när källan är av typen **FileSystemSource**, av följande egenskap är tillgänglig i **typeProperties** avsnitt:
+I kopieringsaktiviteten när källan är av typen **FileSystemSource**, följande egenskap är tillgänglig i **typeProperties** avsnittet:
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
+| rekursiv |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-exempel: kopiera data från FTP-servern till Azure-Blob
-Det här exemplet visas hur du kopierar data från en FTP-server till Azure Blob storage. Dock datan kan kopieras direkt till någon av sänkor som anges i den [datalager och format stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats), med hjälp av kopieringsaktiviteten i Data Factory.  
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-exempel: Kopiera data från FTP-servern till Azure Blob
+Detta exempel visar hur du kopierar data från en FTP-server till Azure Blob storage. Dock datan kan kopieras direkt till någon av de mottagare som anges i den [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats), med hjälp av kopieringsaktiviteten i Data Factory.  
 
-Följande exempel ger exempel JSON definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
+I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * En länkad tjänst av typen [FtpServer](#linked-service-properties)
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
-* Indata [dataset](data-factory-create-datasets.md) av typen [filresursen](#dataset-properties)
-* Utdata [dataset](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* En [pipeline](data-factory-create-pipelines.md) med kopieringsaktiviteten som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
+* Indata [datauppsättning](data-factory-create-datasets.md) av typen [filresurs](#dataset-properties)
+* Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
+* En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
-Exemplet kopierar data från en FTP-server till en Azure blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar data från en FTP-server till en Azure-blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
 
-### <a name="ftp-linked-service"></a>Länkad FTP-tjänsten
+### <a name="ftp-linked-service"></a>FTP-länkad tjänst
 
 Det här exemplet använder grundläggande autentisering med användarnamn och lösenord i klartext. Du kan också använda något av följande sätt:
 
@@ -230,7 +229,7 @@ Det här exemplet använder grundläggande autentisering med användarnamn och l
 * Grundläggande autentisering med krypterade autentiseringsuppgifter
 * FTP över SSL/TLS (FTPS)
 
-Finns det [FTP länkade tjänsten](#linked-service-properties) avsnittet för olika typer av autentisering som du kan använda.
+Se den [FTP-länkade tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
 
 ```JSON
 {
@@ -259,11 +258,11 @@ Finns det [FTP länkade tjänsten](#linked-service-properties) avsnittet för ol
   }
 }
 ```
-### <a name="ftp-input-dataset"></a>FTP-inkommande dataset
+### <a name="ftp-input-dataset"></a>FTP-datauppsättningen för indata
 
-Den här datamängden refererar till FTP-mappen `mysharedfolder` och `test.csv`. Pipelinen kopierar filen till målet.
+Denna datauppsättning refererar till FTP-mappen `mysharedfolder` och `test.csv`. Pipelinen kopierar filen till målet.
 
-Ange **externa** till **SANT** informerar Data Factory-tjänsten att datamängden är extern till data factory och inte tillverkas av en aktivitet i datafabriken.
+Ange **externa** till **SANT** informerar Data Factory-tjänsten att datauppsättningen är extern till datafabriken och inte kommer från en aktivitet i data factory.
 
 ```JSON
 {
@@ -287,7 +286,7 @@ Ange **externa** till **SANT** informerar Data Factory-tjänsten att datamängde
 
 ### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blobb
 
-Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvägen till mappen för blobben utvärderas dynamiskt, baserat på starttiden för den sektor som bearbetas. Mappsökvägen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt, baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
 
 ```JSON
 {
@@ -346,9 +345,9 @@ Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvä
 ```
 
 
-### <a name="a-copy-activity-in-a-pipeline-with-file-system-source-and-blob-sink"></a>En kopia aktivitet i en pipeline med filen system käll- och blob sink
+### <a name="a-copy-activity-in-a-pipeline-with-file-system-source-and-blob-sink"></a>En Kopieringsaktivitet i en pipeline med filen system käll- och blob-mottagaren
 
-Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda indata och utdata-datauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen av **källa** är inställd på **FileSystemSource**, och **sink** är inställd på **BlobSink**.
+Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **FileSystemSource**, och **mottagare** är **BlobSink**.
 
 ```JSON
 {
@@ -388,11 +387,11 @@ Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda 
 }
 ```
 > [!NOTE]
-> Om du vill mappa kolumner från källan dataset till kolumner från sink dataset finns [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).
+> Om du vill mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-* Mer information om viktiga faktorer som påverkan prestanda för flytt av data (kopieringsaktiviteten) i Data Factory och olika sätt att optimera den finns i [kopiera aktivitet prestanda och prestandajustering guiden](data-factory-copy-activity-performance.md).
+* Mer information om viktiga faktorer att påverka prestandan för dataflytt (Kopieringsaktivitet) i Data Factory och olika sätt att optimera den, finns det [kopiera aktivitet prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md).
 
-* Stegvisa instruktioner för att skapa en pipeline med kopiera aktiviteter finns i [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet finns i den [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

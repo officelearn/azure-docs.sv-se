@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987704"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023846"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -260,7 +260,7 @@ De flesta resurser är beroende av andra resurser ska fungera korrekt. Virtuella
 ],
 ```
 
-Resource Manager distribuerar parallellt några resurser som inte är beroende av en annan resurs som ska distribueras. Var försiktig när du ställer in beroenden eftersom du av misstag kan påverka din distribution genom att ange onödiga beroenden. Beroenden kan länka via flera resurser. Till exempel beror nätverksgränssnittet på den offentliga IP-adressen och virtuella nätverksresurser.
+Resource Manager distribuerar parallellt alla resurser som inte är beroende av en annan resurs som ska distribueras. Var försiktig när du ställer in beroenden eftersom du av misstag kan påverka din distribution genom att ange onödiga beroenden. Beroenden kan länka via flera resurser. Till exempel beror nätverksgränssnittet på den offentliga IP-adressen och virtuella nätverksresurser.
 
 Hur vet du om ett beroende krävs? Titta på värden som du angav i mallen. Om ett element i den virtuella dator resource definition pekar på en annan resurs som har distribuerats i samma mall måste ett beroende. Till exempel definierar den virtuella datorn exempel en nätverksprofil:
 
@@ -374,7 +374,7 @@ Du kan du lägga till datadiskar till de virtuella datorerna. Den [antalet diska
 
 ## <a name="extensions"></a>Tillägg
 
-Även om [tillägg](extensions-features.md) är en separat resurs, de är nära kopplade till virtuella datorer. Tillägg kan läggas till som en underordnad resurs för den virtuella datorn eller som en separat resurs. I exempel visas den [Diagnostiktillägget](extensions-diagnostics-template.md) som läggs till de virtuella datorerna:
+Även om [tillägg](extensions-features.md) är en separat resurs, de är beroende av virtuella datorer. Tillägg kan läggas till som en underordnad resurs för den virtuella datorn eller som en separat resurs. I exempel visas den [Diagnostiktillägget](extensions-diagnostics-template.md) som läggs till de virtuella datorerna:
 
 ```
 { 
@@ -436,7 +436,7 @@ Det finns många tillägg som du kan installera på en virtuell dator, men de me
 }
 ```
 
-Skriptet start.ps1 kan utföra flera konfigurationsåtgärder. Till exempel har de datadiskar som läggs till de virtuella datorerna i det här exemplet inte initierats; Du kan använda ett anpassat skript för att initiera dem. Om du har flera startåtgärder för att göra, kan du använda filen start.ps1 för att anropa andra PowerShell-skript i Azure storage. I exemplet används PowerShell, men du kan använda valfri metod för skript som är tillgänglig på det operativsystem som du använder.
+Skriptet start.ps1 kan utföra flera konfigurationsåtgärder. Till exempel är inte de datadiskar som läggs till de virtuella datorerna i det här exemplet initierad. Du kan använda ett anpassat skript för att initiera dem. Om du har flera startåtgärder för att göra, kan du använda filen start.ps1 för att anropa andra PowerShell-skript i Azure storage. I exemplet används PowerShell, men du kan använda valfri metod för skript som är tillgänglig på det operativsystem som du använder.
 
 Du kan se status för de installerade tilläggen från inställningarna för tillägg i portalen:
 
@@ -448,14 +448,15 @@ Du kan också få tilläggsinformation med hjälp av den **Get-AzureRmVMExtensio
 
 När du distribuerar en mall, spårar Azure de resurser som du distribuerat som en grupp och tilldelar automatiskt ett namn på den här distribuerade gruppen. Namnet på distributionen är samma som namnet på mallen.
 
-Om du är nyfiken på status för resurser i distributionen kan använda du resursgrupp-bladet i Azure portal:
+Om du är nyfiken på status för resurser i distributionen kan du visa resursgruppen i Azure portal:
 
 ![Hämta information om distribution](./media/template-description/virtual-machines-deployment-info.png)
     
-Det är inte ett problem att använda samma mall för att skapa resurser eller för att uppdatera befintliga resurser. När du distribuerar mallar med hjälp av kommandon har du möjlighet att säga som [läge](../../resource-group-template-deploy.md) du vill använda. Läget kan vara inställd på antingen **Slutför** eller **stegvis**. Standardvärdet är att göra inkrementella uppdateringar. Var försiktig när du använder den **Slutför** läge eftersom av misstag kan du ta bort resurser. När du har angett läget **Slutför**, Resource Manager tar bort alla resurser i resursgruppen som inte ingår i mallen.
+Det är inte ett problem att använda samma mall för att skapa resurser eller för att uppdatera befintliga resurser. När du distribuerar mallar med hjälp av kommandon har du möjlighet att säga som [läge](../../resource-group-template-deploy.md) du vill använda. Läget kan vara inställd på antingen **Slutför** eller **stegvis**. Standardvärdet är att göra inkrementella uppdateringar. Var försiktig när du använder den **Slutför** läge eftersom av misstag kan du ta bort resurser. När du har angett läget **Slutför**, Resource Manager tar bort alla resurser i resursgruppen som inte är i mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Skapa en egen mall med hjälp av [redigera Azure Resource Manager-mallar](../../resource-group-authoring-templates.md).
 - Distribuera mallen som du skapat med [skapa en Windows-dator med en Resource Manager-mall](ps-template.md).
 - Lär dig hur du hanterar de virtuella datorerna som du skapade genom att granska [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- JSON-syntax och egenskaper för resurstyper i mallar finns i [mallreferensen för Azure Resource Manager](/azure/templates/).

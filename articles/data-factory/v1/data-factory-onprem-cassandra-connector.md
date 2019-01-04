@@ -1,5 +1,5 @@
 ---
-title: Flytta data från Cassandra med hjälp av Data Factory | Microsoft Docs
+title: Flytta data från Cassandra med Data Factory | Microsoft Docs
 description: Läs mer om hur du flyttar data från en lokal Cassandra-databas med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,17 +9,16 @@ ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ed3a22d3ad4e227178e8ac265cc97050e31ee6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: dd90834a2e112effbfd6876b84dfe8b3ca87fcf3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054317"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015652"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Flytta data från en lokal Cassandra-databas med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,97 +26,97 @@ ms.locfileid: "37054317"
 > * [Version 2 (aktuell version)](../connector-cassandra.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [Cassandra connector i V2](../connector-cassandra.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Cassandra-anslutning i V2](../connector-cassandra.md).
 
-Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal Cassandra databas. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en lokal Cassandra-databas. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
-Du kan kopiera data från ett lokalt Cassandra dataarkiv till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från ett dataarkiv som Cassandra till andra databaser, men inte för att flytta data från andra datalager till en Cassandra dataarkiv. 
+Du kan kopiera data från ett datalager för lokal Cassandra till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från ett datalager för Cassandra till datalager, men inte för att flytta data från andra datalager till ett Cassandra-datalager. 
 
 ## <a name="supported-versions"></a>Versioner som stöds
-Stöder följande versioner av Cassandra för Cassandra-anslutningen: 2.x och 3.x. För aktiviteten körs på Self-hosted integrering körning, Cassandra 3.x stöds sedan IR version 3.7 och senare.
+Cassandra-anslutningsappen stöder följande versioner av Cassandra: 2.x och 3.x. För aktiviteter som körs på lokal Integration Runtime, Cassandra 3.x stöds sedan IR version 3.7 och senare.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För Azure Data Factory-tjänsten för att kunna ansluta till din lokala Cassandra databas måste du installera en Data Management Gateway på samma dator som värd för databasen eller på en separat dator för att undvika konkurrerar om resurser med databasen. Data Management Gateway är en komponent som ansluter lokala datakällor till molntjänster i en säker och hanterad sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln för information om Data Management Gateway. Se [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner om hur du konfigurerar gatewayen som en pipeline för data att flytta data.
+Du måste installera en Gateway för datahantering på samma dator som är värd för databasen eller på en separat dator att undvika konkurrerar om resurser med databasen för Azure Data Factory-tjänsten för att kunna ansluta till din lokala Cassandra-databas. Data Management Gateway är en komponent som ansluter till lokala datakällor till molntjänster på ett säkert och hanterat sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) nedan för information om Data Management Gateway. Se [flytta data från lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln stegvisa instruktioner om hur du konfigurerar gatewayen en datapipeline att flytta data.
 
-Gatewayen måste du använda för att ansluta till en databas för Cassandra även om databasen finns i molnet, till exempel på en Azure IaaS-VM. Y du kan ha gatewayen på samma virtuella dator som är värd för databasen eller på en separat virtuell dator så länge som gatewayen kan ansluta till databasen.  
+Du måste använda gatewayen för att ansluta till en Cassandra-databas, även om databasen finns i molnet, till exempel på en Azure IaaS-VM. Y du kan ha gatewayen på samma virtuella dator som är värd för databasen eller på en separat virtuell dator så länge som gatewayen kan ansluta till databasen.  
 
-När du installerar gateway installeras automatiskt en Microsoft Cassandra ODBC-drivrutinen används för att ansluta till Cassandra-databasen. Därför behöver du inte manuellt installera en drivrutin på gateway-datorn när du kopierar data från databasen Cassandra. 
+När du installerar gatewayen installeras automatiskt en Microsoft Cassandra ODBC-drivrutin som används för att ansluta till Cassandra-databasen. Därför behöver du inte manuellt installera en drivrutin på gatewaydatorn när du kopierar data från Cassandra-databasen. 
 
 > [!NOTE]
-> Se [felsökning av problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tips om hur du felsöker anslutning /-gateway relaterade problem.
+> Se [felsöka problem med gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) tips om hur du felsöker anslutning/gateway-relaterade problem.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en lokal Cassandra data store med hjälp av olika verktyg/API: er. 
+Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för lokal Cassandra med hjälp av olika verktyg/API: er. 
 
-- Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
-Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
+Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa **länkade tjänster** att länka inkommande och utgående data lagras till din data factory.
-2. Skapa **datauppsättningar** att representera inkommande och utgående data för kopieringen. 
-3. Skapa en **pipeline** med en kopia-aktivitet som tar en datamängd som indata och en dataset som utdata. 
+1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden skapas JSON definitioner för dessa Data Factory-enheter (länkade tjänster, datauppsättningar och pipelinen) automatiskt för dig. När du använder Verktyg/API: er (utom .NET API), kan du definiera dessa Data Factory-enheter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett lokalt Cassandra dataarkiv finns [JSON-exempel: kopiera data från Cassandra till Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal Cassandra finns [JSON-exempel: Kopiera data från Cassandra till Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) i den här artikeln. 
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter till datakällan Cassandra:
+Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för ett Cassandra-datalager:
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Cassandra länkad tjänst.
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen type måste anges till: **OnPremisesCassandra** |Ja |
-| värd |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
-| port |TCP-porten som används av Cassandra-server för att lyssna efter anslutningar. |Nej, standardvärde: 9042 |
+| typ |Type-egenskapen måste anges till: **OnPremisesCassandra** |Ja |
+| värd |En eller flera IP-adresser eller värdnamn för Cassandra-servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
+| port |TCP-port som Cassandra-servern använder för att lyssna efter klientanslutningar. |Nej, standardvärde: 9042 |
 | authenticationType |Grundläggande eller anonym |Ja |
-| användarnamn |Ange användarnamnet för användarkontot. |Ja, om authenticationType anges till Basic. |
+| användarnamn |Ange användarnamn för användarkontot. |Ja, om authenticationType anges till Basic. |
 | lösenord |Ange lösenordet för användarkontot. |Ja, om authenticationType anges till Basic. |
-| gatewayName |Namnet på den gateway som används för att ansluta till lokalt Cassandra-databasen. |Ja |
-| encryptedCredential |Autentiseringsuppgifter har krypterats med gatewayen. |Nej |
+| gatewayName |Namnet på den gateway som används för att ansluta till den lokala Cassandra-databasen. |Ja |
+| encryptedCredential |Autentiseringsuppgifter har krypterats av gatewayen. |Nej |
 
 >[!NOTE]
->För närvarande stöds inte anslutning till Cassandra med SSL.
+>För närvarande stöds inte anslutning till Cassandra med hjälp av SSL.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av dataset (Azure SQL Azure blob, Azure-tabellen, osv.).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
 
-Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **CassandraTable** har följande egenskaper
+Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **CassandraTable** har följande egenskaper
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| keyspace |Namnet på keyspace eller schema i Cassandra databasen. |Ja (om **frågan** för **CassandraSource** har inte definierats). |
-| tableName |Namnet på tabellen i Cassandra databas. |Ja (om **frågan** för **CassandraSource** har inte definierats). |
+| keyspace |Namnet på keyspace eller schema i Cassandra-databasen. |Ja (om **fråga** för **CassandraSource** har inte definierats). |
+| tableName |Namnet på tabellen i Cassandra-databas. |Ja (om **fråga** för **CassandraSource** har inte definierats). |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapar Pipelines](data-factory-create-pipelines.md) artikel. Egenskaper som namn, beskrivning, ingående och utgående tabeller och principen är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
 
-De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varierar beroende på varje aktivitetstyp. För Kopieringsaktivitet kan variera de beroende på vilka typer av datakällor och sänkor.
+Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
 
-När datakällan är av typen **CassandraSource**, följande egenskaper finns i avsnittet typeProperties:
+När källan är av typen **CassandraSource**, följande egenskaper är tillgängliga i avsnittet typeProperties:
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 frågan eller CQL frågan. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-frågan anger **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om tabellnamn och keyspace för datauppsättningen har definierats). |
-| consistencyLevel |Nivå för konsekvenskontroll anger hur många repliker måste svara på en läsbegäran innan den returnerar data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data att uppfylla read-förfrågan. |EN, TVÅ, TRE, KVORUM, ALL, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Se [konfigurera datakonsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) mer information. |Nej. Standardvärdet är en. |
+| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga, ange **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om tabellnamn och keyspace för datauppsättningen har definierats). |
+| consistencyLevel |Konsekvensnivån som anger hur många kopior måste svara på en läsbegäran innan det returneras data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data för att tillgodose läsförfrågan. |EN, TVÅ, TRE, KVORUM, ALL, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Se [konfigurera datakonsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) mer information. |Nej. Standardvärdet är en. |
 
-## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON-exempel: kopiera data från Cassandra till Azure-Blob
-Det här exemplet innehåller exempel JSON definitioner som du kan använda för att skapa en pipeline med [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal Cassandra databas till en Azure Blob Storage. Dock datan kan kopieras till någon av sänkor anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av aktiviteten kopiera i Azure Data Factory.
+## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON-exempel: Kopiera data från Cassandra till Azure Blob
+Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en lokal Cassandra-databas till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 > [!IMPORTANT]
-> Det här exemplet innehåller JSON kodavsnitt. Stegvisa instruktioner för att skapa datafabriken inkluderas inte. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner.
+> Det här exemplet innehåller JSON-kodfragment. Stegvisa instruktioner för att skapa data factory omfattas inte. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln stegvisa instruktioner.
 
-Exemplet har följande data factory enheter:
+Exemplet har följande data factory-entiteter:
 
 * En länkad tjänst av typen [OnPremisesCassandra](#linked-service-properties).
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Indata [dataset](data-factory-create-datasets.md) av typen [CassandraTable](#dataset-properties).
-* Utdata [dataset](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* En [pipeline](data-factory-create-pipelines.md) med Kopieringsaktiviteten som använder [CassandraSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Indata [datauppsättning](data-factory-create-datasets.md) av typen [CassandraTable](#dataset-properties).
+* Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [CassandraSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-**Cassandra länkade tjänsten:**
+**Cassandra-länkad tjänst:**
 
-Det här exemplet används den **Cassandra** länkade tjänsten. Se [Cassandra länkade tjänsten](#linked-service-properties) avsnittet för egenskaper som stöds av den här länkade tjänsten.  
+Det här exemplet används den **Cassandra** länkad tjänst. Se [Cassandra länkad tjänst](#linked-service-properties) avsnittet för egenskaper som stöds av den här länkade tjänsten.  
 
 ```json
 {
@@ -138,7 +137,7 @@ Det här exemplet används den **Cassandra** länkade tjänsten. Se [Cassandra l
 }
 ```
 
-**Azure Storage länkade tjänsten:**
+**Länkad Azure Storage-tjänst:**
 
 ```json
 {
@@ -152,7 +151,7 @@ Det här exemplet används den **Cassandra** länkade tjänsten. Se [Cassandra l
 }
 ```
 
-**Cassandra inkommande datauppsättningen:**
+**Indatauppsättning för Cassandra:**
 
 ```json
 {
@@ -180,11 +179,11 @@ Det här exemplet används den **Cassandra** länkade tjänsten. Se [Cassandra l
 }
 ```
 
-Ange **externa** till **SANT** informerar Data Factory-tjänsten att datamängden är extern till data factory och inte tillverkas av en aktivitet i datafabriken.
+Ange **externa** till **SANT** informerar Data Factory-tjänsten att datauppsättningen är extern till datafabriken och inte kommer från en aktivitet i data factory.
 
-**Azure Blob utdatauppsättningen:**
+**Utdatauppsättning för Azure Blob:**
 
-Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1).
+Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1).
 
 ```json
 {
@@ -206,11 +205,11 @@ Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1).
 }
 ```
 
-**Kopiera aktivitet i en pipeline med Cassandra källa och mottagare för Blob:**
+**Kopiera aktivitet i en pipeline med Cassandra käll- och Blob-mottagare:**
 
-Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda indata och utdata-datauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen av **källa** är inställd på **CassandraSource** och **sink** är inställd på **BlobSink**.
+Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **CassandraSource** och **mottagare** är **BlobSink**.
 
-Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egenskaper som stöds av RelationalSource.
+Se [RelationalSource typegenskaperna](#copy-activity-properties) lista över egenskaper som stöds av RelationalSource.
 
 ```json
 {  
@@ -261,14 +260,14 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 ```
 
 ### <a name="type-mapping-for-cassandra"></a>Mappning för Cassandra
-| Cassandra typ | .NET baserat typ |
+| Cassandra-typ | .NET-baserade typ |
 | --- | --- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
 | BLOB |Byte] |
 | BOOLESKT VÄRDE |Boolesk |
-| DECIMAL |Decimal |
-| DUBBEL |Dubbel |
+| DECIMALTAL |Decimal |
+| DOUBLE-VÄRDE |Double-värde |
 | FLYTTAL |Enkel |
 | INET |Sträng |
 | INT |Int32 |
@@ -280,42 +279,42 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 | VARINT |Decimal |
 
 > [!NOTE]
-> Insamling av typer (karta, set, lista, etc.), referera till [arbeta med Cassandra samlingstyper med virtuella tabellen](#work-with-collections-using-virtual-table) avsnitt.
+> Samlingen finns typer (karta, set, lista, osv.), [arbeta med Cassandra samlingstyper med hjälp av virtuella tabellen](#work-with-collections-using-virtual-table) avsnittet.
 >
 > Användardefinierade typer stöds inte.
 >
-> Längden på Binary-kolumn och strängkolumn längd får inte vara större än 4000.
+> Längden på Binär kolumn och strängkolumn längd får inte vara större än 4000.
 >
 >
 
 ## <a name="work-with-collections-using-virtual-table"></a>Arbeta med samlingar med virtuella tabellen
-Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från databasen Cassandra. För samlingstyper inklusive karta, uppsättning och lista, renormalizes drivrutinen data i motsvarande virtuella tabeller. Om en tabell innehåller några kolumner i samlingen, genererar drivrutinen mer specifikt kan följande virtuella tabeller:
+Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från Cassandra-databas. För samlingstyper inklusive kartan, uppsättning och lista, renormalizes drivrutinen data till motsvarande virtuella tabeller. Om en tabell innehåller några kolumner för samlingen, genererar drivrutinen mer specifikt kan följande virtuella tabeller:
 
-* En **bastabellen**, som innehåller samma data som verkliga tabell utom samling kolumner. Bastabellen använder samma namn som den verkliga tabell som representerar.
-* En **virtuella tabellen** för varje samling-kolumn som utökar kapslade data. Virtuella tabeller som representerar samlingar namnges med namnet på tabellen verkliga avgränsare ”*vt*” och namnet på kolumnen.
+* En **bastabellen**, som innehåller samma data som den verkliga tabellen utom samling kolumner. Bastabellen använder samma namn som den verkliga tabell som representerar.
+* En **virtuella tabellen** för varje samling-kolumn som utökar den kapslade data. Virtuella tabeller som representerar samlingar namnges med namnet på tabellen verkliga avgränsare ”*vt*” och namnet på kolumnen.
 
-Virtuella tabellerna hänvisar till data i tabellen verkliga aktiverar drivrutinen att komma åt Avnormaliserade data. Se avsnittet för information. Du kan komma åt innehållet i Cassandra samlingar genom att fråga och ansluta till virtuella tabeller.
+Virtuella tabellerna hänvisar till data i tabellen verkliga aktiverar drivrutinen att komma åt den Avnormaliserade data. Se exempel avsnittet för information. Du kan komma åt innehållet i Cassandra samlingar genom att fråga och ansluta till virtuella tabeller.
 
-Du kan använda den [guiden Kopiera](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) intuitivt visa listan över tabeller i Cassandra databasen, inklusive virtuella tabeller och förhandsgranska data som ingår. Du kan också skapa en fråga i guiden Kopiera och validera om du vill se resultatet.
+Du kan använda den [Kopieringsguiden](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) att visa en lista över tabeller i Cassandra-databas, inklusive virtuella tabeller intuitivt och förhandsgranska data i. Du kan också skapa en fråga i guiden Kopiera och validera om du vill se resultatet.
 
 ### <a name="example"></a>Exempel
-Till exempel är följande ”ExampleTable” en Cassandra databastabell som innehåller ett heltal primärnyckelkolumnen med namnet ”pk_int”, en textkolumn namngivet värde, en kolumn, en karta kolumn och en set-kolumn (med namnet ”StringSet”).
+Till exempel är följande ”ExampleTable” en Cassandra-databastabell som innehåller ett heltal primärnyckelkolumnen med namnet ”pk_int”, en textkolumn namngivet värde, en kolumn, en karta kolumn och en uppsättning kolumn (med namnet ”StringSet”).
 
 | pk_int | Värde | Visa lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |”exempelvärde 1” |["1", "2", "3"] |{”S1”: ”a”, ”S2”: ”b”} |{”A”, ”B”, ”C”} |
 | 3 |”exempelvärde 3” |["100", "101", "102", "105"] |{”S1”: ”t”} |{”A”, ”E”} |
 
-Drivrutinen skulle generera flera virtuella tabeller som representerar denna tabell. Sekundärnyckelskolumnerna i virtuella tabeller refererar till primärnyckelkolumnerna i tabellen verkliga och ange vilka verkliga tabellrad som motsvarar den virtuella tabellraden.
+Drivrutinen skulle generera flera virtuella tabeller som representerar en enda tabell. Sekundärnyckelskolumnerna i virtuella tabeller refererar till primärnyckelskolumnerna i verkliga tabellen och anger vilka verkliga tabellrad som den virtuella tabellraden motsvarar.
 
-Den första virtuella tabellen är bastabellen med namnet ”ExampleTable” visas i följande tabell. Bastabellen innehåller samma data som den ursprungliga databastabellen förutom de samlingar som utelämnas från den här tabellen och expanderas i andra virtuella tabeller.
+Den första virtuella tabellen är bastabellen med namnet ”ExampleTable” visas i följande tabell. Bastabellen innehåller samma data som den ursprungliga databastabellen förutom de samlingar som är utelämnas från den här tabellen och expanderas i andra virtuella tabeller.
 
 | pk_int | Värde |
 | --- | --- |
 | 1 |”exempelvärde 1” |
 | 3 |”exempelvärde 3” |
 
-Följande tabeller visar virtuella register som renormalize data från listan och mappa StringSet kolumner. Kolumner med namn som slutar med ”_index” eller ”_nyckelskyddsserverns” anger placeringen av data i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med ”_value” innehåller utökade data från samlingen.
+Följande tabeller visar de virtuella tabeller som renormera data från listan och kartan StringSet kolumner. Kolumner med namn som slutar med ”_index” eller ”_nyckel” anger data i den ursprungliga listan eller kartan position. Kolumner med namn som slutar med ”_value” innehåller utökade data från samlingen.
 
 #### <a name="table-exampletablevtlist"></a>Tabell ”ExampleTable_vt_List”:
 | pk_int | List_index | List_value |
@@ -333,7 +332,7 @@ Följande tabeller visar virtuella register som renormalize data från listan oc
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |T |
+| 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Tabell ”ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
@@ -344,11 +343,11 @@ Följande tabeller visar virtuella register som renormalize data från listan oc
 | 3 |A |
 | 3 |E |
 
-## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner
-Mer information om mappning kolumner i datauppsättningen källan till kolumner i datauppsättning mottagare, se [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
+Mer information om mappning av kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Upprepbar läsning från relationella källor
-Tänk på att undvika oväntade resultat repeterbarhet när kopiering av data från relationella data lagras. I Azure Data Factory, kan du köra en sektor manuellt. Du kan också konfigurera i principen för en dataset så att ett segment som körs när ett fel uppstår. När ett segment körs på något sätt, måste du kontrollera att samma data läses oavsett hur många gånger ett segment körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Kom ihåg att undvika oväntade resultat repeterbarhet när kopiera data från relationsdata lagras. I Azure Data Factory kan du köra en sektor manuellt. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att en sektor som körs när ett fel uppstår. När ett segment ska köras på nytt på något sätt, måste du se till att samma data läses oavsett hur många gånger som en sektor körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Prestanda och finjustering
-Se [kopiera aktivitet prestanda och justera guiden](data-factory-copy-activity-performance.md) vill veta mer om viktiga faktorer som påverkan prestanda för flytt av data (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda- och justering
+Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.

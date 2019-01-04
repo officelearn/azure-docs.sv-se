@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 332687d14593024bb4354e2cd59ff0d50ae0aaef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078216"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017318"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (förhandsversion)
 
@@ -34,7 +33,7 @@ Du kan kopiera data från Marketo till alla datalager för mottagare som stöds.
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
 >[!NOTE]
->Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](http://developers.marketo.com/rest-api/) på serversidan. Om du stöter på fel som säger ”fel vid försök att använda REST-API: högsta hastighet har överskridits” 100 ”med” 20 ”sekunder (606)” eller ”fel vid försök att använda REST-API: samtidig åtkomst” 10 ”gränsen (615)”, Överväg för att minska aktivitetskörningar samtidiga kopia till minska antalet begäranden till tjänsten.
+>Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](http://developers.marketo.com/rest-api/) på serversidan. Om du stöter på fel som säger ”fel vid försök att använda REST-API: Maximal hastighet har överskridits ”100” med ”20” sekunder (606) ”eller” fel vid försök att använda REST-API: Samtidig åtkomst begränsa '10' nått (615) ”, Överväg för att minska samtidiga kopiera aktivitetskörningar för att minska antalet begäranden till tjänsten.
 
 ## <a name="getting-started"></a>Komma igång
 

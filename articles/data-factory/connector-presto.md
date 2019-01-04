@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102018"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019273"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopiera data från Presto med Azure Data Factory (förhandsversion)
 
@@ -50,7 +49,7 @@ Följande egenskaper har stöd för Presto länkade tjänsten:
 | serverVersion | Versionen av Presto server. (d.v.s. 0.148-t)  | Ja |
 | katalog | Katalogen kontext för alla begäranden mot servern.  | Ja |
 | port | TCP-porten som Presto servern använder för att lyssna efter klientanslutningar. Standardvärdet är 8080.  | Nej |
-| authenticationType | Den autentiseringsmetod som används för att ansluta till Presto-servern. <br/>Tillåtna värden är: **anonym**, **LDAP** | Ja |
+| authenticationType | Den autentiseringsmetod som används för att ansluta till Presto-servern. <br/>Tillåtna värden är: **Anonym**, **LDAP** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till Presto-servern.  | Nej |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |

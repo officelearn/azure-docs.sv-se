@@ -9,17 +9,16 @@ ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 20a769736efb1232e9605e322bfda6136687cec4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628553"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023591"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Flytta data från ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +46,9 @@ Förutom de Data Management Gateway måste du också installera ODBC-drivrutinen
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett ODBC-datalager med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudie: skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall **, **.NET API**, och **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager: 
 
@@ -57,19 +56,19 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
 3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett ODBC-datalager, se [JSON-exempel: kopieringsdata från ODBC data datalager till Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett ODBC-datalager, se [JSON-exempel: Kopiera data från ODBC-datalager till Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) i den här artikeln. 
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för ODBC-datalager:
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller beskrivning för JSON-element som är specifika för ODBC-länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Type-egenskapen måste anges till: **OnPremisesOdbc** |Ja |
 | connectionString |Den icke-autentiseringsuppgifter delen av anslutningssträngen och en valfri krypterade autentiseringsuppgifter. Se exemplen i följande avsnitt. <br/><br/>Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet-DSN (Data Source Name) som du har konfigurerat på gateway-datorn med `"DSN=<name of the DSN>;"` (du måste fortfarande ange credential-delen i den länkade tjänsten i enlighet med detta). |Ja |
 | credential |Åtkomst till autentiseringsuppgifter delen av anslutningssträngen som angetts i drivrutinsspecifika egenskapsvärdet format. Exempel: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nej |
-| authenticationType |Typ av autentisering som används för att ansluta till ODBC-datalager. Möjliga värden är: anonyma och grundläggande. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till ODBC-datalager. Möjliga värden: Anonym och grundläggande. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Nej |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till ODBC-datalager. |Ja |
@@ -137,7 +136,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **RelationalTable** (som inkluderar ODBC datauppsättning) har följande egenskaper
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i ODBC-datalager. |Ja |
 
@@ -148,12 +147,12 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I kopieringsaktiviteten när källan är av typen **RelationalSource** (som inkluderar ODBC), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
 
-## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON-exempel: kopieringsdata från ODBC data datalager till Azure Blob
+## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON-exempel: Kopiera data från ODBC-datalager till Azure Blob
 Det här exemplet innehåller JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Den visar hur du kopierar data från en ODBC-källa till ett Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 Exemplet har följande data factory-entiteter:
@@ -355,33 +354,6 @@ Mer information om mappning av kolumner i datauppsättningen för källan till k
 
 ## <a name="repeatable-read-from-relational-sources"></a>Upprepbar läsning från relationella källor
 Kom ihåg att undvika oväntade resultat repeterbarhet när kopiera data från relationsdata lagras. I Azure Data Factory kan du köra en sektor manuellt. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att en sektor som körs när ett fel uppstår. När ett segment ska köras på nytt på något sätt, måste du se till att samma data läses oavsett hur många gånger som en sektor körs. Se [Repeatable läsa från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## <a name="ge-historian-store"></a>GE Historian store
-Du skapar en ODBC-länkade tjänst som länkar en [GE Proficy Historian (nu GE Historian)](http://www.geautomation.com/products/proficy-historian) datalager till en Azure-datafabrik som visas i följande exempel:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Installera Data Management Gateway på en lokal dator och registrera gatewayen med portalen. ODBC-drivrutinen för GE Historian använder gatewayen installerat på den lokala datorn för att ansluta till datalagret GE Historian. Därför installera drivrutinen om den redan inte är installerad på gateway-datorn. Se [aktiverar anslutningen](#enabling-connectivity) information.
-
-Innan du använder det GE Historian arkivet i en Data Factory-lösning bör du kontrollera om gatewayen kan ansluta till datalagret med hjälp av anvisningarna i nästa avsnitt.
-
-Läs artikeln från början en detaljerad översikt över med hjälp av ODBC data lagras som datalager för källa på en kopieringsåtgärd.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Felsöka anslutningsproblem
 Felsök problem med anslutningen genom att använda den **diagnostik** fliken **Data Management Gateway Configuration Manager**.

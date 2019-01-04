@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c7266d840a8d60275a40cf31291d3a8f524131f9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726907"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016757"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilen produktionsprogram i Azure med Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Aktivera Profiler för ditt program
@@ -26,7 +26,7 @@ Application Insights Profiler innehåller prestandaspårningar för program som 
 
 Profiler fungerar med .net-program som distribuerats på följande Azure-tjänster. Specifika anvisningar för att aktivera profiler för varje typ av tjänst finns i länkarna nedan.
 
-* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric-program](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuella datorer och VM-Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -49,10 +49,10 @@ Välj ett exempel för att visa en kod på servernivå uppdelning av tid kör p�
 
 Spårningen explorer visar följande information:
 
-* **Visa frekvent sökväg**: öppnas det största löv noden eller Stäng minst något. I de flesta fall kan är den här noden nära en flaskhals för prestanda.
-* **Etiketten**: namnet på funktionen eller händelse. Trädet visar en blandning av kod och händelser som inträffade (till exempel SQL- och HTTP-händelser). Översta händelsen representerar varaktighet för begäran.
-* **Förfluten tid**: tidsintervallet mellan början av åtgärden och den igen.
-* **När**: den tid när funktionen eller händelse kördes i förhållande till andra funktioner.
+* **Visa frekvent sökväg**: Öppnar det största löv noden eller Stäng minst något. I de flesta fall kan är den här noden nära en flaskhals för prestanda.
+* **Etiketten**: Namnet på funktionen eller händelse. Trädet visar en blandning av kod och händelser som inträffade (till exempel SQL- och HTTP-händelser). Översta händelsen representerar varaktighet för begäran.
+* **Förfluten tid**: Tidsintervallet mellan början av åtgärden och den igen.
+* **När**: Den tid när funktionen eller händelse kördes i förhållande till andra funktioner.
 
 ## <a name="how-to-read-performance-data"></a>Läsa prestandadata
 
@@ -124,11 +124,11 @@ Profiler körs slumpmässigt två minuter varje timme på varje virtuell dator s
 
 ## <a name="next-steps"></a>Nästa steg
 Aktivera Application Insights Profiler för dina Azure-program
-* [App Services](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Services](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric-program](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuella datorer och VM-Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-[performance-blade]: ./media/app-insights-profiler/performance-blade-v2-examples.png
-[trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
+[performance-blade]: ./media/app-insights-profiler-overview/performance-blade-v2-examples.png
+[trace-explorer]: ./media/app-insights-profiler-overview/trace-explorer.png

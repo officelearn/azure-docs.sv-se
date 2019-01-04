@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f9d1d2181649cf24784dc7ad11638946c9ee4406
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057355"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019630"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +64,7 @@ Följande egenskaper har stöd för DB2 länkade tjänsten:
 | typ | Type-egenskapen måste anges till: **Db2** | Ja |
 | server |Namn på DB2-servern. Du kan ange det portnummer som följer servernamnet avgränsat med kolon t.ex. `server:port`. |Ja |
 | databas |Namn på DB2-databas. |Ja |
-| authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värde är: **grundläggande**. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värdet är: **Grundläggande**. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till DB2-databas. |Ja |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
@@ -182,8 +181,8 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Date |DateTime |
 | DB2DynArray |Sträng |
 | DbClob |Sträng |
-| decimaltal |decimaltal |
-| DecimalFloat |decimaltal |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
 | Double-värde |Double-värde |
 | Flyttal |Double-värde |
 | Bild |Sträng |
@@ -191,7 +190,7 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | LongVarBinary |Byte] |
 | LongVarChar |Sträng |
 | LongVarGraphic |Sträng |
-| Numerisk |decimaltal |
+| Numerisk |Decimal |
 | Real |Enkel |
 | SmallInt |Int16 |
 | Tid |Tidsintervall |

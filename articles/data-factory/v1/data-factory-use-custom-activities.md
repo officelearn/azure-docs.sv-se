@@ -9,17 +9,16 @@ ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b2d9bdd8a7faee81794beef7cf6a764aeea666ae
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020123"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +80,7 @@ Här är de två övergripande steg du utför som en del av den här genomgånge
 2. Skapa en Azure-datafabrik med en pipeline som använder den anpassade aktiviteten.
 
 ### <a name="create-a-custom-activity"></a>Skapa en anpassad aktivitet
-Om du vill skapa en anpassad .NET-aktivitet, skapa en **.NET-klassbiblioteket** projekt med en klass som implementerar som **IDotNetActivity** gränssnitt. Det här gränssnittet har bara en av metoderna: [kör](https://msdn.microsoft.com/library/azure/mt603945.aspx) och signaturen är:
+Om du vill skapa en anpassad .NET-aktivitet, skapa en **.NET-klassbiblioteket** projekt med en klass som implementerar som **IDotNetActivity** gränssnitt. Det här gränssnittet har bara en av metoderna: [Köra](https://msdn.microsoft.com/library/azure/mt603945.aspx) och signaturen är:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -426,7 +425,7 @@ Här följer de steg du utför i det här avsnittet:
    3. Klicka på **Data Factory** på bladet **Dataanalys**.
    
     ![Meny för ny Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
+2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
 
     ![Nytt Azure Data Factory-blad](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Klicka på **RESURSGRUPPENS namn**, och välj en befintlig resursgrupp eller skapa en resursgrupp.
@@ -511,7 +510,7 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
     }
     ```
 
-   Skapar du en pipeline senare i den här genomgången med starttid: 2016-11-16T00:00:00Z-och Sluttid: 2016-11-16T05:00:00Z. Den är schemalagd att producera data per timme, så att det finns fem indata/utdata-segment (mellan **00**: 00:00 -> **05**: 00:00).
+   Du kan skapa en pipeline senare i den här genomgången med starttid: 2016-11-16T00:00:00Z-och Sluttid: 2016-11-16T05:00:00Z. Den är schemalagd att producera data per timme, så att det finns fem indata/utdata-segment (mellan **00**: 00:00 -> **05**: 00:00).
 
    Den **frekvens** och **intervall** för indatauppsättningen är inställd på **timme** och **1**, vilket innebär att indatasektorn är tillgänglig per timme. I det här exemplet är det samma fil (fil.txt) i intputfolder.
 
@@ -562,7 +561,7 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Kom ihåg att alla filer i en Indatamappen är en del av ett segment med starttider som nämns ovan. När den här sektor bearbetas, den anpassade aktiviteten söker igenom varje fil och skapar en rad i filen med antalet förekomster av sökterm (”Microsoft”). Om det finns tre filer i inputfolder, det finns tre raderna i utdatafil för varje per timme segment: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, osv.
+    Kom ihåg att alla filer i en Indatamappen är en del av ett segment med starttider som nämns ovan. När den här sektor bearbetas, den anpassade aktiviteten söker igenom varje fil och skapar en rad i filen med antalet förekomster av sökterm (”Microsoft”). Om det finns tre filer i inputfolder, finns det tre raderna i utdatafil för varje sektor som per timme: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, osv.
 3. Att distribuera den **OutputDataset**, klickar du på **distribuera** i kommandofältet.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Skapa och köra en pipeline som använder den anpassade aktiviteten
@@ -748,7 +747,7 @@ Du kan deklarera utökade egenskaper i aktivitets-JSON som visas i följande exe
 ```
 
 
-I det här exemplet finns två utökade egenskaper: **SliceStart** och **DataFactoryName**. Värdet för SliceStart baseras på systemvariabeln SliceStart. Se [systemvariabler](data-factory-functions-variables.md) en lista över systemvariabler som stöds. Värdet för DataFactoryName är hårdkodad att CustomActivityFactory.
+Det finns två utökade egenskaper i det här exemplet: **SliceStart** och **DataFactoryName**. Värdet för SliceStart baseras på systemvariabeln SliceStart. Se [systemvariabler](data-factory-functions-variables.md) en lista över systemvariabler som stöds. Värdet för DataFactoryName är hårdkodad att CustomActivityFactory.
 
 Åtkomst till dessa utökade egenskaper i den **kör** metod, Använd-koden som liknar följande kod:
 
@@ -769,7 +768,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning i Azure Batch
 Du kan också skapa ett Azure Batch-pool med **Autoskala** funktionen. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en formel för automatisk skalning baserat på antalet väntande aktiviteter. 
 
-Exemplet formeln här uppnår på följande: När poolen skapas, den börjar med 1 virtuell dator. $PendingTasks mått definierar antalet uppgifter i körs + aktiv (köad) tillstånd.  Formeln hittar det genomsnittliga antalet väntande aktiviteter de senaste 180 sekunderna och anger TargetDedicated därefter. Det innebär att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och autoskalning minskar storleken på de virtuella datorerna. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.
+Exemplet formeln här uppnår på följande: När poolen skapas, börjar det med 1 virtuell dator. $PendingTasks mått definierar antalet uppgifter i körs + aktiv (köad) tillstånd.  Formeln hittar det genomsnittliga antalet väntande aktiviteter de senaste 180 sekunderna och anger TargetDedicated därefter. Det innebär att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och autoskalning minskar storleken på de virtuella datorerna. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.
 
 Formel för automatisk skalning:
 

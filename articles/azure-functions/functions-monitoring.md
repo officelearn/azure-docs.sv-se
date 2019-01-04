@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 62ee1c880987d0f9ad358f1a0d31af4a73263725
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753650"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017981"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -28,7 +28,7 @@ Functions har också [inbyggd övervakning som inte använder Application Insigh
 
 ## <a name="application-insights-pricing-and-limits"></a>Priser för Application Insights och begränsningar
 
-Du kan testa Application Insights-integrering med Funktionsappar utan kostnad. Men det finns en daglig gräns för hur mycket data kan bearbetas kostnadsfritt och du kan når gränsen under testningen. Azure tillhandahåller portalen och e-postaviseringar när du närmar sig dagliga gränsen.  Men om du missar aviseringarna och nått gränsen för nya loggar visas inte i Application Insights-frågor. Så var medveten om gränsen för att undvika onödiga tidsåtgången för felsökning. Mer information finns i [hantera priser och datavolymer i Application Insights](../application-insights/app-insights-pricing.md).
+Du kan testa Application Insights-integrering med Funktionsappar utan kostnad. Men det finns en daglig gräns för hur mycket data kan bearbetas kostnadsfritt och du kan når gränsen under testningen. Azure tillhandahåller portalen och e-postaviseringar när du närmar sig dagliga gränsen.  Men om du missar aviseringarna och nått gränsen för nya loggar visas inte i Application Insights-frågor. Så var medveten om gränsen för att undvika onödiga tidsåtgången för felsökning. Mer information finns i [hantera priser och datavolymer i Application Insights](../azure-monitor/app/pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>Aktivera App Insights-integrering
 
@@ -85,7 +85,7 @@ När du har konfigurerat Application Insights-integrering som visas i föregåen
 
 1. Välj **uppdatera** regelbundet tills listan funktionsanrop visas.
 
-   Det kan ta upp till 5 minuter för en lista visas, beroende på sättet telemetridata för klienten som batchar för överföring till servern. (Den här fördröjningen gäller inte för den [Live Metrics Stream](../application-insights/app-insights-live-stream.md). Tjänsten ansluter till Functions värden när du läser in sidan, så att loggarna strömmas direkt till sidan.)
+   Det kan ta upp till 5 minuter för en lista visas, beroende på sättet telemetridata för klienten som batchar för överföring till servern. (Den här fördröjningen gäller inte för den [Live Metrics Stream](../azure-monitor/app/live-stream.md). Tjänsten ansluter till Functions värden när du läser in sidan, så att loggarna strömmas direkt till sidan.)
 
    ![Anrop listan](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -115,7 +115,7 @@ Mer information finns i [fråga telemetridata](#query-telemetry-data) senare i d
 
 Information om hur du använder Application Insights finns i den [dokumentation om Application Insights](https://docs.microsoft.com/azure/application-insights/). Det här avsnittet visas några exempel på hur du visar data i Application Insights. Om du redan är bekant med Application Insights kan du gå direkt till [avsnitt om att konfigurera och anpassa telemetridata](#configure-categories-and-log-levels).
 
-I [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), du kan skapa diagram och aviseringar baserat på mått, till exempel som antalet funktionsanrop körningstid och Slutförandefrekvens.
+I [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), du kan skapa diagram och aviseringar baserat på mått, till exempel som antalet funktionsanrop körningstid och Slutförandefrekvens.
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -123,7 +123,7 @@ På den [fel](../azure-monitor/app/asp-net-exceptions.md) fliken kan du skapa di
 
 ![Fel](media/functions-monitoring/failures.png)
 
-På den [prestanda](../application-insights/app-insights-performance-counters.md) fliken du kan analysera problem med prestanda.
+På den [prestanda](../azure-monitor/app/performance-counters.md) fliken du kan analysera problem med prestanda.
 
 ![Prestanda](media/functions-monitoring/performance.png)
 
@@ -131,7 +131,7 @@ Den **servrar** fliken visar Resursanvändning och dataflöde per server. Dessa 
 
 ![Servrar](media/functions-monitoring/servers.png)
 
-Den [Live Metrics Stream](../application-insights/app-insights-live-stream.md) fliken visar måttdata som den har skapats i realtid.
+Den [Live Metrics Stream](../azure-monitor/app/live-stream.md) fliken visar måttdata som den har skapats i realtid.
 
 ![Direktsänd ström](media/functions-monitoring/live-stream.png)
 
@@ -329,7 +329,7 @@ Enligt vad som anges i föregående avsnitt, aggregerar körningen data om funkt
 
 ## <a name="configure-sampling"></a>Konfigurera sampling
 
-Application Insights har en [sampling](../application-insights/app-insights-sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata vid tidpunkter med hög belastning. När mängden inkommande telemetri överskrider ett angivet tröskelvärde, startar Application Insights att ignorera slumpmässigt några av de inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är 5. Du kan konfigurera linjer i [host.json](functions-host-json.md).  Här är ett exempel:
+Application Insights har en [sampling](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata vid tidpunkter med hög belastning. När mängden inkommande telemetri överskrider ett angivet tröskelvärde, startar Application Insights att ignorera slumpmässigt några av de inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är 5. Du kan konfigurera linjer i [host.json](functions-host-json.md).  Här är ett exempel:
 
 ### <a name="version-2x"></a>Version 2.x 
 
@@ -360,7 +360,7 @@ Application Insights har en [sampling](../application-insights/app-insights-samp
 ```
 
 > [!NOTE]
-> [Sampling](../application-insights/app-insights-sampling.md) är aktiverat som standard. Om du verkar sakna data, kan du bara behöva justera inställningarna för sampling så att de passar din övervakning scenariot.
+> [Sampling](../azure-monitor/app/sampling.md) är aktiverat som standard. Om du verkar sakna data, kan du bara behöva justera inställningarna för sampling så att de passar din övervakning scenariot.
 
 ## <a name="write-logs-in-c-functions"></a>Sparar loggar på C#-funktioner
 

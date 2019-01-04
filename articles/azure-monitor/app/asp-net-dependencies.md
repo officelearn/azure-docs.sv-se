@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: de260560f141691fc1a7c0dd3bfad262d2d79598
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969870"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025580"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: Beroendespårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](../../application-insights/app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -121,7 +121,7 @@ Det verkar vara ett stort mellanrum efter det första beroendet anropar, så vi 
 
 ### <a name="profile-your-live-site"></a>Profilera live-webbplatsen
 
-Ingen aning där tiden går? Den [Application Insights-profileraren](../../application-insights/app-insights-profiler.md) spårningar HTTP-anrop till din live-webbplatsen och visar vilka funktioner i din kod tog den längsta tid.
+Ingen aning där tiden går? Den [Application Insights-profileraren](../../azure-monitor/app/profiler.md) spårningar HTTP-anrop till din live-webbplatsen och visar vilka funktioner i din kod tog den längsta tid.
 
 ## <a name="failed-requests"></a>Misslyckade förfrågningar
 Misslyckade förfrågningar kan också vara kopplad till misslyckade anrop till beroenden. Vi kan igen, klicka vidare för att hitta orsaken till problemet.

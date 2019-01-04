@@ -13,12 +13,12 @@ ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 47d04f6e73d95a7cb1ba63c437b97468041af57f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0450feb82e539ebd73c3013e066104b29916238d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189871"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018780"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Vad är gruppbaserad licensiering i Azure Active Directory?
 
@@ -36,7 +36,7 @@ Du måste ha något av följande licenser du använder gruppbaserad licensiering
 - Betald eller utvärderingslicens versionen av Office 365 Enterprise E3 eller Office 365 A3 och senare
 
 ### <a name="required-number-of-licenses"></a>Nödvändigt antal licenser
-Du måste också ha en licens för varje unikt ingår för alla grupper som har tilldelats en licens. Även om du inte behöver tilldela varje medlem i gruppen en licens måste du ha tillräckligt med licenser för att inkludera alla medlemmar. Om du har 1 000 unika medlemmar som är en del av licensierade grupper i din klient för exemplet, måste du ha minst 1 000 licenser för att uppfylla licensavtalet.
+Du måste också ha en licens för varje unikt ingår för alla grupper som har tilldelats en licens. Även om du inte behöver tilldela varje medlem i gruppen en licens måste du ha tillräckligt med licenser för att inkludera alla medlemmar. Om du har 1 000 unika medlemmar som är en del av licensierade grupper i din klient, måste du ha minst 1 000 licenser för att uppfylla licensavtalet.
 
 ## <a name="features"></a>Funktioner
 

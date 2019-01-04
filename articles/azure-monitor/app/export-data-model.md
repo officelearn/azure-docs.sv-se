@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: a3cab6af86a18e23199437c91b6d07102e783cd1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971281"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016134"
 ---
 # <a name="application-insights-export-data-model"></a>Datamodell för Application Insights-Export
 Den här tabellen anger egenskaperna för telemetri som skickas från den [Application Insights](../../application-insights/app-insights-overview.md) SDK: er till portalen.
 Ser du de här egenskaperna i utdata från [löpande Export](export-telemetry.md).
-De visas också i egenskapsfilter i [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md) och [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md).
+De visas också i egenskapsfilter i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) och [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md).
 
 Saker att Observera:
 
@@ -158,7 +158,7 @@ Anpassade händelser som genererats av [TrackEvent()](../../azure-monitor/app/ap
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| händelseantal [0] |heltal |100 / ([sampling](../../application-insights/app-insights-sampling.md) pris). Till exempel 4 =&gt; 25%. |
+| händelseantal [0] |heltal |100 / ([sampling](../../azure-monitor/app/sampling.md) pris). Till exempel 4 =&gt; 25%. |
 | händelsenamn [0] |sträng |Händelsenamn.  Maxlängd 250. |
 | URL: en för händelsen [0] |sträng | |
 | händelsen [0] urlData.base |sträng | |
@@ -170,7 +170,7 @@ Rapporter [undantag](../../azure-monitor/app/asp-net-exceptions.md) på servern 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | basicException [0] sammansättning |sträng | |
-| basicException [0] antal |heltal |100 / ([sampling](../../application-insights/app-insights-sampling.md) pris). Till exempel 4 =&gt; 25%. |
+| basicException [0] antal |heltal |100 / ([sampling](../../azure-monitor/app/sampling.md) pris). Till exempel 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |sträng | |
 | basicException [0] exceptionType |sträng | |
 | basicException [0] failedUserCodeMethod |sträng | |
@@ -211,7 +211,7 @@ Skickas av TrackDependency. Används för att rapportprestanda och användning a
 | asynkrona remoteDependency [0] |boolesk | |
 | remoteDependency [0] baseName |sträng | |
 | remoteDependency [0] commandName |sträng |Till exempel ”home/index” |
-| remoteDependency [0] antal |heltal |100 / ([sampling](../../application-insights/app-insights-sampling.md) pris). Till exempel 4 =&gt; 25%. |
+| remoteDependency [0] antal |heltal |100 / ([sampling](../../azure-monitor/app/sampling.md) pris). Till exempel 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |sträng |HTTP, SQL... |
 | remoteDependency [0] durationMetric.value |nummer |Tid vid anrop till slutförandet av svar av beroende |
 | remoteDependency [0]-id |sträng | |
@@ -229,7 +229,7 @@ Skickas av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#t
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| Antal förfrågningar [0] |heltal |100 / ([sampling](../../application-insights/app-insights-sampling.md) pris). Exempel: 4 =&gt; 25%. |
+| Antal förfrågningar [0] |heltal |100 / ([sampling](../../azure-monitor/app/sampling.md) pris). Exempel: 4 =&gt; 25%. |
 | begäran [0] durationMetric.value |nummer |Tid från begäran kommer att svaret. 1e7 == 1s |
 | id för förfrågan [0] |sträng |Åtgärds-ID |
 | namnet på begäran [0] |sträng |GET/POST + url-bas.  Maxlängd 250 |
@@ -264,7 +264,7 @@ Skickas av trackPageView() eller [stopTrackPage](../../azure-monitor/app/api-cus
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| visningar [0] |heltal |100 / ([sampling](../../application-insights/app-insights-sampling.md) pris). Till exempel 4 =&gt; 25%. |
+| visningar [0] |heltal |100 / ([sampling](../../azure-monitor/app/sampling.md) pris). Till exempel 4 =&gt; 25%. |
 | Visa [0] durationMetric.value |heltal |Värdet som du kan också ställa i trackPageView() eller genom att startTrackPage() - stopTrackPage(). Inte lika clientPerformance värden. |
 | vynamn [0] |sträng |Sidrubrik.  Maxlängd 250 |
 | Visa [0] url |sträng | |
@@ -279,7 +279,7 @@ Rapporter [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-
 | --- | --- | --- |
 | tillgänglighet [0] availabilityMetric.name |sträng |availability |
 | tillgänglighet [0] availabilityMetric.value |nummer |1.0 eller 0,0 |
-| tillgänglighet [0] antal |heltal |100 / ([sampling](../../application-insights/app-insights-sampling.md) pris). Till exempel 4 =&gt; 25%. |
+| tillgänglighet [0] antal |heltal |100 / ([sampling](../../azure-monitor/app/sampling.md) pris). Till exempel 4 =&gt; 25%. |
 | tillgänglighet [0] dataSizeMetric.name |sträng | |
 | tillgänglighet [0] dataSizeMetric.value |heltal | |
 | tillgänglighet [0] durationMetric.name |sträng | |
@@ -341,7 +341,7 @@ Syftet med de andra fälten är att mått ska aggregeras i SDK, för att minska 
 
 I tabellerna ovan har vi utelämnas används sällan fält count, min, max, stdDev och sampledValue.
 
-I stället förväg sammanställning av mått, kan du använda [sampling](../../application-insights/app-insights-sampling.md) om du vill minska mängden telemetri.
+I stället förväg sammanställning av mått, kan du använda [sampling](../../azure-monitor/app/sampling.md) om du vill minska mängden telemetri.
 
 ### <a name="durations"></a>Varaktighet
 Förutom där annat anges, representeras varaktigheter i tiondels databehandlingsnoder, så att 10000000.0 innebär 1 sekund.

@@ -9,17 +9,16 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242848"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015839"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -63,13 +62,13 @@ I det här steget använder du Azure-portalen för att skapa en Azure Data Facto
     ![Lägg till på startsidan](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **datafabriksnamnet ”ADFTutorialOnPremDF” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameADFTutorialOnPremDF) och försöker skapa igen. Använd det här namnet i stället för ADFTutorialOnPremDF när du utför stegen i den här självstudien.
+   > Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”ADFTutorialOnPremDF” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameADFTutorialOnPremDF) och försöker skapa igen. Använd det här namnet i stället för ADFTutorialOnPremDF när du utför stegen i den här självstudien.
    >
    > Namnet på datafabriken kan registreras som en **DNS** namn i framtiden och blir då synligt offentligt.
    >
    >
 4. Välj den **Azure-prenumeration** där du vill att datafabriken ska skapas.
-5. Välj befintlig **resursgrupp** eller skapa en resursgrupp. För den här självstudien skapar du en resursgrupp med namnet: **ADFTutorialResourceGroup**.
+5. Välj befintlig **resursgrupp** eller skapa en resursgrupp. Skapa en resursgrupp med namnet för den här självstudien: **ADFTutorialResourceGroup**.
 6. Klicka på **skapa** på den **ny datafabrik** sidan.
 
    > [!IMPORTANT]
@@ -281,7 +280,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
    * **folderPath** är inställd på **adftutorial/outfromonpremdf** där outfromonpremdf är mappen i behållaren adftutorial. Skapa den **adftutorial** behållaren om den inte redan finns.
    * **Tillgängligheten** anges till **varje timme** (**frekvens** inställd på **timme** och **intervall** inställd på **1**).  Data Factory-tjänsten genererar en utdatasektor varje timme i den **emp** tabell i Azure SQL-databasen.
 
-   Om du inte anger en **fileName** för en **utdatatabell**, genereras filer i den **folderPath** namnges i följande format: Data.<Guid>.txt (till exempel: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Om du inte anger en **fileName** för en **utdatatabellen**, genereras filerna i den **folderPath** namnges i följande format: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt.).
 
    Ange **folderPath** och **fileName** dynamiskt utifrån den **SliceStart** tid, Använd egenskapen partitionedBy. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2014-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2014/10/20 och fileName anges till 08.csv.
 

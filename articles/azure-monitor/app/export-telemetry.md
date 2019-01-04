@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973272"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025274"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än kvarhållningsperioden standard? Eller bearbeta dem i något specialiserade sätt? Löpande Export är perfekt för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagringen i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriver det kod som du behöver bearbetas.  
@@ -71,14 +71,14 @@ Ta bort den om du vill stoppa exporten permanent. Detta tar inte bort dina data 
 ## <a name="analyze"></a> Vilka händelser får du?
 Exporterade data är råtelemetridata som vi får från ditt program, förutom att vi lägga till platsdata som vi beräknar från klientens IP-adress.
 
-Data som har tagits bort av [sampling](../../application-insights/app-insights-sampling.md) ingår inte i den exporterade data.
+Data som har tagits bort av [sampling](../../azure-monitor/app/sampling.md) ingår inte i den exporterade data.
 
 Det ingår inte andra beräknade mått. Exempelvis kan vi exportera inte genomsnittliga CPU-användningen, men vi exporterar råtelemetridata som från vilken medelvärdet beräknas.
 
 Informationen omfattar även resultaten av eventuella [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) som du har konfigurerat.
 
 > [!NOTE]
-> **Sampling.** Om ditt program skickar stora mängder data, kan sampling-funktionen fungerar och skicka bara en bråkdel av telemetri som genereras. [Läs mer om sampling.](../../application-insights/app-insights-sampling.md)
+> **Sampling.** Om ditt program skickar stora mängder data, kan sampling-funktionen fungerar och skicka bara en bråkdel av telemetri som genereras. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ På större skalar du [HDInsight](https://azure.microsoft.com/services/hdinsight
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

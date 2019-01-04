@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423736"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020786"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktiviteten i Azure Data Factory
 ForEach-aktiviteten definierar ett upprepat Kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
@@ -86,7 +85,7 @@ Om **isSequential** är inställd på false, aktiviteten itererar parallellt med
 Ange en matris att upprepas för egenskapen i ForEach-aktiviteten **objekt**”. Använd `@item()` iterera över en enskild uppräkning i ForEach-aktiviteten. Till exempel om **objekt** är en matris: [1, 2, 3], `@item()` returnerar 1 i den första upprepningen 2 i den andra iterationen och 3 i den tredje iterationen.
 
 ## <a name="iterating-over-a-single-activity"></a>Iterera över en enskild aktivitet
-**Scenario:** kopiera från samma käll-filen i Azure Blob till flera målfiler i Azure Blob.
+**Scenario:** Kopiera från samma käll-filen i Azure Blob till flera målfiler i Azure Blob.
 
 ### <a name="pipeline-definition"></a>Pipeline-definition
 
@@ -237,7 +236,7 @@ Det är möjligt att iterera över flera aktiviteter (till exempel: kopiera och 
 
 ```
 ### <a name="example"></a>Exempel
-**Scenario:** Iterate över en InnerPipeline inom en ForEach-aktivitet med aktiviteten kör Pipeline. Inre pipelinen kopierar med schemadefinitioner som innehåller parametrar.
+**Scenario:** Iterera över en InnerPipeline inom en ForEach-aktivitet med aktiviteten kör Pipeline. Inre pipelinen kopierar med schemadefinitioner som innehåller parametrar.
 
 #### <a name="master-pipeline-definition"></a>Master Pipeline-definition
 

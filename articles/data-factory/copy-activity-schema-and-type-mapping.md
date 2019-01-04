@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 54c334aa9363ac5ca75cc4ad5b107524f502011e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810619"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025461"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktiviteten
 Den här artikeln beskriver hur Azure Data Factory Kopieringsaktivitet utför schemamappning och datatypmappningen från källdata till mottagare data när kör Datakopieringen.
@@ -145,7 +144,7 @@ Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGro
 
 Schemamappning gäller när kopiering av data mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfilen och kopiera från SQL till Azure Cosmos DB MongoDB API. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
 | schemaMapping | En samling nyckel / värde-par som representerar mappning relationen från tabular sida till hierarkiska sida.<br/>- **Nyckel:** kolumnnamnet för tabelldata som definierats i datauppsättningsstrukturen.<br/>- **Värde:** JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `collectionReference` börjar du från matriselementet.  | Ja |

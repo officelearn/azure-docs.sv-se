@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: b8c7abacbf99bfbf68b7dd76a01011c8220bf9f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608468"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001285"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -105,13 +105,19 @@ När du migrerar din databas från en DTU-baserade tjänstnivå med standard PIT
 Du kan ändra standard PITR kvarhållningsperioden för säkerhetskopior med hjälp av Azure Portal, PowerShell eller REST API. Värdena som stöds är: 7, 14, 21, 28 eller 35 dagar. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar.
 
 > [!NOTE]
-> Thes APIs påverkar endast PITR kvarhållningsperioden. Om du har konfigurerat LTR för din databas kommer det inte att påverkas. Läs mer om hur du ändrar de LTR kvarhållning perioder [långsiktig kvarhållning](sql-database-long-term-retention.md).
+> Dessa API: er påverkar endast PITR kvarhållningsperioden. Om du har konfigurerat LTR för din databas kommer det inte att påverkas. Läs mer om hur du ändrar de LTR kvarhållning perioder [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Ändra PITR kvarhållningsperiod för säkerhetskopiering med Azure portal
 
-Om du vill ändra PITR kvarhållningsperioden för säkerhetskopior med Azure-portalen, gå till databasen vars kvarhållningsperioden som du vill ändra och klicka sedan på **översikt**.
+Ändra PITR kvarhållningsperioden för säkerhetskopior med Azure-portalen, gå till server-objekt vars kvarhållningsperioden som du vill ändra i portalen och väljer sedan ett lämpligt alternativ baserat på vilken server-objekt du ändrar. 
 
-![Ändra PITR Azure-portalen](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>Ändra PITR för en logisk server
+
+![Ändra PITR Azure-portalen](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Ändra PITR för en hanterad instans
+
+![Ändra PITR Azure-portalen](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Ändra PITR kvarhållningsperiod för säkerhetskopior med hjälp av PowerShell
 

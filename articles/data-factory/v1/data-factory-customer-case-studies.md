@@ -9,17 +9,16 @@ ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495908"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019089"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - kundfallstudier
 Data Factory är en molnbaserad information management-tjänst som automatiserar flytt och omvandling av data. Kunder i många branscher använda Data Factory och andra Azure-tjänster och skapa sina analytics-pipelines som du kan lösa sina affärsproblem.  Lär dig direkt från våra kunder hur och varför de använder Data Factory.

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082654"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014139"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -55,7 +54,7 @@ Kopieringsaktivitet går igenom följande steg för att kopiera data från en k�
 
 Du kan använda Kopieringsaktivitet som **kopiera filer som – är** mellan två filbaserat datalager, där fallet data kopieras effektivt utan att någon serialisering/deserialisering.
 
-Kopieringsaktivitet stöder också läsa från och skriva till filer i angivna format: **Text, JSON, Avro, ORC och Parquet**, och komprimerings-codec **GZip, Deflate, BZip2 och ZipDeflate** stöds. Se [stöds format och komprimering](supported-file-formats-and-compression-codecs.md) med information.
+Kopieringsaktivitet har också stöd för att läsa från och skriva till filer i angivna format: **Text, JSON, Avro, ORC och Parquet**, och komprimerings-codec **GZip, Deflate, BZip2 och ZipDeflate** stöds. Se [stöds format och komprimering](supported-file-formats-and-compression-codecs.md) med information.
 
 Du kan exempelvis göra följande kopieringsaktiviteter:
 
@@ -130,7 +129,7 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för en Kopieringsaktivitet måste anges till: **kopia** | Ja |
+| typ | Type-egenskapen för en Kopieringsaktivitet måste anges till: **Kopiera** | Ja |
 | indata | Ange den datauppsättning som du skapade som pekar till källdata. Kopieringsaktivitet stöder bara en enda indata. | Ja |
 | utdata | Ange den datauppsättning som du skapade som pekar till mottagardata. Kopieringsaktivitet stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper för att konfigurera kopieringsaktiviteten. | Ja |

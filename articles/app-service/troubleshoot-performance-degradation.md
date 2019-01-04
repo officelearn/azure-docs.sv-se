@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726654"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016553"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsamma app prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka långsam prestandaproblem i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -114,7 +114,7 @@ Du kan aktivera Application Insights Profiler att börja samla in detaljerade pr
 
 Application Insights Profiler innehåller statistik om svarstid för varje webbanrop och spårningar som visar vilken kodrad orsakas långsamma svar. Ibland App Service-appen är långsam eftersom vissa kod inte skrivs på ett effektivt sätt. Exempel är sekventiella kod som kan köras i parallella program och oönskade databasen låskonkurrens. Ta bort dessa flaskhalsar i koden ökar appens prestanda, men de är svåra att identifiera utan att ställa in avancerade spårningar och loggar. Spårningar som samlas in av Application Insights Profiler kan identifiera rader med kod som saktar ned programmet och lösa denna utmaning för App Service-appar.
 
- Mer information finns i [Profiling live-appar i Azure App Service med Application Insights](../application-insights/app-insights-profiler.md).
+ Mer information finns i [Profiling live-appar i Azure App Service med Application Insights](../azure-monitor/app/profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Använda Fjärrprofilering
 Mobila serverdelar i Azure App Service, webbappar, API apps och WebJobs kan profileras via en fjärranslutning. Välj det här alternativet om du har åtkomst till resursen i appen och du vet hur du återskapa problemet, eller om du vet det exakta tidsintervallet prestandaproblemet händer.

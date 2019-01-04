@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 44b80a395ce29d67912f822c806246bdd97b59b6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ce259c2091fc2aec81cd85d4b1e3bd85ee92c806
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972846"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024356"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt dig om potentiella prestandaproblem i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
@@ -41,8 +41,8 @@ Välj en avisering om du vill visa dess information.
 ## <a name="what-problems-are-detected"></a>Vilka problem har identifierats?
 Det finns tre typer av identifiering:
 
-* [Smart identifiering – Felavvikelser](app-insights-proactive-failure-diagnostics.md). Vi använder maskininlärning att ange förväntade frekvensen för misslyckade begäranden för din app, korrelera med belastning och andra faktorer. Om misslyckade går utanför det förväntade kuvertet kan skicka vi en avisering.
-* [Smart identifiering – Prestandaavvikelser](app-insights-proactive-performance-diagnostics.md). Du får meddelanden om svarstid för en åtgärd eller beroende varaktighet långsammare jämfört med historisk baslinje eller om vi identifierar ett avvikande mönster i svarstid eller sidinläsningstiden.   
+* [Smart identifiering – Felavvikelser](../azure-monitor/app/proactive-failure-diagnostics.md). Vi använder maskininlärning att ange förväntade frekvensen för misslyckade begäranden för din app, korrelera med belastning och andra faktorer. Om misslyckade går utanför det förväntade kuvertet kan skicka vi en avisering.
+* [Smart identifiering – Prestandaavvikelser](../azure-monitor/app/proactive-performance-diagnostics.md). Du får meddelanden om svarstid för en åtgärd eller beroende varaktighet långsammare jämfört med historisk baslinje eller om vi identifierar ett avvikande mönster i svarstid eller sidinläsningstiden.   
 * [Smart identifiering – Azure Cloud Service problem](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Du får aviseringar om din app finns i Azure Cloud Services och en rollinstans har startfel, vanligt återkommande återanvändning eller runtime-krascher.
 
 (Hjälplänkar i varje meddelande tar dig till artiklarna.)
@@ -54,7 +54,7 @@ Det finns tre typer av identifiering:
 ## <a name="next-steps"></a>Nästa steg
 Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
-* [Metric explorer](app-insights-metrics-explorer.md)
+* [Metric explorer](../azure-monitor/app/metrics-explorer.md)
 * [Sökutforskaren](../azure-monitor/app/diagnostic-search.md)
 * [Analytics – kraftfullt frågespråk](../azure-monitor/log-query/get-started-portal.md)
 

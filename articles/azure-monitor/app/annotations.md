@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24b737b8403c185bc118b18473cadb3535ad1c34
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808731"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002084"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på måttdiagram i Application Insights
 
-Anteckningar på [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) diagrammen visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon effekt på prestanda för ditt program. De kan skapas automatiskt av den [Azure DevOps-tjänsterna buildsystemet](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Du kan också skapa anteckningar för att flagga en händelse om du vill genom att [skapa dem från PowerShell](#create-annotations-from-powershell).
+Anteckningar på [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) diagrammen visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon effekt på prestanda för ditt program. De kan skapas automatiskt av den [Azure DevOps-tjänsterna buildsystemet](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Du kan också skapa anteckningar för att flagga en händelse om du vill genom att [skapa dem från PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
 > Den här artikeln visar det inaktuella **klassiska mått uppleva**. Anteckningar är bara tillgängliga i den klassiska upplevelsen och i  **[arbetsböcker](../../application-insights/app-insights-usage-workbooks.md)**. Mer information om aktuella mått upplevelse, finns [i den här artikeln](../../azure-monitor/platform/metrics-charts.md).
@@ -107,4 +107,4 @@ Det är enkelt att ändra skriptet, till exempel för att skapa anteckningar fö
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa arbetsobjekt](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automatisering med PowerShell](../../application-insights/app-insights-powershell.md)
+* [Automatisering med PowerShell](../../azure-monitor/app/powershell.md)

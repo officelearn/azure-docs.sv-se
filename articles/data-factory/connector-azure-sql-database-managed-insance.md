@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706729"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025087"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Database Managed Instance med Azure Data Factory
 
@@ -48,7 +47,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **SqlServer** | Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till den hanterade instansen med SQL-autentisering eller Windows-autentisering. Se följande exempel. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -80,7 +79,7 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
 }
 ```
 
-**Exempel 2: Använda Windows-autentisering**
+**Exempel 2: Med hjälp av Windows-autentisering**
 
 ```json
 {
@@ -251,7 +250,7 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **SqlSink** | Ja |
 | WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (standard: 10000) |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |
 | preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten till att köra innan du skriver data till hanterade instansen. Det ska bara anropas en gång per kopia som kör. Du kan använda den här egenskapen för att rensa tidigare inlästa data. |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen, t.ex. att göra upsertar eller transformering med egen affärslogik. <br/><br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `preCopyScript` egenskapen. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
@@ -260,7 +259,7 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 > [!TIP]
 > När du kopierar data till Azure SQL Database Managed Instance läggs kopieringsaktiviteten data till tabellen mottagare som standard. Använd den lagrade proceduren i SqlSink för att utföra en UPSERT eller ytterligare affärslogik. Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
-**Exempel 1: Lägga till data**
+**Exempel 1: Data läggs till**
 
 ```json
 "activities":[
@@ -292,7 +291,7 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 ]
 ```
 
-**Exempel 2: Anropar en lagrad procedur vid kopiering för upsert**
+**Exempel 2: Anropa en lagrad procedur vid kopiering för upsert**
 
 Lär dig mer från [när lagrade proceduren for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -406,7 +405,7 @@ När du kopierar data till Azure SQL Database Managed Instance är en användard
 
 En lagrad procedur kan användas när inbyggd kopiera mekanismer inte skickar syftet. Den används vanligtvis när upsert (insert + uppdatering) eller extra bearbetning (sammanslagning kolumner, leta upp ytterligare värden, infogning i flera tabeller, etc.) måste göras innan sista inmatningen av källdata i tabellen.
 
-I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i den hanterade instansen. Förutsatt att indata och tabellen ”marknadsföring” mottagare har tre kolumner: profil-ID, tillstånd och kategori. Utför upsert baserat på kolumnen ”profil-ID” och gäller endast för en specifik kategori.
+I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i den hanterade instansen. Förutsatt att indata och tabellen ”marknadsföring” mottagare har tre kolumner: Profil-ID, tillstånd och kategori. Utför upsert baserat på kolumnen ”profil-ID” och gäller endast för en specifik kategori.
 
 **Datauppsättningen för utdata**
 

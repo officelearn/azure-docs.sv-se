@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275694"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016922"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,11 +58,11 @@ Följande egenskaper har stöd för Oracle-länkade tjänsten.
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till **Oracle**. | Ja |
-| connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
+| connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: Du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!TIP]
->Om du stöter på fel som säger ”ORA-01025: UPI parametern är utanför intervallet” och din Oracle är av version 8i, lägga till `WireProtocolMode=1` till din anslutningssträng och försök igen.
+>Om du stöter på fel som säger ”ORA-01025: UPI parametern är utanför intervallet ”och din Oracle är av version 8i, lägga till `WireProtocolMode=1` till din anslutningssträng och försök igen.
 
 **Aktivera kryptering på Oracle anslutning**, har du två alternativ:
 

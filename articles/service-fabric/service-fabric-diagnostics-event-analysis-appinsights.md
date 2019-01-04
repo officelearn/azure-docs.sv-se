@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753103"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001778"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -120,7 +120,7 @@ Om du utvecklar i .NET och kommer sannolikt att använda några av Service Fabri
 
 När du har konfigurerat Application Insights som utdata för dina händelser och loggar, starta information visas i Application Insights-resursen på några få minuter. Gå till Application Insights-resurs som tar dig till instrumentpanelen för Application Insights-resurs. Klicka på **Search** i Application Insights-Aktivitetsfältet att se senaste spårningarna som har tagit emot och för att kunna filtrera igenom dem för.
 
-*Metrics Explorer* är användbart för att skapa anpassade instrumentpaneler baserat på mått som dina program, tjänster och -kluster kan reporting. Se [utforska mått i Application Insights](../application-insights/app-insights-metrics-explorer.md) att ställa in några diagram för själv baserat på de data som du kan samla in.
+*Metrics Explorer* är användbart för att skapa anpassade instrumentpaneler baserat på mått som dina program, tjänster och -kluster kan reporting. Se [utforska mått i Application Insights](../azure-monitor/app/metrics-explorer.md) att ställa in några diagram för själv baserat på de data som du kan samla in.
 
 Klicka på **Analytics** tar dig till Application Insights Analytics-portalen där du kan fråga efter händelser och spårningar med större omfång och alternativ. Läs mer om detta på [analys i Application Insights](../azure-monitor/app/analytics.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: a993e35282c0c49ae4e3f2ff9f2314f12d779438
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8de7ed00114a11b4c765bfa9f9ae42529ef53f7f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981182"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024033"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
@@ -38,7 +38,7 @@ Här är en sammanfattning av vad du får med respektive väg:
 | Förfrågningar och undantag |Ja |Ja |
 | [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Ja |
 | [Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
-| [Systemprestandaräknare](../../application-insights/app-insights-performance-counters.md) |Ja |Ja |
+| [Systemprestandaräknare](../../azure-monitor/app/performance-counters.md) |Ja |Ja |
 | [API för anpassad telemetri][api] |Ja |Nej |
 | [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Ja |Nej |
 | [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Ja |Nej |
@@ -256,7 +256,7 @@ För program som redan har instrumenterats vid kompilering:
 
 Visa telemetrin:
 
-* [Utforska mått](../../application-insights/app-insights-metrics-explorer.md) för att övervaka prestanda och användning
+* [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem
 * [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
 * [Skapa instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md)
@@ -275,5 +275,5 @@ Lägg till mer telemetri:
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

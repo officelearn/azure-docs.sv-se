@@ -1,13 +1,10 @@
 ---
-title: Skapa en Azure-nätverk peering - Resource Manager – olika prenumerationer | Microsoft Docs
+title: Skapa en Azure-nätverk peering - Resource Manager – olika prenumerationer
+titlesuffix: Azure Virtual Network
 description: Lär dig hur du skapar en virtuell nätverkspeering mellan virtuella nätverk som skapats via Resource Manager och som finns i olika Azure-prenumerationer.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727485"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014978"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa en virtuell nätverkspeering - resurshanteraren, olika prenumerationer
 
@@ -70,7 +67,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
     - **Adressutrymme**: *10.1.0.0/16*
     - **Undernätsnamn**: *standard*
     - **Adressintervall för undernätet**: *10.1.0.0/24*
-    - **Prenumeration**: Välj prenumeration B.
+    - **Prenumeration**: Välj en prenumeration B.
     - **Resursgrupp**: Välj **Skapa nytt** och ange *myResourceGroupB*
     - **Plats**: *USA, östra*
 
@@ -84,10 +81,10 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
 20. Under **myVnetA - Peerings**väljer **+ Lägg till**
 21. Under **Lägg till peering**, anger, eller Välj följande alternativ och väljer sedan **OK**:
      - **Namnet**: *myVnetAToMyVnetB*
-     - **Distributionsmodell för virtuellt nätverk**: Välj **Resource Manager**.
-     - **Jag vet mitt resurs-ID**: den här kryssrutan.
+     - **Distributionsmodell för virtuellt nätverk**:  Välj **Resource Manager**.
+     - **Jag vet mitt resurs-ID**: Markera den här kryssrutan.
      - **Resurs-ID**: Ange resurs-ID från steg 14.
-     - **Tillåt åtkomst till virtuellt nätverk:** kontrollerar du att **aktiverad** har valts.
+     - **Tillåt åtkomst till virtuellt nätverk:** Se till att **aktiverad** har valts.
     Inga andra inställningar som används i den här självstudien. Läs om alla inställningar för peering [hantera peerkopplingar mellan virtuella nätverk](virtual-network-manage-peering.md#create-a-peering).
 22. Peer-kopplingen du har skapat visas en kort stund när du har valt **OK** i föregående steg. **Initierade** visas i den **PEERING STATUS** kolumnen för den **myVnetAToMyVnetB** peering du skapade. Du har peer-kopplade myVnetA till myVnetB, men du måste nu peer-myVnetB till myVnetA. Peer-kopplingen måste skapas i båda riktningarna att resurser i de virtuella nätverken kan kommunicera med varandra.
 23. Logga ut från portalen som UserA och logga in som användare b.
@@ -95,7 +92,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
 25. Några sekunder efter att ha valt **OK** att skapa peering för myVnetB, den **myVnetBToMyVnetA** peering du nyss skapade visas den med **ansluten** i **PEERING STATUS** kolumn.
 26. Logga ut från portalen som UserB och logga in som UserA.
 27. Slutför steg 17-19 igen. Den **PEERING STATUS** för den **myVnetAToVNetB** peering är nu också **ansluten**. Peer-kopplingen har upprättats efter att du ser **ansluten** i den **PEERING STATUS** kolumn för båda virtuella nätverken i peer-kopplingen. Azure-resurser som du skapar i de virtuella nätverken är nu kunna kommunicera med varandra via sina IP-adresser. Om du använder standard Azure namnmatchning för virtuella nätverk, är resurser i de virtuella nätverken inte kan matcha namnen på de virtuella nätverken. Om du vill matcha namn för virtuella nätverk i en peering, måste du skapa en egen DNS-server. Lär dig hur du ställer in [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-28. **Valfritt**: även om skapandet av virtuella datorer inte ingår i den här självstudien, du kan skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
+28. **Valfritt**: Även om skapandet av virtuella datorer inte ingår i den här självstudiekursen, kan du skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
 29. **Valfritt**: Om du vill ta bort de resurser som du skapar i den här självstudien måste du slutföra stegen i den [ta bort resurser](#delete-portal) i den här artikeln.
 
 ## <a name="cli"></a>Skapa peering – Azure CLI
@@ -173,7 +170,7 @@ Du kan använda Azure Cloud Shell istället för att installera CLI och dess ber
     > [!NOTE]
     > Peer-kopplingen är inte upprättad förrän peering-tillståndet är **ansluten** för båda virtuella nätverken.
 
-11. **Valfritt**: även om skapandet av virtuella datorer inte ingår i den här självstudien, du kan skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
+11. **Valfritt**: Även om skapandet av virtuella datorer inte ingår i den här självstudiekursen, kan du skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
 12. **Valfritt**: Om du vill ta bort de resurser som du skapar i den här självstudien måste du slutföra stegen i [ta bort resurser](#delete-cli) i den här artikeln.
 
 Azure-resurser som du skapar i de virtuella nätverken är nu kunna kommunicera med varandra via sina IP-adresser. Om du använder standard Azure namnmatchning för virtuella nätverk, är resurser i de virtuella nätverken inte kan matcha namnen på de virtuella nätverken. Om du vill matcha namn för virtuella nätverk i en peering, måste du skapa en egen DNS-server. Lär dig hur du ställer in [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -243,7 +240,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
 
     Azure-resurser som du skapar i de virtuella nätverken är nu kunna kommunicera med varandra via sina IP-adresser. Om du använder standard Azure namnmatchning för virtuella nätverk, är resurser i de virtuella nätverken inte kan matcha namnen på de virtuella nätverken. Om du vill matcha namn för virtuella nätverk i en peering, måste du skapa en egen DNS-server. Lär dig hur du ställer in [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-13. **Valfritt**: även om skapandet av virtuella datorer inte ingår i den här självstudien, du kan skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
+13. **Valfritt**: Även om skapandet av virtuella datorer inte ingår i den här självstudiekursen, kan du skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
 14. **Valfritt**: Om du vill ta bort de resurser som du skapar i den här självstudien måste du slutföra stegen i [ta bort resurser](#delete-powershell) i den här artikeln.
 
 ## <a name="template"></a>Skapa peering - Resource Manager-mall
@@ -285,10 +282,10 @@ Om de virtuella nätverken finns i olika prenumerationer, och prenumerationerna 
 
 3. Logga in på Azure som UserA och distribuera mallen med hjälp av den [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), eller [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Ange namnet på filen som du sparade exemplet json-texten i steg 2 till.
 4. Kopiera exempel-json från steg 2 till en fil på din dator och göra ändringar i raderna som börjar med:
-    - **namnet**: ändra *myVnetA/myVnetAToMyVnetB* till *myVnetB/myVnetBToMyVnetA*.
+    - **Namn på**: Ändra *myVnetA/myVnetAToMyVnetB* till *myVnetB/myVnetBToMyVnetA*.
     - **ID**: Ersätt `<subscription ID>` med Userbs prenumerations-ID och ändrar *myVnetB* till *myVnetA*.
 5. Slutför steg 3 igen, inloggad Azure som användare b.
-6. **Valfritt**: även om skapandet av virtuella datorer inte ingår i den här självstudien, du kan skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
+6. **Valfritt**: Även om skapandet av virtuella datorer inte ingår i den här självstudiekursen, kan du skapa en virtuell dator i varje virtuellt nätverk och ansluta från en virtuell dator till den andra är att verifiera anslutningarna.
 7. **Valfritt**: Om du vill ta bort de resurser som du skapar i den här självstudien måste du slutföra stegen i den [ta bort resurser](#delete) i den här artikeln med hjälp av Azure portal, PowerShell eller Azure CLI.
 
 ## <a name="delete"></a>Ta bort resurser

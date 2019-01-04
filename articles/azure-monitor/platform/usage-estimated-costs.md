@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 072201dd552f5d68a9b6621b2ca7c83acd76a1f5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440529"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001625"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
 
@@ -22,7 +22,7 @@ ms.locfileid: "53440529"
 > Den här artikeln beskriver hur du visar användning och uppskattade kostnader över flera Azure övervakningsfunktioner för olika prissättningsmodeller.  Finns i följande artiklar för relaterad information.
 > - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
 > - [Analysera dataanvändning i Log Analytics](../../azure-monitor/platform/data-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
-> - [Hantera priser och datavolymer i Application Insights](../../application-insights/app-insights-pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
+> - [Hantera priser och datavolymer i Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
 
 I övervakaren hub i Azure Portal i **användning och uppskattade kostnader** sidan förklaras användningen av grundläggande övervakningsfunktioner som [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). För kunder på priser avtal innan April 2018, omfattar detta även logganalys-användning som köpts via insikterna och Analytics erbjuder.
 

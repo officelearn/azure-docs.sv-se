@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: e78f456a7c69e308257b450a7572f6317dfa6eec
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715451"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001931"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -87,7 +87,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
 
 Mer information finns i den [portar som används av Apache Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
-## <a name="file-locations"></a>Filplatser
+## <a name="file-locations"></a>Sökvägar
 
 Hadoop-relaterade filer kan hittas på klusternoder på `/usr/hdp`. Den här katalogen innehåller följande undermappar:
 
@@ -106,7 +106,7 @@ När du använder HDInsight lagras datafiler i ett skalbart och återhämtningsb
 * Åtkomst från externa tjänster som websites, filen uppladdning/nedladdning verktyg, SDK: er med olika språk och webbläsare.
 * Stor filkapacitet och stora skalbar lagring.
 
-Mer information finns i [förstå blobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/).
+Mer information finns i [förstå blobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 När du använder Azure Storage eller Data Lake Storage kan behöver du inte göra något speciellt från HDInsight för att komma åt data. Till exempel följande kommando visar filer i den `/example/data` mappen oavsett om den är lagrad på Azure Storage eller Data Lake Storage:
 
@@ -177,7 +177,7 @@ Det finns en olika sätt att komma åt data från utanför HDInsight-kluster. H�
 Om du använder __Azure Storage__, se följande länkar för sätt att du kan komma åt dina data:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Kommandon för att arbeta med Azure. När installationen är klar att använda den `az storage` kommandot för att få hjälp om hur du använder lagring, eller `az storage blob` för blob-fil.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Ett python-skript för att arbeta med blobar i Azure Storage.
+* [blobxfer.PY](https://github.com/Azure/blobxfer): Ett python-skript för att arbeta med blobar i Azure Storage.
 * Olika SDK: er:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084081"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020902"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +69,7 @@ Saker att Observera:
     </tr>
     <tr>
         <td>Nätverk</td>
-        <td>Internet-gränssnittet: 10 Gbit/s; intranätgränssnittet: 40 Gbit/s</td>
+        <td>Internet-gränssnittet: 10 Gbit/s; intranät-gränssnitt: 40 Gbit/s</td>
     </tr>
     </table>
 
@@ -265,7 +264,7 @@ Om Kopieringsaktivitet körs på en lokal Integration Runtime, Tänk på följan
 
 **Installationsprogrammet**: Vi rekommenderar att du använder en dedikerad dator till Integration Runtime-värden. Se [överväganden för att använda lokal Integration Runtime](concepts-integration-runtime.md).
 
-**Skala ut**: en enskild logisk lokal Integration Runtime med en eller flera noder kan hantera flera Kopieringsaktivitet körs på samma gång samtidigt. Om du har behov av tunga på hybriddataförflyttning med stort antal samtidiga kopia aktivitetskörningar eller med stora mängder data som ska kopieras, Överväg att [skala ut lokal Integration Runtime](create-self-hosted-integration-runtime.md#high-availability-and-scalability) för att etablera flera resursen Stärk kopia.
+**Skala ut**: En enskild logisk lokal Integration Runtime med en eller flera noder kan hantera flera Kopieringsaktivitet körs på samma gång samtidigt. Om du har behov av tunga på hybriddataförflyttning med stort antal samtidiga kopia aktivitetskörningar eller med stora mängder data som ska kopieras, Överväg att [skala ut lokal Integration Runtime](create-self-hosted-integration-runtime.md#high-availability-and-scalability) för att etablera flera resursen Stärk kopia.
 
 ## <a name="considerations-for-the-source"></a>Överväganden för källan
 
@@ -282,11 +281,11 @@ Microsoft-datalager, se [övervakning och justering ämnen](#performance-referen
 ### <a name="file-based-data-stores"></a>Filbaserat datalager
 
 * **Genomsnittlig storlek och antalet filer**: Kopieringsaktivitet överför en fil i taget. Med samma mängden data som ska flyttas, är det totala arbetsflödet lägre om data består av många små filer i stället för ett par stora filer på grund av fasen bootstrap för varje fil. Om det är möjligt, kombinera därför små filer i större filer för att få högre dataflöde.
-* **Format och komprimering**: fler sätt att förbättra prestanda finns i den [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och [överväganden för komprimering](#considerations-for-compression) avsnitt.
+* **Format och komprimering**: Fler sätt att förbättra prestanda finns i den [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och [överväganden för komprimering](#considerations-for-compression) avsnitt.
 
 ### <a name="relational-data-stores"></a>Relationsdata
 
-* **Datamönster**: din tabellschemat påverkar kopia dataflöde. En stor Radstorleken ger dig en bättre prestanda än små Radstorleken att kopiera samma mängd data. Anledningen är att databasen mer effektivt kan hämta färre batchar med data som innehåller färre rader.
+* **Datamönster**: Din tabellschemat påverkar kopia dataflöde. En stor Radstorleken ger dig en bättre prestanda än små Radstorleken att kopiera samma mängd data. Anledningen är att databasen mer effektivt kan hämta färre batchar med data som innehåller färre rader.
 * **Fråga eller lagrad procedur**: Optimera logiken för frågan eller lagrad procedur som du anger i Kopieringsaktiviteten källan för att hämta data mer effektivt.
 
 ## <a name="considerations-for-the-sink"></a>Överväganden för mottagaren
@@ -304,11 +303,11 @@ Microsoft-datalager, finns i [övervakning och justering ämnen](#performance-re
 ### <a name="file-based-data-stores"></a>Filbaserat datalager
 
 * **Kopiera beteende**: Om du kopierar data från ett annat filbaserat datalager Kopieringsaktiviteten har tre alternativ via den **copyBehavior** egenskapen. Den bevarar hierarki, plattar ut hierarki eller sammanfogar filer. Antingen behålla eller förenkla hierarkin har lite eller ingen prestanda försämras, men Sammanfoga filer gör att prestanda försämras att öka.
-* **Format och komprimering**: finns i den [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och [överväganden för komprimering](#considerations-for-compression) avsnitt fler sätt att förbättra prestanda.
+* **Format och komprimering**: Se den [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och [överväganden för komprimering](#considerations-for-compression) avsnitt fler sätt att förbättra prestanda.
 
 ### <a name="relational-data-stores"></a>Relationsdata
 
-* **Kopiera beteende**: beroende på vilka egenskaper som du har angett för **sqlSink**, Kopieringsaktivitet skriver data till måldatabasen på olika sätt.
+* **Kopiera beteende**: Beroende på vilka egenskaper som du har angett för **sqlSink**, Kopieringsaktivitet skriver data till måldatabasen på olika sätt.
   * Som standard läggs data movement service använder API: et Bulk Copy att infoga data i läge, som ger bästa prestanda.
   * Om du konfigurerar en lagrad procedur i sink gäller databasen en datarad samtidigt i stället för som en massinläsning. Prestanda försämras betydligt. Om datauppsättningen är stor, när så är tillämpligt, Överväg att byta till den **preCopyScript** egenskapen.
   * Om du konfigurerar den **preCopyScript** egenskapen för varje Kopieringsaktiviteten kör tjänsten utlöser skriptet och sedan använder du Bulk Copy API och infoga data. Om du vill skriva över hela tabellen med den senaste informationen, kan du till exempel ange ett skript för att först ta bort alla poster innan massinläsning nya data från källan.
@@ -319,7 +318,7 @@ Microsoft-datalager, finns i [övervakning och justering ämnen](#performance-re
 ### <a name="nosql-stores"></a>NoSQL-Arkiv
 
 * För **tabellagring**:
-  * **Partition**: skriva data till överlagrad partitioner avsevärt försämrar prestanda. Sortera dina källdata efter partitionsnyckel så att data infogas effektivt i en partition efter en annan eller ändra logik för att skriva data till en enda partition.
+  * **Partition**: Skriva data till överlagrad partitioner avsevärt försämrar prestanda. Sortera dina källdata efter partitionsnyckel så att data infogas effektivt i en partition efter en annan eller ändra logik för att skriva data till en enda partition.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Överväganden för serialisering och deserialisering
 
@@ -333,15 +332,15 @@ Serialisering och deserialisering kan inträffa när ditt inkommande datauppsät
   * När in- och utdata datauppsättningar båda har olika filformat eller olika konfigurationer som avgränsare, av data movement service deserializes källdata för att strömma, transformera och serialisera det till utdataformat som du angett. Den här åtgärden resulterar i en mycket mer betydande overhead jämfört med andra scenarier.
 * När du kopierar filer till/från ett datalager som inte är filbaserade (till exempel från store filbaserade som du kan använda för att en relationslagringsplats) krävs serialisering eller avserialisering steg. Det här steget leder till betydande prestanda försämras.
 
-**Filformatet**: filformatet som du väljer kan påverka kopieringen bättre prestanda. Avro är till exempel ett kompakt binärformat som lagrar metadata med data. Det har ett brett stöd i Hadoop-ekosystemet för bearbetning och frågor. Avro är dock dyrare för serialisering och deserialisering, vilket resulterar i lägre kopia genomflöde jämfört med textformat. Se ditt val av filformatet i hela flödet bearbetning holistiskt. Börja med vilken form data lagras i källdatalagren eller som ska extraheras från externa system. Det bästa formatet för lagring, analytisk behandling och fråga; och i vilket format data ska exporteras till dataarkiv för verktyg för rapportering och visualisering. Ibland ett format som är optimal för Läs- och skrivprestanda kan vara ett bra val när du funderar på övergripande analysprocessen.
+**Filformatet**: Filformat som du väljer kan påverka kopieringen bättre prestanda. Avro är till exempel ett kompakt binärformat som lagrar metadata med data. Det har ett brett stöd i Hadoop-ekosystemet för bearbetning och frågor. Avro är dock dyrare för serialisering och deserialisering, vilket resulterar i lägre kopia genomflöde jämfört med textformat. Se ditt val av filformatet i hela flödet bearbetning holistiskt. Börja med vilken form data lagras i källdatalagren eller som ska extraheras från externa system. Det bästa formatet för lagring, analytisk behandling och fråga; och i vilket format data ska exporteras till dataarkiv för verktyg för rapportering och visualisering. Ibland ett format som är optimal för Läs- och skrivprestanda kan vara ett bra val när du funderar på övergripande analysprocessen.
 
 ## <a name="considerations-for-compression"></a>Överväganden för komprimering
 
 När datauppsättningen inkommande eller utgående är en fil kan ange du Kopieringsaktivitet för att utföra komprimering eller dekomprimering eftersom den skriver data till målet. När du väljer komprimering kan du göra en kompromiss mellan indata/utdata (I/O) och CPU. Komprimera data kostnaderna extra beräkningsresurser. Men i utbyte kan det minskar nätverkets i/o och lagring. Beroende på dina data, kan du se en högre övergripande kopia dataflöde.
 
-**Codec**: varje komprimerings-codec har sina fördelar. Till exempel bzip2 har den lägsta kopia dataflöden, men du får bästa Hive frågeprestanda med bzip2 eftersom du kan dela upp den för bearbetning. Gzip är det mest balanserade alternativet, och det används oftast. Välj codec som bäst passar ditt scenario för slutpunkt till slutpunkt.
+**Codec**: Varje komprimerings-codec har fördelar. Till exempel bzip2 har den lägsta kopia dataflöden, men du får bästa Hive frågeprestanda med bzip2 eftersom du kan dela upp den för bearbetning. Gzip är det mest balanserade alternativet, och det används oftast. Välj codec som bäst passar ditt scenario för slutpunkt till slutpunkt.
 
-**Nivå**: du kan välja mellan två alternativ för varje komprimerings-codec: snabbaste komprimerade och optimalt komprimerad. Det snabbaste komprimerade alternativet komprimerar data så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad. Alternativet optimalt komprimerade tillbringar mer tid på komprimering och återger en minimal mängd data. Du kan testa båda alternativen för att se vilket ger bättre prestanda i ditt fall.
+**Nivå**: Du kan välja mellan två alternativ för varje komprimerings-codec: snabbaste komprimerade och optimalt komprimerad. Det snabbaste komprimerade alternativet komprimerar data så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad. Alternativet optimalt komprimerade tillbringar mer tid på komprimering och återger en minimal mängd data. Du kan testa båda alternativen för att se vilket ger bättre prestanda i ditt fall.
 
 **Ersättning**: Överväg att använda för att kopiera en stor mängd data mellan en lokal databas och molnet [mellanlagrad kopiering](#staged-copy) med komprimering aktiverat. Det är praktiskt att använda mellanlagring när bandbredden för företagets nätverk och dina Azure-tjänster är den begränsande faktorn och du vill att den inkommande datauppsättningen och datauppsättningen för utdata både i okomprimerade form.
 
@@ -359,17 +358,17 @@ Om storleken på data som du vill kopiera är stor, kan du justera affärslogike
 
 Var försiktig antalet datauppsättningar och kopieringsaktiviteter som kräver Data Factory för att ansluta till samma datalager samtidigt. Många samtidiga kopia jobb kan begränsa ett datalager och leda till försämrade prestanda, kopiera jobbet interna återförsök, och i vissa fall, fel vid körning.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempelscenario: kopiera från en lokal SQL Server till Blob storage
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempelscenario: Kopiera från en lokal SQL Server till Blob storage
 
-**Scenariot**: en pipeline är utformat för att kopiera data från en lokal SQL Server till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
+**Scenariot**: En pipeline är utformat för att kopiera data från en lokal SQL Server till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
 
-**Testning och analys**: dataflödet för Kopieringsaktiviteten är mindre än 2 Mbit/s, vilket är mycket långsammare än benchmark för prestanda.
+**Testning och analys**: Dataflödet för Kopieringsaktivitet är mindre än 2 Mbit/s, vilket är mycket långsammare än benchmark för prestanda.
 
-**Prestandaanalys och justera**: Om du vill felsöka prestandaproblem, ska vi titta på hur data bearbetas och flyttas.
+**Prestandaanalys och justera**: Om du vill felsöka prestandaproblem, nu ska vi titta på hur data bearbetas och flyttas.
 
-1. **Läsa data**: Integration runtime öppnar en anslutning till SQL Server och skickar frågan. SQL-servern svarar genom att skicka dataströmmen till integreringskörning via intranätet.
-2. **Serialisera och komprimera data**: Integration runtime Serialiserar dataströmmen till CSV-format och komprimerar data till en bzip2-dataström.
-3. **Skriva data**: Integration runtime överför bzip2 dataströmmen till Blob storage via Internet.
+1. **Läsa data**: Integreringskörningen öppnar en anslutning till SQL Server och skickar frågan. SQL-servern svarar genom att skicka dataströmmen till integreringskörning via intranätet.
+2. **Serialisera och komprimera data**: Integreringskörningen Serialiserar dataströmmen till CSV-format och komprimerar data till en bzip2-dataström.
+3. **Skriva data**: Integreringskörningen överför bzip2 dataströmmen till Blob storage via Internet.
 
 Som du ser data håller på att behandlas och flyttas i strömmande ordning: SQL Server > LAN > Integration runtime > WAN > Blob-lagring. **Den övergripande prestandan är begränsad av minsta dataflödet i pipelinen**.
 
@@ -377,14 +376,14 @@ Som du ser data håller på att behandlas och flyttas i strömmande ordning: SQL
 
 En eller flera av följande faktorer kan orsaka flaskhals för prestanda:
 
-* **Källan**: SQL-servern har låg genomströmning på grund av tunga belastningar.
+* **Källa**: SQL-servern har låg genomströmning på grund av tunga belastningar.
 * **Integration Runtime med egen värd**:
-  * **LAN**: Integration runtime finns är långt från SQL Server-datorn och har en långsam anslutning.
-  * **Integreringskörningen**: Integration runtime har nått sin belastningen begränsningar om du vill utföra följande åtgärder:
-    * **Serialisering**: serialisering av data i dataströmmen till CSV-format har långsam dataflöde.
-    * **Komprimering**: du har valt en långsam komprimerings-codec (till exempel bzip2, vilket är 2,8 Mbit/s med Core i7).
-  * **WAN**: bandbredden mellan företagsnätverket och dina Azure-tjänster är låg (till exempel T1 = 1,544 kbit/s; T2 = 6,312 kbit/s).
-* **Mottagare**: Blob storage har lågt dataflöde. (Det här scenariot är inte troligt eftersom dess serviceavtalsgarantier minst 60 Mbit/s.)
+  * **LAN**: Integreringskörningen är placerad är långt från SQL Server-datorn och har en långsam anslutning.
+  * **Integreringskörningen**: Integreringskörningen har nått sin belastningen begränsningar om du vill utföra följande åtgärder:
+    * **Serialisering**: Serialisering av data i dataströmmen till CSV-format har långsam dataflöde.
+    * **Komprimering**: Du har valt en långsam komprimerings-codec (till exempel bzip2, vilket är 2,8 Mbit/s med Core i7).
+  * **WAN**: Bandbredden mellan företagsnätverket och dina Azure-tjänster är låg (till exempel T1 = 1,544 kbit/s; T2 = 6,312 kbit/s).
+* **Mottagare**: BLOB-lagring har lågt dataflöde. (Det här scenariot är inte troligt eftersom dess serviceavtalsgarantier minst 60 Mbit/s.)
 
 I det här fallet kan bzip2 datakomprimering långsammare hela pipelinen. Växla till en gzip komprimerings-codec kan underlätta den här begränsningen.
 
@@ -392,12 +391,12 @@ I det här fallet kan bzip2 datakomprimering långsammare hela pipelinen. Växla
 
 Här är prestandaövervakning och justering referenser för några av datalager som stöds:
 
-* Azure Storage (inklusive Blob-lagring och tabellagring): [skalbarhetsmål för Azure Storage](../storage/common/storage-scalability-targets.md) och [checklista för prestanda och skalbarhet i Azure Storage](../storage/common/storage-performance-checklist.md)
+* Azure Storage (inklusive Blob-lagring och tabellagring): [Azure Storage-skalbarhetsmål](../storage/common/storage-scalability-targets.md) och [checklista för prestanda och skalbarhet i Azure Storage](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: Du kan [övervaka prestanda](../sql-database/sql-database-single-database-monitor.md) och kontrollera database transaction unit (DTU) procent
-* Azure SQL Data Warehouse: Sin förmåga mäts i informationslagerenheter (dwu: er); Se [hantera beräkningskraft i Azure SQL Data Warehouse (översikt)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure Cosmos DB: [prestandanivåer i Azure Cosmos DB](../cosmos-db/performance-levels.md)
-* En lokal SQL Server: [övervaka och finjustera prestanda](https://msdn.microsoft.com/library/ms189081.aspx)
-* En lokal filserver: [prestandajustering för filservrar](https://msdn.microsoft.com/library/dn567661.aspx)
+* Azure SQL Data Warehouse: Dess funktion mäts i informationslagerenheter (dwu: er); Se [hantera beräkningskraft i Azure SQL Data Warehouse (översikt)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure Cosmos DB: [Prestandanivåer i Azure Cosmos DB](../cosmos-db/performance-levels.md)
+* En lokal SQLServer: [Övervaka och finjustera prestanda](https://msdn.microsoft.com/library/ms189081.aspx)
+* En lokal filserver: [Prestandajustering för filservrar](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 Se de andra artiklarna i Kopieringsaktiviteten:

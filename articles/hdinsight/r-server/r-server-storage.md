@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2c5a584bd5c235eb143c8e1911006aa6e142ff0d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605644"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001523"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-lösningar för ML-tjänster på Azure HDInsight
 
 ML-tjänster på HDInsight kan använda en mängd olika lagringslösningar för att bevara data, kod eller objekt som innehåller resultaten från analys. Dessa omfattar följande alternativ:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure-fillagring](https://azure.microsoft.com/services/storage/files/)
 
 Du har också möjlighet att få åtkomst till flera Azure storage-konton eller behållare med ditt HDInsight-kluster. Azure-fillagring är ett praktiskt data för användning på gränsnoden som gör att du kan montera en filresurs i Azure Storage, till exempel Linux-filsystem. Men Azure-filresurser kan monteras och används av alla system som har ett operativsystem, till exempel Windows eller Linux. 

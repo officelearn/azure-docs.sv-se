@@ -1,12 +1,11 @@
 ---
-title: Exempel på Azure-program för användning med DMZ-miljöer | Microsoft Docs
+title: Exempel på Azure-program för användning med DMZ-miljöer
+titlesuffix: Azure Virtual Network
 description: Distribuera det här enkla webbprogrammet när du har skapat ett perimeternätverk för att testa scenarier för flödet av trafik
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f299665168e1dfca223c5cab7ba0e0f2767a50ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866859"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021432"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exempelprogram för användning med DMZ-miljöer
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -156,7 +155,7 @@ Det här skriptet ställer in backend-server för den här enkla programmet. Det
 5. Inaktivera Förbättrad säkerhet i Internet Explorer så att enklare surfning från den här servern 
 
 > [!IMPORTANT]
-> **Bästa praxis**: inaktivera Förbättrad säkerhetskonfiguration aldrig på en produktionsserver plus är vanligtvis en felaktig idé att surfa på Internet från servrar i produktionsmiljö. Öppnar upp filresurser för anonym åtkomst är också en felaktig idé, men klar här för enkelhetens skull.
+> **Bästa praxis**: Inaktivera Förbättrad säkerhetskonfiguration aldrig på en produktionsserver, samt det är vanligtvis en felaktig idé att surfa på Internet från servrar i produktionsmiljö. Öppnar upp filresurser för anonym åtkomst är också en felaktig idé, men klar här för enkelhetens skull.
 > 
 > 
 

@@ -9,17 +9,16 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167128"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024917"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -56,7 +55,7 @@ Gatewayen krävs även om Oracle finns i en Azure-infrastruktur som en tjänst (
 
 Den här Oracle-anslutningsappen stöder två versioner av drivrutiner:
 
-- **Microsoft-drivrutin för Oracle (rekommenderas)**: från och med Data Management Gateway version 2.7, en Microsoft-drivrutin för Oracle installeras automatiskt med gatewayen. Du behöver inte installera eller uppdatera för att upprätta en anslutning till Oracle-drivrutinen. Du kan också använda ger kopieringen bättre prestanda med hjälp av den här drivrutinen. Dessa versioner av Oracle-databaser som stöds:
+- **Microsoft-drivrutin för Oracle (rekommenderas)**: Från och med Data Management Gateway version 2.7, installeras en Microsoft-drivrutin för Oracle automatiskt med gatewayen. Du behöver inte installera eller uppdatera för att upprätta en anslutning till Oracle-drivrutinen. Du kan också använda ger kopieringen bättre prestanda med hjälp av den här drivrutinen. Dessa versioner av Oracle-databaser som stöds:
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10,2)
@@ -70,7 +69,7 @@ Den här Oracle-anslutningsappen stöder två versioner av drivrutiner:
     > Microsoft driver för Oracle stöder för närvarande endast kopiering av data från Oracle. Drivrutinen stöder inte skriva till Oracle. Testa anslutningen-funktionen på Data Management Gateway **diagnostik** fliken stöder inte den här drivrutinen. Du kan också använda guiden Kopiera för att verifiera anslutningarna.
     >
 
-- **Oracle Data Provider för .NET**: du kan använda Oracle Data Provider för att kopiera data från eller till Oracle. Den här komponenten som ingår i [Oracle Data Access-komponenter för Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den aktuella versionen (32-bitars eller 64-bitars) på den dator där gatewayen är installerad. [Oracle dataprovider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) kan komma åt Oracle Database 10 g Release 2 och senare versioner.
+- **Oracle dataprovider för .NET**: Du kan använda Oracle Data Provider för att kopiera data från eller till Oracle. Den här komponenten som ingår i [Oracle Data Access-komponenter för Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den aktuella versionen (32-bitars eller 64-bitars) på den dator där gatewayen är installerad. [Oracle dataprovider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) kan komma åt Oracle Database 10 g Release 2 och senare versioner.
 
     Om du väljer **XCopy Installation**, Slutför stegen som beskrivs i filen readme.htm. Vi rekommenderar att du väljer det installationsprogram som inte har användargränssnitt (inte XCopy installer).
 
@@ -82,7 +81,7 @@ Om du använder guiden Kopiera för att skapa kopieringspipelinen, är Drivrutin
 
 Du kan skapa en pipeline med en Kopieringsaktivitet. Pipelinen flyttar data till eller från en lokal Oracle-databas med hjälp av olika verktyg eller API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera. Se [självstudie: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden kopieringsdata.
+Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera. Se [självstudien: Skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden kopieringsdata.
 
 Du kan också använda en av följande verktyg för att skapa en pipeline: den **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mallen**, **.NET API**, eller **REST API**. Se den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet.
 
@@ -111,7 +110,7 @@ I följande tabell beskrivs JSON-element som är specifika för Oracle-länkade 
 **Exempel: Med hjälp av Microsoft-drivrutin**
 
 > [!TIP]
-> Om du ser ett fel som säger ”ORA-01025: UPI parametern är utanför intervallet” och din Oracle är version 8i, lägga till `WireProtocolMode=1` till din anslutningssträng och försök igen:
+> Om du ser ett fel som säger ”ORA-01025: UPI parametern är utanför intervallet ”och din Oracle är version 8i, lägga till `WireProtocolMode=1` till din anslutningssträng och försök igen:
 
 ```json
 {
@@ -191,7 +190,7 @@ I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande ege
 
 I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob storage. Dock datan kan kopieras till någon av de mottagare som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.   
 
-**Exempel: Kopieringsdata från Oracle till Azure Blob storage**
+**Exempel: Kopiera data från Oracle till Azure Blob storage**
 
 Exemplet har följande Data Factory-entiteter:
 

@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954953"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020089"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Uppdaterar Azure Machine Learning-modeller med Uppdateringsresursaktivitet
 
@@ -38,7 +37,7 @@ ms.locfileid: "49954953"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [uppdatera machine learning-modeller i Data Factory](../update-machine-learning-models.md).
 
-Den här artikeln kompletterar huvudsakliga Azure Data Factory - artikeln för Azure Machine Learning-integrering: [skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Om du inte redan gjort det, kan du läsa den huvudsakliga artikeln innan du läser igenom den här artikeln. 
+Den här artikeln kompletterar huvudsakliga Azure Data Factory - artikeln för Azure Machine Learning-integrering: [Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Om du inte redan gjort det, kan du läsa den huvudsakliga artikeln innan du läser igenom den här artikeln. 
 
 ## <a name="overview"></a>Översikt
 Framöver kommer måste förutsägande modeller i Azure ML bedömning experiment vara modellkomponenten med hjälp av nya indatauppsättningar. När du är klar med att träna, som du vill uppdatera bedömning av webbtjänsten med retrained ML-modellen. Vanliga stegen för att aktivera omtränings och uppdatera Azure ML-modeller via webbtjänster är:

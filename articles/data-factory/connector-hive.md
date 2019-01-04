@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5088d1d4f5b80e4de3dca1d8d41ee48feea12a46
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079390"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019749"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 
@@ -46,8 +45,8 @@ Följande egenskaper har stöd för Hive länkade tjänsten:
 | värd | IP-adressen eller värdnamnet namnet på Hive-servern, avgränsade med ””; för flera värdar (bara när serviceDiscoveryMode är aktivera).  | Ja |
 | port | TCP-porten som Hive-servern använder för att lyssna efter klientanslutningar. Ange porten som 443 om du ansluter till Azure HDInsights. | Ja |
 | Servertyp | Typ av Hive-servern. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
-| thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, **HTTP** | Nej |
-| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **Binär**, **SASL**, **HTTP** | Nej |
+| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **Anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | serviceDiscoveryMode | TRUE om du vill ange med tjänsten ZooKeeper false inte.  | Nej |
 | zooKeeperNameSpace | Namnområdet på ZooKeeper under vilken Hive Server 2 noder har lagts till.  | Nej |
 | useNativeQuery | Anger om drivrutinen använder HiveQL internfrågor eller konverterar dem till ett motsvarande formulär i HiveQL.  | Nej |

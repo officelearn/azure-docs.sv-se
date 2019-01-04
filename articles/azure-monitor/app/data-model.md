@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 6920e1878a8d31072480a6b604e404bb9913f634
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812464"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025155"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Datamodell för Application Insights-telemetri
 
@@ -55,5 +55,5 @@ Rapportera data modell eller schemat problem och förslag använder GitHub [Appl
 
 - [Skriva anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md)
 - Lär dig hur du [utöka och filtrera telemetri](../../azure-monitor/app/api-filtering-sampling.md).
-- Använd [sampling](../../application-insights/app-insights-sampling.md) att minimera mängden telemetri som baseras på datamodellen.
-- Kolla in [plattformar](../../application-insights/app-insights-platforms.md) stöds av Application Insights.
+- Använd [sampling](../../azure-monitor/app/sampling.md) att minimera mängden telemetri som baseras på datamodellen.
+- Kolla in [plattformar](../../azure-monitor/app/platforms.md) stöds av Application Insights.

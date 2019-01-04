@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 112b41aa41706a807a82e708fe1fb4173fd084ca
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3f3af4b9ca7369cb14f0e91915f9f35086dc761c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837536"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999636"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
 Azure Cosmos DB replikerar data transparent i alla de Azure-regioner som är associerade med ditt Cosmos-konto. Cosmos DB använder flera lager för redundans för dina data som visas i följande bild:
 
-![Resursen partitionering](./media/high-availability/figure1.png)
+![Fysiska partitionering](./media/high-availability/figure1.png)
 
 - Data i Cosmos-behållare är horisontellt partitionerade.
 
@@ -49,9 +49,9 @@ Regionala avbrott är inte ovanligt och Azure Cosmos DB gör att din databas är
 
 - Flera regioner konton som konfigurerats med flera – Skriv-regioner ska ha hög tillgänglighet för både skrivningar och läsningar. Regionala redundanstestningar är omedelbara och kräver inte några ändringar från programmet.
 
-- Konton för flera regioner med en enda skrivregionen: under en region avbrott skriva dessa konton finns kvar med hög tillgänglighet för läsningar. Men för skrivningar måste du ”aktivera automatisk redundans” på Cosmos-konto för att redundansväxla den berörda regionen till en annan region som är associerade. Redundans inträffar prioritsordning region du har angett. Så småningom när den berörda regionen är online igen, görs icke-replikerade data på den berörda skrivregionen under avbrottet tillgänglig via det orsakar en konflikt feed. Program kan läsa konflikterna feed konfliktlösning baserat på programspecifika logik och skriva uppdaterade data tillbaka till Cosmos-behållare efter behov. När den tidigare berörda skrivregionen återställer blir automatiskt tillgängliga som en läsregionen. Du kan anropa en manuell redundans och konfigurera den berörda regionen som skrivregionen. Du kan göra en manuell redundans med hjälp av [Azure CLI eller Azure-portalen](how-to-manage-database-account.md#manual-failover).  
+- Konton för flera regioner med en enda skrivregionen: Under ett avbrott på skrivning region förblir dessa konton med hög tillgänglighet för läsningar. Men för skrivningar måste du ”aktivera automatisk redundans” på Cosmos-konto för att redundansväxla den berörda regionen till en annan region som är associerade. Redundans inträffar prioritsordning region du har angett. Så småningom när den berörda regionen är online igen, görs icke-replikerade data på den berörda skrivregionen under avbrottet tillgänglig via det orsakar en konflikt feed. Program kan läsa konflikterna feed konfliktlösning baserat på programspecifika logik och skriva uppdaterade data tillbaka till Cosmos-behållare efter behov. När den tidigare berörda skrivregionen återställer blir automatiskt tillgängliga som en läsregionen. Du kan anropa en manuell redundans och konfigurera den berörda regionen som skrivregionen. Du kan göra en manuell redundans med hjälp av [Azure CLI eller Azure-portalen](how-to-manage-database-account.md#manual-failover).  
 
-- Konton för flera regioner med en enda skrivregionen: under en läsregion avbrott dessa konton finns kvar med hög tillgänglighet för läsning och skrivning. Regionen påverkas kopplas ifrån automatiskt från skrivregionen och kommer att markeras offline. Cosmos DB SDK omdirigerar Läs anrop till den nästa tillgängliga regionen i listan över önskad region. Om ingen av regionerna i listan över önskad region är tillgänglig kan återgår anrop automatiskt till att den aktuella skrivregionen. Det krävs inga ändringar i din programkod för att hantera läsregionen avbrott. Så småningom när den berörda regionen är online igen, tidigare berörda läsregionen synkroniseras automatiskt med den aktuella skrivregionen och blir tillgänglig igen för att hantera läsbegäranden. Efterföljande läsningar omdirigeras till den återställda regionen utan några ändringar i din programkod. Under både redundans och ansluta igen i en tidigare misslyckade region, fortsätta läsa konsekvensgarantier att att användas av Cosmos DB.
+- Konton för flera regioner med en enda skrivregionen: Under ett avbrott på läsregionen förblir dessa konton med hög tillgänglighet för läsning och skrivning. Regionen påverkas kopplas ifrån automatiskt från skrivregionen och kommer att markeras offline. Cosmos DB SDK omdirigerar Läs anrop till den nästa tillgängliga regionen i listan över önskad region. Om ingen av regionerna i listan över önskad region är tillgänglig kan återgår anrop automatiskt till att den aktuella skrivregionen. Det krävs inga ändringar i din programkod för att hantera läsregionen avbrott. Så småningom när den berörda regionen är online igen, tidigare berörda läsregionen synkroniseras automatiskt med den aktuella skrivregionen och blir tillgänglig igen för att hantera läsbegäranden. Efterföljande läsningar omdirigeras till den återställda regionen utan några ändringar i din programkod. Under både redundans och ansluta igen i en tidigare misslyckade region, fortsätta läsa konsekvensgarantier att att användas av Cosmos DB.
 
 - En region konton kan förlora tillgänglighet efter ett regionalt strömavbrott. Vi rekommenderar att du ställa in minst två regioner (helst minst två Skriv-regioner) med ditt Cosmos-konto för att garantera hög tillgänglighet vid alla tidpunkter.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec6fbcc7de9a5fe15231373a23f7c8491ac8c122
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975975"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001676"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -39,7 +39,7 @@ Det snabbaste och enklaste sättet att övervaka din molntjänst med Application
 
 Det här alternativet instrumenterar appen vid körtillfället, och du har all telemetri som du behöver för att övervaka förfrågningar, undantag och beroenden i din webbroll, samt prestandaräknare från dina arbetsroller. Alla diagnostikspårningar som genereras av din app skickas också till Application Insights.
 
-Om det är allt du behöver så är du klar! Nästa steg är [att visa mätvärden från appen](../../application-insights/app-insights-metrics-explorer.md), [att köra frågor mot dina data med Analytics](../../azure-monitor/app/analytics.md) och eventuellt att konfigurera en [instrumentpanel](../../azure-monitor/app/app-insights-dashboards.md). Du kanske vill konfigurera [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) och [lägga till kod till dina webbsidor](../../azure-monitor/app/javascript.md) för att övervaka prestanda i webbläsaren.
+Om det är allt du behöver så är du klar! Nästa steg är [att visa mätvärden från appen](../../azure-monitor/app/metrics-explorer.md), [att köra frågor mot dina data med Analytics](../../azure-monitor/app/analytics.md) och eventuellt att konfigurera en [instrumentpanel](../../azure-monitor/app/app-insights-dashboards.md). Du kanske vill konfigurera [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) och [lägga till kod till dina webbsidor](../../azure-monitor/app/javascript.md) för att övervaka prestanda i webbläsaren.
 
 Men du har fler alternativ:
 
@@ -75,7 +75,7 @@ Du kan undvika den här situationen genom att skapa separata resurser för varje
 Du kan skicka telemetrin till lämpliga resurser genom att konfigurera Application Insights SDK så att det använder olika instrumenteringsnycklar beroende på versionskonfiguration. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Skapa en Application Insights-resurs för varje roll
-Om du har valt att skapa en separat resurs för varje roll – och kanske en separat uppsättning för varje versionskonfiguration – är det enklast att skapa alla på Application Insights-portalen. Om du ofta skapar resurser kan du [automatisera processen](../../application-insights/app-insights-powershell.md).
+Om du har valt att skapa en separat resurs för varje roll – och kanske en separat uppsättning för varje versionskonfiguration – är det enklast att skapa alla på Application Insights-portalen. Om du ofta skapar resurser kan du [automatisera processen](../../azure-monitor/app/powershell.md).
 
 1. Skapa en ny Application Insights-resurs på [Azure Portal][portal]. Välj ASP.NET-app för programtyp. 
 
@@ -129,7 +129,7 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
     (I .config-filen visas meddelanden som uppmanar dig att placera instrumenteringsnyckeln där. Men för molnprogram är det bättre att ställa in den från den ``.cscfg file``. Detta säkerställer att rollen identifieras korrekt på portalen.)
 
 #### <a name="run-and-publish-the-app"></a>Köra och publicera appen
-Kör appen och logga in i Azure. Öppna de Application Insights-resurser som du skapade så ser du enskilda datapunkter som visas i [Sök](../../azure-monitor/app/diagnostic-search.md), och aggregerade data i [Metric Explorer](../../application-insights/app-insights-metrics-explorer.md). 
+Kör appen och logga in i Azure. Öppna de Application Insights-resurser som du skapade så ser du enskilda datapunkter som visas i [Sök](../../azure-monitor/app/diagnostic-search.md), och aggregerade data i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). 
 
 Lägg till mer telemetri – se avsnitten nedan – och publicera sedan appen för att få live-diagnostik och feedback om användningen. 
 
@@ -146,7 +146,7 @@ Här hittar du informationen om [Azure Diagnostics](https://docs.microsoft.com/a
 * Windows-händelseloggar visas som spårningar och anpassade händelser.
 * Programloggar, ETW-loggar och diagnostikinfrastrukturloggar visas som spårningar.
 
-Om du vill visa prestandaräknare och antalet händelser öppnar du [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) och lägger till ett nytt diagram:
+Om du vill visa prestandaräknare och antalet händelser öppnar du [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) och lägger till ett nytt diagram:
 
 ![Azure-diagnostikdata](./media/cloudservices/23-wad.png)
 
@@ -231,8 +231,8 @@ Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-
 
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurera Azure Diagnostics-överföring till Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Automatisera genereringen av Application Insights-resurser](../../application-insights/app-insights-powershell.md)
-* [Automatisera Azure-diagnostik](../../application-insights/app-insights-powershell-azure-diagnostics.md)
+* [Automatisera genereringen av Application Insights-resurser](../../azure-monitor/app/powershell.md)
+* [Automatisera Azure-diagnostik](../../azure-monitor/app/powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md

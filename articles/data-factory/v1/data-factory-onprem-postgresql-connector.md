@@ -9,17 +9,16 @@ ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7357b609909c3db0bc42d58cb2cd32436c864f66
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235878"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025716"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,7 +48,7 @@ Data Management Gateway att ansluta till PostgreSQL-databasen, installera den [N
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för den lokala PostgreSQL med hjälp av olika verktyg/API: er. 
 
-- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudie: skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
+- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
 - Du kan också använda följande verktyg för att skapa en pipeline: 
     - Azure Portal
     - Visual Studio
@@ -66,7 +65,7 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
 3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal PostgreSQL finns [JSON-exempel: kopiera data från PostgreSQL till Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal PostgreSQL finns [JSON-exempel: Kopiera data från PostgreSQL till Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) i den här artikeln. 
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för ett datalager för PostgreSQL:
 
@@ -79,7 +78,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | server |Namnet på PostgreSQL-servern. |Ja |
 | databas |Namnet på PostgreSQL-databasen. |Ja |
 | schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Nej |
-| authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: anonyma, Basic och Windows. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
@@ -111,7 +110,7 @@ När källan är av typen **RelationalSource** (som innehåller PostgreSQL), fö
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-exempel: kopiera data från PostgreSQL till Azure Blob
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-exempel: Kopiera data från PostgreSQL till Azure Blob
 Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från PostgreSQL-databas till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.   
 
 > [!IMPORTANT]
@@ -334,8 +333,8 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | Rad | |Byte [], sträng |&nbsp;
 | lseg | |Byte [], sträng |&nbsp;
 | macaddr | |Byte [], sträng |&nbsp;
-| pengar | |decimaltal |&nbsp;
-| numeriska [(p, s)] |decimal [(p, s)] |decimaltal |
+| pengar | |Decimal |&nbsp;
+| numeriska [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Sträng |&nbsp;
 | OID | |Int32 |&nbsp;
 | sökväg | |Byte [], sträng |&nbsp;

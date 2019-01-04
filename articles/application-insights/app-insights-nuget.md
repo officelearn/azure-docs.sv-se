@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: adf055983ad4247101401b907024328607a19bfe
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972081"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017148"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights-NuGet-paket
 
@@ -82,5 +82,5 @@ Dessa paket som utgör en del av huvudfunktionerna i runtime övervakning i [sta
 ## <a name="next-steps"></a>Nästa steg
 
 - Övervaka [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
-- Profilera ASP.NET Core [Azure Linux-webbappar](app-insights-profiler-aspnetcore-linux.md).
-- Felsöka ASP.NET [ögonblicksbilder](app-insights-snapshot-debugger.md).
+- Profilera ASP.NET Core [Azure Linux-webbappar](../azure-monitor/app/profiler-aspnetcore-linux.md).
+- Felsöka ASP.NET [ögonblicksbilder](../azure-monitor/app/snapshot-debugger.md).

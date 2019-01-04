@@ -6,15 +6,15 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744249"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023115"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -261,6 +261,15 @@ Du löser problemet, justera den **DirectoryCacheEntrySizeMax** registervärde f
  
 Du kan till exempel inställd 0x100000 och se om prestanda bli bättre.
 
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Fel AadDsTenantNotFound gör det möjligt för Azure Active Directory-autentisering för Azure Files ”det går inte att hitta aktiva klienter med klient-Id aad-klient-id”
+
+### <a name="cause"></a>Orsak
+
+Fel AadDsTenantNotFound händer när du försöker [aktivera Azure Active Directory (AAD)-autentisering för Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) på ett lagringskonto där [AAD Domain Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) skapas inte i AAD klient i samma prenumeration.  
+
+### <a name="solution"></a>Lösning
+
+Aktivera AAD DS på AAD-klient för den prenumeration som ditt lagringskonto har distribuerats till. Du måste ha administratörsbehörighet för AAD-klient för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klient, kontakta administratören och följ de stegvisa anvisningarna till [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.

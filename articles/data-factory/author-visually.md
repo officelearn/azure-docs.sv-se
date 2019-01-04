@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281701"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025393"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -47,7 +46,7 @@ Visuell redigering med Azure-lagringsplatser Git-integrering har stöd för käl
 ### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Konfigurera en Azure-lagringsplatser Git-lagringsplats med Azure Data Factory
 Du kan konfigurera en Azure-lagringsplatser Git-lagringsplats med en datafabrik med två metoder.
 
-#### <a name="method1"></a> Metod 1 (Azure lagringsplatser Git-lagringsplats): vi sidan Kom igång
+#### <a name="method1"></a> Metod 1 (Azure lagringsplatser Git-lagringsplats): Sidan Nu sätter vi igång
 
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
 
@@ -61,7 +60,7 @@ Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagrin
 
 | Inställning | Beskrivning | Värde |
 |:--- |:--- |:--- |
-| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs**: GitHub stöds inte för närvarande. | Azure-lagringsplatser Git |
+| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs!** GitHub stöds inte för närvarande. | Azure-lagringsplatser Git |
 | **Azure Active Directory** | Ditt klientnamn för Azure AD. | <your tenant name> |
 | **Azure-lagringsplatser organisation** | Organisationsnamnet Azure lagringsplatser. Du kan hitta Azure-lagringsplatser organisationens namn på `https://{organization name}.visualstudio.com`. Du kan [logga in på din Azure-lagringsplatser organisation](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your organization name> |
 | **Projektnamn** | Projektnamnet Azure lagringsplatser. Du kan hitta din Azure-lagringsplatser projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -164,7 +163,7 @@ Titta på följande videoklipp för en nio minuters introduktion och demonstrati
 
 Du kan konfigurera en GitHub-lagringsplats med en datafabrik med två metoder.
 
-**Metod 1 (offentliga lagringsplats): vi sidan Kom igång**
+**Metod 1 (offentliga lagringsplats): Nu ska vi sidan Kom igång**
 
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
 
@@ -196,7 +195,7 @@ En konfigurationsruta visas. Mer information om inställningarna se beskrivninga
 
 Du kan konfigurera en lagringsplats med GitHub Enterprise med en datafabrik med två metoder.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Metod 1 (Enterprise lagringsplats): vi sidan Kom igång
+ #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Metod 1 (Enterprise lagringsplats): Sidan Nu sätter vi igång
 
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
 

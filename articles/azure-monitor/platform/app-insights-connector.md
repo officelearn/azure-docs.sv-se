@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e6d750d62ccd31a85cbf47e13c12be078bcb2c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726236"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023132"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -142,7 +142,7 @@ Pivottabell, klickar du på ellipserna (**...** ) som visas i slutet av varje ra
 
 ### <a name="sample-corrected-data"></a>Exemplet korrigeras data
 
-Application Insights ger *[sampling korrigering](../../application-insights/app-insights-sampling.md)* för att minska telemetritrafik. När du aktiverar sampling i Application Insights-app kan få du ett lägre antal poster som lagras både i Application Insights och Log Analytics. Medan datakonsekvens bevaras i den **Application Insights-anslutningsprogram** sidan och perspektiv, du kan manuellt rätta samplade data för de anpassade frågorna.
+Application Insights ger *[sampling korrigering](../../azure-monitor/app/sampling.md)* för att minska telemetritrafik. När du aktiverar sampling i Application Insights-app kan få du ett lägre antal poster som lagras både i Application Insights och Log Analytics. Medan datakonsekvens bevaras i den **Application Insights-anslutningsprogram** sidan och perspektiv, du kan manuellt rätta samplade data för de anpassade frågorna.
 
 Här är ett exempel på sampling korrigering i en sökfråga i loggen:
 

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974530"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017574"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägg till BLOB-objekt till objekt i Azure Digital Twins
 
@@ -28,23 +28,7 @@ Azure Digital Twins stöder bifoga blobbar till enheter, blanksteg och användar
 
 Du kan använda flera delar begäranden för att ladda upp blobar till specifika slutpunkter och deras respektive funktioner.
 
-> [!IMPORTANT]
-> Flera delar begäranden kräver tre uppgifter:
-> * En **Content-Type** rubrik:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * En **Content-Disposition**: `form-data; name="metadata"`
-> * Filinnehållet att ladda upp
->
-> Den **Content-Type** och **Content-Disposition** information kan variera beroende på scenario för användning.
-
-Flera delar begäranden som görs till Azure Digital Twins Management API: erna har två delar:
-
-* BLOB-metadata, till exempel en tillhörande MIME-typ, enligt den **Content-Type** och **Content-Disposition** information
-
-* BLOB-innehållet (Ostrukturerade innehållet i filen)  
-
-Ingen av de två delarna som krävs för **KORRIGERA** begäranden. Båda värdena krävs för **POST** eller skapa-åtgärder.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Blob-metadata
 
@@ -158,7 +142,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | Önskad blob-ID. |
 
-Gör en **KORRIGERA** begäran till samma slutpunkt kan du uppdatera en metadatabeskrivning och skapa en ny version av blobben. HTTP-begäran skickas via den **KORRIGERA** metod, tillsammans med alla nödvändiga metadata och formulärdata i flera delar.
+Gör en **KORRIGERA** begäran till samma slutpunkt kan du uppdatera en metadatabeskrivning och skapa en ny version av blobben. HTTP-begäran skickas via den **KORRIGERA** metod, tillsammans med alla nödvändiga metadata och multipart formulärdata.
 
 Lyckade åtgärder returnerar en **SpaceBlob** objekt som överensstämmer med följande schema. Du kan använda den för att använda data som returneras.
 

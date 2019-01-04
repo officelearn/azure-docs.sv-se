@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1e91bcdf3980b0f03967c09b0b7a75aa3d3a520a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095286"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014632"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med Azure Data Factory
 
@@ -44,7 +43,7 @@ Följande egenskaper har stöd för ServiceNow länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **ServiceNow** | Ja |
 | slutpunkt | Slutpunkten för ServiceNow-server (`http://<instance>.service-now.com`).  | Ja |
-| authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **grundläggande**, **OAuth2** | Ja |
+| authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **Grundläggande**, **OAuth2** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till ServiceNow-servern för Basic och OAuth2-autentisering.  | Ja |
 | lösenord | Lösenordet för användarnamnet för Basic- och OAuth2-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | ClientId | Klient-ID för OAuth2-autentisering.  | Nej |
@@ -118,8 +117,8 @@ Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga 
 - **Schema:** ange scheman som `Actual` eller `Display` i ServiceNow-frågan, vilket du kan titta på det som parameter för `sysparm_display_value` som SANT eller FALSKT när du anropar [ServiceNow restful API: er](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Kolumn:** kolumnnamn för faktiska värden under `Actual` schemat är `[columne name]_value`, och för visningsvärde under `Display` schemat är `[columne name]_display_value`. Obs kolumnnamnet måste mappas till schemat som används i frågan.
 
-**Exempelfråga:** 
- `SELECT col_value FROM Actual.alm_asset` eller 
+**Exempelfråga:**
+`SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Exempel:**

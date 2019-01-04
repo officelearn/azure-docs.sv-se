@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/03/2019
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c0672ddb3e6791fae3b9b8c04e9ff98827c9e22f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256739"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019317"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob, File och Table storage med hjälp av enkla kommandon som är utformad för bästa prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
@@ -458,7 +458,7 @@ Observera att AzCopy endast stöder import för JSON, inte CSV. AzCopy inte stö
 
 ### <a name="import-entities-into-a-table-from-blob-storage"></a>Importera entiteter i en tabell från Blob storage
 
-Anta att en Blob-behållare som innehåller följande: A JSON-fil som representerar en Azure-tabell och dess tillhörande manifestfilen.
+Anta en Blob-behållare som innehåller följande: En JSON-fil som representerar en Azure-tabell och dess tillhörande manifestfilen.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
@@ -642,13 +642,13 @@ Parametrar för AzCopy beskrivs nedan. Du kan också skriva något av följande 
 
 Anger källdata som du vill kopiera från. Källan kan vara en katalog i filsystemet, en blob-behållare, en blob virtuell katalog, en lagringsfilresurs, en katalog i lagring eller en Azure-tabell.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="destdestination"></a>/ Dest: ”mål”
 
 Anger att kopiera till målet. Målet kan vara en katalog i filsystemet, en blob-behållare, en blob virtuell katalog, en lagringsfilresurs, en katalog i lagring eller en Azure-tabell.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="patternfile-pattern"></a>/ Mönster: ”filmönster”
 
@@ -664,13 +664,13 @@ AzCopy använder skiftlägeskänsliga matchar när den/Source är en blob-behål
 
 Det standardmönster för filen som används när inga filmönster anges är *.* för en plats för system eller ett tomt adressprefix för en Azure-lagringsplats. Att ange flera-filmönster stöds inte.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="destkeystorage-key"></a>/ DestKey: ”lagringsnyckeln”
 
 Anger lagringskontots åtkomstnyckel för målresursen.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="destsassas-token"></a>/ DestSAS: ”sas-token”
 
@@ -680,13 +680,13 @@ Du kan antingen ange det här alternativet följt av SAS-token om målresursen �
 
 Om källan och målet är båda blobar, måste målblobben finnas i samma lagringskonto som källbloben.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="sourcekeystorage-key"></a>/ SourceKey: ”lagringsnyckeln”
 
 Anger lagringskontots åtkomstnyckel för käll-resursen.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="sourcesassas-token"></a>/ SourceSAS: ”sas-token”
 
@@ -696,29 +696,29 @@ Om käll-resursen är en blob-behållare och varken en nyckel eller en SAS tillh
 
 Om källan är en filresurs eller -tabell, en nyckel eller en SAS måste anges.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="s"></a>/ S
 
 Anger rekursiv läge för kopieringsåtgärder. I läget för rekursiv kopierar AzCopy alla BLOB-objekt eller filer som matchar den angivna filen mönstret, inklusive de som finns i undermappar.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="blobtypeblock--page--append"></a>/ BlobType: ”blockera” | ”page” | ”Lägg till”
 
 Anger om målblobben är en blockblob, en sidblobb eller en tilläggsblobb. Det här alternativet gäller bara när du laddar upp en blob. Annars genereras ett fel. Om målet är en blob och det här alternativet inte anges som standard skapar AzCopy en blockblob.
 
-**Gäller för:** Blobar
+**Gäller:** Blobar
 
 ### <a name="checkmd5"></a>/ CheckMD5
 
-Beräknar en MD5-hash för hämtade data och verifierar att MD5-hash som lagras i blob eller filens innehåll MD5-egenskap stämmer med den beräknade hashen. MD5-kontrollen är inaktiverad som standard, så du måste ange detta alternativ för att utföra MD5-kontroll när du hämtar data.
+Beräknar en MD5-hash för hämtade data och verifierar att MD5-hash som lagras i blob eller filens innehåll MD5-egenskap stämmer med den beräknade hashen. Om värdena inte matchar att AzCopy kunna hämta data. MD5-kontrollen är inaktiverad som standard, så du måste ange detta alternativ för att utföra MD5-kontroll när du hämtar data.
 
-Observera att Azure Storage inte garanterar att MD5-hash som lagras i blob eller fillagring är uppdaterad. Det är klientens ansvar att uppdatera MD5 blob eller fillagring ändras.
+Observera att Azure Storage inte garanterar att MD5-hash som lagras i blob eller fillagring är uppdaterad. Det är klientens ansvar att uppdatera MD5 blob eller fillagring ändras. När det gäller diskavbildningar (hanterade eller ohanterade diskar), Azure virtuella datorer uppdaterar inte MD5-värde som disken innehållet ändras, därför /CheckMD5 genereras ett fel när du laddar ned diskavbildningar.
 
-AzCopy anger alltid innehåll MD5-egenskapen för ett Azure blob eller en fil när du har överfört till tjänsten.  
+AzCopy v8 anger alltid innehåll MD5-egenskapen för ett Azure blob eller en fil när du har överfört till tjänsten.  
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="snapshot"></a>/ Ögonblicksbild
 
@@ -728,7 +728,7 @@ De överförda blobögonblicksbilderna får ett nytt namn i följande format: .e
 
 Som standard kopieras inte ögonblicksbilder.
 
-**Gäller för:** Blobar
+**Gäller:** Blobar
 
 ### <a name="vverbose-log-file"></a>/ V: [utförlig log-fil]
 
@@ -736,7 +736,7 @@ Utdata utförlig statusmeddelanden till en loggfil.
 
 Som standard heter den utförliga loggfilen AzCopyVerbose.log i `%LocalAppData%\Microsoft\Azure\AzCopy`. Om du anger en befintlig plats för det här alternativet läggs den utförliga loggen till filen.  
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="zjournal-file-folder"></a>/ Z: [journal-fil / mapp]
 
@@ -754,7 +754,7 @@ Journalfilen tas bort vid slutförande av åtgärden.
 
 Observera att återuppta en åtgärd från en journalfil som skapats av en tidigare version av AzCopy inte stöds.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="parameter-file"></a>/@:"parameter-File”
 
@@ -766,13 +766,13 @@ Svarsfiler kan innehålla kommentarer rader som börjar med #-symbolen.
 
 Du kan ange flera svarsfiler. Observera dock att AzCopy inte stöder kapslade svarsfiler.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="y"></a>/Y
 
 Ignorerar alla bekräftelsemeddelanden för AzCopy. Det här alternativet kan också användningen av lässkyddad SAS-token för scenarier för överföring av data, när /XO och /XN inte har angetts.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="l"></a>/L
 
@@ -784,30 +784,30 @@ Beteendet för det här alternativet bestäms också av platsen för datakällan
 
 AzCopy kräver LIST och READ behörighet för den här källplatsen när du använder det här alternativet.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="mt"></a>/MT
 
 Anger den hämtade filen tid för senaste ändring vara samma som källbloben eller filens.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="xn"></a>/XN
 
 Utesluter en nyare käll-resurs. Resursen är inte kopieras om tid för senaste ändring av källan är samma eller senare än målet.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="xo"></a>/XO
 Utesluter en äldre käll-resurs. Resursen är inte kopieras om tid för senaste ändring av källan är samma eller äldre än målet.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="a"></a>/A
 
 Överför bara de filer som har attributet Arkiv.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
 
@@ -826,7 +826,7 @@ Tillgängliga attribut är:
 * O = Offline-filer
 * Jag = icke-indexerade filer
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
 
@@ -845,7 +845,7 @@ Tillgängliga attribut är:
 * O = Offline-filer
 * Jag = icke-indexerade filer
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="delimiterdelimiter"></a>/ Avgränsare: ”avgränsare”
 
@@ -855,7 +855,7 @@ Som standard använder AzCopy / som avgränsningstecken. Dock AzCopy stöder anv
 
 Det här alternativet gäller endast för att ladda ned blobar.
 
-**Gäller för:** Blobar
+**Gäller:** Blobar
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
 
@@ -865,19 +865,19 @@ AzCopy som standard startar ett visst antal samtidiga åtgärder för att öka d
 
 Övre gräns för samtidiga åtgärder är 512.
 
-**Gäller för:** Blobbar, filer, tabeller
+**Gäller:** Blobar, filer, tabeller
 
 ### <a name="sourcetypeblob--table"></a>/ SourceType: ”Blob” | ”Tabell”
 
 Anger att den `source` resursen är en blob som är tillgängliga i den lokala utvecklingsmiljö, som körs i storage-emulatorn.
 
-**Gäller för:** Blobbar, tabeller
+**Gäller:** Blobbar, tabeller
 
 ### <a name="desttypeblob--table"></a>/ DestType: ”Blob” | ”Tabell”
 
 Anger att den `destination` resursen är en blob som är tillgängliga i den lokala utvecklingsmiljö, som körs i storage-emulatorn.
 
-**Gäller för:** Blobbar, tabeller
+**Gäller:** Blobbar, tabeller
 
 ### <a name="pkrskey1key2key3"></a>/ PKRS ”: key1 #key2 key3 #...”
 
@@ -893,7 +893,7 @@ Varje åtgärd exporterar en av tre viktiga partitionsintervall, enligt nedan:
 
   [bb senaste partitionsnyckel]
 
-**Gäller för:** tabeller
+**Gäller:** Tabeller
 
 ### <a name="splitsizefile-size"></a>/ SplitSize: ”filstorlek”
 
@@ -903,7 +903,7 @@ Om det här alternativet inte anges exporterar AzCopy tabelldata till en enda fi
 
 Om data exporteras till en blob och exporterade filens storlek når gränsen 200 GB för blobstorlek, sedan AzCopy delar upp den exporterade filen även om det här alternativet inte anges.
 
-**Gäller för:** tabeller
+**Gäller:** Tabeller
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: ”InsertOrSkip” | ”InsertOrMerge” | ”InsertOrReplace”
 
@@ -913,7 +913,7 @@ Anger Tabellfunktioner för import av data.
 * InsertOrMerge - sammanfogar en befintlig entitet eller infogar en ny entitet om det inte finns i tabellen.
 * InsertOrReplace – ersätter en befintlig entitet eller infogar en ny entitet om det inte finns i tabellen.
 
-**Gäller för:** tabeller
+**Gäller:** Tabeller
 
 ### <a name="manifestmanifest-file"></a>/ Manifest: ”manifest-fil”
 
@@ -923,7 +923,7 @@ Det här alternativet är valfri under exportåtgärden, AzCopy genererar en man
 
 Det här alternativet krävs under importen för att hitta datafilerna.
 
-**Gäller för:** tabeller
+**Gäller:** Tabeller
 
 ### <a name="synccopy"></a>/ SyncCopy
 
@@ -933,7 +933,7 @@ AzCopy som standard använder serversidan asynkrona kopia. Ange detta alternativ
 
 Du kan använda det här alternativet när du kopierar filer i Blob storage, File storage, eller från Blob storage till File storage och vice versa.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="setcontenttypecontent-type"></a>/ SetContentType: ”content-type”
 
@@ -943,7 +943,7 @@ AzCopy anger innehållstypen för en blob eller fillagring till application/octe
 
 Om du anger det här alternativet om inget värde anger AzCopy varje blob eller filens innehållstyp enligt dess filnamnstillägg.
 
-**Gäller för:** Blobbar, filer
+**Gäller:** Blobar, filer
 
 ### <a name="payloadformatjson--csv"></a>/ PayloadFormat: ”JSON” | ”CSV”
 
@@ -951,7 +951,7 @@ Anger formatet för den exporterade datafilen i tabellen.
 
 Om det här alternativet inte anges exporterar AzCopy tabell datafilen i JSON-format som standard.
 
-**Gäller för:** tabeller
+**Gäller:** Tabeller
 
 ## <a name="known-issues-and-best-practices"></a>Kända problem och bästa praxis
 
@@ -999,7 +999,7 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 * [Introduktion till Azure Storage Data Movement Library förhandsversion](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introduktion till synkron kopia och anpassade innehållstyp](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Meddelande om allmän tillgänglighet av AzCopy 3.0 plus förhandsversionen av AzCopy 4.0 med stöd för tabell och fil](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimerats för storskaliga kopia scenarier](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Optimerad för storskaliga kopia scenarier](https://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Stöd för läsåtkomst till geografiskt redundant lagring](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 * [AzCopy: Överföra data med omstartsläge och SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Med hjälp av flera konto kopiering av Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)

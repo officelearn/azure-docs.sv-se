@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698765"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022316"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -51,7 +50,7 @@ Gateway för datahantering innehåller följande funktioner:
 ### <a name="command-flow-and-data-flow"></a>Kommandot flödet och dataflöde
 När du använder en Kopieringsaktivitet som kopierar data mellan lokala och molnbaserade använder aktiviteten en gateway för att överföra data från en lokal datakälla till molnet och tvärtom.
 
-Här är de övergripande dataflödet för och en sammanfattning av stegen för att kopiera med datagateway: ![dataflöde med hjälp av gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Här är det övergripande dataflödet för och sammanfattning av stegen för att kopiera med datagateway: ![Med hjälp av gateway-dataflöde](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. Dataexperter skapar en gateway för en Azure Data Factory med hjälp av antingen den [Azure-portalen](https://portal.azure.com) eller [PowerShell-cmdleten](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. Dataexperter skapar en länkad tjänst för ett lokalt datalager genom att ange gatewayen. Som en del av konfigurationen av den länkade tjänsten använder dataexperter programmet ange autentiseringsuppgifter för att ange typer av autentisering och autentiseringsuppgifter.  Dialogrutan Ange autentiseringsuppgifter program kommunicerar med datalagret att testa anslutningen och gatewayen att spara autentiseringsuppgifter.
@@ -182,9 +181,9 @@ Proxyservern använder gatewayen för att ansluta till Molntjänsten. Klicka på
 
 Det finns tre alternativ:
 
-* **Använd inte proxy**: Gateway inte uttryckligen använder alla proxy för att ansluta till molntjänster.
-* **Använd systemproxy**: Proxyinställningen som är konfigurerade i diahost.exe.config och diawp.exe.config används av gatewayen.  Om ingen proxy har konfigurerats i diahost.exe.config och diawp.exe.config ansluter gateway till Molntjänsten direkt utan att gå via proxy.
-* **Använd anpassad proxy**: konfigurera HTTP-proxyinställning för gateway, istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config.  Adress och Port krävs.  Användarnamn och lösenord är valfria beroende på inställningen för autentisering av din proxyserver.  Alla inställningar är krypterad med Autentiseringscertifikatet för gatewayen och lagras lokalt på gateway-värddatorn.
+* **Använd inte proxy**: Gateway använder inte uttryckligen alla proxy för att ansluta till molntjänster.
+* **Använd systemproxy**: Proxyinställningen som konfigureras i diahost.exe.config och diawp.exe.config använder gatewayen.  Om ingen proxy har konfigurerats i diahost.exe.config och diawp.exe.config ansluter gateway till Molntjänsten direkt utan att gå via proxy.
+* **Använd anpassad proxy**: Konfigurera HTTP-proxyinställning för gateway, istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config.  Adress och Port krävs.  Användarnamn och lösenord är valfria beroende på inställningen för autentisering av din proxyserver.  Alla inställningar är krypterad med Autentiseringscertifikatet för gatewayen och lagras lokalt på gateway-värddatorn.
 
 Data management gateway värdtjänsten startas om automatiskt när du har sparat de uppdaterade proxyinställningarna.
 
@@ -236,7 +235,7 @@ Förutom de här punkterna måste du också se till att Microsoft Azure är ditt
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Eventuella symptom för brandväggen och proxyservern serverproblem
 Om det uppstår fel som liknar det följande är det troligen på grund av felaktig konfigurering av brandvägg eller proxy-servern, vilket blockerar gatewayen från att ansluta till Data Factory för att autentisera sig själv. Se föregående avsnitt för att se till att brandväggen och proxyservern konfigureras korrekt.
 
-1. När du försöker registrera gatewayen du får följande felmeddelande: ”Det gick inte att registrera den gateway-nyckeln. Innan du försöker registrera den gateway-nyckeln igen, bekräfta att data management gateway är i anslutet tillstånd och Data Management Gateway-värdtjänsten har startats ”.
+1. När du försöker registrera gatewayen, visas följande fel: ”Det gick inte att registrera den gateway-nyckeln. Innan du försöker registrera den gateway-nyckeln igen, bekräfta att data management gateway är i anslutet tillstånd och Data Management Gateway-värdtjänsten har startats ”.
 2. När du öppnar Configuration Manager kan se du status som ”frånkopplad” eller ”ansluter”. När du visar Windows-händelseloggar, under ”Loggboken” > ”program och tjänstloggar” > ”Data Management Gateway” felmeddelanden visas till exempel följande fel: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
@@ -439,7 +438,7 @@ Det här avsnittet innehåller steg för glidande gatewayklienten från en dator
 För att kryptera autentiseringsuppgifter i Data Factory Editor, gör du följande:
 
 1. Starta webbläsare på den **gatewaydatorn**, gå till [Azure-portalen](http://portal.azure.com). Sök efter din datafabrik om det behövs, öppna data factory i den **DATA FACTORY** och klicka sedan på **författare och distribuera** att starta Data Factory-redigeraren.   
-2. Klicka på en befintlig **länkad tjänst** i trädvyn att se jobbets JSON-definition eller skapa en länkad tjänst som kräver en data management gateway (till exempel: SQL Server- eller Oracle).
+2. Klicka på en befintlig **länkad tjänst** i trädvyn att se jobbets JSON-definition eller skapa en länkad tjänst som kräver en data management gateway (till exempel: SQLServer eller Oracle).
 3. I JSON-redigerare för den **gatewayName** egenskap, anger du namnet på gatewayen.
 4. Ange servernamnet för den **datakälla** -egenskapen i den **connectionString**.
 5. Ange databasnamnet för den **Initial Catalog** -egenskapen i den **connectionString**.    

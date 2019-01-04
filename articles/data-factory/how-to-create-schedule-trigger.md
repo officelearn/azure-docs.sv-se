@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868233"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016638"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 Den här artikeln innehåller information om schemautlösare och stegen för att skapa, starta och övervaka en schemautlösare. För andra typer av utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -67,7 +66,7 @@ Du kan skapa en **schemautlösare** att schemalägga en pipeline kan köras rege
     ![Övervaka utlösarkörningar](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Det här avsnittet visar hur du använder Azure PowerShell för att skapa, starta och övervaka en schemautlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md). Lägg sedan till följande kod till main-metoden som skapar och startar en schemautlösare som körs var 15: e minut. Utlösaren är associerad med en pipeline med namnet **Adfv2QuickStartPipeline** som du skapar som en del av snabbstarten.
+Det här avsnittet visar hur du använder Azure PowerShell för att skapa, starta och övervaka en schemautlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: Skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md). Lägg sedan till följande kod till main-metoden som skapar och startar en schemautlösare som körs var 15: e minut. Utlösaren är associerad med en pipeline med namnet **Adfv2QuickStartPipeline** som du skapar som en del av snabbstarten.
 
 1. Skapa en JSON-fil med namnet **MyTrigger.json** i mappen C:\ADFv2QuickStartPSH\ med följande innehåll:
 
@@ -143,7 +142,7 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
 
 
 ## <a name="net-sdk"></a>.NET SDK
-Det här avsnittet visar hur du använder .NET SDK för att skapa, starta och övervaka en utlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md). Lägg sedan till följande kod till main-metoden som skapar och startar en schemautlösare som körs var 15: e minut. Utlösaren är associerad med en pipeline med namnet **Adfv2QuickStartPipeline** som du skapar som en del av snabbstarten.
+Det här avsnittet visar hur du använder .NET SDK för att skapa, starta och övervaka en utlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: Skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md). Lägg sedan till följande kod till main-metoden som skapar och startar en schemautlösare som körs var 15: e minut. Utlösaren är associerad med en pipeline med namnet **Adfv2QuickStartPipeline** som du skapar som en del av snabbstarten.
 
 Lägg till följande kod till main-metoden för att skapa och starta en schemautlösare som körs var 15: e minut:
 
@@ -223,7 +222,7 @@ Om du vill övervaka körningen av en utlösare lägger du till följande kod in
 
 
 ## <a name="python-sdk"></a>Python SDK
-Det här avsnittet visar hur du använder Python SDK för att skapa, starta och övervaka en utlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: skapa en datafabrik med hjälp av Python SDK](quickstart-create-data-factory-python.md). Lägg sedan till följande kodblock efter kodblocket ”övervaka pipelinekörningen” i Python-skriptet. Den här koden skapar en schemautlösare som körs varje kvart mellan angivna start- och sluttider. Uppdatera den **starttid** variabeln till den aktuella UTC-tid och **end_time** variabeln till en timme efter den aktuella UTC-tiden.
+Det här avsnittet visar hur du använder Python SDK för att skapa, starta och övervaka en utlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: Skapa en datafabrik med hjälp av Python SDK](quickstart-create-data-factory-python.md). Lägg sedan till följande kodblock efter kodblocket ”övervaka pipelinekörningen” i Python-skriptet. Den här koden skapar en schemautlösare som körs varje kvart mellan angivna start- och sluttider. Uppdatera den **starttid** variabeln till den aktuella UTC-tid och **end_time** variabeln till en timme efter den aktuella UTC-tiden.
 
 ```python
     # Create a trigger

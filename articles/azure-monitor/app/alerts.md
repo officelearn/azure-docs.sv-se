@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0f16f61e99e059c8cf21ec4ffa85eef0a04702bc
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973000"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017063"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
 [Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
@@ -41,7 +41,7 @@ Vi fokuserar på måttaviseringar i den här artikeln.
 * Ställ in resursen innan de andra egenskaperna. **Välj ”(komponenter)” resurs** om du vill ställa in varningar för mått för prestanda och användning.
 * Namnet som du ge aviseringen måste vara unikt inom resursgruppen (inte bara ditt program).
 * Var noga med att tänka på de enheter där du uppmanas att ange ett tröskelvärde.
-* Om du markerar kryssrutan ”e-postägare...” skickas aviseringar via e-post till alla som har åtkomst till den här resursgruppen. Om du vill expandera den här uppsättningen med personer, lägga till dem i den [resursgrupp eller prenumeration](../../application-insights/app-insights-resources-roles-access-control.md) (inte på resursen).
+* Om du markerar kryssrutan ”e-postägare...” skickas aviseringar via e-post till alla som har åtkomst till den här resursgruppen. Om du vill expandera den här uppsättningen med personer, lägga till dem i den [resursgrupp eller prenumeration](../../azure-monitor/app/resources-roles-access-control.md) (inte på resursen).
 * Om du anger ”ytterligare e-postmeddelanden” skickas aviseringar till de enskilda användare eller grupper (om du markerade kryssrutan ”Skicka e-ägare...”). 
 * Ange en [webhook adress](../../azure-monitor/platform/alerts-webhooks.md) om du har ställt in en webbapp som svarar på aviseringar. Det kallas för både när aviseringen aktiveras och när det är löst. (Men Observera att för närvarande, frågeparametrar skickas inte som webhook-egenskaper.)
 * Du kan inaktivera eller aktivera aviseringen: Se knappar längst upp på bladet.
@@ -51,7 +51,7 @@ Vi fokuserar på måttaviseringar i den här artikeln.
 * Använder du ett organisationskonto? Du kan ställa in aviseringar om du har ägare eller deltagare som har åtkomst till den här programresursen. Ta en titt på åtkomstkontroll-bladet. [Lär dig mer om åtkomstkontroll][roles].
 
 > [!NOTE]
-> På aviseringsbladet se du att det finns redan en avisering uppsättning: [Proaktiv diagnostik](../../application-insights/app-insights-proactive-failure-diagnostics.md). Automatisk avisering övervakar ett visst mått, begäran Felfrekvens. Såvida du inte vill inaktivera proaktiv avisering, behöver du inte ställa in dina egna avisering på fel hastighet på begäran. 
+> På aviseringsbladet se du att det finns redan en avisering uppsättning: [Proaktiv diagnostik](../../azure-monitor/app/proactive-failure-diagnostics.md). Automatisk avisering övervakar ett visst mått, begäran Felfrekvens. Såvida du inte vill inaktivera proaktiv avisering, behöver du inte ställa in dina egna avisering på fel hastighet på begäran. 
 > 
 > 
 
@@ -89,10 +89,10 @@ Populära aviseringar innehåller:
 * **Svarstid för servern** för serversidan webbprogram. Håll ett öga på det här måttet att se om det beror oproportionerligt hög begäranhastigheter samt ställa in aviseringar: variationen kan tyda på att din app är igång tillräckligt med resurser. 
 * **Serverundantagen** – om du vill se dem, du behöver göra några [ytterligare inställningar](../../azure-monitor/app/asp-net-exceptions.md).
 
-Glöm inte att [hastighet för proaktiv feldiagnostik](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatiskt övervaka den hastighet med vilken din app svarar på begäranden med felkoder. 
+Glöm inte att [hastighet för proaktiv feldiagnostik](../../azure-monitor/app/proactive-failure-diagnostics.md) automatiskt övervaka den hastighet med vilken din app svarar på begäranden med felkoder. 
 
 ## <a name="automation"></a>Automation
-* [Använd PowerShell för att automatisera konfigurationen av aviseringar](../../application-insights/app-insights-powershell-alerts.md)
+* [Använd PowerShell för att automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)
 * [Använda webhooks för att automatisera svarar på aviseringar](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Video
@@ -101,14 +101,14 @@ Glöm inte att [hastighet för proaktiv feldiagnostik](../../application-insight
 
 ## <a name="see-also"></a>Se också
 * [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Automatisera konfigurationen av aviseringar](../../application-insights/app-insights-powershell-alerts.md)
+* [Automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)
 * [Proaktiv diagnostik](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[platforms]: ../../azure-monitor/app/platforms.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

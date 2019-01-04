@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736418"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015822"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory-pipelines
 
@@ -46,7 +45,7 @@ Spark-aktivitet är en av de [datatransformeringsaktiviteter](data-factory-data-
 > - Spark-aktiviteten stöder inte HDInsight Spark-kluster som använder Azure Data Lake Store som primär lagring.
 > - Spark-aktiviteten stöder endast befintliga (egna) HDInsight Spark-kluster. Det stöder inte en på begäran länkad HDInsight-tjänst.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Genomgång: Skapa en pipeline med en Spark-aktivitet
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Steg-för-steg-beskrivning: Skapa en pipeline med en Spark-aktivitet
 Här följer vanliga stegen för att skapa en data factory-pipeline med en Spark-aktivitet: 
 
 * Skapa en datafabrik.
@@ -67,14 +66,14 @@ Här följer vanliga stegen för att skapa en data factory-pipeline med en Spark
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Gör så här för att skapa en datafabrik:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **Nytt** > **Data och analys** > **Data Factory**.
 
 1. På den **ny datafabrik** bladet under **namn**, ange **SparkDF**.
 
    > [!IMPORTANT]
-   > Namnet på Azure Data Factory måste vara globalt unikt. Om du ser felet ”datafabriksnamnet SparkDF är inte tillgänglig” kan du ändra namnet på datafabriken. Till exempel använda yournameSparkDFdate och skapa datafabriken igen. Mer information om namngivningsregler finns i [Data Factory: namngivningsregler](data-factory-naming-rules.md).
+   > Namnet på Azure Data Factory måste vara globalt unikt. Om du ser felet ”datafabriksnamnet SparkDF är inte tillgänglig” kan du ändra namnet på datafabriken. Till exempel använda yournameSparkDFdate och skapa datafabriken igen. Mer information om namngivningsregler finns [Data Factory: Namngivningsregler](data-factory-naming-rules.md).
 
 1. Under **Prenumeration** väljer du den Azure-prenumeration där du vill att datafabriken ska skapas.
 
@@ -338,7 +337,7 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen.
 | Klassnamn | Programmets Java/Spark-huvudklass. | Nej |
 | argument | En lista med kommandoradsargument till Spark-programmet. | Nej |
 | proxyUser | Användarkontot att personifiera för att köra Spark-programmet. | Nej |
-| sparkConfig | Ange värden för Spark-konfigurationsegenskaper som anges i [Spark-konfiguration: programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej |
+| sparkConfig | Ange värden för Spark-konfigurationsegenskaper som anges i [Spark-konfiguration: Programegenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej |
 | getDebugInfo | Anger när Spark filerna kopieras till den lagring som används av HDInsight-kluster (eller) anges av sparkJobLinkedService. Tillåtna värden är None, alltid eller misslyckats. Standardvärdet är ingen. | Nej |
 | sparkJobLinkedService | Den länkade lagringstjänsten som innehåller Spark jobbfilen, beroenden och loggar. Om du inte anger ett värde för den här egenskapen används den lagring som är associerad med HDInsight-kluster. | Nej |
 

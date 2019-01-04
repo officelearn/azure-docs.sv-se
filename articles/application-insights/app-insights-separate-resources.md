@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 58ccfefa0a0d76334734c67688ef50230881e945
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973813"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018815"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Att separera telemetri från utveckling, testning och produktion
 
@@ -78,15 +78,15 @@ I den [portal.azure.com](https://portal.azure.com), lägga till en Application I
 
 ![Klicka på Nytt, Application Insights](./media/app-insights-separate-resources/01-new.png)
 
-* **Programtyp** påverkar vad som visas på översiktsbladet och egenskaper som är tillgängliga i [metric explorer](app-insights-metrics-explorer.md). Om du inte ser din typ av app, väljer du en av de web-typerna för webbsidor.
-* **Resursgrupp** är att underlätta för att hantera egenskaper som [åtkomstkontroll](app-insights-resources-roles-access-control.md). Du kan använda separata resursgrupper för utveckling, testning och produktion.
+* **Programtyp** påverkar vad som visas på översiktsbladet och egenskaper som är tillgängliga i [metric explorer](../azure-monitor/app/metrics-explorer.md). Om du inte ser din typ av app, väljer du en av de web-typerna för webbsidor.
+* **Resursgrupp** är att underlätta för att hantera egenskaper som [åtkomstkontroll](../azure-monitor/app/resources-roles-access-control.md). Du kan använda separata resursgrupper för utveckling, testning och produktion.
 * **Prenumeration** är ditt betalningskonto i Azure.
 * **Plats** är där vi sparar dina data. För närvarande kan inte ändras. 
 * **Lägga till instrumentpanelen** placerar en panel för snabb åtkomst för din resurs på startsidan för Azure. 
 
 Det tar några sekunder att skapa resursen. Du ser en avisering när den är klar.
 
-(Du kan skriva en [PowerShell-skript](app-insights-powershell-script-create-resource.md) att skapa en resurs automatiskt.)
+(Du kan skriva en [PowerShell-skript](../azure-monitor/app/powershell-script-create-resource.md) att skapa en resurs automatiskt.)
 
 ### <a name="getting-the-instrumentation-key"></a>Hämta instrumenteringsnyckeln
 Instrumenteringsnyckeln som identifierar den resurs som du skapade. 
@@ -98,7 +98,7 @@ Du behöver instrumenteringsnycklar över alla resurser som din app skickar data
 ## <a name="filter-on-build-number"></a>Filtrera på build-nummer
 När du publicerar en ny version av din app kommer du att kunna skilja telemetri från olika versioner.
 
-Du kan ange egenskapen programversion så att du kan filtrera [search](../azure-monitor/app/diagnostic-search.md) och [metric explorer](app-insights-metrics-explorer.md) resultat.
+Du kan ange egenskapen programversion så att du kan filtrera [search](../azure-monitor/app/diagnostic-search.md) och [metric explorer](../azure-monitor/app/metrics-explorer.md) resultat.
 
 ![Filtrera efter en egenskap](./media/app-insights-separate-resources/050-filter.png)
 
@@ -148,7 +148,7 @@ Om du vill kunna spåra programversionen, se till att `buildinfo.config` generer
     </PropertyGroup>
 ```
 
-När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](app-insights-metrics-explorer.md).
+När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](../azure-monitor/app/metrics-explorer.md).
 
 Observera dock att build-versionsnumret endast genereras av Microsoft Build Engine, och inte av utvecklarversionen i Visual Studio.
 

@@ -1,5 +1,5 @@
 ---
-title: Om Azure Key Vault-nycklar, hemligheter och certifikat
+title: Om Azure Key Vault-nycklar, hemligheter och certifikat – Azure Key Vault
 description: Översikt över Azure Key Vault REST-gränssnittet och utvecklare information om nycklar, hemligheter och certifikat.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384793"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002628"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -36,7 +36,7 @@ Mer allmän information om Key Vault finns i [vad är Azure Key Vault?](/azure/k
 
 I följande avsnitt ger allmän information som gäller för implementeringen av Key Vault-tjänsten.
 
-###  <a name="supporting-standards"></a>Stöd för standarder
+### <a name="supporting-standards"></a>Stöd för standarder
 
 JavaScript Object Notation (JSON) och JavaScript-objekt signering och kryptering (JOSE) specifikationer finns viktig grundläggande information.  
 
@@ -60,7 +60,7 @@ Avse JOSE specifikationerna för relevanta datatyper för nycklar, kryptering oc
 -   **Identitet** – en identitet från Azure Active Directory (AAD).  
 -   **IntDate** – ett JSON-decimalvärde som representerar antalet sekunder från 1970-01-01T0:0:0Z UTC fram till angivet datum och tid i UTC. Se RFC3339 för information om date/times i allmänhet särskilt UTC.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Objekt-ID: n och versionshantering
+### <a name="objects-identifiers-and-versioning"></a>Objekt-ID: n och versionshantering
 
 Objekt som lagras i Key Vault är en ny version varje gång en ny instans av ett objekt skapas. Varje version tilldelas en unik identifierare och URL: en. När ett objekt skapas, har den får en unik versions-ID och markerats som den aktuella versionen av objektet. Skapa en ny instans med samma objektnamn ger det nya objektet en unik versions-ID, vilket gör att den blir den aktuella versionen.  
 
@@ -85,7 +85,7 @@ Där:
 
 ## <a name="key-vault-keys"></a>Key Vault-nycklar
 
-###  <a name="keys-and-key-types"></a>Nycklar och nyckeltyper
+### <a name="keys-and-key-types"></a>Nycklar och nyckeltyper
 
 Kryptografiska nycklar i Key Vault representeras som JSON-Webbnyckeln [JWK]-objekt. Grundläggande JWK/JWA specifikationer också utökas för att aktivera nyckeltyper som är unika för Key Vault-implementering. Importera med hjälp av HSM leverantörsspecifika paketering kan till exempel säker transport av nycklar som endast kan användas i Key Vault HSM.  
 
@@ -207,14 +207,14 @@ Följande behörigheter kan beviljas, på en per användare / service principal-
 
 - Behörigheter för nyckelhanteringsåtgärder
   - *Hämta*: Läs den offentliga delen av en nyckel, plus dess attribut
-  - *lista*: Lista nycklar eller versioner av en nyckel som lagras i key vault
+  - *Lista*: Lista nycklar eller versioner av en nyckel som lagras i key vault
   - *Uppdatera*: Uppdatera attribut för en nyckel
   - *Skapa*: Skapa nya nycklar
   - *Importera*: Importera en nyckel till ett nyckelvalv
   - *Ta bort*: Ta bort nyckeln objektet
   - *återställa*: Återställa en borttagen nyckel
-  - *säkerhetskopiering*: Säkerhetskopiera en nyckel i key vault
-  - *återställa*: Återställa en säkerhetskopierad nyckel till ett nyckelvalv
+  - *Backup*: Säkerhetskopiera en nyckel i key vault
+  - *Återställa*: Återställa en säkerhetskopierad nyckel till ett nyckelvalv
 
 - Behörigheter för kryptografiska åtgärder
   - *dekryptera*: Använd för att ta bort skyddet från en sekvens av byte
@@ -266,12 +266,12 @@ Följande behörigheter kan användas på basis av per huvudnamn, i den hemlighe
 
 - Behörigheter för hemlighetshanteringsåtgärder
   - *Hämta*: Läsa en hemlighet  
-  - *lista*: Lista hemligheter eller versioner av en hemlighet som lagras i Key Vault  
+  - *Lista*: Lista hemligheter eller versioner av en hemlighet som lagras i Key Vault  
   - *Ange*: Skapa en hemlighet  
   - *Ta bort*: Ta bort en hemlighet  
   - *återställa*: Återställa en borttagen hemlighet
-  - *säkerhetskopiering*: Säkerhetskopiera en hemlighet i key vault
-  - *återställa*: Återställa en säkerhetskopia hemlighet till ett nyckelvalv
+  - *Backup*: Säkerhetskopiera en hemlighet i key vault
+  - *Återställa*: Återställa en säkerhetskopia hemlighet till ett nyckelvalv
 
 - Behörigheter för privilegierade åtgärder
   - *Rensa*: Rensa (ta bort permanent) en hemlighet som har tagits bort
@@ -423,14 +423,14 @@ Om en certifikatprincip anges för automatisk förnyelse, skickas ett meddelande
 
 - Behörigheter för certifikatshanteringsåtgärder
   - *Hämta*: Hämta den aktuella versionen av certifikat eller någon version av ett certifikat 
-  - *lista*: Lista de aktuella certifikat eller versioner av ett certifikat  
+  - *Lista*: Lista de aktuella certifikat eller versioner av ett certifikat  
   - *Uppdatera*: Uppdatera ett certifikat
   - *Skapa*: Skapa ett Key Vault-certifikat
   - *Importera*: Importera certifikat material till ett Key Vault-certifikat
   - *Ta bort*: Ta bort ett certifikat, dess princip och alla dess versioner  
   - *återställa*: Återställa ett borttaget certifikat
-  - *säkerhetskopiering*: Säkerhetskopiera ett certifikat i key vault
-  - *återställa*: Återställa en säkerhetskopierad certifikat till ett nyckelvalv
+  - *Backup*: Säkerhetskopiera ett certifikat i key vault
+  - *Återställa*: Återställa en säkerhetskopierad certifikat till ett nyckelvalv
   - *managecontacts*: Hantera kontakter för Key Vault-certifikat  
   - *manageissuers*: Hantera Key Vault myndigheter/certifikatutfärdare
   - *getissuers*: Hämta ett certifikat myndigheter/utfärdare
@@ -460,12 +460,12 @@ Följande behörigheter kan användas när auktorisera en användare eller progr
 
 - Behörigheter för hanterat lagringskonto och SaS-definitionen åtgärder
   - *Hämta*: Hämtar information om ett lagringskonto 
-  - *lista*: Lista lagringskonton som hanteras av ett Key Vault
+  - *Lista*: Lista lagringskonton som hanteras av ett Key Vault
   - *Uppdatera*: Uppdatera ett storage-konto
   - *Ta bort*: Ta bort ett lagringskonto  
   - *återställa*: Återställa ett borttaget lagringskonto
-  - *säkerhetskopiering*: Säkerhetskopiera en storage-konto
-  - *återställa*: Återställa en säkerhetskopierad storage-konto till ett Nyckelvalv
+  - *Backup*: Säkerhetskopiera en storage-konto
+  - *Återställa*: Återställa en säkerhetskopierad storage-konto till ett Nyckelvalv
   - *Ange*: Skapa eller uppdatera ett storage-konto
   - *regeneratekey*: Återskapa en angivna nyckelvärdet för ett lagringskonto
   - *getsas*: Få information om en SAS-definitionen för ett lagringskonto

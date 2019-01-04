@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b1e951ecdadd28dbce96e89dce428c375836ba35
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4db0deac72adc5e51294cf7e4c6da334259a5531
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973816"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000444"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Beroendetelemetri: Application Insights-datamodell
 
@@ -70,4 +70,4 @@ Uppgift om lyckade och misslyckade anrop.
 - Konfigurera beroendespårning för [Java](../../azure-monitor/app/java-agent.md).
 - [Skriva anpassade beroendetelemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Se [datamodellen](data-model.md) för Application Insights och modellen.
-- Kolla in [plattformar](../../application-insights/app-insights-platforms.md) stöds av Application Insights.
+- Kolla in [plattformar](../../azure-monitor/app/platforms.md) stöds av Application Insights.

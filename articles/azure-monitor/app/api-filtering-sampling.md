@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f733a321470321b5b0f8bce48b4ac7978027fab7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 193e024b4691b76b08bcbe15ace35ccafd45c394
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973476"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023455"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
 
 
 Du kan skriva och konfigurera plugin-program för Application Insights SDK att anpassa hur telemetri samlas in och bearbetas innan det skickas till Application Insights-tjänsten.
 
-* [Sampling](../../application-insights/app-insights-sampling.md) minskar mängden telemetri utan att påverka din statistik. Den bevarar tillsammans relaterade datapunkter så att du kan navigera mellan dem vid diagnostisering av ett problem. I portalen är de totala antalet multipliceras för att kompensera för provtagning.
+* [Sampling](../../azure-monitor/app/sampling.md) minskar mängden telemetri utan att påverka din statistik. Den bevarar tillsammans relaterade datapunkter så att du kan navigera mellan dem vid diagnostisering av ett problem. I portalen är de totala antalet multipliceras för att kompensera för provtagning.
 * Filtrering med telemetri processorer [för ASP.NET](#filtering) eller [Java](../../azure-monitor/app/java-filter-telemetry.md) du kan välja eller ändra telemetri i SDK: N innan den skickas till servern. Exempelvis kan minska du mängden telemetri genom att exkludera begäranden från robotar. Men filtrering är en enklare metod för att minska trafiken än sampling. Den låter dig större kontroll över vad skickas, men du måste vara medveten om att det påverkar din statistik – till exempel om du filtrerar ut alla lyckade begäranden.
 * [Telemetri-initierare Lägg till egenskaper](#add-properties) till någon telemetri som skickas från din app, inklusive telemetri från standard-moduler. Exempelvis kan du lägga till beräknade värden. eller versionsnummer som du vill filtrera data i portalen.
 * [SDK-API: et](../../azure-monitor/app/api-custom-events-metrics.md) används för att skicka anpassade händelser och mått.
@@ -43,7 +43,7 @@ Om du vill filtrera telemetri, Skriv en telemetri-processor och registrera den m
 > [!WARNING]
 > Filtrera telemetri som skickas från SDK kan med hjälp av processorer förskjuta den statistikinformation som visas i portalen och gör det svårt att följa relaterade objekt.
 >
-> I stället använda [sampling](../../application-insights/app-insights-sampling.md).
+> I stället använda [sampling](../../azure-monitor/app/sampling.md).
 >
 >
 
@@ -371,5 +371,5 @@ Vad är skillnaden mellan telemetri processorer och telemetri-initierare?
 
 ## <a name="next"></a>Nästa steg
 * [Sökhändelser och loggar](../../azure-monitor/app/diagnostic-search.md)
-* [Sampling](../../application-insights/app-insights-sampling.md)
+* [Sampling](../../azure-monitor/app/sampling.md)
 * [Felsökning](../../application-insights/app-insights-troubleshoot-faq.md)

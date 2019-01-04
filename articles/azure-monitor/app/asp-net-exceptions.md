@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 76ce5f0c44dd1985fbf47d493b4566634f4894d0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6f534858194719a0d3059808073ae057f150b599
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021024"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i ditt live-webbapp som rapporteras av [Application Insights](../../application-insights/app-insights-overview.md). Du kan jämföra misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du kan snabbt diagnostisera orsakerna.
@@ -90,7 +90,7 @@ Om du vill se de här händelserna, öppna [Search](../../azure-monitor/app/diag
 ![Visa detaljerad information](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som ingår i samma åtgärd ska markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Läs mer om sampling.](../../application-insights/app-insights-sampling.md)
+> Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som ingår i samma åtgärd ska markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -489,4 +489,4 @@ Detta skiljer sig från antalet ”undantag” beräknas genom att räkna TrackE
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka REST, SQL och andra anrop till beroenden](../../azure-monitor/app/asp-net-dependencies.md)
 * [Övervaka sidans belastning, webbläsarundantag och AJAX-anrop](../../azure-monitor/app/javascript.md)
-* [Övervaka prestandaräknare](../../application-insights/app-insights-performance-counters.md)
+* [Övervaka prestandaräknare](../../azure-monitor/app/performance-counters.md)

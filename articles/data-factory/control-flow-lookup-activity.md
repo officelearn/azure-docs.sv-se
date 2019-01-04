@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426799"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019324"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-aktiviteten i Azure Data Factory
 
@@ -106,7 +105,7 @@ I det här exemplet kopierar Kopieringsaktiviteten data från en SQL-tabell i di
 Det här exemplet visar sökning efter den första raden. Sökningar för alla rader och att länka resultaten med ForEach-aktiviteten finns i exemplen i [kopiera flera tabeller i grupp med hjälp av Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Innehåller två aktiviteter i pipelinen: sökning och kopiera. 
+Den här pipelinen innehåller två aktiviteter: Sökning och kopiera. 
 
 - Lookup-aktiviteten är konfigurerad för att använda **LookupDataset**, som refererar till en plats i Azure Blob storage. Lookup-aktiviteten läser namnet på den SQL-tabellen från en JSON-fil på den här platsen. 
 - Kopieringsaktivitet använder utdata från den Lookup-aktiviteten är namnet på den SQL-tabellen. Den **tableName** -egenskapen i den **SourceDataset** är konfigurerad för att använda utdata från Lookup-aktiviteten. Kopiera aktivitet kopierar data från SQL-tabell till en plats i Azure Blob storage. Platsen anges av den **SinkDataset** egenskapen. 

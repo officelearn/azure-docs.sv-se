@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e1b06328f02ebad77f98acc480c146793f124c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970466"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020480"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
 *I Application Insights visas bara en bråkdel av de händelser som genereras av min app.*
 
-* Om du konsekvent ser den samma andel, beror det troligen på grund av anpassningsbar [sampling](../../application-insights/app-insights-sampling.md). För att bekräfta detta, Öppna sökning (från översiktsbladet) och titta på en instans av en begäran eller händelse. Klicka på ”...” för att få fullständig egenskapsinformationen längst ned i egenskapsavsnittet. Om begär antal > 1 och sedan sampling är i drift. 
-* I annat fall är det möjligt att du får en [data hastighetsbegränsning](../../application-insights/app-insights-pricing.md#limits-summary) för prisplanen. Dessa begränsningar tillämpas per minut.
+* Om du konsekvent ser den samma andel, beror det troligen på grund av anpassningsbar [sampling](../../azure-monitor/app/sampling.md). För att bekräfta detta, Öppna sökning (från översiktsbladet) och titta på en instans av en begäran eller händelse. Klicka på ”...” för att få fullständig egenskapsinformationen längst ned i egenskapsavsnittet. Om begär antal > 1 och sedan sampling är i drift. 
+* I annat fall är det möjligt att du får en [data hastighetsbegränsning](../../azure-monitor/app/pricing.md#limits-summary) för prisplanen. Dessa begränsningar tillämpas per minut.
 
 ## <a name="no-data-from-my-server"></a>Inga data från Min server
 *Jag har installerat min app på webbservern och nu jag ser inte någon telemetri från den. Det fungerade OK på min utvecklingsdator.*
@@ -51,7 +51,7 @@ Troliga orsaker:
 
 * Det gick inte att kommunicera med Application Insights-portalen; eller
 * Det finns problem med ditt Azure-konto;
-* Du behöver bara [läsbehörighet till den prenumeration eller en grupp där du försökte skapa den nya resursen](../../application-insights/app-insights-resources-roles-access-control.md).
+* Du behöver bara [läsbehörighet till den prenumeration eller en grupp där du försökte skapa den nya resursen](../../azure-monitor/app/resources-roles-access-control.md).
 
 Åtgärda:
 
@@ -95,7 +95,7 @@ Microsoft inloggningen som du senast använde i din standardwebbläsare har inte
 * Du har mer än en Microsoft-konto – kanske ett arbets- och ett personligt microsoftkonto? Inloggning som du senast använde i din standardwebbläsare var för ett annat konto än det som har åtkomst till [Lägg till Application Insights i projektet](../../azure-monitor/app/asp-net.md). 
   
   * Åtgärda: Klicka på ditt namn på överst till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka på Application Insights på det vänstra navigeringsfältet och välj din app.
-* Någon annan har lagt till Application Insights i projektet och de har glömt att ge dig [åtkomst till resursgruppen](../../application-insights/app-insights-resources-roles-access-control.md) i som den skapades. 
+* Någon annan har lagt till Application Insights i projektet och de har glömt att ge dig [åtkomst till resursgruppen](../../azure-monitor/app/resources-roles-access-control.md) i som den skapades. 
   
   * Åtgärda: Om de har använt ett organisationskonto, kan de lägga till dig i teamet; eller de kan bevilja enskilda åtkomst till resursgruppen.
 
@@ -167,7 +167,7 @@ Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webb
 * Har du nått din månatliga kvot för datapunkter? Öppna inställningar/kvoter och priser för att ta reda på. I så fall kan du uppgradera din plan eller betala för ytterligare kapacitet. Se den [priser schema](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Jag ser inte alla data som jag förväntar mig
-Om ditt program skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare, den [Adaptiv sampling](../../application-insights/app-insights-sampling.md) funktionen kan användas och skicka bara en del av telemetrin. 
+Om ditt program skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare, den [Adaptiv sampling](../../azure-monitor/app/sampling.md) funktionen kan användas och skicka bara en del av telemetrin. 
 
 Du kan inaktivera det, men detta rekommenderas inte. Sampling är utformat så att relaterad telemetri är korrekt överförs i diagnostiskt syfte. 
 

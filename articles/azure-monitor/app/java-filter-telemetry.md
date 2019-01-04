@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981150"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015530"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i Java-webbappen
 
@@ -31,7 +31,7 @@ Out-of the box-filtren är:
 
 > [!NOTE]
 > Filter förskjuta mått för din app. Du kan till exempel bestämma att, för att kunna diagnostisera långsamma svar du anger ett filter för att ta bort snabba svarstider. Men du måste vara medveten om att de genomsnittliga svarstider som rapporterats av Application Insights blir långsammare än SANT hastighet och antal begäranden ska vara mindre än antalet verkliga.
-> Om det är ett problem kan använda [Sampling](../../application-insights/app-insights-sampling.md) i stället.
+> Om det är ett problem kan använda [Sampling](../../azure-monitor/app/sampling.md) i stället.
 
 ## <a name="setting-filters"></a>Ange filter
 
@@ -262,4 +262,4 @@ I ApplicationInsights.xml:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Sampling](../../application-insights/app-insights-sampling.md) -Överväg sampling som ett alternativ som inte förskjuta dina mått.
+* [Sampling](../../azure-monitor/app/sampling.md) -Överväg sampling som ett alternativ som inte förskjuta dina mått.

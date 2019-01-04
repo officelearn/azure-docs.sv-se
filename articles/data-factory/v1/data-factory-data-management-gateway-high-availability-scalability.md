@@ -9,17 +9,16 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060706"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016775"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsversion)
 > [!NOTE]
@@ -171,7 +170,7 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
 - Certifikat med CNG-nycklar stöds inte.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Vanliga frågor och svar: När ska jag inte aktivera den här kryptering?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>VANLIGA FRÅGOR OCH SVAR: När kan jag inte aktivera den här kryptering?
 Aktivera kryptering kan lägga till vissa kostnad för din infrastruktur (ägande offentliga certifikat) därför kan du hoppa över aktivering av kryptering i den nedan fall:
 - När integration runtime körs på ett betrott nätverk eller ett nätverk med transparent kryptering som IP/sek. Eftersom den här kanalen kommunikationen är endast begränsad i det betrodda nätverket måste du kanske inte behöver ytterligare kryptering.
 - När integration runtime körs inte i en produktionsmiljö. Detta kan hjälpa att minska kostnaden för TLS/SSL-certifikat.

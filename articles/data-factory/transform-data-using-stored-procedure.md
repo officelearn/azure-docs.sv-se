@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 9a724f8e319e652b85941810a6312c35a5036120
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444036"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025733"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Omvandla data med hjälp av SQL Server-lagrad procedur i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +26,7 @@ ms.locfileid: "52444036"
 Du använder datatransformeringsaktiviteter i en Data Factory [pipeline](concepts-pipelines-activities.md) att transformera och bearbeta rådata till förutsägelser och insikter. Den lagrade Proceduraktiviteten är en av transformeringsaktiviteter som har stöd för Data Factory. Den här artikeln bygger vidare på den [Transformera data](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter i Data Factory.
 
 > [!NOTE]
-> Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och igenom självstudien: [självstudie: omvandla data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
+> Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och igenom självstudien: [Självstudie: Transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
 
 Du kan använda den lagrade Proceduraktiviteten för att anropa en lagrad procedur i någon av följande datalager i ditt företag eller på en Azure-dator (VM): 
 
@@ -36,9 +35,9 @@ Du kan använda den lagrade Proceduraktiviteten för att anropa en lagrad proced
 - SQL Server-databas.  Om du använder SQL Server kan du installera lokal integration runtime på samma dator som är värd för databasen eller på en separat dator som har åtkomst till databasen. Lokal integration runtime är en komponent som ansluter data datakällor på plats/på virtuella Azure-datorer med molntjänster i ett säkert och hanterat sätt. Se [integration runtime med egen värd](create-self-hosted-integration-runtime.md) nedan för information.
 
 > [!IMPORTANT]
-> När du kopierar data till Azure SQL Database eller SQL Server, kan du konfigurera den **SqlSink** i kopieringsaktiviteten att anropa en lagrad procedur med hjälp av den **sqlWriterStoredProcedureName** egenskapen. Mer information om egenskapen hittar du i följande artiklar för koppling: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Anropa en lagrad procedur när du kopierar data till en Azure SQL Data Warehouse med hjälp av en Kopieringsaktivitet stöds inte. Men du kan använda aktiviteten lagrad procedur för att anropa en lagrad procedur i ett SQL Data Warehouse. 
+> När du kopierar data till Azure SQL Database eller SQL Server, kan du konfigurera den **SqlSink** i kopieringsaktiviteten att anropa en lagrad procedur med hjälp av den **sqlWriterStoredProcedureName** egenskapen. Information om egenskapen hittar du i följande artiklar för anslutningen: [Azure SQL Database](connector-azure-sql-database.md), [SQLServer](connector-sql-server.md). Anropa en lagrad procedur när du kopierar data till en Azure SQL Data Warehouse med hjälp av en Kopieringsaktivitet stöds inte. Men du kan använda aktiviteten lagrad procedur för att anropa en lagrad procedur i ett SQL Data Warehouse. 
 >
-> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse, kan du konfigurera **SqlSource** i kopieringsaktiviteten att anropa en lagrad procedur för att läsa data från källdatabasen med hjälp av den  **sqlReaderStoredProcedureName** egenskapen. Mer information finns i följande artiklar för koppling: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse, kan du konfigurera **SqlSource** i kopieringsaktiviteten att anropa en lagrad procedur för att läsa data från källdatabasen med hjälp av den  **sqlReaderStoredProcedureName** egenskapen. Mer information finns i följande artiklar för anslutningen: [Azure SQL Database](connector-azure-sql-database.md), [SQLServer](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 

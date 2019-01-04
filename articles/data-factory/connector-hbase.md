@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f5fb62a04f1829726796b674a8e6e72951e6bb35
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083384"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019460"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med Azure Data Factory 
 
@@ -46,7 +45,7 @@ Följande egenskaper har stöd för HBase länkade tjänsten:
 | värd | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter klientanslutningar. Standardvärdet är 9090. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
 | httpPath | Partiell URL: en motsvarar HBase-server, t.ex. `/hbaserest0` när du använder HDInsights kluster. | Nej |
-| authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
+| authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **Anonym**, **grundläggande** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |

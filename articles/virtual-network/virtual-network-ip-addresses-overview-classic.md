@@ -1,13 +1,10 @@
 ---
-title: IP-adresstyper i Azure (klassisk) | Microsoft Docs
+title: IP-adresstyper i Azure (klassisk)
+titlesuffix: Azure Virtual Network
 description: Läs mer om offentliga och privata IP-adresser (klassisk) i Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011714"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024577"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure (klassisk) i Azure
 Du kan tilldela IP-adresser till Azure-resurser för att kommunicera med andra Azure-resurser, det lokala nätverket och Internet. Det finns två typer av IP-adresser som du kan använda i Azure: offentliga och privata.
@@ -30,7 +27,7 @@ Offentliga IP-adresser som används för kommunikation med Internet, inklusive A
 Privata IP-adresser används för kommunikation inom ett Azure-nätverk (VNet), en tjänst i molnet och ditt lokala nätverk när du använder en VPN-gateway eller ExpressRoute-krets för att utöka ditt nätverk till Azure.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager. Lär dig mer om IP-adresser i Resource Manager genom att läsa den [IP-adresser](virtual-network-ip-addresses-overview-arm.md) artikeln.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager. Lär dig mer om IP-adresser i Resource Manager genom att läsa den [IP-adresser](virtual-network-ip-addresses-overview-arm.md) artikeln.
 
 ## <a name="public-ip-addresses"></a>Offentliga IP-adresser
 Offentliga IP-adresser gör Azure-resurser kan kommunicera med Internet och Azure offentliga tjänster som [Azure Cache för Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL-databaser](../sql-database/sql-database-technical-overview.md), och [Azure storage](../storage/common/storage-introduction.md).
@@ -44,7 +41,7 @@ En offentlig IP-adress är associerat med följande resurstyper:
 * Programgateways
 
 ### <a name="allocation-method"></a>Allokeringsmetod
-När en offentlig IP-adress måste tilldelas till en Azure-resurs, är det *dynamiskt* allokeras från en pool med tillgängliga offentliga IP-adress inom den plats där resursen skapas. Den här IP-adressen frisläpps när resursen har stoppats. Om detta händer när alla rollinstanser har stoppats av en molnbaserad tjänst, vilket kan undvikas genom att använda en *Statiska* (reserverad) IP-adress (se [molntjänster](#Cloud-services)).
+När en offentlig IP-adress måste tilldelas till en Azure-resurs, är det *dynamiskt* allokeras från en pool med tillgängliga offentliga IP-adress inom den plats där resursen skapas. Den här IP-adressen frisläpps när resursen har stoppats. Med Molntjänsten, sker detta när alla rollinstanser har stoppats, som kan undvikas genom att använda en *Statiska* (reserverad) IP-adress (se [molntjänster](#Cloud-services)).
 
 > [!NOTE]
 > Listan över IP-adressintervall som offentliga IP-adresser allokeras till Azure-resurser finns i avsnittet [Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -52,7 +49,7 @@ När en offentlig IP-adress måste tilldelas till en Azure-resurs, är det *dyna
 > 
 
 ### <a name="dns-hostname-resolution"></a>Matchning av DNS-värdnamn
-När du skapar en molnbaserad tjänst eller en IaaS-VM, måste du ange ett moln tjänsten DNS-namn som är unikt över alla resurser i Azure. Detta skapar en mappning i Azure-hanterade DNS-servrar för *dnsname*. cloudapp.net till offentliga IP-adressen för resursen. Till exempel när du skapar en tjänst i molnet med cloud service DNS-namnet **contoso**, det fullständigt kvalificerade domännamnet (FQDN) **contoso.cloudapp.net** matchar med en offentlig IP-adress (VIP) för den molntjänst. Du kan använda detta fullständiga domännamn för att skapa en anpassad CNAME-domänpost som pekar på den offentliga IP-adressen i Azure.
+När du skapar en molnbaserad tjänst eller en IaaS-VM, måste du ange ett moln tjänsten DNS-namn som är unikt i alla resurser i Azure. Detta skapar en mappning i Azure-hanterade DNS-servrar för *dnsname*. cloudapp.net till offentliga IP-adressen för resursen. Till exempel när du skapar en tjänst i molnet med cloud service DNS-namnet **contoso**, det fullständigt kvalificerade domännamnet (FQDN) **contoso.cloudapp.net** matchar med en offentlig IP-adress (VIP) i molnet tjänsten. Du kan använda detta fullständiga domännamn för att skapa en anpassad CNAME-domänpost som pekar på den offentliga IP-adressen i Azure.
 
 ### <a name="cloud-services"></a>Molntjänster
 En molnbaserad tjänst har alltid en offentlig IP-adress som kallas virtuell IP-adress (VIP). Du kan skapa slutpunkter i en molntjänst för att associera olika portar i VIP till interna portar på virtuella datorer och rollinstanser i Molntjänsten. 
@@ -63,7 +60,7 @@ Du kan kontrollera att den offentliga IP-adressen för en molnbaserad tjänst f�
 
 Statisk (reserverad) offentliga IP-adresser används ofta i scenarier där det är en molnbaserad tjänst:
 
-* kräver brandväggsregler konfigureras av slutanvändare.
+* kräver brandväggsregler för att ställas in av slutanvändare.
 * är beroende av externa DNS-namnmatchning, och en dynamisk IP-adress kräver uppdatering av A-poster.
 * förbrukar externa webbtjänster som använder IP-baserade säkerhetsmodell.
 * använder SSL-certifikat som är kopplade till en IP-adress.
@@ -130,7 +127,7 @@ Statiska privata IP-adresser används ofta för:
 #### <a name="internal-dns-hostname-resolution"></a>Intern DNS-värdnamnsmatchning
 Alla virtuella Azure-datorer och PaaS-rollinstanser som är konfigurerade med [Azure-hanterade DNS-servrar](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) som standard om du inte uttryckligen konfigurerar anpassade DNS-servrar. Dessa DNS-servrar tillhandahåller intern namnmatchning för virtuella datorer och rollinstanser som finns i samma virtuella nätverk eller i molnet-tjänsten.
 
-När du skapar en virtuell dator läggs en mappning till för värdnamnet till dess privata IP-adress för de Azure-hanterade DNS-servrarna. Om en virtuell dator med flera nätverkskort mappas värdnamnet till den privata IP-adressen för det primära nätverkskortet. Den här mappningsinformationen är dock begränsade resurser inom samma molntjänst eller virtuella nätverk.
+När du skapar en virtuell dator läggs en mappning till för värdnamnet till dess privata IP-adress för de Azure-hanterade DNS-servrarna. Med virtuell dator med flera nätverkskort mappas värdnamnet till den privata IP-adressen för det primära nätverkskortet. Den här mappningsinformationen är dock begränsade resurser inom samma molntjänst eller virtuella nätverk.
 
 I händelse av en *fristående* Molntjänsten, du kan matcha värdnamnen för alla virtuella datorer/rollinstanser i bara samma molntjänst. Vid en molntjänst i ett virtuellt nätverk, kommer du att kan matcha värdnamnen för alla virtuella datorer/rollinstanserna inom det virtuella nätverket.
 

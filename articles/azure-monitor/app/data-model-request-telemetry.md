@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 45289a972854237d0b6848e796d40305d9321113
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812480"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001914"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begärandetelemetri: Application Insights-datamodell
 
@@ -84,4 +84,4 @@ Du kan läsa mer på begäran-resultatet kod och statuskod i den [blogginlägget
 - [Skriva egen begärandetelemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - Se [datamodellen](data-model.md) för Application Insights och modellen.
 - Lär dig hur du [Konfigurera ASP.NET Core](../../azure-monitor/app/asp-net.md) program med Application Insights.
-- Kolla in [plattformar](../../application-insights/app-insights-platforms.md) stöds av Application Insights.
+- Kolla in [plattformar](../../azure-monitor/app/platforms.md) stöds av Application Insights.

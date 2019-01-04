@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 600b64eceb3d3187349ce6c0e4a0270f24ab8621
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976561"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014275"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,11 +49,11 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för ODBC-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Odbc** | Ja |
+| typ | Type-egenskapen måste anges till: **ODBC** | Ja |
 | connectionString | Anslutningssträngen undantaget del som autentiseringsuppgifter. Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet-DSN (Data Source Name) du har konfigurerat på Integration Runtime-dator med `"DSN=<name of the DSN on IR machine>;"` (du måste fortfarande ange credential-delen i den länkade tjänsten i enlighet med detta).<br>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalager.<br/>Tillåtna värden är: **grundläggande** och **anonym**. | Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalager.<br/>Tillåtna värden är: **Grundläggande** och **anonym**. | Ja |
 | Användarnamn | Ange användarnamnet om du använder grundläggande autentisering. | Nej |
 | lösenord | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | credential | Åtkomst till autentiseringsuppgifter delen av anslutningssträngen som angetts i drivrutinsspecifika egenskapsvärdet format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Nej |
@@ -194,7 +193,7 @@ Om du vill kopiera data till datalagret för ODBC-kompatibel, ange Mottagartyp i
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **OdbcSink** | Ja |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |
 | WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (standardvärdet är 0 - automatiskt upptäckt) |
 | preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten till att köra innan du skriver data till datalagret i varje körning. Du kan använda den här egenskapen för att rensa tidigare inlästa data. |Nej |
 

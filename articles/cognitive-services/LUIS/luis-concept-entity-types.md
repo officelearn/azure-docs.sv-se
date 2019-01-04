@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 79c279e351ce467bea8affc313da09ce8087bd2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994903"
+ms.locfileid: "53999993"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -167,7 +167,6 @@ Pattern.any är en platshållare för variabel längd som används endast i ett 
 Entiteten är ett bra passar när:
 
 * Slut på entiteten kan blandas ihop med återstående texten för uttryck. 
-
 [Självstudie](luis-tutorial-pattern.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#patternany-entity-data)
 

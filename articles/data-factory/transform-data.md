@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390144"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014360"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -62,7 +61,7 @@ Framöver kommer måste förutsägande modeller i Maskininlärning bedömning ex
 Se [Använd Machine Learning-aktiviteter](transform-data-using-machine-learning.md) mer information om dessa Machine Learning-aktiviteter. 
 
 ## <a name="stored-procedure-activity"></a>Lagrad proceduraktivitet
-Du kan använda SQL Server-lagrad procedur i Data Factory-pipeline anropa en lagrad procedur i någon av följande datalager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server-databas i ditt företag eller en Azure-dator. Se [lagringsprocedur-aktivitet](transform-data-using-stored-procedure.md) nedan för information.  
+Du kan använda SQL Server-lagrad procedur i en Data Factory-pipeline anropa en lagrad procedur i någon av följande datalager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server-databas i ditt företag eller en Azure-dator. Se [lagringsprocedur-aktivitet](transform-data-using-stored-procedure.md) nedan för information.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-aktivitet för Data Lake Analytics
 Data Lake Analytics U-SQL-aktivitet kör en U-SQL-skript på ett Azure Data Lake Analytics-kluster. Se [Data U-SQL-aktiviteten](transform-data-using-data-lake-analytics.md) nedan för information. 
@@ -87,10 +86,10 @@ Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster me
 ## <a name="compute-environments"></a>Compute-miljöer
 Du skapar en länkad tjänst för compute-miljö och sedan använda den länkade tjänsten när du definierar en transformeringsaktivitet. Det finns två typer av beräkningsmiljöer som stöds av Data Factory. 
 
-- **På begäran**: I det här fallet datormiljön är fullständigt hanterad av Data Factory. Den skapas automatiskt av Data Factory-tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrollera detaljerade inställningar av på begäran beräkningsmiljö för jobbkörning, klusterhantering och start av åtgärder. 
+- **På begäran**:  I det här fallet hanteras datormiljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory-tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrollera detaljerade inställningar av på begäran beräkningsmiljö för jobbkörning, klusterhantering och start av åtgärder. 
 - **Ta med din egen**: I det här fallet kan du registrera dina egna datormiljö (till exempel HDInsight-kluster) som en länkad tjänst i Datafabriken. Datormiljön hanteras av dig och Data Factory-tjänsten används för att köra aktiviteterna. 
 
 Se [beräkna länkade tjänster](compute-linked-services.md) artikeln om du vill veta mer om compute services som stöds av Data Factory. 
 
 ## <a name="next-steps"></a>Nästa steg
-Se ett exempel på hur du använder en transformeringsaktivitet följande självstudie: [självstudie: Transformera data med Spark](tutorial-transform-data-spark-powershell.md)
+Se ett exempel på hur du använder en transformeringsaktivitet följande självstudie: [Självstudie: Transformera data med Spark](tutorial-transform-data-spark-powershell.md)

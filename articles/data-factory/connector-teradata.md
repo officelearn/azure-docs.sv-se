@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228070"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019001"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +56,7 @@ Följande egenskaper har stöd för Teradata länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **Teradata** | Ja |
 | server | Namnet på Teradata-servern. | Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till Teradata-databasen.<br/>Tillåtna värden är: **grundläggande**, och **Windows**. | Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till Teradata-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **Windows**. | Ja |
 | användarnamn | Ange användarnamn för att ansluta till Teradata-databasen. | Ja |
 | lösenord | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
@@ -171,7 +170,7 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Char |Sträng |
 | CLOB |Sträng |
 | Date |DateTime |
-| decimaltal |decimaltal |
+| Decimal |Decimal |
 | Double-värde |Double-värde |
 | Bild |Sträng |
 | Integer |Int32 |

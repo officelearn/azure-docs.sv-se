@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 5f21f33678b8cf09d9dbd8966d42b1a5ebac9ffb
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 8ab6dad36bf47430a925d21ca2464286e7e70002
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224660"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022078"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks notebook
 
-Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks notebook i Azure Databricks-arbetsytan. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks notebook i Azure Databricks-arbetsytan. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definitionen för Databricks Notebook-aktivitet
 
@@ -63,7 +62,7 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
 |beskrivning|Text som beskriver hur aktiviteten ska hantera.|Nej|
 |typ|För Databricks Notebook-aktiviteten är aktivitetstypen DatabricksNotebook.|Ja|
-|linkedServiceName|Namnet på den länkade tjänsten för Databricks som Databricks notebook körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
+|linkedServiceName|Namnet på den länkade tjänsten för Databricks som Databricks notebook körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |notebookPath|Den absoluta sökvägen till anteckningsboken för att köras i Databricks-arbetsytan. Den här sökvägen måste börja med ett snedstreck.|Ja|
 |baseParameters|En matris med nyckel / värde-par. Grundläggande parametrar kan användas för varje aktivitet kör. Om anteckningsboken tar en parameter som inte anges, används standardvärdet från anteckningsboken. Hitta mer information om parametrar i [Databricks-anteckningsböcker](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|
 |Bibliotek|En lista med bibliotek som ska installeras på det kluster som ska utföra jobbet. Det kan vara en matris med \<sträng, objekt->.|Nej|

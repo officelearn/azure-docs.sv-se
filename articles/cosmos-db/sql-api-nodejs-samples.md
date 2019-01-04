@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
 ms.author: deborahc
-ms.openlocfilehash: 21ef8c5464f15c5eca939b103ac67f0f3984d8ea
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 491e31fecedf52be0ecf2aee470fab4ce168c866
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878656"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538454"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js-exempel
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): din Visual Studio-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
+- Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Din Visual Studio-prenumeration ger dig krediter varje månad som du kan använda för Azure-betaltjänster.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -104,5 +104,5 @@ Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Serv
 | [Skapa en lagrad procedur](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/JS/upsert.js#L12-L72) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
 | [Köra en lagrad procedur](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/app.js#L44) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest#execute) |
 
-Mer information om programmering på serversidan finns på sidan om [Azure Cosmos DB-programmering på serversidan: lagrade procedurer, databasutlösare och UDF:er](programming.md).
+Mer information om programmering på serversidan finns på sidan om [Azure Cosmos DB-programmering på serversidan: Lagrade procedurer, databasutlösare och UDF:er](stored-procedures-triggers-udfs.md).
 

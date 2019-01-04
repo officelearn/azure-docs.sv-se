@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4ac341d780a3c348f9ba9f8fd0241c351bd5fdc5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162444"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652872"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
 
 Den här självstudien visar hur du använder [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) till att läsa och skriva data med [Apache Kafka](https://kafka.apache.org/) i Azure HDInsight.
 
-Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. 
+Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data.  
 
 I den här guiden får du lära dig att:
 
@@ -41,7 +41,7 @@ Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är kl
 
 * Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Apache Kafka i HDInsight](kafka/apache-kafka-get-started.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stegen i det här dokumentet kräver en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
 > 
 > Dokumentet innehåller länkar till en mall som kan skapa alla nödvändiga Azure-resurser. 
@@ -118,7 +118,7 @@ Följande diagram visar hur kommunikation flödar mellan Apache Spark och Kafka:
 
 ![Diagram över Apache Spark- och Kafka-kluster i ett virtuellt Azure-nätverk](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka-tjänsten är begränsad till kommunikation inom det virtuella nätverket. Andra tjänster på klustret, till exempel SSH och Ambari, kan nås via Internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-kluster i den, använder du följande steg:
@@ -135,7 +135,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
     * En Apache Spark 2.2.0 på HDInsight 3.6-klustret.
     * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Anteckningsboken för Structured Streaming som används i den här självstudien kräver Apache Spark 2.2.0 i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
 
 2. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
@@ -158,7 +158,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
 
 4. Markera slutligen **Fäst på instrumentpanelen** och välj sedan **Inköp**. 
 
-> [!NOTE]
+> [!NOTE]  
 > Det kan ta upp till 20 minuter att skapa klustren.
 
 ## <a name="upload-the-notebook"></a>Ladda upp anteckningsboken
@@ -198,7 +198,7 @@ Ta bort en resursgrupp med Azure Portal:
 2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen __Mer__ (...) till höger om listan.
 3. Välj __Ta bort resursgrupp__ och bekräfta.
 
-> [!WARNING]
+> [!WARNING]  
 > Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används.
 > 
 > Om du tar bort en Kafka i ett HDInsight-kluster tas alla data som lagrats i Kafka bort.

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344235"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539733"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Självstudie: Skapa en Java EE- och Postgres-webbapp i Azure
 
@@ -170,7 +170,7 @@ Vi rekommenderar starkt att du läser innehållet i filerna, särskilt _jboss_cl
 
 ### <a name="ftp-the-configuration-files"></a>FTP-konfigurationsfiler
 
-Vi kommer att behöva FTP-innehållet i `wildfly_config/` till vår App Service-instans. För att få dina FTP-autentiseringsuppgifter klickar du på knappen **Hämta publiceringsprofil** på App Service-bladet i Azure-portalen. FTP-användarnamnet och -lösenordet finns i det nedladdade XML-dokumentet. Mer information om publiceringsprofilen finns i [det här dokumentet](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+Vi kommer att behöva FTP-innehållet i `wildfly_config/` till vår App Service-instans. För att få dina FTP-autentiseringsuppgifter klickar du på knappen **Hämta publiceringsprofil** på App Service-bladet i Azure-portalen. FTP-användarnamnet och -lösenordet finns i det nedladdade XML-dokumentet. Mer information om publiceringsprofilen finns i [det här dokumentet](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Med hjälp av ett valfritt FTP-verktyg överför du de fyra filerna i `wildfly_config/` till `/home/site/deployments/tools/`. (Observera att du inte överför katalogen, bara själva filerna.)
 

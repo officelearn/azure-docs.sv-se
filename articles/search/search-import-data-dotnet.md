@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
 ms.custom: seodec2018
-ms.openlocfilehash: ae723e07f92a05f128ca78a7c5974cd0ebc55ac6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a34a48f8816315602fc497d4f39dcfee7fe2b032
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313300"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634906"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Ladda upp data till Azure Search med hjälp av .NET SDK
 > [!div class="op_single_selector"]
@@ -208,11 +208,11 @@ public partial class Hotel
 Det första du ser är att varje offentlig egenskap för `Hotel` motsvarar ett fält i indexdefinitionen, men med en viktig skillnad: Namnet på varje fält börjar med en gemen bokstav (”kamelNotation”), medan namnet på varje offentlig egenskap för `Hotel` börjar med en versal (”PascalNotation”). Det här är ett vanligt scenario i .NET-program som utför databindning där målschemat ligger utanför programutvecklarens kontroll. I stället för att behöva bryta mot riktlinjerna för .NET-namngivning genom att göra egenskapsnamnen gemena kan du uppmana SDK att mappa egenskapsnamnen till kamelnotation automatiskt med attributet `[SerializePropertyNamesAsCamelCase]`.
 
 > [!NOTE]
-> Azure Search .NET SDK använder [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [Anpassad serialisering med JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). Ett exempel på detta är användningen av `[JsonProperty]`-attributet för `DescriptionFr`-egenskapen i exempelkoden ovan.
+> Azure Search .NET SDK använder [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [Anpassad serialisering med JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). Ett exempel på detta är användningen av `[JsonProperty]`-attributet för `DescriptionFr`-egenskapen i exempelkoden ovan.
 > 
 > 
 
-Den andra viktiga saken om klassen `Hotel` är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `DataType.String`. Det finns liknande typmappningar mellan `bool?` och `DataType.Boolean`, `DateTimeOffset?` och `DataType.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
+Den andra viktiga saken om klassen `Hotel` är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `DataType.String`. Det finns liknande typmappningar mellan `bool?` och `DataType.Boolean`, `DateTimeOffset?` och `DataType.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get).
 
 Den här möjligheten att använda egna klasser som dokument fungerar i båda riktningar. Du kan också hämta sökresultat och låta SDK deserialisera dem automatiskt till valfri typ, som du ser i [nästa artikel](search-query-dotnet.md).
 

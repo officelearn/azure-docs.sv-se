@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249642"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717406"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Konfigurera din Python-app för Azure App Service i Linux
 
@@ -132,4 +132,4 @@ Om App Service inte hittar något anpassat kommando, någon Django-app eller nå
 - **Du ser meddelandet ”Service Unavailable” (Tjänsten är ej tillgänglig) i webbläsaren.** Webbläsaren nådde tidsgränsen i väntan på svar från App Service, vilket indikerar att App Service startade Gunicorn-servern, men de argument som specificerar appkoden är felaktiga.
   - Uppdatera webbläsaren, särskilt om du använder de lägsta prisnivåerna i din App Service-plan. Till exempel kan appen ta längre tid att starta om du använder de kostnadsfria nivåerna och blir tillgänglig när du uppdaterar webbläsaren.
   - Kontrollera att din app är strukturerad på det sätt som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app), eller använd ett [anpassat startkommando](#custom-startup-command).
-  - Använd SSH- eller Kudu-konsolen för att ansluta till App Service och undersök sedan de diagnostikloggar som lagras i mappen *LogFiles*. Mer information om loggning finns i [Aktivera diagnostikloggning för webbappar i Azure App Service](../web-sites-enable-diagnostic-log.md).
+  - Använd SSH- eller Kudu-konsolen för att ansluta till App Service och undersök sedan de diagnostikloggar som lagras i mappen *LogFiles*. Mer information om loggning finns i [Aktivera diagnostikloggning för webbappar i Azure App Service](../troubleshoot-diagnostic-logs.md).

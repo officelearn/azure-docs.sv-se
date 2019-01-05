@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631591"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044407"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten
 
@@ -290,7 +290,7 @@ Så här kör du det första säkerhetskopieringsjobbet:
   Distributionsmeddelanden visas som anger att säkerhetskopieringsjobbet har initierats, och du kan övervaka förloppet för jobbet på sidan Säkerhetskopieringsjobb. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
   > [!NOTE]
-  > Alla data som säkerhetskopieras av Azure Backup är krypterat i vila med [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  > - Alla data som säkerhetskopieras av Azure Backup är krypterat i vila med [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ Kostnaden för att säkerhetskopiera virtuella datorer i Azure baseras på hur m
 ## <a name="next-steps"></a>Nästa steg
 
 [Hantera](backup-azure-manage-vms.md) säkerhetskopiorna.
-

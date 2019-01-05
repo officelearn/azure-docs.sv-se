@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584470"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051705"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använda RDMA eller GPU-instanser i Batch-pooler
 
@@ -100,7 +100,7 @@ Om du vill konfigurera en specialiserad virtuell datorstorlek för Batch-poolen,
 
 Du måste installera NVDIA GPU-drivrutiner för att köra CUDA-program i en pool med Windows NC-noder. Följande exempel använder ett programpaket för att installera NVIDIA GPU-drivrutiner. Du kan välja det här alternativet om din arbetsbelastning är beroende av en specifik GPU-drivrutinsversion.
 
-1. Hämta en installationspaketet för GPU-drivrutiner på Windows Server 2016 från den [NVIDIA-webbplatsen](http://us.download.nvidia.com/Windows/) , till exempel [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Spara filen lokalt med hjälp av ett kort namn som liknar *GPUDriverSetup.exe*.
+1. Hämta en installationspaketet för GPU-drivrutiner på Windows Server 2016 från den [NVIDIA-webbplatsen](https://www.nvidia.com/Download/index.aspx) , till exempel [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Spara filen lokalt med hjälp av ett kort namn som liknar *GPUDriverSetup.exe*.
 2. Skapa en zip-fil av paketet.
 3. Ladda upp paketet till Batch-kontot. Anvisningar finns i den [programpaket](batch-application-packages.md) vägledning. Ange en program-id som *GPUDriver*, och en version som *411.82*.
 1. Skapa en pool i konfigurationen av virtuella datorn med det önskade antalet noder och skala med Batch-API: er eller Azure-portalen. I följande tabell visas exempel på inställningar att installera NVIDIA GPU-drivrutiner tyst med hjälp av en startaktivitet:

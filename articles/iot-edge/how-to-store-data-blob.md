@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 10/03/2018
+ms.date: 01/04/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 287f67ff9eb0ecc214bd8e8fd3c27660cea185c7
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077928"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055072"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -55,129 +55,145 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 ### <a name="azure-portal"></a>Azure Portal
 
-#### <a name="find-the-module"></a>Hitta modulen
+Azure Marketplace är IoT Edge-moduler som kan distribueras direkt till din IoT Edge-enheter, inklusive Azure Blob Storage på IoT Edge. Följ dessa steg om du vill distribuera modulen från Azure-portalen.
 
-Välj något av två sätt att hitta blob storage-modulen:
+1. I den [Azure-portalen](https://portal.azure.com), Sök efter ”Azure Blob Storage på IoT Edge”. Och **Välj** sökresultat från Marketplace.
 
-1. I Azure Portal-Sök efter ”Azure Blob Storage på IoT Edge”. Och **Välj** resultatet sökobjekt
-2. Gå till Marketplace från Azure Portal och klicka sedan på ”Internet of Things”. Välj ”Azure Blob Storage på IoT Edge” under ”IoT Edge-moduler”-avsnittet. Klicka **skapa**
+   ![Skapa modul från Marketplace-sökning](./media/how-to-store-data-blob/marketplace-module.png)
 
-#### <a name="steps-to-deploy"></a>Steg för att distribuera
+2. Välj en IoT Edge-enhet för att ta emot den här modulen. På den **målenheter för IoT Edge-modul** anger du följande information:
 
-**Målenheter för IoT Edge-modul**
+   1. Välj den **prenumeration** som innehåller IoT-hubben som du använder.
 
-1. Välj den ”prenumeration” där IoT-hubben har distribuerats.
-2. Välj ”IoT Hub”.
-3. Ange ”IoT Edge-enhetsnamnet” där du vill distribuera den här modulen. Du kan välja att använda ”hitta enhet” för att leta upp din enhet.
-4. Klicka på **Skapa**.
+   2. Välj din **IoT-hubb**.
 
-**Ange moduler**
-
-1. I avsnittet ”Lägg till moduler” under ”distribution moduler” hittar du denna modul är redan visas i listan med namn som börjar med ”AzureBlobStorageonIoTEdge”. 
-2. **Välj** blob storage-modulen i listan över ”distribution moduler”. ”IoT Edge anpassade moduler” sidpanel öppnas.
-3. **Namn på**: du kan ändra namnet på den här modulen
-4. **Bild-URI: N**: Ersätt URI som **mcr.microsoft.com/azure-blob-storage:latest**
-5. **Alternativ för behållaren skapa**: redigera JSON nedanför med dina värden och Ersätt den med JSON i Portal-sida:
+   3. Om du vet att din **IoT Edge-enhetsnamn**, ange som i textrutan. Eller välj **hitta enhet** att välja från en lista med IoT Edge-enheter i IoT hub. 
    
-   ```json
-   {
-       "Env":[
-           "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-           "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
-       ],
-       "HostConfig":{
-           "Binds":[
-               "<storage directory bind>"
-           ],
-           "PortBindings":{
-               "11002/tcp":[{"HostPort":"11002"}]
-           }
-       }
-   }
-   ```   
+   4. Välj **Skapa**.
+
+   Nu när du har valt en IoT Edge-modul från Azure Marketplace och valt en IoT Edge-enhet för att ta emot modulen, kommer du till en tre steg-guide som hjälper dig att definiera exakt hur modulen ska distribueras.
+
+3. I den **Lägg till moduler** steg i guiden ange moduler och Observera att den **AzureBlobStorageonIoTEdge** modulen finns redan under **distribution moduler**. 
+
+2. Välj blob storage-modulen i listan över distributionen moduler att öppna modulinformation. 
+
+   ![Välj Modulnamn att öppna modulinformation](./media/how-to-store-data-blob/open-module-details.png)
+
+3. På den **anpassade IoT Edge-moduler** sidan, uppdatera Azure Blob Storage på IoT Edge-modul med följande steg:
+
+   1. Ändra modulen **namn** vara gemener. Du kan byta namn på modulen om du vill, eller använda `azureblobstorageoniotedge`. 
+
+      >[!IMPORTANT]
+      >Azure IoT Edge är skiftlägeskänsliga när du gör anrop till moduler och Storage-SDK som standard till gemener. För att säkerställa att dina anslutningar till Azure Blob Storage på IoT Edge-modul inte avbryts, namnge den gemener. 
+
+   2. Standard **behållare skapa alternativ** port-bindningar som krävs för din behållare, men du måste också lägga till information på lagringskontot och en bindning för storage-katalog på din enhet. Skriv över JSON i portalen med den JSON nedan:
+    
+      ```json
+      {
+          "Env":[
+              "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+              "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+          ],
+          "HostConfig":{
+              "Binds":[
+                  "<storage directory bind>"
+              ],
+              "PortBindings":{
+                  "11002/tcp":[{"HostPort":"11002"}]
+              }
+          }
+      }
+      ```   
+   3. Uppdatera som du kopierade JSON med följande information: 
+
+      * Ersätt `<your storage account name>` med ett namn som du kan komma ihåg. Kontonamn ska vara tre till 24 tecken långt, med gemena bokstäver och siffror.
+      * Ersätt `<your storage account key>` med en 64-bytes base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
+      * Ersätt `<storage directory bind>` beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Storage directory bind mappar en plats på din enhet som du tillhandahåller till en uppsättning plats i modulen. 
+
+         * Linux-behållare:  **\<lagringssökväg >: / blobroot**. Till exempel/srv/containerdata: / blobroot. Eller, min volym: / blobroot. 
+         * Windows-behållare:  **\<lagringssökväg >: C: / BlobRoot**. Till exempel C: / ContainerData:C: / BlobRoot. Eller, min-volymen: C: / blobroot.
    
-    * Uppdatera `<your storage account name>`. Kontonamn ska vara tre till 24 tecken långt, med gemena bokstäver och siffror.
-    * Uppdatera `<your storage account key>` med en 64-bytes base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
-    * Uppdatera `<storage directory bind>`. Beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data.  
+      > [!IMPORTANT]
+      > Ändra inte den andra hälften av Arkivkatalog binda värde, som pekar på en specifik plats i modulen. Storage directory bind alltid ska sluta med **: / blobroot** för Linux-behållare och **: C: / BlobRoot** för Windows-behållare.
 
-       * Linux-behållare:  **\<lagringssökväg >: / blobroot**. Till exempel/srv/containerdata: / blobroot. Eller, min volym: / blobroot. 
-       * Windows-behållare:  **\<lagringssökväg >: C: / BlobRoot**. Till exempel C: / ContainerData:C: / BlobRoot. Eller, min-volymen: C: / blobroot.
-   
-   > [!CAUTION]
-   > Ändra inte den ”/ blobroot” för Linux och ”C:/BlobRoot” för Windows, för  **\<Storage directory bind >** värden.
+      ![Uppdatera modulen behållare skapa alternativ - portalen](./media/how-to-store-data-blob/edit-module.png)
 
-    ![Uppdatera modulen behållare skapa alternativ - portalen](./media/how-to-store-data-blob/edit-module.png)
+   4. Välj **Spara**.
 
-6. **Spara** värdena i ”IoT Edge anpassade moduler”
-7. Klicka på **nästa** i avsnittet ”Ställa in moduler”
-8. Klicka på **nästa** i avsnittet ”Ange vägar”
-9. När du har granskat, klickar du på **skicka** i avsnittet ”granska distribution”.
-10. Kontrollera i IoT-hubben att enheten kör blob storage-modulen 
+4. Välj **nästa** ska fortsätta till nästa steg i guiden.
+5. I den **ange vägar** steg i guiden väljer **nästa**.
+6. I steget **Granska distribution** i guiden väljer du **Skicka**.
+7. När du skickar in distributionen ska du gå tillbaka till den **IoT Edge** sidan för din IoT hub. Välj IoT Edge-enhet som du angett med distributionen att öppna dess egenskaper. 
+8. I information om enheten kontrollerar du att blob storage-modulen visas som båda **anges vid distributionen** och **som rapporteras av enheten**. Det kan ta en liten stund för modulen igång på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se den uppdaterade statusen. 
 
 ### <a name="visual-studio-code-templates"></a>Visual Studio Code-mallar
 
-Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att utveckla edge-lösningar. Dessa steg kräver att du har [Visual Studio Code](https://code.visualstudio.com/) installerat på utvecklingsdatorn och konfigurerad med den [Azure IoT Edge-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att utveckla edge-lösningar. Dessa steg kräver att du har [Visual Studio Code](https://code.visualstudio.com/) installerat på utvecklingsdatorn och konfigurerad med den [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 Använd följande steg för att skapa en ny IoT Edge-lösning med ett blob storage-modulen och konfigurera distribution manifestet. 
 
 1. Välj **visa** > **kommandot paletten**. 
 
-2. Ange i kommandopaletten, och kör kommandot **Azure IoT Edge: nya IoT Edge-lösning**. 
+2. I kommandopaletten anger och kör du kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning). Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
-3. Följ anvisningarna för att skapa en ny lösning: 
+   | Fält | Värde |
+   | ----- | ----- |
+   | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
+   | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
+   | Välj modulmall | Välj **modul (RETUR hela avbildningen URL)**. |
+   | Ange ett modulnamn | Ange ett namn på alla gemena för din modul som **azureblobstorage**.<br><br>Det är viktigt att använda ett gemener namn för Azure Blob Storage på IoT Edge-modul. IoT Edge är skiftlägeskänsligt när det gäller moduler och Storage-SDK som standard till gemener. |
+   | Ange Docker-avbildning för modulen | Ange URI för avbildning: **mcr.microsoft.com/azure-blob-storage:latest** |
 
-   1. **Välj mapp** – Bläddra till mappen där du vill skapa den nya lösningen.  
-   
-   2. **Ange ett lösningsnamn** – ange ett namn för din lösning eller acceptera standardinställningarna.
-   
-   3. **Vald modul mallen** -Välj **modul (RETUR hela avbildningen URL)**.
-   
-   4. **Ange ett Modulnamn** -ange ett beskrivande namn för din modul som **azureBlobStorage**.
-   
-   5. **Ange Docker-avbildning för modulen** -ange URI för avbildning: **mcr.microsoft.com/azure-blob-storage:latest**
+   VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster. Lösningsmallen skapar en manifest Distributionsmall som innehåller din avbildning i blob storage-modulen, men du måste konfigurera alternativ för att skapa modulens. 
 
-VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster. 
+3. Öppna **deployment.template.json** i din nya lösning arbetsyta och hitta den **moduler** avsnittet. Gör följande konfigurationsändringar:
 
-Lösningsmallen skapar en manifest Distributionsmall som innehåller din avbildning i blob storage-modulen, men du måste konfigurera alternativ för att skapa modulens. 
+   1. Ta bort den **tempSensor** modulen, eftersom den inte är nödvändigt för den här distributionen. 
 
-1. Öppna **deployment.template.json** i din nya lösning arbetsyta och hitta den **moduler** avsnittet. 
+   2. Kopiera och klistra in följande kod till den **createOptions** i din blob storage-modulen: 
 
-2. Ta bort den **tempSensor** modulen, eftersom den inte är nödvändigt för den här distributionen. 
+      ```json
+      "Env": [
+        "LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME","LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY"
+      ],
+      "HostConfig":{
+        "Binds": ["<storage directory bind>"],
+        "PortBindings":{
+          "11002/tcp": [{"HostPort":"11002"}]
+        }
+      }
+      ```
 
-3. Kopiera och klistra in följande kod till den **createOptions** i din blob storage-modulen: 
+      ![Uppdatera modulen createOptions - VS Code](./media/how-to-store-data-blob/create-options.png)
 
-   ```json
-   {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
-   ```
-
-   ![Uppdatera modulen createOptions - VS Code](./media/how-to-store-data-blob/create-options.png)
-
-4. I Skapa-alternativen JSON uppdaterar `<storage directory bind>` beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data.  
+4. I Skapa-alternativen JSON uppdaterar `<storage directory bind>` beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Storage directory bind mappar en plats på din enhet som du tillhandahåller till en uppsättning plats i modulen.  
 
    * Linux-behållare:  **\<lagringssökväg >: / blobroot**. Till exempel/srv/containerdata: / blobroot. Eller, min volym: / blobroot.
    * Windows-behållare:  **\<lagringssökväg >: C: / BlobRoot**. Till exempel C: / ContainerData:C: / BlobRoot. Eller, min-volymen: C: / blobroot.
    
-   > [!CAUTION]
-   > Ändra inte den ”/ blobroot” för Linux och ”C:/BlobRoot” för Windows, för  **\<Storage directory bind >** värden.
+   > [!IMPORTANT]
+   > Ändra inte den andra hälften av Arkivkatalog binda värde, som pekar på en specifik plats i modulen. Storage directory bind alltid ska sluta med **: / blobroot** för Linux-behållare och **: C: / BlobRoot** för Windows-behållare.
 
-5. Spara **deployment.template.json**.
+5. Spara filen **deployment.template.json**.
 
-6. Öppna **.env** i lösningens arbetsyta. 
+6. Öppna den **.env** fil i din lösning arbetsyta. 
 
-7. Du behöver inte ange alla registervärden för behållare för blob storage-avbildningen eftersom den är allmänt tillgängliga. Lägg till två nya miljövariabler i stället: 
+7. .Env-fil är konfigurerade att ta emot autentiseringsuppgifter för container-registret, men du behöver inte som för blob storage-avbildningen eftersom den är allmänt tillgängliga. I stället ersätta filen med två nya miljövariabler: 
 
    ```env
    STORAGE_ACCOUNT_NAME=
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Ange ett värde för `STORAGE_ACCOUNT_NAME`, kontonamn ska vara tre till 24 tecken långt, med gemena bokstäver och siffror. Och ange en 64-bytes base64-nyckel för den `STORAGE_ACCOUNT_KEY`. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler. 
+8. Ange ett värde för `STORAGE_ACCOUNT_NAME`, kontonamn ska vara tre till 24 tecken långt, med gemena bokstäver och siffror. Ange en 64-bytes base64-nyckeln för den `STORAGE_ACCOUNT_KEY`. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler. 
 
-9. Spara **.env**. 
+   Omfattar inte blanksteg eller citattecken runt de värden som du anger. 
+
+9. Spara **.env**-filen. 
 
 10. Högerklicka på **deployment.template.json** och välj **generera IoT Edge-distribution manifest**. 
 
-Visual Studio Code tar den information som du erbjuds på deployment.template.json och .env och används för att skapa en ny distribution manifestfil. Distribution av manifestet skapas i en ny **config** mapp i din lösning arbetsyta. När du har filen kan du följa stegen i [distribuera Azure IoT Edge-moduler från Visual Studio Code](how-to-deploy-modules-vscode.md) eller [distribuera Azure IoT Edge-moduler med Azure CLI 2.0](how-to-deploy-modules-cli.md).
+11. Visual Studio Code tar den information som du erbjuds på deployment.template.json och .env och används för att skapa en ny distribution manifestfil. Distribution av manifestet skapas i en ny **config** mapp i din lösning arbetsyta. När du har filen kan du följa stegen i [distribuera Azure IoT Edge-moduler från Visual Studio Code](how-to-deploy-modules-vscode.md) eller [distribuera Azure IoT Edge-moduler med Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
 ## <a name="connect-to-your-blob-storage-module"></a>Ansluta till ditt blob storage-modulen
 
@@ -185,7 +201,7 @@ Du kan använda kontonamnet och nyckeln för att du har konfigurerat att få åt
 
 Ange din IoT Edge-enhet som blob-slutpunkt för lagring av alla begäranden som du gör. Du kan [skapa en anslutningssträng för en slutpunkt för lagring av explicita](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) med hjälp av informationen i IoT Edge och kontonamnet som du har konfigurerat. 
 
-1. För moduler som har distribuerats på samma edge-enheten där ”Azure Blob Storage på IoT Edge” körs, blob-slutpunkten är: `http://<Module Name>:11002/<account name>`. 
+1. För moduler som har distribuerats på samma edge-enheten där ”Azure Blob Storage på IoT Edge” körs, blob-slutpunkten är: `http://<module name>:11002/<account name>`. 
 2. För moduler som har distribuerats på olika edge-enhet än edge-enhet där ”Azure Blob Storage på IoT Edge” körs, så beroende på din konfiguration av blob-slutpunkten är: `http://<device IP >:11002/<account name>` eller `http://<IoT Edge device hostname>:11002/<account name>` eller `http://<FQDN>:11002/<account name>`
 
 ## <a name="logs"></a>Logs

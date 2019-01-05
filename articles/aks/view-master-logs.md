@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 5d8aa2c25bf79278b10b96f93733e3abf89e4783
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971189"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040752"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -31,18 +31,15 @@ Log Analytics är aktiverat och hanteras i Azure-portalen. Öppna Azure portal i
 1. Välj resursgrupp för AKS-klustret, till exempel *myResourceGroup*. Välj den resursgrupp som innehåller din enskilda AKS-kluster-resurser, som inte *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Till vänster, Välj **diagnostikinställningar**.
 1. Välj AKS-klustret, till exempel *myAKSCluster*, sedan välja att **slå på diagnostik**.
-1. Ange ett namn, till exempel *myAKSLogs*, Välj alternativet att **skicka till Log Analytics**.
+1. Ange ett namn, till exempel *myAKSClusterLogs*, Välj alternativet att **skicka till Log Analytics**.
     * Välja att *konfigurera* Log Analytics, välj sedan en befintlig arbetsyta eller **Skapa ny arbetsyta**.
     * Om du vill skapa en arbetsyta kan du ange ett namn, en resursgrupp och en plats.
-1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera som *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics är aktiverade.
+1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera. Som standard den *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare* loggar är aktiverade. Du kan aktivera ytterligare loggar som *kube-granskning* och *kluster autoskalningen*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics är aktiverade.
 1. När du är klar väljer **spara** att aktivera insamling av valda loggarna.
 
 I följande exempel portal skärmbild visas den *diagnostikinställningar* fönstret och sedan på alternativet för att skapa en Log Analytics-arbetsyta:
 
 ![Aktivera Log Analytics-arbetsyta för Log Analytics för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägga en test-pod på AKS-kluster
 

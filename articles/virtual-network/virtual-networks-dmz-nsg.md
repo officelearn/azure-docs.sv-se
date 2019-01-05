@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457297"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052401"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exempel 1 – skapa en enkel DMZ med NSG: er med en Azure Resource Manager-mall
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -52,7 +50,7 @@ Det finns en länk till en Azure Resource Manager-mall som bygger den miljö som
 **Att skapa den här miljön** (detaljerade anvisningar finns i referensavsnittet i det här dokumentet);
 
 1. Distribuera Azure Resource Manager-mallen på: [Azure-Snabbstartmallar][Template]
-2. Installera exempelprogrammet på: [exempelskript för program][SampleApp]
+2. Installera exempelprogrammet på: [Exempelskript för program][SampleApp]
 
 >[!NOTE]
 >För RDP för backend-servrar i den här instansen används IIS-server som en ”jumpbox”. Första RDP till IIS-servern och sedan från RDP för IIS-Server till backend-servern. Alternativt kan en offentlig IP-adress associeras med varje NIC för enklare RDP-server.
@@ -350,7 +348,7 @@ Följ dessa steg om du vill distribuera den mall som skapar det här exemplet fr
 Om du vill ta bort den här distributionen, ta bort resursgruppen och alla underordnade resurser tas också bort.
 
 #### <a name="sample-application-scripts"></a>Exempelskript för program
-När mallen har körts, kan du konfigurera webbservern och applikationsserver med en enkel webbapp för att testa med den här DMZ-konfigurationen. Om du vill installera ett exempelprogram för denna och andra DMZ-exempel, en har angetts på följande länk: [exempelskript för program][SampleApp]
+När mallen har körts, kan du konfigurera webbservern och applikationsserver med en enkel webbapp för att testa med den här DMZ-konfigurationen. Om du vill installera ett exempelprogram för denna och andra DMZ-exempel, finns en på följande länk: [Exempelskript för program][SampleApp]
 
 ## <a name="next-steps"></a>Nästa steg
 

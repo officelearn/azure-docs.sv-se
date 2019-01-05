@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363131"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053525"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Distribuera mallar med hjälp av Azure Stack-portalen
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan använda portalen för att distribuera Azure Resource Manager-mallar i Azure Stack.
 
 ## <a name="to-deploy-a-template"></a>Distribuera en mall
 
 1. Logga in på portalen väljer **+ skapa en resurs**, och välj sedan **anpassad**.
-2. Välj **malldistributionen**.
+2. Välj **Malldistribution**.
 3. Välj **redigera mallen**, och sedan klistra in koden JSON-mall i code-fönstret. Välj **Spara**.
 4. Välj **redigera parametrar**, ange värden för parametrarna som visas och välj sedan **OK**.
 5. Välj **prenumeration**. Välj den prenumeration som du vill använda och välj sedan **OK**.
@@ -40,6 +40,6 @@ Du kan använda portalen för att distribuera Azure Resource Manager-mallar i Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du distribuerar mallar finns:
+Mer information om hur du distribuerar mallar finns i följande artikel:
 
-[Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)
+- [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)

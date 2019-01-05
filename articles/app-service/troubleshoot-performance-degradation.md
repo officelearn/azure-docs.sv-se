@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016553"
+ms.locfileid: "54052163"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsamma app prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka långsam prestandaproblem i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -92,7 +92,7 @@ Varje App Service-app innehåller en utökningsbar hantering-slutpunkt som gör 
 - Källkodsredigering som [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Hanteringsverktyg för anslutna resurser, till exempel en MySQL-databas ansluten till en app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en plats-tillägg som är också tillgängligt för prestandaövervakning. Om du vill använda Application Insights måste återskapa du din kod med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webbprogram](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en plats-tillägg som är också tillgängligt för prestandaövervakning. Om du vill använda Application Insights måste återskapa du din kod med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webbprogram](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 

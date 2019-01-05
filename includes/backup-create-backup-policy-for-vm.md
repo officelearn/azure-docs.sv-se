@@ -4,12 +4,12 @@ ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
-ms.openlocfilehash: e62771096bc59bc05879ce7b7e2da19f050b27b0
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279967"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057425"
 ---
 ## <a name="defining-a-backup-policy"></a>Definiera en princip för säkerhetskopiering
 En princip för säkerhetskopiering definierar en matris över när ögonblicksbilder av data tas och hur länge de kvarhålls. När du definierar en princip för säkerhetskopiering av en VM, kan du utlösa ett säkerhetskopieringsjobb *en gång per dag*. När du skapar en ny princip, tillämpas den för valvet. Gränssnittet för säkerhetskopieringsprincipen ser ut så här:
@@ -20,22 +20,27 @@ Så här skapar du en princip:
 
 1. Ange ett namn för **Principnamn**.
 2. Ögonblicksbilder av data kan tas med dags- eller veckointervall. Använd menyn **Säkerhetskopieringsfrekvens** för att välja om ögonblicksbilder av data ska tas dagligen eller veckovis.
-   
+
    * Använd den markerade kontrollen för att välja tid på dygnet för ögonblicksbilden, om du väljer dagsintervall. Om du vill ändra timme så avmarkerar du timmen och väljer en ny timme.
-     
+
      ![Princip för daglig säkerhetskopiering](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
    * Använd de markerade kontrollerna för att välja dag i veckan och tid på dygnet att ta ögonblicksbilden, om du väljer veckointervall. Välj en eller flera dagar i dagmenyn. Välj en timme i timmenyn. Om du vill ändra timme så avmarkerar du timmen och väljer en ny timme.
-     
+
      ![Princip för veckovis säkerhetskopiering](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 3. Som standard är alla alternativ för **Kvarhållningsintervall** markerade. Avmarkera alla begränsningar i kvarhållningsintervallet som du inte vill använda. Ange sedan de intervall som ska användas.
-   
-    Månatliga och årliga kvarhållningsintervall låter dig ange ögonblicksbilderna baserat på veckovisa eller dagliga inkrement.
-   
-   > [!NOTE]
-   > Ett säkerhetskopieringsjobb körs en gång per dag när du skyddar en VM. Säkerhetskopieringen körs vid samma tidpunkt för varje kvarhållningsintervall.
-   > 
-   > 
-4. När du har angett alla alternativ för principen överst på bladet, klickar du på **Spara**.
-   
-    Den nya principen tillämpas omedelbart på valvet.
 
+    Månatliga och årliga kvarhållningsintervall låter dig ange ögonblicksbilderna baserat på veckovisa eller dagliga inkrement.
+
+   > [!NOTE]
+   >
+  - Ett säkerhetskopieringsjobb körs en gång per dag när du skyddar en VM. Säkerhetskopieringen körs vid samma tidpunkt för varje kvarhållningsintervall.
+  - Återställningspunkten skapas på datumet och tiden när ögonblicksbilden av säkerhetskopian är slutförd oavsett när säkerhetskopieringsjobbet var schema.
+    - t.ex. Om frekvensen för säkerhetskopiering har schemalagts klockan 11:30 och på grund av eventuella problem ögonblicksbilden har slutförts 12:01:00, skapas återställningspunkten med nästa datum och 12:01:00.
+  - När det gäller månadsvis säkerhetskopiering taggas om säkerhetskopian ska köras första dagen i varje månad och om ögonblicksbilden har slutförts på grund av vissa problem nästa dag sedan den återställningspunkt som skapats för månadsvis säkerhetskopiering med nästa dag (dvs.) sekund för den månaden).
+   >
+   >
+
+
+4. När du har angett alla alternativ för principen överst på bladet, klickar du på **Spara**.
+
+    Den nya principen tillämpas omedelbart på valvet.

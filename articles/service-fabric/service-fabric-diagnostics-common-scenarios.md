@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713467"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054953"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
@@ -140,7 +140,7 @@ Kontrollera dessa länkar för en fullständig lista över prestandaräknare på
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) meddelas om ändringar i prestanda och användning
-* [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI att varna dig om potentiella prestandaproblem
+* [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI att varna dig om potentiella prestandaproblem
 * Läs mer om Log Analytics [avisering](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
 * Log Analytics tillhandahåller en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md)
 * Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Log Analytics

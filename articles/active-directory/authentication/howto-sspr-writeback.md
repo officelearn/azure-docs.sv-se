@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086955"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040667"
 ---
-# <a name="how-to-configure-password-writeback"></a>Anvisningar: Konfigurera tillbakaskrivning av lösenord
-
-Vi rekommenderar att du använder funktionen för automatisk uppdatering av [Azure AD Connect](../hybrid/how-to-connect-install-express.md) när du använder tillbakaskrivning av lösenord.
+# <a name="how-to-configure-password-writeback"></a>Så här gör du: Konfigurera tillbakaskrivning av lösenord
 
 Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i din miljö med hjälp av den [Express](../hybrid/how-to-connect-install-express.md) eller [anpassade](../hybrid/how-to-connect-install-custom.md) inställningar.
 
@@ -38,7 +36,25 @@ Vanliga uppgifter för felsökning för tillbakaskrivning av lösenord finns i a
 > [!WARNING]
 > Tillbakaskrivning av lösenord att sluta fungera för kunder som använder Azure AD Connect-versioner 1.0.8641.0 och äldre när den [Azure Access Control service (ACS) är ur bruk 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre inte längre att tillåta tillbakaskrivning av lösenord vid den tidpunkten eftersom de använder ACS för den funktionen.
 >
-> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
+> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
+
+**Självbetjäning lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning är en premiumfunktion i Azure AD**. Mer information om licensiering finns i den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följande licenser som tilldelats på din klient:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 eller A3
+* Enterprise Mobility + Security E5 eller A5
+* Microsoft 365 E3 eller A3
+* Microsoft 365 E5 eller A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
 >
 
 ## <a name="active-directory-permissions"></a>Active Directory-behörigheter

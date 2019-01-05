@@ -6,32 +6,32 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0fb2c3daf19ce07d9641cbc5504cb3b598ad5b0d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848008"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034463"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Indexeringsprincip i Azure Cosmos DB
 
 Du kan åsidosätta standardinställningen indexeringspolicy på en Azure Cosmos-behållare genom att konfigurera följande parametrar:
 
-* **Inkludera eller exkludera objekt och sökvägar från indexet**: du kan exkludera eller innehålla vissa objekt i indexet när du infoga eller ersätta objekt i en behållare. Du kan även inkludera eller exkludera specifika sökvägar/egenskaper som ska indexeras över behållare. Sökvägar kan innehålla jokerteckensmönster, till exempel *.
+* **Inkludera eller exkludera objekt och sökvägar från indexet**: Du kan exkludera eller innehålla vissa objekt i indexet när du infoga eller ersätta objekt i en behållare. Du kan även inkludera eller exkludera specifika sökvägar/egenskaper som ska indexeras över behållare. Sökvägar kan innehålla jokerteckensmönster, till exempel *.
 
-* **Konfigurera index typer**: dessutom för att vara indexerade sökvägar, du kan lägga till andra typer av index som spatial.
+* **Konfigurera index typer**: Dessutom för att vara indexerade sökvägar, du kan lägga till andra typer av index som spatial.
 
-* **Konfigurera index lägen**: med indexprincip i en behållare kan du konfigurera olika lägen för indexering som *konsekvens* eller *ingen*.
+* **Konfigurera index lägen**: Med indexprincip i en behållare kan du konfigurera olika lägen för indexering som *konsekvens* eller *ingen*.
 
 ## <a name="indexing-modes"></a>Indexering lägen 
 
 Azure Cosmos DB stöder två indexering lägen som du kan konfigurera ett Azure Cosmos-behållaren. Du kan konfigurera följande två indexering lägen via indexprincip: 
 
-* **Konsekvent**: om en Azure Cosmos-behållare principen är konfigurerad att konsekvens, frågor på en specifik behållare följer du samma konsekvensnivå som angav för punkt-läsningar (exempel: stark, bunden utgång, session eller eventuell). 
+* **Konsekvent**: Om en Azure Cosmos-behållare principen är konfigurerad att konsekvens, frågor på en specifik behållare följer du samma konsekvensnivå som angav för punkt-läsningar (exempel: stark, bunden utgång, session eller eventuell). 
 
   Indexet har uppdaterats synkront när du uppdaterar objekt. Till exempel resulterar infoga, Ersätt, uppdatera och ta borttagningsåtgärder på ett objekt i index-uppdateringen. Konsekvent indexering stöder konsekvent frågor bekostnad påverkar genomströmning för skrivning. Minskad genomströmning för skrivning beror på den ”sökvägar ingår i indexering” och ”konsekvensnivå”. Konsekvens indexering läge är utformad för skrivning snabbt och fråga direkt arbetsbelastningar.
 
-* **Ingen**: en behållare som har en ingen indexläge har inget index som är kopplade till den. Detta används ofta om Azure Cosmos-databasen används som en nyckel / värde-lagring och objekt används endast av deras ID-egenskap.
+* **Ingen**: En behållare som har en ingen indexläge har inget index som är kopplade till den. Detta används ofta om Azure Cosmos-databasen används som en nyckel / värde-lagring och objekt används endast av deras ID-egenskap.
 
   > [!NOTE]
   > Konfigurera indexering läge som en ingen har att släppa alla befintliga index. Du bör använda det här alternativet om din åtkomstmönster kräver ID eller självlänken endast.

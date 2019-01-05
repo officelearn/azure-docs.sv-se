@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure IoT Hub cloud enhet-meddelanden med Azure IoT Hub Toolkit-tillägget för Visual Studio Code | Microsoft Docs
-description: Lär dig hur du använder Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att övervaka enhet till moln-meddelanden och skicka cloud enhet-meddelanden i Azure IoT Hub.
+title: Hantera Azure IoT Hub cloud enhet-meddelanden med Azure IoT-verktyg för Visual Studio Code | Microsoft Docs
+description: Lär dig hur du använder Azure IoT-verktyg för Visual Studio Code för att övervaka enhet till moln-meddelanden och skicka cloud enhet-meddelanden i Azure IoT Hub.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 7/20/2018
 ms.author: junhan
-ms.openlocfilehash: afb0a2ce4dfdd5d3a98a6dad03ee78eeaafbd308
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f3c4a1c03757d78bd907baa3aef5c2e06d6a8dd
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338387"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053967"
 ---
-# <a name="use-azure-iot-hub-toolkit-extension-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
+# <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
 ![Slutpunkt till slutpunkt-diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit) är ett användbart Visual Studio Code-tillägg som underlättar IoT Hub-hantering. Den här artikeln handlar om hur du använder Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT-hubben.
+[Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) är ett användbart Visual Studio Code-tillägg som gör IoT Hub hantering och utveckling av IoT enklare. Den här artikeln handlar om hur du använder Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT-hubben.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-will-learn"></a>Vad du får lära dig
 
-Du lär dig hur du använder Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att övervaka meddelanden från enheten till molnet och skicka meddelanden från molnet till enheten. Meddelanden från enheten till molnet kan vara sensordata som din enhet samlar in och skickar sedan till din IoT-hubb. Meddelanden från moln till enhet kan vara kommandon som din IoT-hubb som skickas till din enhet blinkar en Indikator som är ansluten till din enhet.
+Du lär dig hur du använder Azure IoT-verktyg för Visual Studio Code att övervaka meddelanden från enheten till molnet och skicka meddelanden från molnet till enheten. Meddelanden från enheten till molnet kan vara sensordata som din enhet samlar in och skickar sedan till din IoT-hubb. Meddelanden från moln till enhet kan vara kommandon som din IoT-hubb som skickas till din enhet blinkar en Indikator som är ansluten till din enhet.
 
 ## <a name="what-you-will-do"></a>Vad du ska göra
 
-- Använd Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att övervaka meddelanden från enheten till molnet.
-- Använda Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att skicka meddelanden från molnet till enheten.
+- Använd Azure IoT-verktyg för Visual Studio Code för att övervaka meddelanden från enheten till molnet.
+- Använda Azure IoT-verktyg för Visual Studio Code för att skicka meddelanden från molnet till enheten.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
 - En aktiv Azure-prenumeration.
 - Azure IoT hub i din prenumeration.
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+- [Azure IoT-verktyg för VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Logga in att få åtkomst till din IoT-hubb
 

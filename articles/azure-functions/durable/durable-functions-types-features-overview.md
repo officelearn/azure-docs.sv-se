@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336535"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037284"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Översikt över funktionstyper och funktioner för varaktiga funktioner (Azure Functions)
 
@@ -37,7 +37,7 @@ Mer information och exempel finns i den [varaktiga funktioner bindning artikeln]
 
 ### <a name="orchestrator-functions"></a>Orchestrator-funktioner
 
-Orchestrator-funktioner är helt i linje med en varaktig funktion.  Orchestrator-funktioner beskrivs de sätt och ordningen åtgärder utförs.  Orchestrator-funktioner beskrivs orchestration i kod (C# eller JavaScript), enligt den [varaktiga funktioner översikt](durable-functions-overview.md).  En orkestrering kan ha många olika typer av åtgärder, t.ex [Aktivitetsfunktioner](#activity-functions), [underordnade orkestreringar](#sub-orchestrations), [väntar på externa händelser](#external-events), och [ timers](#durable-timers).  
+Orchestrator-funktioner är helt i linje med en varaktig funktion.  Orchestrator-funktioner beskrivs de sätt och ordningen åtgärder utförs.  Orchestrator-funktioner beskrivs orchestration i kod (C# eller JavaScript), enligt den [varaktiga funktioner, mönster och tekniska begrepp](durable-functions-concepts.md).  En orkestrering kan ha många olika typer av åtgärder, t.ex [Aktivitetsfunktioner](#activity-functions), [underordnade orkestreringar](#sub-orchestrations), [väntar på externa händelser](#external-events), och [ timers](#durable-timers).  
 
 En orchestrator-funktion måste aktiveras via en [orchestration utlösaren](durable-functions-bindings.md#orchestration-triggers).
 

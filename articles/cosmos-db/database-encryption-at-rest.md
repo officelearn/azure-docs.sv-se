@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140327"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040225"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB-databas-kryptering i vila
 
@@ -36,26 +36,26 @@ Det grundläggande flödet på användarbegäranden är följande:
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>F: hur mycket kostar Azure Storage om kryptering av lagringstjänst är aktiverat?
-S: det finns ingen extra kostnad.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>F: Hur mycket kostar Azure Storage om kryptering av lagringstjänst är aktiverat?
+S: Det finns ingen extra kostnad.
 
-### <a name="q-who-manages-the-encryption-keys"></a>F: som hanterar krypteringsnycklarna?
-S: nycklar som hanteras av Microsoft.
+### <a name="q-who-manages-the-encryption-keys"></a>F: Vem som hanterar krypteringsnycklarna?
+S: Nycklarna som hanteras av Microsoft.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>F: hur ofta roteras krypteringsnycklar?
+### <a name="q-how-often-are-encryption-keys-rotated"></a>F: Hur ofta roteras krypteringsnycklar?
 S: Microsoft har en uppsättning interna riktlinjer för kryptering nyckelrotation som följer Cosmos DB. De specifika riktlinjerna för publiceras inte. Microsoft publicera den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), som ses som en del av interna riktlinjer och har användbara Metodtips för utvecklare.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>F: kan jag använda min egen krypteringsnycklar?
-S: cosmos DB är en PaaS-tjänst och vi har arbetat hårt för att hålla det enkelt att använda tjänsten. Vi har lagt märke till den här frågan begärs ofta som en proxy-fråga i syfte att uppfylla efterföljandekrav som PCI-DSS. Som en del av att skapa den här funktionen, som vi har samarbetat med efterlevnad granskare så att kunder som använder Cosmos DB uppfyller deras behov utan att behöva hantera nycklar själva.
+### <a name="q-can-i-use-my-own-encryption-keys"></a>F: Kan jag använda min egen krypteringsnycklar?
+S: Cosmos DB är en PaaS-tjänst och vi har arbetat hårt för att hålla det enkelt att använda tjänsten. Vi har lagt märke till den här frågan begärs ofta som en proxy-fråga i syfte att uppfylla efterföljandekrav som PCI-DSS. Som en del av att skapa den här funktionen, som vi har samarbetat med efterlevnad granskare så att kunder som använder Cosmos DB uppfyller deras behov utan att behöva hantera nycklar själva.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>F: på vilka regioner har kryptering aktiverad?
-S: alla Azure Cosmos DB-regioner har kryptering aktiverad för alla användardata.
+### <a name="q-what-regions-have-encryption-turned-on"></a>F: Vilka regioner har kryptering aktiverat?
+S: Alla regioner för Azure Cosmos DB har kryptering aktiverad för alla användardata.
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>F: kryptering påverkar prestanda, svarstid och dataflöde serviceavtal?
-S: det finns ingen inverkan eller ändringar till prestanda serviceavtal nu när vilande kryptering är aktiverat för alla befintliga och nya konton. Du kan läsa mer på den [SLA för Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) och se de senaste garantierna.
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>F: Påverkar kryptering prestanda svarstid och dataflöde serviceavtal?
+S: Det finns ingen inverkan eller ändringar till prestanda serviceavtal nu när vilande kryptering är aktiverat för alla befintliga och nya konton. Du kan läsa mer på den [SLA för Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) och se de senaste garantierna.
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>F: den lokala emulatorn stöder kryptering i vila?
-S: emulatorn är ett fristående verktyg för utveckling/testning och använder inte Nyckelhanteringstjänster som hanterade Cosmos DB-tjänsten använder. Vår rekommendation är att aktivera BitLocker på enheter där du lagrar känsliga emulatorn testdata. Den [emulatorn stöder ändring av standarddatakatalogen](local-emulator.md) samt med hjälp av en känd plats.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>F: Stöder den lokala emulatorn kryptering i vila?
+S: Emulatorn är ett fristående verktyg för utveckling/testning och använder inte Nyckelhanteringstjänster som hanterade Cosmos DB-tjänsten använder. Vår rekommendation är att aktivera BitLocker på enheter där du lagrar känsliga emulatorn testdata. Den [emulatorn stöder ändring av standarddatakatalogen](local-emulator.md) samt med hjälp av en känd plats.
 
 ## <a name="next-steps"></a>Nästa steg
 

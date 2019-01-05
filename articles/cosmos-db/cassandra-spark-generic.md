@@ -1,20 +1,19 @@
 ---
 title: Arbeta med Azure Cosmos DB Cassandra-API från Spark
 description: Den här artikeln är huvudsidan för Cosmos DB Cassandra API-integration från Spark.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847141"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037235"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API från Spark
 
@@ -26,16 +25,16 @@ Den här artikeln är en mellan en serie artiklar om Azure Cosmos DB Cassandra A
 * Etablera ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Övriga].
 
 ## <a name="dependencies-for-connectivity"></a>Beroenden för anslutning
-* **Spark-anslutningappen för Cassandra:** Spark-anslutningsappen som används för att ansluta till Azure Cosmos DB Cassandra-API.  Identifiera och använda versionen av anslutningsappen finns i [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark och Scala-versioner av Spark-miljö.
+* **Spark-anslutningsappen för Cassandra:** Spark-anslutningsappen används för att ansluta till Azure Cosmos DB Cassandra-API.  Identifiera och använda versionen av anslutningsappen finns i [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark och Scala-versioner av Spark-miljö.
 
-* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** förutom Spark-anslutningsappen måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller klasser för anpassad anslutning factory och försök igen principen.
+* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** Förutom Spark-anslutningsappen måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller klasser för anpassad anslutning factory och försök igen principen.
 
   Återförsöksprincip i Azure Cosmos DB har konfigurerats för att hantera HTTP-status kod 429 (”begär Rate stor”) undantag. Azure Cosmos DB Cassandra API översätter sådana undantag till överbelastade fel på protokollet i Cassandra och du kan göra med tillbaka på de. Eftersom Azure Cosmos DB använder etablerat dataflöde modellen kan inträffa begäran rate begränsande undantag när ingång/utgång bedömer ökning. Återförsöksprincipen som skyddar ditt spark-jobb mot data toppar som tillfälligt överskrider det dataflöde som allokerats för din samling.
 
   > [!NOTE] 
   > Återförsöksprincipen kan skydda ditt spark-jobb mot tillfälliga toppar. Om du inte har konfigurerat tillräckligt med ru: er som krävs för att köra arbetsbelastningen återförsöksprincipen gäller inte och försök principklass skickas tillbaka undantaget.
 
-* **Anslutningsinformationen för Azure Cosmos DB-konto:** Cassandra API för din Azure-kontonamn, slutpunkten-konto och nyckel.
+* **Azure Cosmos DB-konto-anslutningsinformation:** Din Azure Cassandra API kontonamn, slutpunkten-konto och nyckel.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Konfigurationsparametrar för Spark connector dataflöde
 

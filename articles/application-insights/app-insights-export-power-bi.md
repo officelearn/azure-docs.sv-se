@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1a5f756c4fac92260e77b24ca2cde6abccf0797a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015074"
+ms.locfileid: "54042792"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -65,7 +65,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Uppdatera rapporten manuellt med intervall, eller ställa in en schemalagd uppdatering på alternativsidan.
 
 ### <a name="export-a-funnel"></a>Exportera en tratt
-1. [Gör din tratt](usage-funnels.md).
+1. [Gör din tratt](../azure-monitor/app/usage-funnels.md).
 2. Välj **Power BI**.
 
    ![Skärmbild av Power BI-knappen](./media/app-insights-export-power-bi/button.png)

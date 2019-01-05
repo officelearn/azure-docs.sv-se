@@ -1,19 +1,17 @@
 ---
 title: Ansluta till Azure Cosmos DB med BI-verktyg för analys
 description: Lär dig hur du använder Azure Cosmos DB ODBC-drivrutinen för att skapa tabeller och vyer så att normaliserade data kan ses i analysprogramvara i BI och data.
-keywords: ODBC, odbc-drivrutin
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136366"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034480"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med BI analysverktyg med ODBC-drivrutin
 
@@ -50,7 +48,7 @@ Låt oss börja med ODBC-drivrutinen.
 
     ![Azure Cosmos DB ODBC-datakälla](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Steg 2: Anslut till din Azure Cosmos DB-databas
+## <a id="connect"></a>Steg 2: Ansluta till din Azure Cosmos DB-databas
 
 1. Efter [installerar Azure Cosmos DB ODBC-drivrutinen](#install)i den **ODBC Data Source Administrator** fönstret klickar du på **Lägg till**. Du kan skapa en användare eller System-DSN. I det här exemplet skapar du en användar-DSN.
 
@@ -59,10 +57,10 @@ Låt oss börja med ODBC-drivrutinen.
 1. I den **SDN installationsprogrammet för Azure Cosmos DB ODBC-drivrutinen** Fyll i följande information: 
 
     ![Azure Cosmos DB ODBC-drivrutinen DSN konfigurationsfönstret](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Namn på datakälla**: egna eget namn för ODBC DSN. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ger den namnet på lämpligt sätt om du har flera konton.
-    - **Beskrivning av**: en kort beskrivning av datakällan.
+    - **Namn på datakälla**: Egna eget namn för ODBC DSN. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ger den namnet på lämpligt sätt om du har flera konton.
+    - **Beskrivning**: En kort beskrivning av datakällan.
     - **Värden**: URI för Azure Cosmos DB-kontot. Du kan hämta det från sidan nycklar för Azure Cosmos DB i Azure-portalen, enligt följande skärmbild. 
-    - **Få åtkomst till nyckeln**: primär eller sekundär, skrivskyddad eller skrivskyddade nyckeln från Azure Cosmos DB nycklar sidan i Azure portal enligt följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för bearbetning av skrivskyddade och rapportering.
+    - **Få åtkomst till nyckeln**: Den primära eller sekundära, skrivskyddad eller skrivskyddade nyckeln från sidan nycklar för Azure Cosmos DB i Azure portal enligt följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för bearbetning av skrivskyddade och rapportering.
     ![Sidan för Azure Cosmos DB-nycklar](./media/odbc-driver/odbc-driver-keys.png)
     - **Kryptera åtkomstnyckel för**: Välj det bästa valet baserat på användare av den här datorn. 
     
@@ -71,7 +69,7 @@ Låt oss börja med ODBC-drivrutinen.
 1. Klicka på **avancerade alternativ** och ange följande värden:
     - **Fråga konsekvens**: Välj den [konsekvensnivå](consistency-levels.md) för din verksamhet. Standardvärdet är Session.
     - **Antal återförsök**: Ange hur många gånger att försöka utföra en åtgärd om den första begäran inte slutförs på grund av begränsningar i tjänsten.
-    - **Schemafilen**: du har ett antal alternativ här.
+    - **Schemafilen**: Du har ett antal alternativ här.
         - Som standard, lämna den här posten skick (tom), genomsöker drivrutinen den första sidan av data för alla samlingar att fastställa schemat för varje samling. Detta kallas mappning av samlingen. Utan en schemafil som definierats, drivrutinen måste utföra genomsökningen för varje drivrutin-session och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associera en schemafil för en Datakälla.
         - Om du redan har en schemafil (eventuellt en som du skapat med hjälp av den [Schemaredigerare](#schema-editor)), kan du klicka på **Bläddra**, navigera till filen, klicka på **spara**, och klicka sedan på **OK**.
         - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **Schemaredigerare** i huvudfönstret. Gå sedan vidare till den [Schemaredigerare](#schema-editor) information. När du har skapat den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönster för att inkludera den nyligen skapade schemafilen.

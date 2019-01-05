@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: adca39fd86563ad4e494995feb843b76b76806d6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f95db9b1c8119784d2b1d9cfb9dd005fc42ac3e4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019890"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033799"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Skapa en Webbapp plus Azure Cache för Redis med hjälp av en mall
 I det här avsnittet får lära du dig att skapa en Azure Resource Manager-mall som distribuerar ett Azure-webbprogram med Azure Cache för Redis. Du kommer lära dig hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). Mer information om JSON-syntax och egenskaper för cache-resurstyper, se [Microsoft.Cache resurstyper](/azure/templates/microsoft.cache/allversions).
 
 Läs den fullständiga mallen, [Web App med Azure Cache för Redis-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 

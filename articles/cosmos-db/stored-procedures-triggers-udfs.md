@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 172714b3a58d1620b896e089194a797a9e1e7b1b
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 14cb821152e6a380de1be4fddef76aa2edec4a8f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411096"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042265"
 ---
 # <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>Arbeta med Azure Cosmos DB lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -79,7 +79,7 @@ Det här avsnittet beskrivs två typer av utlösare:
 
 ### <a name="pre-triggers"></a>Före utlösare
 
-Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en åtgärd på ett Azure Cosmos DB-objekt. Du kan till exempel ange en före utlösare när du skapar ett objekt. I det här fallet körs före utlösaren innan objektet skapas. Före utlösare kan inte ha någon indataparametrar. Om det behövs användas Begäranobjektet för att uppdatera dokumentets brödtext från den ursprungliga begäran. När utlösare är registrerade ange användare vilka åtgärder som den kan köras med. Om en utlösare har skapats med `TriggerOperation.Create`, det innebär att använda utlösaren i en ersättningsåtgärden inte tillåts. Exempel finns i [hur du skriver utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikeln.
+Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en åtgärd på ett Azure Cosmos DB-objekt. Du kan till exempel ange en före utlösare när du skapar ett objekt. I det här fallet körs före utlösaren innan objektet skapas. Förutlösare kan inte ha några indataparametrar. Om det behövs användas Begäranobjektet för att uppdatera dokumentets brödtext från den ursprungliga begäran. När utlösare är registrerade ange användare vilka åtgärder som den kan köras med. Om en utlösare har skapats med `TriggerOperation.Create`, det innebär att använda utlösaren i en ersättningsåtgärden inte tillåts. Exempel finns i [hur du skriver utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikeln.
 
 ### <a name="post-triggers"></a>Efter utlösare
 

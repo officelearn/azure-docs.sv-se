@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.component: metrics
-ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17f82eb0940d0e1baca23a882ca301804fbd00dd
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721146"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054817"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera Azure måttaviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de har skapats för att se till att alla resurser är korrekt.
@@ -404,4 +404,4 @@ En avisering på en Resource Manager-mallen är mest användbart när du skapar 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aviseringar](alerts-overview.md)
 * [Lägg till diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-stream-template.md) till Resource Manager-mall
-
+* JSON-syntax och egenskaper finns i [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) mallreferensen.

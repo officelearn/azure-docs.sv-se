@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020480"
+ms.locfileid: "54050820"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -39,7 +39,7 @@ ms.locfileid: "54020480"
 ## <a name="q01"></a>Alternativet ”Lägg till Application Insights” i Visual Studio
 *När jag högerklickar på ett befintligt projekt i Solution Explorer kan se jag inte några alternativ för Application Insights.*
 
-* Inte alla typer av .NET-projekt stöds av verktygen. Webb-och WCF stöds. För andra projekttyper av som skrivbord eller tjänsten kan du fortfarande [lägga till en Application Insights SDK i ditt projekt manuellt](../../application-insights/app-insights-windows-desktop.md).
+* Inte alla typer av .NET-projekt stöds av verktygen. Webb-och WCF stöds. För andra projekttyper av som skrivbord eller tjänsten kan du fortfarande [lägga till en Application Insights SDK i ditt projekt manuellt](../../azure-monitor/app/windows-desktop.md).
 * Kontrollera att du har [Visual Studio 2013 Update 3 eller senare](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Den levereras förinstallerad med Developer Analytics-verktyg som ger Application Insights SDK.
 * Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Developer Analytics Tools** är installerat och aktiverat. I så, fall klickar du på **uppdateringar** att se om det finns en uppdatering.
 * Öppna dialogrutan Nytt projekt och välj ASP.NET-webbprogram. Om du ser det alternativet Application Insights är verktygen installerade. Om inte, avinstallera och sedan installera Application Insights Tools.
@@ -154,7 +154,7 @@ Data kommer från skript i webbsidor.
 Se [beroendetelemetri](../../azure-monitor/app/asp-net-dependencies.md) och [undantagstelemetri](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Inga prestandadata
-Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows-skrivbordsappar](../../application-insights/app-insights-windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md), och [Azure Cloud Services](../../application-insights/app-insights-overview.md). Du hittar det under inställningar för servrar.
+Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows-skrivbordsappar](../../azure-monitor/app/windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md), och [Azure Cloud Services](../../application-insights/app-insights-overview.md). Du hittar det under inställningar för servrar.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Inga (server) data eftersom jag har publicerat appen till Min server
 * Kontrollera att du faktiskt kopieras alla Microsoft. ApplicationInsights DLL-filer till servern, tillsammans med Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

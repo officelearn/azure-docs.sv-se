@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a68b312d4b2a35bdaf2f2973c403c750645352b9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018763"
+ms.locfileid: "54054942"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -84,7 +84,7 @@ I Visual Studio Application Insights-sökfönstret visas data från programmet f
 > [!Tip]
 > Om du inte ser några data kontrollerar du att tidsintervallet är korrekt och klickar på sökikonen.
 
-[Lär dig mer om Application Insights-verktygen i Visual Studio](../../application-insights/app-insights-visual-studio.md).
+[Lär dig mer om Application Insights-verktygen i Visual Studio](../../azure-monitor/app/visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Visa telemetri i webbportalen
@@ -106,7 +106,7 @@ Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream]
 
 Du ser din telemetri byggas upp i Application Insights-portalen, där du kan övervaka mått, söka i telemetrin och konfigurera [instrumentpaneler](../../azure-monitor/app/app-insights-dashboards.md). Du kan också använda det kraftfulla [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguage) för att analysera användning och prestanda eller söka efter specifika händelser.
 
-Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../application-insights/app-insights-visual-studio.md) med verktyg som diagnossökning och [trender](../../application-insights/app-insights-visual-studio-trends.md).
+Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../azure-monitor/app/visual-studio.md) med verktyg som diagnossökning och [trender](../../azure-monitor/app/visual-studio-trends.md).
 
 > [!NOTE]
 > Om din app skickar så mycket telemetri att det närmar sig [begränsningsgränserna](../../azure-monitor/app/pricing.md#limits-summary) aktiveras [sampling](../../azure-monitor/app/sampling.md) automatiskt. Sampling minskar mängden telemetri som skickas från din app, samtidigt som korrelerade informationen bevaras i diagnossyfte.
@@ -147,14 +147,14 @@ Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 
 ### <a name="analysis"></a>Analys
 
-* **[Arbeta med Application Insights i Visual Studio](../../application-insights/app-insights-visual-studio.md)**<br/>Innehåller information om att felsöka med telemetri, köra diagnostiksökningar och gå igenom koden.
+* **[Arbeta med Application Insights i Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Innehåller information om att felsöka med telemetri, köra diagnostiksökningar och gå igenom koden.
 * **[Arbeta med Application Insights-portalen](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Innehåller information om instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, realtidsmappning av beroenden för din app och telemetriexport.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** – Kraftfullt frågespråk.
 
 ### <a name="alerts"></a>Aviseringar
 
 * [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md): Skapa tester för att kontrollera att webbplatsen visas på webben.
-* [Smart diagnostik](../../application-insights/app-insights-proactive-diagnostics.md): De här testerna körs automatiskt, så att du inte behöver göra något för att lägga upp dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
+* [Smart diagnostik](../../azure-monitor/app/proactive-diagnostics.md): De här testerna körs automatiskt, så att du inte behöver göra något för att lägga upp dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
 * [Måttaviseringar](../../azure-monitor/app/alerts.md): Ange att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
 
 ### <a name="automation"></a>Automation

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0e325de3a9a28d824ea9a6bfb7b3346bf9285e58
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975652"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033323"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -102,9 +102,9 @@ Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Digital Twins objektmodeller och rumsliga intelligence diagrammet, läsa [förstå Azure Digital Twins objekt modeller](./concepts-objectmodel-spatialgraph.md).
+- Läs mer om Azure Digital Twins objektmodeller och rumsliga intelligence diagrammet, läsa [förstå Azure Digital Twins objekt modeller](./concepts-objectmodel-spatialgraph.md).
 
-Läs hur du autentiserar med ditt API Management, [autentisera med API: er](./security-authenticating-apis.md).
+- Läs hur du autentiserar med ditt API Management, [autentisera med API: er](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

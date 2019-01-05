@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715910"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038219"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -26,18 +26,17 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 > [!IMPORTANT]
 > **[Förändring] För service-slutpunkt-anslutningar till Azure SQL-servrar, en `Default` anslutning beteendet ändras till `Redirect`.**
 >
-> Ändringen är redan gäller från den 10 November 2018 för södra Brasilien och västra Europa. För alla andra regioner börjar ändringen gälla från den 2 januari 2019.
+> Ändringen gäller för alla regioner på eller före den 2 januari 2019.
 >
 > Om du vill förhindra att anslutningar via en tjänstslutpunkt bryts i befintliga miljöer på grund av den här ändringen, använder vi telemetri gör du följande:
 > - För servrar som vi identifierar som kontrollerades via tjänstslutpunkter innan ändringen får vi växlar anslutningstypen till `Proxy`.
 > - För alla andra servrar vi byta anslutning typ växlas till `Redirect`.
 >
-> Användare av tjänsten endpoint kan fortfarande påverkas i följande scenarier: 
-> - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program 
-> - Logik för automatisk distribution skapar en logisk server förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy` 
+> Användare av tjänsten endpoint kan fortfarande påverkas i följande scenarier:
+> - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program
+> - Logik för automatisk distribution skapar en logisk server förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy`
 >
 > Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 12000. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
-
 > [!NOTE]
 > Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ Du kan ändra principen för Azure SQL Database för en Azure SQL Database-serve
 
 > [!IMPORTANT]
 > Det här skriptet kräver den [Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
->
 
 Följande PowerShell-skript visar hur du ändrar principen.
 

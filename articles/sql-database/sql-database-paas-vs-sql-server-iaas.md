@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995005"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033459"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Välja rätt SQL Server-alternativ i Azure - PaaS eller IaaS
 
@@ -87,10 +87,11 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Verksamhetsmotivering för att välja Azure SQL Database eller SQL Server på virtuella Azure-datorer
 
 Det finns flera faktorer som kan påverka ditt beslut att välja PaaS eller IaaS som värd för dina SQL-databaser:
+
 - [Kostnaden](#cost) -alternativet för både PaaS och IaaS innehålla base pris som omfattar underliggande infrastruktur och licensiering. Men med IaaS-alternativet måste du investera mer tid och resurser för att hantera din databas när du får dessa administrationsfunktioner som ingår i priset i PaaS. IaaS-alternativet kan du avställning dina resurser medan du inte använder dem för att minska kostnaden, medan PaaS-versionen körs alltid om inte om du ta bort och återskapa dina resurser när de behövs.
 - [Administration](#administration) -PaaS alternativ minska den tid som du behöver investera för att administrera databasen. Men den också att du kan utföra vissa anpassade administration som kunde förbättra prestandan för din arbetsbelastning.
 - [Servicenivåavtal](#service-level-agreement-sla) -både IaaS och PaaS serviceavtal hög, branschens standard. PaaS-alternativet garanterar 99,99% SLA, medan IaaS garanterar 99,95% SLA för infrastruktur, vilket innebär att du behöver implementera ytterligare metoder för att säkerställa tillgängligheten för dina databaser. I fallen, om du vill implementera hög tillgänglighet-lösning som matchar PaaS, kan du behöva skapa ytterligare SQL Server i virtuell dator och konfigurera AlwaysOn-Tillgänglighetsgrupper som kan double kostnaden för din databas.
-- [Dags att flytta till molnet](#time-to-move-to-cloud) – SQL Server i Azure VM är exakt matchning av din miljö, så migreringen från en lokal plats till Azure SQL-VM inte är lika flyttar databaser från en lokal server till en annan. Hanterad instans kan också mycket enkelt att migrera; Det kan dock finnas vissa ändringar som du måste tillämpa innan du migrerar till Managed Instance.
+- [Dags att flytta till Azure](#market) – SQL Server i Azure VM är exakt matchning av din miljö, så migreringen från en lokal plats till Azure SQL-VM inte är lika flyttar databaser från en lokal server till en annan. Hanterad instans kan också mycket enkelt att migrera; Det kan dock finnas vissa ändringar som du måste tillämpa innan du migrerar till Managed Instance.
 
 De här faktorerna kommer att diskuteras mer detaljerat i följande avsnitt.
 
@@ -102,10 +103,8 @@ Oavsett om du är en startup med dålig kassa, eller ett team i ett etablerat f�
 
 För närvarande **SQL Database** säljs som en tjänst och är tillgänglig i flera servicenivåer med olika priser för resurser, som debiteras timvis till en fast kostnad som baseras på tjänstnivå och beräkningsstorleken som du väljer.
 Du kan välja en tjänstnivå som passar dina behov från en mängd priser från och med 5$ / månad för Basic-nivån med enskild SQL-databas.
-Med SQL Database Managed Instance kan du också använda en egen licens. Mer information om bring-your-own-licensiering finns i [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/) eller Använd [Azure Hybrid-förmånen Kalkylatorn](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) att se hur du **spara upp till 40%**.
+Med SQL Database Managed Instance kan du också använda en egen licens. Mer information om bring-your-own-licensiering finns i [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/) eller Använd [Azure Hybrid-förmånen Kalkylatorn](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) att se hur du **spara upp till 40%**.
 Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Du kan dynamiskt justera tjänstnivåer och compute så att de matchar ditt programs ändrade behov för genomströmning. Den senaste informationen om den aktuella stöds tjänstnivåer, se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan också skapa [elastiska pooler](sql-database-elastic-pool.md) att dela resurser mellan databasinstanser att minska kostnaderna och hantera användning vid tillfälliga toppar.
-
-
 
 Med **SQL Database** så konfigureras, korrigeras och uppgraderas databasens programvara automatiskt av Microsoft, vilket minskar dina administrationskostnader. Dessutom gör dess [inbyggda säkerhetskopierings](sql-database-automated-backups.md)-funktioner att du kan uppnå markanta kostnadsbesparingar, speciellt om du har ett stort antal databaser.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5432266bd042b527156852aaf30fef09f3bf8c72
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299885"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053304"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -193,6 +193,11 @@ Ange mappningen för port i rätt format. I den här artikeln måste du ange ```
    </ServiceManifestImport>
 ``` 
 
+Vi rekommenderar att du krypterar centrallagrets lösenord, referera till [ hantera krypterade hemligheter i Service Fabric-program](service-fabric-application-secret-management.md)
+
+### <a name="configure-cluster-wide-credentials"></a>Konfigurera autentiseringsuppgifter för klustret
+Referera till [dokumentationen här](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
 6.3 runtime-versionen stöds VM isolering för Linux-behållare, vilket stöder två isoleringslägen för behållare: process och Hyper-v. Med isoleringsläget Hyper-v-isoleringsläget används isoleras mellan varje behållare och behållarvärden. Hyper-v-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isoleringsläget har angetts för Linux-kluster i den `ServicePackageContainerPolicy` elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är isoleringsläge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
@@ -210,7 +215,7 @@ Ange mappningen för port i rätt format. I den här artikeln måste du ange ```
 
 
 ## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
-Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Memory, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Minne, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
 
 ```xml
 <ServiceManifestImport>

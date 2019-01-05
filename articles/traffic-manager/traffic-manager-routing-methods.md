@@ -1,8 +1,7 @@
 ---
-title: Azure Traffic Manager - trafikroutningsmetoder | Microsoft Docs
+title: Azure Traffic Manager - metoder för trafikroutning
 description: Det här artiklarna hjälper dig att förstå de olika routningsmetoder som används av Traffic Manager
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054732"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -27,7 +26,7 @@ I följande metoder för trafikroutning är tillgängliga i Traffic Manager:
 * **[Prioritet](#priority):** Välj **prioritet** när du vill använda en primär slutpunkt för all trafik och ge säkerhetskopiering i fall primärt eller backup-slutpunkter är otillgängliga.
 * **[Viktat](#weighted):** Välj **viktat** när du vill distribuera trafik mellan en uppsättning slutpunkter, antingen jämnt eller enligt vikterna som du definierar.
 * **[Prestanda](#performance):** Välj **prestanda** när du har slutpunkter på olika geografiska platser och du vill att slutanvändarna ska använda ”närmaste” slutpunkten när det gäller den lägsta Nätverksfördröjningen.
-* **[Geografisk](#geographic):** Välj **geografiska** så att användare dirigeras till specifika slutpunkter (Azure, externa eller kapslade) baserat på vilka geografiska plats deras DNS-fråga som samlas in från. Detta gör det möjligt för Traffic Manager-kunder att aktivera scenarier där vetskapen om att en användares geografiska region och skicka dem baserat på detta är viktigt. Exempel: uppfyller data landsbaserad placering måste ett demonterat, lokalisering av innehåll och användardata upplevelse och mäta trafik från olika regioner.
+* **[Geografisk](#geographic):** Välj **geografisk** så att användare dirigeras till specifika slutpunkter (Azure, externa eller kapslade) baserat på vilka geografiska plats deras DNS-fråga som samlas in från. Detta gör det möjligt för Traffic Manager-kunder att aktivera scenarier där vetskapen om att en användares geografiska region och skicka dem baserat på detta är viktigt. Exempel: uppfyller data landsbaserad placering måste ett demonterat, lokalisering av innehåll och användardata upplevelse och mäta trafik från olika regioner.
 * **[Flervärden är](#multivalue):** Välj **Flervärden är** för Traffic Manager-profiler som kan enbart ha IPv4/IPv6-adresser som slutpunkter. När en fråga tas emot för den här profilen, returneras alla felfria slutpunkter.
 * **[Undernät](#subnet):** Välj **undernät** trafikdirigeringsmetoden att mappa uppsättningar av slutanvändaren IP-adressintervall till en viss slutpunkt inom en Traffic Manager-profil. När en begäran tas emot, returnerade slutpunkten den mappas för denna förfrågan källans IP-adress. 
 
@@ -51,15 +50,15 @@ Metoden 'Viktad' routning av nätverkstrafik kan du vill distribuera trafiken j�
 
 ![Azure Traffic Manager-viktad' trafikdirigeringsmetoden](media/traffic-manager-routing-methods/weighted.png)
 
-I viktad routning av nätverkstrafik metoden tilldelar du en vikt till varje slutpunkt i Traffic Manager profilkonfigurationen. Vikten som är ett heltal mellan 1 och 1000. Den här parametern är valfri. Om det utelämnas används en standard-vikt på ”1” i Traffic Manager-hanterare. Högre vikt, desto högre prioritet.
+I viktad routning av nätverkstrafik metoden tilldelar du en vikt till varje slutpunkt i Traffic Manager profilkonfigurationen. Vikten är ett heltal mellan 1 och 1 000. Den här parametern är valfri. Om det utelämnas används en standard-vikt på ”1” i Traffic Manager-hanterare. Högre vikt, desto högre prioritet.
 
 För varje DNS-fråga som tog emot väljer slumpmässigt en tillgänglig slutpunkt i Traffic Manager. Sannolikheten för att välja en slutpunkt är baserad på vikterna som tilldelats till alla tillgängliga slutpunkter. Med hjälp av samma vikt för alla slutpunkter resultat i en jämn trafikfördelning. Med högre eller lägre vikterna på specifika slutpunkter gör de slutpunkterna som ska returneras oftare eller mer sällan i DNS-svar.
 
 Metoden viktad aktiverar vissa användbara scenarier:
 
-* Gradvis Programuppgradering: tilldela en procentandel av trafik för dirigering till en ny slutpunkt och gradvis öka trafiken över tid till 100%.
-* Program-migreringen till Azure: skapa en profil med både Azure och externa slutpunkter. Justera vikten för slutpunkter som föredrar de nya slutpunkterna.
-* ”Cloud bursting” för ytterligare kapacitet: snabbt utöka en lokal distribution till molnet genom att placera det bakom en Traffic Manager-profil. När du behöver extra kapacitet i molnet kan du lägga till eller aktivera flera slutpunkter och anger vilken del av trafiken går till varje slutpunkt.
+* Gradvis Programuppgradering: Tilldela en procentandel av trafik för dirigering till en ny slutpunkt och gradvis öka trafiken över tid till 100%.
+* Program-migreringen till Azure: Skapa en profil med både Azure och externa slutpunkter. Justera vikten för slutpunkter som föredrar de nya slutpunkterna.
+* Kapacitetsstyrd omdirigering för ytterligare kapacitet: Snabbt utöka en lokal distribution till molnet genom att placera det bakom en Traffic Manager-profil. När du behöver extra kapacitet i molnet kan du lägga till eller aktivera flera slutpunkter och anger vilken del av trafiken går till varje slutpunkt.
 
 Förutom att använda Azure-portalen kan konfigurera du vikterna med hjälp av Azure PowerShell, CLI och REST-API: er.
 

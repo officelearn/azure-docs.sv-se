@@ -1,20 +1,18 @@
 ---
 title: 'Vanliga frågor och svar om olika API: er i Azure Cosmos DB'
 description: Få svar på vanliga frågor och svar om Azure Cosmos DB, en globalt distribuerad databastjänst. Läs mer om kapacitet, prestandanivåer och skalning.
-keywords: Databasfrågor, vanliga frågor, documentdb, azure, Microsoft azure
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ede900e135960141ed65b54dc876b1c0c2b90aaa
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e8467912ad2b9b5199e3c8d66c80d8e238db1f57
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043217"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -213,7 +211,7 @@ Detta är begränsning JavaScript-kod. JavaScript använder dubbel precision med
 
 Skapa behörigheter med hjälp av ResourceTokens tillåts på behållarenivån och dess underordnade (t.ex dokument, bifogade filer). Detta innebär att försök att skapa en behörighet på databasen eller kontonivå för närvarande är inte tillåten.
 
-## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB: s API för MongoDB
+## <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Vad är Azure Cosmos DB: s API för MongoDB?
 

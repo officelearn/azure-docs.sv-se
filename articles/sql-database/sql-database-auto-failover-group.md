@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994648"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033816"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -175,7 +175,7 @@ Om ditt program använder Managed Instance som datanivån, följer du dessa allm
 
   När en ny instans skapas, är ett unikt id automatiskt genereras som DNS-zonen och ingår i DNS-namnet på instansen. En flera domäner (SAN)-certifikatet för den här instansen har etablerats med SAN-fältet i form av `zone_id.database.windows.net`. Det här certifikatet kan användas för att autentisera klientanslutningar till en instans i samma DNS-zonen. För att säkerställa att icke-avbryts anslutningen till den primära instansen efter en redundansväxling både de primära och sekundära måste instanser vara i samma DNS-zonen. När programmet är redo för Produktionsdistribution, skapa en sekundär instans i en annan region och kontrollera att den delar DNS-zon med den primära instansen. Detta görs genom att ange en `DNS Zone Partner` valfri parameter med hjälp av Azure portal, PowerShell eller REST API.
 
-  Läs mer om hur du skapar den sekundära instansen i samma DNS-zon som den primära instansen, [hantera redundansgrupper med hanterade instanser (förhandsversion)](#managing-failover-groups-with-managed-instances-preview).
+  Läs mer om hur du skapar den sekundära instansen i samma DNS-zon som den primära instansen, [hantera redundansgrupper med hanterade instanser (förhandsversion)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Aktivera replikeringstrafik mellan två instanser**
 
@@ -349,7 +349,7 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 | API | Beskrivning |
 | --- | --- |
 | [Skapa eller uppdatera redundansgrupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en redundansgrupp |
-| [Ta bort redundansgrupp](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Tar bort redundansgruppen från servern |
+| [Ta bort redundansgrupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort redundansgruppen från servern |
 | [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Flyttas över från den primära servern till den här servern. |
 | [Påtvingad redundans tillåta förlust av Data](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |ails över från den primära servern till den här servern. Den här åtgärden kan resultera i dataförlust. |
 | [Get-redundansgrupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Hämtar en redundansgrupp. |

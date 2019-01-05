@@ -1,19 +1,18 @@
 ---
 title: Ändringsfeed för HL7 FHIR-resurser – Azure Cosmos DB
 description: Lär dig hur du ställer in ändringsmeddelanden för HL7 FHIR hälsovård patientjournaler med Azure Logic Apps, Azure Cosmos DB och Service Bus.
-keywords: HL7 fhir
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0ff92ad58cc8b7206b7061c88f8aadbb701870f0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089232"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044526"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter av HL7 FHIR hälsovård poständringar med Logic Apps och Azure Cosmos DB
 
@@ -38,9 +37,9 @@ På en hög nivå krävs projektet följande arbetsflöde:
 
 ## <a name="solution-architecture"></a>Lösningsarkitektur
 Denna lösning kräver tre Logic Apps uppfyller kraven ovan och slutföra arbetsflödet lösning. De tre logiska apparna är:
-1. **HL7-FHIR-mappning app**: tar emot HL7 C-Videostrategin dokumentet, omvandlar det till FHIR-resurs och sparar den till Azure Cosmos DB.
-2. **EHR app**: frågar Azure Cosmos DB FHIR-databasen och sparar svaret på en Service Bus-kö. Den här logikappen använder en [API-app](#api-app) att hämta nya och ändrade dokument.
-3. **Processen meddelandeprogram**: skickar ett e-postmeddelande med FHIR resource dokument i brödtexten.
+1. **HL7-FHIR-mappning app**: Tar emot HL7 C-Videostrategin dokumentet, omvandlar det till FHIR-resurs och sparar den till Azure Cosmos DB.
+2. **EHR app**: Frågar Azure Cosmos DB FHIR-databasen och sparar svaret på en Service Bus-kö. Den här logikappen använder en [API-app](#api-app) att hämta nya och ändrade dokument.
+3. **Processen meddelandeprogram**: Skickar ett e-postmeddelande med FHIR resource dokument i brödtexten.
 
 ![De tre Logic-appar som används i den här hälsovård HL7 FHIR-lösningen](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -57,16 +56,16 @@ Azure Cosmos DB är lagringsplatsen för FHIR-resurser enligt följande bild.
 Logikappar hanterar arbetsflödesprocessen. De följande skärmbilderna visar Logic-appar som har skapats för den här lösningen. 
 
 
-1. **HL7-FHIR-mappning app**: ta emot HL7 C-Videostrategin dokumentet och omvandla dem till en FHIR-resurs med hjälp av Enterprise-Integrationspaketet för Logic Apps. Enterprise-Integrationspaketet hanterar mappningen från C-Videostrategin till FHIR resurser.
+1. **HL7-FHIR-mappning app**: Ta emot HL7 C-Videostrategin dokumentet och omvandla dem till en FHIR-resurs med hjälp av Enterprise-Integrationspaketet för Logic Apps. Enterprise-Integrationspaketet hanterar mappningen från C-Videostrategin till FHIR resurser.
 
     ![Logikappen används för att ta emot HL7 FHIR hälso-poster](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **EHR app**: fråga Azure Cosmos DB FHIR-databasen och spara svaret på en Service Bus-kö. Koden för appen GetNewOrModifiedFHIRDocuments är under.
+2. **EHR app**: Fråga Azure Cosmos DB FHIR-databasen och spara svaret på en Service Bus-kö. Koden för appen GetNewOrModifiedFHIRDocuments är under.
 
     ![Logikappen används för att fråga Azure Cosmos DB](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **Processen meddelandeprogram**: skicka ett e-postmeddelande med FHIR resource dokument i.
+3. **Processen meddelandeprogram**: Skicka ett e-postmeddelande med FHIR resource dokument i brödtexten.
 
     ![Den Logikapp som skickar patientens e-postmeddelande med HL7 FHIR-resursen i brödtexten](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
@@ -89,11 +88,11 @@ Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/
 - CollectionId
 - Resurstyp för HL7 FHIR-namn
 - Booleskt värde: Börja från början
-- Int: Antalet returnerade dokument
+- Int: Antal dokument som returneras
 
 **Utdata**
-- Lyckades: Statuskod: 200, svar: lista över dokument (JSON-matris)
-- Fel: Statuskod: 404, svar ”: inga dokument hittades för”*resursnamn '* resurstyp ”
+- Klart: Statuskod: 200 svaret: Lista över dokument (JSON-matris)
+- Fel: Statuskod: 404 svaret: ”Inga dokument hittades för”*resursnamn '* resurstyp ”
 
 <a id="api-app-source"></a>
 

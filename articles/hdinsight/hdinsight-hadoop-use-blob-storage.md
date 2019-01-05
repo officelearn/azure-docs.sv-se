@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 7513ce90437ebf3d06d4ceb0ea5a83610db5f7dd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/04/2019
+ms.openlocfilehash: a94f55449535faf0f4d061e3368f408843361063
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742702"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051976"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
-Om du vill analysera data i HDInsight-kluster kan du lagra data i Azure Storage, [Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen2] eller båda. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+Om du vill analysera data i HDInsight-kluster kan du lagra data antingen i [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), eller båda. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
 Apache Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under skapandeprocessen för HDInsight-kluster kan du ange en blobbehållare i Azure Storage som standardfilsystemet eller med HDInsight 3.6, kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen 2 som standardfiler system med några undantag. Support för att använda Data Lake Storage Gen 1 som både standardwebbplatsen och den länkade storage, se [tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -31,13 +31,16 @@ Azure Storage är en robust lagringslösning för allmänna ändamål som smidig
 
 | Storage Account-typ | Tjänster som stöds | Stöds prestandanivåer | Stöds åtkomstnivåerna |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Generell användning V2   | Blob               | Standard                    | Frekvent, lågfrekvent Archive3    |
+| Generell användning V2   | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv *    |
 | General-Purpose V1   | Blob               | Standard                    | Gäller inte                    |
-| Blob Storage         | Blob               | Standard                    | Frekvent, lågfrekvent Archive3    |
+| Blob Storage         | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv *    |
 
 Vi rekommenderar att du inte använder standardcontainern för att lagra företagsdata. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Observera att standardcontainern innehåller program- och systemloggar. Se till att hämta loggarna innan du tar bort containern.
 
 Det går inte att dela en blob-container som standardfilsystem över flera kluster.
+ 
+ > [!NOTE]  
+ > Arkiv som åtkomstnivå är en offline-nivå som har en flera timme hämtning svarstid och rekommenderas inte för användning med HDInsight. Mer information finns i <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">arkivåtkomstnivå</a>.
 
 ## <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight med Azure Storage:

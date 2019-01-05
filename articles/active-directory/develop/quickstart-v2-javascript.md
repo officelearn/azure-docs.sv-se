@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317355"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043897"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript-program
 
@@ -31,7 +31,18 @@ I den här snabbstarten får du lära dig hur du använder ett kodexempel som vi
 ![Så här fungerar den exempelapp som skapas med den här snabbstarten](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrera appen och ladda ned snabbstartsappen
+> ## <a name="register-and-download-your-quickstart-application"></a>Registrera och hämta programmets Snabbstart
+> Det finns två alternativ för att starta snabbstartsprogrammet:
+> * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
+>
+> 1. Gå till [Azure-portalen – Programregistrering (förhandsversion)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Ange ett namn för ditt program och klicka på **Registrera**.
+> 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 >
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
@@ -47,10 +58,10 @@ I den här snabbstarten får du lära dig hur du använder ett kodexempel som vi
 > 1. Välj **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera ditt program i Azure Portal
 > För kodexempel för den här snabbstarten ska fungera måste du Lägg till en omdirigerings-URI som `http://localhost:30662/` och aktivera **Implicit beviljande**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör dessa ändringar för mig]()
+> > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Redan konfigurerad](media/quickstart-v2-javascript/green-check.png) Programmet konfigureras med de här attributen.
@@ -59,11 +70,11 @@ I den här snabbstarten får du lära dig hur du använder ett kodexempel som vi
 
 Du kan välja något av följande alternativ som är lämpliga till utvecklingsmiljön.
 * [Hämta projektfilerna core - för en webbserver, till exempel Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Ladda ned Visual Studio-projekt](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extrahera zip-filen till en lokal mapp, till exempel **C:\Azure-Samples**.
 
-#### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera JavaScript-app
+#### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din app med JavaScript
 
 > [!div renderon="docs"]
 > Redigera `index.html` och ange den `clientID` och `authority` värden under `applicationConfig`.

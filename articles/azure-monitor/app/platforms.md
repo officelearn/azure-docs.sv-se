@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: e1d210b329c02a0b01402a46e1c7f223995cb175
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: bf8eac34f5fa334568e3c808968b12412f785380
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003888"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050363"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Utvecklaranalys: språk, plattformar och integreringar
 Dessa objekt är implementeringar av [Application Insights](../../application-insights/app-insights-overview.md) som vi har hört talas om, inklusive vissa av tredje parter.
@@ -59,7 +59,7 @@ Dessa objekt är implementeringar av [Application Insights](../../application-in
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universell Windows-app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Windows-baserade skrivbordsprogram, tjänster och arbetarroller](../../application-insights/app-insights-windows-desktop.md)
+* [Windows-baserade skrivbordsprogram, tjänster och arbetarroller](../../azure-monitor/app/windows-desktop.md)
 * [Annat](#projects)
 
 ## <a name="logging-frameworks"></a>Ramverk för loggning
@@ -77,7 +77,7 @@ Dessa objekt är implementeringar av [Application Insights](../../application-in
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 * [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](../../application-insights/app-insights-sharepoint.md)
+* [SharePoint](../../azure-monitor/app/sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>Export- och dataanalys

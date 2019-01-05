@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 37cc7dcb3157459f6f6387323cc44d6f97954e92
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838097"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035822"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Få åtkomst till Azure Cosmos DB-resurser från virtuella nätverk
 
@@ -49,7 +49,7 @@ I följande avsnitt beskrivs hur du konfigurerar en tjänstslutpunkt för virtue
 
 > [!NOTE]
 > Om du vill aktivera tjänstslutpunkter i virtuella nätverk behöver du följande Prenumerationsbehörigheter:
-  * Prenumerationen med virtuellt nätverk: nätverksdeltagare
+  * Prenumeration med ett virtuellt nätverk: Nätverksdeltagare
   * Prenumeration med Azure Cosmos DB-konto: DocumentDB-kontodeltagare
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Konfigurera en tjänstslutpunkt för en ny Azure-nätverk och undernät

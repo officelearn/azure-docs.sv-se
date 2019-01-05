@@ -1,19 +1,18 @@
 ---
 title: Azure global distribution Cosmos DB – under huven
 description: Den här artikeln ger teknisk information som rör global distribution av Azure Cosmos DB
-services: cosmos-db
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: ceb784f0e559299e2fb42f26a98e5c4905a8aeb2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998939"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038950"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure global distribution Cosmos DB – under huven
 

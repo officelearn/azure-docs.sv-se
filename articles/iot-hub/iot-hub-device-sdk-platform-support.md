@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879396"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053201"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Plattformsstödet för Azure IoT SDK: er
 
@@ -20,9 +20,9 @@ Den [Azure IoT SDK: er](iot-hub-devguide-sdks.md) är en uppsättning bibliotek 
 
 Microsoft stöder en mängd olika operativsystem/plattformar/ramverk och kan utökas med hjälp av Azure IoT C SDK. Vissa stöds officiellt av teamet grupperade i nivåer som representerar supportnivå de kan förvänta sig. *Plattformar som stöds helt* innebär att Microsoft:
 
-    * Kontinuerligt bygger och kör slutpunkt till slutpunkt-testerna mot huvud- och LTS stöds-versioner.  För att ge testtäckning mellan olika versioner, testar vi Allmänt mot den senaste LTS och mest populära versionen.  Andra versioner av samma plattform kanske stöds via version plattformskompatibilitet.
-    * Här installationer eller paket.
-    * Har fullständigt stöd för plattformar på GitHub.
+- Kontinuerligt bygger och kör slutpunkt till slutpunkt-testerna mot huvud- och LTS stöds-versioner.  För att ge testtäckning mellan olika versioner, testar vi Allmänt mot den senaste LTS och mest populära versionen.  Andra versioner av samma plattform kanske stöds via version plattformskompatibilitet.
+- Här installationer eller paket.
+- Har fullständigt stöd för plattformar på GitHub.
 
 Dessutom kan en lista med partner har porteras vår C SDK in fler plattformar och de underhålla plattform abstraction layer (PAL). [Azure Certified for IoT-Enhetskatalog](https://catalog.azureiotsolutions.com/) också funktioner en lista över de olika SDK: er för OS-plattformar har testats mot. SDK: erna även regelbundet skapa på de här plattformarna med begränsad testning och stöder:
 

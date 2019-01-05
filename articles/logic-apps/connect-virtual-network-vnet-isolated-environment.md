@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 41ba0816dde63bc611dcb5be544609b88dfe9158
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997515"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052651"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integration service-miljö (ISE)
 
@@ -110,8 +110,8 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
    | **Namn på integreringstjänstmiljö** | Ja | <*miljö-name*> | Namn för att ge din miljö | 
    | **Plats** | Ja | <*Azure-datacenterregion*> | Azure-datacenterregion var du vill distribuera din miljö | 
    | **Kapacitet** | Ja | 0, 1, 2, 3 | Antalet enheter för den här ISE-resursen | 
-   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). | 
-   | **Undernät** | Ja | <*IP-adressintervall*> | En ISE kräver fyra *tom* undernät. De här undernäten är undelegated till alla tjänster och som används för att skapa resurser i din miljö. Du *kan inte ändra* dessa IP-adressintervall när du har skapat din miljö. <p><p>Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet). Varje undernät måste uppfylla följande kriterier: <p>-Får inte finnas i samma adressintervallet för det valda virtuella nätverket eller några andra privata IP-adresser där det virtuella nätverket är ansluten. <br>-Använder ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Använder den [Classless Inter-Domain Routing CIDR-formatet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>– Kräver en klass B-adressutrymme. <br>-Inkluderar en `/27`. Varje undernät anger till exempel ett adressintervall för 32-bitars: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, och `10.0.0.96/27`. <br>-Måste vara tom. |
+   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). | 
+   | **Undernät** | Ja | <*IP-adressintervall*> | En ISE kräver fyra *tom* undernät. De här undernäten är undelegated till alla tjänster och som används för att skapa resurser i din miljö. Du *kan inte ändra* dessa IP-adressintervall när du har skapat din miljö. <p><p>Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet). Varje undernät måste uppfylla följande kriterier: <p>-Använder ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Använder den [Classless Inter-Domain Routing CIDR-formatet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>– Kräver en klass B-adressutrymme. <br>-Inkluderar en `/27`. Varje undernät anger till exempel ett adressintervall för 32-bitars: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, och `10.0.0.96/27`. <br>-Måste vara tom. |
    |||||
 
    <a name="create-subnet"></a>
@@ -120,7 +120,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    1. Under den **undernät** väljer **hantera undernätskonfiguration**.
 
-      ![Hantera undernätskonfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Hantera konfiguration av undernät](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
 
    1. På den **undernät** fönstret Välj **undernät**.
 
@@ -128,8 +128,8 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    1. På den **Lägg till undernät** fönstret anger den här informationen.
 
-      * **Namn på**: namnet på ditt undernät
-      * **Adressintervall (CIDR-block)**: intervall för ditt undernät i det virtuella nätverket och i CIDR-format
+      * **Namn**: Namn för ditt undernät
+      * **Adressintervall (CIDR-block)**: Intervall för ditt undernät i det virtuella nätverket och i CIDR-format
 
       ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
@@ -148,7 +148,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    Om distributionen har slutförts visas det här meddelandet i Azure:
 
-   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distribueringen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    > [!NOTE]
    > Om distributionen misslyckas eller om du ta bort din ISE Azure *kan* ta upp till en timme innan du publicerar dina undernät. Därför kanske du måste vänta innan du återanvänder dessa undernät i ett annat ISE.

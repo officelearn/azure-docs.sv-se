@@ -12,26 +12,27 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: ebdfc80d3802ad8eb7da6fb7f152efdaee8d777d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a8000fb26ce5496a9c62ba475b862f8f80adf6b7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041772"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
 Det här avsnittet beskriver hur du skapar ett giltigt virtuellt nätverk och undernät där du kan distribuera hanterade Azure SQL Database-instanser.
 
-Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Den här distributionen gör det möjligt för följande scenarier: 
+Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Den här distributionen gör det möjligt för följande scenarier:
+
 - Skydda privata IP-adressen.
-- Ansluta till en hanterad instans direkt från ett lokalt nätverk 
-- Ansluta en hanterad instans till länkad server eller en annan lokala datalager 
+- Ansluta till en hanterad instans direkt från ett lokalt nätverk
+- Ansluta en hanterad instans till länkad server eller en annan lokala datalager
 - Ansluta en hanterad instans till Azure-resurser  
 
   > [!Note]
   > Du bör [avgör storleken på undernätet för hanterad instans](sql-database-managed-instance-determine-size-vnet-subnet.md) innan du distribuerar första instansen eftersom sunet inte kan ändras när du lägger till resurser i.
-  > Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra den nätverkskonfigurationen för att hantera din hanterade instans. Mer information finns i [ändra befintligt virtuellt nätverk för hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md). 
+  > Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra den nätverkskonfigurationen för att hantera din hanterade instans. Mer information finns i [ändra befintligt virtuellt nätverk för hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md).
 
 ## <a name="create-a-new-virtual-network"></a>Skapa ett nytt virtuellt nätverk
 
@@ -41,18 +42,18 @@ Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att an
 
 2. Använd **distribuera till Azure** knappen för att distribuera virtuella nätverk i Azure-molnet:
 
-  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
-  Den här knappen öppnas ett formulär som du kan använda för att konfigurera nätverket där du kan distribuera Managed Instance.
+   Den här knappen öppnas ett formulär som du kan använda för att konfigurera nätverket där du kan distribuera Managed Instance.
 
-  > [!Note]
-  > Azure Resource Manager-mallen distribuerar virtuellt nätverk med två undernät. Ett undernät som kallas **ManagedInstances** är reserverad för hanterade instanser och har förkonfigurerade routningstabellen, medan andra undernätet kallas **standard** används för andra resurser som ska få åtkomst till hanterad Instans (till exempel Azure virtuella datorer). Du kan ta bort **standard** undernät om du inte behöver den.
+   > [!Note]
+   > Azure Resource Manager-mallen distribuerar virtuellt nätverk med två undernät. Ett undernät som kallas **ManagedInstances** är reserverad för hanterade instanser och har förkonfigurerade routningstabellen, medan andra undernätet kallas **standard** används för andra resurser som ska få åtkomst till hanterad Instans (till exempel Azure virtuella datorer). Du kan ta bort **standard** undernät om du inte behöver den.
 
 3. Konfigurera nätverksmiljön. Du kan konfigurera parametrar för din nätverksmiljö på följande format:
 
 ![Konfigurera azure-nätverk](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
-Du kan ändra namnen på VNet och undernät och justera IP-adressintervall som är kopplade till dina nätverksresurser. När du trycker på ”Köp”-knappen, kommer det här formuläret Skapa och konfigurera din miljö. Om du inte behöver två undernät, kan du ta bort standardvärdet. 
+Du kan ändra namnen på VNet och undernät och justera IP-adressintervall som är kopplade till dina nätverksresurser. När du trycker på ”Köp”-knappen, kommer det här formuläret Skapa och konfigurera din miljö. Om du inte behöver två undernät, kan du ta bort standardvärdet.
 
 ## <a name="next-steps"></a>Nästa steg
 

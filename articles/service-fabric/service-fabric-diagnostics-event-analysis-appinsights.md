@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001778"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053627"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -127,4 +127,4 @@ Klicka på **Analytics** tar dig till Application Insights Analytics-portalen d�
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) meddelas om ändringar i prestanda och användning
-* [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till Application Insights för att varna dig om potentiella prestandaproblem
+* [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till Application Insights för att varna dig om potentiella prestandaproblem

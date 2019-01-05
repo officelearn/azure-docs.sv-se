@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001285"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035431"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -42,7 +42,7 @@ Du kan använda dessa säkerhetskopior till:
 
 ## <a name="how-long-are-backups-kept"></a>Hur lång tid hålls säkerhetskopior
 
-Varje SQL-databas har en standard-kvarhållningsperiod mellan 7 och 35 dagar som är beroende av den [inköpsmodellen och tjänstnivå](#pitr-retention-period). Du kan uppdatera kvarhållningsperioden för säkerhetskopior för en databas på Azure logisk Server. Mer information finns i [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period).
+Varje SQL-databas har en standard-kvarhållningsperiod mellan 7 och 35 dagar som beror på inköpsmodellen och tjänstnivå. Du kan uppdatera säkerhetskopian) kvarhållningsperioden för en databas på Azure logisk Server. Mer information finns i [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period).
 
 Om du tar bort en databas, behåller SQL Database säkerhetskopiorna på samma sätt som den skulle ha gjort för en online-databas. Om du tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, till exempel sparas en säkerhetskopia som är fyra dagar gamla i tre dagar.
 
@@ -109,7 +109,7 @@ Du kan ändra standard PITR kvarhållningsperioden för säkerhetskopior med hj�
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Ändra PITR kvarhållningsperiod för säkerhetskopiering med Azure portal
 
-Ändra PITR kvarhållningsperioden för säkerhetskopior med Azure-portalen, gå till server-objekt vars kvarhållningsperioden som du vill ändra i portalen och väljer sedan ett lämpligt alternativ baserat på vilken server-objekt du ändrar. 
+Ändra PITR kvarhållningsperioden för säkerhetskopior med Azure-portalen, gå till server-objekt vars kvarhållningsperioden som du vill ändra i portalen och väljer sedan ett lämpligt alternativ baserat på vilken server-objekt du ändrar.
 
 #### <a name="change-pitr-for-a-logical-server"></a>Ändra PITR för en logisk server
 

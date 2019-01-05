@@ -1,20 +1,18 @@
 ---
 title: Använda Robo 3T för att ansluta till Azure Cosmos DB
 description: Lär dig hur du ansluter till Azure Cosmos DB med Robo 3T och Azure Cosmos DB API för MongoDB
-keywords: robomongo
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: af601075b8cc774654a9f2dbf83193bf9701166b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789457"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034819"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Använda Robo 3T med Azure Cosmos DB: s API för MongoDB
 

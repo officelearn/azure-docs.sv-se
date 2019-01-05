@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 00ad005fff54940dbec468e0fde105e936579378
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 42850cc5f8280b29811f9607557f38507262694a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411026"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034411"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Arbeta med JavaScript språkintegrerade frågorna-API med Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Mer information finns i den [Cosmos DB Server sida JavaScript-dokumentationen](h
 I följande tabell visas olika SQL-frågor och motsvarande JavaScript-frågor. Precis som med SQL-frågor, är egenskaper (till exempel item.id) skiftlägeskänsliga.
 
 > [!NOTE]
-> `__` (double-understreck) är ett alias till `getContext().getCollection()` när du använder frågan JavaScript API.
+> `__` (dubbelunderstreck) är ett alias till `getContext().getCollection()` när du använder frågan JavaScript API.
 
 |**SQL**|**Fråga JavaScript API**|**Beskrivning**|
 |---|---|---|

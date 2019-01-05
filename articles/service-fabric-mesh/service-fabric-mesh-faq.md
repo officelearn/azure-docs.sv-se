@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 39709377a83226c90626221f0f5a98f3d7d5c74a
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555854"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051211"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 
@@ -93,9 +93,9 @@ Följande behållare OS-avbildningar kan användas för att distribuera tjänste
 
 ## <a name="developer-experience-issues"></a>Problem med Developer-upplevelse
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>DNS-matchning från en utgående behållare fungerar inte
+### <a name="dns-resolution-and-outgoing-traffic-from-a-container-doesnt-work"></a>DNS-matchning och utgående trafik från en behållare fungerar inte
 
-Tjänst-till-tjänst-kommunikation misslyckas under vissa omständigheter. Detta håller på att undersökas. Minimera:
+Om du har en behållare som skickar utgående trafik, inklusive försök att kontakta en DNS-tjänsten misslyckas den under vissa omständigheter. Detta håller på att undersökas. Minimera:
 
 - Använda Windows Fall Creators update (version 1709) eller senare som en grundläggande behållaravbildning.
 - Om namnet på tjänsten enbart inte fungerar kan du prova det fullständigt kvalificerade namnet: ServiceName.ApplicationName.

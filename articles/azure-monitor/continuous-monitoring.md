@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8cbd09beffb8d86ab35e5fc1cf15c37b1bef9eb2
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002288"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050616"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver specifika steg för att använda Azure Monitor för 
 För att få observability i hela miljön, måste du aktivera övervakning på alla dina webbprogram och tjänster. Detta kan du enkelt visualisera slutpunkt till slutpunkt-transaktioner och anslutningar för alla komponenter.
 
 - [Azure DevOps-projekt](../devops-project/overview.md) ger dig ett förenklat sätt med befintlig kod och Git-lagringsplats, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) till Azure.
-- [Kontinuerlig övervakning i din DevOps-releasepipeline](../application-insights/app-insights-vsts-continuous-monitoring.md) gör det möjligt att gate eller ångra distributionen utifrån övervakningsdata.
+- [Kontinuerlig övervakning i din DevOps-releasepipeline](../azure-monitor/app/continuous-monitoring.md) gör det möjligt att gate eller ångra distributionen utifrån övervakningsdata.
 - [Statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md) gör att du kan instrumentera en live .NET-app i Windows med Azure Application Insights utan att behöva ändra eller omdistribuera din kod.
 - Om du har åtkomst till koden för ditt program kan aktivera fullständig övervakning med [Programinsikter](../application-insights/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), eller [andra programmeringsspråk](../azure-monitor/app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sidvisningar som är relevanta för ditt program och din verksamhet.
 
@@ -64,7 +64,7 @@ Kontinuerlig integrering / kontinuerlig distribution kan du automatiskt vill int
 
 - Använd [Azure Pipelines](/azure/devops/pipelines) kan implementera kontinuerlig distribution och automatisera hela processen från kodbekräftelse till produktion baserat på dina CI/CD-tester.
 - Använd [kvalitet Gates](/devops/pipelines/release/approvals/gates) att integrera övervakning i din före eller efter distributionen. Detta säkerställer att du uppfyller health/prestandarelaterade nyckeltal (KPI: er) som dina program flyttar från utveckling till produktion och eventuella skillnader i infrastruktursmiljö eller skalning inte negativt påverka din KPI: er.
-- [Underhålla separata övervakning instanser](../application-insights/app-insights-separate-resources.md) mellan dina olika distributionsmiljöer som utveckling, testning, Kanarieöarna och Prod. Detta säkerställer att insamlade data är relevanta för associerade program och infrastruktur. Om du behöver att korrelera data mellan miljöer kan du använda [flera resource diagrammen i Metrics Explorer](../azure-monitor/platform/metrics-charts.md) eller skapa [mellan resurser frågor i Log Analytics](log-query/cross-workspace-query.md).
+- [Underhålla separata övervakning instanser](../azure-monitor/app/separate-resources.md) mellan dina olika distributionsmiljöer som utveckling, testning, Kanarieöarna och Prod. Detta säkerställer att insamlade data är relevanta för associerade program och infrastruktur. Om du behöver att korrelera data mellan miljöer kan du använda [flera resource diagrammen i Metrics Explorer](../azure-monitor/platform/metrics-charts.md) eller skapa [mellan resurser frågor i Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Skapa användbara aviseringar med åtgärder
@@ -80,16 +80,16 @@ En viktig aspekt av övervakning proaktivt meddela administratörer om eventuell
 Se till att din utveckling och drift har åtkomst till samma telemetri och verktyg kan användas för att visa mönster i hela miljön och minimera dina Mean Time att identifiera (MTTD) och tiden till återställning (MTTR).
 
 - Förbereda [anpassade instrumentpaneler](../application-insights/app-insights-tutorial-dashboards.md) baserat på vanliga mått och loggar för olika roller i din organisation. Instrumentpaneler kan kombinera data från alla Azure-resurser.
-- Förbereda [arbetsböcker](../application-insights/app-insights-usage-workbooks.md) till lagrets delning mellan utveckling och drift. Dessa kunde förberedas som dynamiska rapporter med diagram med mätvärden och loggfrågor eller även följande felsökningsguider sammanställts av utvecklare som hjälper kundsupport eller åtgärder för att hantera grundläggande problem.
+- Förbereda [arbetsböcker](../azure-monitor/app/usage-workbooks.md) till lagrets delning mellan utveckling och drift. Dessa kunde förberedas som dynamiska rapporter med diagram med mätvärden och loggfrågor eller även följande felsökningsguider sammanställts av utvecklare som hjälper kundsupport eller åtgärder för att hantera grundläggande problem.
 
 ## <a name="continuously-optimize"></a>Optimera kontinuerligt
  Övervakning är en av de grundläggande delarna av populära Build-mått-Läs filosofin, som rekommenderar kontinuerligt spåra dina KPI: er och användarmått beteende och sedan försöker du att optimera dem via planering iterationer. Azure Monitor kan du samla in mått och loggar som är relevanta för din verksamhet och lägga till nya datapunkter i nästa distributionen efter behov.
 
 - Använda verktygen i Application Insights till [spåra slutanvändarbeteendet och engagement](../application-insights/app-insights-tutorial-users.md).
-- Använd [Följdanalys](../application-insights/app-insights-usage-impact.md) att hjälpa dig att prioritera vilka områden att fokusera på enheten till viktiga KPI: er.
+- Använd [Följdanalys](../azure-monitor/app/usage-impact.md) att hjälpa dig att prioritera vilka områden att fokusera på enheten till viktiga KPI: er.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om skillnaden komponenterna i [Azure Monitor](overview.md).
-- [Lägga till kontinuerlig övervakning](../application-insights/app-insights-vsts-continuous-monitoring.md) till din releasepipeline.
+- [Lägga till kontinuerlig övervakning](../azure-monitor/app/continuous-monitoring.md) till din releasepipeline.

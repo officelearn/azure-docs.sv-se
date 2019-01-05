@@ -1,21 +1,19 @@
 ---
 title: Sammanställd åtgärder för Azure Cosmos DB Cassandra API tabeller från Spark
 description: Den här artikeln beskriver grundläggande aggregeringsåtgärder mot Azure Cosmos DB Cassandra API tabeller från Spark
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: basics, DDL, DML
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 56cd2284fb4bf7dabb280170757c128b8f985433
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037318"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Sammanställd åtgärder för Azure Cosmos DB Cassandra API tabeller från Spark 
 
@@ -93,15 +91,15 @@ Välj en [lagringsalternativ]( https://spark.apache.org/docs/2.2.0/rdd-programmi
 
 * MEMORY_AND_DISK: Butiker RDD som avserialiserade Java-objekt i JVM. Om RDD inte får plats i minnet, lagra de partitioner som inte får plats på disken och när det behövs kan du läsa dem var de lagras.
 
-* MEMORY_ONLY_SER (Java/Scala): Butiker RDD som serialiseras Java objekt 1 byte-matris per partition. Det här alternativet är utrymme-effektiv jämfört med avserialiserade objekt, särskilt om du använder en snabb serialiserare, men mer CPU-intensiva att läsa.
+* MEMORY_ONLY_SER (Java/Scala): Butiker RDD som serialiserade Java objekt 1 byte-matris per partition. Det här alternativet är utrymme-effektiv jämfört med avserialiserade objekt, särskilt om du använder en snabb serialiserare, men mer CPU-intensiva att läsa.
 
 * MEMORY_AND_DISK_SER (Java/Scala): Det här lagringsalternativet liknar MEMORY_ONLY_SER, den enda skillnaden är att den spill partitioner som inte passar in i minnet disk i stället för recomputing dem när de behövs.
 
 * DISK_ONLY: Lagrar RDD-partitioner på disken endast.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Samma som nivåerna som ovan, men replikerar varje partition på två noder.
+* MEMORY_ONLY_2 MEMORY_AND_DISK_2...: Samma som nivåerna som ovan, replikerar men varje partition på två noder.
 
-* (Experimentell) OFF_HEAP: liknar MEMORY_ONLY_SER, men det lagrar data i av heap-minne och det krävs av heap-minne är aktiverat i tid. 
+* OFF_HEAP (experimentell): Liknar MEMORY_ONLY_SER, men det lagrar data i av heap-minne och det krävs av heap-minne är aktiverat i tid. 
 
 ```scala
 //Workaround

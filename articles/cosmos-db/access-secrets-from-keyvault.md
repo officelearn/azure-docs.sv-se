@@ -1,19 +1,20 @@
 ---
 title: Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
 description: Använda Azure Key Vault för att lagra och komma åt Azure Cosmos DB-anslutningssträngen, nycklar, URI'S.
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837400"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036196"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
 
@@ -32,7 +33,7 @@ Följande steg krävs för att lagra och läsa åtkomstnycklar för Azure Cosmos
 1. Logga in på [Azure-portalen](https://portal.azure.com/).  
 2. Välj **skapa en resurs > Säkerhet > Key Vault**.  
 3. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:  
-   * **Namn:** ange ett unikt namn för Key Vault.  
+   * **Namn:** Ange ett unikt namn för ditt Nyckelvalv.  
    * **Prenumeration:** Välj den prenumeration som du ska använda.  
    * Under **Resursgrupp** väljer du **Skapa ny** och anger ett resursgruppsnamn.  
    * Välj en plats i rullgardinsmenyn plats.  

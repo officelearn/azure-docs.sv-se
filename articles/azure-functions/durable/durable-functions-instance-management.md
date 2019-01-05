@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343946"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042469"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure Functions)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i varaktiga funktioner i Azure
 
 [Varaktiga funktioner](durable-functions-overview.md) orchestration-instanser kan vara igång, avslutas, efterfrågas och skickas meddelanden. Alla instanshantering görs med hjälp av den [orkestreringsklient bindning](durable-functions-bindings.md). Den här artikeln går i detaljerna för varje instans management-åtgärd.
 
@@ -34,7 +34,7 @@ Den här asynkrona åtgärden har slutförts när orchestration-process har sche
 
 Parametrarna för [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) är följande:
 
-* **Namn på**: Namnet på orchestrator-funktion för att schemalägga.
+* **Namn**: Namnet på orchestrator-funktion för att schemalägga.
 * **Indata**: JSON-serialiserbara data som ska skickas som indata till orchestrator-funktion.
 * **instanceId**: (Valfritt) Unikt ID för instansen. Om inte anges genereras ett slumpmässigt instans-ID.
 
@@ -56,7 +56,7 @@ public static async Task Run(
 
 Parametrarna för `startNew` är följande:
 
-* **Namn på**: Namnet på orchestrator-funktion för att schemalägga.
+* **Namn**: Namnet på orchestrator-funktion för att schemalägga.
 * **instanceId**: (Valfritt) Unikt ID för instansen. Om inte anges genereras ett slumpmässigt instans-ID.
 * **Indata**: (Valfritt) JSON-serialiserbara data som ska skickas som indata till orchestrator-funktion.
 
@@ -107,7 +107,7 @@ Det tar en `instanceId` (obligatoriskt), `showHistory` (valfritt), `showHistoryO
 
 Metoden returnerar ett JSON-objekt med följande egenskaper:
 
-* **Namn på**: Namnet på orchestrator-funktion.
+* **Namn**: Namnet på orchestrator-funktion.
 * **instanceId**: Instans-ID för dirigering (bör vara samma som den `instanceId` indata).
 * **CreatedTime**: Tid då starta orchestrator-funktion som körs.
 * **LastUpdatedTime**: Tidpunkt då orchestration senaste med kontrollpunkt.
@@ -116,10 +116,10 @@ Metoden returnerar ett JSON-objekt med följande egenskaper:
 * **Utdata**: Resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om orchestrator-funktionen misslyckades, innehåller den här egenskapen information om felet. Om orchestrator-funktion har avslutats tas den tillhandahållna orsaken till att den här egenskapen (om sådan finns).
 * **runtimeStatus**: En av följande värden:
   * **Väntande**: Instansen har schemalagts men har startats inte som körs.
-  * **Kör**: Instansen har startats.
+  * **Körning**: Instansen har startats.
   * **Slutfört**: Instansen har slutförts normalt.
   * **ContinuedAsNew**: Instansen har startats om själva med en lista. Det här är ett tillfälligt tillstånd.
-  * **Det gick inte**: Instansen misslyckades med ett fel.
+  * **Misslyckades**: Instansen misslyckades med ett fel.
   * **Avslutas**: Instansen stoppades tvärt.
 * **Historik**: Körningstiden för dirigering. Det här fältet fylls bara om `showHistory` är inställd på `true`.
 
@@ -520,7 +520,7 @@ En misslyckad orchestration-instans kan vara *spolas tillbaka* till en tidigare 
 > [!NOTE]
 > Detta API är inte avsedd att vara en ersättning för rätt felhantering och försöka principer. I stället är den avsedd att användas endast i fall där orchestration-instanser misslyckas av oväntat orsaker. Mer information om fel felhantering och principer finns i den [felhantering](durable-functions-error-handling.md) avsnittet.
 
-Ett exempel användningsfall för *spola tillbaka* är ett arbetsflöde som omfattar en serie [mänskliga godkännanden](durable-functions-overview.md#pattern-5-human-interaction). Anta att det finns ett antal Aktivitetsfunktioner som meddelar någon att deras godkännande krävs och vänta ut i realtid svaret. För godkännandet har när alla aktiviteter fått svar eller Tidsgränsen nåddes under en annan aktivitet misslyckas på grund av ett program felkonfiguration, t.ex en ogiltig databasanslutningssträng. Resultatet är ett orchestration-fel i arbetsflödet. Med den `RewindAsync` (.NET) eller `rewindAsync` (JavaScript) API, programadministratör kan åtgärda felet för konfiguration och *spola tillbaka* misslyckade orchestration tillbaka till tillståndet omedelbart före felet. Inget av stegen som mänsklig interaktion behöver godkännas och dirigering kan nu slutföras.
+Ett exempel användningsfall för *spola tillbaka* är ett arbetsflöde som omfattar en serie [mänskliga godkännanden](durable-functions-concepts.md#human). Anta att det finns ett antal Aktivitetsfunktioner som meddelar någon att deras godkännande krävs och vänta ut i realtid svaret. För godkännandet har när alla aktiviteter fått svar eller Tidsgränsen nåddes under en annan aktivitet misslyckas på grund av ett program felkonfiguration, t.ex en ogiltig databasanslutningssträng. Resultatet är ett orchestration-fel i arbetsflödet. Med den `RewindAsync` (.NET) eller `rewindAsync` (JavaScript) API, programadministratör kan åtgärda felet för konfiguration och *spola tillbaka* misslyckade orchestration tillbaka till tillståndet omedelbart före felet. Inget av stegen som mänsklig interaktion behöver godkännas och dirigering kan nu slutföras.
 
 > [!NOTE]
 > Den *spola tillbaka* funktionen stöder inte spola tillbaka orchestration instanser som använder varaktiga timers.

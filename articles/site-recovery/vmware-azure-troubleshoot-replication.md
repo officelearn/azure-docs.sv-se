@@ -1,106 +1,121 @@
 ---
-title: Felsöka problem med replikering för akutåterställning av virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller information om att felsöka vanliga replikeringsproblem under haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery.
+title: Felsöka problem med replikering för akutåterställning av virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller information om att felsöka vanliga replikeringsproblem under haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790664"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053099"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
-Du får ett specifikt felmeddelande när du skyddar dina virtuella VMware-datorer eller fysiska servrar med Azure Site Recovery. Den här artikeln beskriver några vanliga problem som kan uppstå när replikera lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
-
+Du kan se ett specifikt felmeddelande när du skyddar dina virtuella VMware-datorer eller fysiska servrar med hjälp av Azure Site Recovery. Den här artikeln beskriver några vanliga problem som kan uppstå när du replikerar lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md).
 
 ## <a name="initial-replication-issues"></a>Problem med inledande replikering
 
-I många fall är den inledande replikeringsfel som vi påträffar på support på grund av problem med nätverksanslutningen mellan serverprocessen till källservern eller process server till Azure. Du kan felsöka de här problemen genom att följa stegen nedan för de flesta fall.
+Inledande replikeringsfel orsakas ofta av problem med nätverksanslutningen mellan käll- och processervern eller mellan processervern och Azure. Du kan felsöka de här problemen genom att följa stegen i följande avsnitt i de flesta fall.
 
-### <a name="verify-the-source-machine"></a>Kontrollera källdatorn
-* Använd Telnet pinga Processervern med https-porten (standard 9443) som visas nedan för att se om det finns problem med nätverksanslutningen eller brandväggen port blockerande problem från källservern datorn från kommandoraden.
+### <a name="check-the-source-machine"></a>Kontrollera källdatorn
 
-    `telnet <PS IP address> <port>`
-> [!NOTE]
-    > Använda Telnet kan inte använda PING för att testa anslutningen.  Om Telnet inte är installerad, följer du stegen listan [här](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+I följande lista visas hur du kan kontrollera källdatorn:
 
-Om det inte går att ansluta, Tillåt inkommande port 9443 på Processervern och kontrollera om problemet fortfarande avslutas. Det har varit tillfällen där processervern har bakom DMZ som orsakade problemet.
+*  Använda Telnet på kommandoraden på källservern, pinga processervern via HTTPS-porten (HTTPS-standardporten är 9443) genom att köra följande kommando. Kommandot kontrollerar för problem med nätverksanslutningen och problem som blockerar brandväggsporten.
 
-* Kontrollera status för tjänsten `InMage Scout VX Agent – Sentinel/OutpostStart` om den inte körs och kontrollera om problemet kvarstår.   
+   `telnet <process server IP address> <port>`
 
-### <a name="verify-the-process-server"></a>Kontrollera processervern
+   > [!NOTE]
+   > Använda Telnet för att testa anslutningen. Använd inte `ping`. Om Telnet inte är installerad, slutför du stegen i [installera Telnet-klienten](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
-* **Kontrollera om processervern aktivt skicka data till Azure**
+   Om du inte kan ansluta till processervern, kan du inkommande port 9443 på processervern. Exempel: du kan behöva tillåta inkommande port 9443 på processervern om nätverket har ett perimeternätverk eller avskärmat undernät. Kontrollera sedan om problemet kvarstår.
 
-Process Server-dator, öppna Aktivitetshanteraren (tryck på Ctrl-Shift-Esc). Gå till fliken prestanda och klicka på öppna Resursövervakaren länken. Från Resource Manager går du till fliken nätverk. Kontrollera om cbengine.exe i ”processer med nätverksaktivitet” aktivt skickar stora mängder (i MB) data.
+*  Kontrollera status för den **InMage Scout VX Agent – Sentinel/OutpostStart** service. Om tjänsten inte körs måste starta tjänsten och kontrollera sedan om problemet kvarstår.   
 
-![Aktivera replikering](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+### <a name="check-the-process-server"></a>Kontrollera processervern
 
-Om så inte är fallet, Följ stegen nedan:
+I följande lista visas hur du kan kontrollera processervern:
 
-* **Kontrollera om processervern är att ansluta Azure Blob**: Välj och kontrollera cbengine.exe om du vill visa den ”TCP-anslutningar” för att se om det finns en anslutning från processervern till Azure Storage blob URL.
+*  **Kontrollera om processervern aktivt skicka data till Azure**.
 
-![Aktivera replikering](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+   1. Öppna Aktivitetshanteraren (tryck på Ctrl + Skift + Esc) på processervern.
+   2. Välj den **prestanda** fliken och välj sedan den **öppna Resursövervakaren** länk. 
+   3. På den **Resursövervakaren** väljer den **nätverk** fliken. Under **processer med nätverksaktivitet**, kontrollera om **cbengine.exe** aktivt skickar stora mängder data.
 
-Om det inte gå till Kontrollpanelen > tjänster, kontrollera att följande tjänster är igång:
+        ![Skärmbild som visar volymerna under processer med nätverksaktivitet](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-     * cxprocessserver
-     * InMage Scout VX Agent – Sentinel/Outpost
-     * Microsoft Azure Recovery Services Agent
-     * Microsoft Azure Site Recovery Service
-     * tmansvc
-     *
-(Åter) Starta tjänsten som inte körs och kontrollera om problemet kvarstår.
+   Om cbengine.exe inte skickar stora mängder data kan du slutföra stegen i följande avsnitt.
 
-* **Kontrollera om processervern kan ansluta till Azures offentliga IP-adress via port 443**
+*  **Kontrollera om processervern kan ansluta till Azure Blob storage**.
 
-Öppna senaste CBEngineCurr.errlog från `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` och Sök efter: 443 och anslutningen anslutningsförsöket misslyckades.
+   Välj **cbengine.exe**. Under **TCP-anslutningar**, kontrollera om det finns en anslutning från processervern till Azure-bloggen lagrings-URL.
 
-![Aktivera replikering](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+   ![Skärmbild som visar anslutning mellan cbengine.exe och URL: en för Azure Blob storage](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-Om det finns problem, sedan från Processervern kommandorad använda telnet pinga din Azures offentliga IP-adressen som (maskeras i ovan bild) finns i CBEngineCurr.currLog via port 443.
+   Om det finns ingen nätverksanslutning från processervern till Azure-bloggen storage URL på Kontrollpanelen, välja **Services**. Kontrollera om följande tjänster körs:
 
-      telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
-Om det inte går att ansluta kan du kontrollera om Åtkomstproblemet beror på att brandväggen eller proxyservern som beskrivs i nästa steg.
+   *  cxprocessserver
+   *  InMage Scout VX Agent – Sentinel/Outpost
+   *  Microsoft Azure Recovery Services-agent
+   *  Microsoft Azure Site Recovery-tjänsten
+   *  tmansvc
 
+   Starta eller starta om alla tjänster som inte körs. Kontrollera om problemet kvarstår.
 
-* **Kontrollera om IP-adressbaserade brandväggsregler på processervern blockerar åtkomst**: Om du använder en IP-adressbaserade brandväggsregler på servern, ladda ned den fullständiga listan med Microsoft Azure Datacenter IP-intervall från [här](https://www.microsoft.com/download/details.aspx?id=41653) och lägga till dem i brandväggskonfigurationen av för att säkerställa att de tillåter kommunikation till Azure (och HTTPS-port (443)).  Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för åtkomstkontroll och identitetshantering).
+*  **Kontrollera om processervern kan ansluta till Azure offentlig IP-adress via port 443**.
 
-* **Kontrollera om URL-baserad brandvägg på processervern blockerar åtkomst**:  Om du använder en URL-baserad brandväggsregler på servern, se till att följande webbadresser läggs till brandväggskonfigurationen.
+   Öppna filen senaste CBEngineCurr.errlog i %programfiles%\Microsoft Azure Recovery Services Agent\Temp. I filen, söka efter **443** eller efter strängen **anslutningsförsöket misslyckades**.
+
+   ![Skärmbild som visar felet loggas i Temp-mappen](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+
+   Om problem visas på kommandoraden på processervern, kan du använda Telnet för att pinga din Azure offentlig IP-adress (IP-adressen maskeras i föregående bild). Du kan hitta din Azure offentlig IP-adress i filen CBEngineCurr.currLog via port 443:
+
+   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+
+   Om du inte kan ansluta, kontrollera om Åtkomstproblemet på grund av brandväggen eller proxyservern inställningar enligt beskrivningen i nästa steg.
+
+*  **Kontrollera om IP-adressbaserade brandväggsregler på processervern blockerar åtkomst**.
+
+   Om du använder IP-adressbaserade brandväggsregler på servern kan hämta den fullständiga listan med [Microsoft Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Lägg till IP-adressintervall i brandväggskonfigurationen av för att se till att brandväggen tillåter kommunikation till Azure (och HTTPS-standardporten, 443). Tillåt IP-adressintervall för Azure-regionen för din prenumeration och Azure regionen västra USA (används för access control och Identitetshantering).
+
+*  **Kontrollera om en URL-baserad brandvägg på processervern blockerar åtkomst**.
+
+   Om du använder en URL-baserad brandväggsregel på servern, lägger du till URL: er i följande tabell för att brandväggskonfigurationen:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-* **Kontrollera om inte proxyinställningar på processervern blockerar åtkomst**.  Om du använder en proxyserver, se till att namnet på proxyservern matchar DNS-servern.
-Om du vill kontrollera vad har du angett vid tidpunkten för installationen av konfigurationsservern. Gå till registernyckeln
+*  **Kontrollera om proxyinställningar på processervern blockerar åtkomst**.
 
-    `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
+   Om du använder en proxyserver, se till att namnet på proxyservern har åtgärdats av DNS-servern. Du kan kontrollera det värde som du angav när du ställer in konfigurationsservern, välja registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure plats Recovery\ProxySettings**.
 
-Se nu till att samma inställningar som används av Azure Site Recovery-agenten för att skicka data.
-Sök Microsoft Azure Backup
+   Kontrollera sedan att samma inställningar som används av Azure Site Recovery-agenten för att skicka data: 
+      
+   1. Sök efter **Microsoft Azure Backup**. 
+   2. Öppna **Microsoft Azure Backup**, och välj sedan **åtgärd** > **ändra egenskaper för**. 
+   3. På den **proxykonfiguration** fliken bör du se Proxyadressen. Proxyadressen måste vara densamma som den Proxyadressen som visas i registerinställningarna. Annars kan du ändra den till samma adress.
 
-Öppna den och klicka på åtgärden > ändra egenskaper. Du bör se proxyadress som ska vara samma som visas av registerinställningarna under fliken proxykonfiguration. Annars kan du ändra det till samma adress.
+*  **Kontrollera om bandbredden som begränsning är begränsad på processervern**.
 
+   Öka bandbredden och kontrollera om problemet kvarstår.
 
-* **Kontrollera om begränsa bandbredden inte är begränsad på processervern**:  Öka bandbredden och kontrollera om problemet kvarstår.
+## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>Källdatorn visas inte i Azure portal
 
-## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>Källdatorn som ska skyddas genom Site Recovery visas inte på Azure-portalen
+När du försöker markera källdatorn för att aktivera replikering med Site Recovery kanske datorn inte är tillgängliga för en av följande orsaker:
 
-När du försöker väljer källdatorn för att aktivera replikering via Azure Site Recovery kanske datorn inte tillgänglig för dig att fortsätta på grund av följande orsaker
+*  Om två virtuella datorer under vCenter har samma instans UUID, visas den första virtuella datorn som identifierats av konfigurationsservern på Azure-portalen. Se till att inga två virtuella datorer har samma instans UUID för att lösa problemet.
+*  Se till att du har lagt till korrekt vCenter-autentiseringsuppgifter när du ställer in konfigurationsservern med hjälp av OVF-mall eller en enhetlig installation. För att kontrollera de autentiseringsuppgifter som du har lagt till under installationen, se [ändra autentiseringsuppgifter för automatisk identifiering](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+*  Om de behörigheter som finns att få åtkomst till vCenter inte har behörigheterna som krävs kan kan identifiera virtuella datorer misslyckas. Se till att behörigheterna som beskrivs i [förbereda ett konto för automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) läggs till vCenter-användarkonto.
+*  Om den virtuella datorn redan skyddas med hjälp av Site Recovery är den virtuella datorn inte kan väljas för skydd i portalen. Se till att den virtuella datorn som du söker i portalen inte redan skyddas av en annan användare eller en annan prenumeration.
 
-* Om det finns två virtuella datorer under vCenter med samma instans UUID, sedan den första virtuella datorn som identifierats av konfigurationsservern visas på portalen. Lös genom att kontrollera att inga två virtuella datorer har samma instans UUID.
-* Se till att du har lagt till korrekt vCenter-autentiseringsuppgifter under uppsättningen med hjälp av OVF-mall eller enhetlig uppsättning. För att kontrollera de autentiseringsuppgifter som har lagts till, referera till de riktlinjer som delas [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* Om de behörigheter som finns att få åtkomst till vCenter inte har tillräckliga privilegier, kan det leda till fel vid identifiering av virtuella datorer. Se till att de behörigheter som finns [här](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) läggs till vCenter-användarkonto.
-* Om den virtuella datorn är redan skyddade via Site Recovery kan sedan kan den inte skyddas. Se till att den virtuella datorn som du söker på portalen redan inte skyddas av någon annan användare eller under andra prenumerationer.
+## <a name="protected-virtual-machines-arent-available-in-the-portal"></a>Skyddade virtuella datorer är inte tillgängliga i portalen
 
-## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Skyddade virtuella datorer är gråmarkerat ut i portalen
-
-Virtuella datorer som replikeras under Site Recovery är nedtonad om det dubbla poster i systemet. Referera till riktlinjerna [här](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) att ta bort inaktuella poster och lösa problemet.
+Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure-portalen om det finns dubblettvärden i systemet. Om du vill lära dig mer om att ta bort inaktuella poster och lösa problemet, se [Azure Site Recovery VMware till Azure: Hur du rensar dubbletter eller inaktuella poster](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du behöver mer hjälp kan sedan publicera din fråga till [Azure Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.
+
+Om du behöver mer hjälp kan du ställa din fråga i den [Azure Site Recovery-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.

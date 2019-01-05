@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 17402911fee5363d707547e73df7da30be6dcd0e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343810"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052555"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -203,4 +203,4 @@ Nu du har lärt dig hur du använder direkta metoder, kanske du är intresserad 
 Om du vill prova några av de koncept som beskrivs i den här artikeln, kanske du är intresserad av följande självstudie för IoT Hub:
 
 * [Använd direkta metoder](quickstart-control-device-node.md)
-* [Enhetshantering med Azure IoT Hub Toolkit för VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Enhetshantering med Azure IoT-verktyg för VS Code](iot-hub-device-management-iot-toolkit.md)

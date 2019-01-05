@@ -1,6 +1,6 @@
 ---
-title: Kontrollera inställningarna för Azure Traffic Manager | Microsoft Docs
-description: Den här artikeln hjälper dig att verifiera Traffic Manager-inställningar
+title: Kontrollera inställningarna för Azure Traffic Manager
+description: Den här artikeln hjälper dig att verifiera Traffic Manager-inställningar.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: ce6467f2cdb47dd7cc61897831019a34e174478f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b37022f79feafc2110366446752675e7c42188f3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140459"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054035"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verifiera Traffic Manager-inställningar
 

@@ -1,20 +1,17 @@
 ---
 title: Konsekvensnivåer i Azure Cosmos DB
 description: Azure Cosmos DB har fem konsekvensnivåer för att belastningsutjämna slutlig konsekvens, tillgänglighet och svarstid med de.
-keywords: slutlig konsekvens, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
-author: aliuy
-ms.author: andrl
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089742"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034972"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
@@ -42,20 +39,20 @@ Omfattande serviceavtal som tillhandahålls av Azure Cosmos DB-garanti att 100% 
 
 Här beskrivs semantiken för de fem konsekvensnivåerna:
 
-- **Stark**: stark konsekvens erbjuder en [linjärbarhetsgaranti](https://aphyr.com/posts/313-strong-consistency-models) garanterar. Läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient ser aldrig en ogenomförda eller partiella skrivs. Användare garanterat alltid att läsa den senaste allokerade skrivningen.
+- **Stark**: Stark konsekvens erbjuder en [linjärbarhetsgaranti](https://aphyr.com/posts/313-strong-consistency-models) garanterar. Läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient ser aldrig en ogenomförda eller partiella skrivs. Användare garanterat alltid att läsa den senaste allokerade skrivningen.
 
-- **Begränsad föråldring**: läsningar är garanterade att respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst ”K”-versioner (det vill säga ”uppdateringar”) av ett objekt eller efter ”t” tidsintervall. När du väljer begränsad föråldring kan ”föråldring” konfigureras på två sätt: 
+- **Begränsad föråldring**: Läsningar garanterat respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst ”K”-versioner (det vill säga ”uppdateringar”) av ett objekt eller efter ”t” tidsintervall. När du väljer begränsad föråldring kan ”föråldring” konfigureras på två sätt: 
 
   * Antal versioner (K) av objektet
   * Tidsintervall (t) som kan läsningar släpar efter skrivningar 
 
   Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier finns inom en region både i och utanför fönstret föråldring. Stark konsekvens har samma semantik som de som erbjuds av begränsad föråldring. Fönstret föråldring är lika med noll. Begränsad föråldring kallas också tid fördröjd linjärbarhetsgaranti. När en klient utför läsåtgärder inom en region som accepterar skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de garantierna med stark konsekvens.
 
-- **Sessionen**: läsningar är garanterade att respektera konsekvent prefix (förutsatt att en session med en ”författare”), monotoniska läsningar, garanterar Monoton skrivningar, Läs-dina-skrivningar och skrivning-följer-läsning. Sessionskonsekvens är begränsad till en klientsession.
+- **Sessionen**: Läsningar garanterat respektera konsekvent prefix (förutsatt att en session med en ”författare”), monotoniska läsningar, monotona skrivningar, Läs-dina-skrivningar och skrivning-följer-läsning garantier. Sessionskonsekvens är begränsad till en klientsession.
 
-- **Konsekvent prefix**: uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix garanterar att läsningar aldrig ser skrivningar out ordning.
+- **Konsekvent prefix**: Uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix garanterar att läsningar aldrig ser skrivningar out ordning.
 
-- **Slutlig**: det finns ingen skrivordning garanti för läsningar. Om eventuella ytterligare skrivningar konvergerar replikerna så småningom.
+- **Slutlig**: Det finns ingen skrivordning garanti för läsningar. Om eventuella ytterligare skrivningar konvergerar replikerna så småningom.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Konsekvensnivåer baseboll
 
@@ -72,7 +69,7 @@ En Azure Cosmos DB-behållare innehåller besökarna och home team som kör summ
 | - | - |
 | **Stark** | 2 – 5 |
 | **Begränsad föråldring** | Resultat som innehåller högst en inning inaktuell: 2 – 3, 2 – 4, 2 – 5 |
-| **Sessionen** | <ul><li>För writer: 2 – 5</li><li> för alla förutom skrivar: 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5</li><li>När du har läst 1-3: 1-3, 1 – 4, 1-5, 2-3, 2-4, 2 – 5</li> |
+| **Sessionen** | <ul><li>För writer: 2 – 5</li><li> För alla förutom skrivar: 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5</li><li>När du har läst 1-3: 1 – 3, 1 – 4, 1-5, 2-3, 2-4, 2 – 5</li> |
 | **Konsekvent prefix** | 0-0, 0-1, 1-1, 1 – 2, 1 – 3, 2-3, 2 – 4, 2 – 5 |
 | **Slutlig** | 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5 |
 
@@ -84,7 +81,7 @@ Mer information om konsekvens begrepp att läsa följande artiklar:
 - [Replikerade Data konsekvens förklaras via basket (video) av Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replikerade Data konsekvens förklaras via basket (White Paper) av Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Sessionen garantier för svagt konsekvent replikerade data](https://dl.acm.org/citation.cfm?id=383631)
-- [Konsekvens kompromisser i moderna distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Konsekvens kompromisser i Modern distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Avsnittet om sannolikhetsbunden begränsad föråldring (PBS) för praktiska partiella beslutsförhet](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Så småningom konsekvent – Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

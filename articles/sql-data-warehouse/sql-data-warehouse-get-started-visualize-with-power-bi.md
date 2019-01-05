@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306671"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051449"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisera data med Power BI
 De här självstudierna visar hur du använder Power BI för att ansluta till SQL Data Warehouse och skapa några grundläggande visualiseringar.
@@ -77,7 +77,7 @@ Du är nu redo att använda Power BI för att analysera dina AdventureWorksDW-ex
 
 Du kan spara ditt arbete när som helst genom att klicka på **Arkiv** och välja **Spara**.
 
-## <a name="using-direct-connnect"></a>Med hjälp av direkt Connnect
+## <a name="using-direct-connect"></a>Använda Direct Connect
 Som med Azure SQL Database kan SQL Data Warehouse Direct Connect logiska pushdown tillsammans med analysfunktionerna i Power BI. Med Direct Connect skickas frågor tillbaka till Azure SQL Data Warehouse i realtid medan du utforskar dessa data.  Den här funktionen i kombination med skalan för SQL Data Warehouse, kan du skapa dynamiska rapporter på några få minuter mot flera terabyte med data. Dessutom tillåter införandet av öppna i Power BI-knappen användare att ansluta Power BI direkt till SQL Data Warehouse utan att samla in information från andra delar av Azure.
 
 När du använder direkt ansluta:

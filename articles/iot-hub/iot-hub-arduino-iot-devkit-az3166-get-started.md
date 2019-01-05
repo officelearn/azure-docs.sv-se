@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: f7eea6e9fdbe69003a93e34f9107d279f2105d7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720347"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052521"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -236,9 +236,7 @@ Exempelprogrammet körs när du ser följande resultat:
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visa telemetri som tagits emot av Azure IoT Hub
 
-Du kan använda [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit) att övervaka meddelanden från enheten till molnet (D2C) i IoT Hub.
-
-1. I Visual Studio Code, leta efter **Azure IoT Hub Toolkit** i tillägget marketplace och installera den.
+Du kan använda [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) att övervaka meddelanden från enheten till molnet (D2C) i IoT Hub.
 
 1. Logga in [Azure-portalen](https://portal.azure.com/), hitta IoT-hubben som du skapade.
     ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)

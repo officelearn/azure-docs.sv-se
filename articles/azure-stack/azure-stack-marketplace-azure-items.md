@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fc23efb206496bd36922da39adc0ff32abb78907
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05a0e0d88f09853274d6bc6b65f66cf66369f77d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044203"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -236,6 +236,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Spårare för avstängningshändelser SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [Spårare för avstängningshändelser SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM är en omfattande säkerhet-plattform som ger avancerad säkerhetsverktyg med funktioner för granskning färdiga för efterlevnad. | Spårare för avstängningshändelser |
 | ![Exivity - Hybridmolnlösning för fakturering](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - Hybridmolnlösning för fakturering](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | Ett fakturering verktyg som kan tillgodose behovet av i stort sett alla IT-serviceleverans modell om distribuerad på en lokal, offentligt moln eller hybridmiljöer. | Exivity |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 Big-IP virtuella Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Avancerade belastningsutjämning, GSLB, brandvägg, DNS, WAF och åtkomst till appen. | F5-nätverk |
+| ![FortiGate nästa generations brandvägg](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate nästa generations brandvägg](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Brandväggsteknik som ger komplett innehålls- och skydd med ett omfattande paket med kraftfulla säkerhetsfunktioner. Programkontroll, antivirus, IPS, webbfiltrering och VPN, samt avancerade funktioner såsom sårbarhetshantering fungerar tillsammans att identifiera och undanröja de senaste invecklade säkerhetshoten. | Fortinet |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Drivs av HDP 2,5 plattform med 100% öppen källkod för Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybridmolnsäkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security gör det möjligt för ett sömlöst styrd och anpassningsbar cybersäkerhet ekosystem. | Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer ADC innehåll växel](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Belastningsutjämnare för Layer 4-7 Application Delivery Controller (ADC), innehåll växel och Traffic Manager. | KEMP Technologies Inc. |

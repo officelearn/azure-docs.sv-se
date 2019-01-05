@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 9a80671a72f059e24a8cebc5de803af9261ad829
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ebb8d5d141dab39e73297342907d4439b30a9fbf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743960"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042486"
 ---
 # <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
 
@@ -83,26 +83,14 @@ Azure Backup har ett antal gränser runt prenumerationer och valv.
 
 ### <a name="disk-considerations"></a>Överväganden för diskar
 
-Säkerhetskopiering försöker slutföra så snabbt som möjligt, förbrukar så många resurser som möjligt.
-
-- Säkerhetskopieringen försöker säkerhetskopiera var och en av de Virtuella datorernas diskar parallellt i ett försök att maximera hastigheten.
-- Om en virtuell dator har fyra diskar, till exempel försöker tjänsten att säkerhetskopiera alla fyra diskar parallellt.
-- Antalet diskar som säkerhetskopieras är den viktigaste faktorn fastställa säkerhetskopieringstrafik för storage-konto.
-- Alla i/o-åtgärder begränsas av de *Måldataflöde för enskild Blob*, som har en gräns på 60 MB per sekund.
-- För varje disk som säkerhetskopieras, Azure Backup läser block på disken och lagrar bara de ändrade data (inkrementell säkerhetskopiering). Du kan använda genomsnittligt dataflöde värdena nedan för att uppskatta hur lång tid som behövs för att säkerhetskopiera en hårddisk på en given storlek.
-
-    **Åtgärd** | **Bästa möjliga dataflöde**
-    --- | ---
-    Den första säkerhetskopieringen | 160 Mbit/s |
-    Inkrementell säkerhetskopiering | 640 Mbit/s <br><br> Dataflöde försämras betydligt om deltadata är utspridda över disken.|
-
+Säkerhetskopieringen optimerar genom att säkerhetskopiera var och en av den Virtuella datorns disk parallellt. Om en virtuell dator har fyra diskar, till exempel försöker tjänsten att säkerhetskopiera alla fyra diskar parallellt. För varje disk som säkerhetskopieras, Azure Backup läser block på disken och lagrar bara de ändrade data (inkrementell säkerhetskopiering).
 
 
 ### <a name="scheduling-considerations"></a>Överväganden för schemaläggning
 
 Schemaläggning av säkerhetskopiering påverkar prestanda.
 
-- Om du konfigurerar principer så att alla virtuella datorer säkerhetskopieras samtidigt, du har schemalagt trafik har fastnat, som den säkerhetskopieringen försöker att säkerhetskopiera alla diskar parallellt.
+- Om du konfigurerar principer så att alla virtuella datorer säkerhetskopieras samtidigt, kan du har schemalagt trafik har fastnat, som säkerhetskopieringen försöker att säkerhetskopiera alla diskar parallellt.
 - Att minska säkerhetskopieringstrafik, säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen, utan överlappande.
 
 
@@ -128,39 +116,28 @@ Säkerhetskopieringen består av två faser, att ta ögonblicksbilder och överf
 
 Situationer som kan påverka tidpunkt för säkerhetskopiering inkluderar följande:
 
-
-- **Inledande säkerhetskopiering för en nyligen tillagd disk till en redan skyddad virtuell dator**: Om en virtuell dator är inkrementell som, när en ny disk läggs sedan säkerhetskopieringen kan gå miste om serviceavtalet för en dag, beroende på storleken på den nya disken.
-- **Fragmenterade app**: Om en app är felaktigt konfigurerad. det kanske inte är optimala för lagring:
-    - Om ögonblicksbilden innehåller många små, fragmenterade skrivningar, är tjänsten extra tid för bearbetning av data som skrivits av programmen.
-    - För program som körs på den virtuella datorn, är det minsta rekommenderade programskrivningar blocket 8 KB. Om programmet använder ett block med mindre än 8 KB, sker prestanda vid säkerhetskopiering.
-- **Storage-konto som är överbelastad**: Att det gick schemalägga en säkerhetskopiering när appen körs i produktion, eller om fler än fem till tio diskar finns från samma lagringskonto.
-- **Konsekvens kontroll (kopia) läge**: För diskar som är större än 1TB diskar kan säkerhetskopian vara i CC-läge för av flera olika orsaker:
-    - Den hantera disken flyttar som en del av omstart av virtuell dator.
-    - Främjar ögonblicksbild till grundläggande blob.
-
+- **Inledande säkerhetskopiering för en nyligen tillagd disk till en redan skyddad virtuell dator**: Om en virtuell dator används för tillfället inkrementell säkerhetskopiering och läggs en ny disk till den här virtuella datorn går säkerhetskopiering varaktigheten längre än 24 timmar eftersom den nytillagda disken måste genomgå en inledande replikering och deltareplikering av befintliga diskar.
+- **Fragmentering**: Säkerhetskopiering produkten söker efter inkrementella ändringar mellan två säkerhetskopieringar åtgärder. Säkerhetskopiering är snabbare när ändringar på disken är samordnad jämfört med ändringar är spridning på disken. 
+- **Omsättningen**: Dagliga dataomsättningen (för inkrementell replikering) per disk som är större än 200 GB kan ta mer än ~ 8 timmar att slutföra åtgärden. Om virtuella datorn har mer än en disk och en av dessa diskar tar längre tid för säkerhetskopiering, sedan det kan påverka den totala säkerhetskopieringen (eller kan resultera i fel). 
+- **Kontrollsumman jämförelse (kopia) läge**: CC-läge är förhållandevis långsammare än optimerad läge som används av omedelbar RP. Om du redan använder omedelbar RP och har tagit bort nivå 1-ögonblicksbilder, växlar säkerhetskopiering till CC läge vilket gjorde att säkerhetskopiering åtgärden överstiger 24 timmar (eller misslyckas).
 
 ## <a name="restore-considerations"></a>Återställa överväganden
 
 En återställningsåtgärd består av två huvudsakliga uppgifter: kopiera data från valvet till det valda lagringskontot och skapa den virtuella datorn. Den tid som behövs för att kopiera data från valvet beror på var säkerhetskopiorna som lagras i Azure och platsen för lagringskontot. Åtgången tid för att kopiera data beror på:
 
 - **Väntetid för kön**: Eftersom tjänsten bearbetar återställa jobb från flera lagringskonton på samma gång, placeras återställning begäranden i en kö.
-- **Tid att kopiera data**: Data kopieras från valvet till lagringskontot. Återställ tiden beror på IOPS och dataflöden för det valda lagringskontot som använder Azure Backup-tjänsten. Om du vill minska tid som kopiering under återställningsprocessen, Välj ett lagringskonto som inte lästs in med andra programskrivningar och läsningar.
+- **Tid att kopiera data**: Data kopieras från valvet till lagringskontot. Återställ tiden beror på IOPS och dataflöden för det valda lagringskontot, som använder Azure Backup-tjänsten. Om du vill minska tid som kopiering under återställningsprocessen, Välj ett lagringskonto som inte lästs in med andra programskrivningar och läsningar.
 
 ## <a name="best-practices"></a>Bästa praxis
 
 Vi rekommenderar att följande dessa metoder när du konfigurerar säkerhetskopior av virtuella datorer:
 
-- Inte schemalägga säkerhetskopieringar för fler än 100 virtuella datorer från ett valv, på samma gång.
-- Schemalägga säkerhetskopior av virtuella datorer vid låg belastning. Det här sättet Backup-tjänsten används IOPS för att överföra data från storage-kontot till valvet.
-- Om du säkerhetskopierar hanterade diskar hanterar Azure Backup-tjänsten lagringshantering. Om du säkerhetskopierar ohanterade diskar:
-    - Se till att använda en princip för säkerhetskopiering för virtuella datorer som är fördelade på flera lagringskonton.
-    - Fler än 20 diskar från ett enda lagringskonto bör skyddas av samma schemat för säkerhetskopiering.
-    - Om du har större än 20 diskar i ett lagringskonto kan sprida dessa virtuella datorer över flera principer för att hämta nödvändiga IOPS under fasen för överföring av säkerhetskopieringen.
-    - Inte återställa en virtuell dator som körs på premium-lagring till samma lagringskonto. Om åtgärden återställningsprocessen är i linje med säkerhetskopieringen, minskar tillgängliga IOPS för säkerhetskopiering.
-    - För virtuella datorer i Premium-säkerhetskopiering på VM-säkerhetskopieringsstack V1, bör du allokera högst 50% av det totala utrymmet för kontot så Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överföra data från storage-kontot till valvet.
-- Det rekommenderas att använda olika lagringskonton istället för att använda samma storage-konton för att återställa virtuella datorer från ett enda valv. På så sätt undvika begränsning och leda till 100% återställningen lyckas med bra prestanda.
-- Återställningar från nivå 1 lagringsskikt ska slutföras inom några få minuter mot återställningar för nivå 2-lagring som tar några timmar. Vi rekommenderar att du använder [omedelbar RP funktionen](backup-upgrade-to-vm-backup-stack-v2.md) för snabbare återställningar. Detta är endast tillämplig hanterade virtuella datorer i Azure.
-
+- Uppgradera valv till omedelbar RP. Dessa [fördelar](backup-upgrade-to-vm-backup-stack-v2.md), [överväganden](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), och fortsätt sedan med att uppgradera genom att följa de här [instruktioner](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- Du kan ändra standardnamnet princip tid (för t.ex. Om din princip standardtid är 12:00 AM Överväg att öka med minuter) när ögonblicksbilder av data kommer att se till att resurser används optimalt.
+- För virtuella datorer i Premium allokerar säkerhetskopiering på icke - omedelbar RP-funktionen ~ 50% av det totala utrymmet för kontot. Backup-tjänsten kräver den här utrymme för att kopiera ögonblicksbilden till samma lagringskonto och för att överföra den till valvet.
+- För att återställa virtuella datorer från ett enda valv, rekommenderas att använda olika [gpv2-lagringskonton](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) så inte begränsas mållagringskontot. Varje virtuell dator måste till exempel ha olika lagringskonto (om 10 virtuella datorer har återställts och sedan bör du använda 10 olika lagringskonton).
+- Återställningar från lagringsskikt för nivå 1 (snapshot) kommer att slutföras på bara några minuter (eftersom det är samma lagringskonto) mot den nivå 2-lagringsskikt (valv) som kan ta timmar. Vi rekommenderar att du använder [omedelbar RP](backup-upgrade-to-vm-backup-stack-v2.md) funktionen för snabbare återställningar för fall där data är tillgängliga på nivå 1 (om data måste återställas från valvet och sedan det tar tid).
+- Gränsen för antalet diskar per lagringskonto är i förhållande till hur hög diskarna som används av program som körs på IaaS VM. Kontrollera om flera diskar finns på ett enda lagringskonto. Som en allmän regel om 5 till 10 diskar eller mer finns på ett enda lagringskonto, en belastningsutjämning genom att flytta vissa diskar för att avgränsa storage-konton.
 
 ## <a name="backup-costs"></a>Kostnader för säkerhetskopiering
 
@@ -193,6 +170,5 @@ Till exempel ta en Standard A2 medelstora virtuell dator med två ytterligare da
 
 När du har granskat säkerhetskopieringsprocessen och prestandaöverväganden, gör du följande:
 
-- Ladda ned den [kapacitetsplanering Excel-kalkylblad](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) du prova att använda disk och schemaläggningsalternativ siffror för säkerhetskopieringen.
 - [Lär dig mer om](../virtual-machines/windows/premium-storage-performance.md) justering appar för optimala prestanda med Azure storage. Artikeln fokuserar på premiumlagring, gäller men även för standard storage-diskar.
 - [Kom igång](backup-azure-arm-vms-prepare.md) med backup genom att granska support för virtuella datorer och begränsningar för hur du skapar ett valv och förbereder virtuella datorer för säkerhetskopiering.

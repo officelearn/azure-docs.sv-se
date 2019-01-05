@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/6/2017
+ms.date: 1/3/2019
 ms.author: twhitney
-ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 422b4bbcfc6811cdc6bbf1649e2c660d04d95776
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191996"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039681"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster
+
 Tillförlitliga samlingar kan du skriva mycket tillgängliga, skalbara och låg latens molnprogram som om du skriver datorprogram. Klasserna i den **Microsoft.ServiceFabric.Data.Collections** namnområde tillhandahåller en uppsättning samlingar som automatiskt gör din delstat med hög tillgänglighet. Utvecklare måste program som endast ska tillförlitlig samling API: er och låt Reliable Collections hantera replikerade och lokala tillstånd.
 
 Den viktigaste skillnaden mellan tillförlitliga samlingar och andra tekniker för hög tillgänglighet (till exempel Redis, Azure Table service och Azure-kötjänsten) är att tillståndet sparas lokalt i tjänstinstansen vid också som görs med hög tillgänglighet. Detta innebär att:
@@ -35,6 +36,7 @@ Tillförlitliga samlingar kan betraktas som en naturlig utveckling av den **Syst
 
 * Replikerade: Tillståndsändringar replikeras för hög tillgänglighet.
 * Beständiga: Data sparas till disk för hållbarhet mot storskaliga avbrott (till exempel ett datacenter strömavbrott).
+* Eftersom skrivningar bevara och replikera redundansenheten, kan du inte skapa en temporär ReliableDictionary, ReliableQueue eller andra tillförlitlig samling som endast finns kvar data i minnet.
 * Asynkron: API: er är asynkron så att trådar inte är blockerad när medför IO.
 * Transaktionell: API: er använder abstraktionen av transaktioner så att du enkelt kan hantera flera tillförlitliga samlingar inom en tjänst.
 
@@ -45,7 +47,7 @@ Om du vill uppnå svagare konsekvens bekräftar program tillbaka till klienten/b
 API: er för tillförlitliga samlingar är en utveckling av samtidiga samlingar API: er (finns i den **System.Collections.Concurrent** namnområde):
 
 * Asynkron: Returnerar en uppgift eftersom, till skillnad från samtidiga samlingar åtgärderna replikeras och sparas.
-* Nej out-parametrar. Använder `ConditionalValue<T>` att returnera bool och ett värde i stället för out-parametrar. `ConditionalValue<T>` liknar `Nullable<T>` men kräver inte T ska vara en Struct-datatypen.
+* Nej out-parametrar. Använder `ConditionalValue<T>` att returnera en `bool` och ett värde i stället för out-parametrar. `ConditionalValue<T>` liknar `Nullable<T>` men kräver inte T ska vara en Struct-datatypen.
 * Transaktioner: Använder en transaktion för att låta användarna gruppåtgärder på flera tillförlitliga samlingar i en transaktion.
 
 Idag, **Microsoft.ServiceFabric.Data.Collections** innehåller tre samlingarna:
@@ -55,6 +57,7 @@ Idag, **Microsoft.ServiceFabric.Data.Collections** innehåller tre samlingarna:
 * [Tillförlitlig samtidiga kö](service-fabric-reliable-services-reliable-concurrent-queue.md): Representerar en replikerade transaktioner och asynkrona bästa prestanda ordning kön för högt dataflöde. Liknar den **ConcurrentQueue**, värdet kan vara av valfri typ.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Riktlinjer och rekommendationer Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)

@@ -1,20 +1,19 @@
 ---
 title: 'Indexering i Azure Cosmos DB: s API för MongoDB'
 description: Visar en översikt över indexeringsfunktionerna med Azure Cosmos DB API för MongoDB.
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792290"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040412"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexering via Azure Cosmos DB API för MongoDB
 

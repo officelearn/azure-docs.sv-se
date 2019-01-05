@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043200"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda och skalningstester med Azure Cosmos DB
 
@@ -37,16 +37,16 @@ Om du letar efter klientsidans konfigurationsalternativ för att förbättra pre
 ## <a name="run-the-performance-testing-application"></a>Kör programmet för prestandatest
 Det snabbaste sättet att komma igång är att kompilera och kör .NET-exemplet som beskrivs i följande steg. Du kan också granska källkoden och implementera liknande konfigurationer på dina egna program.
 
-**Steg 1:** hämta projektet från [exempel för Azure Cosmos DB-prestandatest](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), eller Förgrena GitHub-lagringsplatsen.
+**Steg 1:** Hämta projektet från [exempel för Azure Cosmos DB-prestandatest](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), eller Förgrena GitHub-lagringsplatsen.
 
-**Steg 2:** ändra inställningarna för EndpointUrl, AuthorizationKey, CollectionThroughput och DocumentTemplate (valfritt) i App.config.
+**Steg 2:** Ändra inställningarna för EndpointUrl, AuthorizationKey, CollectionThroughput och DocumentTemplate (valfritt) i App.config.
 
 > [!NOTE]
 > Innan du etablerar samlingar med dataflöden måste referera till den [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/) uppskatta kostnader per samling. Azure Cosmos DB fakturerar lagringen och dataflödet separat per timme. Du kan spara pengar genom att ta bort eller sänka dataflödet för Azure Cosmos DB-samlingar efter testning.
 > 
 > 
 
-**Steg 3:** kompilera och kör konsolappen från kommandoraden. Du bör se utdata som liknar följande:
+**Steg 3:** Kompilera och kör konsolappen från kommandoraden. Du bör se utdata som liknar följande:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ Det snabbaste sättet att komma igång är att kompilera och kör .NET-exemplet 
     Press any key to exit...
 
 
-**Steg 4 (vid behov):** dataflödet rapporterade (RU/s) från verktyget ska vara samma eller högre än det etablerade dataflödet i samlingen eller en uppsättning samlingar. Om den inte öka DegreeOfParallelism i små steg kan hjälpa dig att nå gränsen. Om dataflödet från klientappen högplaåter, starta flera instanser av appen på ytterligare datorer. Om du behöver hjälp med det här e- askcosmosdb@microsoft.com eller öppna ett supportärende från den [Azure-portalen](https://portal.azure.com).
+**Steg 4 (vid behov):** Dataflödet rapporterade (RU/s) från verktyget ska vara samma eller högre än det etablerade dataflödet i samlingen eller en uppsättning samlingar. Om den inte öka DegreeOfParallelism i små steg kan hjälpa dig att nå gränsen. Om dataflödet från klientappen högplaåter, starta flera instanser av appen på ytterligare datorer. Om du behöver hjälp med det här e- askcosmosdb@microsoft.com eller öppna ett supportärende från den [Azure-portalen](https://portal.azure.com).
 
 När du har appen körs kan du prova olika [indexeringsprinciper](index-policy.md) och [konsekvensnivåer](consistency-levels.md) att förstå deras inverkan på dataflöde och svarstid. Du kan också granska källkoden och implementera liknande konfigurationer till dina egna testpaket eller program i produktion.
 

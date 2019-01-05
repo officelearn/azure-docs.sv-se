@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 94ff3aca84eb27df5171df2a7a3b2b0f708a1d24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624236"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043795"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Använd följande kommando för att skapa kluster om du har ett certifikat som d
 Om det här är en CA-signerat certifikat som kommer till slut med för andra ändamål samt sedan rekommenderar vi att du anger en specifik resursgrupp specifikt för ditt nyckelvalv. Vi rekommenderar att du placerar i key vault i en egen resursgrupp. Den här åtgärden kan du ta bort de beräkning och lagring resursgrupper, inklusive den resursgrupp som innehåller Service Fabric-klustret, utan att förlora dina nycklar och hemligheter. **Den resursgrupp som innehåller nyckelvalvet *måste vara i samma region* som klustret som använder den.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Använd standard fem noder, en nod typen mall som levereras i modulen
-Mallen som används är tillgänglig på den [Azure-exempel: Windows mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Mallen som används är tillgänglig på den [Azure-exempel: Windows-mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Distribuera kluster med hjälp av PowerShell:
 
@@ -288,6 +288,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du ett säkert kluster som körs i Azure. Nästa [ansluta till klustret](service-fabric-connect-to-secure-cluster.md) och lär dig hur du [hantera programhemligheter](service-fabric-application-secret-management.md).
+
+JSON-syntax och egenskaper för att använda en mall finns i [Microsoft.ServiceFabric/clusters mallreferensen](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps

@@ -6,40 +6,40 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 61b923b278d13bdcf97e05859c36b14bf9edba6e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227171"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051007"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduktion till virtuella Azure Stack-datorer
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Azure Stack har virtuella datorer (VM) som en typ av en behovsbaserade och skalbara datorresurs. Du kan välja en virtuell dator när du behöver mer kontroll över datormiljön än de andra alternativen. Den här artikeln innehåller information innan du skapar den virtuella datorn.
+Azure Stack har virtuella datorer (VM) som en typ av en behovsbaserade och skalbara datorresurs. Du kan välja en virtuell dator när du behöver mer kontroll över datormiljön. Den här artikeln innehåller information innan du skapar din första virtuella dator.
 
 En Azure Stack-VM ger dig virtualiseringsflexibilitet utan att behöva hantera kluster eller enskilda datorer. Du behöver dock fortfarande underhålla den virtuella datorn genom att utföra uppgifter som att konfigurera, korrigera och underhålla programvaran som körs på den.
 
-Du kan använda Azure Stack virtuella datorer på olika sätt. Exempel:
+Du kan använda Azure Stack virtuella datorer på flera olika sätt. Exempel:
 
 - **Utveckling och testning**  
-    Azure Stack-VMs erbjuder ett snabbt och enkelt sätt att skapa en dator med en specifik konfiguration som krävs för att koda och testa ett program.
+    Azure Stack virtuella datorer kan du skapa en dator med en specifik konfiguration som krävs för att koda och testa ett program.
 
 - **Program i molnet**  
-    Eftersom efterfrågan på ditt program kan variera, kan det vara ekonomiskt meningsfullt att köra den på en virtuell dator i Azure Stack. Du betalar extra för virtuella datorer när du behöver dem och stänger av dem när du inte behöver dem.
+    Eftersom efterfrågan på ditt program kan variera, kan det vara ekonomiskt meningsfullt att köra den på en virtuell dator i Azure Stack. Du betalar extra för virtuella datorer när du behöver dem och stänga dem när du inte.
 
 - **Utökat datacenter**  
-    Virtuella datorer i ett virtuellt nätverk för Azure Stack kan enkelt anslutas till din organisations nätverk eller till Azure.
+    Virtuella datorer i ett Azure Stack-nätverk kan anslutas till din organisations nätverk eller till Azure.
 
-De virtuella datorerna som ditt program använder kan skala upp eller skala ut beroende på vilka krävs för att uppfylla dina behov.
+De virtuella datorerna som ditt program använder kan skala upp eller skala ut, beroende på vilka krävs för att uppfylla dina behov.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan jag skapar en virtuell dator?
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan du skapar en virtuell dator
 
-Det finns alltid ett antal designaspekter när du bygga ut en programinfrastruktur i Azure Stack. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar skapa din infrastruktur:
+Det finns alltid designaspekter när du bygga ut en programinfrastruktur i Azure Stack. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar skapa din infrastruktur:
 
 - Namnen på din programresurser.
 - Storleken på den virtuella datorn.
@@ -52,7 +52,7 @@ Det finns alltid ett antal designaspekter när du bygga ut en programinfrastrukt
 
 En virtuell dator har ett namn som tilldelats och har ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
 
-Om du använder Azure Stack för att skapa operativsystemsdisken är datornamnet och namnet på virtuella datorn samma. Om du laddar upp och använda en egen avbildning som innehåller ett tidigare konfigurerat operativsystem och använda den för att skapa en virtuell dator, skilja namnen sig. När du laddar upp en egen avbildningsfil gör datornamnet i operativsystemet och den virtuella datorn namnet samma som bästa praxis.
+Om du använder Azure Stack för att skapa operativsystemsdisken är datornamnet och namnet på virtuella datorn samma. Om du laddar upp och använda en egen avbildning som innehåller ett tidigare konfigurerat operativsystem och använda den för att skapa en virtuell dator, skilja namnen sig. När du laddar upp en egen avbildningsfil som du bör kontrollera att datornamnet i operativsystemet och virtuella datornamn är samma.
 
 ### <a name="vm-size"></a>Storlek på virtuell dator
 
@@ -60,22 +60,21 @@ Storleken på den virtuella datorn som du använder bestäms av den arbetsbelast
 
 ### <a name="vm-limits"></a>VM-gränser
 
-Din prenumeration har Standardkvotgränser som kan påverka ditt projekt om många virtuella datorer. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region.
+Din prenumeration har Standardkvotgränser som kan påverka distributionen av virtuella datorer för ditt projekt. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region.
 
 ### <a name="operating-system-disks-and-images"></a>Operativsystemsdiskar och avbildningar
 
-Virtuella datorer använder virtuella hårddiskar (VHD:ar) för att lagra sitt operativsystem (OS) och sin data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem.
-Azure Stack ger ett spektrum ska användas med olika versioner och typer av operativsystem. Marketplace-avbildningar identifieras av avbildningens utgivare, erbjudande, sku och version (vanligtvis anges versionen som den senaste.)
+Virtuella datorer använder virtuella hårddiskar (VHD:ar) för att lagra sitt operativsystem (OS) och sin data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. Azure Stack ger ett spektrum ska användas med olika versioner och typer av operativsystem. Marketplace-avbildningar identifieras av avbildningens utgivare, erbjudande, SKU och version (vanligtvis versionen har angetts som **senaste**.)
 
-I följande tabell visas några sätt att du kan hitta information för en bild:
+I följande tabell visar hur du hittar information för en bild:
 
 |Metod|Beskrivning|
 |---------|---------|
 |Azure Stack-portalen|Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda.|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API:er     |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Visa bild SKU: er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API:er     |[Lista över avbildningsutgivare](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Lista över avbildningserbjudanden](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Visa bild SKU: er](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-Du kan välja att ladda upp och använda en egen avbildning. Om du gör används inte den Utgivarnamn, erbjudande och sku.
+Du kan välja att ladda upp och använda en egen avbildning. Om du gör används inte den Utgivarnamn, erbjudande och SKU.
 
 ### <a name="extensions"></a>Tillägg
 
@@ -83,7 +82,7 @@ VM-tillägg ger din virtuella dator fler funktioner genom konfiguration efter di
 Dessa vanliga uppgifter kan utföras med hjälp av tillägg:
 
 - **Köra anpassade skript**  
-    Tillägget för anpassat skript kan du konfigurera arbetsbelastningar på den virtuella datorn genom att köra skriptet när den virtuella datorn etableras.
+    Det anpassade skripttillägget hjälper dig att konfigurera arbetsbelastningar på den virtuella datorn genom att köra skriptet när den virtuella datorn etableras.
 
 - **Distribuera och hantera konfigurationer**  
     PowerShell Desired State Configuration (DSC)-tillägget kan du konfigurera DSC på en virtuell dator för att hantera konfigurationer och miljöer.
@@ -93,8 +92,7 @@ Dessa vanliga uppgifter kan utföras med hjälp av tillägg:
 
 ### <a name="related-resources"></a>Relaterade resurser
 
-Resurserna i följande tabell som används av den virtuella datorn och måste finnas eller skapas när den virtuella datorn skapas.
-
+Resurserna i följande tabell som används av den virtuella datorn och måste finnas eller skapas när den virtuella datorn skapas:
 
 |Resurs|Krävs|Beskrivning|
 |---------|---------|---------|
@@ -107,9 +105,7 @@ Resurserna i följande tabell som används av den virtuella datorn och måste fi
 
 ## <a name="create-your-first-vm"></a>Skapa din första virtuella dator
 
-Har du flera alternativ för att skapa en virtuell dator. Ditt val beror på din miljö.
-Följande tabell innehåller information som hjälper dig igång med att skapa den virtuella datorn.
-
+Har du flera alternativ för att skapa en virtuell dator. Ditt val beror på din miljö. I följande tabell innehåller information som hjälper dig att komma igång med att skapa den virtuella datorn:
 
 |Metod|Artikel|
 |---------|---------|
@@ -131,14 +127,13 @@ Du kan hantera virtuella datorer från en webbläsarbaserad portal, kommandorads
 
 I följande tabell visar några av de sätt som du kan få information om en virtuell dator.
 
-
 |Metod|Beskrivning|
 |---------|---------|
 |Azure Stack-portalen|På navmenyn klickar du på virtuella datorer och välj sedan den virtuella datorn från listan. På sidan för den virtuella datorn har åtkomst till översikter med information, inställning av värden och övervakning av mått.|
-|Azure PowerShell|Hantera virtuella datorer är liknande i Azure och Azure Stack. Mer information om hur du använder PowerShell finns i följande ämne i Azure:<br>[Skapa och hantera Windows virtuella datorer med Azure PowerShell-modulen](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Klient-SDK: er|Använda C# för att hantera virtuella datorer är liknande i Azure och Azure Stack. Mer information finns i följande ämne i Azure:<br>[Skapa och hantera Windows virtuella datorer i Azure med C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Hantera virtuella datorer är liknande i Azure och Azure Stack. Mer information om hur du använder PowerShell finns i följande ämne i Azure:<br>[Skapa och hantera Windows virtuella datorer med Azure PowerShell-modulen](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|
+|Klient-SDK: er|Använda C# för att hantera virtuella datorer är liknande i Azure och Azure Stack. Mer information finns i följande ämne i Azure:<br>[Skapa och hantera Windows virtuella datorer i Azure med C#](../../virtual-machines/windows/csharp.md)|
 
-### <a name="connect-to-your-vm"></a>Ansluta till den virtuella datorn
+### <a name="connect-to-your-vm"></a>Ansluta till din virtuella dator
 
 Du kan använda den **Connect** knappen i Azure Stack-portalen för att ansluta till den virtuella datorn.
 

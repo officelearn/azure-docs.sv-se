@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 1c657fd7b3059dcf46a371b133a5d078e02f0599
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014207"
+ms.locfileid: "54054299"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Web-aktivitet i Azure Data Factory
-Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten. 
+Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
 
 ## <a name="syntax"></a>Syntax
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -92,10 +92,10 @@ I följande tabell visas kraven för JSON-innehåll:
 Om autentisering inte krävs, omfattar inte egenskapen ”autentisering”.
 
 ### <a name="basic"></a>Basic
-Ange användarnamn och lösenord som ska användas med grundläggande autentisering. 
+Ange användarnamn och lösenord som ska användas med grundläggande autentisering.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -103,12 +103,12 @@ Ange användarnamn och lösenord som ska användas med grundläggande autentiser
 ```
 
 ### <a name="client-certificate"></a>Klientcertifikat
-Ange base64-kodad innehållet i en PFX-filen och lösenordet. 
+Ange base64-kodad innehållet i en PFX-filen och lösenordet.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -125,7 +125,7 @@ Ange resurs-uri för vilken åtkomst-token kommer att begäras med hjälp av den
 ```
 
 ## <a name="request-payload-schema"></a>Schema för nyttolasten för begäran
-När du använder POST/PUT-metoden, representerar egenskapen brödtext den nyttolast som skickas till slutpunkten. Du kan skicka länkade tjänster och datauppsättningar som en del av nyttolasten. Här är schemat för nyttolasten: 
+När du använder POST/PUT-metoden, representerar egenskapen brödtext den nyttolast som skickas till slutpunkten. Du kan skicka länkade tjänster och datauppsättningar som en del av nyttolasten. Här är schemat för nyttolasten:
 
 ```json
 {
@@ -144,11 +144,11 @@ När du använder POST/PUT-metoden, representerar egenskapen brödtext den nytto
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Exempel
-I det här exemplet anropar web-aktivitet i pipelinen en REST-slutpunkten. Den skickar en länkad Azure SQL-tjänst och en Azure SQL-datauppsättning till slutpunkten. REST-slutpunkten använder Azure SQL-anslutningssträng för att ansluta till Azure SQL-servern och returnerar namnet på instansen av SQLServer. 
+I det här exemplet anropar web-aktivitet i pipelinen en REST-slutpunkten. Den skickar en länkad Azure SQL-tjänst och en Azure SQL-datauppsättning till slutpunkten. REST-slutpunkten använder Azure SQL-anslutningssträng för att ansluta till Azure SQL-servern och returnerar namnet på instansen av SQLServer.
 
 ### <a name="pipeline-definition"></a>Pipeline-definition
 
@@ -242,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory:
 
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)

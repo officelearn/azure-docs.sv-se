@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6ec178a8cb457973f39ea2dd929a3486a7696c55
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972200"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041296"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Vanliga frågor – Azure Backup
 
@@ -63,7 +63,7 @@ Azure Backup kan säkerhetskopiera virtuella datorer med upp till 16 diskar. St�
 Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks ger en ny typ av beständig lagring för virtuella Azure-datorer. Stöd för SSD hanterade diskar finns i den [senaste versionen](backup-upgrade-to-vm-backup-stack-v2.md) för säkerhetskopiering av virtuella datorer i Azure stack V2.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en WA Write Accelerator-aktiverade disk?
-Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia. Disk-undantag för virtuella datorer med WA-aktiverade diskar stöds endast för prenumerationer som uppgraderas till säkerhetskopiering för Azure stack V2. Om du vill uppgradera till Azure VM Backup-stacken V2, finns i den här [artikeln](backup-upgrade-to-vm-backup-stack-v2.md). Den här funktionen är för närvarande tillgängligt i östra Japan, Norra Europa, Asien, sydöstra, USA, östra, USA, västra 2, Europa, västra och östra usa2.
+Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia. Disk-undantag för virtuella datorer med WA-aktiverade diskar stöds endast för prenumerationer som uppgraderas till säkerhetskopiering för Azure stack V2. Om du vill uppgradera till säkerhetskopiering för Azure stack V2, finns i den här [artikeln](backup-upgrade-to-vm-backup-stack-v2.md). Den här funktionen är för närvarande tillgängligt i östra Japan, Norra Europa, Asien, sydöstra, USA, östra, USA, västra 2, Europa, västra och östra usa2.
 
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Jag har en virtuell dator med Write Accelerator (WA) diskar och SAP HANA installerad. Hur kan jag säkerhetskopiera?

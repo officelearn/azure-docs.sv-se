@@ -1,5 +1,5 @@
 ---
-title: Hur du skapar prenumerationer i Azure API Management | Microsoft Docs
+title: Skapa prenumerationer i Azure API Management | Microsoft Docs
 description: Lär dig hur du skapar prenumerationer i Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 3f4e113125ec9644aac974e47996afe290e57cee
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1393e548c46c23f6b50c1b18a274febb74914ae8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621822"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054519"
 ---
-# <a name="how-to-create-subscriptions-in-azure-api-management"></a>Hur du skapar prenumerationer i Azure API Management
+# <a name="create-subscriptions-in-azure-api-management"></a>Skapa prenumerationer i Azure API Management
 
-När du publicerar API: er via Azure API Management (APIM), är det enklaste och vanligaste sättet att skydda åtkomsten till dessa API: er med hjälp av Prenumerationsnycklar. Med andra ord måste klientprogram som kan behöver använda den publicerade API: er innehålla en giltig prenumeration-nyckel i HTTP-begäranden när anrop till dessa API: er. Om du vill ha en Prenumerationsnyckel för åtkomst till API: er, krävs en prenumeration. Mer information om prenumerationer finns i [prenumerationer i Azure API Management](api-management-subscriptions.md)
+När du publicera API: er via Azure API Management är det enkelt och gemensamma för säker åtkomst till dessa API: er med hjälp av prenumerationsnycklar. Klientprogram som kan behöver använda den publicerade API: er måste innehålla en giltig prenumerationsnyckel i HTTP-begäranden när de göra anrop till dessa API: er. Om du vill ha en prenumerationsnyckel för åtkomst till API: er, krävs en prenumeration. Mer information om prenumerationer finns i [prenumerationer i Azure API Management](api-management-subscriptions.md).
 
 Den här artikeln beskriver stegen för att skapa prenumerationer i Azure-portalen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra stegen i den här artikeln, måste du:
+Om du vill vidta åtgärder i den här artikeln är kraven på följande sätt:
 
-+ [Skapa en APIM-instans](get-started-create-service-instance.md)
-+ Förstå [prenumerationer i APIM](api-management-subscriptions.md)
++ [Skapa en API Management-instans](get-started-create-service-instance.md).
++ Förstå [prenumerationer i API Management](api-management-subscriptions.md).
 
 ## <a name="create-a-new-subscription"></a>Skapa en ny prenumeration
 
-1. Klicka på **prenumerationer** i menyn till vänster
-2. Klicka på **Lägg till prenumeration**
-3. Ange ett namn för prenumerationen och välj omfånget
-4. Klicka på **Spara**
+1. Välj **prenumerationer** i menyn till vänster.
+2. Välj **Lägg till prenumeration**.
+3. Ange ett namn för prenumerationen och välj omfattningen.
+4. Välj **Spara**.
 
 ![Flexibla prenumerationer](./media/api-management-subscriptions/flexible-subscription.png)
 
-När prenumerationen har skapats kan etableras ett par med API-nycklar (primära och sekundära) för att komma åt API: erna.
+När du har skapat prenumerationen tillhandahålls två API-nycklar för att få åtkomst till API: erna. En nyckeln är primär och en är sekundär. 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om API Management:
+Få mer information om API Management:
 
-+ Läs andra [begrepp](api-management-terminology.md) i API Management
-+ Följ våra [självstudier](import-and-publish.md) mer information om API Management
-+ Kontrollera våra [FAQ-sida](api-management-faq.md) för vanliga frågor
++ Läs andra [begrepp](api-management-terminology.md) i API Management.
++ Följ våra [självstudier](import-and-publish.md) mer information om API Management.
++ Kontrollera våra [FAQ-sida](api-management-faq.md) för vanliga frågor.

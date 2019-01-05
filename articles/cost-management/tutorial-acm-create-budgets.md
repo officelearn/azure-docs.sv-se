@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268452"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053984"
 ---
-# <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudiekurs: Skapa och hantera budgetar för Azure
+# <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera budgetar för Azure
 
 Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter att proaktivt hantera kostnader och övervaka hur utgifter fortskrider över tid. När budgetgränser som du har skapat överskrids utlöses endast meddelanden. Ingen av dina resurser som påverkas och förbrukning stoppats inte. Du kan använda budgetar för att jämföra och spåra utgifter som du analysera kostnaderna.
 
@@ -51,9 +51,7 @@ Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkom
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure portal
 
-Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Styra innehållet i Azure portal anger om du skapar en budget för en prenumeration eller för en resursgrupp.
-
-I Azure-portalen går du till **kostnadshantering + fakturering** &gt; **prenumerationer** &gt; Välj en prenumeration &gt; **budgetar**. I det här exemplet är budget som du skapar för den prenumeration du valde.
+Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Styra innehållet i Azure portal anger om du skapar en budget för en prenumeration eller för en resursgrupp. Till exempel i Azure-portalen går du till **prenumerationer** &gt; Välj en prenumeration &gt; **budgetar**. I det här exemplet är budget som du skapar för den prenumeration du valde. Om du vill skapa en budget för en resursgrupp, navigerar du till **resursgrupper** > Välj en resursgrupp > **budgetar**.
 
 När du har skapat din budget visar de en enkel vy över dina aktuella utgifter mot dessa.
 

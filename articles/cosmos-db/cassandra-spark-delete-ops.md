@@ -1,20 +1,19 @@
 ---
 title: Ta bort åtgärder mot Azure Cosmos DB Cassandra-API från Spark
 description: Den här artikeln beskriver hur du tar bort data i tabeller i Azure Cosmos DB Cassandra-API från Spark
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 6a6e2df5e11d59353bb33e9b812db78cf63bd43c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fc9e0dabd226952bea3bd14da0747c5b6292c2e2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223533"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036553"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Ta bort data i Azure Cosmos DB Cassandra API tabeller från Spark
 

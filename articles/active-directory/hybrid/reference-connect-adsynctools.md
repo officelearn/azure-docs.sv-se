@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426493"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054972"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell-referens
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell-referens
 Följande dokumentation innehåller information för ADSyncTools.psm1 PowerShell-modul som ingår i Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Rensa ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Returnerar ett AD-objekt genom att göra: stöd för flera skogar
+Returnerar ett AD-objekt genom att göra: Stöd för flera skogar
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -470,7 +470,7 @@ Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Hämta historiken för AAD-Connnect kör
+Get AAD Connect Körningshistorik
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -479,7 +479,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktion som returnerar Körningshistorik för AAD Connnect i XML-format
+Funktion som returnerar AAD Connect Körningshistorik i XML-format
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen frågar AAD Connnect Körningshistorik och exporterar alla användare som rapporterar felet: ”SourceAnchor-attribut har ändrats”.
+Funktionen frågor AAD Connect Körningshistorik och exporterar alla användare som rapporterar felet: ”SourceAnchor-attribut har ändrats”.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Det här skriptet hämtar alla objekt från målet organisationsenhet i Active Directory-domänen – filtreras efter objektklassen (användare/dator) och tar bort alla utgångna certifikat finns i UserCertificate-attributet.
 Som standard (BackupOnly läge) kommer endast att säkerhetskopiera utgångna certifikat till en fil och göra inte några ändringar i AD.
 Om du använder - BackupOnly $false så att alla har upphört att gälla-certifikat finns i UserCertificate-attributet för de här objekten tas bort från AD efter att kopieras till filen.
-Varje certifikat säkerhetskopieras till en avgränsas filename: ObjectClass_ObjectGUID_CertThumprint.cer skriptet skapas också en loggfil i CSV-format som visar alla användare med certifikat som antingen är giltigt eller har upphört att gälla, inklusive den faktiska åtgärd () Överhoppade/exporterade/har tagits bort).
+Varje certifikat säkerhetskopieras till avgränsas filnamn: ObjectClass_ObjectGUID_CertThumprint.cer skriptet skapas också en loggfil i CSV-format som visar alla användare med certifikat som antingen är giltigt eller har upphört att gälla, inklusive den faktiska åtgärd (överhoppad/exporterade/tagits bort).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Uppdateringar användare med det nya värdet för ConsistencyGuid (ImmutableId) kommer från ConsistencyGuid rapporten den här funktionen stöder växeln WhatIf Obs: ConsistencyGuid rapporten måste importeras med fliken Demiliter
+Uppdaterar användare med det nya värdet för ConsistencyGuid (ImmutableId) kommer från ConsistencyGuid rapporten den här funktionen stöder växeln WhatIf Obs: ConsistencyGuid rapporten måste importeras med fliken Demiliter
 
 ### <a name="examples"></a>EXEMPEL
 

@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159006"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043047"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställning av Licensieringskrav för lösenord för självbetjäning i Azure AD
 
-Azure Active Directory (Azure AD) finns i fyra versioner: kostnadsfri, Basic, Premium P1 och Premium P2. Det finns flera olika funktioner som gör dig lösenordsåterställning via självbetjäning, inklusive ändringen, återställa, låsa upp och tillbakaskrivning av som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker beskriver skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-version kan hittas på den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) finns i fyra versioner: Kostnadsfri, Basic, Premium P1 och Premium P2. Det finns flera olika funktioner som gör dig lösenordsåterställning via självbetjäning, inklusive ändringen, återställa, låsa upp och tillbakaskrivning av som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker beskriver skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-version kan hittas på den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Jämför versioner och funktioner
 
@@ -41,7 +41,7 @@ Lösenord för självbetjäning av Azure AD lösenordsåterställning licensiera
    * Den här funktionen ingår i Azure AD Premium P1 eller Premium P2-versioner.
 
 > [!WARNING]
-> Fristående Office 365 licensiering planer **inte har stöd för tillbakaskrivning av lösenord** och kräver Azure AD Premium P1 eller Premium P2-versioner för den här funktionen ska fungera.
+> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver en plan som innehåller Azure AD Premium P1 eller Premium P2-versioner för den här funktionen till fungera.
 >
 
 Ytterligare information om licenser går inklusive kostnader, kan hittas på följande sidor:

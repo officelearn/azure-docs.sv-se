@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994138"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038508"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -149,6 +149,23 @@ Om du inte har redan befintliga innehåll för att fylla i knowledge base, kan d
 ## <a name="formatting-considerations"></a>Formatering överväganden
 
 När en fil eller URL: en har den konverteras till Markdown och lagras i formatet. Om processen inte korrekt konverterar länkar i dina filer och URL: er, bör du redigera frågor och svar på den **redigera** sidan. 
+
+|Format|Syfte|
+|--|--|
+|`\n\n`| Ny rad|
+|`\n*`|Punkt för en sorterad lista|
+
+## <a name="editing-your-knowledge-base-locally"></a>Redigera din kunskapsbas lokalt
+
+När du har skapat en kunskapsbas, rekommenderar vi att du gör ändringar i knowledge base-texten i den [QnA Maker portal](https://qnamaker.ai), i stället för att exportera och importera via lokala filer. Det kan dock finnas tillfällen som du behöver redigera en kunskapsbas lokalt. 
+
+Exportera kunskapsbas från den **inställningar** sidan och sedan redigera kunskapsbas med Microsoft Excel. Om du väljer att använda ett annat program för att redigera din exporterade TSV-fil, kan programmet införa syntaxfel eftersom det inte är fullständigt kompatibel TSV. Microsoft Excel TSV-filer kan vanligtvis inte orsakar några formateringsfel. 
+
+När du är klar med dina redigeringar, importera TSV-fil från den **inställningar** sidan. Detta ersätter helt den aktuella kunskapsbasen med importerade kunskapsbasen. 
+
+## <a name="testing-your-markdown"></a>Testa din Markdown
+
+Använd den **[CommonMark](https://commonmark.org/help/tutorial/index.html)** självstudie om du vill verifiera Markdown. I självstudiekursen har en **prova** funktionen för snabb, kopiera och klistra in verifiering. 
 
 ## <a name="next-steps"></a>Nästa steg
 

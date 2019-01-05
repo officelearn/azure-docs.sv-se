@@ -1,19 +1,19 @@
 ---
 title: Syntaxen för SQL i Azure Cosmos DB
 description: Den här artikeln förklarar SQL language frågesyntaxen används i Azure Cosmos DB, olika operatorer och nyckelord som är tillgängliga i det här språket.
-author: LalithaMV
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: eec3846319a93e94ca362d9ef6815a73d0ca958a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142564"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044390"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL-Språkreferens 
 
@@ -474,7 +474,7 @@ ORDER BY <sort_specification>
 |**Kategori**|**Detaljer**|  
 |-|-|  
 |**Aritmetiska**|Operatorn förväntar sig indata ska vara sin. Utdata är också ett tal. Om någon av indata är **odefinierat** eller annan typ än antalet sedan resultatet är **odefinierat**.|  
-|**Bitvis**|Operatorn förväntar sig indata ska vara 32-bitars heltal sin. Utdata är också 32-bitars heltal tal.<br /><br /> Alla heltalsvärde ska avrundas. Positiv avrundas nedåt, negativa värden avrundas uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal omvandlas med sista 32-bitar i dess två visas.<br /><br /> Om någon av indata är **odefinierat** eller annan typ än tal, och sedan resultatet är **odefinierat**.<br /><br /> **Obs:** beteendet ovan är kompatibel med JavaScript bitvis operator-beteende.|  
+|**Bitvis**|Operatorn förväntar sig indata ska vara 32-bitars heltal sin. Utdata är också 32-bitars heltal tal.<br /><br /> Alla heltalsvärde ska avrundas. Positiv avrundas nedåt, negativa värden avrundas uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal omvandlas med sista 32-bitar i dess två visas.<br /><br /> Om någon av indata är **odefinierat** eller annan typ än tal, och sedan resultatet är **odefinierat**.<br /><br /> **Obs!** Beteendet ovan är kompatibel med JavaScript bitvis operator-beteende.|  
 |**Logiska**|Operatorn förväntar sig indata ska vara Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **odefinierat** eller annan typ än Boolean, så resultatet kommer att vara **odefinierat**.|  
 |**Jämförelse**|Operatorn förväntar sig indata ska ha samma typ och inte är odefinierad. Resultatet är ett booleskt värde.<br /><br /> Om någon av indata är **odefinierat** eller indata har olika typer och resultatet är **odefinierat**.<br /><br /> Se **gruppering av värden för jämförelse** tabellen för värdet ordning information.|  
 |**sträng**|Operatorn förväntar sig indata ska vara strängarna. Utdata är också en sträng.<br />Om någon av indata är **odefinierat** eller annan typ än sträng och sedan resultatet är **odefinierat**.|  
@@ -517,7 +517,7 @@ ORDER BY <sort_specification>
   
  I Cosmos DB kallas ofta inte typerna av värden förrän de har hämtats från databasen. De flesta av operatorer har strikta krav för att stödja effektiv körning av frågor. Operatörer av själva utför även inte implicita konverteringar.  
   
- Det innebär att en fråga som: Välj * från ROOT r var r.Age = 21 returnerar endast dokument med egenskapen ålder lika med antalet 21. Dokument med egenskapen ålder som är lika med strängen ”21” eller ”0021” strängen matchar inte, som uttrycket ”21” = 21 utvärderar till odefinierad. Det möjliggör en optimal användning av index, eftersom sökning efter ett specifikt värde (till exempel hur många 21) är snabbare än Sök efter ett obestämt antal potential matchar (talet 21 eller strängar ”21”, ”021”, ”21.0”...). Detta skiljer sig från hur JavaScript utvärderar operatörer på värden av olika typer.  
+ Detta innebär att en fråga av typen: Välj * från ROOT r var r.Age = 21 returnerar endast dokument med egenskapen ålder lika med antalet 21. Dokument med egenskapen ålder som är lika med strängen ”21” eller ”0021” strängen matchar inte, som uttrycket ”21” = 21 utvärderar till odefinierad. Det möjliggör en optimal användning av index, eftersom sökning efter ett specifikt värde (till exempel hur många 21) är snabbare än Sök efter ett obestämt antal potential matchar (talet 21 eller strängar ”21”, ”021”, ”21.0”...). Detta skiljer sig från hur JavaScript utvärderar operatörer på värden av olika typer.  
   
  **Matriser och -objekt likhet och jämförelse**  
   
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  E upphöjt till ett tal är konstanten **e** upphöjt till för talet. Till exempel EXP(1.0) = e ^ 1.0 = 2.71828182845905 och EXP(10) = e ^ 10 = 22026.4657948067.  
   
- Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOG (EXP (n)) = n.  
+ Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOGG (EXP (n)) = n.  
   
  **Exempel**  
   
@@ -1108,7 +1108,7 @@ LOG (<numeric_expression> [, <base>])
   
  Den naturliga logaritmen är logaritmen för talet **e**, där **e** är en onormal konstant ungefär lika 2.718281828.  
   
- Den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOG (EXP (n)) = n. Och exponentiell för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n.  
+ Den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOGG (EXP (n)) = n. Och exponentiell för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n.  
   
  **Exempel**  
   

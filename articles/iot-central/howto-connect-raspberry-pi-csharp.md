@@ -1,5 +1,5 @@
 ---
-title: Connnect en Raspberry Pi till Azure IoT Central programmet (C#) | Microsoft Docs
+title: Anslut en Raspberry Pi till din Azure IoT Central program (C#) | Microsoft Docs
 description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till ditt Azure IoT Central-program med C#.
 author: viv-liu
 ms.author: viviali
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50956731"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051398"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
@@ -26,7 +26,7 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Raspberr
 För att slutföra stegen i den här artikeln, måste följande komponenter:
 
 * [.NET core 2](https://www.microsoft.com/net) installerat på utvecklingsdatorn. Du bör även ha en lämplig Kodredigerare som [Visual Studio Code](https://code.visualstudio.com/).
-* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
+* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 * En Raspberry Pi-enhet som kör operativsystemet Raspbian.
 
 

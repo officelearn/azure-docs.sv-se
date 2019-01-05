@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319384"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040548"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -30,16 +30,16 @@ Tillbakaskrivning av lösenord stöds i miljöer där:
 > [!WARNING]
 > Tillbakaskrivning av lösenord att sluta fungera för kunder som använder Azure AD Connect-versioner 1.0.8641.0 och äldre när den [Azure Access Control service (ACS) är ur bruk 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre inte längre att tillåta tillbakaskrivning av lösenord vid den tidpunkten eftersom de använder ACS för den funktionen.
 >
-> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
+> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 Tillbakaskrivning av lösenord innehåller:
 
-* **Tillämpning av principer för en lokal Active Directory-lösenord**: när en användare återställer sitt lösenord, det kontrolleras för att se till att den uppfyller dina lokala Active Directory-principer innan du genomför den till katalogen. Den här granskningen inkluderar kontroll historiken, komplexitet, ålder, lösenordsfilter och eventuella andra begränsningar för lösenord som du har definierat i lokala Active Directory.
-* **Noll fördröjning feedback**: tillbakaskrivning av lösenord är en synkron åtgärd. Användarna får ett meddelande direkt om sitt lösenord inte uppfyller principen eller inte kunde återställa eller ändras av någon anledning.
-* **Har stöd för lösenord ändras från åtkomstpanelen och Office 365**: om sammanslaget eller lösenords-hash synkroniserade användare kommer att ändra sina lösenord har upphört att gälla eller icke upphört att gälla, dessa lösenord skrivs tillbaka till din lokala Active Directory-miljö.
-* **Har stöd för tillbakaskrivning av lösenord när en administratör återställer dem från Azure portal**: när en administratör återställer en användares lösenord i den [Azure-portalen](https://portal.azure.com)om användaren är federerat eller lösenords-hash som har synkroniserats lösenordet är skrivas tillbaka till den lokala. Den här funktionen stöds för närvarande inte i administrationsportalen för Office.
-* **Kräver inte några ingående brandväggsreglerna**: tillbakaskrivning av lösenord använder ett Azure Service Bus-relä som en underliggande kommunikationskanalen. All kommunikation är utgående via port 443.
+* **Tillämpning av principer för en lokal Active Directory-lösenord**: När en användare återställer sitt lösenord, kontrolleras det att se till att den uppfyller dina lokala Active Directory-principer innan du genomför den till katalogen. Den här granskningen inkluderar kontroll historiken, komplexitet, ålder, lösenordsfilter och eventuella andra begränsningar för lösenord som du har definierat i lokala Active Directory.
+* **Noll fördröjning feedback**: Tillbakaskrivning av lösenord är en synkron åtgärd. Användarna får ett meddelande direkt om sitt lösenord inte uppfyller principen eller inte kunde återställa eller ändras av någon anledning.
+* **Har stöd för lösenord ändras från åtkomstpanelen och Office 365**: När federerade eller lösenords-hash synkroniserade användare kommer att ändra sina lösenord har upphört att gälla eller icke upphört att gälla, dessa lösenord skrivs tillbaka till din lokala Active Directory-miljö.
+* **Har stöd för tillbakaskrivning av lösenord när en administratör återställer dem från Azure portal**: När en administratör återställer en användares lösenord i den [Azure-portalen](https://portal.azure.com)om användaren är federerat eller lösenords-hash har synkroniserats lösenordet skrivs tillbaka till den lokala. Den här funktionen stöds för närvarande inte i administrationsportalen för Office.
+* **Kräver inte några ingående brandväggsreglerna**: Tillbakaskrivning av lösenord använder ett Azure Service Bus-relä som en underliggande kommunikationskanalen. All kommunikation är utgående via port 443.
 
 > [!Note]
 > Användarkonton som finns i skyddade grupper i den lokala Active Directory kan inte användas med tillbakaskrivning av lösenord. Mer information om skyddade grupper finns i [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
@@ -60,7 +60,7 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 * Microsoft 365 F1
 
 > [!WARNING]
-> Fristående Office 365 licensiering planer *inte har stöd för tillbakaskrivning av lösenord* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
+> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
 >
 
 ## <a name="how-password-writeback-works"></a>Hur fungerar tillbakaskrivning av lösenord
@@ -121,10 +121,10 @@ Tillbakaskrivning av lösenord är en mycket säker tjänst. För att säkerstä
 
 När användaren har skickat en återställning av lösenord, går återställning av begäran igenom flera krypteringssteg innan den tas emot i din lokala miljö. De här stegen för kryptering säkerställa maximala tjänsternas tillförlitlighet och säkerhet. De beskrivs på följande sätt:
 
-* **Steg 1: Lösenordskryptering 2048-bitars RSA-nyckel**: när användaren har skickat ett lösenord att skrivas tillbaka till den lokala själva skickade lösenordet krypteras med en 2048-bitars RSA-nyckel.
-* **Steg 2: Paketet på servernivå kryptering med AES-GCM**: hela paketet, lösenordet och metadata som krävs krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar alla direkt åtkomst till den underliggande ServiceBus-kanalen från att visa eller ändra innehållet.
+* **Steg 1: Lösenordskryptering 2048-bitars RSA-nyckel**: När användaren har skickat ett lösenord att skrivas tillbaka till den lokala krypteras det skickade lösenordet själva med en 2048-bitars RSA-nyckel.
+* **Steg 2: Paketet på servernivå kryptering med AES-GCM**: Hela paketet, lösenordet och metadata som krävs är krypterad med hjälp av AES-GCM. Den här krypteringen förhindrar alla direkt åtkomst till den underliggande ServiceBus-kanalen från att visa eller ändra innehållet.
 * **Steg 3: All kommunikation sker över TLS/SSL**: All kommunikation med ServiceBus sker i en kanal för SSL/TLS. Den här krypteringen skyddar innehållet från obehörig från tredje part.
-* **Automatisk återställning av nyckel över var sjätte månad**: alla nycklar förnyas var sjätte månad eller tillbakaskrivning av lösenord varje gång är inaktiverat och därefter aktiveras i Azure AD Connect att säkerställa maximal Tjänstsäkerhet och säkerhet.
+* **Automatisk återställning av nyckel över var sjätte månad**: Alla nycklar rulla över var sjätte månad eller varje gång tillbakaskrivning av lösenord är inaktiverat och därefter aktiveras i Azure AD Connect att säkerställa maximal Tjänstsäkerhet och säkerhet.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Användning av nätverksbandbredd i tillbakaskrivning av lösenord
 
@@ -169,4 +169,4 @@ Lösenord är *inte* skrivas tillbaka i någon av följande situationer:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Aktivera tillbakaskrivning av lösenord med hjälp av självstudierna: [aktiverar tillbakaskrivning av lösenord](tutorial-enable-writeback.md)
+Aktivera tillbakaskrivning av lösenord med hjälp av självstudierna: [Aktivera tillbakaskrivning av lösenord](tutorial-enable-writeback.md)

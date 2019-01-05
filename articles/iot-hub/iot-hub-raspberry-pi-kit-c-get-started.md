@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: edbdd12ed292ac2e2953219d6f50da8e6c5c995f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343096"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053508"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
 
@@ -209,6 +209,6 @@ Du bör se följande utdata som visar sensordata och meddelanden som skickas til
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb. Om du vill se de meddelanden som Raspberry Pi skickade till din IoT hub eller skicka meddelanden till Raspberry Pi, se den [Använd Azure IoT Hub Toolkit-tillägget för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb. Om du vill se de meddelanden som Raspberry Pi skickade till din IoT hub eller skicka meddelanden till Raspberry Pi, se den [Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

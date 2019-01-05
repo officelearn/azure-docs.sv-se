@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437528"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052640"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
@@ -68,7 +68,7 @@ Program eller komponenter som var tillgängliga i lokala kluster men inte ingår
 |Vattenlinjen|Kantnoden för HDInsight
 |StreamSets|HDInsight Edge 
 |Palantir|IaaS 
-|Sailpoint|Iaas 
+|SailPoint|Iaas 
 
 Mer information finns i artikeln [Apache Hadoop-komponenter som är tillgängliga med olika versioner av HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
 
@@ -205,7 +205,7 @@ HDInsight stöder [virtuella nätverksslutpunkter](../../virtual-network/virtual
 Mer information finns i följande artiklar:
 
 - [Slutpunkter för virtuellt nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Förbättra säkerheten för HDInsight med Tjänsteslutpunkter](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md)
+- [Förbättra säkerheten för HDInsight med Tjänsteslutpunkter](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 

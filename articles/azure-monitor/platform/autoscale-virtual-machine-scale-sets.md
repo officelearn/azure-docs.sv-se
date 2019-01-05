@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 5ff6e29fc4d7607c44541c7947404a0bc0301207
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c7b4da7292600f3d477d5c16263660eb6d4d4226
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581500"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051280"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och ut på Virtual Machine Scale Sets baserat på prestanda tröskelmått, genom ett återkommande schema eller genom att ett visst datum. Du kan också konfigurera e-post och webhook meddelanden om skalningsåtgärder. Den här genomgången visar ett exempel på hur du konfigurerar dessa objekt med en Resource Manager-mall för VM-Skalningsuppsättningen.
@@ -247,3 +247,5 @@ Använd dessa länkar om du vill veta mer om automatisk skalning.
 [Hantera automatisk skalning med hjälp av CLI](cli-samples.md#autoscale)
 
 [Konfigurera Webhook & e-postmeddelanden för automatisk skalning](autoscale-webhook-email.md)
+
+[Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings) mallreferensen

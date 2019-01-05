@@ -11,28 +11,28 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601567"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044577"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
 Azure SQL-databas, elastiska pooler, Managed Instance och databaser i Managed Instance kan strömma loggar för mått och diagnostik för lättare prestandaövervakning. Du kan konfigurera en databas för överföring av Resursanvändning, personal och sessioner och anslutning till en av följande Azure-resurser:
 
-* **Azure SQL-analys**: få intelligent övervakning av din Azure-databaser som innehåller prestandarapporter, aviseringar och rekommendationer för problemlösning.
-* **Azure Event Hubs**: integrera telemetri för SQL-databas med din anpassade övervakningslösningar eller med heta pipelines.
-* **Azure Storage**: att arkivera stora mängder telemetri för en bråkdel av priset.
+- **Azure SQL-analys**: få intelligent övervakning av din Azure-databaser som innehåller prestandarapporter, aviseringar och rekommendationer för problemlösning.
+- **Azure Event Hubs**: integrera telemetri för SQL-databas med din anpassade övervakningslösningar eller med heta pipelines.
+- **Azure Storage**: att arkivera stora mängder telemetri för en bråkdel av priset.
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Mer information om mått och loggfiler kategorier som stöds av olika Azure-tjänster finns:
 
-* [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Den här artikeln innehåller riktlinjer som hjälper dig att aktivera diagnostiktelemetri för databaser, elastiska pooler och hanterad instans. Det också kan hjälpa dig att förstå hur du konfigurerar Azure SQL Analytics som ett övervakningsverktyg för att visa diagnostik databastelemetri.
 
@@ -101,7 +101,6 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för Azur
 
 > [!NOTE]
 > Granskningsloggar för säkerhet kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [SQL granska loggarna i Azure Log Analytics och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
-
 > [!TIP]
 > Upprepa dessa steg för varje Azure SQL-databas som du vill övervaka.
 
@@ -112,17 +111,17 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för Azur
 Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för databaser i hanterad instans:
 
 1. Gå till din databas i Managed Instance.
-1. Välj **diagnostikinställningar**.
-1. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning.
+2. Välj **diagnostikinställningar**.
+3. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning.
    - Du kan skapa upp till tre (3) parallella anslutningar till stream-diagnostiktelemetri.
    - Välj **+ Lägg till diagnostikinställning** konfigurera parallella strömning av diagnostikdata till flera resurser.
 
    ![Aktivera diagnostik för hanterad instans-databas](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Ange ett namn på inställningen för din egen referens.
-1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
-1. Markera kryssrutorna för databastelemetri för diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** och **fel**.
-1. Välj **Spara**.
+4. Ange ett namn på inställningen för din egen referens.
+5. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
+6. Markera kryssrutorna för databastelemetri för diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** och **fel**.
+7. Välj **Spara**.
 
    ![Konfigurera diagnostik för hanterad instans-databas](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
@@ -170,7 +169,7 @@ Du kan ställa in en hanterad instans-resurs för att samla in följande diagnos
 
 | Resurs | Övervakning av telemetri |
 | :------------------- | ------------------- |
-| **Hanterad instans** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
+| **Hanterad instans** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
 
 Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en hanterad instans-resurs:
 
@@ -338,11 +337,11 @@ När valda data strömmas i Event Hubs, är ett steg närmare att aktivera avanc
 
 Du kan använda strömmas mått i Event Hubs till:
 
-* **Visa tjänstehälsa med strömmande data i frekvent sökväg till Power BI**. Med hjälp av Event Hubs, Stream Analytics och Power BI, kan du enkelt omvandla dina data för mått och diagnostik i nära realtid på dina Azure-tjänster. En översikt över hur du ställer in en event hub, bearbeta data med Stream Analytics och utnyttja Power BI som utdata, finns i [Stream Analytics och Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+- **Visa tjänstehälsa med strömmande data i frekvent sökväg till Power BI**. Med hjälp av Event Hubs, Stream Analytics och Power BI, kan du enkelt omvandla dina data för mått och diagnostik i nära realtid på dina Azure-tjänster. En översikt över hur du ställer in en event hub, bearbeta data med Stream Analytics och utnyttja Power BI som utdata, finns i [Stream Analytics och Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-* **Stream loggar till tredje parts loggning och telemetri dataströmmar**. Genom att använda Event Hubs strömning kan få du mått och diagnostik för loggarna i olika lösningar från tredje part övervaknings- och log analytics.
+- **Stream loggar till tredje parts loggning och telemetri dataströmmar**. Genom att använda Event Hubs strömning kan få du mått och diagnostik för loggarna i olika lösningar från tredje part övervaknings- och log analytics.
 
-* **Skapa en anpassad telemetri och loggning**. Har du redan har en specialbyggda telemetri plattform eller funderar på att bygga en? Mycket skalbar publicerings-/ natur Händelsehubbar kan du flexibelt kan mata in diagnostikloggar. Se [Dan Rosanova för att använda Event Hubs i en global skala telemetri platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+- **Skapa en anpassad telemetri och loggning**. Har du redan har en specialbyggda telemetri plattform eller funderar på att bygga en? Mycket skalbar publicerings-/ natur Händelsehubbar kan du flexibelt kan mata in diagnostikloggar. Se [Dan Rosanova för att använda Event Hubs i en global skala telemetri platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-storage"></a>Stream till Storage
 
@@ -386,7 +385,7 @@ Om du använder Azure SQL Analytics kan du övervaka din förbrukning för inmat
 
 ## <a name="metrics-and-logs-available"></a>Mått och loggar som är tillgängliga
 
-Insamlade övervakning telemetri som kan användas för dina egna _anpassade analysis_ och _programutveckling_ med [SQL Analytics-språket](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries). 
+Insamlade övervakning telemetri som kan användas för dina egna _anpassade analysis_ och _programutveckling_ med [SQL Analytics-språket](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="all-metrics"></a>Alla mått
 
@@ -690,12 +689,12 @@ Läs mer om den [smarta insikter loggformat](sql-database-intelligent-insights-u
 
 Lär dig hur du aktiverar loggning och för att förstå mått och loggar kategorier som stöds av olika Azure-tjänsterna, se:
 
-* [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Översikt över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Läs mer om Event Hubs finns:
 
-* [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Läs mer om Azure Storage i [hur du laddar ned mått och diagnostik för loggar från Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

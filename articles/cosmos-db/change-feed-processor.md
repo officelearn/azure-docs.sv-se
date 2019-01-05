@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 35577f103979bf5f767e3b9d42548ed488e365c8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835519"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041908"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Med hjälp av Azure Cosmos DB-ändringen feed processor-biblioteket
 
@@ -32,17 +33,17 @@ Om du har två server utan Azure functions övervakning samma behållare och anv
 
 Det finns fyra huvudsakliga komponenter för att implementera ändringsflödet processor-biblioteket: 
 
-1. **Övervakade behållaren:** övervakade behållaren har data som genereras ändringsflöde. Alla infogningar och ändringar till behållaren för övervakade återspeglas i ändringsflödet på behållaren.
+1. **Övervakade behållaren:** Övervakade behållaren har data som genereras ändringsflöde. Alla infogningar och ändringar till behållaren för övervakade återspeglas i ändringsflödet på behållaren.
 
-1. **Lån-behållaren:** lånet behållare koordinaterna bearbetning ändringsflöden över flera arbetare. En separat behållare används som omfattar lånen med ett lån per partition. Nu är det bra att lagra den här behållaren för lånet på ett annat konto med skrivningsregionen närmare till där ändringsflödet processor körs. Ett lån-objekt innehåller följande attribut:
+1. **Lån-behållaren:** Behållaren lånet samordnar bearbetning ändringsflöden över flera arbetare. En separat behållare används som omfattar lånen med ett lån per partition. Nu är det bra att lagra den här behållaren för lånet på ett annat konto med skrivningsregionen närmare till där ändringsflödet processor körs. Ett lån-objekt innehåller följande attribut:
 
    * Ägare: Anger den värd som äger lånet.
 
    * Fortsättning: Anger placeringen (fortsättningstoken) i ändringsflödet för en viss partition.
 
-   * Tidsstämpel: Senast lånet har uppdaterats; tidsstämpeln som kan användas för att kontrollera om lånet tas i beaktande har upphört att gälla.
+   * Tidsstämpel: Lånet senast uppdaterades; tidsstämpeln som kan användas för att kontrollera om lånet tas i beaktande har upphört att gälla.
 
-1. **Värd för händelsebearbetning:** varje värd avgör hur många partitioner för att bearbeta baserat på hur många andra instanser av värdar har aktiva lån.
+1. **Värd för händelsebearbetning:** Varje värd avgör hur många partitioner för att bearbeta baserat på hur många andra instanser av värdar har aktiva lån.
 
    * När en värd startas, skaffar lån för att balansera arbetsbelastningen över alla värdar. En värd förnyas regelbundet lån, så lån är aktiva.
 
@@ -52,7 +53,7 @@ Det finns fyra huvudsakliga komponenter för att implementera ändringsflödet p
 
    För närvarande, får inte antalet värdar vara större än antalet partitioner (lån).
 
-1. **Konsumenterna:** konsumenter eller arbeten är trådar som utför bearbetningen ändringsflödet initieras av varje värd. Varje värd för händelsebearbetning kan ha flera konsumenter. Varje konsument läser ändringen flöde från den partition som den är tilldelad till och meddelar dess värden för ändringar och upphört att gälla lån.
+1. **Användare:** Konsumenter eller arbeten är trådar som utför bearbetningen ändringsflödet initieras av varje värd. Varje värd för händelsebearbetning kan ha flera konsumenter. Varje konsument läser ändringen flöde från den partition som den är tilldelad till och meddelar dess värden för ändringar och upphört att gälla lån.
 
 För att bättre förstå hur dessa fyra element i ändringsfeed processor fungerar tillsammans, nu ska vi titta på ett exempel i följande diagram. Övervakade samlingen lagrar dokument och använder ”City” som partitionsnyckel. Vi kan se att den blå partitionen innehåller dokument med fältet ”City” från ”A-E” och så vidare. Det finns två värdar med två konsumenter att läsa från de fyra partitionerna parallellt. Pilarna visar konsumenterna läsning från en specifik plats i den ändringsflödet. I den första partitionen representerar mörkare blå olästa ändringar medan ljusblått representerar redan läsning ändringar på ändringsflöde. Värdarna använda lease-samlingen för att lagra ett värde för ”fortsättning” för att hålla reda på den aktuella läsning positionen för varje konsument.
 

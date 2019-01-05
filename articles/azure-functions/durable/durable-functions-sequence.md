@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339594"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043965"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
-Funktionen länkning avser mönstret för att köra en serie funktioner i en viss ordning. Utdata för en funktion måste ofta tillämpas till indata för en annan funktion. Den här artikeln beskriver chaining ordningsföljden som du skapar när du har slutfört snabbstarten varaktiga funktioner ([ C# ](durable-functions-create-first-csharp.md) eller [JavaScript](quickstart-js-vscode.md)). Mer information om varaktiga funktioner finns i [varaktiga funktioner översikt](durable-functions-overview.md).
+Funktionen länkning avser mönstret för att köra en serie funktioner i en viss ordning. Utdata för en funktion måste ofta tillämpas till indata för en annan funktion. Den här artikeln beskriver chaining ordningsföljden som du skapar när du har slutfört snabbstarten varaktiga funktioner ([ C# ](durable-functions-create-first-csharp.md) eller [JavaScript](quickstart-js-vscode.md)). Mer information om varaktiga funktioner finns i [varaktiga funktioner, mönster och tekniska begrepp](durable-functions-concepts.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Som du ser den `runtimeStatus` på-instansen är *slutförd* och `output` inneh�
 > [!NOTE]
 > HTTP POST-slutpunkten som startats i orchestrator-funktion har implementerats i exempelappen som en HTTP-Utlösarfunktion med namnet ”HttpStart”. Du kan implementera liknande starter logik för andra typer av utlösare som `queueTrigger`, `eventHubTrigger`, eller `timerTrigger`.
 
-Titta på loggarna för jobbkörning av funktionen. Den `E1_HelloSequence` funktionen startades och slutfördes flera gånger på grund av repetitionsattacker problemet som beskrivs i den [översikt](durable-functions-overview.md). Å andra sidan, fanns det bara tre körningar av `E1_SayHello` eftersom dessa funktionskörningar inte hämta återupprepas.
+Titta på loggarna för jobbkörning av funktionen. Den `E1_HelloSequence` funktionen startades och slutfördes flera gånger på grund av repetitionsattacker problemet som beskrivs i den [översikt](durable-functions-concepts.md). Å andra sidan, fanns det bara tre körningar av `E1_SayHello` eftersom dessa funktionskörningar inte hämta återupprepas.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio-exempelkod
 

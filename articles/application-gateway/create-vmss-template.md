@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998390"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037420"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
@@ -68,7 +68,7 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
 
    * **type**. Typ av resurs som skapas av mallen. I det här fallet typen är `Microsoft.Network/applicationGateways`, som representerar en Programgateway.
    * **name**. Namn på den virtuella resursen. Observera användningen av `[parameters('applicationGatewayName')]`, vilket innebär att namnet anges som indata av dig eller av en parameterfil under distributionen.
-   * **properties**. Lista över egenskaper för resursen. Den här mallen använder det virtuella nätverket och den offentliga IP-adressen när programgatewayen skapas.
+   * **properties**. Lista över egenskaper för resursen. Den här mallen använder det virtuella nätverket och den offentliga IP-adressen när programgatewayen skapas. JSON-syntax och egenskaperna för en Programgateway i mallen finns i [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
 
 1. Gå tillbaka till [ https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/ ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klicka på **azuredeploy-parameters.json**, och klicka sedan på **RAW**.
@@ -118,7 +118,7 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Distribuera Azure Resource Manager-mallen med hjälp av PowerShell
 
-Om du aldrig har använt Azure PowerShell, gå till: [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) och följ anvisningarna för att logga in på Azure och välj din prenumeration.
+Om du aldrig har använt Azure PowerShell finns: [Hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) och följ anvisningarna för att logga in på Azure och välj din prenumeration.
 
 1. Logga in på PowerShell
 
@@ -226,9 +226,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](tutorial-ssl-cli.md).
+Om du vill konfigurera SSL-avlastning finns: [Konfigurera en Programgateway för SSL-avlastning](tutorial-ssl-cli.md).
 
-Om du vill konfigurera en programgateway för användning med en intern lastbalanserare läser du [Skapa en programgateway med en intern lastbalanserare (ILB)](redirect-internal-site-cli.md).
+Om du vill konfigurera en Programgateway för användning med en intern belastningsutjämnare, gå till: [Skapa en Programgateway med en intern belastningsutjämnare (ILB)](redirect-internal-site-cli.md).
 
 Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet läser du:
 

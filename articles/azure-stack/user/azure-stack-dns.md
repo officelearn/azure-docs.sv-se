@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.openlocfilehash: df4f6066a4bf03f6b09777f3556c52a237501592
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ba1e310234485d972646320f082d8b882a3d43f1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497662"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052350"
 ---
 # <a name="using-dns-in-azure-stack"></a>Med DNS i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack stöd för följande System DNS (Domain Name)-funktioner:
 
@@ -33,7 +33,7 @@ Azure Stack stöd för följande System DNS (Domain Name)-funktioner:
 
 Du kan ange en DNS-domännamnsetikett för offentliga IP-resurser. Azure Stack använder **domainnamelabel.location.cloudapp.azurestack.external** för etikettnamn och maps den offentliga IP-adressen i Azure Stack hanteras DNS-servrar.
 
-Exempel: Om du skapar en offentlig IP-adressresurs med **contoso** som en etikett med domän i den lokala Azure Stack-platsen i [fullständigt kvalificerade domännamnet (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **Contoso.Local.cloudapp.azurestack.external** motsvarar den offentliga IP-adressen för resursen.   Du kan använda detta fullständiga domännamn för att skapa en anpassad domän CNAME-post som pekar på den offentliga IP-adressen i Azure Stack.
+Exempel: Om du skapar en offentlig IP-adressresurs med **contoso** som en etikett med domän i den lokala Azure Stack-platsen i [fullständigt kvalificerade domännamnet (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **Contoso.Local.cloudapp.azurestack.external** motsvarar den offentliga IP-adressen för resursen. Du kan använda detta fullständiga domännamn för att skapa en anpassad domän CNAME-post som pekar på den offentliga IP-adressen i Azure Stack.
 
 Mer information om namnmatchning finns i [DNS-matchningen](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) artikeln.
 
@@ -58,23 +58,19 @@ Azure Stack DNS-infrastrukturen är mer kompakt än Azure. Storlek och plats fö
 
 ## <a name="comparison-with-azure-dns"></a>Jämförelse med Azure DNS
 
-DNS i Azure Stack liknar DNS i Azure, men det finns viktiga undantag:
+DNS i Azure Stack liknar DNS i Azure, men det finns några viktiga undantag:
 
-* **Stöder inte AAAA-poster**
+* **Stöder inte AAAA-poster**: Azure Stack stöder inte AAAA-poster eftersom Azure Stack inte har stöd för IPv6-adresser. Det här är en viktig skillnad mellan DNS i Azure och Azure Stack.
 
-    Azure Stack stöder inte AAAA-poster eftersom Azure Stack inte har stöd för IPv6-adresser. Det här är en viktig skillnad mellan DNS i Azure och Azure Stack.
-* **Är inte flera innehavare**
+* **Är inte flera innehavare**: DNS-tjänsten i Azure Stack är inte flera innehavare. Varje klient kan inte skapa samma DNS-zonen. Endast den första prenumerationen som försöker skapa zonen lyckas och efterföljande begäranden som misslyckas. Det här är en viktig skillnad mellan Azure och Azure Stack DNS.
 
-    DNS-tjänsten i Azure Stack är inte flera innehavare. Varje klient kan inte skapa samma DNS-zonen. Endast den första prenumerationen som försöker skapa zonen lyckas och efterföljande begäranden som misslyckas. Det här är en viktig skillnad mellan Azure och Azure Stack DNS.
-* **Taggar, metadata och Etags**
-
-    Det finns mindre skillnader i hur Azure Stack hanterar taggar, metadata, Etags och gränser.
+* **Taggar, metadata och Etags**: Det finns mindre skillnader i hur Azure Stack hanterar taggar, metadata, Etags och gränser.
 
 Läs mer om Azure DNS i [DNS-zoner och poster](../../dns/dns-zones-records.md).
 
 ### <a name="tags"></a>Taggar
 
-Azure Stack-DNS stöder med hjälp av Azure Resource Manager-taggar på DNS-zon resurser. Det stöder inte taggar på DNS-postuppsättningar, även om som ett alternativ ”metadata” stöds på DNS-postuppsättningar som beskrivs härnäst.
+Azure Stack-DNS stöder med hjälp av Azure Resource Manager-taggar på DNS-zon resurser. Det stöder inte taggar på DNS-postuppsättningar, även om som ett alternativ kan **metadata** stöds på DNS-postuppsättningar som beskrivs i nästa avsnitt.
 
 ### <a name="metadata"></a>Metadata
 
@@ -86,11 +82,11 @@ Anta att två personer eller två processer du försöker ändra en DNS-post på
 
 Azure Stack-DNS använder *Etags* att på ett säkert sätt hantera samtidiga ändringar till samma resurs. Etags skiljer sig från Azure Resource Manager *taggar*. Varje DNS-resurs (zon eller uppsättning av poster) har en Etag som är kopplade till den. När en resurs hämtas, hämtas även dess Etag. När du uppdaterar en resurs måste välja du att skicka tillbaka Etag så att Azure Stack DNS kan kontrollera som Etag på server-matchningar. Eftersom varje uppdatering till en resurs resulterar i Etag återskapas, anger ett Etag-Typfel samtidiga har ändrats. Etags kan också användas när du skapar en ny resurs att se till att resursen inte finns redan.
 
-Använda Etags för att blockera samtidiga ändringar till zoner och uppsättningar av poster som standard Azure Stack DNS PowerShell-cmdlets. Den valfria **-Skriv över** växel kan användas för att undertrycka Etag kontroller, i så fall eventuella samtidiga ändringar som har skett skrivs över.
+Använda Etags för att blockera samtidiga ändringar till zoner och uppsättningar av poster som standard Azure Stack DNS PowerShell-cmdlets. Du kan använda den valfria `-Overwrite` växla för att ignorera Etag kontroller, vilket gör att alla samtidiga ändringar som har inträffat för att skrivas över.
 
 På Azure Stack DNS REST API-nivå anges Etags med HTTP-huvuden. Deras beteende beskrivs i följande tabell:
 
-| Sidhuvud | Beteende|
+| Huvud | Beteende|
 |--------|---------|
 | Ingen   | PUT lyckas alltid (inga Etag-kontroller)|
 | IF-match| PUT lyckas bara om resursen finns och Etag matchar|
@@ -109,4 +105,4 @@ Följande standard begränsningar gäller när du använder Azure Stack DNS:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Introduktion till IDN: er för Azure Stack](azure-stack-understanding-dns.md)
+- [Introduktion till IDN: er för Azure Stack](azure-stack-understanding-dns.md)

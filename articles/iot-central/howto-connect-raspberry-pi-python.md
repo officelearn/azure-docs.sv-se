@@ -1,5 +1,5 @@
 ---
-title: Connnect en Raspberry Pi till Azure IoT Central programmet (Python) | Microsoft Docs
+title: Ansluta en Raspberry Pi till Azure IoT Central programmet (Python) | Microsoft Docs
 description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till ditt Azure IoT Central-program med Python.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f39832b50ed983e7d8a0bfc0a06366870717fa3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239601"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051993"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (Python)
 
@@ -25,7 +25,7 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Raspberr
 
 För att slutföra stegen i den här artikeln, måste följande komponenter:
 
-* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
+* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 * En Raspberry Pi-enhet som kör operativsystemet Raspbian. Du behöver en bildskärm, tangentbord och mus som är anslutna till Raspberry Pi till GUI-miljö. Raspberry Pi måste kunna [ansluta till internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * Du kan också en [mening Hat](https://www.raspberrypi.org/products/sense-hat/) tillägg tavla för Raspberry Pi. Den här tavla samlar in telemetridata från olika sensorer för att skicka till din Azure IoT Central-App. Om du inte har en **mening Hat** tavla, du kan använda en emulator i stället (tillgänglig som en del av Raspberry Pi-avbildning).
 

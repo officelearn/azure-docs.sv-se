@@ -12,15 +12,15 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100726"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054800"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Registrera din organisation att använda Azure Active Directory
-Registrera dig för Azure Active Directory (Azure AD) en ny Microsoft Azure-prenumeration med hjälp av antingen:
+Registrera dig för Azure Active Directory (AD Azure) eller en ny Microsoft Azure-prenumeration med hjälp av antingen:
 
 - **Microsoft-konto.** Använd ditt personligt Microsoft-konto för att få åtkomst till Azure och alla kundorienterade Microsoft-produkter och molntjänster, som Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE och Office 365. Registrera dig för en Outlook.com-postlåda automatiskt skapar ett Microsoft-konto. Mer information finns i [översikt över Microsoft-konto](https://account.microsoft.com/account).
 

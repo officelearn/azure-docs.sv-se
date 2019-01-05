@@ -1,19 +1,17 @@
 ---
 title: Lambda-arkitektur med Azure Cosmos DB och HDInsight (Apache Spark)
 description: Den här artikeln beskriver hur du implementerar en lambda-arkitektur med Azure Cosmos DB och HDInsight Spark
-keywords: Lambda-arkitektur
-services: cosmos-db
 ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: aacd41eef250577681a9910c9b7c68f3b7000f5c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870800"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034020"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementera en lambda-arkitektur på Azure-plattformen 
 
@@ -34,7 +32,7 @@ En lambda-arkitekturen är generisk, skalbar och feltolerant databearbetning ark
 
 Källa: http://lambda-architecture.net/
 
-De grundläggande principerna för en lambda-arkitekturen beskrivs i föregående diagram enligt [ https://lambda-architecture.net ](http://lambda-architecture.net/).
+De grundläggande principerna för en lambda-arkitekturen beskrivs i föregående diagram enligt [ http://lambda-architecture.net ](http://lambda-architecture.net/).
 
  1. Alla **data** pushas till *både* den *batchlager* och *hastighetslagret*.
  2. Den **batchlager** har en master datauppsättning (inte kan ändras, Lägg endast uppsättning rådata) och beräkningar före batch-vyer.
@@ -61,7 +59,7 @@ Vad är viktigt i dessa lager:
  4. Den **hastighetslagret** använder HDInsight (Apache Spark) om du vill läsa Azure Cosmos DB-ändringsflödet. På så sätt kan du spara filer samt att fråga och bearbeta dem samtidigt.
  5. Alla frågor besvaras genom att koppla samman resultat från batch-vyer och i realtid vyer eller pinga dem individuellt.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Kodexempel: Spark structured streaming till ett Azure Cosmos DB-ändringsflödet
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Kodexempel: Spark-strukturerad direktuppspelning till en Azure Cosmos DB-ändringsflödet
 Att köra en snabb prototyp av Azure Cosmos DB-ändringsflödet som en del av den **hastighetslagret**, testa den ut med Twitter-data som en del av den [Stream bearbetning av ändringar med hjälp av Azure Cosmos DB ändra Feed och Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)exempel. Om du vill ge din Twitter-utdata, finns i kodexemplet i [Stream feed från Twitter till Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed). Du läser in Twitter-data till Azure Cosmos DB och du kan ställa in ditt kluster i HDInsight (Apache Spark) att ansluta till den ändringsflödet med föregående exempel. Mer information om hur du ställer in den här konfigurationen finns i [Apache Spark för Azure Cosmos DB-anslutaren](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup).  
 
 Följande kodfragment visar hur du konfigurerar `spark-shell` att köra ett strukturerad direktuppspelning jobb att ansluta till en Azure Cosmos DB-ändringsflödet, som går igenom i realtid Twitter dataströmmen, om du vill utföra en löpande uppräkning av intervall.
@@ -105,7 +103,7 @@ Mer information om Azure Cosmos DB-ändringsflödet, se:
 
 * [Arbeta med stöd för ändringsflödet i Azure Cosmos DB](change-feed.md)
 * [Introduktion till Azure CosmosDB ändringen Feed Processor-biblioteket](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/)
-* [Stream för att bearbeta ändringar: Azure cosmos DB-ändringsflödet + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
+* [Stream bearbeta ändringar: Azure cosmos DB-ändringsflödet + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
 
 ## <a name="batch-and-serving-layers"></a>Batch- och betjänar lager
 Eftersom den nya informationen läses in i Azure Cosmos DB (där ändringsflöde används för hastighetslagret) och det är där den **master datauppsättning** (en oföränderlig, Lägg endast uppsättning rådata) finns. Från och med den här punkten, använda HDInsight (Apache Spark) för att utföra före beräknings-funktioner från den **batchlager** till **betjäningslagret**, enligt följande bild:
@@ -120,7 +118,7 @@ Vad är viktigt i dessa lager:
  4. Den **hastighetslagret** beskrivs senare i den här artikeln.
  5. Alla frågor besvaras genom att sammanfoga resultatet från batch-vyer i realtid vyer, pinga dem individuellt.
 
-### <a name="code-example-pre-computing-batch-views"></a>Kodexempel: före databehandling batch vyer
+### <a name="code-example-pre-computing-batch-views"></a>Kodexempel: Före databehandling batch-vyer
 Att demonstrera hur du kör förberäknade vyer mot din **master datauppsättning** från Apache Spark i Azure Cosmos DB, använder du följande kodavsnitt från de bärbara datorerna [Lambda-arkitektur Rearchitected - Batchlager ](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) och [Lambda-arkitekturen Rearchitected - Batch för att serva Layer](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb). I det här scenariot använder du Twitter-data som lagras i Azure Cosmos DB.
 
 Låt oss börja med att skapa konfigurationen anslutningen till Twitter-data i Azure Cosmos DB med hjälp av PySpark-kod nedan.
@@ -260,12 +258,12 @@ Med den här designen behöver du bara två hanterade tjänster, Azure Cosmos DB
 
 ### <a name="resources"></a>Resurser
 
- * **Nya data**: den [stream från Twitter-flöde till CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), vilket är mekanismen för att skicka nya data till Azure Cosmos DB.
- * **Batchlager:** batch-lagret består av den *master datauppsättning* (en oföränderlig, Lägg endast uppsättning rådata) och möjligheten att beräkna före batch vyer av data som skickas till den **betjäningslagret** .
+ * **Nya data**: Den [stream från Twitter-flöde till CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), vilket är mekanismen för att skicka nya data till Azure Cosmos DB.
+ * **Batchlager:** Batch-lagret består av den *master datauppsättning* (en oföränderlig, Lägg endast uppsättning rådata) och möjligheten att beräkna före batch vyer av data som skickas till den **betjäningslagret**.
     * Den **Lambda-arkitektur Rearchitected - Batchlager** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) frågor i *master datauppsättning* uppsättning vyer för batch.
- * **Betjäningslagret:** den **betjäningslagret** består av förberäknade data, vilket resulterar i batch-vyer (till exempel aggregeringar, specifika utsnitt osv.) för snabba frågor.
+ * **Betjäningslagret:** Den **betjäningslagret** består av förberäknade data, vilket resulterar i batch-vyer (till exempel aggregeringar, specifika utsnitt osv.) för snabba frågor.
     * Den **Lambda-arkitektur Rearchitected - Batch betjänar lagret** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) skickar batchdata till betjäningslagret, det vill säga Spark frågar en batch samling tweets, bearbetar dessa och lagrar den i en annan samling (en beräknad batch).
-* **Hastighetslagret:** den **hastighetslagret** består av Spark med Azure Cosmos DB-ändringsflödet för att läsa och agera på omedelbart. Data kan också att sparas i *beräknad RT* så att andra system kan fråga de bearbetade realtidsdata till skillnad från kör en i realtid fråga själva.
+* **Hastighetslagret:** Den **hastighetslagret** består av Spark med Azure Cosmos DB-ändringsflödet för att läsa och agera på omedelbart. Data kan också att sparas i *beräknad RT* så att andra system kan fråga de bearbetade realtidsdata till skillnad från kör en i realtid fråga själva.
     * Den [Streaming frågan från Cosmos-DB ändra flöde](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala skriptet kör en strömmande fråga från Azure Cosmos DB-ändringsflödet för att beräkna ett intervall för antal från spark-shell.
     * Den [Streaming taggar frågan från Cosmos-DB ändra flöde](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala skriptet kör en strömmande fråga från Azure Cosmos DB-ändringsflödet för att beräkna ett intervall för antal taggar från spark-shell.
   
@@ -278,4 +276,4 @@ Om du inte redan gjort hämta Spark till Azure Cosmos DB-anslutningen från den 
 * [Demonstrationer för ändringsfeed](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream bearbeta ändringar med hjälp av Azure Cosmos DB Change Feed och Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.
+Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.

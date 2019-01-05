@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339271"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053916"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -75,11 +75,11 @@ Det finns flera verktyg för öppen källkod för att hantera din IoT-hubb.
 
 * Ett Windows-program som kallas [enhetsutforskare](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Ett plattformsoberoende Visual Studio Code-tillägg kallas [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit).
+* Ett plattformsoberoende Visual Studio Code-tillägg kallas [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * En plattformsoberoende Python CLI kallas [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-Den här självstudien används den grafiska *enhetsutforskare* verktyget. Du kan använda den *Azure IoT Hub Toolkit-tillägget för VS Code* om du utvecklar i VS Code. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
+Den här självstudien används den grafiska *enhetsutforskare* verktyget. Du kan använda den *Azure IoT-verktyg för VS Code* om du utvecklar i VS Code. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
 
 Device explorer-verktyg använder Azure IoT service-bibliotek för att utföra olika funktioner på IoT-hubben, som att lägga till enheter. Om du använder device explorer-verktyg för att lägga till en enhet, får du en anslutningssträng för din enhet. Du behöver den här anslutningssträngen för körs.
 

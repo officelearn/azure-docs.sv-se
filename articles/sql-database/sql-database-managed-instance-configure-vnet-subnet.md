@@ -11,26 +11,27 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 53aba5192ddf57598965fcfe0db5f2b18423c7e9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/03/2019
+ms.openlocfilehash: 1718177a0902bc7049eb6986e5a1d128eeb3f233
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346607"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040966"
 ---
 # <a name="configure-an-existing-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Managed Instance
 
-Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) och undernätet dedikerade endast för hanterade instanser. Du kan använda det befintliga virtuella nätverket och undernätet om den har konfigurerats enligt den [hanterad instans-VNet-krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
+Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) och undernätet dedikerade endast för hanterade instanser. Du kan använda det befintliga virtuella nätverket och undernätet om den har konfigurerats enligt den [hanterad instans-VNet-krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-Om du har ett nytt undernät som fortfarande inte har konfigurerats kan du inte är säker på att justeras undernätet med den [krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements), eller om du vill kontrollera är undernätet fortfarande kompatibel med den [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements) när vissa ändringar som du gjort, som du kan validera och ändra ditt nätverk med hjälp av skript som beskrivs i det här avsnittet. 
+Om du har ett nytt undernät som fortfarande inte har konfigurerats kan du inte är säker på att justeras undernätet med den [krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements), eller om du vill kontrollera är undernätet fortfarande kompatibel med den [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements) när vissa ändringar som du gjort, som du kan validera och ändra ditt nätverk med hjälp av skript som beskrivs i det här avsnittet.
 
   > [!Note]
-  > Du kan bara skapa en hanterad instans i Resource Manager-nätverk. Azure Vnet som distribuerats med klassisk distributionsmodell är inte suported. Se till att du beräkna undernätets storlek genom att följa riktlinjerna i den [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances) avsnittet eftersom undernätet inte kan ändras när du har distribuerat resurser i.
+  > Du kan bara skapa en hanterad instans i Resource Manager-nätverk. Azure Vnet som distribuerats med klassisk distributionsmodell är inte suported. Se till att du beräkna undernätets storlek genom att följa riktlinjerna i den [avgör storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md) artikeln, eftersom undernätet inte kan ändras när du har distribuerat resurser i.
 
-## <a name="validate-and-modify-an-existing-virtual-network"></a>Validera och ändra ett befintligt virtuellt nätverk 
+## <a name="validate-and-modify-an-existing-virtual-network"></a>Validera och ändra ett befintligt virtuellt nätverk
 
 Om du vill skapa en hanterad instans i ett befintligt undernät, rekommenderar vi följande PowerShell-skript för att förbereda undernätet:
+
 ```powershell
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
 
@@ -43,6 +44,7 @@ $parameters = @{
 
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
+
 Förberedelse av undernät görs i tre enkla steg:
 
 1. Verifiera – valda virtuella nätverket och undernätet verifieras för hanterad instans nätverkskraven.

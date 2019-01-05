@@ -1,19 +1,19 @@
 ---
 title: Skapa Azure Cosmos DB-tabeller som stöd för skalning och prestanda
-description: 'Azure Storage-Tabelldesignguide: Utforma skalbara och högpresterande tabeller i Azure Cosmos DB och Azure Storage-tabell'
-author: SnehaGunda
-ms.author: sngun
+description: 'Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller i Azure Cosmos DB och Azure Storage-tabell'
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140956"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044186"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller
 
@@ -132,7 +132,7 @@ Kontonamn, tabell och **PartitionKey** tillsammans identifierar partitionen i la
 
 I Table service, en enskild nod tjänst eller mer Slutför partitioner och skalor för tjänsten genom att dynamiskt belastningsutjämning partitionerna mellan noder. Om en nod är under belastning, table service kan *dela* antal partitioner som underhålls av noden till andra noder; när trafik löst, kan tjänsten *merge* partitionsintervall från tyst noder tillbaka till en enda nod.  
 
-Mer information om de interna detaljerna för tabelltjänsten, särskilt hur tjänsten hanterar partitionerna, finns i dokumentet [Microsoft Azure Storage: A med hög Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Mer information om de interna detaljerna för tabelltjänsten, särskilt hur tjänsten hanterar partitionerna, finns i dokumentet [Microsoft Azure Storage: En högtillgänglig Molnlagringstjänst med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Entitetsgrupptransaktioner
 I tabelltjänsten är Entitetsgrupptransaktioner (EGTs) bara inbyggd mekanism för att utföra atomiska uppdateringar i flera entiteter. EGTs också kallas *batch transaktioner* i viss dokumentation. EGTs endast tillämpas på entiteter som lagras i samma partition (dela samma partitionsnyckel i en viss tabell), så när du behöver atomiska transaktionella beteende i flera entiteter som du behöver för att säkerställa att dessa entiteter i samma partition. Det här är ofta en orsak till att hålla flera typer av enheter i samma tabell (och partition) och inte använder flera tabeller för olika enhetstyper. En enda EGT tillämpas på högst 100 entiteter.  Om du skickar in flera samtidiga EGTs för bearbetning, är det viktigt att se till att dessa EGTs inte fungerar på enheter som är vanliga i EGTs som annars bearbetning kan fördröjas.
@@ -586,7 +586,7 @@ Om du vill aktivera sökning efter efternamn med entitetsstruktur som anges ovan
 
 För det första alternativet, du skapa en blob för varje unikt efternamn och varje blob store en lista över de **PartitionKey** (avdelning) och **RowKey** (anställnings-id) värden för anställda som har det senaste namnet. När du lägger till eller ta bort en medarbetare, bör du kontrollera att innehållet i den relevanta blobben är konsekvent med enheterna som anställda.  
 
-<u>Alternativ #2:</u> skapa index entiteter i samma partition  
+<u>Alternativ #2:</u> Skapa index entiteter i samma partition  
 
 För det andra alternativet, använder du index entiteter som lagrar följande data:  
 
@@ -608,7 +608,7 @@ Följande steg beskriver hur du bör följa när du behöver leta upp alla anst�
 2. Parsa listan över anställnings-ID i fältet EmployeeIDs.  
 3. Om du behöver ytterligare information om var och en av dessa anställda (till exempel sina e-postadresser) kan du hämta var och en av anställdas entiteter med hjälp av **PartitionKey** värdet ”Försäljning” och **RowKey** värden från den lista över anställda som du hämtade i steg 2.  
 
-<u>Alternativ #3:</u> skapa index entiteter i en separat partition eller tabell  
+<u>Alternativ #3:</u> Skapa index entiteter i en separat partition eller tabell  
 
 Det tredje alternativet Använd index entiteter som lagrar följande data:  
 
@@ -1300,7 +1300,7 @@ Resten av det här avsnittet beskrivs några av de funktioner i Storage-klientbi
 #### <a name="retrieving-heterogeneous-entity-types"></a>Hämtning av heterogena entitetstyper
 Om du använder Storage-klientbiblioteket, har du tre alternativ för att arbeta med flera typer av enheter.  
 
-Om du vet vilken typ av enhet som lagras med ett visst **RowKey** och **PartitionKey** värden, kan du ange entitetstypen när du hämtar entitet som du ser i föregående två exempel som Hämta entiteter av typen **EmployeeEntity**: [kör en punkt-fråga med hjälp av Storage-klientbiblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med hjälp av LINQ](#retrieving-multiple-entities-using-linq).  
+Om du vet vilken typ av enhet som lagras med ett visst **RowKey** och **PartitionKey** värden, kan du ange entitetstypen när du hämtar entitet som du ser i föregående två exempel som Hämta entiteter av typen **EmployeeEntity**: [Kör en punkt-fråga med hjälp av Storage-klientbiblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med hjälp av LINQ](#retrieving-multiple-entities-using-linq).  
 
 Det andra alternativet är att använda den **DynamicTableEntity** typ (en egenskapsuppsättning) i stället för en konkret POCO entitetstypen (det här alternativet kan också förbättra prestanda eftersom det finns inget behov att serialisera och deserialisera entiteten till .NET-typer). Följande C#-kod potentiellt hämtar flera entiteter av olika typer från tabellen, men returnerar alla entiteter som **DynamicTableEntity** instanser. Därefter använder den **EntityType** som bestämmer vilken typ av varje entitet:  
 
@@ -1507,9 +1507,9 @@ I den här asynkrona exempelvis ser du följande ändringar från den synkrona v
 Klientprogrammet kan anropa flera asynkrona metoder som det här och varje metodanropet ska köras på en separat tråd.  
 
 ### <a name="credits"></a>Eftertexter
-Vi vill tacka följande medlemmarna i Azure-teamet för sina bidrag: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah Serdar Ozler samt och Tom Hollander från Microsoft DX. 
+Vi vill tacka följande medlemmarna i Azure-teamet för sina bidrag: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah och Serdar Ozler samt Tom Hollander från Microsoft DX. 
 
-Vi vill även tacka följande Microsoft-MVPs för sina värdefull feedback under granskningscykler: Igor Papirov och Edward Bakker.
+Vi vill också tack följande Microsoft-MVPs för sina värdefull feedback under granskningscykler: Igor Papirov och Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png

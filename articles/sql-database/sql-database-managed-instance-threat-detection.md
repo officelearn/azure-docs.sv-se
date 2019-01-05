@@ -12,12 +12,12 @@ ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: a456a214143f39ed9504af40129f9199b2535e46
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c59d0ea489343dbf748412910c4f759f601de0e2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997140"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042384"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection-preview"></a>Azure SQL Database Managed Instance Hotidentifiering (förhandsvisning)
 
@@ -28,20 +28,21 @@ Du kan ta emot aviseringar om de identifierade hoten via [e-postmeddelanden](sql
 [Hotidentifiering](sql-database-threat-detection-overview.md) är en del av den [SQL Avancerat skydd](sql-advanced-threat-protection.md) (ATP) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ATP-portalen. Threat detection-tjänsten debiteras 15$ / månad per Managed Instance med första 30 dagarna kostnadsfritt.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Konfigurera identifiering av hot för din hanterade instans i Azure portal
+
 1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
-2. Gå till konfigurationssidan för den hanterade instansen som du vill skydda. I den **inställningar** väljer **Hotidentifiering**. 
-3. Konfigurationssida för identifiering av hot 
+2. Gå till konfigurationssidan för den hanterade instansen som du vill skydda. I den **inställningar** väljer **Hotidentifiering**.
+3. Konfigurationssida för identifiering av hot
    - Aktivera **på** Hotidentifiering.
    - Konfigurera den **lista över e-postmeddelanden** att få säkerhetsaviseringar när avvikande databasaktiviteter.
-   - Välj den **Azure storage-konto** där avvikande threat granskningsposter sparas. 
-4.  Klicka på **spara** att spara principen för nya eller uppdaterade hot.
+   - Välj den **Azure storage-konto** där avvikande threat granskningsposter sparas.
+4. Klicka på **spara** att spara principen för nya eller uppdaterade hot.
 
    ![Identifiering av hot](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Hotidentifiering](sql-database-threat-detection-overview.md). 
-- Lär dig mer om hanterad instans, se [vad är en hanterad instans](sql-database-managed-instance.md). 
-- Läs mer om [Hotidentifiering för enkel databas](sql-database-threat-detection.md). 
-- Läs mer om [hanterad instans granskning](https://go.microsoft.com/fwlink/?linkid=869430). 
+- Läs mer om [Hotidentifiering](sql-database-threat-detection-overview.md).
+- Lär dig mer om hanterad instans, se [vad är en hanterad instans](sql-database-managed-instance.md).
+- Läs mer om [Hotidentifiering för enkel databas](sql-database-threat-detection.md).
+- Läs mer om [hanterad instans granskning](https://go.microsoft.com/fwlink/?linkid=869430).
 - Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).

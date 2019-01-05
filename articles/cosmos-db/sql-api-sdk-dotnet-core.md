@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Core API, SDK och resurser'
 description: Lär dig allt om SQL .NET Core API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Azure Cosmos DB .NET Core SDK.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413514"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053559"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 * Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta CosmosDatabases, CosmosContainers och CosmosItems klasser.
 * Stöd för strömmar.
 * Uppdatera CosmosResponseMessage från servern för att returnera statuskod och utlöser undantag endast när inget svar returneras.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Förbättringar i logik för omprövning under en redundansväxling för StoredProcedure utföra anrop.
+
+* Gjort DocumentClientEventSource singleton. 
+
+* Åtgärda GatewayAddressCache tidsgräns som inte respekterar ConnectionPolicy RequestTimeout.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Om du har frågor som rör detta SDK kan skicka till [StackOverflow](https://sta
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 december 2018 |--- |
 | [2.2.0](#2.2.0) |07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |

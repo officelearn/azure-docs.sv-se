@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794557"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055157"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -145,11 +145,13 @@ Server hälsostatus för slutpunkter för ”ingen aktivitet” innebär Servers
 
 En serverslutpunkt kan inte logga synkronisering av följande skäl:
 
-- Servern har nått det maximala antalet samtidiga synkroniseringssessioner. Azure File Sync stöder för närvarande 2 active sync-sessioner per processor eller högst 8 active sync-sessioner per server.
+- Servern har en aktiv VSS-synkroniseringssessionen (SnapshotSync). När en VSS-synkroniseringssessionen är aktiv för en serverslutpunkt kan inte andra serverslutpunkter på samma volym starta start synkroniseringssession tills VSS-synkroniseringssessionen har slutförts.
 
-- Servern har en aktiv VSS-synkroniseringssessionen (SnapshotSync). När en VSS-synkroniseringssessionen är aktiv för en serverslutpunkt kan inte andra serverslutpunkter på servern starta en start-synkroniseringssessionen tills VSS-synkroniseringssessionen har slutförts.
+    Du kan kontrollera den aktuella synkroniseringsaktivitet på en server [hur jag för att övervaka förloppet för aktuella synkroniseringssession?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Du kan kontrollera den aktuella synkroniseringsaktivitet på en server [hur jag för att övervaka förloppet för aktuella synkroniseringssession?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Servern har nått det maximala antalet samtidiga synkroniseringssessioner. 
+    - Agent-version 4.x och senare: Filgränsen varierar beroende på tillgängliga systemresurser.
+    - Agentversion 3.x: 2 active sync-sessioner per processor eller högst 8 active sync-sessioner per server.
 
 > [!Note]  
 > Om servertillståndet på bladet registrerade servrar är ”visas Offline”, kan du utföra stegen i den [Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline” ](#server-endpoint-noactivity) avsnittet.
@@ -244,13 +246,14 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 **ItemResults log - per-item synkroniseringsfel**  
 | HRESULT | HRESULT (decimal) | Felsträng | Problem | Åtgärd |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Filen har genererat permanenta fel under synkronisering och därför endast försök att synkronisera en gång per dag. Det underliggande felet finns i en tidigare händelselogg. | I agenter R2 (2.0) och senare, det ursprungliga felet i stället för den här visas. Uppgradera till den senaste agenten för att se det underliggande felet eller titta på tidigare händelseloggar för att hitta orsaken till det ursprungliga felet. |
-| 0x7B | 123 | ERROR_INVALID_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [Azure Files riktlinjerna för namngivning](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och listan med tecken som inte stöds nedan. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [Azure Files riktlinjerna för namngivning](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och listan med tecken som inte stöds nedan. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | En fil har ändrats, men ändringen har ännu inte identifierats av synkronisering. Återställer synkronisera om den här ändringen har identifierats. | Ingen åtgärd krävs. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Fil- eller katalogändring kan inte synkroniseras än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. |
+| 0x7B | 123 | ERROR_INVALID_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [hantering av tecken som inte stöds](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) för mer information. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [hantering av tecken som inte stöds](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) för mer information. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | En fil har ändrats, men ändringen har ännu inte identifierats av synkronisering. Återställer synkronisera om den här ändringen har identifierats. | Ingen åtgärd krävs. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Filen kan inte synkroniseras eftersom Azure file share gränsen har nåtts. | För att lösa problemet, se [du nått lagringsgränsen för Azure file-resursen](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) avsnittet i felsökningsguiden. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa om filen är krypterad med en lösning som inte stöds (till exempel NTFS EFS) eller filen har ett väntetillstånd. | Om filen är krypterad med en lösning för stöds inte dekryptera filen och använder en stöds encryption-lösningen. En lista över supportlösningar finns i [krypteringslösningar](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) avsnitt i Planeringsguiden. Om filen finns i en delete väntetillstånd, kommer filen tas bort när alla öppna filreferenser stängs. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
 
 #### <a name="handling-unsupported-characters"></a>Hantering av stöds inte tecken

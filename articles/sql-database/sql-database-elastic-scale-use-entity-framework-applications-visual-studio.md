@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 71f024c81983fcb9c3e99bdf633a5bde306452b8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873248"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051245"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database-klientbibliotek med Entity Framework
 Det här dokumentet visar de ändringar i ett Entity Framework-program som behövs för att integrera med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md). Fokus ligger på att skriva [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) med Entity Framework **Code First** metod. Den [Code först – ny databas](https://msdn.microsoft.com/data/jj193542.aspx) självstudien för EF fungerar som exemplet som körs i hela dokumentet. Exempelkoden som åtföljer det här dokumentet är en del av verktygen för elastiska databaser uppsättning exempel i Visual Studio-kodexempel.
@@ -42,10 +42,10 @@ När du har skapat dessa databaser, fyller du i platshållare i **Program.cs** m
 ## <a name="entity-framework-workflows"></a>Entity Framework arbetsflöden
 Entity Framework utvecklare förlitar sig på något av följande fyra arbetsflöden att bygga program och säkerställa persistence för programobjekt: 
 
-* **Kod först (ny databas)**: The EF utvecklare skapar modellen i programkoden och sedan EF genererar databasen från den. 
-* **Kod först (befintlig databas)**: utvecklaren kan EF generera programkoden för modellen från en befintlig databas.
-* **Modellera första**: utvecklaren skapar modellen i EF designer och sedan EF skapar databasen från modellen.
-* **Databasen första**: utvecklare använder EF verktyg för att härleda modellen från en befintlig databas. 
+* **Kod först (ny databas)**: EF-utvecklare skapar modellen i programkoden och sedan EF genererar databasen från den. 
+* **Kod först (befintlig databas)**: Utvecklaren kan EF generera programkoden för modellen från en befintlig databas.
+* **Modellera första**: Utvecklaren skapar modellen i EF designer och sedan EF skapar databasen från modellen.
+* **Databasen första**: Utvecklare använder EF verktyg för att härleda modellen från en befintlig databas. 
 
 Alla dessa metoder är beroende av DbContext-klassen för att hantera transparent databasanslutningar och databasschemat för ett program. Olika konstruktorer på basklassen DbContext gör det möjligt att olika nivåer av kontroll över relationen skapades, start av databasen och schemat skapas. Utmaningar uppstå främst från det faktum att databashantering för anslutning som tillhandahålls av EF korsar med funktioner för hantering av anslutningen databeroende routning gränssnitt som tillhandahålls av klientbiblioteket för elastiska databaser. 
 
@@ -59,9 +59,9 @@ Fragmentkartehanteraren skyddar användare från inkonsekvent vyer i shardlet da
 ## <a name="requirements"></a>Krav
 När du arbetar med både klientbibliotek för elastiska databaser och Entity Framework-API: er som du vill behålla följande egenskaper: 
 
-* **Skala ut**: lägga till eller ta bort databaser från datanivån för delat program efter behov för kapacitetskraven för programmet. Det innebär att kontroll över skapandet och borttagningen av databaser och använder karthanteraren API: er för elastiska databaser för att hantera databaser och mappningar av shardletar. 
-* **Konsekvens**: programmet använder horisontell partitionering och använder funktioner för databeroende routning av klientbiblioteket. Om du vill undvika skadade eller fel frågeresultat är om asynkrona anslutningar via fragmentkartehanteraren. Detta bevarar också verifiering och konsekvens.
-* **Code första**: att behålla praktiskt EFS kod första paradigm. I den första koden mappas klasser i programmet transparent till de underliggande strukturerna i databasen. Programkoden samverkar med DbSets som maskerar de flesta aspekter som ingår i den underliggande databasen-bearbetningen.
+* **Skala ut**: Att lägga till eller ta bort databaser från datanivån för delat program efter behov för kapacitetskraven för programmet. Det innebär att kontroll över skapandet och borttagningen av databaser och använder karthanteraren API: er för elastiska databaser för att hantera databaser och mappningar av shardletar. 
+* **Konsekvens**: Programmet använder horisontell partitionering och använder funktioner för databeroende routning av klientbiblioteket. Om du vill undvika skadade eller fel frågeresultat är om asynkrona anslutningar via fragmentkartehanteraren. Detta bevarar också verifiering och konsekvens.
+* **Code första**: Att behålla praktiskt EFS kod första paradigm. I den första koden mappas klasser i programmet transparent till de underliggande strukturerna i databasen. Programkoden samverkar med DbSets som maskerar de flesta aspekter som ingår i den underliggande databasen-bearbetningen.
 * **Schemat**: Entity Framework hanterar inledande databasen schemat skapas och efterföljande schemat utvecklingen via migreringar. Genom att behålla de här funktionerna, är anpassning av din app enkelt som data utvecklas. 
 
 Följande riktlinjer anger hur uppfyller dessa krav för Code First-program med verktyg för elastiska databaser. 
@@ -189,7 +189,7 @@ Kodexemplen ovan illustrerar de standard-konstruktorn skriver krävs för ditt p
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Shard schemadistributionen via EF-migrering
 Automatisk schemahantering är att underlätta tillhandahålls av Entity Framework. I samband med program med hjälp av verktyg för elastiska databaser som du vill behålla den här funktionen att automatiskt etablera schemat till nyligen skapade shards när databaserna läggs till delat program. I första hand är att öka kapaciteten på datanivån för fragmenterade (sharded) program som använder EF. Förlita dig på EFS funktioner för schemahantering minskar enklare för administration av databasen med ett delat program som bygger på EF. 
 
-Schemadistributionen via EF-migrering fungerar bäst på **inte öppnats anslutningar**. Detta skiljer sig från det scenariot för databeroende routning som förlitar sig på öppnade anslutningen tillhandahålls av elastic database-klientens API. En annan skillnaden är kravet på konsekvens: vid önskvärt att garantera konsekvens för alla databeroende routning anslutningar att skydda mot manipulering av samtidiga fragment kartan, det är inte ett problem med inledande schemadistributionen till en ny databas som har ännu inte har registrerats i fragmentkartan och ännu inte tilldelats håller shardletar. Du kan därför förlitar sig på vanlig databasanslutningar för det här scenariot, till skillnad från databeroende routning.  
+Schemadistributionen via EF-migrering fungerar bäst på **inte öppnats anslutningar**. Detta skiljer sig från det scenariot för databeroende routning som förlitar sig på öppnade anslutningen tillhandahålls av elastic database-klientens API. En annan skillnaden är konsekvens-krav: När önskvärt att garantera konsekvens för alla databeroende routning anslutningar att skydda mot manipulering av samtidiga fragment kartan, är det inte ett problem med ursprungliga schema-distribution till en ny databas som har ännu inte har registrerats i fragmentkartan och inte ännu allokerats för att lagra shardletar. Du kan därför förlitar sig på vanlig databasanslutningar för det här scenariot, till skillnad från databeroende routning.  
 
 Detta leder till en metod där schemadistributionen via EF-migrering är direkt kopplade till registreringen av den nya databasen som ett fragment i programmets fragmentkartan. Detta är beroende av följande krav: 
 
@@ -236,13 +236,13 @@ Det här exemplet visar metoden **RegisterNewShard** som registrerar fragmentet 
         } 
 
         // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString) 
+        private static string SetInitializerForConnection(string connectionString) 
         { 
             // You want existence checks so that the schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connnectionString; 
+            return connectionString; 
         } 
 
 En kan ha använt versionen av konstruktorn ärvd från basklassen. Men koden måste se till att standard-initieraren för EF används när du ansluter. Kortsiktiga detour därför i den statiska metoden innan du anropar i Basklasskonstruktorn med anslutningssträngen. Observera att registreringen av fragment ska köras i en annan programdomän eller process för att se till att inställningarna för EF initieraren inte står i konflikt. 

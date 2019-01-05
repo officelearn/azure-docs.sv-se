@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715774"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050123"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering till Azure Key Vault med hjälp av .NET
 
@@ -29,14 +29,14 @@ Med developer autentiseringsuppgifter under lokal utveckling är säkrare efters
 
 Den `Microsoft.Azure.Services.AppAuthentication` biblioteket hanterar autentisering automatiskt, vilket i sin tur gör att du kan fokusera på din lösning i stället för dina autentiseringsuppgifter.
 
-Den `Microsoft.Azure.Services.AppAuthentication` biblioteket har stöd för lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD-integrerad autentisering. När de distribueras till Azure App Services eller en Azure virtuell dator (VM), använder biblioteket automatiskt [hanterade identiteter för Azure-tjänster](/azure/active-directory/msi-overview). Ingen kod eller konfigurationsändringar krävs. Biblioteket stöder även direkt användning av Azure AD [klientautentiseringsuppgifter](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhetskontext som inte kan fastställas under lokal utveckling.
+Den `Microsoft.Azure.Services.AppAuthentication` biblioteket har stöd för lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD-integrerad autentisering. När de distribueras till en Azure-resurs som har stöd för en hanterad identitet, använder biblioteket automatiskt [hanterade identiteter för Azure-resurser](/azure/active-directory/msi-overview). Ingen kod eller konfigurationsändringar krävs. Biblioteket stöder även direkt användning av Azure AD [klientautentiseringsuppgifter](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhetskontext som inte kan fastställas under lokal utveckling.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Med hjälp av klientbiblioteket
 
 För .NET-program, är det enklaste sättet att arbeta med en hanterad identitet via den `Microsoft.Azure.Services.AppAuthentication` paketet. Här är hur du kommer igång:
 
-1. Lägg till en referens till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet-paket i ditt program.
+1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program. 
 
 2. Lägg till följande kod:
 
@@ -44,16 +44,13 @@ För .NET-program, är det enklaste sättet att arbeta med en hanterad identitet
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 Den `AzureServiceTokenProvider` klass cachelagrar token i minnet och hämtar från Azure AD precis före förfallodatum. Därför behöver du inte längre kontrollera förfallodatum innan du anropar den `GetAccessTokenAsync` metoden. Bara anropa metoden när du vill använda token. 
@@ -234,8 +231,5 @@ Följande alternativ stöds:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [hanterade identiteter för Azure-resurser](/azure/app-service/overview-managed-identity).
-
-- Lär dig olika sätt att [autentisera och auktorisera appar](/azure/app-service/overview-authentication-authorization).
-
-- Läs mer om Azure AD [autentiseringsscenarier](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).
+- Läs mer om [hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/).
+- Läs mer om [autentiseringsscenarier för Azure AD](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).

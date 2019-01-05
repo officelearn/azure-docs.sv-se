@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021891"
+ms.locfileid: "54052487"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [ställa in Application Insights i projektet](../../application-insights/app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).
@@ -129,12 +129,12 @@ Du kan automatisera instrumentpanel skapas med hjälp av [Azure Resource Manager
 UNDERSÖK
 
 * [**Programkartan** ](app-map.md) -Active karta med komponenterna i ditt program, som härletts från beroendeinformationen.
-* [**Smart identifiering** ](../../application-insights/app-insights-proactive-diagnostics.md) -granska de senaste aviseringarna i prestanda.
+* [**Smart identifiering** ](../../azure-monitor/app/proactive-diagnostics.md) -granska de senaste aviseringarna i prestanda.
 * [**Live Stream** ](../../azure-monitor/app/live-stream.md) – en fast uppsättning nästan omedelbar mått, användbart när du distribuerar en ny version eller felsökning.
 * [**Tillgänglighet / Webbtester** ](../../azure-monitor/app/monitor-web-app-availability.md) -skickar regelbundna begäranden till webbappen från runt world.*
-* [**Fel, prestanda** ](../../application-insights/app-insights-web-monitor-performance.md) -undantag, Felfrekvens och svarstider för förfrågningar från din app på förfrågningar till din app och [beroenden](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Prestanda** ](../../application-insights/app-insights-web-monitor-performance.md) -svarstid, beroende svarstider.
-* [Servrar](../../application-insights/app-insights-web-monitor-performance.md) -prestandaräknare. Tillgänglig om du [installera Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Fel, prestanda** ](../../azure-monitor/app/web-monitor-performance.md) -undantag, Felfrekvens och svarstider för förfrågningar från din app på förfrågningar till din app och [beroenden](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Prestanda** ](../../azure-monitor/app/web-monitor-performance.md) -svarstid, beroende svarstider.
+* [Servrar](../../azure-monitor/app/web-monitor-performance.md) -prestandaräknare. Tillgänglig om du [installera Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Webbläsaren** -sidan Översikt och AJAX-prestanda. Tillgänglig om du [instrumentera dina webbsidor](../../azure-monitor/app/javascript.md).
 * **Användning** -sidan antal vy, användare och sessioner. Tillgänglig om du [instrumentera dina webbsidor](../../azure-monitor/app/javascript.md).
 

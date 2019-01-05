@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976587"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039477"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
@@ -142,7 +142,7 @@ Hitta IP-adress för varje dator som du vill replikera:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Steg 2: Skapa ett valv och välj ett replikeringsmål
 
-1. I Azure-portalen markerar du **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
+1. I Azure-portalen väljer du **skapa en resurs** > **hanteringsverktyg** > **Backup och Site Recovery**.
 2. I **Namn** anger du ett eget namn som identifierar valvet. 
 3. I **resursgrupp**, skapa eller välj en resursgrupp. Vi använder **contosoRG**.
 4. I **plats**, anger du den Azure-regionen. Använder vi **Västeuropa**.

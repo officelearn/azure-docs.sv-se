@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634436"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050497"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Flytta data till vFXT-kluster – parallella mata in 
 
@@ -19,7 +19,7 @@ När du har skapat ett nytt kluster vFXT, kanske din första uppgift att flytta 
 
 Eftersom Avere vFXT klustret är en skalbar flera cache, är det snabbaste och mest effektiva sättet att kopiera data till den med flera klienter. Den här tekniken parallelizes inmatning av filer och objekt.
 
-![Diagram över flera klienten och flertrådiga dataförflyttning: längst upp till vänster, en ikon för lagring för maskinvara på plats har flera pilar som kommer från den. Pilarna pekar på fyra klientdatorer. Från varje klientdator tre pilar som pekar mot Avere vFXT. Från Avere-vFXT flera pilar som pekar till Blob storage.](media/avere-vfxt-parallel-ingest.png) 
+![Diagram över flera klienten och flertrådiga dataförflyttning: En ikon för lagring för maskinvara på plats har flera pilar som kommer från den längst ned till vänster. Pilarna pekar på fyra klientdatorer. Från varje klientdator tre pilar som pekar mot Avere vFXT. Från Avere-vFXT flera pilar som pekar till Blob storage.](media/avere-vfxt-parallel-ingest.png) 
 
 Den ``cp`` eller ``copy`` kommandon som används ofta för att överföra data från en lagringssystemet till en annan med är single-threaded processer som kopiera endast en fil i taget. Det innebär att filservern är mata in endast en fil i taget – vilket är slöseri med resurser för det klustret.
 
@@ -167,7 +167,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Skapa filen manifest
 
-När du har förståelse metoderna ovan (flera kopia-trådar per mål, flera mål per klient, flera klienter per nätverkstillgänglig källa filsystem), Överväg att den här rekommendationen: skapa filen manifest och använda dem med kopia kommandon till flera klienter.
+När du har förståelse Överväg metoderna ovan (flera kopia-trådar per mål, flera mål per klient, flera klienter per nätverkstillgänglig källa filsystem), den här rekommendationen: Skapa filen manifest och använda dem med copy-kommandon till flera klienter.
 
 Det här scenariot använder UNIX ``find`` kommando för att skapa manifest av filer och kataloger:
 
@@ -272,7 +272,7 @@ Om du vill fylla en Azure-molnet-volym med ett Avere-kluster med hjälp av msrsy
 1. Installera msrsync och dess krav (rsync och Python 2.6 eller senare)
 1. Fastställa det totala antalet filer och kataloger som ska kopieras.
 
-   Till exempel använda verktyget Avere ``prime.py`` med argument ```prime.py --directory /path/to/some/directory``` (tillgängligt genom att hämta URL: en https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py).
+   Till exempel använda verktyget Avere ``prime.py`` med argument ```prime.py --directory /path/to/some/directory``` (tillgängligt genom att hämta URL: en https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py).
 
    Om du inte använder ``prime.py``, du kan beräkna hur många objekt med Gnu ``find`` verktyget på följande sätt:
 

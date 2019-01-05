@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63ee308c50a2d5399dd395dc90c2666fae0bbf49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: be7cb2e602f1c8c0c8471c866d68c28e0ec37498
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999466"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042350"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](../../application-insights/app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Infoga skriptet precis före `</head>`-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Exempel:
 
 * I ett ASP.NET MVC-projekt lägger du till det i `View\Shared\_Layout.cshtml`
-* På en SharePoint-plats öppnar du [Webbplatsinställningar/Huvudsida](../../application-insights/app-insights-sharepoint.md) på kontrollpanelen.
+* På en SharePoint-plats öppnar du [Webbplatsinställningar/Huvudsida](../../azure-monitor/app/sharepoint.md) på kontrollpanelen.
 
 Skriptet innehåller instrumenteringsnyckeln som dirigerar data till din Application Insights-resurs. 
 
@@ -118,7 +118,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 ![Öppna appens resurs på portal.azure.com och klicka på Inställningar, Webbläsare.](./media/javascript/03.png)
 
-Inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](../../application-insights/app-insights-troubleshoot-faq.md).
+Inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](../../azure-monitor/app/troubleshoot-faq.md).
 
 Bladet Webbläsare är ett [Metrics Explorer-blad](../../azure-monitor/app/metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 
@@ -227,7 +227,7 @@ Sidans namn kan innehålla samma tecken som en URL, men allt efter ”#” eller
 ## <a name="usage-tracking"></a>Användningsspårning
 Vill du veta vad användarna gör med din app?
 
-* [Lär dig mer om analysverktyg som användaren beteende](../../application-insights/app-insights-usage-overview.md)
+* [Lär dig mer om analysverktyg som användaren beteende](../../azure-monitor/app/usage-overview.md)
 * [Lär dig mer om API:er för mätvärden och anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -238,7 +238,7 @@ Vill du veta vad användarna gör med din app?
 
 
 ## <a name="next"></a>Nästa steg
-* [Spåra användning](../../application-insights/app-insights-usage-overview.md)
+* [Spåra användning](../../azure-monitor/app/usage-overview.md)
 * [Anpassade händelser och mätvärden](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Skapa – mät – lär](../../application-insights/app-insights-usage-overview.md)
+* [Skapa – mät – lär](../../azure-monitor/app/usage-overview.md)
 

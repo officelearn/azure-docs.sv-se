@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741895"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036570"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Lär dig mer om skalningsuppsättningsmallar för virtuell dator
 [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) är ett bra sätt att distribuera grupper av relaterade resurser. Den här självstudien visar hur du skapar en minsta lönsamma skalningsuppsättningsmall och hur du ändrar den här mallen för att passa olika scenarier. Alla exempel kommer från detta [GitHub-lagringsplatsen](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ Nästa är resursavsnittet i mallen. Här kan definiera du vad du faktiskt vill 
    "resources": [
 ```
 
-Alla resurser kräver `type`, `name`, `apiVersion`, och `location` egenskaper. Det här exemplet första resursen har typen `Microsft.Network/virtualNetwork`och namnet `myVnet`, och apiVersion `2016-03-30`. (Du hittar den senaste API-versionen för en resurstyp i [Azure REST API-dokumentation](https://docs.microsoft.com/rest/api/).)
+Alla resurser kräver `type`, `name`, `apiVersion`, och `location` egenskaper. Det här exemplet första resursen har typen [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)och namnet `myVnet`, och apiVersion `2016-03-30`. (Du hittar den senaste API-versionen för en resurstyp i [mallreferensen för Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
@@ -124,7 +124,7 @@ I det här fallet finns bara ett element i listan med det virtuella nätverket f
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Ange egenskaper för set
-Skalningsuppsättningar har många egenskaper för att anpassa de virtuella datorerna i skalningsuppsättningen. En fullständig lista över de här egenskaperna finns i den [REST API-dokumentationen för skalningsuppsättningar](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Några vanliga egenskaper anges i den här självstudien.
+Skalningsuppsättningar har många egenskaper för att anpassa de virtuella datorerna i skalningsuppsättningen. En fullständig lista över de här egenskaperna finns i den [mallreferensen](/azure/templates/microsoft.compute/virtualmachinescalesets). Några vanliga egenskaper anges i den här självstudien.
 ### <a name="supply-vm-size-and-capacity"></a>Ange storlek och kapacitet
 Skalningsuppsättningen måste veta vilka storleken på virtuell dator för att skapa (”sku namn”) och hur många sådana virtuella datorer för att skapa (”sku-kapacitet”). Om du vill se vilka VM-storlekar som är tillgängliga finns i den [VM-storlekar dokumentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

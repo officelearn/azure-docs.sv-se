@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB-Prestandatips för Java
 description: Lär dig klienten konfigurationsalternativ för att förbättra prestanda för Azure Cosmos DB-databasen
-keywords: hur vi kan förbättra databasens prestanda
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: afbeb8211baea6da363a5e0162e92a0588581346
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 62b561d35d4cacd27555163ce666e98c12d792d8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872993"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044135"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestandatips för Azure Cosmos DB och Java
 
@@ -31,7 +29,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 ## <a name="networking"></a>Nätverk
 <a id="direct-connection"></a>
 
-1. **Anslutningsläge: Använd DirectHttps**
+1. **Anslutningsläge: Använda DirectHttps**
 
     Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt när det gäller observerade klientens svarstid. Det finns en nyckeln är konfigurerad inställning är tillgänglig för att konfigurera klienten [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – den [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  Det finns två tillgängliga ConnectionModes:
 

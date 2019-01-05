@@ -1,19 +1,18 @@
 ---
 title: Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 description: Den här artikeln beskrivs hur ändringsfeed kan användas av en retail-företag att förstå användarmönster, utföra dataanalys i realtid och visualisering.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090762"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037114"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -31,7 +30,7 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
 
 ![Projektet visuellt objekt](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Data generering:** datasimulatorn används för att generera detaljhandelsdata som representerar händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn och köpa ett objekt. Du kan generera stora uppsättning exempeldata med hjälp av datageneratorn. Genererade exempeldata innehåller dokument i följande format:
+1. **Generering av data:** Datasimulatorn används för att generera detaljhandelsdata som representerar händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn och köpa ett objekt. Du kan generera stora uppsättning exempeldata med hjälp av datageneratorn. Genererade exempeldata innehåller dokument i följande format:
    
    ```json
    {      
@@ -42,9 +41,9 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
    }
    ```
 
-2. **Cosmos DB:** genererade data är butiker i en Azure Cosmos DB-samling.  
+2. **Cosmos DB:** Genererade data är butiker i en Azure Cosmos DB-samling.  
 
-3. **Ändringsfeed:** ändringsflöde att lyssna efter ändringar i Azure Cosmos DB-samlingen. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
+3. **Ändringsfeed:** Ändringsflöde att lyssna efter ändringar i Azure Cosmos DB-samlingen. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
 
 4. **Azure-funktion:** Azure Function bearbetar nya data och skickar den till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 

@@ -1,19 +1,17 @@
 ---
 title: Distribuera en webbapp med en mall – Azure Cosmos DB
 description: Lär dig hur du distribuerar ett Azure Cosmos DB-konto, Azure App Service Web Apps och ett exempelwebbprogram med en Azure Resource Manager-mall.
-services: cosmos-db, app-service\web
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076743"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041024"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager-mall
 Den här självstudiekursen visar hur du använder en Azure Resource Manager-mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) webbapp och ett exempelwebbprogram.
@@ -35,7 +33,7 @@ När du har slutfört den här självstudiekursen kommer du att kunna besvara f�
 
 Innan du följer anvisningarna i den här självstudien, kontrollera att du har den en Azure-prenumeration. Azure är en prenumeration-baserad plattform.  Läs mer om hur du skaffar en prenumeration, [köpalternativ](https://azure.microsoft.com/pricing/purchase-options/), [Medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/), eller [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a id="CreateDB"></a>Steg 1: Hämta mallfilerna
+## <a id="CreateDB"></a>Steg 1: Hämta mallfiler
 Låt oss börja genom att ladda ned mallfiler som kräver de här självstudierna.
 
 1. Ladda ned den [skapa ett Azure Cosmos DB-konto, Web Apps och distribuera en demo-programexemplet](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) mallen till en lokal mapp (till exempel C:\Azure Cosmos DBTemplates). Den här mallen distribuerar ett Azure Cosmos DB-konto, en App Service webbapp och ett webbprogram.  Den konfigurerar också automatiskt webbprogrammet för att ansluta till Azure Cosmos DB-kontot.
@@ -43,7 +41,7 @@ Låt oss börja genom att ladda ned mallfiler som kräver de här självstudiern
 
 <a id="Build"></a>
 
-## <a name="step-2-deploy-the-azure-cosmos-db-account-app-service-web-app-and-demo-application-sample"></a>Steg 2: Distribuera Azure Cosmos DB-konto, App Service-webbappen och demo-programexemplet
+## <a name="step-2-deploy-the-azure-cosmos-db-account-app-service-web-app-and-demo-application-sample"></a>Steg 2: Distribuera Azure Cosmos DB-konto, App Service-webbapp och demo-programexemplet
 Nu ska vi distribuera din första mall.
 
 > [!TIP]
@@ -58,7 +56,7 @@ Nu ska vi distribuera din första mall.
    ![Skärmbild av malldistributionen UI](./media/create-website/TemplateDeployment3.png)
 4. Klicka på **redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och på **OK**.  Parametrarna är följande:
    
-   1. WEBBPLATSNAMN: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
+   1. PLATSNAMN: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: Anger namnet på App Service-värdplanen att skapa.
    3. PLATS: Anger den Azure-plats där du kan skapa Azure Cosmos DB och web appresurser.
    4. DATABASEACCOUNTNAME: Anger namnet på Azure Cosmos DB-konto för att skapa.   
@@ -95,7 +93,7 @@ Nu ska vi distribuera andra mallen.  Den här mallen är användbar för att vis
    ![Skärmbild av malldistributionen UI](./media/create-website/TemplateDeployment3.png)
 4. Klicka på **redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och på **OK**.  Parametrarna är följande:
    
-   1. WEBBPLATSNAMN: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
+   1. PLATSNAMN: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: Anger namnet på App Service-värdplanen att skapa.
    3. PLATS: Anger den Azure-plats där du kan skapa Azure Cosmos DB och web appresurser.
    4. DATABASEACCOUNTNAME: Anger namnet på Azure Cosmos DB-konto för att skapa.   
@@ -124,7 +122,7 @@ Grattis! Du har distribuerat Azure Cosmos DB, App Service webbapp och ett exempe
 * Om du vill veta mer om Azure Resource Manager-mallar, klickar du på [här](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Nyheter
-* En guide till övergången från Webbplatser till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](https://go.microsoft.com/fwlink/?LinkId=529714)
+* En guide till övergången från webbplatser till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

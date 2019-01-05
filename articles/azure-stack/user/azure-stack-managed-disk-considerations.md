@@ -12,23 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793452"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050174"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack hanterade diskar: Skillnader och överväganden
-Den här artikeln sammanfattas de kända skillnaderna mellan Azure Stack Managed Disks och Managed Disks för Azure. Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: skillnader och överväganden
 
-Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att hantera den [lagringskonton](/azure/azure-stack/azure-stack-manage-storage-accounts) som är associerade med de Virtuella diskarna.
+Den här artikeln sammanfattas de kända skillnaderna mellan [Azure Stack Managed Disks](azure-stack-manage-vm-disks.md) och [Managed Disks för Azure](../../virtual-machines/windows/managed-disks-overview.md). Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
+
+Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att hantera den [lagringskonton](../azure-stack-manage-storage-accounts.md) som är associerade med de Virtuella diskarna.
 
 > [!Note]  
-> Hanterade diskar på Azure Stack är tillgänglig från 1808.
+> Hanterade diskar på Azure Stack är tillgänglig från 1808 har släppts.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Lathund: Managed disk skillnader
@@ -48,28 +49,32 @@ Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att 
 |Diskar prestanda analytiska |Aggregera mått och per disk-mått som stöds |Stöds inte än |
 |Migrering      |Innehåller verktyg för att migrera från befintliga ohanterade virtuella Azure Resource Manager-datorer utan att behöva återskapa den virtuella datorn  |Stöds inte än |
 
-> [!Note]  
+> [!NOTE]  
 > Hanterade diskar IOPs och dataflöde i Azure Stack är en cap-nummer i stället för ett etablerade tal, som kan påverkas av maskin- och arbetsbelastningar som körs i Azure Stack.
 
-
 ## <a name="metrics"></a>Mått
-Det finns också skillnader med mätvärden i storage:
-- Med Azure Stack skilja inte transaktionsdata i lagringsmått interna eller externa nätverksbandbredd.
-- Azure Stack-transaktionsdata i lagringsmått omfattar inte VM-åtkomst till de monterade diskarna.
 
+Det finns också skillnader med mätvärden i storage:
+
+- Med Azure Stack, görs transaktionsdata i lagringsmått ingen åtskillnad interna eller externa nätverksbandbredd.
+- Azure Stack-transaktionsdata i mätvärden i storage inkluderar inte VM-åtkomst till de monterade diskarna.
 
 ## <a name="api-versions"></a>API-versioner
+
 Managed Disks för Azure Stack stöd för följande API-versioner:
+
 - 2017-03-30
 
 ## <a name="known-issues"></a>Kända problem
-Efter att ha tillämpat 1809 uppdatera, följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
 
-   - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
-      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
-   - Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
+Efter att ha tillämpat den [1811 uppdatera](../azure-stack-update-1811.md), följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
+
+- Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
+   1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
+   2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
+- Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer om Azure Stack-datorer](azure-stack-compute-overview.md)
+
+- [Lär dig mer om Azure Stack-datorer](azure-stack-compute-overview.md)

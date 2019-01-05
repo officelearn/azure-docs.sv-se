@@ -1,18 +1,18 @@
 ---
 title: Massimport och uppdatera data i Azure Cosmos DB med hjälp av klientbiblioteket för bulk-executor
 description: 'Utföra massåtgärder i Azure Cosmos DB via massimport och Massuppdatering API: er som erbjuds av bulk executor biblioteket.'
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: e3b77ce28e5c3a236abcd9a22e643428b53ed0a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: e0176af0ce77e9306f6f0031122f8ba8a7b27e61
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834816"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038288"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB bulk executor biblioteket – översikt
  

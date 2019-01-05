@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 12/14/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb3d19d35a15d5476594948b035a39ae703f1c3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5eb896978e9b04a6ad87fe1f669d9155e9cc1433
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551587"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053219"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -31,7 +31,7 @@ För moduler som skrivits i C#, Node.js eller Java, det finns två sätt att fel
 
 Installera [Visual Studio Code](https://code.visualstudio.com/) första och Lägg sedan till följande tillägg:
 
-- [Azure IoT Edge-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+- [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker-tillägg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio paket som är specifika för språket som du utvecklar i:
   - C#, inklusive Azure Functions: [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -73,7 +73,7 @@ Om du utvecklar din modul i C kan du ytterligare Python-baserade [utvecklingsver
 
 ## <a name="create-a-new-solution-template"></a>Skapa en ny lösningsmall
 
-Följande steg visar hur du skapar en IoT Edge-modul i det önskade programmeringsspråk (inklusive Azure Functions, skriven i C#) med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Du startar genom att skapa en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla flera moduler.
+Följande steg visar hur du skapar en IoT Edge-modul i det önskade programmeringsspråk (inklusive Azure Functions, skriven i C#) med hjälp av Visual Studio Code och Azure IoT-verktyg. Du startar genom att skapa en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla flera moduler.
 
 1. Välj **visa** > **kommandot paletten**.
 

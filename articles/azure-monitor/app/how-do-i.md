@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dacd2e0d43f2c7711539896b88838adb85542963
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051738"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -83,11 +83,11 @@ Några saker att tänka på:
 ## <a name="separate-telemetry-from-different-versions"></a>Separata telemetri från olika versioner
 
 * Flera roller i en app: Använda en enda Application Insights-resurs och filtrerar på [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Att avgränsa utveckling, testning och versioner: Använd olika Application Insights-resurser. Hämta instrumenteringsnycklar från web.config. [Läs mer](../../application-insights/app-insights-separate-resources.md)
-* Reporting build-versioner: Lägga till en egenskap med hjälp av en telemetri-initierare. [Läs mer](../../application-insights/app-insights-separate-resources.md)
+* Att avgränsa utveckling, testning och versioner: Använd olika Application Insights-resurser. Hämta instrumenteringsnycklar från web.config. [Läs mer](../../azure-monitor/app/separate-resources.md)
+* Reporting build-versioner: Lägga till en egenskap med hjälp av en telemetri-initierare. [Läs mer](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Övervaka backend-servrar och skrivbordsappar
-[Använda Windows Server SDK-modulen](../../application-insights/app-insights-windows-desktop.md).
+[Använda Windows Server SDK-modulen](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualisera data
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrumentpanel med mått från flera appar

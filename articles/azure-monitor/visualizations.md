@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728354"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049970"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera logg- och måttdata som lagras i Azure Monitor.
@@ -71,7 +71,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights-arbetsböcker
-[Arbetsböcker](../application-insights/app-insights-usage-workbooks.md) är interaktiva dokument som ger djupare insikter om dina data, undersökningar och samarbete i teamet. Specifika exempel där arbetsböcker är användbara felsöker guider och incident postmortem.
+[Arbetsböcker](../azure-monitor/app/usage-workbooks.md) är interaktiva dokument som ger djupare insikter om dina data, undersökningar och samarbete i teamet. Specifika exempel där arbetsböcker är användbara felsöker guider och incident postmortem.
 
 ![Arbetsbok](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ Du kan komma åt data i loggen och måttdata i Azure Monitor via sina API med va
 - Lär dig mer om den [data som samlas in av Azure Monitor](platform/data-collection.md).
 - Lär dig mer om [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md).
 - Lär dig mer om [vyer i Azure Monitor](platform/view-designer.md).
-- Lär dig mer om [arbetsböcker i Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Lär dig mer om [arbetsböcker i Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Lär dig mer om [importera loggdata till Power BI](../azure-monitor/platform/powerbi.md).
 - Lär dig mer om den [Grafana Azure Monitor-plugin-programmet för datakällans](../azure-monitor/platform/grafana-plugin.md).
 

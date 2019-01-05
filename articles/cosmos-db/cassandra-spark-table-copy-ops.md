@@ -1,20 +1,19 @@
 ---
 title: Kopiera tabellåtgärder på Azure Cosmos DB Cassandra-API från Spark.
 description: Den här artikeln beskriver hur du kopierar data mellan tabeller i Azure Cosmos DB Cassandra-API
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 4be80bfa7354f4a4b6a13a7a34150c7052a2117b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227137"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034170"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Tabellen kopieringsåtgärder på Azure Cosmos DB Cassandra-API från Spark
 
@@ -147,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>Nästa steg
 
- * Kom igång med [skapa en Cassandra API-konto, databas och en tabell](create-cassandra-api-account-java.md) med hjälp av ett Java-program.
- * [Läsa in exempeldata i tabellen i Cassandra API](cassandra-api-load-data.md) med hjälp av ett Java-program.
- * [Fråga efter data från Cassandra API-konto](cassandra-api-query-data.md) med hjälp av ett Java-program.
+ * Kom igång med att [skapa ett konto, en databas och en tabell för Cassandra-API:et](create-cassandra-api-account-java.md) med hjälp av ett Java-program.
+ * [Läs in exempeldata i tabellen för Cassandra-API:et](cassandra-api-load-data.md) med hjälp av ett Java-program.
+ * [Fråga efter data från kontot för Cassandra-API:et](cassandra-api-query-data.md) med hjälp av ett Java-program.

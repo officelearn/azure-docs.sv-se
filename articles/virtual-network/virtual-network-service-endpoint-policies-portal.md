@@ -1,13 +1,10 @@
 ---
-title: Skapa och koppla tjänstslutpunktsprinciper - Azure-portalen | Microsoft Docs
+title: Skapa och koppla tjänstslutpunktsprinciper - Azure-portalen
+titlesuffix: Azure Virtual Network
 description: I den här artikeln lär du dig hur du ställer in och associerade tjänstslutpunktsprinciper med Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633018"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054443"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstslutpunktsprincipen med Azure portal
 
@@ -47,7 +44,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 3. Ange eller Välj följande information i **grunderna** 
 
    - Prenumeration: Välj din prenumeration för principen.    
-   - Resursgrupp: Välj **Skapa nytt** och ange *myResourceGroup*.     
+   - Resursgrupp: Välj **Skapa ny** och ange *myResourceGroup*.     
    - Namn: myEndpointPolicy
    - Plats: Västra centrala USA     
  
@@ -58,7 +55,7 @@ Logga in på Azure Portal på http://portal.azure.com.
    - Klicka på **+ Lägg till en resurs**anger, eller Välj följande information, acceptera standardinställningarna för återstående inställningar och klickar på **Lägg till**.  
    - Omfång: Välj **enda konto** eller **alla konton i prenumerationen** eller **alla konton i resursgruppen**.    
    - Prenumeration: Välj din prenumeration för storage-konto. Princip- och storage-konton kan finnas i olika prenumerationer.   
-   - Resursgrupp: Välj en resursgrupp. Krävs om anges som ”alla konton i resursgruppen” eller ”enda konto”.  
+   - Resursgrupp: Välj din resursgrupp. Krävs om anges som ”alla konton i resursgruppen” eller ”enda konto”.  
    - Resurs: mystorageaccountportal    
    - Klicka på **+ Lägg till en resurs** att fortsätta att lägga till fler resurser.
    
@@ -67,7 +64,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 5. Valfritt: Ange eller Välj följande information i **taggar**:
    
    - Nyckel: Välj din nyckel för principen. Exempel: Avd     
-   - Värde: Ange värdepar för nyckeln. Exempel: finans
+   - Värde: Ange värde-par för nyckeln. Exempel: Ekonomi
 
 6. Välj **granska + skapa**. Verifiera information och klicka på **skapa**. Om du vill göra ytterligare redigeringar, klickar du på **föregående**. 
 
@@ -105,7 +102,7 @@ Innan du kan associera en princip till ett undernät, måste du skapa ett virtue
    - Resursgrupp: Välj **Använd befintlig** och välj sedan *myResourceGroup*     
    - Plats: Västra centrala USA     
    - Undernätsnamn: privata     
-   - -Adressintervall: 10.0.0.0/24
+   - Adressintervall: 10.0.0.0/24
      
 4. I rutan **Sök efter resurser, tjänster och dokument** högst upp i portalen och börjar du skriva *myVirtualNetwork*. När **myVirtualNetwork** visas i sökresultatet väljer du det.
 5. Under **inställningar**väljer **undernät** och välj sedan **privata**.

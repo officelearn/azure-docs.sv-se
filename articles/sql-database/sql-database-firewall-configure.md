@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945475"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035278"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse brandväggsregler
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tillhandahåller en relationsdatabastjänst för Azure och andra Internetbaserade program. För att skydda dina data förhindrar brandväggar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
 
 > [!NOTE]
-> Den här artikeln gäller för Azure SQL-server och att både SQL Database och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. 
-
+> Den här artikeln gäller för Azure SQL-server och att både SQL Database och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 > [!IMPORTANT]
 > Den här artikeln har *inte* avser **Azure SQL Database Managed Instance**. Finns i följande artikel om [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) för mer information om nätverkskonfiguration som krävs.
 
@@ -58,9 +57,9 @@ Anslutningsförsök från Internet och Azure måste först passera brandväggen 
 
 Microsoft rekommenderar att du använder databasen brandväggsregler på databasnivå när det är möjligt att förbättra säkerheten och göra databasen mer portabel. Använd brandväggsregler på servernivå för administratörer och om du har många databaser med samma åtkomstkrav och du inte vill lägga tid på att konfigurera varje databas individuellt.
 
-> [!Important]
+> [!IMPORTANT]
 > Windows Azure SQL Database stöder maximalt 128 brandväggsregler.
-> [!Note]
+> [!NOTE]
 > Information om portabla databaser i kontexten för företagskontinuitet finns i [Autentiseringskrav för haveriberedskap](sql-database-geo-replication-security-config.md).
 
 ### <a name="connecting-from-the-internet"></a>Ansluta från Internet
@@ -102,7 +101,7 @@ Om du vill ställa in en brandväggsregel på servernivå på Azure-portalen, g�
 
 ### <a name="from-database-overview-page"></a>Från översiktssidan för databasen
 
-1. Om du vill ställa in en brandväggsregel på servernivå från översiktssidan för databasen, klickar du på **konfigurera serverbrandvägg** i verktygsfältet, som visas i följande bild: den **brandväggsinställningar** för SQL Database-server öppnas.
+1. Om du vill ställa in en brandväggsregel på servernivå från översiktssidan för databasen, klickar du på **konfigurera serverbrandvägg** i verktygsfältet, som visas i följande bild: Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
 
       ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -223,7 +222,7 @@ Tänk på följande om åtkomsten till Microsoft Azure SQL Database-tjänsten in
 
 - **Lokal brandväggskonfiguration:**
 
-  Innan datorn kan komma åt Azure SQL Database, kan du behöva skapa ett brandväggsundantag på din dator för TCP-port 1433. Om du skapar anslutningar inom gränsen för Azure-molnet kan du behöva öppna ytterligare portar. Mer information finns i den **SQL Database: utanför eller inuti** delen av [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Innan datorn kan komma åt Azure SQL Database, kan du behöva skapa ett brandväggsundantag på din dator för TCP-port 1433. Om du skapar anslutningar inom gränsen för Azure-molnet kan du behöva öppna ytterligare portar. Mer information finns i den **SQL-databas: Utanför eller inuti** delen av [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Network adress translation (NAT):**
 
@@ -248,7 +247,7 @@ Tänk på följande om åtkomsten till Microsoft Azure SQL Database-tjänsten in
 
 - En Snabbstart om hur du skapar en databas och en brandväggsregel på servernivå finns [skapa en Azure SQL database](sql-database-get-started-portal.md).
 - Hjälp med att ansluta till en Azure SQL-databas från öppen källkod eller program från tredje part finns i [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snabbstart med kodexempel för att ansluta klienter till SQL Database).
-- Information om ytterligare portar som du kan behöva öppna finns i den **SQL Database: utanför eller inuti** delen av [portar utöver 1433 för ADO.NET 4.5 och SQL-databas](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Information om ytterligare portar som du kan behöva öppna finns i den **SQL-databas: Utanför eller inuti** delen av [portar utöver 1433 för ADO.NET 4.5 och SQL-databas](sql-database-develop-direct-route-ports-adonet-v12.md)
 - En översikt över Azure SQL Database-säkerhet finns i [skydda databasen](sql-database-security-overview.md)
 
 <!--Image references-->

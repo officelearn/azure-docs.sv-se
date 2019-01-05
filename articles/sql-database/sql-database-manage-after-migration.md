@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 7b40496d22ffed8096ac40efcb96ec55a8ba63ca
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652803"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052725"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -108,7 +108,7 @@ Det finns flera metoder till ditt förfogande som du kan använda för att uppn�
 
 En brandvägg förhindrar åtkomst till din server från en extern entitet genom att tillåta endast specifika entiteter åtkomst till din logiska server. Som standard alla anslutningar och databaserna på den logiska servern är inte tillåtna, förutom anslutningar kommer från andra Azure-tjänster. Du kan använda en brandväggsregel för att öppna åtkomst till din server endast för enheter (till exempel en utvecklare-dator) som du godkänner, genom att tillåta att datorns IP-adress via brandväggen. Du kan också ange ett intervall av IP-adresser som du vill tillåta åtkomst till den logiska servern. Developer datorns IP-adresser i din organisation kan till exempel läggas på en gång genom att ange ett intervall i sidan med brandväggsinställningar.
 
-Du kan skapa brandväggsregler på servernivå eller på databasnivå. Nivån brandväggsregler för servern kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du anger en server och databas på brandväggsregel finns: [Skapa brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
+Du kan skapa brandväggsregler på servernivå eller på databasnivå. Nivån brandväggsregler för servern kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du anger en server och databas på brandväggsregel finns: [Skapa brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
 
@@ -130,11 +130,11 @@ Port 1433. SQL Database kommunicerar via den här porten. Om du vill ansluta ini
 
 #### <a name="sql-database-auditing"></a>SQL-Databasgranskning
 
-Du kan stänga på granskning för att spåra databashändelser med SQL-databas. [SQL Database Auditing](sql-database-auditing.md) registrerar databashändelser och skriver dem till en granskningsloggfil i ditt Azure Storage-konto. Granskning är särskilt användbart om du planerar att få insikter om potentiella överträdelser av säkerhet och principer, upprätthålla regelefterlevnad osv. Det kan du definiera och konfigurera särskilda kategorier av händelser som du tror behöver granskning och baserat på att du kan få förkonfigurerade rapporter och en instrumentpanel för att få en översikt över händelser som inträffar i din databas. Du kan tillämpa principerna granskning på databasnivå eller på servernivå. En guide för hur du aktiverar granskning för servern/databasen, se: [Aktivera SQL Database Auditing](sql-database-security-tutorial.md#enable-sql-database-auditing-if-necessary).
+Du kan stänga på granskning för att spåra databashändelser med SQL-databas. [SQL Database Auditing](sql-database-auditing.md) registrerar databashändelser och skriver dem till en granskningsloggfil i ditt Azure Storage-konto. Granskning är särskilt användbart om du planerar att få insikter om potentiella överträdelser av säkerhet och principer, upprätthålla regelefterlevnad osv. Det kan du definiera och konfigurera särskilda kategorier av händelser som du tror behöver granskning och baserat på att du kan få förkonfigurerade rapporter och en instrumentpanel för att få en översikt över händelser som inträffar i din databas. Du kan tillämpa principerna granskning på databasnivå eller på servernivå. En guide för hur du aktiverar granskning för servern/databasen, se: [Aktivera SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Hotidentifiering
 
-Med [hotidentifiering](sql-database-threat-detection.md), får du möjlighet att agera på säkerhets- eller princip överträdelser som identifierats av granskning väldigt enkelt. Du behöver inte vara säkerhetsexpert att bemöta potentiella hot eller säkerhetsöverträdelser i systemet. Hotidentifiering har också vissa inbyggda funktioner som SQL Injection identifiering. SQL-inmatning är ett försök att ändra eller skada data och ett vanligt sätt för att angripa ett databasprogram i allmänhet. SQL Database Threat Detection körs flera uppsättningar av algoritmer för att identifierar potentiella säkerhetsrisker och SQL-inmatningsattacker samt avvikande mönster i databasåtkomst (t.ex åtkomst från en ovanlig plats eller av ett bekant huvudnamn). Security införlivande eller andra avsedda administratörer får du ett e-postmeddelande om ett hot har identifierats på databasen. Varje avisering innehåller information om misstänkt aktivitet och rekommendationer om hur du ytterligare undersöka och åtgärda hot. Information om hur du aktiverar identifiering av hot finns: [Aktivera SQL Database Threat Detection](sql-database-security-tutorial.md#enable-sql-database-threat-detection).
+Med [hotidentifiering](sql-database-threat-detection.md), får du möjlighet att agera på säkerhets- eller princip överträdelser som identifierats av granskning väldigt enkelt. Du behöver inte vara säkerhetsexpert att bemöta potentiella hot eller säkerhetsöverträdelser i systemet. Hotidentifiering har också vissa inbyggda funktioner som SQL Injection identifiering. SQL-inmatning är ett försök att ändra eller skada data och ett vanligt sätt för att angripa ett databasprogram i allmänhet. SQL Database Threat Detection körs flera uppsättningar av algoritmer för att identifierar potentiella säkerhetsrisker och SQL-inmatningsattacker samt avvikande mönster i databasåtkomst (t.ex åtkomst från en ovanlig plats eller av ett bekant huvudnamn). Security införlivande eller andra avsedda administratörer får du ett e-postmeddelande om ett hot har identifierats på databasen. Varje avisering innehåller information om misstänkt aktivitet och rekommendationer om hur du ytterligare undersöka och åtgärda hot. Information om hur du aktiverar identifiering av hot finns: [Aktivera SQL Database Threat Detection](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Hur kan jag skydda Mina data i allmänhet på SQL Database
 

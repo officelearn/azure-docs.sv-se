@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: 7fb6917e129c015536143a707fd2a89fc5423a99
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 01/03/2019
+ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323088"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040208"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Hanterade API-referens för Azure SQL Database-hanterade instanser
 
@@ -37,9 +37,13 @@ Använd följande PowerShell-cmdletar för att skapa och hantera Azure SQL serve
 | Cmdlet | Beskrivning |
 | --- | --- |
 |[Ny AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Skapar en Azure SQL Database Managed Instance |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|Returnerar information om Azure SQL Managed Instance|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|Anger egenskaperna för en Azure SQL Database Managed Instance|
-|[Ta bort AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|Tar bort en hanterad Azure SQL-databasinstans|
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Returnerar information om Azure SQL Managed Instance|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Anger egenskaperna för en Azure SQL Database Managed Instance|
+|[Ta bort AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Tar bort en hanterad Azure SQL-databasinstans|
+|[Ny AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Skapar en Azure SQL Database Managed Instance-databas|
+|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Returnerar information om Azure SQL Managed Instance-databasen|
+|[Ta bort AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Tar bort en hanterad databasinstans i Azure SQL-databas|
+|[Återställ AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Återställer en hanterad databasinstans i Azure SQL-databas|
 
 ## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: Hantera logiska servrar och databaser
 
@@ -47,15 +51,19 @@ Skapa och hantera Azure SQL server, databaser och brandväggar med [Azure CLI](/
 
 > [!TIP]
 > En Snabbstart för Azure CLI, se [arbetar med SQL Managed Instance med Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
->
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[Skapa AZ sql mi](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-create) |Skapar en hanterad instans|
-|[AZ sql mi lista](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-list)|Visar tillgängliga hanterade instanser|
-|[AZ sql mi show](/cli/azure/sql/db#az-sql-mi-show)|Hämta information för en hanterad instans|
-|[uppdatering av AZ sql mi](/cli/azure/sql/db#az-sql-mi-update)|Uppdaterar en hanterad instans|
-|[AZ sql mi delete](/cli/azure/sql/db#az-sql-mi-delete)|Tar bort en hanterad instans|
+|[Skapa AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Skapar en hanterad instans|
+|[AZ sql mi lista](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Visar tillgängliga hanterade instanser|
+|[AZ sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Hämta information för en hanterad instans|
+|[uppdatering av AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Uppdaterar en hanterad instans|
+|[AZ sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Tar bort en hanterad instans|
+|[Skapa AZ sql EXTEXTB](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Skapar en hanterad databas|
+|[AZ sql EXTEXTB lista](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Listor över hanterade databaser|
+|[AZ sql EXTEXTB återställning](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Återställa en hanterad databas|
+|[uppdatering av AZ sql EXTEXTB](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Uppdaterar en hanterad databas|
+|[AZ sql EXTEXTB delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Tar bort en hanterad databas|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Hantera logiska servrar och databaser
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c23ff8a22284416a9c87750e4ca0448e0690de0e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f828ebf9131be014d2ea572b3314b1aacd630d14
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017522"
+ms.locfileid: "54050367"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Konfigurera Application Insights för .NET manuellt
 
@@ -99,7 +99,7 @@ Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av 
     `<InstrumentationKey>` *instrumenteringsnyckeln som du kopierade* `</InstrumentationKey>`
 * Kontrollera att egenskaperna för ApplicationInsights.config i Solution Explorer är inställda på **Byggåtgärd = Innehåll, Kopiera till utdatakatalog = Kopiera**.
 
-Det är bra att ange instrumenteringsnyckeln i kod om du vill [byta nyckel för olika versionskonfigurationer](app-insights-separate-resources.md). Om du anger nyckeln i koden behöver du inte ange den i `.config`-filen.
+Det är bra att ange instrumenteringsnyckeln i kod om du vill [byta nyckel för olika versionskonfigurationer](../azure-monitor/app/separate-resources.md). Om du anger nyckeln i koden behöver du inte ange den i `.config`-filen.
 
 ## <a name="run"></a> Köra projektet
 Använd **F5** när du vill köra programmet och testa det: öppna olika sidor för att generera telemetri.
@@ -115,13 +115,13 @@ Titta efter data i översiktsdiagrammet. Först ser du bara en eller två punkte
 
 ![Klicka dig vidare till mer data](./media/app-insights-windows-services/12-first-perf.png)
 
-Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lär dig mer om mätvärden.](app-insights-web-monitor-performance.md)
+Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lär dig mer om mätvärden.](../azure-monitor/app/web-monitor-performance.md)
 
 ### <a name="no-data"></a>Ser du inga data?
 * Använd programmet och öppna olika sidor så att det genererar telemetri.
 * Öppna panelen [Sök](../azure-monitor/app/diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
 * Vänta några sekunder och klicka på **Uppdatera**. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
-* Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).
+* Mer information finns i [Felsökning](../azure-monitor/app/troubleshoot-faq.md).
 
 ## <a name="publish-your-app"></a>Publicera appen
 Distribuera ditt program till din server eller Azure och se hur data ackumuleras.

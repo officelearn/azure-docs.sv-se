@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338421"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053031"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enhetstvillingar i IoT Hub
 
@@ -382,4 +382,4 @@ I följande självstudier får IoT Hub för att prova några av de koncept som b
 
 * [Hur du använder enhetstvillingen](iot-hub-node-node-twin-getstarted.md)
 * [Så här använder du tvillingegenskaper](tutorial-device-twins.md)
-* [Enhetshantering med Azure IoT Hub Toolkit för VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Enhetshantering med Azure IoT-verktyg för VS Code](iot-hub-device-management-iot-toolkit.md)

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 50f5cf48838e5578dc94c61b4463f94e76f886e6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92a3caefaa0185aa4bd86fbf66d6279e49b0f5c1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028939"
+ms.locfileid: "54053251"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 
@@ -166,7 +166,7 @@ Följande miljöer stöds:
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>Konfigurera insamling av ögonblicksbild för andra .NET-program
 
-1. Om programmet inte redan har instrumenterats med Application Insights, Kom igång genom att [att aktivera Application Insights och ange instrumenteringsnyckeln](../../application-insights/app-insights-windows-desktop.md).
+1. Om programmet inte redan har instrumenterats med Application Insights, Kom igång genom att [att aktivera Application Insights och ange instrumenteringsnyckeln](../../azure-monitor/app/windows-desktop.md).
 
 2. Lägg till den [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
@@ -478,4 +478,4 @@ Om programmet ansluter till Internet via en proxyserver eller brandvägg, kan du
 
 * [Ange snappoints i din kod](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) att hämta ögonblicksbilder utan att behöva vänta ett undantag.
 * [Diagnostisera undantag i dina webbappar](../../azure-monitor/app/asp-net-exceptions.md) förklarar hur du gör flera undantag som är synliga för Application Insights.
-* [Smart identifiering](../../application-insights/app-insights-proactive-diagnostics.md) identifierar automatiskt prestandaavvikelser.
+* [Smart identifiering](../../azure-monitor/app/proactive-diagnostics.md) identifierar automatiskt prestandaavvikelser.

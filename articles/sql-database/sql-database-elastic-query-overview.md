@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 139bf169a00f1c529e95499124358c447d0de8c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603955"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044679"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastisk fråga översikt (förhandsversion)
 
@@ -108,11 +108,11 @@ Med hjälp av elastisk fråga för att utföra en shardad rapportuppgifter, det 
 
 Med följande steg konfigurerar frågor för horisontell partitionering scenarier som kräver åtkomst till en uppsättning tabeller som finns på (normalt) flera fjärranslutna SQL-databaser i elastiska databaser:
 
-* [Skapa HUVUDNYCKEL](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
+* [Skapa HUVUDNYCKEL](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
 * Skapa en [fragmentkartan](sql-database-elastic-scale-shard-map-management.md) som representerar din datanivå med hjälp av klientbiblioteket för elastiska databaser.
-* [Skapa och släpp extern DATAKÄLLA](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource av typen **SHARD_MAP_MANAGER**
-* [Skapa och släpp extern tabell](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [Skapa och släpp extern DATAKÄLLA](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource av typen **SHARD_MAP_MANAGER**
+* [Skapa och släpp extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 När du har utfört dessa steg kan du komma åt vågrätt partitionerad tabell ”mytable” som om det vore en lokal tabell. Azure SQL Database automatiskt öppnas flera parallella anslutningar till fjärr-databaser där tabellerna lagras fysiskt, bearbetar begäranden på fjärr-databaser och returnerar resultatet.
 Mer information om de steg som krävs för horisontell partitionering scenariot finns i [elastisk fråga för horisontell partitionering](sql-database-elastic-query-horizontal-partitioning.md).

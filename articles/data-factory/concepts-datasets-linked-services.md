@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019137"
+ms.locfileid: "54044254"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datamängder och länkade tjänster i Azure Data Factory 
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datamängder och länkade tjänster i Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Aktuell version](concepts-datasets-linked-services.md)
 
-Den här artikeln beskriver vilka datauppsättningar är, hur de definieras i JSON-format och hur de används i Azure Data Factory-pipelines. 
+Den här artikeln beskriver vilka datauppsättningar är, hur de definieras i JSON-format och hur de används i Azure Data Factory-pipelines.
 
-Om du är nybörjare till Data Factory finns i [introduktion till Azure Data Factory](introduction.md) en översikt. 
+Om du är nybörjare till Data Factory finns i [introduktion till Azure Data Factory](introduction.md) en översikt.
 
 ## <a name="overview"></a>Översikt
 En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en Kopieringsaktivitet som kopierar data från en lokal SQL Server till Azure Blob storage. Du kan sedan använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster att bearbeta data från Blob storage för att producera utdata. Slutligen kan du använda en andra Kopieringsaktivitet för att kopiera utdata till Azure SQL Data Warehouse ovanpå som business intelligence (BI) reporting-lösningarna. Läs mer om pipelines och aktiviteter, [Pipelines och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
@@ -70,7 +70,7 @@ typeProperties | Typegenskaperna är olika för varje datalager eller databeräk
 connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Nej
 
 ## <a name="linked-service-example"></a>Länkad tjänst-exempel
-Följande länkade tjänst är en länkad Azure Storage-tjänst. Observera att typen har angetts till AzureStorage. Typegenskaperna för länkad Azure Storage-tjänsten innehåller en anslutningssträng. Data Factory-tjänsten använder den här anslutningssträngen för att ansluta till datalagret i körningsfasen. 
+Följande länkade tjänst är en länkad Azure Storage-tjänst. Observera att typen har angetts till AzureStorage. Typegenskaperna för länkad Azure Storage-tjänsten innehåller en anslutningssträng. Data Factory-tjänsten använder den här anslutningssträngen för att ansluta till datalagret i körningsfasen.
 
 ```json
 {
@@ -101,7 +101,7 @@ En datauppsättning i Data Factory har definierats i JSON-format på följande s
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "structure": [
             {
@@ -136,7 +136,7 @@ I följande exempel representerar en tabell med namnet MyTable i en SQL-databas 
         "type": "AzureSqlTable",
         "linkedServiceName": {
                 "referenceName": "MyAzureSqlLinkedService",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "typeProperties":
         {
@@ -166,9 +166,9 @@ I exemplet i föregående avsnitt, vilken typ av datauppsättningen är inställ
         "type": "AzureBlob",
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
-                 "type": "LinkedServiceReference",
-        }, 
- 
+                "type": "LinkedServiceReference",
+        },
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",
@@ -218,14 +218,14 @@ Du kan skapa datauppsättningar med någon av dessa verktyg och SDK: er: [.NET A
 
 ## <a name="current-version-vs-version-1-datasets"></a>Aktuell version jämfört med version 1 datauppsättningar
 
-Här följer några skillnader mellan Data Factory och Data Factory version 1 datauppsättningar: 
+Här följer några skillnader mellan Data Factory och Data Factory version 1 datauppsättningar:
 
 - Den externa egenskapen stöds inte i den aktuella versionen. Ersätts med en [utlösaren](concepts-pipeline-execution-triggers.md).
 - Princip och tillgänglighet egenskaper stöds inte i den aktuella versionen. Starttiden för en pipeline beror på [utlösare](concepts-pipeline-execution-triggers.md).
-- Begränsade datauppsättningar (datauppsättningar som definierats i en pipeline) stöds inte i den aktuella versionen. 
+- Begränsade datauppsättningar (datauppsättningar som definierats i en pipeline) stöds inte i den aktuella versionen.
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande självstudie för stegvisa instruktioner för att skapa pipelines och datauppsättningar med någon av dessa verktyg och SDK: er. 
+Se följande självstudie för stegvisa instruktioner för att skapa pipelines och datauppsättningar med någon av dessa verktyg och SDK: er.
 
 - [Snabbstart: skapa en datafabrik med hjälp av .NET](quickstart-create-data-factory-dot-net.md)
 - [Snabbstart: skapa en datafabrik med hjälp av PowerShell](quickstart-create-data-factory-powershell.md)

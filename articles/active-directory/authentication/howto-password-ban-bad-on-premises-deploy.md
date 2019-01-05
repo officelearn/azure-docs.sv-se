@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011501"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033612"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -85,6 +85,9 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
 
 2. Installera programvara lösenord Policy Proxy-tjänsten med hjälp av AzureADPasswordProtectionProxy.msi MSI-paketet.
    * Installationen av programmet kräver inte en omstart. Programinstallationen kan automatiseras med hjälp av MSI standardprocedurerna, till exempel: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
+
+      > [!NOTE]
+      > Tjänsten Windows-brandväggen måste köras innan du installerar AzureADPasswordProtectionProxy.msi MSI-paketet. Annars uppstår ett installationsfel. Om Windows-brandväggen är konfigurerad för att inte köra kan är lösningen att tillfälligt aktivera och starta Windows-brandväggen under installationen. Proxy-programvara har inga särskilda beroenden för Windows-brandväggen programvaran efter installationen. Om du använder en brandvägg från tredje part kan den fortfarande konfigureras för att uppfylla kraven för en distribution (Tillåt inkommande åtkomst till port 135 och proxy RPC-serverport om dynamisk eller statisk). [Se distributionskrav](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
 
 3. Öppna ett PowerShell-fönster som administratör.
    * Azure AD-lösenordsskydd proxyprogrammet innehåller en ny PowerShell-modulen med namnet AzureADPasswordProtection. Följande steg är baserade på kör olika cmdletar från PowerShell-modulen och förutsätter att du har öppnat ett nytt PowerShell-fönster och att du har importerat den nya modulen enligt följande:

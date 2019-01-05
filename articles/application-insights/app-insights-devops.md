@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 31ab9f37bcb4ea32caa48edf9460fa7ffcdf764d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998241"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052078"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -94,7 +94,7 @@ Real Madrid använder Power BI-modulen för att visa sina telemetri.
 ![Power BI-vy av Application Insights telemetry](./media/app-insights-devops/080.png)
 
 ## <a name="smart-detection"></a>Smart identifiering
-[Proaktiv diagnostik](app-insights-proactive-diagnostics.md) är en nyligen funktion. Utan någon specialkonfiguration av dig, Application Insights automatiskt identifierar och varnar dig om onormala ökningar i Felfrekvens i din app. Det är tillräckligt smarta för att ignorera en bakgrund för tillfälliga fel inträffar och ökar som är helt enkelt proportionell mot en ökning av begäranden. Till exempel fungerar om ett fel uppstår på något av de tjänster du lita på, eller om den nya bygger du precis har distribuerat inte så bra och du vet om det. när du tittar på din e-post. (Och det finns webhooks så att du kan utlösa andra appar.)
+[Proaktiv diagnostik](../azure-monitor/app/proactive-diagnostics.md) är en nyligen funktion. Utan någon specialkonfiguration av dig, Application Insights automatiskt identifierar och varnar dig om onormala ökningar i Felfrekvens i din app. Det är tillräckligt smarta för att ignorera en bakgrund för tillfälliga fel inträffar och ökar som är helt enkelt proportionell mot en ökning av begäranden. Till exempel fungerar om ett fel uppstår på något av de tjänster du lita på, eller om den nya bygger du precis har distribuerat inte så bra och du vet om det. när du tittar på din e-post. (Och det finns webhooks så att du kan utlösa andra appar.)
 
 En annan aspekt av den här funktionen utför en daglig djupgående analys av din telemetri som söker efter ovanliga mönster för prestanda som är svåra att identifiera. Det kan till exempel hitta långsam prestanda som är associerat med ett visst geografiskt område eller med en viss webbläsare-version.
 

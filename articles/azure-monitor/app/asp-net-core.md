@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 19830ade92e5d2a046abc8a2ad00c086a5bf62ec
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972795"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054851"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -62,7 +62,7 @@ Att testa den här funktionen:
    ![Skärmbild av Visual Studio Application Insights Sök](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> Mer information om hur Visual Studio ljus uppe funktioner vi [Application Insights Search](../../application-insights/app-insights-visual-studio.md) och [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) lokalt innan du lägger till Application Insights i projektet ASP.NET Core, se [ Application Insights Search fortsatt](#application-insights-search-continued).
+> Mer information om hur Visual Studio ljus uppe funktioner vi [Application Insights Search](../../azure-monitor/app/visual-studio.md) och [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) lokalt innan du lägger till Application Insights i projektet ASP.NET Core, se [ Application Insights Search fortsatt](#application-insights-search-continued).
 
 ## <a name="add-application-insights-telemetry"></a>lägg till Application Insights Telemetry
 
@@ -404,7 +404,7 @@ Problem med att använda någon av dessa metoder är att de inte inaktivera enda
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Utforska Användarflöden](../../application-insights/app-insights-usage-flows.md) att förstå hur användarna navigerar i din app.
+* [Utforska Användarflöden](../../azure-monitor/app/usage-flows.md) att förstå hur användarna navigerar i din app.
 * [Konfigurera insamling av ögonblicksbild](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) att se status för källkoden och variabler för tillfället ett undantagsfel.
 * [Använda API: et](../../azure-monitor/app/api-custom-events-metrics.md) att skicka dina egna händelser och mått för en mer detaljerad vy av appens prestanda och användning.
 * Använd [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) att kontrollera appens hela tiden från hela världen.

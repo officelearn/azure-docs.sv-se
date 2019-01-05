@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f0f1464adde2c80706fbced7309877447644d19e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022962"
+ms.locfileid: "54040446"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Search är en funktion i [Application Insights](../../application-insights/app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
@@ -166,4 +166,4 @@ Vi loggas inte att skicka data automatiskt, men du kan använda [TrackTrace elle
 * [Skriva komplexa frågor i Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Skicka loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Konfigurera tillgänglighet och svarstider tester](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Felsökning](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

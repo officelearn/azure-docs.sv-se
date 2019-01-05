@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 77b278d939b7d2676ade03af75e48c1e2df184f9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028957"
+ms.locfileid: "54054528"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
@@ -108,7 +108,7 @@ Var finns problemet? Långsamt servern svarar, är sidan som är mycket långa e
 
 Öppna bladet webbläsare mått. Segmenterade visningen av webbläsare sidan belastningen tid visar vart tiden är på väg. 
 
-* Om **skicka begärandetid** är hög, antingen servern svarar långsamt eller begäran finns ett inlägg med stora mängder data. Titta på den [prestandamått](../../application-insights/app-insights-web-monitor-performance.md#metrics) att undersöka svarstider.
+* Om **skicka begärandetid** är hög, antingen servern svarar långsamt eller begäran finns ett inlägg med stora mängder data. Titta på den [prestandamått](../../azure-monitor/app/web-monitor-performance.md#metrics) att undersöka svarstider.
 * Konfigurera [beroendespårning](../../azure-monitor/app/asp-net-dependencies.md) att se om långsamhet beror på att externa tjänster eller din databas.
 * Om **ta emot svar** är dominerande, sidan och dess beroende delar – JavaScript, CSS, bilder och så vidare (men inte asynkront inlästa data) är långa. Konfigurera en [tillgänglighetstestet](../../azure-monitor/app/monitor-web-app-availability.md), och se till att ställa in alternativet för att läsa in beroende delar. När du får några resultat, öppna informationen om ett resultat och expandera den för att se inläsningstider olika filer.
 * Hög **klienten bearbetningstid** föreslår skript körs långsamt. Om orsaken till inte visas, Överväg att lägga till kod tidsinställning och sändtider i trackMetric anrop.

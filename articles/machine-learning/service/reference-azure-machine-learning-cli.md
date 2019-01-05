@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f85934b0c800ca354cc9cff02132a40c8eccea57
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bbe843f3481c6cd15f2c14386088cbb8d2d355d6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014853"
+ms.locfileid: "54053133"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
 
@@ -119,11 +119,15 @@ Följande kommandon visar hur du använder CLI för att arbeta med experiment:
     az ml project attach --experiment-name myhistory
     ```
 
-* Starta en körning av experimentet. När du använder det här kommandot kan du ange ett beräkningsmål. I det här exemplet `local` använder den lokala datorn för att träna modellen genom att använda den `train.py` skript:
+* Starta en körning av experimentet. När du använder det här kommandot anger du namnet på den `.runconfig` -fil som innehåller körningskonfigurationen. Beräkningsmål använder körningskonfigurationen för att skapa miljön för modellen. I det här exemplet körningskonfigurationen har lästs in från den `./aml_config/myrunconfig.runconfig` filen.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    Standard `.runconfig` filer med namnet `docker.runconfig` och `local.runconfig` skapas när du ansluter ett projekt med den `az ml project attach` kommando. Du kan behöva ändra dessa innan du använder dem för att träna en modell. 
+
+    Du kan också skapa ett kör konfiguration via programmering med hjälp av den [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) klass. När du skapat kan du sedan använda den `save()` metod för att skapa den `.runconfig` filen.
 
 * Visa en lista över skickade experiment:
 

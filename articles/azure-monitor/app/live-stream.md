@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf0ffa6069cf8882a541b2a0a82ad96bfb4043ee
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025631"
+ms.locfileid: "54040242"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
@@ -202,7 +202,7 @@ Ser du inga data? Om programmet är i ett skyddat nätverk: Live Metrics Stream 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervakning med Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Övervakning med Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Med hjälp av Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
 * [Felsökning av ögonblicksbild](../../azure-monitor/app/snapshot-debugger.md)

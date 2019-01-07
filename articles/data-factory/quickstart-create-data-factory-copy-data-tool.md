@@ -19,7 +19,7 @@ ms.lasthandoff: 10/02/2018
 ms.locfileid: "48017815"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Kopiera data med verktyget Kopiera data 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
+> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-copy-data-tool.md)
 

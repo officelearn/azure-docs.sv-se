@@ -28,8 +28,14 @@ items:
     href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Migrera från v2 till v3
-    href: migrate-from-v2-to-v3.md
+  - name: Konton
+    items:
+    - name: Migrera från v2 till v3
+      href: migrate-from-v2-to-v3.md
+    - name: Kvoter och begränsningar
+      href: limits-quotas-constraints.md
+    - name: Lagringskonton
+      href: storage-account-concept.md
   - name: Entiteter
     href: entities-overview.md
     items:
@@ -79,15 +85,21 @@ items:
       href: live-event-states-billing.md
     - name: Svarstid
       href: live-event-latency.md
-  - name: Lagringskonton
-    href: storage-account-concept.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: Instruktionsguider
   items:
-  - name: Skapa ett konto – CLI
-    href: create-account-cli-how-to.md
-  - name: Åtkomst till API:er – CLI
-    href: access-api-cli-how-to.md
-  - name: Ladda upp
+  - name: Kom igång
+    items:
+    - name: Skapa ett konto – CLI
+      href: create-account-cli-how-to.md
+    - name: Åtkomst till API:er – CLI
+      href: access-api-cli-how-to.md
+    - name: Skala mediereserverade enheter – CLI
+      href: media-reserved-units-cli-how-to.md
+  - name: Konfigurera Postman
+    href: media-rest-apis-with-postman.md
+  - name: Överföra innehåll
     items:
     - name: Från HTTP(:er) – .NET
       href: job-input-from-http-how-to.md
@@ -95,6 +107,22 @@ items:
       href: job-input-from-local-file-how-to.md
     - name: Från en lokal fil – REST
       href: upload-files-rest-how-to.md
+  - name: Koda innehåll
+    items:
+    - name: Anpassa förinställningar för transformering – .NET
+      href: customize-encoder-presets-how-to.md
+  - name: Använda Event Grid
+    items:
+    - name: Övervaka händelser – portalen
+      href: monitor-events-portal-how-to.md
+    - name: Övervaka händelser – CLI
+      href: job-state-events-cli-how-to.md
+  - name: Skydda innehåll
+    items:
+    - name: Med AES-128 – .NET
+      href: protect-with-aes128.md
+    - name: Med DRM - .NET
+      href: protect-with-drm.md
   - name: Skapa filter
     items:
     - name: Med .NET
@@ -103,26 +131,6 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Med CLI
       href: filters-dynamic-manifest-cli-howto.md
-  - name: Koda
-    items:
-    - name: Anpassa förinställningar för transformering – .NET Core
-      href: customize-encoder-presets-how-to.md
-  - name: Använda Event Grid
-    items:
-    - name: Övervaka händelser – portalen
-      href: monitor-events-portal-how-to.md
-    - name: Övervaka händelser – CLI
-      href: job-state-events-cli-how-to.md
-  - name: Skydda
-    items:
-    - name: Med AES-128 – .NET
-      href: protect-with-aes128.md
-    - name: Med DRM - .NET
-      href: protect-with-drm.md
-  - name: Konfigurera Postman
-    href: media-rest-apis-with-postman.md
-  - name: Skala mediereserverade enheter – CLI
-    href: media-reserved-units-cli-how-to.md
 - name: Referens
   items:
   - name: OpenAPI-specifikation (Swagger)
@@ -181,13 +189,11 @@ items:
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Viktig information
     href: release-notes.md
-  - name: Kvoter och begränsningar
-    href: limits-quotas-constraints.md
   - name: VANLIGA FRÅGOR OCH SVAR
     href: frequently-asked-questions.md
-ms.openlocfilehash: 660052b4e82f6e005c096b5ac1edd7a80c2d5339
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 9acf8f3ce9f5886d5f61087a58d863047bd0b605
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744980"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014530"

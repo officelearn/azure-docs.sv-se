@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1dc312598fa9bbacedc085480b0771adeb2d182a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731727"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017012"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Felsökningsanalys i Application Insights
 Problem med [Application Insights Analytics](analytics.md)? Börja här. Analytics är verktyget kraftfull sökning av Azure Application Insights.
@@ -78,7 +78,7 @@ Programresursen har tagits bort från Application Insights och är t tillgängli
 
 Du har inte behörighet att öppna det här programmet i Analytics.
 
-* Fick du länken från någon annan? Be dem att kontrollera att du är i den [läsare eller deltagare för den här resursgruppen](../../application-insights/app-insights-resources-roles-access-control.md).
+* Fick du länken från någon annan? Be dem att kontrollera att du är i den [läsare eller deltagare för den här resursgruppen](../../azure-monitor/app/resources-roles-access-control.md).
 * Sparades den länken med olika autentiseringsuppgifter? Öppna den [Azure-portalen](https://portal.azure.com), logga ut och försök sedan den här länken med rätt autentiseringsuppgifter.
 
 ## <a name="html-storage"></a>403 ... HTML5-lagring

@@ -1,20 +1,20 @@
 ---
 title: Diagnostisera och felsöka Azure Cosmos DB Java Async SDK
 description: Använda funktioner som loggning på klientsidan och andra tredjepartsverktyg för att identifiera, diagnostisera och felsöka problem med Azure Cosmos DB.
-services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
-ms.component: cosmosdb-sql
-ms.openlocfilehash: 951c26ea5b5c77cf205e7793834d564889b9a635
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.subservice: cosmosdb-sql
+ms.reviewer: sngun
+ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039851"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsöka problem när du använder Async Java-SDK med Azure Cosmos DB SQL API-konton
 Den här artikeln beskriver vanliga problem, lösningar, diagnos och verktyg när du använder den [Java Async SDK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
@@ -63,7 +63,7 @@ Om din app distribueras på Azure virtuella datorer utan en offentlig IP-adress 
 Om du använder en HTTP-proxy, kontrollera att den har stöd för antalet anslutningar som konfigurerats i SDK `ConnectionPolicy`.
 Annars kan du står inför problem med anslutningen.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Ogiltig kodning mönster: blockerar Netty i/o-tråd
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Ogiltig kodning mönster: Blockera Netty i/o-tråd
 
 SDK: N använder den [Netty](https://netty.io/) i/o-biblioteket för att kommunicera med Azure Cosmos DB. SDK: N har Async APIs och icke-blockerande Netty-i/o-API: er. SDK-i/o arbetet utförs i i/o-Netty trådar. Antalet i/o-Netty trådar är konfigurerad för att vara samma som antalet CPU-kärnor för app-datorn. 
 

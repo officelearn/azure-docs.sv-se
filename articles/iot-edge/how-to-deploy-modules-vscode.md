@@ -4,18 +4,18 @@ description: Använd Visual Studio Code för att distribuera moduler till en IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 345b8d0ab2a45e87ccc3465c31dbe53861154b70
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100828"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054145"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuera Azure IoT Edge-moduler från Visual Studio Code
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du skapar ett manifest för distribution av JSON och
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i Azure-prenumerationen. 
 * En [IoT Edge-enhet](how-to-register-device-portal.md) med IoT Edge-körningen installerad. 
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT Edge-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
+* [Verktyg för Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) för Visual Studio Code. 
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 

@@ -3,25 +3,25 @@ title: Skicka sökfrågor till Bing Visual Search API
 titlesuffix: Azure Cognitive Services
 description: Läs mer om REST API-parametrar som används i Bing Visual Search API.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: aahill
-ms.openlocfilehash: 073570b428ffed395d90ee1cd6a734f66a1b0908
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.author: aahi
+ms.openlocfilehash: 4f1f52c7954b4985d0da24f51eb199e2cbeac3a6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745448"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063598"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka sökfrågor till Bing Visual Search API
 
 Den här artikeln beskrivs de parametrar och attribut för begäranden som skickas till Bing Visual Search API, samt svarsobjekt.
 
-Du kan få ger information om en bild på tre sätt: 
+Du kan få insikter om en bild på tre sätt: 
 
 - med hjälp av en token för insikter som du får från en avbildning i ett tidigare anrop till en av de [bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) slutpunkter.
 - Skicka Webbadressen till en bild.

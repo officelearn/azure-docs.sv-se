@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050820"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076050"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -58,7 +58,7 @@ Troliga orsaker:
 * Kontrollera att du angett inloggningsuppgifter för rätt Azure-konto. 
 * I webbläsaren, kontrollera att du har åtkomst till den [Azure-portalen](https://portal.azure.com). Öppna inställningar och se om det finns några begränsningar.
 * [Lägg till Application Insights i projektet befintliga](../../azure-monitor/app/asp-net.md): Högerklicka på projektet i Solution Explorer och välj ”Lägg till Application Insights”.
-* Om det fortfarande inte fungerar följer du de [manuell proceduren](../../application-insights/app-insights-windows-services.md) lägga till en resurs i portalen och sedan lägga till SDK: N i projektet. 
+* Om det fortfarande inte fungerar följer du de [manuell proceduren](../../azure-monitor/app/windows-services.md) lägga till en resurs i portalen och sedan lägga till SDK: N i projektet. 
 
 ## <a name="emptykey"></a>Det uppstår ett fel ”instrumenteringsnyckeln kan inte vara tom”
 Det verkar som det uppstod ett fel när du installerar Application Insights eller kanske en loggning nätverkskort.

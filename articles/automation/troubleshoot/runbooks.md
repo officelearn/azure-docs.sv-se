@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med Azure Automation-runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015474"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063649"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -94,13 +94,15 @@ Det här felet uppstår om prenumerationens namn är inte giltigt eller om den A
 För att avgöra om du har korrekt autentiserad till Azure och har åtkomst till den prenumeration som du försöker att välja, gör du följande:  
 
 1. Testa skriptet utanför Azure Automation för att kontrollera att det fungerar fristående.
-2. Se till att du kör den **Add-AzureAccount** cmdlet innan du kör den **Select-AzureSubscription** cmdlet.  
-3. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **- AzureRmContext** parameter som följer efter den **Add-AzureAccount** cmdlet och sedan köra koden.
+2. Se till att du kör den `Add-AzureAccount` cmdlet innan du kör den `Select-AzureSubscription` cmdlet. 
+3. Lägg till `Disable-AzureRmContextAutosave –Scope Process` i början av din runbook. Detta säkerställer att autentiseringsuppgifter endast tillämpas på körningen av den aktuella runbooken.
+4. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **AzureRmContext** parameter som följer efter den `Add-AzureAccount` cmdlet och sedan köra koden.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -127,7 +129,7 @@ Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen 
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Vanliga fel när du arbetar med runbooks
 
-### <a name="task-was-cancelled"></a>Scenario: Runbook misslyckas med fel: en uppgift avbröts
+### <a name="task-was-cancelled"></a>Scenario: Runbook misslyckas med fel: En uppgift avbröts
 
 #### <a name="issue"></a>Problem
 
@@ -147,21 +149,24 @@ Det här felet kan lösas genom att uppdatera din Azure-moduler till den senaste
 
 I ditt Automation-konto klickar du på **moduler**, och klicka på **uppdatera Azure-moduler**. Uppdateringen tar ungefär 15 minuter, en gång fullständig kör den runbook som misslyckades kontrollerades. Mer information om hur du uppdaterar dina moduler finns [uppdatera Azure-moduler i Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Scenario: Underordnade runbook misslyckas när du hanterar flera prenumerationer
+### <a name="runbook-auth-failure"></a>Scenario: Det gick inte att Runbooks när du hanterar flera prenumerationer
 
 #### <a name="issue"></a>Problem
 
-När du kör underordnade runbooks med `Start-AzureRmRunbook`, underordnade runbook misslyckas att hantera Azure-resurser.
+När du kör runbooks med `Start-AzureRmAutomationRunbook`, runbook misslyckas att hantera Azure-resurser.
 
 #### <a name="cause"></a>Orsak
 
-Den underordnade runbooken använder inte rätt sammanhang när du kör.
+Runbook använder inte rätt sammanhang när du kör.
 
 #### <a name="resolution"></a>Lösning
 
-När du arbetar med flera prenumerationer prenumerationskontexten kan gå förlorade vid underordnade runbooks. För att säkerställa att prenumerationskontexten överförs till underordnade runbooks, lägger du till den `AzureRmContext` parameter till cmdleten och pass kontexten till den.
+När du arbetar med flera prenumerationer, prenumerationskontexten kan gå förlorade när anropa runbooks. För att säkerställa att prenumerationskontexten överförs till runbooks, lägger du till den `AzureRmContext` parameter till cmdleten och pass kontexten till den. Vi rekommenderar också att använda den `Disable-AzureRmContextAutosave` cmdlet med den **processen** omfång så att de autentiseringsuppgifter som du använder används bara för den aktuella runbooken.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 Det här felet kan orsakas av följande orsaker:
 
-1. Minnesgräns. Det finns dokumenterade begränsningar för hur mycket minne tilldelas till en Sandbox [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits) så att ett jobb kan misslyckas den om den använder mer än 400 MB minne.
+1. Minnesgräns. De angivna gränserna på hur mycket minne tilldelas till en Sandbox påträffades vid [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits). Ett jobb kan misslyckas den om den använder mer än 400 MB minne.
 
-1. Nätverket Sockets. Azure sandbox-miljöer är begränsade till 1000 samtidiga nätverk sockets enligt beskrivningen i [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits).
+2. Nätverket Sockets. Azure sandbox-miljöer är begränsade till 1000 samtidiga nätverk sockets enligt beskrivningen i [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Modulen inkompatibel. Det här felet kan inträffa om modulberoenden inte är rätt och om de inte är, din runbook returnerar vanligtvis ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
+3. Modulen inkompatibel. Det här felet kan inträffa om modulberoenden inte är rätt och om de inte är, din runbook returnerar vanligtvis ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
 
 #### <a name="resolution"></a>Lösning
 
@@ -285,7 +290,7 @@ Om du vill använda mer än 500 minuter bearbetningen per månad, måste du änd
 3. Klicka på **inställningar** > **priser**.
 4. Klicka på **aktivera** på sidan nedifrån och uppgradera ditt konto till den **grundläggande** nivå.
 
-### <a name="cmdlet-not-recognized"></a>Scenario: Cmdleten inte känns igen när du kör en runbook
+### <a name="cmdlet-not-recognized"></a>Scenario: Cmdlet som inte känns igen när du kör en runbook
 
 #### <a name="issue"></a>Problem
 
@@ -308,7 +313,7 @@ Någon av följande lösningar problemet på:
 * Om du har en namnkonflikt och cmdlet: en är tillgänglig i två olika moduler, kan du lösa detta genom att använda det fullständigt kvalificerade namnet för cmdleten. Du kan till exempel använda **ModuleName\CmdletName**.  
 * Om du körs runbook lokala platser i en hybrid worker-grupp och sedan kontrollera att är modulen och cmdlet: en installerad på den dator som är värd för hybrid worker.
 
-### <a name="long-running-runbook"></a>Scenario: En tidskrävande runbook kan inte slutföras
+### <a name="long-running-runbook"></a>Scenario: En runbook som körs under lång tid kan inte slutföras
 
 #### <a name="issue"></a>Problem
 
@@ -328,9 +333,9 @@ Runbook kördes över 3 timme gränsen som tillåts av rättmätiga del i en Azu
 
 En rekommenderad lösning är att köra runbook en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Worker-arbeten inte begränsas av de [rättmätiga del](../automation-runbook-execution.md#fair-share) 3 timme runbook gränsen som Azure sandbox-miljöer. Hybrid Runbook Worker-arbeten inte är begränsad av tre timmar rättmätiga del gränsen runbooks kördes på Hybrid Runbook Worker bör fortfarande utvecklas för att stödja omstart beteenden vid oväntade lokala infrastruktur problem.
+Hybrid Worker-arbeten inte begränsas av de [rättmätiga del](../automation-runbook-execution.md#fair-share) 3 timme runbook gränsen som Azure sandbox-miljöer. Hybrid Runbook Worker-arbeten inte är begränsad av tre timmar rättmätiga del gränsen runbooks kördes på Hybrid Runbook Worker bör fortfarande utvecklas för att stödja omstart beteenden om det uppstår problem med oväntat lokal infrastruktur.
 
-Ett annat alternativ är att optimera runbooken genom att skapa [underordnade runbooks](../automation-child-runbooks.md). Om din runbook igenom samma funktion på ett antal resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en underordnad runbook. Var och en av dessa underordnade runbooks körs parallellt i separata processer, vilket minskar den överordnade runbookens totala körningstid.
+Ett annat alternativ är att optimera runbooken genom att skapa [underordnade runbooks](../automation-child-runbooks.md). Om din runbook igenom samma funktion på ett antal resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en underordnad runbook. Var och en av dessa underordnade runbooks körs parallellt i separata processer. Detta minskar den totala mängden tid för den överordnade runbooken ska slutföras.
 
 PowerShell-cmdlets som gör att underordnad runbook scenario är:
 
@@ -338,11 +343,11 @@ PowerShell-cmdlets som gör att underordnad runbook scenario är:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) – denna cmdlet kan du kontrollera jobbstatus för varje underordnad om det finns åtgärder som måste utföras när den underordnade runbooken har slutförts.
 
-### <a name="expired webhook"></a>Scenario: Status: 400 Felaktig förfrågan vid en webhook
+### <a name="expired webhook"></a>Scenario: Status: 400 (felaktig förfrågan) vid en webhook
 
 #### <a name="issue"></a>Problem
 
-När du försöker anropa en webhook för en Azure Automation-runbook kan du få följande fel.
+När du försöker anropa en webhook för en Azure Automation-runbook, felmeddelande följande.
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -354,13 +359,13 @@ Webhooken som du försöker anropa är antingen inaktiverat eller har upphört a
 
 #### <a name="resolution"></a>Lösning
 
-Om webhooken har inaktiverats kan återaktivera du webhooken via Azure portal. Om webhooken har upphört att gälla, måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den redan inte har gått ut.
+Om webhooken har inaktiverats kan återaktivera du webhooken via Azure portal. När en webhook har upphört att gälla, måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den redan inte har gått ut.
 
-### <a name="429"></a>Scenario: 429: begäran-pris för närvarande är för stor. Försök igen
+### <a name="429"></a>Scenario: 429: Begäranhastigheten är för närvarande för stor. Försök igen
 
 #### <a name="issue"></a>Problem
 
-Din visas följande felmeddelande när du kör den `Get-AzureRmAutomationJobOutput` cmdlet:
+Du får följande felmeddelande när du kör den `Get-AzureRmAutomationJobOutput` cmdlet:
 
 ```
 429: The request rate is currently too large. Please try again
@@ -375,11 +380,11 @@ Det här felet kan uppstå vid hämtning av jobbutdata från en runbook som inne
 Det finns två sätt att lösa det här felet:
 
 * Redigera runbook och minska antalet jobbströmmar som det genererar.
-* Minska antalet dataströmmar som ska hämtas när du kör cmdleten. Om du vill kan du ange den `-Stream Output` parametern till den `Get-AzureRmAutomationJobOutput` cmdlet för att hämta endast utdataströmmar. 
+* Minska antalet dataströmmar som ska hämtas när du kör cmdleten. Om du vill följa det här beteendet kan du ange den `-Stream Output` parametern till den `Get-AzureRmAutomationJobOutput` cmdlet för att hämta endast utdataströmmar. 
 
 ## <a name="common-errors-when-importing-modules"></a>Vanliga fel när du importerar moduler
 
-### <a name="module-fails-to-import"></a>Scenario: Module inte kan importera eller cmdlet: ar kan inte utföras när du har importerat
+### <a name="module-fails-to-import"></a>Scenario: Modulen kan inte importera eller cmdlet: ar kan inte utföras när du har importerat
 
 #### <a name="issue"></a>Problem
 

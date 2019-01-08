@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 45db2d02a434f2d7e7f3187c0d87c0b68ecf5235
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052010"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076985"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -30,7 +30,7 @@ Den bästa upplevelsen hämtas genom att installera Application Insights både i
 
 1. **Kod:** Installera modulen lämpliga för din [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), eller [andra](../../azure-monitor/app/platforms.md) App.
 
-    * *Vill du installera serverkoden inte? Bara [skapa en Azure Application Insights-resurs](../../application-insights/app-insights-create-new-resource.md).*
+    * *Vill du installera serverkoden inte? Bara [skapa en Azure Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ).*
 
 2. **Webbsidans kod:** Lägga till följande skript på din webbsida före avslutande ``</head>``. Ersätt instrumenteringsnyckeln med lämpligt värde för Application Insights-resursen:
 
@@ -47,7 +47,7 @@ Den bästa upplevelsen hämtas genom att installera Application Insights både i
     ```
     Om du vill lära dig mer om avancerade konfigurationer för att övervaka webbplatser kan du läsa [JavaScript SDK API-referensen](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-3. **Kod för mobilapp:** Använda App Center SDK för att samla in händelser från din app och sedan skicka kopior av dessa händelser till Application Insights för analys av [följer den här guiden](../../application-insights/app-insights-mobile-center-quickstart.md).
+3. **Kod för mobilapp:** Använda App Center SDK för att samla in händelser från din app och sedan skicka kopior av dessa händelser till Application Insights för analys av [följer den här guiden](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 4. **Hämta telemetri:** Köra projektet i felsökningsläge i några minuter och sedan leta efter resultat i bladet översikt i Application Insights.
 

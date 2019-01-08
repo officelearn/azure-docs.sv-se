@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: f20da4ab60eeec3e9c353445f6bc20449b9c1cb6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e9b547b6b582e38a51196815522132dd807c971b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584487"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079042"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introduktion till Azure-Loggintegrering
 
@@ -29,7 +29,7 @@ ms.locfileid: "53584487"
 
 Azure Log Integration har gjorts tillgängliga för att förenkla uppgiften att integrera Azure loggar med din lokala säkerhetsinformation och händelsehantering (SIEM) system.
 
- Den rekommenderade metoden för integrerande Azure loggar är att använda dina SIEM leverantör s-anslutningar. Azure Monitor innehåller möjligheten att strömma loggar till event hubs och SIEM-leverantörer kan skriva kopplingar för att ytterligare integrera loggar från händelsehubben i SIEM.  En beskrivning av hur det fungerar, följer du anvisningarna i [övervakaren stream övervakning för data händelsehubbar](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Dessutom anges SIEMs som direkt Azure anslutningsapparna finns redan.  
+ Den rekommenderade metoden för integrerande Azure loggar är att använda din SIEM-leverantör kopplingar. Azure Monitor innehåller möjligheten att strömma loggar till event hubs och SIEM-leverantörer kan skriva kopplingar för att ytterligare integrera loggar från händelsehubben i SIEM.  En beskrivning av hur det fungerar, följer du anvisningarna i [övervakaren stream övervakning för data händelsehubbar](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Dessutom anges SIEMs som direkt Azure anslutningsapparna finns redan.  
 
 > [!IMPORTANT]
 > Om din primära intresse samlar in virtuella datorer, loggar, inkludera detta alternativ i de flesta SIEM-leverantörer i sin lösning. Med hjälp av SIEM leverantörens connector är alltid bra alternativ.

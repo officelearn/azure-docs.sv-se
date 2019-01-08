@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059426"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076390"
 ---
 # <a name="containers-offer-publishing-guide"></a>Behållare erbjuder publicera Guide
 
@@ -40,7 +40,7 @@ Microsoft stöder för närvarande kostnadsfria och bring-your-own-license (BYOL
 |:--- |:--- |  
 | Fakturering och mätning | Stöd för antingen den kostnadsfria eller BYOL faktureringsmodell. |  
 | Avbildning som byggts från Dockerfile | Behållaravbildningar måste baseras på Docker-avbildning-specifikationen och måste skapas från en Dockerfile.<ul> <li>Mer information om hur du skapar docker-avbildningar finns i avsnittet användning finns på [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Värd för i ACR | Behållaravbildningar måste finnas i en lagringsplats i Azure Container Registry (ACR).<ul> <li>Mer information om hur du arbetar med ACR finns i Snabbstart: skapa ett behållarregister med hjälp av Azure portal sidan finns på [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Värd för i ACR | Behållaravbildningar måste finnas i en lagringsplats i Azure Container Registry (ACR).<ul> <li>Mer information om hur du arbetar med ACR finns i snabbstarten: Skapa ett behållarregister med hjälp av Azure portal sidan finns på [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Bild-märkning | Behållaravbildningar måste innehålla minst 1 taggen (högsta taggar: 16).<ul> <li>Mer information om en bild-märkning finns på sidan docker-tagg finns på [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
@@ -48,8 +48,9 @@ Microsoft stöder för närvarande kostnadsfria och bring-your-own-license (BYOL
 
 Om du inte redan gjort det, 
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace
+- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
 
 Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande
+- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+- Se [behållare](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) för mer information.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078251"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064722"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 licensiering funktionen Checklista
 
@@ -33,7 +33,7 @@ Den här handboken förutsätts att du har licenser för Azure AD Premium P2, En
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>Planera och distribuera: dag 1 – 30
+## <a name="plan-and-deploy-day-1-30"></a>Planera och distribuera: Dag 1 – 30
 
 - Ange mer än en global administratör (glas konto)
    - [Hantera nödfall-åtkomst till administratörskonton i Azure AD](../users-groups-roles/directory-emergency-access.md)
@@ -75,7 +75,7 @@ Den här handboken förutsätts att du har licenser för Azure AD Premium P2, En
    - [Användningsscenarier och överväganden vid distribution för Azure AD Join](../devices/azureadjoin-plan.md)
 - [Hantera Windows Hello för företag i din organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Planera och distribuera: 90 dagar och senare
+## <a name="plan-and-deploy-day-90-and-beyond"></a>Planera och distribuera: 90 dagars och senare
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [Konfigurera Azure AD directory rollinställningar i PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)
@@ -84,7 +84,7 @@ Den här handboken förutsätts att du har licenser för Azure AD Premium P2, En
 - Hantera livscykeln för användaren holistiskt
    - Azure AD har en metod för att hantera identitetslivscykel
    - Ta bort manuella steg från din anställdas konto livscykel, för att förhindra obehörig åtkomst:
-      - Synkronisera identiteter från din källa till sanningen (HR-systemet) till Azure AD. länka till HR-system som stöds)
+      - Synkronisera identiteter från din källa till sanningen (HR-systemet) till Azure AD.
       - [Använda dynamiska grupper för att automatiskt tilldela användare i grupper baserat på deras attribut från HR (eller din källa till sanningen), till exempel avdelning, rubrik, region, och andra attribut.](../users-groups-roles/groups-dynamic-membership.md)
       - [Använd gruppbaserad åtkomsthantering driftsättning till automatiskt etablera användare för SaaS-program.](../manage-apps/what-is-access-management.md)
 

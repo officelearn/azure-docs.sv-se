@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846903"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065349"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
@@ -35,7 +35,7 @@ E-postmeddelanden skickas från PIM för både Azure AD och Azure-resursroller h
 
 Dessa e-postmeddelanden innehåller en **PIM** prefix i ämnesraden. Här är ett exempel:
 
-- PIM: Alain Charon har permanent tilldelade rollen Läsare för säkerhetskopiering
+- PIM: Alain Charon har permanent tilldelats rollen Läsare för säkerhetskopiering
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM-e-postmeddelanden för Azure AD-roller
 
@@ -43,16 +43,15 @@ PIM skickar e-postmeddelanden när följande händelser inträffar för Azure AD
 
 - När en aktivering av Privilegierade roller väntar på godkännande
 - När en begäran om aktivering av Privilegierade roller är slutförd
-- När en privilegierad roll tilldelas som
 - När Azure AD PIM är aktiverat
 
 Vem som får dessa e-postmeddelanden för Azure AD-roller beror på din roll och händelsen meddelanden inställning:
 
-| Användare | Rollaktivering väntar på godkännande | Begäran om rollaktivering har slutförts | Rollen är tilldelad som | PIM är aktiverat |
-| --- | --- | --- | --- | --- |
-| Privilegierad rolladministratör</br>(Aktiverat/berättigade) | Ja</br>(endast om inga godkännare som explicit anges) | Ja* | Ja | Ja |
-| Säkerhetsadministratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja | Ja |
-| Global administratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja | Ja |
+| Användare | Rollaktivering väntar på godkännande | Begäran om rollaktivering har slutförts | PIM är aktiverat |
+| --- | --- | --- | --- |
+| Privilegierad rolladministratör</br>(Aktiverat/berättigade) | Ja</br>(endast om inga godkännare som explicit anges) | Ja* | Ja |
+| Säkerhetsadministratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja |
+| Global administratör</br>(Aktiverat/berättigade) | Nej | Ja* | Ja |
 
 \* Om den [ **meddelanden** inställningen](pim-how-to-change-default-settings.md#notifications) är inställd på **aktivera**.
 
@@ -68,7 +67,7 @@ En veckovis PIM sammanfattande e-postmeddelande för Azure AD-roller skickas til
 
 E-postmeddelandet innehåller fyra paneler:
 
-| Panel | Beskrivning |
+| Upprepa | Beskrivning |
 | --- | --- |
 | **Användare som har aktiverats** | Antal gånger som användare aktiverat sin berättigad roll i klienten. |
 | **Användare som har gjorts permanenta** | Antal gånger som användare med en berättigad uppgift görs permanent. |

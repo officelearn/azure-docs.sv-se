@@ -3,7 +3,7 @@ title: Distribuera ditt erbjudande på Azure Marketplace | Microsoft Docs
 description: Lär dig mer om och gå igenom anvisningarna för att distribuera ditt erbjudande--avbildning av virtuell dator, developer-tjänst, datatjänst, etc.--på Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714289"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076119"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Distribuera ditt erbjudande på Azure Marketplace
 När du är nöjd med ditt erbjudande (det vill säga du har testat kundscenarier, marknadsföring innehåll och så vidare) och du är redo att starta, begära **Push till produktion** på den **publicera** fliken.  
@@ -62,7 +63,7 @@ När du är nöjd med ditt erbjudande (det vill säga du har testat kundscenarie
 * Azure-designen har en enkel färgpalett. Håll nere antalet primära och sekundära färger på din logotyp.
 * Temafärger i Azure Portal är vit och svart. Undvik därför att använda dessa färger som bakgrundsfärgen för din logotyper. Använd en färg som gör din logotyper framstående i Azure-portalen. Vi rekommenderar enkla primärfärger. Om du använder genomskinlig bakgrund, se till att logotyp/text inte är vit eller svart.
 * Använd inte en toning bakgrund på logotypen.
-* Undvik att placera text, även företaget eller varumärke namn på logotypen.
+* Undvika att placera text, även företaget eller varumärken namn på logotypen.
 * Utseendet och känslan av din logotyp måste vara ”fast” och Undvik toningar.
 * Logotypen bör inte vara har sträckts ut.
 
@@ -70,7 +71,7 @@ När du är nöjd med ditt erbjudande (det vill säga du har testat kundscenarie
 
 * Hero-logotypen är valfritt. Utgivaren kan du inte ladda upp en Hero-logotyp. **Men en gång överförda ikonen hero-komponenten inte kan tas bort från publiceringen portal. Då måste partnern följer du riktlinjerna för Azure Marketplace för Hero ikoner annan erbjudandet inte kommer godkännas till produktion.**
 * Visningsnamn för utgivaren, SKU rubrik och erbjudandet lång sammanfattning visas i vit teckenfärg. Därför bör du undvika att hålla alla ljusare i bakgrunden på Hero-ikonen. Svart, vit och transparent bakgrund är inte tillåtet för Hero-ikoner.
-* Utgivaren visningsnamn, SKU rubrik, lång sammanfattning av erbjudandet och knappen Skapa är inbäddade programmässigt inuti Hero-logotypen när erbjudandet går listan. Så bör du inte ange valfri text när du utformar Hero-logotypen. Lämna tomt utrymme till höger eftersom text (t.ex. utgivarens namn, SKU rubrik, lång sammanfattning av erbjudandet) kommer att inkluderas programmässigt av oss där. Det tomma utrymmet för texten bör vara 415 × 100 till höger (och det är förskjutas av 370px från vänster).
+* Utgivaren visningsnamn, SKU rubrik, lång sammanfattning av erbjudandet och knappen Skapa är inbäddade programmässigt inuti Hero-logotypen när erbjudandet går listan. Så bör du inte ange valfri text när du utformar Hero-logotypen. Lämna tomt utrymme till höger eftersom text (det vill säga visningsnamn för utgivaren, SKU rubrik, lång sammanfattning av erbjudandet) kommer att inkluderas programmässigt av oss där. Det tomma utrymmet för texten bör vara 415 × 100 till höger (och 370 kompenseras px från vänster).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Erbjuder ytterligare produktion checklista för redan listade virtuell dator
 * Kontrollera om det finns redan ett erbjudande med samma erbjudandenamn från ditt företag. Om Ja, bör du lägga till en ny version av SKU: N i befintliga erbjudandet istället för att skapa ett nytt duplicerade erbjudande.
@@ -81,7 +82,7 @@ När du är nöjd med ditt erbjudande (det vill säga du har testat kundscenarie
 När erbjudandet går live, testa kundscenarier för att verifiera att alla kontrakt och funktioner fungerar korrekt i produktionsmiljön som testats och godkänts i mellanlagringsmiljön.
 
 ## <a name="see-also"></a>Se också
-* [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Komma igång: Hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850983"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073415"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -37,7 +37,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
   - Du kan konfigurera multifaktorautentisering för att ytterligare säker inloggning till Azure-datorer.
   - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar även för kunder som använder [federationstjänster](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Kan samarbeta:** With Role-Based åtkomstkontroll (RBAC), kan du ange vem som kan logga in på en viss virtuell dator som en vanlig användare eller med administratörsbehörighet. När användare ansluta till eller lämnar ditt team kan uppdatera du RBAC-principen för den virtuella datorn att bevilja åtkomst efter behov. Den här upplevelsen är mycket enklare än att behöva Skrubba virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När medarbetare lämnar organisationen och användarkontot inaktiveras eller tas bort från Azure AD kan har de inte längre åtkomst till dina resurser.
+- **Kan samarbeta:** Med rollbaserad åtkomstkontroll (RBAC), kan du ange vem som kan logga in till en viss virtuell dator som en vanlig användare eller med administratörsbehörighet. När användare ansluta till eller lämnar ditt team kan uppdatera du RBAC-principen för den virtuella datorn att bevilja åtkomst efter behov. Den här upplevelsen är mycket enklare än att behöva Skrubba virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När medarbetare lämnar organisationen och användarkontot inaktiveras eller tas bort från Azure AD kan har de inte längre åtkomst till dina resurser.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Azure-regioner och Linux-distributioner som stöds
 
@@ -96,8 +96,8 @@ Den *provisioningState* av *lyckades* visas när tillägget har installerats på
 
 Azure rollbaserad åtkomstkontroll (RBAC)-princip bestämmer vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM inloggningen:
 
-- **Administratörsinloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in till en Azure-dator med Windows-administratör eller Linux-rotanvändare.
-- **Användarinloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in till en Azure-dator med vanliga användarbehörigheter.
+- **Administratörsinloggning för virtuell dator**: Användare med den här rollen tilldelad kan logga in på Azure-datorer med Windows-administratör eller Linux-rotanvändare.
+- **Användarinloggning för virtuell dator**: Användare med den här rollen tilldelad kan logga in på Azure-datorer med vanliga användarbehörigheter.
 
 > [!NOTE]
 > Om du vill tillåta en användare att logga in på den virtuella datorn via SSH måste du tilldela antingen den *administratörsinloggning för virtuell dator* eller *användarinloggning för virtuell dator* roll. En Azure-användare med den *ägare* eller *deltagare* roller som är tilldelade för en virtuell dator inte automatiskt har behörighet att logga in på den virtuella datorn via SSH.
@@ -150,7 +150,7 @@ Stäng webbläsarfönstret, återgå till en SSH-Kommandotolken och tryck på de
 
 ## <a name="sudo-and-aad-login"></a>Sudo och AAD-inloggning
 
-Första gången du kör sudo, blir du ombedd att autentisera en gång. Om du inte vill behöva autentisera igen för att köra sudo, kan du redigera filen sudoers `/aad/etc/sudoers.d/aad_admins` och Ersätt den här raden:
+Första gången du kör sudo, blir du ombedd att autentisera en gång. Om du inte vill behöva autentisera igen för att köra sudo, kan du redigera filen sudoers `/etc/sudoers.d/aad_admins` och Ersätt den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) ALL

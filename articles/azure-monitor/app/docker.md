@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999126"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077461"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Övervaka Docker-program i Application Insights
 
@@ -36,9 +36,9 @@ När du kör den [Application Insights bild](https://hub.docker.com/r/microsoft/
 
 ## <a name="set-up-your-application-insights-resource"></a>Konfigurera Application Insights-resursen
 
-1. Logga in på [Microsoft Azure-portalen](https://azure.com) och öppna Application Insights-resurs för din app; eller [skapa en ny](../../application-insights/app-insights-create-new-resource.md). 
+1. Logga in på [Microsoft Azure-portalen](https://azure.com) och öppna Application Insights-resurs för din app; eller [skapa en ny](../../azure-monitor/app/create-new-resource.md ). 
    
-    *Vilken resurs som ska jag använda?* Om de appar som körs på värden har utvecklats av någon annan, måste du [skapa en ny Application Insights-resurs](../../application-insights/app-insights-create-new-resource.md). Detta kan du visa och analysera telemetri. (Välj Allmänt för typ av app).
+    *Vilken resurs som ska jag använda?* Om de appar som körs på värden har utvecklats av någon annan, måste du [skapa en ny Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ). Detta kan du visa och analysera telemetri. (Välj Allmänt för typ av app).
    
     Men om du utvecklar appar, så vi hoppas att du [har lagts till Application Insights SDK](../../azure-monitor/app/java-live.md) dem. Om de är alla verkligen komponenter i ett enda affärsprogram, du kan konfigurera alla för att skicka telemetri till en resurs och du använder den samma resursen för att visa data för Docker livscykel och prestanda. 
    

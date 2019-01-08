@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077469"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063360"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen
 Många Azure Active Directory (Azure AD) tjänster måste du aktivera Azure AD-produkt och licensiera var och en av dina användare eller grupper (och associerade medlemmar) för produkten. Endast användare med aktiva licenser kommer att kunna komma åt och använda den licensierade Azure AD-tjänster.
@@ -57,7 +57,8 @@ Du kan visa dina tillgängliga produkter, inklusive enskilda licenser söker eft
 ## <a name="assign-licenses-to-users-or-groups"></a>Tilldela licenser till användare eller grupper
 Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten har rätt licens. Det är upp till dig om du vill lägga till licensrättigheter för enskilda användare eller för hela gruppen.
 
->! [Obs] Gruppbaserad licensiering är en funktion som offentlig förhandsversion av Azure AD och är tillgängliga med något betalda Azure AD-licensplan. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Detaljerad information om hur du lägger till användare finns i [lägga till eller ta bort användare i Azure Active Directory](add-users-azure-active-directory.md). Detaljerad information om hur du skapar grupper och lägga till medlemmar finns i [skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md).
+>[!Note]
+>Gruppbaserad licensiering är en funktion som offentlig förhandsversion av Azure AD och är tillgängliga med något betalda Azure AD-licensplan. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Detaljerad information om hur du lägger till användare finns i [lägga till eller ta bort användare i Azure Active Directory](add-users-azure-active-directory.md). Detaljerad information om hur du skapar grupper och lägga till medlemmar finns i [skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md).
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>Tilldela en licens till en specifik användare
 1. På den **produkter** markerar du namnet på den version som du vill tilldela till användaren. Till exempel _Azure Active Directory Premium Plan 2_.

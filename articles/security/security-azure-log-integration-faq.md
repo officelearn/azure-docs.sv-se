@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 458b615ea872b62a412a71cbbb0b3827ccb4d9b8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580934"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064482"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Loggintegrering vanliga frågor och svar
 
@@ -31,7 +31,7 @@ Den här artikeln får du svar på vanliga frågor och svar (FAQ) om Azure Log I
 
 Azure Log Integration är en tjänst i Windows-operativsystemet som du kan använda för att integrera dina lokala säkerheten och händelsehantering (SIEM) hanteringssystem loggarna från dina Azure-resurser. Den här integreringen ger en enhetlig instrumentpanel för alla dina tillgångar, lokalt eller i molnet. Du kan sedan aggregera, korrelera, analysera och varna för säkerhetshändelser som är associerade med dina program.
 
-Den bästa metoden för att integrera Azure loggar är genom att använda din SIEM leverantör s Azure Monitor-anslutningsapp och följa de här [instruktioner](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Om din SIEM leverantör t Anger en anslutning till Azure Monitor kan kanske du att kunna använda Azure Log Integration som en tillfällig lösning (om din siem-server som stöds av Azure Log Integration) tills en sådan anslutning är tillgänglig.
+Den bästa metoden för att integrera Azure loggar är genom att använda din SIEM-leverantör Azure Monitor-koppling och följa de här [instruktioner](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Men om din SIEM-leverantör inte tillhandahåller en anslutning till Azure Monitor, du kan använda Azure Log Integration som en tillfällig lösning (om din siem-server som stöds av Azure Log Integration) tills en sådan anslutning är tillgänglig.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure Log Integration-programvara är kostnadsfritt?
 

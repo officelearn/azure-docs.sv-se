@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868675"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074010"
 ---
 # <a name="requirements-by-listing-type"></a>Krav genom att ange typ  
 Teknik- och innehåll kraven varierar i butiken, typ av erbjudande och listtyp. Granska följande specifikationer för att kontrollera efterlevnaden.  
@@ -40,7 +40,7 @@ I följande tabell beskrivs de nödvändiga kraven för att publicera på AppSou
 | ***Programvara som en tjänst (SaaS)-app för företag*** | Din app måste uppfylla följande krav.<ul> <li>En line-of-business SaaS-app</li> <li>Affärsprocess fokuserar</li> <li>Riktade till företagskunder</li> <li>Användarna kan använda sina autentiseringsuppgifter för inloggning, till exempel användarnamn och lösenord</li> </ul> | Krävs |  
 | ***Kostnadsfria utvärderingsperioden och utvärderingsmiljö*** | Din app måste inkludera en följande alternativ för att en kund att använda appen utan kostnad under en begränsad tid.<ul> <li>Ange en `try` metod, så kunder kan starta en utvärdering av din app i AppSource</li> <li>Ange en `request trial` alternativet i AppSource, så kunder kan begära en utvärderingsversion av din app</li> </ul>Den kostnadsfria utvärderingsversionen som du anger måste erbjuda kunden en förinställda lång tid att testa din app utan extra kostnad. | Krävs |  
 | ***Enkelt att konfigurera och färdiga att använda lösning*** | Din app måste vara enkelt och snabbt att konfigurera och konfigurera med Ingen anpassning krävs. | Krävs |  
-| ***Lead-hantering*** | Du måste aktivera din CRM att acceptera lead-data innan du får leads från storefront.<ul> <li>Exempel på CRM är Marketo, Microsoft Dynamics eller Salesforce</li> </ul> | Krävs |  
+| ***Leadhantering*** | Aktivera din CRM att acceptera lead-data innan du får leads från storefront.<ul> <li>Exempel på CRM är Marketo, Microsoft Dynamics eller Salesforce</li> </ul> | Krävs |  
 | ***Sekretesspolicy och användningsvillkor*** | Din app måste ange en länk till webbsidan sekretess princip med hjälp av en offentlig URL. Dina användningsvillkor måste anges vid publicering som text. | Krävs |  
 | ***Support*** | Din app måste ange en länk till din kund supportsida med hjälp av en offentlig URL. Om din app är en utvärderingsversion, sedan du måste ha stöd för utan ytterligare kostnad under utvärderingsperioden. | Krävs |  
 
@@ -49,10 +49,10 @@ Här följer nödvändiga kraven för att visa en lista över typer i Azure Mark
 
 | Krav | Information | Listtyp |  
 |:--- |:--- |:--- |  
-| ***Deltagandepolicyer för*** | Appen måste följa deltagandepolicyer för Azure Marketplace.<ul> <li>Mer information om deltagande principer finns i Deltagandepolicyer för Azure Marketplace sidan finns på [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | lista<br />Transact<br />trial |  
+| ***Deltagandepolicyer för*** | Din app måste följa deltagandepolicyer för Azure Marketplace.<ul> <li>Mer information om deltagande principer finns i Deltagandepolicyer för Azure Marketplace sidan finns på [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | lista<br />Transact<br />trial |  
 | ***Integrering med Microsoft*** | Ditt erbjudande ska använda eller utöka typer av Microsoft Azure-tjänster, till exempel beräkning, nätverk och lagring. Ditt erbjudande ska justeras till en befintlig Azure Marketplace-kategori, till exempel databaser, säkerhet och nätverk.<ul> <li>Mer information om Marketplace-erbjudanden besök Marketplace-appar sida finns på [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | lista<br />Transact<br />trial |  
 | ***Målgrupp*** | Erbjudandet måste vara för IT-proffs, molnutvecklare eller andra tekniska kundroller. | lista<br />Transact<br />trial |  
-| ***Lead-hantering*** | Du måste aktivera din CRM (Marketo, Microsoft Dynamics eller Salesforce) att acceptera lead-data innan du får leads från storefront. | lista<br />Transact<br />trial |  
+| ***Leadhantering*** | Aktivera din CRM (Marketo, Microsoft Dynamics eller Salesforce) att acceptera lead-data innan du får leads från storefront. | lista<br />Transact<br />trial |  
 | ***Sekretesspolicy och användningsvillkor*** | Din app måste ange en länk till webbsidan sekretess princip med hjälp av en offentlig URL. Dina användningsvillkor måste anges vid publicering som text. | lista<br />Transact<br />trial |  
 | ***Support*** | Erbjudandet måste ange en länk till din kund supportsida med hjälp av en offentlig URL. Om ditt erbjudande är en utvärderingsversion, sedan du måste ha stöd för utan ytterligare kostnad under utvärderingsperioden. | Transact<br />trial |    
 
@@ -64,19 +64,19 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 
 | Erbjudandetyp | Butik | Information |  
 |:---        |:---        |:---     |  
-| Konsulttjänster | AppSource | [Krav: AppSource: lista: konsulttjänster](#requirements-appsource-list-consulting-services) |  
-| Konsulttjänster | Azure Marketplace | [Krav för: Azure Marketplace: lista: konsulttjänster](#requirements-azure-marketplace-list-consulting-services) |  
+| Konsulttjänster | AppSource | [Krav: AppSource: Lista: Konsulttjänster](#requirements-appsource-list-consulting-services) |  
+| Konsulttjänster | Azure Marketplace | [Krav: Azure Marketplace: Lista: Konsulttjänster](#requirements-azure-marketplace-list-consulting-services) |  
 | Kontakta mig | AppSource | [](#) |  
-| Kontakta mig | Azure Marketplace | [Krav: AppSource: lista: kontakta mig](#requirements-azure-marketplace-list-contact-me) |  
+| Kontakta mig | Azure Marketplace | [Krav: AppSource: Lista: Kontakta mig](#requirements-azure-marketplace-list-contact-me) |  
 
-#### <a name="requirements-appsource-list-consulting-service"></a>Krav: AppSource: lista: konsulttjänst  
+#### <a name="requirements-appsource-list-consulting-service"></a>Krav: AppSource: Lista: Konsulttjänst  
 
 | Krav | Information |  
 |:--- |:--- |  
 | Egenskaper för tjänst-erbjudande | Din konsulttjänst måste uppfylla följande kriterier.<ul> <li>Leverera en fast omfång, fast varaktighet, fast pris (eller kostnadsfri) engagement.</li> <li>Orientera främst för aktiviteter före försäljning.</li> <li>Begränsa till en enda kund.</li> <li>Genomför på platsen.</li> </ul> |  
 | Partnerkrav för konsulttjänster | Du uppfyller villkoret i området relevanta för din tjänst.<table><tr><th>Lösningsområde</th><th>Kriterie</th></tr><tr><td>Dynamics 365 för Customer Engagement</td><td>Ha Silver eller Gold Cloud Customer Relationship Management kompetens.</td></tr><tr><td>Dynamics 365 för Finance and Operations, Enterprise edition</td><td>Har Silver eller Gold Enterprise Resource Planning kompetens och intäkter från din molnanvändning i de avslutande 12 månaderna 25 000 eller fler.</td></tr><tr><td>Dynamics 365 för finans och åtgärder, Business edition</td><td>Fungera som Cloud Services Provider (CSP) eller Digital Partner of Record (DPOR) för en eller flera kunder.</td></tr><tr><td>Power BI</td><td>Uppfyll villkoren för Solution Partner.</td></tr><tr><td>PowerApps</td><td>Har en Partnerdemonstration-lösning.</td></tr></table><ul> <li>Mer information om hantering av kundrelationer besöka sidan finns i molnet Customer Relationship Management [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Mer information om resursplanering för finns i resursplanering sidan finns på [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Mer information om CSP finns Molntjänstleverantören sidan finns på [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Mer information om DPOR finns Digital Partner of Record och Partner Association sidan finns på [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Mer information om lösningen partner villkor finns Lösningsöversikt för Partner och incitament dokumentet finns på [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Mer information om partnerdemonstration finns Partnerdemonstration sidan finns på [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
-#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Krav för: Azure Marketplace: lista: konsulttjänst  
+#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Krav: Azure Marketplace: Lista: Konsulttjänst  
 
 | Krav | Information |  
 |:--- |:--- |  
@@ -91,35 +91,35 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 
 | Erbjudandetyp | Butik | Information |  
 |:---        |:---        |:---     |  
-| Kostnadsfria / SaaS-utvärdering | AppSource | [Visa en lista över krav: utvärdering](#listing-type-requirements-trial) |  
-| Kostnadsfria / SaaS-utvärdering | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: kostnadsfri utvärderingsversion / SaaS-utvärdering](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interaktiv demo | AppSource | [Visa en lista över krav: utvärdering](#listing-type-requirements-trial) |  
-| Interaktiv demo | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: Interaktiv demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Testkör | AppSource | [Visa en lista över krav: utvärdering](#listing-type-requirements-trial) |  
-| Testkör | Azure Marketplace | [Krav för: Azure Marketplace: utvärderingsversion: Testkör](#requirements-azure-marketplace-trial-test-drive) |  
+| Kostnadsfria / SaaS-utvärdering | AppSource | [Lista typ krav: Utvärderingsversion](#listing-type-requirements-trial) |  
+| Kostnadsfria / SaaS-utvärdering | Azure Marketplace | [Krav: Azure Marketplace: Utvärderingsversion: Kostnadsfri utvärderingsversion / SaaS-utvärdering](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Interaktiv demo | AppSource | [Lista typ krav: Utvärderingsversion](#listing-type-requirements-trial) |  
+| Interaktiv demo | Azure Marketplace | [Krav: Azure Marketplace: Utvärderingsversion: Interaktiv demo](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Testkör | AppSource | [Lista typ krav: Utvärderingsversion](#listing-type-requirements-trial) |  
+| Testkör | Azure Marketplace | [Krav: Azure Marketplace: Utvärderingsversion: Testkör](#requirements-azure-marketplace-trial-test-drive) |  
 
-#### <a name="requirements-azure-marketplace-trial"></a>Krav för: Azure Marketplace: utvärdering  
+#### <a name="requirements-azure-marketplace-trial"></a>Krav: Azure Marketplace: Utvärdering  
 
 | Krav | Information |  
 |:--- |:--- |  
-| Kostnadsfria utvärderingsperioden och utvärderingsmiljö | Kunden kan använda din app utan kostnad under en begränsad tid.<br /><br />Kunden behöver inte betala alla avgifter licens eller prenumeration för din erbjudandet eller app. Kunden är inte skyldig att betala för de underliggande Microsoft från första part produkt eller tjänst. Alla utvärderingsversionsalternativ som distribueras till din Azure-prenumeration. Har du ensam kontroll utvärderingsversion av kostnadsoptimeringar och hantering.<br /><br />Du kan välja en kostnadsfri utvärderingsversion, Interaktiv demo eller Testkör. Oavsett vad du väljer, erbjuda din kostnadsfria utvärderingsversion kunden en förinställda lång tid att testa appen utan extra kostnad.<ul> <li>Starta processen med att skapa en testenhet genom att skicka ett e- [ amp-testdrive@microsoft.com ](mailto:amp-testdrive@microsoft.com).</li> </ul>Obs: Azure Marketplace SaaS utvärderingsversion upplevelser måste kan kunderna använda autentiseringsuppgifter för arbetet för att logga in.<ul> <li>Mer information finns i AppSource utvärderingsversion upplevelser avsnittet finns på [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
+| Kostnadsfria utvärderingsperioden och utvärderingsmiljö | Kunden kan använda din app utan kostnad under en begränsad tid.<br /><br />Kunden behöver inte betala alla avgifter licens eller prenumeration för din erbjudandet eller app. Kunden är inte skyldig att betala för de underliggande Microsoft från första part produkt eller tjänst. Alla utvärderingsversionsalternativ som distribueras till din Azure-prenumeration. Har du ensam kontroll utvärderingsversion av kostnadsoptimeringar och hantering.<br /><br />Du kan välja en kostnadsfri utvärderingsversion, Interaktiv demo eller Testkör. Oavsett vad du väljer, erbjuda din kostnadsfria utvärderingsversion kunden en förinställda lång tid att testa appen utan extra kostnad.<ul> <li>Starta processen med att skapa en testenhet genom att skicka ett e- [ amp-testdrive@microsoft.com ](mailto:amp-testdrive@microsoft.com).</li> </ul>Obs! Azure Marketplace SaaS utvärderingsversion upplevelser måste kan kunderna använda autentiseringsuppgifter för arbetet för att logga in.<ul> <li>Mer information finns i AppSource utvärderingsversion upplevelser avsnittet finns på [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
 | Enkelt att konfigurera och färdiga att använda lösning | Din app måste vara enkelt och snabbt att göra inställningar. |  
 | Tillgänglighet / drifttid | Din SaaS-app eller en plattform måste ha en drifttid på minst 99,9%. |  
 | Azure Active Directory | Erbjudandet måste tillåta Azure Active Directory (Azure AD) federerad enkel inloggning (SSO) (Azure AD-federerad enkel inloggning) med medgivande aktiverat. |  
 
-#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Krav för: Azure Marketplace: utvärderingsversion: kostnadsfri utvärderingsversion / SaaS-utvärdering  
+#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Krav: Azure Marketplace: Utvärderingsversion: Kostnadsfri utvärderingsversion / SaaS-utvärdering  
 
 | Fördelar | Krav |  
 |:--- |:--- |  
 | Kan en kund att testa din produkt innan köpa med en automatiserad metod för att konvertera till betald användning. Möjliggör också koncepttester för kunden och gemensamma engagemang med Microsofts säljteam. | Din lösning är en virtuell dator eller mall.<br /><br />Din lösning är en SaaS erbjudande och du erbjuda en multitenant SaaS-produkt.<br /><br />Du har en första körningen av att en kund komma igång och snabbt.<br /><br />Du har en enda klient men lägger till kunder som gästanvändare. |  
 
-#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Krav för: Azure Marketplace: utvärderingsversion: Interaktiv demo  
+#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Krav: Azure Marketplace: Utvärderingsversion: Interaktiv demo  
 
 | Fördelar | Krav |  
 |:--- |:--- |  
 | Gör det möjligt för kunderna att se din lösning i praktiken utan att komplexiteten för att ställa in. | Din lösning kräver avancerade inställningar som skulle vara svåra att uppnå inom utvärderingsperioden är slut. |  
 
-#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Krav för: Azure Marketplace: utvärderingsversion: Testkör  
+#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Krav: Azure Marketplace: Utvärderingsversion: Testkör  
 
 | Fördelar | Krav |  
 |:--- |:--- |  
@@ -133,24 +133,24 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 
 | Erbjudandetyp | Butik | Information |   
 |:---        |:---        | :--- |  
-| Azure-appar: hanterad app | Azure Marketplace | [Krav för: Azure Marketplace: Transact: Azure-appar: hanterad app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure-appar: lösningsmallen | Azure Marketplace | [Krav för: Azure Marketplace: Transact: Azure-appar: lösningsmallen](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
-| Containrar | Azure Marketplace | [Krav för: Azure Marketplace: Transact: behållare](#requirements-azure-marketplace-transact-container) |  
-| SaaS-app  | Azure Marketplace | [Krav för: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
-| Virtuell dator | Azure Marketplace | [Krav för: Azure Marketplace: Transact: virtuell dator](#requirements-azure-marketplace-transact-virtual-machine) |  
+| Azure-appar: Hanterad app | Azure Marketplace | [Krav: Azure Marketplace: Transact: Azure-appar: Hanterad app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure-appar: Lösningsmall | Azure Marketplace | [Krav: Azure Marketplace: Transact: Azure-appar: Lösningsmall](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Containrar | Azure Marketplace | [Krav: Azure Marketplace: Transact: Behållare](#requirements-azure-marketplace-transact-container) |  
+| SaaS-app  | Azure Marketplace | [Krav: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
+| Virtuell dator | Azure Marketplace | [Krav: Azure Marketplace: Transact: Virtuell dator](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 
 #### Requirements: Azure Marketplace: Transact: Azure apps: Solution template   -->
 
-#### <a name="requirements-azure-marketplace-transact-container"></a>Krav för: Azure Marketplace: Transact: behållare  
+#### <a name="requirements-azure-marketplace-transact-container"></a>Krav: Azure Marketplace: Transact: Container  
 
 | Krav | Information |  
 |:--- |:--- |  
 | Fakturering och mätning | Stöd för antingen den kostnadsfria eller BYOL faktureringsmodell. |  
 | Docker-baserad avbildning | Behållaravbildningen måste baseras på Docker-avbildningsformatet och måste hämtas från Azure Container Registry. |  
 
-#### <a name="requirements-azure-marketplace-transact-saas-app"></a>Krav för: Azure Marketplace: Transact: SaaS-app  
+#### <a name="requirements-azure-marketplace-transact-saas-app"></a>Krav: Azure Marketplace: Transact: SaaS-app  
 
 | Krav | Information |  
 |:--- |:--- |  
@@ -159,14 +159,13 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 | Landningssida för transaktion | Vara värd för en landningssida för Azure anpassade transaktion. Denna sida kan kunderna skapa och hantera ditt SaaS-tjänstkonto. |  
 | SaaS-prenumeration API | Ange en tjänst som interagerar med SaaS-prenumeration för att skapa, uppdatera och ta bort ett användaravtal för kontot och tjänsten. Alla kritiska API-ändringar måste stödjas inom 24 timmar. Alla icke-kritiska API-ändringar uppdateras regelbundet. |  
 
-#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Krav för: Azure Marketplace: Transact: virtuell dator  
+#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Krav: Azure Marketplace: Transact: Virtuell dator  
 
 | Krav | Information |  
 |:--- |:--- | 
 | Fakturering och mätning | Den virtuella datorn måste ha stöd för BYOL eller användningsbaserad fakturering. |  
-| Azure-kompatibel virtuell hårddisk (VHD) | Virtuella datorer måste vara baserade på Windows eller Linux.<ul> <li>Mer information om hur du skapar en Linux-VHD finns i avsnittet Skapa en Azure-kompatibel VHD (Linux-baserade) avsnitt finns på [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-Compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Mer information om hur du skapar en virtuell Windows-Hårddisk finns i avsnittet Skapa en Azure-kompatibel VHD (Windows-baserade) avsnitt finns på [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-Compatible-VHD-Windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Azure-kompatibel virtuell hårddisk (VHD) | Virtuella datorer måste vara baserade på Windows eller Linux.<ul> <li>Mer information om hur du skapar en Linux-VHD finns [Linux-distributioner på Azure-godkända](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Läs mer om hur du skapar en virtuell Windows-Hårddisk [skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Nästa steg
 *   Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  
- 
----  
+

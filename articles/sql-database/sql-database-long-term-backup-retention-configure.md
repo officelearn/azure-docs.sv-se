@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: ed3203cde8bad8c506bacf3607faecfbcde2cd75
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6be0603c8332a6d1bd6c965a167b14f5a22362e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606868"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064227"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior
 
@@ -33,7 +33,7 @@ I följande avsnitt visas hur du använder Azure-portalen för att konfigurera l
 
 Du kan konfigurera SQL-databas till [automatiska säkerhetskopieringar bevaras](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivå. 
 
-1. Välj din SQL-server i Azure-portalen och klicka sedan på **hantera säkerhetskopior**. På den **konfigurera principer för** fliken, markerar du kryssrutan för databasen som du vill ange eller ändra principer för långsiktig kvarhållning av säkerhetskopior.
+1. Välj din SQL-server i Azure-portalen och klicka sedan på **hantera säkerhetskopior**. På den **konfigurera principer för** fliken *markerar du kryssrutan för databasen som du vill ange eller ändra principer för långsiktig kvarhållning av säkerhetskopior*. Om kryssrutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
 
    ![hantera säkerhetskopior länk](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723679"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076798"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -127,7 +127,7 @@ Du kan länka ett normalt kluster med hjälp av en [Apache Ambari](https://ambar
 
 1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: Länka ett kluster**.
 2. Välj **allmän Livy Endpoint**.
-3. Ange allmänna Livy slutpunkten, till exempel: http://10.172.41.42:18080.
+3. Ange allmänna Livy slutpunkten, till exempel: http\:/ / 10.172.41.42:18080.
 4. Välj **grundläggande** när behöver auktorisering för allmän Livy slutpunkten, annars väljer **ingen**.
 5. Inkommande användarnamn när du väljer **grundläggande** i step4.
 6. Lösenordet när du väljer **grundläggande** i step4.

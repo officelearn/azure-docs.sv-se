@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 4a77f73f4d87f7def7c8a841c7a59aed04b9bee2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020055"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075149"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -35,11 +35,11 @@ Ett exempel C#-lösning med kod som medföljer den här artikeln är tillgängli
 
 * [Batch-konto och ett länkat storage-konto](batch-account-create-portal.md)
 
-* [Application Insights-resurs](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights-resurs](../azure-monitor/app/create-new-resource.md )
   
    * Använd Azure-portalen för att skapa en Application Insights *resource*. Välj den *Allmänt* **programtyp**.
 
-   * Kopiera den [instrumenteringsnyckeln](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) från portalen. Det krävs senare i den här artikeln.
+   * Kopiera den [instrumenteringsnyckeln](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) från portalen. Det krävs senare i den här artikeln.
   
   > [!NOTE]
   > Du kanske [debiteras](https://azure.microsoft.com/pricing/details/application-insights/) för data som lagras i Application Insights. Detta inkluderar diagnostiken och övervakning av data som beskrivs i den här artikeln.

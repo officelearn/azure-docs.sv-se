@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 5693307f9d032ad544a44eabd19126700c5a4099
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e23173b006fcc83f0e4b30b59a65e772b68a612d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407169"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062017"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar
 
@@ -233,7 +233,7 @@ Att köra en [fullständig](../azure-resource-manager/deployment-modes.md) distr
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-### <a name="verify-the-deployment"></a>Kontrollera distributionen
+### <a name="verify-the-deployment"></a>Verifiera distributionen
 Om resurserna som har distribuerats, visas en sammanfattning av distributionen i PowerShell-fönstret:
 
 ```powershell
@@ -258,6 +258,7 @@ Du har nu sett de grundläggande arbetsflöde och kommandon för att distribuera
 * [Översikt över Azure Resource Manager][Azure Resource Manager overview]
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell][Deploy resources with Azure Resource Manager templates]
 * [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Microsoft.ServiceBus resurstyper](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

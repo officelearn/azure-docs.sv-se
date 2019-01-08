@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054528"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076633"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
@@ -80,7 +80,7 @@ E-post om identifieringar Smart prestandaavvikelser är begränsade till en e-po
 
   * Inte ännu, men du kan:
     * [Ställa in aviseringar](../../azure-monitor/app/alerts.md) som talar om när ett mått överskrider ett tröskelvärde.
-    * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databasen](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till PowerBI](../../application-insights/app-insights-export-power-bi.md), där du kan analysera dem själv.
+    * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databasen](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till PowerBI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera dem själv.
 * *Hur ofta utförs analysen?*
 
   * Analys körs dagligen på telemetri från föregående dag (hel dag i UTC-tidszonen).

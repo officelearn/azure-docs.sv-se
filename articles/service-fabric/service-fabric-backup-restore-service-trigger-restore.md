@@ -1,6 +1,6 @@
 ---
 title: Återställning av säkerhetskopia i Azure Service Fabric | Microsoft Docs
-description: Använd Service Fabric regelbunden säkerhetskopiering och återställning av funktionen för att återställa data från en säkerhetskopia av dina programdata.
+description: Använd regelbunden säkerhetskopiering och återställning-funktionen i Service Fabric för att återställa data från en säkerhetskopia av dina programdata.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -14,46 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 69604decab354368f336b85bfa1497671f0c3101
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730297"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064839"
 ---
-#  <a name="restoring-backup-in-azure-service-fabric"></a>Återställning av säkerhetskopia i Azure Service Fabric
+# <a name="restoring-backup-in-azure-service-fabric"></a>Återställning av säkerhetskopia i Azure Service Fabric
 
+I Azure Service Fabric kan Reliable Stateful services och Reliable Actors underhålla ett föränderligt och auktoritärt tillstånd när en begäran och svar-transaktion har slutförts. En tillståndskänslig tjänst kan gå under en längre tid eller förlora information på grund av en katastrof. Om detta händer, måste tjänsten återställas från den senaste acceptabla säkerhetskopian så att den kan fortsätta att arbeta.
 
-Reliable Stateful services och Reliable Actors i Service Fabric kan underhålla föränderligt och auktoritärt tillstånd bortom begäran och svaret eller hela transaktionen. Om en tillståndskänslig tjänst kraschar under en längre tid eller förlorar information på grund av en katastrof, kan det behöva återställas till senaste acceptabel säkerhetskopia av dess tillstånd för att kunna fortsätta att tillhandahålla tjänsten när det kommer tillbaka.
+Du kan till exempel konfigurera en tjänst för att säkerhetskopiera data till att skydda mot följande scenarier:
 
-Tjänsten kan till exempel vill säkerhetskopiera dess data för att skydda mot följande scenarier:
-
-- I händelse av permanent förlusten av en hela Service Fabric-kluster. **(Fall av Disaster Recovery – DR)**
-- Permanent förlust av en majoritet av replikeringar av en tjänstpartition. **(Fall att data går förlorade)**
-- Administrativa fel där tillståndet hämtar eller förstörs. En administratör med tillräcklig behörighet för tar till exempel felaktigt bort tjänsten. **(Fall att data går förlorade)**
-- Buggar i tjänsten som orsaka skadade data. Till exempel kan skadade data inträffa när en kod tjänsteuppgraderingen börjar skriva felaktiga data till en tillförlitlig samling. I sådana fall kanske både koden och data återställas till ett tidigare tillstånd. **(Fall av skadade data)**
-
+- **Om haveriberedskap**: Permanent förlust av ett helt Service Fabric-kluster.
+- **Om data går förlorade**: Permanent förlust av en majoritet av replikeringar av en tjänstpartition.
+- **Om data går förlorade**: Oavsiktlig borttagning eller skadade data i tjänsten. En administratör tar till exempel felaktigt bort tjänsten.
+- **Om data skadas**: Buggar i tjänsten orsaka skadade data. Till exempel kan skadade data inträffa när en kod tjänsteuppgraderingen skriver felaktiga data till en tillförlitlig samling. I sådana fall kanske du återställer koden och data till ett tidigare tillstånd.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Om du vill starta, återställa den _fas (FAULT Analysis Service)_ måste vara aktiverat för klustret
-* Säkerhetskopian ska återställa bör har vidtagit _säkerhetskopiering återställa Service (BRS)_
-* Återställningen kan bara aktiveras på en partition.
 
-## <a name="triggering-restore"></a>Återställningen
+- Att aktivera en återställning på _fas (FAULT Analysis Service)_ måste vara aktiverat för klustret.
+- Den _säkerhetskopiering återställa Service (BRS)_ skapade säkerhetskopian.
+- Återställningen kan bara aktiveras på en partition.
 
-Återställningen kan vara något av följande scenarier 
-* Data återställa i händelse av _haveriberedskap_ (DR)
-* Data återställa i händelse av _skadade data / förlust av data_
+## <a name="triggered-restore"></a>Utlösta återställning
 
+En återställning kan aktiveras för någon av följande scenarier:
 
+- Data återställa för _haveriberedskap_.
+- Data återställa för _data skadas/dataförlust_.
 
-### <a name="data-restore-in-the-event-of-disaster-recovery-dr"></a>Data återställa i händelse av _haveriberedskap_ (DR)
-I händelse av ett helt Service Fabric-kluster förlorad kan data för partitioner av tillförlitliga tillståndskänslig tjänst och Reliable Actors återställas till en annan kluster. Önskad säkerhetskopia kan väljas från uppräkning av [GetBackupAPI med säkerhetskopiering lagringsinformation](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Uppräkningen säkerhetskopiering kan vara för ett program, en tjänst eller en partition.
+### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Återställningen av när det gäller haveriberedskap
 
-Kan anta förlorad klustret har klustret som nämns i [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), som hade `SampleApp` distribueras, där partitionen har med säkerhetskopiering principen är aktiverad och säkerhetskopiering händer i Azure Storage. 
+Om ett helt Service Fabric-kluster har gått förlorade måste återställa du data för partitioner av tillförlitliga tillståndskänslig tjänst och Reliable Actors. Önskad säkerhetskopia kan väljas från listan över när du använder [GetBackupAPI med säkerhetskopiering lagringsinformation](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Uppräkningen säkerhetskopiering kan vara för ett program, en tjänst eller en partition.
 
+I följande exempel förutsätter att gå förlorade klustret är i samma kluster som refereras till i [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). I det här fallet `SampleApp` distribueras med säkerhetskopiering principen är aktiverad, och säkerhetskopiorna som är konfigurerade för Azure Storage.
 
-Kör följande PowerShell-skript för att anropa REST-API för att räkna upp de säkerhetskopior som har skapats för alla partitioner i den `SampleApp` program i förlorad Service Fabric-kluster. Uppräkningen API kräver lagringinformationen var lagras säkerhetskopiorna av ett program, för att räkna upp tillgängliga säkerhetskopior. 
+Köra ett PowerShell.skript för att använda REST-API för att returnera en lista över säkerhetskopior som har skapats för alla partitioner i den `SampleApp` program. API: et kräver lagring av säkerhetskopior information att lista tillgängliga säkerhetskopior.
 
 ```powershell
 $StorageInfo = @{
@@ -79,6 +77,7 @@ $response = Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'a
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Exempel på utdata för ovanstående kör:
 
 ```
@@ -104,7 +103,7 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 *
 BackupId                : 69436834-c810-4163-9386-a7a800f78359
 BackupChainId           : b9577400-1131-4f88-b309-2bb1e943322c
@@ -116,12 +115,10 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3764
 CreationTimeUtc         : 2018-04-06T21:25:36Z
-FailureError            : 
+FailureError            :
 ```
 
-
-
-Vi måste välja önskad säkerhetskopia för att utlösa återställningen. Låt den önskade säkerhetskopieringen för den aktuella haveriberedskap (DR) vara följande säkerhetskopia
+Välj en av säkerhetskopieringar för att utlösa återställningen. Den aktuella säkerhetskopieringen för haveriberedskap kan till exempel vara följande säkerhetskopia:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -134,36 +131,42 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 ```
 
-För restore-API måste vi ange det __BackupId__ och __BackupLocation__ information. Partitionen i alternativa klustret måste den valda enligt den [partitionsschema](service-fabric-concepts-partitioning.md#get-started-with-partitioning). Ansvarar användaren att välja målpartitionen att återställa säkerhetskopian från alternativa klustret enligt partitionsschema i ursprungliga förlorad klustret.
+För restore-API måste du ange den _BackupId_ och _BackupLocation_ information.
 
-Anta att partitions-ID på alternativa klustret är `1c42c47f-439e-4e09-98b9-88b8f60800c6`, som mappar till det ursprungliga klustret partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` genom att jämföra den hög och låg nyckeln för _intervallet partitionering (UniformInt64Partition)_.
+Du måste också välja en målpartitionen i alternativa klustret enligt anvisningarna i den [partitionsschema](service-fabric-concepts-partitioning.md#get-started-with-partitioning). Alternativa kluster säkerhetskopian återställs på partitionen som anges i partitionsschemat från det ursprungliga förlorad klustret.
+
+Om partitions-ID på alternativa klustret är `1c42c47f-439e-4e09-98b9-88b8f60800c6`, kan du mappa den till det ursprungliga klustret partitions-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` genom att jämföra den hög och låg nyckeln för _intervallet partitionering (UniformInt64Partition)_.
 
 För _med namnet partitionering_, namnvärdet jämförs för att identifiera målpartitionen i alternativa kluster.
 
-Återställningen har begärts mot partition av säkerhetskopiering klustret med följande [återställa API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
+Du begär återställning mot säkerhetskopiering kluster partitionen med hjälp av följande [återställa API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
-```powershell 
-$RestorePartitionReference = @{ 
+```powershell
+$RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
-    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' 
-} 
- 
+    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+}
+
 $body = (ConvertTo-Json $RestorePartitionReference) 
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/1c42c47f-439e-4e09-98b9-88b8f60800c6/$/Restore?api-version=6.4" 
- 
+
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
-``` 
-Förloppet för återställningen kan vara [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress)
+```
 
-### <a name="data-restore-in-the-event-of-data-corruption--data-loss"></a>Data återställa i händelse av _skadade data / förlust av data_
+Du kan följa förloppet för en återställning med [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
 
-Om _dataförlust_ eller _skadade data_ data för partitioner av tillförlitliga tillståndskänslig tjänst och Reliable Actors kan återställas till någon av de valda säkerhetskopiorna. Nedan visas några exempel är fortsättningen på exemplet som anges i [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), där partitionen har en princip för säkerhetskopiering aktiverad och tar säkerhetskopiering med önskade intervall i Azure Storage. 
+### <a name="data-restore-for-data-corruptiondata-loss"></a>Data återställa för _skadade data_/_dataförlust_
 
-Önskad säkerhetskopia väljs från utdata från [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). I det här scenariot skapas säkerhetskopian från samma kluster tidigare.
-Vi måste välja önskad säkerhetskopia i listan för att utlösa återställningen. Låt vår önskade säkerhetskopiering för aktuellt _dataförlust_ / _skadade data_ inte följande säkerhetskopia
+För _dataförlust_ eller _skadade data_, säkerhetskopierade partitioner för tillförlitlig tillståndskänslig tjänst och Reliable Actors partitioner kan återställas till någon av de valda säkerhetskopiorna.
+
+I följande exempel är en förlängning av [aktiverar regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). En princip för säkerhetskopiering har aktiverats för partitionen i det här exemplet och tjänsten gör säkerhetskopior med önskade intervall i Azure Storage.
+
+Välj en säkerhetskopia från utdata från [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). I det här scenariot skapas säkerhetskopian från i samma kluster som innan.
+
+Välj en säkerhetskopia i listan för att utlösa återställningen. För aktuellt _dataförlust_/_skadade data_, Välj säkerhetskopian som följande:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -176,50 +179,48 @@ BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 3552
 CreationTimeUtc         : 2018-04-06T21:10:27Z
-FailureError            : 
+FailureError            :
 ```
 
-För restore-API måste vi ange det __BackupId__ och __BackupLocation__ information. Eftersom klustret säkerhetskopiering möjliggjort Service Fabric _säkerhetskopiering återställa Service (BRS)_ identifierar rätt lagringsplatsen från den tillhörande säkerhetskopieringsprincipen.
+Restore-API ger den _BackupId_ och _BackupLocation_ information. Klustret har säkerhetskopiering aktiverad så Service Fabric _säkerhetskopiering återställa Service (BRS)_ identifierar rätt lagringsplatsen från den tillhörande säkerhetskopieringsprincipen.
 
 ```powershell
-$RestorePartitionReference = @{ 
-    BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4', 
-    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' 
-} 
- 
-$body = (ConvertTo-Json $RestorePartitionReference) 
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Restore?api-version=6.4" 
- 
+$RestorePartitionReference = @{
+    BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
+    BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+}
+
+$body = (ConvertTo-Json $RestorePartitionReference)
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Restore?api-version=6.4"
+
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Förloppet för återställningen kan vara [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress)
+Du kan följa förloppet återställning med hjälp av [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
 
+## <a name="track-restore-progress"></a>Spåra återställning pågår
 
-## <a name="tracking-restore-progress"></a>Spåra återställning pågår
-
-En partition av en tillförlitlig tillståndskänslig tjänst eller en Reliable Actor accepterar endast en restore-förfrågan i taget. En annan begäran kan accepteras endast när den aktuella restore-begäran har slutförts. Flera restore-begäranden kan aktiveras på olika partitioner på samma gång.
+En partition av en tillförlitlig tillståndskänslig tjänst eller en Reliable Actor accepterar endast en restore-förfrågan i taget. En partition accepterar endast en annan begäran när den aktuella restore-begäran har slutförts. Flera restore-begäranden kan aktiveras på olika partitioner på samma gång.
 
 ```powershell
-$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4" 
- 
-$response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3' 
- 
-$restoreResponse = (ConvertFrom-Json $response.Content) 
+$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
+
+$response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
+
+$restoreResponse = (ConvertFrom-Json $response.Content)
 $restoreResponse | Format-List
 ```
 
-Återställ begäran utvecklas i följande ordning
+Återställ begäran utvecklas i följande ordning:
 
-1. __Godkända__ -återställningstillstånd som _godkända_ anger att den begärda har aktiverats med rätt begäranparametrar.
+1. **Godkänt**: En _godkända_ återställningstillstånd anger att den begärda partitionen har aktiverats med rätt begäranparametrar.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-    
-2. __InProgress__ -återställningstillstånd som _InProgress_ anger att partitionen genomgå en återställning med säkerhetskopian som anges i begäran. Partitionen rapporterar _dataloss_ tillstånd.
+2. **InProgress**: En _InProgress_ återställningstillstånd anger att en återställning sker i partitionen med säkerhetskopian som anges i begäran. Partition-rapporter i _dataloss_ tillstånd.
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -227,25 +228,24 @@ $restoreResponse | Format-List
     RestoredLsn   : 3552
     ```
     
-3. __Lyckade__/ __fel__/ __Timeout__ – en begärda återställning kan utföras på något av följande tillstånd. Varje tillstånd har följande information om betydelse och svar.
-       
-    * __Lyckade__ -återställningstillstånd som _lyckades_ anger tillståndet partition har återupprättats. Svaret ger RestoreEpoch och RestordLSN för partitionen tillsammans med tiden i UTC. 
-    
+3. **Lyckade**, **fel**, eller **Timeout**: En begärda återställning kan utföras på något av följande tillstånd. Varje tillstånd har följande information om betydelse och svar:
+    - **Lyckade**: En _lyckades_ återställningstillstånd anger tillståndet återupprättats partition. Rapporter för partition _RestoreEpoch_ och _RestordLSN_ tillstånd tillsammans med tiden i UTC.
+
         ```
         RestoreState  : Success
         TimeStampUtc  : 2018-11-22T11:22:33Z
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
-        ```
-        
-    *. __Fel__ -återställningstillstånd som _fel_ anger fel på restore-förfrågan. Orsaken till felet anges i begäran.
+        ```        
+    - **Fel**: En _fel_ återställningstillstånd anger fel på restore-förfrågan. Orsaken till felet har rapporterats.
+
         ```
         RestoreState  : Failure
         TimeStampUtc  : 0001-01-01T00:00:00Z
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    *. __Tidsgräns för__ -återställningstillstånd som _Timeout_ anger begäran har timeout. Ny restore-förfrågan med större [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) är rekommenderas, som standard timeout-värdet är 10 minuter. Det är bäst att se till att partitionen är utanför tillstånd för förlust av data, innan du begär restore igen.
+    - **Tidsgräns för**: En _Timeout_ återställningstillstånd anger att begäran har timeout. Skapa en ny begäran om återställning med större [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Standardvärdet för timeout är 10 minuter. Se till att partitionen inte är i ett tillstånd för förlust av data innan du begär restore igen.
      
         ```
         RestoreState  : Timeout
@@ -254,15 +254,13 @@ $restoreResponse | Format-List
         RestoredLsn   : 0
         ```
 
-## <a name="auto-restore"></a>Automatisk återställning
+## <a name="automatic-restore"></a>Automatisk återställning
 
-Partitionerna för tillförlitlig tillståndskänslig tjänst och Reliable Actors i Service Fabric-klustret kan konfigureras för _automatisk återställning_. När du skapar principen för säkerhetskopiering, principen kan ha `AutoRestore` inställd _SANT_.  Aktivera _automatisk återställning_ för en partition, återställer du data från den senaste säkerhetskopian om dataförlust rapporteras.
- 
- [Automatisk återställning aktivering i Säkerhetskopieringsprincipen](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
+Du kan konfigurera tillförlitliga tillståndskänslig tjänst och partitioner för Reliable Actors i Service Fabric-kluster för _automatisk återställning_. I säkerhetskopieringspolicyn anger `AutoRestore` till _SANT_. Aktivera _automatisk återställning_ automatiskt återställer data från den senaste säkerhetskopian av partition när dataförlust rapporteras. Mer information finns i:
 
-
-[RestorePartition API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-[GetPartitionRestoreProgress API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Automatisk återställning aktivering i Säkerhetskopieringsprincipen](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
+- [RestorePartition API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
+- [GetPartitionRestoreProgress API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Förstå periodiska säkerhetskopieringskonfiguration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

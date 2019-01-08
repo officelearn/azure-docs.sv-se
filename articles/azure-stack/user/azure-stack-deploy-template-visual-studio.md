@@ -13,19 +13,19 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 1d61313018b0cd16594772676172737a7d8fc2cd
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 9cbe39c018d5ba91599d8ec429430fceaaa567c5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366701"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064635"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Distribuera mallar i Azure Stack med Visual Studio
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan använda Visual Studio för att distribuera Azure Resource Manager-mallar i Azure Stack.
 

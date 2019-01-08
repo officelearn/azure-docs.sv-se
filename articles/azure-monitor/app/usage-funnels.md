@@ -13,12 +13,12 @@ ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: cc2a21999bdbaef956c0cc6424bb46a93072a6cd
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2cb7e15b701b53e74618c21bf219a355d495f985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049987"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076288"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Upptäck hur kunder använder ditt program med Application Insights Trattar
 
@@ -44,7 +44,7 @@ Följande skärmbild visar ett exempel på vilken typ av data tratt-verktyget ge
 ### <a name="funnels-features"></a>Trattar funktioner
 Föregående skärmbild innehåller fem markerade områden. Det här är funktionerna i Trattar. I följande lista innehåller mer information om varje motsvarande område i skärmbilden:
 1. Om din app samplas visas en banderoll för sampling. Om du väljer banderollen öppnas en kontextfönster förklarar hur du inaktiverar sampling. 
-2. Du kan exportera din tratten [Power BI](../../application-insights/app-insights-export-power-bi.md).
+2. Du kan exportera din tratten [Power BI](../../azure-monitor/app/export-power-bi.md ).
 3. Välj ett steg för att se mer information till höger. 
 4. Historisk konvertering diagrammet visar valutaomvandling under de senaste 90 dagarna. 
 5. Förstå användarna bättre genom att gå till användare-verktyget. Du kan använda filter i varje steg. 
@@ -55,5 +55,5 @@ Föregående skärmbild innehåller fem markerade områden. Det här är funktio
   * [Kvarhållning](usage-retention.md)
   * [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
   * [Lägg till användarkontext](usage-send-user-context.md)
-  * [Exportera till Power BI](../../application-insights/app-insights-export-power-bi.md)
+  * [Exportera till Power BI](../../azure-monitor/app/export-power-bi.md )
 

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039436"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062952"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -59,6 +59,24 @@ Om arbetsytan som valts inte är länkad till ett Automation-konto, visas följa
 
 ![Ingen arbetsyta](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+När du aktiverar lösningar stöds endast i vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
+
+I följande tabell visas mappningarna som stöds:
+
+|**Log Analytics arbetsytans Region**|**Azure Automation-Region**|
+|---|---|
+|Sydöstra Australien|Sydöstra Australien|
+|Kanadacentrala|Kanadacentrala|
+|Indiencentrala|Indiencentrala|
+|EastUS|Usaöstra2|
+|Sydostasien|Sydostasien|
+|SoutheastAsia|SoutheastAsia|
+|Västra centrala USA|Västra centrala USA|
+|Västeuropa|Västeuropa|
+|Södrastorbritannien|Södrastorbritannien|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Avmarkera kryssrutan bredvid en virtuell dator som du inte vill aktivera. Virtuella datorer som inte kan aktiveras är redan avmarkerat.
 
 Klicka på **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
@@ -80,13 +98,13 @@ När du tar bort dessa lösningar kan utföra du följande steg om du vill ta bo
 
 1. Öppna ditt Automation-konto från Azure-portalen och på Automation-konto väljer du sidan **länkade arbetsytan** under avsnittet **relaterade resurser** till vänster.
 
-1. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
+2. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
 
    ![Avlänka arbetsytssidan](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Ett meddelande visas där du bekräftar att du vill fortsätta.
 
-1. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
+3. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
 
 Om du använder lösningen för uppdateringshantering, kan om du vill du ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 
@@ -106,37 +124,37 @@ När onboarding flera datorer och det kan vara datorer som visas som **kan inte 
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Virtuella datorer som rapporterar till en annan arbetsyta: '\<workspaceName\>”.  Ändra konfiguration som ska användas för att aktivera
 
-**Orsak**: det här felet visar att den virtuella datorn som du försöker att publicera rapporter till en annan arbetsyta.
+**Orsak**: Det här felet visas som den virtuella datorn som du försöker att publicera rapporter till en annan arbetsyta.
 
 **Lösningen**: Klicka på **som konfiguration** att ändra den aktuella Automation-kontot och Log Analytics-arbetsytan.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM-rapporter till en arbetsyta som inte är tillgänglig i den här prenumerationen
 
-**Orsak**: den arbetsyta som den virtuella datorn rapporterar till:
+**Orsak**: Den arbetsyta som den virtuella datorn rapporterar till:
 
 * Är i en annan prenumeration eller
 * Finns inte längre, eller
 * Är i en resursgrupp som du inte har åtkomstbehörighet till
 
-**Lösningen**: hitta automation-konto associerat med den arbetsyta som den virtuella datorn rapporterar till och publicera den virtuella datorn genom att ändra omfattningskonfigurationen.
+**Lösningen**: Hitta automation-konto associerat med den arbetsyta som den virtuella datorn rapporterar till och publicera den virtuella datorn genom att ändra omfattningskonfigurationen.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>Operativsystemversionen för virtuell dator eller distribution stöds inte
 
-**Orsak:** lösningen stöds inte för alla Linux-distributioner eller alla versioner av Windows.
+**Orsak:** Lösningen stöds inte för alla Linux-distributioner eller alla versioner av Windows.
 
-**Lösning:** avser den [lista över klienter som stöds](automation-update-management.md#clients) för lösningen.
+**Lösning:** Referera till den [lista över klienter som stöds](automation-update-management.md#clients) för lösningen.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Det går inte att aktivera klassiska virtuella datorer
 
-**Orsak**: virtuella datorer som använder den klassiska distributionsmodellen stöds inte.
+**Orsak**: Virtuella datorer som använder den klassiska distributionsmodellen stöds inte.
 
-**Lösningen**: migrera den virtuella datorn till resource manager-distributionsmodellen. Information om hur du gör detta finns i [migrera klassiska distributionsresurserna för modellen](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Lösningen**: Migrera den virtuella datorn till resource manager-distributionsmodellen. Information om hur du gör detta finns i [migrera klassiska distributionsresurserna för modellen](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>Virtuell dator har stoppats. (frigjord)
 
-**Orsak**: den virtuella datorn i inte i en **kör** tillstånd.
+**Orsak**: Den virtuella datorn i inte i en **kör** tillstånd.
 
-**Lösningen**: för att publicera en virtuell dator till en lösning för den virtuella datorn måste köras. Klicka på den **starta VM** infogad länk för att starta den virtuella datorn utan att navigera bort från sidan.
+**Lösningen**: För att måste publicera en virtuell dator till en lösning för den virtuella datorn köras. Klicka på den **starta VM** infogad länk för att starta den virtuella datorn utan att navigera bort från sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 

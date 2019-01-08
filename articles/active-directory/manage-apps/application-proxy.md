@@ -1,56 +1,39 @@
 ---
-title: Att tillhandahålla säker fjärråtkomst till lokala appar
-description: Beskriver hur du använder Azure AD Application Proxy för att tillhandahålla säker fjärråtkomst till lokala appar.
+title: Fjärråtkomst till lokala appar – Azure Active Directory Application Proxy | Microsoft Docx
+description: Azure Active Directory Application Proxy ger säker fjärråtkomst till lokala webbprogram. När du har en enkel inloggning till Azure AD, kan användare komma åt både i molnet och lokala program via en extern Webbadress eller en intern App-portal. Till exempel kan Application Proxy ge fjärråtkomst och enkel inloggning för fjärrskrivbord, Sharepoint, Teams, Tableau, Qlik och verksamhetsspecifika (LOB) program.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 01/07/2019
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: it-pro
-ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.reviewer: japere
+ms.openlocfilehash: 21e11575fc90e761f748af4bf9c89dd4614c986e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139970"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078906"
 ---
-# <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Att tillhandahålla säker fjärråtkomst till lokala program
+# <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory Application Proxy 
 
-I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De vill arbeta med sina egna enheter, oavsett om de är bärbara datorer, surfplattor eller telefoner. Och de förväntar sig för att kunna komma åt sina program, både SaaS-appar i molnet och företagets appar lokalt. Att ge åtkomst till lokala program har traditionellt inneburit virtuella privata nätverk (VPN) eller demilitariserade zoner (DMZ). De här lösningarna är inte bara komplexa och svåra att skydda, utan de är även dyra att konfigurera och hantera.
-
-Det finns ett bättre sätt!
-
-En modern arbetsstyrka i mobilstyrt molnvärlden behöver en lösning för moderna fjärråtkomst. Azure AD Application Proxy är en funktion i Azure Active Directory som erbjuder fjärråtkomst som en tjänst. Det innebär att det är enkelt att distribuera, använda och hantera.
-
-[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
-
-## <a name="what-is-azure-active-directory-application-proxy"></a>Vad är Azure Active Directory Application Proxy?
-Azure AD Application Proxy ger enkel inloggning (SSO) och säker fjärråtkomst för webbprogram finns lokalt. Vissa appar som du vill publicera är SharePoint-webbplatser, Outlook Web Access eller några andra affärsappar som du har. Dessa lokala webbprogram är integrerade med Azure AD, samma identitets- och kontrollplattform som används av O365. Slutanvändarna kan komma åt dina lokala program på samma sätt som de har åtkomst till O365 och andra SaaS-appar som integreras med Azure AD. Du behöver inte ändra nätverkets infrastruktur eller kräva VPN att tillhandahålla den här lösningen för dina användare.
-
-## <a name="why-is-application-proxy-a-better-solution"></a>Varför är programproxy en bättre lösning?
-Azure AD Application Proxy ger en enkel, säker och kostnadseffektiv fjärråtkomst till lokala program.
+Azure Active Directory Application Proxy ger säker fjärråtkomst till lokala webbprogram. När du har en enkel inloggning till Azure AD, kan användare komma åt både i molnet och lokala program via en extern Webbadress eller en intern App-portal. Till exempel kan Application Proxy ge fjärråtkomst och enkel inloggning för fjärrskrivbord, Sharepoint, Teams, Tableau, Qlik och verksamhetsspecifika (LOB) program.
 
 Azure AD Application Proxy är:
 
-* **Enkel**
-   * Du behöver inte ändra eller uppdatera dina program att arbeta med Application Proxy. 
-   * Dina användare får en konsekvent autentiseringsupplevelse. De kan använda MyApps-portalen för att få enkel inloggning till både SaaS-appar i molnet och dina appar lokalt. 
-* **Skydda**
-   * När du publicerar dina appar med Azure AD Application Proxy kan dra du nytta av omfattande auktoriseringskontroller och säkerhetsanalyser i Azure. Du får molnskala security och Azure säkerhetsfunktioner, t.ex. villkorlig åtkomst och tvåstegsverifiering verifiering.
-   * Du behöver öppna några inkommande anslutningar via brandväggen för att ge dina användare fjärråtkomst. 
-* **Kostnadseffektiv**
-   * Programproxy fungerar i molnet, så att du kan spara tid och pengar. Lokala lösningar kräver normalt att du konfigurerar och underhåller DMZ-miljöer, edge-servrar eller andra komplexa infrastrukturer.  
+- **Enkelt att använda**. Användare kan komma åt dina lokala program på samma sätt som de har åtkomst till O365 och andra SaaS-appar som integreras med Azure AD. Du behöver inte ändra eller uppdatera dina program att arbeta med Application Proxy. 
 
-## <a name="what-kind-of-applications-work-with-application-proxy"></a>Vilken typ av programmen fungerar med Application Proxy?
-Du kan använda Azure AD-programproxy för att komma åt olika typer av interna program:
+- **Skydda**. Lokala program kan använda auktoriseringskontroller och säkerhetsanalyser i Azure. Lokala program kan exempelvis använda villkorlig åtkomst och tvåstegsverifiering. Programproxy måste inte du öppna inkommande anslutningar via brandväggen.
+ 
+- **Kostnadseffektiv**. Lokala lösningar kräver normalt att du konfigurerar och underhåller demilitariserad zoner (DMV), edge-servrar eller andra komplexa infrastrukturer. Programproxy körs i molnet, vilket gör det enkelt att använda. Om du vill använda Application Proxy, behöver du inte ändra nätverkets infrastruktur eller installera ytterligare installationer i din lokala miljö.
+
+## <a name="what-is-application-proxy"></a>Vad är Application Proxy?
+Programproxyn är en funktion i Azure AD som gör att användarna kan få åtkomst till lokala webbprogram från en fjärransluten klient. Programproxy omfattar både Application Proxy-tjänsten som körs i molnet och programproxy-kopplingen som körs på en lokal server. Azure AD Application Proxy-tjänsten och Application Proxy connector fungerar tillsammans för att på ett säkert sätt överföra inloggnings-användartoken från Azure AD till webbprogrammet.
+
+Programproxy fungerar med:
 
 * Webbprogram som använder [integrerad Windows-autentisering](application-proxy-configure-single-sign-on-with-kcd.md) för autentisering  
 * Webbprogram som använder formulärbaserad eller [rubrikbaserad](application-proxy-configure-single-sign-on-with-ping-access.md) åtkomst  
@@ -58,47 +41,33 @@ Du kan använda Azure AD-programproxy för att komma åt olika typer av interna 
 * Program som ligger bakom en [fjärrskrivbordsgateway](application-proxy-integrate-with-remote-desktop-services.md)  
 * Rich-klientprogram som är integrerade med Active Directory Authentication Library (ADAL)
 
-## <a name="how-does-application-proxy-work"></a>Hur fungerar Application Proxy?
-Det finns två komponenter som du behöver konfigurera om du vill göra Application Proxy fungerar: en koppling och en slutpunkt. 
+Programproxyn har stöd för enkel inloggning. Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Anslutningen är en förenklad agent som finns på en Windows-Server i ditt nätverk. Anslutningen underlättar trafikflödet från Application Proxy-tjänst i molnet till ditt program lokalt. Den använder endast utgående anslutningar så att du inte behöver öppna några ingående portar eller lägga något i Perimeternätverket. Anslutningarna är tillståndslösa och hämta information från molnet efter behov. Mer information om anslutningar kan, liksom hur de belastningsutjämna och autentisera, se [alternativ för Azure AD-programproxyn kopplingar](application-proxy-connectors.md). 
+## <a name="how-application-proxy-works"></a>Hur fungerar Application Proxy
 
-Slutpunkten kan vara en Webbadress eller en [slutanvändarportal](end-user-experiences.md). Användarna kan nå program medan utanför ditt nätverk genom att gå till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller ett slutanvändarportal. När användare går till en av de här slutpunkterna, de autentiseras i Azure AD och sedan dirigeras via anslutningen så att dina lokala program.
+Följande diagram visar hur Azure AD och Application Proxy fungerar tillsammans för att tillhandahålla enkel inloggning till lokala program.
 
- ![AzureAD Application Proxy-diagram](./media/application-proxy/azureappproxxy.png)
+![AzureAD Application Proxy-diagram](./media/application-proxy/azureappproxxy.png)
 
 1. När användaren har åtkomst till programmet via en slutpunkt, omdirigeras användaren till inloggningssidan för Azure AD. 
-2. Efter en lyckad inloggning, genereras en token och skickas till användarens klientenheten.
-3. Klienten skickar token till tjänsten Application Proxy, som hämtar användarens huvudnamn (UPN) och säkerhet huvudnamn (SPN) från token och sedan dirigerar begäran till anslutningsappen för programproxyn.
+2. Efter en lyckad inloggning skickar Azure AD en token till användarens klientenheten.
+3. Klienten skickar token till tjänsten Application Proxy, som hämtar användarens huvudnamn (UPN) och säkerhet huvudnamn (SPN) från token. Application Proxy skickar sedan begäran till anslutningsappen för programproxyn.
 4. Om du har konfigurerat enkel inloggning utför kopplingen ytterligare autentisering krävs för användarens räkning.
 5. Kopplingen skickar en begäran till dina lokala program.  
-6. Svaret skickas via Application Proxy-tjänsten och anslutningen till användaren.
+6. Svaret skickas via anslutningen och programproxytjänsten för användaren.
 
-### <a name="single-sign-on"></a>Enkel inloggning
-Azure AD-programproxyn tillhandahåller enkel inloggning (SSO) till program som använder integrerad Windows autentisering (IWA) eller anspråksmedvetna program. Om programmet använder IWA, personifierar Application Proxy användaren med Kerberos-begränsad delegering för att tillhandahålla enkel inloggning. Om du har ett anspråksmedvetet program som litar på Azure Active Directory fungerar enkel inloggning eftersom användaren redan har autentiserats av Azure AD.
+| Komponent | Beskrivning |
+| --------- | ----------- |
+| Slutpunkt  | Slutpunkten är en URL eller en [slutanvändarportal](end-user-experiences.md). Användarna kan nå program medan utanför ditt nätverk genom att gå till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller ett slutanvändarportal. När användare går till en av de här slutpunkterna, de autentiseras i Azure AD och sedan dirigeras via anslutningen så att dina lokala program.|
+| Azure AD | Azure AD autentiserar med hjälp av klientkatalogen lagras i molnet. |
+| Tjänsten för Application Proxy | Den här Application Proxy-tjänsten körs i molnet som en del av Azure AD. Den skickar inloggnings-token från användaren till Application Proxy Connector. Programproxy vidarebefordrar tillgänglig rubriker på begäran och anger rubriker enligt dess protokoll till klientens IP-adress. Om den inkommande begäran till proxyn har redan den rubriken, klientens IP-adress har lagts till i slutet av en kommaavgränsad lista som är värdet för sidhuvudet.|
+| Application Proxy Connector | Anslutningen är en förenklad agent som körs på en Windows-Server i ditt nätverk. Anslutningen hanterar kommunikationen mellan Application Proxy-tjänst i molnet och lokalt program. Anslutningsappen använder bara utgående anslutningar så att du inte behöver öppna några ingående portar eller lägga något i Perimeternätverket. Anslutningarna är tillståndslösa och hämta information från molnet efter behov. Mer information om anslutningar kan, liksom hur de belastningsutjämna och autentisera, se [alternativ för Azure AD-programproxyn kopplingar](application-proxy-connectors.md).|
+| Active Directory (AD) | Active Directory körs lokalt för att utföra autentisering för domänkonton. När enkel inloggning har konfigurerats, kommunicerar anslutningen med AD för att utföra ytterligare autentisering krävs.
+| Lokalt program | Slutligen kan användaren komma åt ett lokalt program. 
 
-Mer information om Kerberos finns i [alla du vill veta om Kerberos-begränsad delegering (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
+## <a name="next-steps"></a>Nästa steg
+Om du vill börja använda programproxy, se [självstudien: Lägga till ett lokalt program för fjärråtkomst via programproxy](application-proxy-add-on-premises-application.md). 
 
-### <a name="managing-apps"></a>Hantera appar
-När din app har publicerats med Application Proxy kan hantera du den som andra enterprise-appar i Azure-portalen. Du kan använda Azure Active Directory-säkerhetsfunktioner, t.ex. villkorlig åtkomst och tvåstegsverifiering verifiering, styra användarbehörigheter och anpassa din app. 
+De senaste nyheterna och uppdateringarna finns i den [bloggen om Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)
 
-## <a name="get-started"></a>Kom igång
-
-Innan du konfigurerar Application Proxy, kontrollera att du har en stödd [Azure Active Directory edition](https://azure.microsoft.com/pricing/details/active-directory/) och Azure AD-katalog som du är en global administratör.
-
-Kom igång med Application Proxy i två steg:
-
-1. [Aktivera Application Proxy och konfigurera anslutningen](application-proxy-add-on-premises-application.md).    
-2. [Publicera program](application-proxy-add-on-premises-application.md) – Använd guiden snabbt och enkelt för att få dina lokala appar publicerade och kan nås via en fjärranslutning.
-
-## <a name="whats-next"></a>Nästa steg
-När du publicerar din första app, är det mycket mer du kan göra med Application Proxy:
-
-* [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Publicera program med ditt domännamn](application-proxy-configure-custom-domain.md)
-* [Lär dig mer om Azure AD Application Proxy-kopplingar](application-proxy-connectors.md)
-* [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md) 
-* [Ange en anpassad startsida](application-proxy-configure-custom-home-page.md)
-
-Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)
 

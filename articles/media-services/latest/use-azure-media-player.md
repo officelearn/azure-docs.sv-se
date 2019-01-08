@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: cf419af1e6a45ded5fd1c4b363ff06a9388351d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4dd0f697d16d7a2fbeec8f712d98e6a7c439cb4e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033052"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064686"
 ---
 # <a name="azure-media-player-overview"></a>Översikt över Azure Media Player
 
@@ -50,6 +50,5 @@ Azure Media Player är enkla att konfigurera. Det tar bara en liten stund att h�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Registrera dig för att hålla dig uppdaterad med senast från Azure Media Player](http://azuremediaplayerdemo.azurewebsites.net/amp_signup.html)
 - [Dokumentation om Azure Media Player](https://aka.ms/ampdocs)
 - [Azure Media Player-exempel](https://aka.ms/ampsamples)

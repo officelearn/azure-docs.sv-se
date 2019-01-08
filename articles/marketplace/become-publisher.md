@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846478"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077563"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -80,7 +80,7 @@ Vårt Registreringsteam för Marketplace ska verifiera registreringsinformatione
 Du kommer att använda den [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa, publicera och hantera marketplace-erbjudanden. När du får välkomstmeddelandet godkännande kan du omedelbart kan logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) med ditt Microsoft-konto för att få åtkomst till ytterligare teknisk information om publicering på marketplace och skapa ditt erbjudande. 
 *   Mer information om hur du använder Cloud Partner Portal [gå till komma igång-artikeln i Läs avsnittet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Du måste vara inloggad på partnerportalen i molnet att komma åt informationen.
 *   Om du har frågor eller skulle så att du schemalägger en översikt över onboarding-anrop, granska andra artiklar i den här Publiceringsguiden eller öppna en supportbegäran under problemtyp > Marketplace Onboarding från inom partnerportalen i molnet.
-*   Om du inte fått välkomstmeddelandet Kontrollera din skräppostmapp för ett e-postmeddelande med ämnesraden ”Välkommen till Microsoft Marketplace!”. Om det finns ingen e-post i mappen för skräppost, [kontakta Microsoft-supporten](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). På supportsidan väljer: problemtyp > Marketplace Onboarding.  Vårt Registreringsteam för Marketplace Publisher kommer vara glad att hjälpa till med dina frågor. 
+*   Om du inte fått välkomstmeddelandet Kontrollera din skräppostmapp för ett e-postmeddelande med ämnesraden ”Välkommen till Microsoft Marketplace!”. Om det finns ingen e-post i mappen för skräppost, [kontakta Microsoft-supporten](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). På supportsidan Välj: Problemtyp > Marketplace Onboarding.  Vårt Registreringsteam för Marketplace Publisher kommer vara glad att hjälpa till med dina frågor. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Registrera dig i Dev Center (för Transact publicera enbart för alternativet) 
@@ -97,15 +97,15 @@ Enskild registrering i [Dev Center](https://developer.microsoft.com/store/regist
 När du har slutfört den [Dev Center](https://developer.microsoft.com/store/register) registrering, länka ditt Partner-profil för molnet med dina [Dev Center](https://developer.microsoft.com/store/register) (se detaljerade anvisningar här). Det här steget måste utföras innan du publicerar ditt transact-erbjudande. 
 
 >[!Note]
->För att avstå från registrering-avgift $99 Developer Center, Slutför den [marketplace registreringsformuläret](https://azuremarketplace.microsoft.com/en-us/sell/signup) och du får ett e-postmeddelande som innehåller din kampanjkoden. 
+>För att avstå från registrering-avgift $99 Developer Center, Slutför den [marketplace registreringsformuläret](https://azuremarketplace.microsoft.com/sell/signup) och du får ett e-postmeddelande som innehåller din kampanjkoden. 
 
 >[!Important]
 >Verifiera att din organisation inte redan har ett Dev Center-konto för att undvika dubbla konton innan du skapar ett Microsoft Dev Center-konto. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) avsnittet.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om molnmarknadsplatsen: [jämföra AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Läs mer om molnmarknadsplatsen: [Jämföra AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

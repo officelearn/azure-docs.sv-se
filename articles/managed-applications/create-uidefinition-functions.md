@@ -1,6 +1,6 @@
 ---
-title: Azure-hanterade program skapa UI definition funktioner | Microsoft Docs
-description: Beskriver funktionerna som ska användas när man skapar UI definitioner för hanterade program i Azure
+title: Azure Managed Application skapa användargränssnittsdefinition | Microsoft Docs
+description: Beskriver funktionerna som ska användas för att konstruera UI-definitioner för Azure Managed Applications
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304512"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063802"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition funktioner
 Det här avsnittet innehåller signaturer för alla funktioner som stöds av en CreateUiDefinition.
 
-Om du vill använda en funktion måste omges av deklaration med hakparenteser. Exempel:
+Om du vill använda en funktion, omger du deklaration av hakparenteser. Exempel:
 
 ```json
 "[function()]"
 ```
 
-Strängar och andra funktioner kan refereras som parametrar för en funktion, men strängar måste omges av enkla citattecken. Exempel:
+Strängar och andra funktioner kan refereras till som parametrar för en funktion, men strängar måste omges med enkla citattecken. Exempel:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Om tillämpligt, kan du referera egenskaper för utdata för en funktion med hjälp av punktoperatorn. Exempel:
+Om tillämpligt, referera du till egenskaper för utdata för en funktion med hjälp av punktoperatorn. Exempel:
 
 ```json
 "[func().prop1]"
@@ -45,7 +45,7 @@ Om tillämpligt, kan du referera egenskaper för utdata för en funktion med hj�
 Dessa funktioner kan användas för att referera till utdata från de egenskaper eller kontexten för en CreateUiDefinition.
 
 ### <a name="basics"></a>Grunderna
-Returnerar utdatavärden för ett element som har definierats i grundläggande steg.
+Returnerar utdatavärden för ett element som definieras i grundläggande steg.
 
 I följande exempel returneras resultatet av element med namnet `foo` i grundläggande steg:
 
@@ -54,7 +54,7 @@ I följande exempel returneras resultatet av element med namnet `foo` i grundlä
 ```
 
 ### <a name="steps"></a>steg
-Returnerar utdatavärden för ett element som har definierats i det angivna steget. För att få utdatavärden element i grundläggande steg kan använda `basics()` i stället.
+Returnerar utdatavärden för ett element som är definierad i det angivna steget. Hämta utdata värdena för elementen i grundläggande steg `basics()` i stället.
 
 I följande exempel returneras resultatet av element med namnet `bar` i steg med namnet `foo`:
 
@@ -65,7 +65,7 @@ I följande exempel returneras resultatet av element med namnet `bar` i steg med
 ### <a name="location"></a>location
 Returnerar den plats som valts i steget grunderna eller den aktuella kontexten.
 
-I följande exempel kunde returnera `"westus"`:
+I följande exempel kan returnera `"westus"`:
 
 ```json
 "[location()]"
@@ -77,14 +77,14 @@ Dessa funktioner kan endast användas med JSON-strängar.
 ### <a name="concat"></a>concat
 Sammanfogar en eller flera strängar.
 
-Till exempel om värdet för `element1` om `"bar"`, och sedan det här exemplet returnerar strängen `"foobar!"`:
+Till exempel om värdet av `element1` om `"bar"`, och sedan på det här exemplet returnerar strängen `"foobar!"`:
 
 ```json
-"[concat('foo', steps('step1').element1), '!']"
+"[concat('foo', steps('step1').element1, '!')]"
 ```
 
 ### <a name="substring"></a>delsträngen
-Returnerar delsträngen av den angivna strängen. Delsträngen som börjar med det angivna indexet och har den angivna längden.
+Returnerar delsträngen av den angivna strängen. Delsträngen börjar med det angivna indexet och har den angivna längden.
 
 I följande exempel returneras `"ftw"`:
 
@@ -104,14 +104,14 @@ I följande exempel returneras `"Everything is awesome!"`:
 ### <a name="guid"></a>GUID
 Genererar en globalt unik sträng (GUID).
 
-I följande exempel kunde returnera `"c7bc8bdc-7252-4a82-ba53-7c468679a511"`:
+I följande exempel kan returnera `"c7bc8bdc-7252-4a82-ba53-7c468679a511"`:
 
 ```json
 "[guid()]"
 ```
 
 ### <a name="tolower"></a>toLower
-Returnerar en sträng som konverterats till gemener.
+Returnerar en sträng som konverteras till gemener.
 
 I följande exempel returneras `"foobar"`:
 
@@ -120,7 +120,7 @@ I följande exempel returneras `"foobar"`:
 ```
 
 ### <a name="toupper"></a>toUpper
-Returnerar en sträng som är konverterad till versaler.
+Returnerar en sträng som konverteras till versaler.
 
 I följande exempel returneras `"FOOBAR"`:
 
@@ -128,8 +128,8 @@ I följande exempel returneras `"FOOBAR"`:
 "[toUpper('foobar')]"
 ```
 
-## <a name="collection-functions"></a>Samlingen funktioner
-Dessa funktioner kan användas med samlingar som JSON-strängar, matriser och -objekt.
+## <a name="collection-functions"></a>Samling funktioner
+Dessa funktioner kan användas med samlingar, som JSON-strängar, matriser och -objekt.
 
 ### <a name="contains"></a>innehåller
 Returnerar `true` om en sträng som innehåller den angivna delsträngen, en matris som innehåller det angivna värdet eller ett objekt som innehåller den angivna nyckeln.
@@ -148,7 +148,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `fals
 "[contains(steps('foo').element1, 4)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -165,7 +165,7 @@ I följande exempel returneras `true`:
 ```
 
 ### <a name="length"></a>Längd
-Returnerar antalet tecken i en sträng, antalet värden i en matris eller antalet nycklar i ett objekt.
+Returnerar antalet tecken i en sträng antalet värden i en matris eller antalet nycklar i ett objekt.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
 I följande exempel returneras `6`:
@@ -181,7 +181,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `3`:
 "[length(steps('foo').element1)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -214,7 +214,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `fals
 "[empty(steps('foo').element1)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -238,7 +238,7 @@ Anta att `element1` är `null` eller odefinierad. I följande exempel returneras
 ```
 
 ### <a name="first"></a>första
-Returnerar det första tecknet i den angivna strängen; första värde för den angivna matrisen; eller den första nyckel och värde för det angivna objektet.
+Returnerar det första tecknet i den angivna strängen; första värdet för den angivna matrisen; eller den första nyckeln och värdet för det angivna-objektet.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
 I följande exempel returneras `"f"`:
@@ -254,7 +254,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `1`:
 "[first(steps('foo').element1)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -270,7 +270,7 @@ I följande exempel returneras `{"key1": "foobar"}`:
 ```
 
 ### <a name="last"></a>senaste
-Returnerar det sista tecknet i den angivna strängen, det senaste värdet för den angivna matrisen eller den senaste nyckeln och värdet för det angivna objektet.
+Returnerar det sista tecknet i den angivna strängen, det senaste värdet för den angivna matrisen eller den senaste nyckeln och värdet för det angivna-objektet.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
 I följande exempel returneras `"r"`:
@@ -286,7 +286,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `2`:
 "[last(steps('foo').element1)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -319,7 +319,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `[1, 
 "[take(steps('foo').element1, 2)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -335,8 +335,8 @@ I följande exempel returneras `{"key1": "foobar"}`:
 "[take(steps('foo').element1, 1)]"
 ```
 
-### <a name="skip"></a>Hoppa över
-Kringgår ett angivet antal element i en mängd och returnerar sedan de återstående element.
+### <a name="skip"></a>hoppa över
+Kringgår ett angivet antal element i en samling och returnerar sedan de återstående element.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
 I följande exempel returneras `"bar"`:
@@ -352,7 +352,7 @@ Anta att `element1` returnerar `[1, 2, 3]`. I följande exempel returneras `[3]`
 "[skip(steps('foo').element1, 2)]"
 ```
 
-#### <a name="example-3-object"></a>Exempel 3: objektet
+#### <a name="example-3-object"></a>Exempel 3: objekt
 Anta att `element1` returnerar:
 
 ```json
@@ -368,10 +368,10 @@ I följande exempel returneras `{"key2": "raboof"}`:
 ```
 
 ## <a name="logical-functions"></a>Logiska funktioner
-Dessa funktioner kan användas i villkorlig sats. Vissa funktioner kanske inte stöder alla JSON-datatyper.
+Dessa funktioner kan användas i villkor. Vissa funktioner kanske inte stöder alla typer av JSON-data.
 
 ### <a name="equals"></a>lika med
-Returnerar `true` om båda parametrarna har samma typ och värde. Den här funktionen stöder alla JSON-datatyper.
+Returnerar `true` om båda parametrarna har samma typ och värde. Den här funktionen har stöd för alla typer av JSON-data.
 
 I följande exempel returneras `true`:
 
@@ -392,7 +392,7 @@ I följande exempel returneras `false`:
 ```
 
 ### <a name="less"></a>mindre
-Returnerar `true` om den första parametern är strikt mindre än den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och strängen.
+Returnerar `true` om den första parametern är strikt mindre än den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och sträng.
 
 I följande exempel returneras `true`:
 
@@ -407,7 +407,7 @@ I följande exempel returneras `false`:
 ```
 
 ### <a name="lessorequals"></a>lessOrEquals
-Returnerar `true` om den första parametern är mindre än eller lika med den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och strängen.
+Returnerar `true` om den första parametern är mindre än eller lika med den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och sträng.
 
 I följande exempel returneras `true`:
 
@@ -416,7 +416,7 @@ I följande exempel returneras `true`:
 ```
 
 ### <a name="greater"></a>större
-Returnerar `true` om den första parametern är strikt större än den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och strängen.
+Returnerar `true` om den första parametern är strikt större än den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och sträng.
 
 I följande exempel returneras `false`:
 
@@ -431,7 +431,7 @@ I följande exempel returneras `true`:
 ```
 
 ### <a name="greaterorequals"></a>greaterOrEquals
-Returnerar `true` om den första parametern är större än eller lika med den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och strängen.
+Returnerar `true` om den första parametern är större än eller lika med den andra parametern. Den här funktionen har stöd för parametrarna endast för nummer och sträng.
 
 I följande exempel returneras `true`:
 
@@ -440,7 +440,7 @@ I följande exempel returneras `true`:
 ```
 
 ### <a name="and"></a>och
-Returnerar `true` om alla parametrar som utvärderas till `true`. Den här funktionen har stöd för två eller flera parametrar av typen Boolean.
+Returnerar `true` om alla parametrar som utvärderas till `true`. Den här funktionen har stöd för två eller flera parametrar endast av typen Boolean.
 
 I följande exempel returneras `true`:
 
@@ -455,7 +455,7 @@ I följande exempel returneras `false`:
 ```
 
 ### <a name="or"></a>eller
-Returnerar `true` om minst en av parametrarna evalueras till `true`. Den här funktionen har stöd för två eller flera parametrar av typen Boolean.
+Returnerar `true` om minst en av parametrarna utvärderas till `true`. Den här funktionen har stöd för två eller flera parametrar endast av typen Boolean.
 
 I följande exempel returneras `true`:
 
@@ -470,7 +470,7 @@ I följande exempel returneras `true`:
 ```
 
 ### <a name="not"></a>inte
-Returnerar `true` om parametern evalueras till `false`. Den här funktionen har stöd för parametrar av typen Boolean.
+Returnerar `true` om parametern är lika `false`. Den här funktionen stöder bara av typen Boolean-parametrar.
 
 I följande exempel returneras `true`:
 
@@ -485,7 +485,7 @@ I följande exempel returneras `false`:
 ```
 
 ### <a name="coalesce"></a>Slå samman
-Returnerar värdet för den första icke-null-parametern. Den här funktionen stöder alla JSON-datatyper.
+Returnerar värdet för den första icke-null-parametern. Den här funktionen har stöd för alla typer av JSON-data.
 
 Anta att `element1` och `element2` är odefinierad. I följande exempel returneras `"foobar"`:
 
@@ -497,7 +497,7 @@ Anta att `element1` och `element2` är odefinierad. I följande exempel returner
 Dessa funktioner kan användas för att konvertera värden mellan JSON-datatyper och kodningar.
 
 ### <a name="int"></a>int
-Konverterar parametern till ett heltal. Den här funktionen har stöd för parametrar av typen nummer och strängen.
+Konverterar parametern till ett heltal. Den här funktionen stöder parametrar av typen tal och sträng.
 
 I följande exempel returneras `1`:
 
@@ -512,7 +512,7 @@ I följande exempel returneras `2`:
 ```
 
 ### <a name="float"></a>flyt
-Konverterar parametern till ett flyttal. Den här funktionen har stöd för parametrar av typen nummer och strängen.
+Konverterar parametern till ett flyttal. Den här funktionen stöder parametrar av typen tal och sträng.
 
 I följande exempel returneras `1.0`:
 
@@ -527,7 +527,7 @@ I följande exempel returneras `2.9`:
 ```
 
 ### <a name="string"></a>sträng
-Konverterar parametern till en sträng. Den här funktionen stöder alla datatyper i JSON-parametrar.
+Konverterar parametern till en sträng. Den här funktionen har stöd för parametrarna för alla typer av JSON-data.
 
 I följande exempel returneras `"1"`:
 
@@ -553,8 +553,8 @@ I följande exempel returneras `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>bool
-Konverterar parametern till ett booleskt värde. Den här funktionen har stöd för parametrar av typen antal, sträng och booleskt värde. Något värde liknar booleska värden i JavaScript, utom `0` eller `'false'` returnerar `true`.
+### <a name="bool"></a>Bool
+Konverterar parametern till ett booleskt värde. Den här funktionen stöder parametrar av typen tal, sträng och booleskt värde. Liknar booleska värden i JavaScript, något värde utom `0` eller `'false'` returnerar `true`.
 
 I följande exempel returneras `true`:
 
@@ -581,7 +581,7 @@ I följande exempel returneras `true`:
 ```
 
 ### <a name="parse"></a>parsa
-Konverterar parametern till en inbyggd typ. I den här funktionen är med andra ord inversen av `string()`. Den här funktionen stöder endast av typen string-parametrar.
+Konverterar parametern till en egen typ. I den här funktionen är med andra ord inversen till `string()`. Den här funktionen stöder bara av typen string-parametrar.
 
 I följande exempel returneras `1`:
 
@@ -608,7 +608,7 @@ I följande exempel returneras `{"foo":"bar"}`:
 ```
 
 ### <a name="encodebase64"></a>encodeBase64
-Kodar parametern för en Base64-kodad sträng. Den här funktionen stöder endast av typen string-parametrar.
+Kodar parametern som en Base64-kodad sträng. Den här funktionen stöder bara av typen string-parametrar.
 
 I följande exempel returneras `"Zm9vYmFy"`:
 
@@ -617,7 +617,7 @@ I följande exempel returneras `"Zm9vYmFy"`:
 ```
 
 ### <a name="decodebase64"></a>decodeBase64
-Avkodar parametern från en Base64-kodad sträng. Den här funktionen stöder endast av typen string-parametrar.
+Avkodar parametern från en Base64-kodad sträng. Den här funktionen stöder bara av typen string-parametrar.
 
 I följande exempel returneras `"foobar"`:
 
@@ -626,7 +626,7 @@ I följande exempel returneras `"foobar"`:
 ```
 
 ### <a name="encodeuricomponent"></a>encodeUriComponent
-Kodar parametern till en URL-kodad sträng. Den här funktionen stöder endast av typen string-parametrar.
+Kodar parametern till en URL-kodad sträng. Den här funktionen stöder bara av typen string-parametrar.
 
 I följande exempel returneras `"https%3A%2F%2Fportal.azure.com%2F"`:
 
@@ -635,7 +635,7 @@ I följande exempel returneras `"https%3A%2F%2Fportal.azure.com%2F"`:
 ```
 
 ### <a name="decodeuricomponent"></a>decodeUriComponent
-Avkodar parametern från en URL-kodad sträng. Den här funktionen stöder endast av typen string-parametrar.
+Avkodar parametern från en URL-kodad sträng. Den här funktionen stöder bara av typen string-parametrar.
 
 I följande exempel returneras `"https://portal.azure.com/"`:
 
@@ -644,7 +644,7 @@ I följande exempel returneras `"https://portal.azure.com/"`:
 ```
 
 ## <a name="math-functions"></a>Matematikfunktioner
-### <a name="add"></a>lägg till
+### <a name="add"></a>add
 Adderar två tal och returnerar resultatet.
 
 I följande exempel returneras `3`:
@@ -654,7 +654,7 @@ I följande exempel returneras `3`:
 ```
 
 ### <a name="sub"></a>Sub
-Subtraherar andra tal från det första och returnerar resultatet.
+Subtraherar det andra talet från den första siffran och returnerar resultatet.
 
 I följande exempel returneras `1`:
 
@@ -672,7 +672,7 @@ I följande exempel returneras `6`:
 ```
 
 ### <a name="div"></a>div
-Delar det första talet av den andra siffran, och returnerar resultatet. Resultatet är alltid ett heltal.
+Dividerar den första siffran med andra tal och returnerar resultatet. Resultatet är alltid ett heltal.
 
 I följande exempel returneras `2`:
 
@@ -681,7 +681,7 @@ I följande exempel returneras `2`:
 ```
 
 ### <a name="mod"></a>MOD
-Delar det första talet av den andra siffran, och returnerar resten.
+Dividerar den första siffran med andra tal och returnerar resten.
 
 I följande exempel returneras `0`:
 
@@ -696,7 +696,7 @@ I följande exempel returneras `2`:
 ```
 
 ### <a name="min"></a>min.
-Returnerar små av de två talen.
+Returnerar lilla av de två talen.
 
 I följande exempel returneras `1`:
 
@@ -705,7 +705,7 @@ I följande exempel returneras `1`:
 ```
 
 ### <a name="max"></a>max
-Returnerar högre av de två talen.
+Returnerar det största värdet för de två talen.
 
 I följande exempel returneras `2`:
 
@@ -713,8 +713,8 @@ I följande exempel returneras `2`:
 "[max(1, 2)]"
 ```
 
-### <a name="range"></a>intervallet
-Genererar en sekvens med integrerad som ligger inom det angivna intervallet.
+### <a name="range"></a>Adressintervall
+Genererar en sekvens med integrerad tal inom det angivna intervallet.
 
 I följande exempel returneras `[1,2,3]`:
 
@@ -722,16 +722,16 @@ I följande exempel returneras `[1,2,3]`:
 "[range(1, 3)]"
 ```
 
-### <a name="rand"></a>SLUMP
-Returnerar ett slumptal integrerad inom det angivna intervallet. Den här funktionen genererar inte kryptografiskt säker slumptal.
+### <a name="rand"></a>rand
+Returnerar ett slumptal integrerad inom det angivna intervallet. Den här funktionen genererar inte kryptografiskt säkert slumptal.
 
-I följande exempel kunde returnera `42`:
+I följande exempel kan returnera `42`:
 
 ```json
 "[rand(-100, 100)]"
 ```
 
-### <a name="floor"></a>våning
+### <a name="floor"></a>Våning
 Returnerar det största heltalet mindre än eller lika med det angivna värdet.
 
 I följande exempel returneras `3`:
@@ -751,16 +751,16 @@ I följande exempel returneras `4`:
 
 ## <a name="date-functions"></a>Datumfunktioner
 ### <a name="utcnow"></a>utcNow
-Returnerar en sträng i ISO 8601-format för den aktuella datum och tid på den lokala datorn.
+Returnerar en sträng i ISO 8601-format för aktuellt datum och tid på den lokala datorn.
 
-I följande exempel kunde returnera `"1990-12-31T23:59:59.000Z"`:
+I följande exempel kan returnera `"1990-12-31T23:59:59.000Z"`:
 
 ```json
 "[utcNow()]"
 ```
 
 ### <a name="addseconds"></a>Lägg_till_sekunder
-Lägger till ett heltal sekunder till den angivna tidsstämpeln.
+Lägger till en integrerad antal sekunder för angivna tidsstämpel.
 
 I följande exempel returneras `"1991-01-01T00:00:00.000Z"`:
 
@@ -769,7 +769,7 @@ I följande exempel returneras `"1991-01-01T00:00:00.000Z"`:
 ```
 
 ### <a name="addminutes"></a>addMinutes
-Lägger till ett heltal minuter till den angivna tidsstämpeln.
+Lägger till en integrerad antal minuter för angivna tidsstämpel.
 
 I följande exempel returneras `"1991-01-01T00:00:59.000Z"`:
 
@@ -778,7 +778,7 @@ I följande exempel returneras `"1991-01-01T00:00:59.000Z"`:
 ```
 
 ### <a name="addhours"></a>addHours
-Lägger till ett heltal timmar till den angivna tidsstämpeln.
+Lägger till en integrerad antal timmar för angivna tidsstämpel.
 
 I följande exempel returneras `"1991-01-01T00:59:59.000Z"`:
 
@@ -787,5 +787,5 @@ I följande exempel returneras `"1991-01-01T00:59:59.000Z"`:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till Azure Resource Manager finns [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+* En introduktion till Azure Resource Manager finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 

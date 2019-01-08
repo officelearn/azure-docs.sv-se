@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51658fe686e2826618b2044cd969e6b4d463b93f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099946"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063205"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
 Azure Active Directory (Azure AD) hjälper dig att hantera användaridentiteter och skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
@@ -55,7 +55,7 @@ Merparten av alla Azure AD-relaterade europeiska identitetsdata, för organisati
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C lagrar alla användardata i vila på europeiska datacenter. Arbetsloggar (där personliga data har tagits bort) lagras dock på den plats som personen kommer åt tjänsterna från. Om en B2C-användare exempelvis kommer åt tjänsten i USA, så lagras arbetsloggarna i USA. Dessutom lagras all information om principkonfigurationer som inte innehåller personliga data endast i USA. Mer information om principkonfigurationer finns i artikeln om [inbyggda principer i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+    Azure AD B2C lagrar alla användardata i vila på europeiska datacenter. Arbetsloggar (där personliga data har tagits bort) lagras dock på den plats som personen kommer åt tjänsterna från. Om en B2C-användare exempelvis kommer åt tjänsten i USA, så lagras arbetsloggarna i USA. Dessutom lagras all information om principkonfigurationer som inte innehåller personliga data endast i USA. Mer information om principkonfigurationer, finns det [Azure Active Directory B2C: Inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikeln.
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
@@ -72,7 +72,7 @@ Merparten av alla Azure AD-relaterade europeiska identitetsdata, för organisati
     Läs mer om Microsoft-tjänsternas datahemvist i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om funktionerna som beskrivs ovan finns i artiklarna nedan.
+Mer information om någon av funktionerna som beskrivs ovan, finns i följande artiklar:
 - [Vad är Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Lösenordsåterställning via självbetjäning i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Vad är Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

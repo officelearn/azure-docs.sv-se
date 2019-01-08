@@ -10,24 +10,23 @@ ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d2f9327841e0c6193a89df6459b4d8fffb14c05e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302851"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076038"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
  Ett Key Vault (KV)-certifikat kan antingen skapas eller importeras till ett nyckelvalv. När ett KV certifikat skapas den privata nyckeln skapas i nyckelvalvet och aldrig exponeras för certifikatets ägare. Här följer några sätt att skapa ett certifikat i Key Vault:  
 
--   **Skapa ett självsignerat certifikat:** detta skapar ett offentligt / privat nyckelpar och associera det med ett certifikat. Certifikatet ska signeras av en egen nyckel.  
+-   **Skapa ett självsignerat certifikat:** Detta skapar ett offentligt / privat nyckelpar och associera det med ett certifikat. Certifikatet ska signeras av en egen nyckel.  
 
--    **Skapa ett nytt certifikat manuellt:** detta skapar ett offentligt / privat nyckelpar och generera ett X.509-certifikat som förfrågan. Signering begäran kan signeras av din registreringsutfärdare eller certifikatutfärdare. Signerade x509 certifikat kan sammanfogas med den väntande nyckeln koppla för att slutföra KV certifikatet i Key Vault. Den här metoden kräver flera steg, tillhandahåller men du med ökad säkerhet eftersom den privata nyckeln skapas i och begränsade till Key Vault. Detta förklaras i diagrammet nedan.  
+-    **Skapa ett nytt certifikat manuellt:** Detta skapar ett offentligt / privat nyckelpar och generera ett X.509-certifikat som förfrågan. Signering begäran kan signeras av din registreringsutfärdare eller certifikatutfärdare. Signerade x509 certifikat kan sammanfogas med den väntande nyckeln koppla för att slutföra KV certifikatet i Key Vault. Den här metoden kräver flera steg, tillhandahåller men du med ökad säkerhet eftersom den privata nyckeln skapas i och begränsade till Key Vault. Detta förklaras i diagrammet nedan.  
 
 ![Skapa ett certifikat med en egen certifikatutfärdare](media/certificate-authority-1.png)  
 
@@ -39,7 +38,7 @@ Med följande motsvarar grön bokstäver stegen i föregående diagram.
 4. Vald CA svarar med en en X509 certifikat.
 5. Programmet har nya certifikat skapat med en sammanslagning av X509 certifikat från Certifikatutfärdaren.
 
--   **Skapa ett certifikat med en känd utfärdare-provider:** den här metoden kräver att du gör en gång för att skapa en utfärdare-objektet. När ett utfärdare-objekt skapas i du nyckelvalv, kan referera till dess namn i principen för KV certifikatet. En begäran om att skapa sådana KV certifikat skapar ett nyckelpar i valvet och kommunicera med utfärdaren provider-tjänsten med hjälp av informationen i det refererade utfärdare-objektet för att hämta en x509 certifikat. X509 certifikatet hämtas från tjänsten utfärdare och sammanfogas med nyckelpar för att slutföra KV-certifikat.  
+-   **Skapa ett certifikat med en känd utfärdare-provider:** Den här metoden måste du göra en gång för att skapa en utfärdare-objektet. När ett utfärdare-objekt skapas i du nyckelvalv, kan referera till dess namn i principen för KV certifikatet. En begäran om att skapa sådana KV certifikat skapar ett nyckelpar i valvet och kommunicera med utfärdaren provider-tjänsten med hjälp av informationen i det refererade utfärdare-objektet för att hämta en x509 certifikat. X509 certifikatet hämtas från tjänsten utfärdare och sammanfogas med nyckelpar för att slutföra KV-certifikat.  
 
 ![Skapa ett certifikat med en certifikatutfärdare för Key Vault inlett ett samarbete](media/certificate-authority-2.png)  
 
@@ -58,7 +57,7 @@ När en begäran om att skapa ett certifikat för KV är klar status för vänta
 
 ## <a name="first-creation"></a>Skapa en första
  När ett KV certifikat skapas för första gången, skapas också en adresserbara nyckel och hemlighet med samma namn som den för den certifikatet. Om namnet redan används, misslyckas åtgärden med en HTTP-statuskod 409 (konflikt).
-Få deras attribut från certifikatattribut KV adresserbara nyckel och hemlighet. Den adresserbara nyckel och hemlighet som skapats på detta sätt är markerade som hanterade nycklar och hemligheter, vars livstid hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Obs: Om ett KV certifikat upphör att gälla eller är inaktiverad, motsvarande nyckel och hemlighet blir inte fungerar alls.  
+Få deras attribut från certifikatattribut KV adresserbara nyckel och hemlighet. Den adresserbara nyckel och hemlighet som skapats på detta sätt är markerade som hanterade nycklar och hemligheter, vars livstid hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Obs! Om ett KV certifikat upphör att gälla eller är inaktiverad, blir motsvarande nyckel och hemlighet inte fungerar alls.  
 
  Om det här är den första åtgärden att skapa ett KV certifikat krävs en princip.  En princip kan också anges med efterföljande skapa åtgärder för att ersätta den för Principresursen. Om en princip anges används Principresursen på tjänsten för att skapa en nästa version av KV certifikat. Observera att när en begäran om att skapa en nästa version är pågående, aktuella KV certifikatet och motsvarande adresserbara nyckel och hemlighet, förblir oförändrade.  
 

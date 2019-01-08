@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000571"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065740"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Skapa Azure Resource Manager-mallar för distribution av logikappar
 
@@ -34,7 +34,7 @@ I logikappresursen, hittar du den här definitionen i den `definition` egenskape
 * **Anslutningar**: Refererar till separata resurser som på ett säkert sätt lagrar metadata om alla connector-anslutningar, till exempel en anslutningssträng och en åtkomst-token.
 I logic app-resursen i logikappen som refererar till dessa resurser i den `parameters` avsnittet.
 
-Du kan visa dessa delar av befintliga logikappar med hjälp av ett verktyg som [Azure Resource Explorer](http://resources.azure.com).
+Du kan visa dessa delar av befintliga logikappar med hjälp av ett verktyg som [Azure Resource Explorer](http://resources.azure.com). JSON-syntax och egenskaper finns i [Microsoft.Logic resurstyper](/azure/templates/microsoft.logic/allversions).
 
 För att göra en mall för en logikapp som ska användas med distribution av resursgrupper, måste du definiera resurserna och Parameterisera efter behov.
 Till exempel om du distribuerar till en utveckling, testning och produktionsmiljö, vill du förmodligen använda olika anslutningssträngar till SQL database i varje miljö.

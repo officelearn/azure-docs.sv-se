@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123490"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074724"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
 
-SaaS-program kan publiceras i marketplace med tre olika anrop till åtgärden: ”kontakta mig”, ”Prova nu” och ”hämta nu”. Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
+SaaS-program kan publiceras i marketplace med tre olika saker: ”Kontakta mig”, ”Prova nu” och ”hämta nu”. Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
 
 ## <a name="offer-overview"></a>Erbjudande-översikt  
 
@@ -34,8 +34,8 @@ SaaS-program är tillgängliga i både Azure-butiker i följande tabell beskrivs
 | AppSource | Ja (kontakta mig) | Ja (PowerBI/Dynamics) |
 | Azure Marketplace | Nej | Ja (SaaS-appar) |   
 
-**Lista:** lista publiceringsalternativ består av en kontakt mig erbjudandetypen och används när en utvärderingsversion - eller transaktionsnivå deltagande inte är möjlig. Fördelen med den här metoden är att den kan utgivare med en lösning på marknaden kan omedelbart börja ta emot leads som kan omvandlas till erbjudanden för att öka din verksamhet.  
-**Utvärdering/transaktion:** kunden har alternativet att köpa eller begär en utvärderingsversion för din lösning direkt. Att ge en utvärderingsversion ökar engagement erbjuds för kunder och ger kunderna möjlighet att utforska din lösning innan du köper. Du får bättre risken för befordran i butiker med en utvärderingsversion upplevelse, och du kan förvänta dig mer och mer omfattande leads i lika kundrelationer. Utvärderingsversioner måste innehålla kostnadsfri support minst för hela utvärderingsperioden är slut.  
+**Lista:**  Lista publiceringsalternativ består av en kontakt mig erbjudandetyp och används när en utvärderingsversion - eller transaktionsnivå deltagande inte är möjlig. Fördelen med den här metoden är att den kan utgivare med en lösning på marknaden kan omedelbart börja ta emot leads som kan omvandlas till erbjudanden för att öka din verksamhet.  
+**Utvärdering/transaktion:**  Kunden har alternativet att köpa eller begär en utvärderingsversion för din lösning direkt. Att ge en utvärderingsversion ökar engagement erbjuds för kunder och ger kunderna möjlighet att utforska din lösning innan du köper. Du får bättre risken för befordran i butiker med en utvärderingsversion upplevelse, och du kan förvänta dig mer och mer omfattande leads i lika kundrelationer. Utvärderingsversioner måste innehålla kostnadsfri support minst för hela utvärderingsperioden är slut.  
 
 | Erbjudandet för SaaS-appar | Affärskrav | Tekniska krav |  
 | --- | --- | --- |  
@@ -94,7 +94,7 @@ Videokurser, kontrollerar du följande:
 * [Microsoft Azure-videor som fokuserar på Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Kostnadsfri utbildning för Azure Active Directory finns på  
-* [Microsoft Azure för IT-proffs serien: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure för IT-proffs serien: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Azure Active Directory tillhandahåller dessutom en plats för att söka efter uppdateringar av tjänsten   
 * [Tjänstuppdateringar för Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
@@ -145,10 +145,11 @@ Microsoft är värd för handel transaktionen. Microsoft fakturerar kunden å di
 | Prenumeration API | Du kan exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort ett användaravtal för kontot och tjänsten. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar släpps regelbundet. |  
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte redan gjort det, 
+Om du inte redan gjort det,
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace
+- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
 
 Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande
+- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+- Se [Azure SaaS-program erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) för mer information.

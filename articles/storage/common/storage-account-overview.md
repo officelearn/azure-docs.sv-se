@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255770"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065638"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -23,33 +23,13 @@ Läs hur du skapar ett Azure storage-konto i [skapa ett lagringskonto](storage-q
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
-Azure Storage erbjuder tre typer av lagringskonton. Varje typ av stöder olika funktioner och har en egen prismodell. Överväg att skillnaderna innan du skapar ett lagringskonto för att avgöra vilken typ av konto som är bäst för dina program. Typer av lagringskonton är:
-
-* **[Gpv2-konton](#general-purpose-v2-accounts)**  (rekommenderas för de flesta fall)
-* **[General-Purpose v1-konton](#general-purpose-v1-accounts)**
-* **[BLOB storage-konton](#blob-storage-accounts)** 
-
-I följande tabell beskrivs vilka typer av lagringskonton och deras funktioner:
-
-| Storage Account-typ | Tjänster som stöds                       | Stöds prestandanivåer | Stöds åtkomstnivåerna               | Replikeringsalternativ                                                | Distributionsmodell<sup>1</sup>  | Kryptering<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Generell användning V2   | BLOB, fil, kö, tabell och Disk       | Standard, Premium           | Frekvent, lågfrekvent, Arkiv<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager | Krypterade  |
-| General-Purpose V1   | BLOB, fil, kö, tabell och Disk       | Standard, Premium           | Gäller inte                                  | LRS, GRS, RA-GRS                                                   | Resurshanteraren, klassisk  | Krypterade  |
-| Blob Storage         | BLOB (blockblobbar och tilläggsblobbar endast) | Standard                    | Frekvent, lågfrekvent, Arkiv<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Resource Manager  | Krypterade  |
-
-<sup>1</sup>med hjälp av Azure Resource Manager-distributionsmodellen rekommenderas. Lagringskonton med hjälp av den klassiska distributionsmodellen kan fortfarande skapas på vissa platser och befintliga klassiska konton fortfarande användas. Mer information finns i [Azure Resource Manager och klassisk distribution: distributionsmodeller och dina resursers tillstånd](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>alla lagringskonton har krypterats med Storage Service Encryption (SSE) för vilande data. Mer information finns i [Azure Storage Service Encryption för vilande Data](storage-service-encryption.md).
-
-<sup>3</sup>the arkivnivån är tillgängliga på nivån för en enskild blob, inte på lagringskontonivån. Endast blockblob-objekt och lägger till BLOB-objekt kan arkiveras. Mer information finns i [Azure Blob storage: frekvent, lågfrekvent, och Arkivlagringsnivån](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>zone-redundant lagring (ZRS) är endast tillgänglig för standard gpv2-konton. Mer information om ZRS finns i [zonen-redundant lagring (ZRS): Azure Storage-program med hög tillgänglighet](storage-redundancy-zrs.md). Läs mer om andra replikeringsalternativ [Azure Storage-replikering](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>General-purpose v2-konton (GPv2)
 
 Generell användning v2-konton stöder de senaste funktionerna i Azure Storage och alla funktioner i allmänna v1 och Blob storage-konton. Gpv2-konton leverera lägsta per gigabyte kapacitet priser för Azure Storage, samt bransch konkurrenskraftiga transaktionspriser. Generell användning v2-konton stöder dessa Azure Storage-tjänster:
 
-- BLOB-objekt (alla typer: Block, Lägg till sida)
+- BLOB-objekt (alla typer: Blockera, lägga till sida)
 - Filer
 - Diskar
 - Köer
@@ -98,7 +78,7 @@ Tänk på dessa regler när du namnger lagringskontot:
 Allmänna lagringskonton kan konfigureras för något av följande prestandanivåer:
 
 * En standard prestandanivån för att lagra blobar, filer, tabeller, köer och Azure-datordiskar.
-* En premium-prestandanivån för att lagra virtuell dator i Azure-diskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../../virtual-machines/windows/premium-storage.md).
+* En premium-prestandanivån för att lagra virtuell dator i Azure-diskar. Se [Premium Storage: Lagring med höga prestanda för Azure-Datorbelastningar](../../virtual-machines/windows/premium-storage.md) för en detaljerad översikt över Premium storage.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Åtkomstnivåerna för block blob-data
 
@@ -133,7 +113,7 @@ På serversidan krypteras alla data i ditt lagringskonto. Läs mer om kryptering
 
 ## <a name="storage-account-endpoints"></a>Slutpunkter för lagringskonto
 
-Ett lagringskonto innehåller ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller namnet på ditt unika. Kombinationen av namnet på kontot och Azure Storage service-slutpunkt utgör slutpunkterna för ditt lagringskonto.
+På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller ditt unika kontonamn. Kombinationen av kontonamnet och Azure Storage-tjänstens slutpunkt bildar slutpunkterna för ditt lagringskonto.
 
 Exempel: om din Allmänt lagringskonto heter *mystorageaccount*, så är standardslutpunkterna för kontot:
 
@@ -157,9 +137,9 @@ Varje begäran som görs mot ditt lagringskonto måste ha behörighet. På nivå
 
 Du kan bevilja åtkomst till data i ditt storage-konto med hjälp av någon av följande metoder:
 
-- **Azure Active Directory:** Använd Azure Active Directory (Azure AD) autentiseringsuppgifter för att autentisera en användare, grupp eller andra identitet för åtkomst till blob och kö (förhandsversion). Om autentisering av en identitet lyckas returnerar en token som ska användas i auktorisera begäran till Azure Blob storage eller Queue storage med Azure AD. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
-- **Delad nyckel auktorisering:** använda din åtkomstnyckel för lagringskontot för att konstruera en anslutningssträng som programmet använder vid körning för att få åtkomst till Azure Storage. Värdena i anslutningssträngen som används för att konstruera den *auktorisering* -huvud som skickas till Azure Storage. Mer information finns i [konfigurera Azure Storage-anslutningssträngar](storage-configure-connection-string.md).
-- **Signatur för delad åtkomst:** använda en signatur för delad åtkomst för att delegera åtkomst till resurser i ditt storage-konto om du inte använder Azure AD-autentisering. En signatur för delad åtkomst är en token som kapslar in all information som behövs för att auktorisera en begäran till Azure Storage på URL: en. Du kan ange i storage resurs- och behörigheterna intervallet behörigheterna som är giltig som en del av signaturen för delad åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Azure Active Directory:** Använd autentiseringsuppgifter för Azure Active Directory (Azure AD) för att autentisera en användare, grupp eller andra identitet för åtkomst till blob och kö (förhandsversion). Om autentisering av en identitet lyckas returnerar en token som ska användas i auktorisera begäran till Azure Blob storage eller Queue storage med Azure AD. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
+- **Delad nyckel auktorisering:** Använd din åtkomstnyckel för lagringskontot för att skapa en anslutningssträng som programmet använder vid körning för att få åtkomst till Azure Storage. Värdena i anslutningssträngen som används för att konstruera den *auktorisering* -huvud som skickas till Azure Storage. Mer information finns i [konfigurera Azure Storage-anslutningssträngar](storage-configure-connection-string.md).
+- **Signatur för delad åtkomst:** Använda en signatur för delad åtkomst för att delegera åtkomst till resurser i ditt storage-konto om du inte använder Azure AD-autentisering. En signatur för delad åtkomst är en token som kapslar in all information som behövs för att auktorisera en begäran till Azure Storage på URL: en. Du kan ange i storage resurs- och behörigheterna intervallet behörigheterna som är giltig som en del av signaturen för delad åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Autentisera användare eller program med hjälp av autentiseringsuppgifter för Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över annan typ av auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. 
@@ -189,7 +169,7 @@ Läs mer om Azure Storage REST API, [Azure Storage Services REST API-referens](h
 > [!IMPORTANT]
 > Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Om du kopierar en blob som är krypterad med kryptering på klientsidan bör du se till att kopieringen bevarar blobmetadata och framför allt krypteringsrelaterade metadata. Om du kopierar en blob utan krypteringsmetadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Tjänsten Azure Import/Export
+### <a name="azure-importexport-service"></a>Azure Import/Export-tjänsten
 
 Om du har en stor mängd data som ska importeras till ditt lagringskonto kan du tjänsten Azure Import/Export. Import/Export-tjänsten används för att importera stora mängder data på ett säkert sätt till Azure Blob storage och Azure Files genom att leverera diskenheter till en Azure-datacenter. 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3bf24a4ed17986ff948a7396e608a51ae38208a5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255320"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076509"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Hur du använder mikrometer med Azure Application Insights Java SDK
 Mikrometer övervakning mått programmått för JVM-baserade program kod och hjälper dig att exportera data till dina favorit övervakningssystem. Den här artikeln får du lära dig att använda mikrometer med Application Insights för både Spring Boot och Spring Boot-program.
@@ -27,7 +27,7 @@ Lägg till följande beroenden till pom.xml eller build.gradle-fil:
 * [Application Insights spring boot-starter-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA eller senare
 * Mikrometer Azure registret 1.1.0 eller senare
 * [Mikrometer Spring äldre](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 eller senare (den här backportar autoconfig koden inom ramen för Spring).
-* [ApplicationInsights resurs](app-insights-create-new-resource.md)
+* [ApplicationInsights resurs](../azure-monitor/app/create-new-resource.md )
 
 Steg
 
@@ -65,7 +65,7 @@ Lägg till följande beroenden till pom.xml eller build.gradle-fil:
 
 * Application Insights Spring boot starter 2.1.2 eller senare
 * Azure-spring-boot-mått-startare 2.0.7 eller senare  
-* [Application Insights-resurs](app-insights-create-new-resource.md)
+* [Application Insights-resurs](../azure-monitor/app/create-new-resource.md )
 
 Steg:
 
@@ -126,7 +126,7 @@ Lägg till följande beroenden till pom.xml eller build.gradle-fil:
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) eller senare
 * [Registrera webbfiltret](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * Mikrometer Azure registret 1.1.0 eller senare
-* [Application Insights-resurs](app-insights-create-new-resource.md)
+* [Application Insights-resurs](../azure-monitor/app/create-new-resource.md )
 
 Steg:
 

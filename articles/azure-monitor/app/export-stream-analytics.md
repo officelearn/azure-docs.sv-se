@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ca9148093660f3ed223fd2117e85d309c919e040
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001846"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076934"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för bearbetning av data [exporterats från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från olika källor. Det kan transformera och filtrera data och sedan dirigera till en mängd olika mottagare.
@@ -25,7 +25,7 @@ ms.locfileid: "54001846"
 I det här exemplet skapar vi en adapter som hämtar data från Application Insights, byter namn på och bearbetar vissa fält och kommer till Power BI.
 
 > [!WARNING]
-> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights-data i Power BI](../../application-insights/app-insights-export-power-bi.md). Den här sökvägen är bara ett exempel som illustrerar hur du bearbetar exporterade data.
+> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights-data i Power BI](../../azure-monitor/app/export-power-bi.md ). Den här sökvägen är bara ett exempel som illustrerar hur du bearbetar exporterade data.
 > 
 > 
 
@@ -198,7 +198,7 @@ Vänta tills jobbet körs.
 
 ## <a name="see-results-in-power-bi"></a>Visa resultatet i Power BI
 > [!WARNING]
-> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights-data i Power BI](../../application-insights/app-insights-export-power-bi.md). Den här sökvägen är bara ett exempel som illustrerar hur du bearbetar exporterade data.
+> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights-data i Power BI](../../azure-monitor/app/export-power-bi.md ). Den här sökvägen är bara ett exempel som illustrerar hur du bearbetar exporterade data.
 > 
 > 
 

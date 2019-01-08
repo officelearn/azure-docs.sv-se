@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053099"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063686"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -28,7 +28,9 @@ I följande lista visas hur du kan kontrollera källdatorn:
 
 *  Använda Telnet på kommandoraden på källservern, pinga processervern via HTTPS-porten (HTTPS-standardporten är 9443) genom att köra följande kommando. Kommandot kontrollerar för problem med nätverksanslutningen och problem som blockerar brandväggsporten.
 
+
    `telnet <process server IP address> <port>`
+
 
    > [!NOTE]
    > Använda Telnet för att testa anslutningen. Använd inte `ping`. Om Telnet inte är installerad, slutför du stegen i [installera Telnet-klienten](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).

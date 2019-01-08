@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 8cbd09beffb8d86ab35e5fc1cf15c37b1bef9eb2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a3a4039e8b9c372212655718a40a57fedcfa188d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050616"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075795"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -34,7 +34,7 @@ För att få observability i hela miljön, måste du aktivera övervakning på a
 - [Azure DevOps-projekt](../devops-project/overview.md) ger dig ett förenklat sätt med befintlig kod och Git-lagringsplats, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) till Azure.
 - [Kontinuerlig övervakning i din DevOps-releasepipeline](../azure-monitor/app/continuous-monitoring.md) gör det möjligt att gate eller ångra distributionen utifrån övervakningsdata.
 - [Statusövervakaren](../azure-monitor/app/monitor-performance-live-website-now.md) gör att du kan instrumentera en live .NET-app i Windows med Azure Application Insights utan att behöva ändra eller omdistribuera din kod.
-- Om du har åtkomst till koden för ditt program kan aktivera fullständig övervakning med [Programinsikter](../application-insights/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), eller [andra programmeringsspråk](../azure-monitor/app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sidvisningar som är relevanta för ditt program och din verksamhet.
+- Om du har åtkomst till koden för ditt program kan aktivera fullständig övervakning med [Programinsikter](../application-insights/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), eller [andra programmeringsspråk](../azure-monitor/app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sidvisningar som är relevanta för ditt program och din verksamhet.
 
 
 
@@ -79,7 +79,7 @@ En viktig aspekt av övervakning proaktivt meddela administratörer om eventuell
 ## <a name="prepare-dashboards-and-workbooks"></a>Förbereda instrumentpaneler och arbetsböcker
 Se till att din utveckling och drift har åtkomst till samma telemetri och verktyg kan användas för att visa mönster i hela miljön och minimera dina Mean Time att identifiera (MTTD) och tiden till återställning (MTTR).
 
-- Förbereda [anpassade instrumentpaneler](../application-insights/app-insights-tutorial-dashboards.md) baserat på vanliga mått och loggar för olika roller i din organisation. Instrumentpaneler kan kombinera data från alla Azure-resurser.
+- Förbereda [anpassade instrumentpaneler](../azure-monitor/learn/tutorial-app-dashboards.md) baserat på vanliga mått och loggar för olika roller i din organisation. Instrumentpaneler kan kombinera data från alla Azure-resurser.
 - Förbereda [arbetsböcker](../azure-monitor/app/usage-workbooks.md) till lagrets delning mellan utveckling och drift. Dessa kunde förberedas som dynamiska rapporter med diagram med mätvärden och loggfrågor eller även följande felsökningsguider sammanställts av utvecklare som hjälper kundsupport eller åtgärder för att hantera grundläggande problem.
 
 ## <a name="continuously-optimize"></a>Optimera kontinuerligt

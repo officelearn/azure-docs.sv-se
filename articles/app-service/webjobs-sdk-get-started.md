@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d9f3685e0a3961631f1577827cc415cb91d38a15
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607009"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074248"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -304,9 +304,9 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 1. Om du inte redan har en App Service-app som du kan använda [skapar ett](app-service-web-get-started-dotnet-framework.md).
 
-1. Om du inte redan har en Application Insights-resurs som du kan använda [skapar ett](../application-insights/app-insights-create-new-resource.md). Ange **programtyp** till **Allmänt**, och hoppa över avsnitten som följer **kopierar du instrumentationsnyckeln**.
+1. Om du inte redan har en Application Insights-resurs som du kan använda [skapar ett](../azure-monitor/app/create-new-resource.md ). Ange **programtyp** till **Allmänt**, och hoppa över avsnitten som följer **kopierar du instrumentationsnyckeln**.
 
-1. Om du redan har en Application Insights-resurs som du vill använda, [kopierar du instrumentationsnyckeln](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Om du redan har en Application Insights-resurs som du vill använda, [kopierar du instrumentationsnyckeln](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Konfigurera appinställningar 
 

@@ -1,6 +1,6 @@
 ---
-title: Växa i Azure med AppSource | Azure
-description: Information om hur du använder AppSource som gör Microsoft-partner att göra partner teknik och tjänster kan upptäckas för kunder via en Microsoft-stödda onlinebutik.
+title: Utveckla din verksamhet i Azure med AppSource | Azure
+description: Information om hur du använder AppSource, vilket gör det möjligt för Microsoft-partners för att partner tekniken och tjänsterna kunna identifieras för kunder via en stöds av Microsoft online-butik.
 services: Azure, Marketplace, AppSource, Compute, Storage, Networking, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,174 +14,174 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054186"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078005"
 ---
-# <a name="grow-your-business-with-appsource"></a>Växa med AppSource  
-Använd AppSource när du kontaktar företagskunder att hitta, försök och hämta line-of-business-programvara som en tjänst (SaaS) appar och tjänster-implementering för att enheten verksamhetsresultat och minska tiden för värden.  
+# <a name="grow-your-business-with-appsource"></a>Låt företaget växa med AppSource  
+Använd AppSource när du kontaktar företagskunder att hitta, prova och få line-of-business-programvara som en tjänst (SaaS)-appar och implementeringstjänster hjälper Driv affärsresultat och minska tiden till värde.  
 
-| Be kunden | Funktioner |  
+| Kund-fråga | Funktioner |  
 |:--- |:--- |  
-| ***Business-lösningar som fungerar med Microsoft-produkter kunder redan använder*** | Ger kunder möjlighet att använda partnerappar och tjänster för att utöka Microsoft molnappar och -tekniker |  
-| ***Möjlighet att enkelt hitta en lösning eller implementering tjänst.*** | Ger en affär för att identifiera, försök och hämta appar och tjänster och tillägg |  
-| ***Branschspecifika line-of-business-lösningar på specifika kunden utmaningarna*** | Tillhandahåller klar slutpunkt till slutpunkt branschlösningar för att identifiera och kontrollera kraven mellan många branscher |  
-| ***Appar för att förbättra produktiviteten och effektiviteten affärsinsikter*** | Innehåller appar för företag, inklusive kundservice, HR, åtgärder och flera rader |  
-| ***Erfarna implementering partner för att anpassa appar för unik för din kund*** | Tillhandahåller en katalog över erbjudanden för samråd tjänster för lösningar, baserade på Dynamics 365, Power BI, PowerApps och partnerappar för att hjälpa användare i verksamheten leverera förutsägbar resultat |  
+| ***Business-lösningar som fungerar med Microsoft-produkter kunder redan använder*** | Ger kunder möjlighet att använda partnerappar och tjänster för att utöka Microsoft molnappar och tekniker |  
+| ***Möjlighet att enkelt hitta rätt lösning eller implementering av tjänsten.*** | Ger en affär för att upptäcka, prova och få appar och tjänster och tillägg |  
+| ***Branschspecifika line-of-business-lösningar för att hantera specifika kundutmaningar*** | Tillhandahåller klar slutpunkt till slutpunkt branschlösningar för att identifiera och verifiera kraven i många branscher |  
+| ***Appar för att förbättra produktiviteten och effektiviteten affärsinsikter*** | Tillhandahåller appar för rader med verksamhet, inklusive kundtjänst, HR, åtgärder och mer |  
+| ***Implementering av erfarna partner som hjälper att anpassa appar ska unik för din kund*** | Tillhandahåller en katalog över Consulting Services-erbjudanden för lösningar som bygger på Dynamics 365, Power BI, PowerApps och partnerappar för att hjälpa användare i verksamheten leverera förutsägbara resultat |  
 
-<!-- # Grow your business with AppSource  --> Både Azure Marketplace och AppSource är startar punkter för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, marketplace-erbjudande mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande. Microsoft-kunder finns skyltfönster på marketplace varje dag för att hitta rätt appar och tjänster för att öka verksamheten för kunden. Microsoft-målet är att ansluta organisationer med lösningarna och tjänster från Microsoft och Microsoft-partner.  
+<!-- # Grow your business with AppSource  --> Både Azure Marketplace och AppSource är Start punkter för gemensamma go-to-market-aktiviteter med Microsoft och svänghjul för verksamheten att växa. Med start befordran, skapande av efterfrågan och gemensamma försäljnings- och marknadsföringsresurser, kan marketplace-erbjudande mittpunkten i din molnverksamhet. Det finns inga avgifter för att du deltar. Microsoft-kunder finns butiker på marketplace varje dag för att hitta rätt appar och tjänster för att öka verksamheten för din kund. Microsoft-målet är att ansluta organisationer med lösningar och tjänster från Microsoft och Microsoft partner.  
 
-## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Företagets fördelar med att ansluta till ett moln marketplace  
-Det finns flera tunga skäl till varför du ska ansluta till skyltfönster på marketplace. Här är fördelarna specifikt för att visa en lista över dina erbjudanden på AppSource som hjälper dig att växa:  
+## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Företagets fördelar med att ansluta till en marknadsplats i molnet  
+Det finns flera tunga skäl till varför du ska ansluta till butiker på marketplace. Här följer fördelarna speciellt för att visa en lista över dina erbjudanden på AppSource för att hjälpa din verksamhet att växa:  
 *   **Ansluta direkt med beslutsfattare**  
-    AppSource hjälper ISV: er och system implementors nå potentiella kunder och ansluta direkt med de kritiska LoB-beslutsfattare att tillhandahålla ett enda mål för användare i verksamheten att identifiera och försök LoB SaaS-appar.  
+    AppSource kan ISV: er och system implementors nå ut potentiella kunder och ansluta direkt med dessa viktiga LoB-beslutsfattare, att tillhandahålla ett enda mål för företagsanvändare att identifiera och testa LoB-SaaS-appar.  
 *   **Nå fler kunder**  
-    AppSource kan hjälpa dig att nå över hela världen företagsanvändare marknader som du inte kanske har kunnat nå innan. Kunder enkelt kan hitta appar inte bara på AppSource, men även från inom ramen för Microsoft-produkter kunder redan använder – via appen i produkten gallerier.  
+    Med hjälp av AppSource kan du nå företag över hela världen på marknader som du inte kanske har kunnat nå innan. Kunder kan enkelt hitta appar inte bara på AppSource, men även från inom ramen för Microsoft-produkter kunder redan använder – via i produkten app gallerier.  
     *   Mer information om AppSource finns på sidan AppSource på [ https://appsource.microsoft.com ](https://appsource.microsoft.com).  
-*   **Generera leads och potentiella kunder**  
-    När företagsanvändare försöker programmet på AppSource Microsoft resurser kundens kontaktinformation med dig direkt i din CRM-systemet så att du kan ansluta till kunden och aktivera kund till affärsmöjligheter.  
-*   **Utöka din försäljning team**  
-    Dina försäljning team spelar en viktig roll i ditt företag. Om du anger dina appar på AppSource får du en annan försäljningskanal som ger användarna möjlighet att hitta och försök branschspecifika appar. Dessutom av notering vid AppSource, kan du samarbeta med Microsoft försäljning team att leverera lösningar för slutpunkt till slutpunkt.  
-*   **Förbättra affärsvärde och öka avtalsstorlek med befintliga och nya kunder**  
-    Utöka systembearbetningstid storlek och adress stötestenar för kund när flytta arbetsbelastningar till molnet. Minska försäljning cykler och öka systembearbetningstid lönsamhet genom att sälja kompletta lösningar som mål för specifika arbetsbelastningar eller branschen scenarier.  
-*   **Låsa upp Microsoft gå till marknaden tjänster**  
-    Microsoft gå till marknaden (GTM) Services hjälp du öppna ny dörrar genom gemensamma starta planering, globala expansion, kanal development leda delning med mera. Beroende på utvärderingsversionen du erbjuder och Microsoft-teknik för växer kan du få att låsa upp mer GTM fördelar.  
-*   **Visa en lista över dina rådgivning services erbjudanden**  
-    Användare i verksamheten letar efter erfarna partners att kunden Kom igång med förtroende genom att erbjuda kvaliteten rådgivning som utformats för att leverera förutsägbar resultat. Lista över dina rådgivning services erbjudanden som hjälper företag användarna att hitta erbjudanden för att kunden komma igång snabbt.  
-*   **Kom igång med förtroende**  
-    Microsoft AppSource teamet är här för att ge en smidig onboarding-upplevelse. AppSource teamet är till hjälp vägen; den fungerar om försök eller tester enhet upplevelse, så att du uppfyller kriterierna som lista.  
-*   **Anpassa appsidan-lista**  
-    Du har flexibilitet när det gäller att bestämma hur du vill att marknadsföra dina appar på AppSource. Ange en video, datablad, dokumentation och detaljerad beskrivning. Microsoft arbetar med dig för att presentera din app på AppSource på ett sätt som tvingande.  
-*   **Få tillämplig insikter**  
-    Få insikter på prestandan hos dina listor via molnet partnerportalen eller Office app publiceringsprocessen. Spåra hur många besökare appen hämtar och hur många försök din app. Mer information om resultat av marknadsföringskampanjer och vilket innehåll som fungerar bäst.  
+*   **Generera leads och försäljningsmöjligheter**  
+    När företagsanvändare försöker ditt program på Microsoft AppSource resurser kunden kontaktinformation med dig direkt i CRM-systemet, så att du kan ansluta till kunden och aktivera kunden till potentiella kunder.  
+*   **Utöka säljteamen**  
+    Säljteamen spelar en viktig roll i din verksamhet. När du registrerar dina appar på AppSource tillgång du till en annan försäljningskanal som hjälper användare att hitta och testa appar. Dessutom genom att lista på AppSource, kan du samarbeta med Microsofts säljteam att leverera lösningar för slutpunkt till slutpunkt.  
+*   **Förbättra verksamheten mervärde och gör större affärer med befintliga och nya kunder**  
+    Utöka avtal storlek och adress stötestenar för kund när du flyttar arbetsbelastningar till molnet. Minska försäljningscykel och öka lönsamheten på avtalet genom att sälja kompletta lösningar som mål specifika arbetsbelastningar eller bransch scenarier.  
+*   **Låsa upp Microsoft Go-To-Market-tjänster**  
+    Du öppnar nya möjligheter vad genom gemensamma starta planering Microsoft Go-To-Market GTM-hjälper dig att, global expansion, kanal-utveckling, leda delning och mycket mer. Beroende på utvärderingen du erbjuda och när användningen av Microsoft-teknik växer kan du få att låsa upp mer GTM-fördelar.  
+*   **Lista över dina konsult tjänster-erbjudanden**  
+    Företagsanvändare söker erfarna partner som hjälper att kunden Kom igång med tillförsikt genom att erbjuda kvalitet konsulttjänster som är utformad för att ge förutsägbara resultat. Lista över dina konsult tjänster-erbjudanden för att hjälpa användare i verksamheten hitta erbjudanden för att kunden Kom igång snabbt.  
+*   **Kom igång med tillförsikt**  
+    Microsoft AppSource-teamet är här för att ge en sömlös onboarding-upplevelse. AppSource-team är här för att hjälpa dig att vägen; Om den fungerar på utvärderingsversion eller test drive upplevelsen, vilket hjälper dig att uppfylla kriterier och mycket mer.  
+*   **Anpassa din appsida lista**  
+    Du har flexibilitet när det gäller att bestämma hur du vill marknadsföra dina appar på AppSource. Ange en video, datablad, dokumentation och en detaljerad beskrivning. Microsoft samarbetar med dig för att presentera din app på AppSource på ett tilltalande sätt.  
+*   **Få användbara insikter**  
+    Få insikter om prestanda för dina listor via Cloud Partner Portal eller publiceringsprocessen för Office-app. Spåra hur många besökare din app med hämtar och hur många provar din app. Mer information om prestanda för dina marknadsföringskampanjer och vilket innehåll som fungerar bäst.  
 
-## <a name="how-to-grow-your-business-with-appsource"></a>Så här växa med AppSource  
-Följande metodtips i marknadsföring erbjudandena på AppSource hjälper dig att maximera fördelarna och du har ställts in för lyckas med gå till marknaden och Microsoft samtidigt Sell initiativ. Microsoft Partner Network (MPN) är din gateway för alla icke-Marketplace relaterade marknadsföring och programmässiga resurser.  
-*   För mer information om MPN besöka sidan finns på Microsoft Partner Network [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
+## <a name="how-to-grow-your-business-with-appsource"></a>Att utveckla din verksamhet med AppSource  
+Följa metodtipsen i marknadsföring för dina erbjudanden på AppSource hjälper dig att maximera fördelarna och du lyckas med Go-to-Market och Microsoft Sell initiativ. Microsoft Partner Network (MPN) är din gateway för alla icke-Marketplace-relaterade marknadsföring och programmässig resurser.  
+*   Mer information om MPN på webbplatsen Microsoft Partner Network sidan finns på [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
 
-Kvaliteten på app publikationen och åtagande att kundernas sida begäran generation och partner engagement hjälp enhet kunden tillväxt för ditt företag.  
+Kvaliteten på app publikationen och åtagande att kundcentrerade begäran generation och partner engagement hjälp driva kunden tillväxt för din verksamhet.  
 
-Följande checklista beskriver marknadsföring metodtips och resurser att tänka på när du skapar erbjudanden som ska publiceras på AppSource:  
-*   **Tänk på Microsoft Trademark & Brand riktlinjer.**  
-    När namnge din app och hänvisar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster, följ Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifika riktlinjer.  
-    *   Mer information om Microsofts varumärken och anpassning finns i Microsoft-Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
-*   **Aktivera den nu se get kostnadsfri utvärderingsversion eller testa enheten upplevelse för din app.**  
-    Företagsanvändare vill upplever appen först manuellt.  
-*   **Skapa en stark värdeförslag.**  
-    Identifiera vilka potentiella kunden är och vad din lösning har som skiljer sig från hur användaren är för närvarande göra något.  
-*   **Kontrollera din app-lista som står ut.**  
-    Landningssida för din app är första intryck av att företagsanvändare hämtar. Baserat på din app-lista, avgöra kunder om de vill veta mer och försök dina appar.  
+Följande checklista beskriver Metodtips för marknadsföring och resurser för att överväga vid skapandet av erbjudanden som ska publiceras på AppSource:  
+*   **Tänk på Microsoft Trademark & varumärke riktlinjer.**  
+    När döpa appen och hänvisar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster, efter den Microsoft Trademark och riktlinjer för varumärken samt riktlinjer för olika produkter.  
+    *   Mer information om Microsofts varumärken och anpassning på webbplatsen Microsoft Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+*   **Aktivera get det nu kan du uppleva, erbjudande om kostnadsfri utvärderingsversion, eller testa enheten upplevelse för din app.**  
+    Företagsanvändare vill testa din app direkt.  
+*   **Skapa ett starkt värdeförslag.**  
+    Identifiera vilka potentiella kunden är och hur din lösning har som skiljer sig från hur användaren för närvarande gör något.  
+*   **Gör din app-lista som står ut.**  
+    Din landningssida din app är den första intryck av att en användare hämtar. Baserat på din app-lista kan avgöra kunder om de vill lära dig mer och testa dina appar.  
 *   **Optimera din registrering för att öka sökmotorer.**  
-    Kontrollera att du inkludera sökord i programnamn, Sammanfattning och lista och inkludera sökord i tre sökord.  
-*   **Användare i verksamheten är beroende av kundfeedback.**  
-    Påminn kunderna att skicka ett betyg och granska. Användarna får ett e-postmeddelande om du vill dela upplevelsen av dina kunder när de startas en utvärderingsversion.  
-*   **Befordra att appen är tillgänglig på AppSource.**  
-    Länka till din app visar en lista över på AppSource från din sida med AppSource Aktivitetsikon och använda URL-märkning varje gång du länkar till din app.  
+    Kontrollera att du införliva sökord namn, Sammanfattning och lista och inkludera sökord i tre sökord.  
+*   **Företagsanvändare förlitar sig på kundfeedback.**  
+    Påminn dina kunder att skicka in en klassificering och granska. Användarna får ett e-postmeddelande om du vill dela samma upplevelse som dina kunder när de igång en utvärderingsversion.  
+*   **Flytta upp att dina appar är tillgängliga på AppSource.**  
+    Länka till din app lista på AppSource från din sida med hjälp av AppSource-märket och Använd URL: en taggning varje gång du länkar till din app.  
 *   **Skapa din plan för generering av begäran.**  
-    Kunder kan välja mellan ett överväldigande antal lösningar. Hur gör du dina kunder känna till dina lösningar? Begäran med marknadsföringsaktiviteter-enheten.  
-*   **Aktivera delning av lead.**  
-    Ta emot kontaktinformation till kunden när de försöker dina appar direkt i din CRM-systemet. Kontrollera att du har en process för att följa upp dessa leads.  
+    Kunderna kan välja från en överväldigande antalet lösningar. Hur gör du dina kunder medveten om dina lösningar? Hantera begäran med marknadsföringsaktiviteter.  
+*   **Aktivera dela leads.**  
+    Ta emot kontaktinformation för din kund när de försöker din app direkt i CRM-systemet. Kontrollera att du har en process för att följa upp de här potentiella kunderna.  
 *   **Granska prestandan för din app-lista.**  
-    Använd instrumentpanelen insikter i partnerportalen molnet eller publiceringsprocessen för Office-app för att granska prestanda.  
-*   **Använda Gå till marknaden services fördelar.**  
-    När du anger ett erbjudande på AppSource har åtkomst till tjänster gå till marknaden. Mer information om tillgängliga via Microsoft Partner Network (MPN) fördelar.  
+    Använd instrumentpanelen i partnerportalen i molnet eller publiceringsprocessen för Office-app för att granska prestanda.  
+*   **Använda Go-To-Market services-förmåner.**  
+    När du listar ett erbjudande på AppSource har åtkomst till Go-To-Market-tjänster. Läs mer om fördelarna som är tillgängliga via Microsoft Partner Network (MPN).  
  
-### <a name="app-listing-best-practices"></a>Bästa praxis för App-lista  
-Din registrering i AppSource kan vara första interaktionen med potentiella kunder. Precis som alla första intryck du vill göra det starkt och något målgruppen vill följa upp. Partner med marknadsföring gruppen så meddelanden och ge support innehållet i din lista differentierade och hjälper erbjudandet står ut. 
+### <a name="app-listing-best-practices"></a>Metodtips för App-lista  
+Din registrering i AppSource kan vara din första interaktion med en potentiell kund. Precis som alla första intryck du vill göra den starka och något din målgrupp vill följa upp. Partner med marknadsavdelningen så meddelanden och ge support innehållet i din registrering differentierade och hjälper till att ditt erbjudande som står ut. 
 
-Här följer några grundläggande saker du kan göra för att tillhandahålla en bra första intryck. 
+Här följer några grundläggande saker som du kan göra för att ge en bra första intryck. 
 
 ![Första intryck](./media/marketplace-appsource/appsourcefirstimpression.png)
 
-I nästa avsnitt vägleder dig genom de olika steg som krävs för att skicka din marketplace-lista. Läs igenom den noga eftersom den innehåller bästa praxis som kan hjälpa din app framhävs och förbättra söka motorn rangordning. 
+Nästa avsnitt vägleder dig genom de olika steg som krävs för att skicka in din marketplace-registrering. Läs igenom den noggrant eftersom det innehåller bästa praxis som kan hjälpa din app framhävs och förbättra söker motorn rangordning. 
 
-Följande tabeller innehåller information om varje steg i att fylla i erbjudandet registreringen.
+I tabellerna nedan redogör för varje steg i att fylla i ditt erbjudande-lista.
 
-**Erbjudande identitet**  
+**Erbjud identitet**  
 
-| Inställningen för erbjudande | Bästa praxis | 
+| Inställningen för erbjudandet | Bästa praxis | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Namn** | **Namnge ditt erbjudande**<br />Att välja ett namn för din app är viktiga beslut. Förmånen-baserade namn är effektivare än beskrivande namn. Appens namn kommunicera får core value-kunder. Inklusive sökord i din app rubrik kan också hjälpa din app som ska rangordnas högre i sökresultat. Följ Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifika riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft, programvara, produkter och tjänster.<ul> <li>Mer information om Microsofts varumärken och anpassning finns i Microsoft-Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Namn** | **Namnge ditt erbjudande**<br />Det är ett viktiga beslut för att välja ett namn för din app. Förmånen-baserade namn är effektivare än beskrivande namn. Appnamnet på din ska kommunicera core value-kunder får. Inklusive sökord i din app rubrik kan också hjälpa din app att rangordna högre i sökresultat. Följ den Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft, programvara, produkter och tjänster.<ul> <li>Mer information om Microsofts varumärken och anpassning på webbplatsen Microsoft Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
-**Storefront information - erbjudandet**  
+**Storefront-information – erbjudandeinformation**  
 
 | Storefront inställningar | Bästa praxis | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Erbjudandenamn** | Erbjudande sammanfattningen visas på sidan för erbjudandet på AppSource startsida och app galleriet. Inkludera sökord i ditt erbjudande sammanfattning för att förbättra din app i sökresultat rangordning. |
-| **Beskrivning av erbjudande** | **Ange en beskrivning av bra erbjudande**<br />Beskriv tydligt värdeförslag av erbjudandet i de första några meningarna med beskrivningen. Tänk på att de första några meningarna kan visas i sökresultat.<br />Förlita dig inte på funktioner och egenskaper för sälja produkten. Istället fokusera på det värde som du levererar. Använda branschspecifika ordförråd eller förmånen-baserade ordval så mycket som möjligt.<br />Kärnkomponenterna i din värdeförslag bör innehålla information om:<ul> <li>Vad är produkten</li>  <li>Vem som får från den mest</li> <li>Den behandlar vilka behov eller smärta.</li> </ul>Informera kunderna hur sina företag eller arbete livslängd kan skilja sig när de använder din lösning.<br />Inkludera sökord och nyckelordet variationer i erbjudandet beskrivningen för att förbättra rangordning erbjudandet i sökresultat.<br />Ange en beskrivning för erbjudande som med enkel HTML.<br />Här är ett exempel på ett enkelt erbjudande lista sida (som visas i listan exemplet som visas ovan) som innehåller en sammanfattning över erbjudande som följt av en lista över viktiga funktioner. Det maximala antalet tecken är 3 000.<br />*HTML-exempel*<br />Organisation insikter för Dynamics 365 (online) innehåller viktiga införande- och användningsdata mätvärden för din Dynamics 365-organisation och verktyg som hjälper dig att undvika problem med prestanda och support. <ul> <li>**Anpassa instrumentpaneler**<br />Konfigurera instrumentpanelen för att tillhandahålla en omfattande användarupplevelse och ögonblicksbilder av viktiga data.<ul> <li>**Övervaka införande och använda**<br />Identifiera dina mest aktiva användare, antal förfrågningar, mest använda entiteter, arbetsflöden och mycket mer.</li> </ul></li> </ul>Version av minsta plattform som stöds: `8.1.1` |
+| **Erbjudandets namn** | Sammanfattning av erbjudandet visas på sidan Sök efter erbjudandets på startsidan och app galleriet AppSource. Inkludera sökord i ditt erbjudande sammanfattning för att förbättra din app i sökresultat rangordning. |
+| **Beskrivning av erbjudande** | **Ange en beskrivning för bra erbjudande**<br />Beskriv tydligt betona mervärdet av ditt erbjudande i de första några meningarna med en beskrivning. Tänk på att de första några meningarna kan visas i sökresultat.<br />Förlita dig inte på Egenskaper och funktioner för att sälja din produkt. I stället fokusera på det värdet du levererar. Använd branschspecifika ordförråd eller förmånen-baserade formulering så mycket som möjligt.<br />Kärnkomponenterna i din förslagsvärde ska inkludera information om:<ul> <li>Vad är produkten</li>  <li>Vem som får från den mest</li> <li>Det behandlar vilka behov eller enkelt.</li> </ul>Berätta för dina kunder hur deras företag eller arbete liv kan skilja sig när de använder din lösning.<br />Införliva sökord och nyckelordet variationer i erbjudandet beskrivningen för att förbättra rangordning i ditt erbjudande i sökresultat.<br />Ange en beskrivning för erbjudande som med enkel HTML-kod.<br />Här är ett exempel på en enkel erbjudanden sida (som visas i listan exemplet som visas ovan) som ger en sammanfattning av erbjudandet följt av en lista över viktiga funktioner. Det maximala antalet tecken är 3 000.<br />*HTML-exempel*<br />Organisation insikter för Dynamics 365 (online) innehåller viktiga användning för Dynamics 365-organisation och verktyg som hjälper dig att undvika problem med prestanda och support. <ul> <li>**Anpassa instrumentpaneler**<br />Konfigurera din instrumentpanel för att tillhandahålla en omfattande användarupplevelse och ögonblicksbilder av viktiga data.<ul> <li>**Övervaka införande och använda**<br />Identifiera dina mest aktiva användare, antal förfrågningar, mest använda entiteter, arbetsflöden och mer.</li> </ul></li> </ul>Version för minsta plattform som stöds: `8.1.1` |
 
-**Storefront information - lista information**  
+**Storefront-information – lista information**  
 
 | Storefront inställningar | Bästa praxis | 
 |:--- |:--- |
-| **Branscher (max 2)** | Välj upp till två branscher om erbjudandet adresser branschspecifika krav. Se till att identifiera dessa branschspecifika funktioner i erbjudandet beskrivningen. |
-| **Kategorier (max 3)** | Välj upp till tre kategorier som passar bäst erbjudandet. Välj dessa kategorier noggrant som användarna använda kategorier för att söka efter relevanta appar. Se till att identifiera hur erbjudandet stöder kategorispecifik behov i erbjudandet beskrivningen. |
-| **Produkter som din app fungerar med (max 3)** | Visa en lista med ytterligare produkter och tekniker som använder din lösning. Till exempel Azure IOT Hub Azure Machine Learning, osv. |
-| **Sökord (max 3)** | Sökord företagsanvändare kan hitta erbjudandet när du söker på AppSource eller med hjälp av sökmotorer. Identitet översta 3 sökord för ditt erbjudande inkludera sökord i erbjudandet sammanfattning, beskrivningen och visa en lista med sökord här. |
+| **Branscher (högst 2)** | Välj upp till två olika branscher om ditt erbjudande adresser branschspecifika krav. Se till att lyfta fram funktionerna branschspecifika i beskrivningen för erbjudandet. |
+| **Kategorier (max 3)** | Välj upp till tre kategorier som passar bäst för ditt erbjudande. Välj noggrant dessa kategorier som användare använda kategorier för att söka efter relevanta appar. Se till att anropa reda på hur ditt erbjudande stöder kategorispecifik behov i beskrivningen för erbjudandet. |
+| **Produkter som din app fungerar med (max 3)** | Lista över ytterligare produkter och tekniker som används av din lösning. Till exempel Azure IOT Hub, Azure Machine Learning, osv. |
+| **Sökord (max 3)** | Sökord företagsanvändare kan hitta ditt erbjudande när du söker på AppSource eller med hjälp av sökmotorer. Identitet översta 3 sökord för ditt erbjudande, införliva sökord i ditt erbjudande sammanfattning, beskrivning och lista sökord här. |
 
-**Storefront information - marknadsföring artefakter**  
+**Storefront-information – marknadsföring artefakter**  
 
 | Storefront inställningar | Bästa praxis | 
 |:--- |:--- |
-| **Erbjudande logotyp (PNG-format, 48 x 48)** | Din logotyp ska utformad och optimeras för ett digitalt medium.<br />Överföra logotyp i PNG-format för söksidan för ditt erbjudande. |
-| **Erbjudande logotyp (.png. 216 x 216)** | Din logotyp ska utformad och optimeras för ett digitalt medium.<br />Överföra logotyp i PNG-format för appens information visar en lista över sidan i erbjudandet. |
-| **Läs mer** | Innehåller stöd för försäljning och marknadsföring tillgångar under ”Lär dig mer”, exempelvis faktablad, broschyrer, checklistor, PowerPoint-bilder och så vidare. Alla filer måste vara i PDF-format. Inte sälja, utbilda potentiella.<br />Lägga till länken till din app Landningssida för alla dokument och Lägg till URL-parametrar för att hjälpa dig att spåra besökare och försök. |
-| **Videoklipp** | Ladda upp en video, upp till fyra videor tillåts. Videon kommunicera värdet för ditt erbjudande. Se till att potentiella hjälte i artikeln inte ditt företag. Videon bör tala med huvudansvarig utmaningar och målen för din grundläggande beslut maker persona.<br />Rekommenderat längd: 60-90 sekunder. Inkludera du nyckel ord i namnet videor.<br />Överväg att lägga till fler videor som en anvisningar video. en komma igång-video eller en kund åsikt video. |
-| **Skärmdumpar** | Lägga till upp till fem skärmdumpar, innehålla nyckel sökord i namn. |
+| **Erbjudandet logotyp (PNG-format, 48 x 48)** | Logotypen bör utformad och optimerad för ett digitalt medium.<br />Ladda upp logotyp i PNG-format för söksidan i ditt erbjudande. |
+| **Erbjudandet logotyp (.png. 216 x 216)** | Logotypen bör utformad och optimerad för ett digitalt medium.<br />Ladda upp logotyp i PNG-format för appinformationen sidan i ditt erbjudande. |
+| **Läs mer** | Innehåller stöd för försäljning och marknadsföring-tillgångar under ”Lär dig mer”, för exemplet, white paper-faktablad, broschyrer, checklistor, PowerPoint-bilder och så vidare. Alla filer måste vara i PDF-format. Inte sälja, informera den potentiella kunden.<br />Lägga till länken till din landningssida din app på alla dina dokument och Lägg till URL-parametrar som hjälper dig att spåra besökare och utvärderingar. |
+| **Videoklipp** | Ladda upp en video, upp till fyra videor tillåts. Videon ska kommunicera värdet av ditt erbjudande. Kontrollera att den potentiella kunden är hero-komponenten i artikeln, inte ditt företag. Din video bör tala till huvudnamn utmaningar och målen för din grundläggande beslut maker person.<br />Rekommenderade längd: 60 – 90 sekunder. Införliva du viktiga sökord namnet på videor.<br />Överväg att lägga till fler videor, till exempel en Instruktionsvideo; en komma igång-video eller en kund Kundutlåtanden video. |
+| **Skärmbilder** | Lägga till upp till fem skärmbilder, införliva viktiga sökord i namnen. |
 
-### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Befordra tillgängligheten för erbjudandet på AppSource  
-När erbjudandet finns på AppSource kan du har fått behörighet att visa den ***tillgänglig på AppSource*** Aktivitetsikon på sidan. 
+### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Flytta upp tillgängligheten för ditt erbjudande på AppSource  
+När ditt erbjudande finns på AppSource kan du har tilldelats behörighet att visa den ***på AppSource*** märket på sidan. 
 
- ![AppSource skylt](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource-märket](./media/marketplace-appsource/appsourcebadge.png)
     
-Lägga till den här Aktivitetsikon på webbplatsen befordrar erbjudandet på AppSource, och du kan länka potentiella kunder direkt till sidan lista. AppSource Aktivitetsikon finns i tre storlekar. Du kan hämta Aktivitetsikon tillsammans med anvisningar om hur du använder den på [befordra tillgängligheten för din app på Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
+Lägga till den här skylten på webbplatsen främjar att ditt erbjudande i AppSource, och du kan länka potentiella kunder direkt till sidan lista. AppSource-märket är tillgängligt i tre storlekar. Du kan ladda ned märket tillsammans med information om hur du använder den på [marknadsföra tillgängligheten för din app på Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 
-#### <a name="linking-to-your-app-listing-page-on-appsource-from-your-page"></a>Länkar till din app lista sida på AppSource från sidan  
-När du kopplar från AppSource Aktivitetsikon på webbplatsen till registreringen på AppSource, måste du använda följande Frågeparametrar i slutet av URL-Adressen:
+#### <a name="linking-to-your-app-listing-page-on-appsource-from-your-page"></a>Länka till din appsida lista på AppSource från din sida  
+När du länkar från AppSource-märket på din webbplats till din lista på AppSource, måste du inkludera följande Frågeparametrar i slutet av URL: en:
 *   **src**  
-    Inkludera källa från där trafiken dirigeras till AppSource. Till exempel webbplats LinkedIn, Facebook, osv.
+    Inkludera källa från där trafiken dirigeras till AppSource. Till exempel webbplats, LinkedIn, Facebook, etc.
 *   **mktcmpid**  
     Din marknadsföring kampanj-ID som kan innehålla upp till 16 tecken med hjälp av valfri kombination av bokstäver, nummer, understreck och bindestreck. Till exempel, `blogpost_12` 
 
-I följande exempel visas en URL som innehåller två Frågeparametrar. Att lägga till parametrar i AppSource URL: en kan du granska effektivitet för kampanjen i instrumentpanelen i partnerportalen molnet.  
+I följande exempel visas en URL som innehåller två Frågeparametrar. Om du lägger till parametrarna till AppSource-URL kan du granska effektiviteten i din kampanj i analytics-instrumentpanelen i partnerportalen i molnet.  
 
 ```html
 https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12
 ```  
 
 >[!Important]  
->När du förbereder URL: en kan ta inte med koden, som `/en-us/`.  
+>När du förbereder URL: en inkluderar inte språkkoden, till exempel ”.  
 
 
-#### <a name="link-to-gtm-benefits"></a>Länk till GTM fördelar
-*  Besök den [GTM fördelar på marketplace](./gtm-benefits.md) sidan.   
+#### <a name="link-to-gtm-benefits"></a>Länk till GTM-fördelar
+*  Gå till den [GTM-fördelar på marketplace](./gtm-benefits.md) sidan.   
 
 ---  
 
-### <a name="link-to-landing-page"></a>Länk till startsida
-*   Besök den [din hamnar sida](./build-your-landing-page.md) sidan.  
+### <a name="link-to-landing-page"></a>Länk till landningssida
+*   Gå till den [bygga din landningssida](./build-your-landing-page.md) sidan.  
 
-#### <a name="link-to-enable-lead-sharing"></a>Länk för att aktivera delning av Lead  
-*   Besök den [aktivera leda delning](./enable-lead-sharing.md) sidan.  
+#### <a name="link-to-enable-lead-sharing"></a>Länk för att aktivera delning av leads  
+*   Gå till den [aktivera leda delning](./enable-lead-sharing.md) sidan.  
 
-#### <a name="link-to-promote-your-business-with-microsoft"></a>Länk för att utveckla ditt företag med Microsoft  
-*   Besök den [befordra företag med Microsoft](promote-your-business-with-microsoft.md) sidan.  
+#### <a name="link-to-promote-your-business-with-microsoft"></a>Länk för att marknadsföra ditt företag med Microsoft  
+*   Gå till den [Flytta upp företag med Microsoft](promote-your-business-with-microsoft.md) sidan.  
 
 #### <a name="search-engine-optimization"></a>Sökmotoroptimering  
-Du kan påverka rangordning erbjudandet i sökresultat. Samarbeta med din marknadsföring team, identifiera nyckelord och se till att du följer du anvisningarna nedan för att förbättra sökresultaten appar:
+Du kan påverka rangordning i ditt erbjudande i sökresultat. Samarbeta med marknadsavdelningen, identifiera nyckelord och se till att följer du anvisningarna nedan för att förbättra dina appar sökresultat:
 *   Namnge ditt erbjudande med sökord i åtanke.
 *   Inkludera sökord i erbjudandet sammanfattning.
-*   Lista över de tre översta sökord för erbjudandet i storefront information.
-*   Associera erbjudandet med rätt kategori och bransch.
-*   Regelbundet twittra om tillgängligheten för erbjudandet och innehåller en länk till erbjudandet.  
+*   Lista över de tre översta sökord för ditt erbjudande i storefront-information.
+*   Koppla ditt erbjudande till rätt kategori och branschen.
+*   Regelbundet att twittra om tillgängligheten för ditt erbjudande och inkludera en länk till ditt erbjudande.  
 
-#### <a name="merchandising"></a>Inköpschef  
-Guld Microsoft-partner kan bli till partner appen med aktuell, när en app utvärderingsversionen (kostnadsfria appen, kostnadsfri utvärderingsversion eller Testkör) på AppSource. Appar kan förekomma efter kategori och branschen och ombeds vanligtvis minst två veckor. Mer information om hur aktuella appar passar i samband med din gå till marknaden fördelar, Läs avsnittet Marketplace GTM fördelar med den här guiden.   
+#### <a name="merchandising"></a>Marknadsföring  
+Microsoft Gold Partners kan bli berättigade partner appen aktuellt, när du anger en utvärderingsversionen för appen (kostnadsfri app, kostnadsfri utvärderingsversion eller Test Drive) på AppSource. Appar kan förekomma per kategori eller branschen och har vanligtvis befordras för minst två veckor. Läs avsnittet Marketplace GTM-fördelarna med den här guiden för mer information om hur aktuella appar som får plats i samband med Go-To-Market-fördelar.   
 
 ## <a name="next-steps"></a>Nästa steg
-*   Besök den [Azure Marketplace och AppSource Publisher Guide](./marketplace-publishers-guide.md) sidan.  
+*   Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  
 
 ---  

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261555"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074095"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
 Konsulttjänster i Azure Marketplace och AppSource ger Microsoft-partner mål anslutande kunder med tjänster som stöder och utökar deras användning av Azure och affärsmål. 
@@ -66,8 +66,8 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 |Huvudprodukten |Krav för berättigande |
 |---------|---------|
 | Dynamics 365 för Customer Engagement    |   Silver eller Gold [molnet Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) kompetens.    | 
-|Dynamics 365 för Finance and Operations, Enterprise edition  |  Silver eller Gold [Sage](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetens och en minsta intäkter av $25 K i molnet åtgärder i efterföljande 12 månader.       |
-|Dynamics 365 för finans och åtgärder, Business edition  |  Fungera som [Cloud Service Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund      |
+|Dynamics 365 för Finance and Operations, Enterprise edition  |  Silver eller Gold [Sage](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) kompetens och en minsta intäkter av $25 K i molnet åtgärder i efterföljande 12 månader.       |
+|Dynamics 365 för finans och åtgärder, Business edition  |  Fungera som [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) eller [Digital Partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) för minst en kund      |
 |Power BI, Power BI-anpassad visuell information | Uppfyller den [Lösningspartner kriterier](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Publicerar [Partnerdemonstration]() lösning
 
@@ -87,7 +87,7 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 Lanseringen av konsulttjänster hamnar live i specifika georegionen. Första gången programmet startas blir: USA, Kanada, Storbritannien och Australien. Kataloger för andra länder kommer Driftsätt efter ett beskrivande tal och övertygande valet av Tjänsterbjudanden har skickats av partners och godkänts av Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Hur du registrera dig för konsulttjänster i Azure Marketplace och AppSource
-Börja med att [registrerar](https://azuremarketplace.microsoft.com/en-us/sell/signup) företagsinformationen i marketplace. Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
+Börja med att [registrerar](https://azuremarketplace.microsoft.com/sell/signup) företagsinformationen i marketplace. Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
 
 **Vilka att förvänta sig efter registreringen** The Onboarding-teamet kontaktar i 1 – 3 arbetsdagar med ett välkomstmeddelande som innehåller din inloggningsinformation för Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) är erbjudandet lista portalen där utgivare kan skicka registreringsinformationen och bidrag. 
 
@@ -119,29 +119,29 @@ Före registrering, du kan börja samla in och förbereda innehållet som hjälp
 ## <a name="publishing-process"></a>Process för att publicera
 Visa en lista över dina consulting tjänsterbjudande på Azure Marketplace och AppSource omfattar följande steg:
 
-1. **Visa en lista över**: starta utformningen av en ny erbjudanden genom att logga in din [Cloud Partner Portal](https://cloudpartner.azure.com) konto. Välj ”nytt erbjudande” och Consulting Services från den nedrullningsbara menyn. Ange din lista artefakt och publicera.
-2. **Verifiering**: din begäran granskas för att säkerställa att du uppfyller kriterierna för kvalificering. Vi skickar dig instruktioner för att lista din konsulttjänster erbjuder. 
+1. **Visa en lista över**: Starta utformningen av en ny erbjudanden genom att logga in din [Cloud Partner Portal](https://cloudpartner.azure.com) konto. Välj ”nytt erbjudande” och Consulting Services från den nedrullningsbara menyn. Ange din lista artefakt och publicera.
+2. **Verifiering**: Din begäran granskas för att säkerställa att du uppfyller kriterierna för kvalificering. Vi skickar dig instruktioner för att lista din konsulttjänster erbjuder. 
 3. **Skicka**: Ange nödvändig information som anges i instruktionerna. Allt innehåll och stödjande material lämnas på engelska. 
-4. **Granska**: vårt team för marknadsföring och tryckta granskar ditt bidrag och optimerar dem för läsbarhet, grammatik och effektivitet. 
-5. **Mellanlagring**: ditt bidrag mellanlagras för granskning. 
-6. **Publicera**: när du och Microsoft är nöjd med detta innehåll, registreringen är klar för livesändning på marketplace. Go-live-datum för din registrering beror på det land som anges i ditt erbjudande. Din registrering visas inom några timmar om katalogen för det valda landet redan är aktiv på Azure Marketplace eller AppSource. I annat fall visas den när katalogen lanseras.
+4. **Granska**: Vårt team för marknadsföring och tryckta granskar ditt bidrag och optimerar dem för läsbarhet, grammatik och effektivitet. 
+5. **Mellanlagring**: Ditt bidrag mellanlagras för granskning. 
+6. **Publicera**: När du och Microsoft är nöjd med detta innehåll, är registreringen klar för livesändning på marketplace. Go-live-datum för din registrering beror på det land som anges i ditt erbjudande. Din registrering visas inom några timmar om katalogen för det valda landet redan är aktiv på Azure Marketplace eller AppSource. I annat fall visas den när katalogen lanseras.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Erbjudanderegistreringar och kriterier för innehållsgranskning
 Erbjudanden måste vara en följande fem typer av tjänster (du kan ange fler än en): 
 
-* **Utvärdering av**: en utvärdering av en kunds miljö för att fastställa tillämpligheten hos en lösning och ange en uppskattning av kostnaden och val av tidpunkt. 
-* **Information till**: en introduktion till en lösning eller en tjänst som konsult för att rita kundernas intresse med hjälp av ramverk, demonstrationer och Kundexempel. 
-* **Implementering**: en fullständig installation som resulterar i en fullt fungerande lösning. Vi rekommenderar att begränsa den till lösningar som kan vara implementerade på två veckor eller mindre. 
-* **Konceptbevis**: implementering begränsad omfattning för att avgöra om en lösning uppfyller kundernas krav. 
-* **Workshop**: en interaktiv kontakt som utförs i en kunds lokala. Det kan omfatta utbildning, implikationer, utvärderingar och demonstrationer som bygger på kundens data eller miljö. 
+* **Utvärdering av**: En utvärdering av en kunds miljö för att fastställa tillämpligheten hos en lösning och ange en uppskattning av kostnaden och val av tidpunkt. 
+* **Information till**: En introduktion till en lösning eller en tjänst som konsult för att rita kundernas intresse med hjälp av ramverk, demonstrationer och Kundexempel. 
+* **Implementering**: En fullständig installation som resulterar i en fullt fungerande lösning. Vi rekommenderar att begränsa den till lösningar som kan vara implementerade på två veckor eller mindre. 
+* **Konceptbevis**: Implementering av begränsad omfattning att avgöra om en lösning uppfyller kundernas krav. 
+* **Workshop**: En interaktiv kontakt som utförs i en kunds lokala. Det kan omfatta utbildning, implikationer, utvärderingar och demonstrationer som bygger på kundens data eller miljö. 
 
-**Obs:** undantag för den *Briefing* tjänsttyp, konsulttjänster erbjuds personligen (det vill säga direkt på kundens plats eller en partners anläggning) eller virtuellt (det vill säga via och telefonkonferenser, web konferenser eller fjärranslutna implementering). Implikationer måste erbjudas personligen.
+**Obs!** Undantag för den *Briefing* tjänsttyp, konsulttjänster erbjuds personligen (det vill säga direkt på kundens plats eller en partners anläggning) eller virtuellt (det vill säga via och telefonkonferenser, web konferenser eller fjärr implementering). Implikationer måste erbjudas personligen.
 
 När du har konfigurerat de obligatoriska elementen som anges ovan, verifierar innehållsgranskning-teamet att beskrivning av ditt erbjudande är klar för din målgrupp och informativa. 
 
 #### <a name="listing-title"></a>Visa en lista över rubrik
 
-Rubrikfältet har 50 tecken och måste överföra varaktighet och tjänsten typ av erbjudandet att maximera sökmotoroptimering. Formatet som krävs är följande: namn: VARAKTIGHETSTYP
+Rubrikfältet har 50 tecken och måste överföra varaktighet och tjänsten typ av erbjudandet att maximera sökmotoroptimering. Formatet som krävs är följande: NAMN: VARAKTIGHETSTYP
 
 Exempel:
 
@@ -180,8 +180,9 @@ I partnerportalen i molnet, kan du lägga till formateringen på din registrerin
 
 Om du inte redan gjort det, 
 
-- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace
+- [Registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
 
 Om du är registrerad och arbeta i Cloud Partner Portal 
 
-- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande
+- [Logga in på partnerportalen i molnet](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+- Se [Azure och Dynamics 365-konsult tjänsterbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) för mer information.

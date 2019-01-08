@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228223"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064006"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -101,7 +101,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Exempel på skript: lägga till en IP-adress till en befintlig belastningsutjämnare med PowerShell
+## <a name="Add-IP"></a> Exempel på skript: Lägga till en IP-adress till en befintlig belastningsutjämnare med PowerShell
 För att använda fler än en tillgänglighetsgrupp måste du lägga till ytterligare IP-adress till belastningsutjämnaren. Varje IP-adress kräver sin egen belastningsutjämningsregel, avsökningsporten, och front port.
 
 Frontend-porten är den port som program använda för att ansluta till SQL Server-instansen. IP-adresser för annan Tillgänglighetsgrupper kan använda samma frontend-porten.
@@ -176,7 +176,7 @@ Så här testar du anslutningen:
 1. Använd **sqlcmd** verktyg för att testa anslutningen. Till exempel följande skript upprättar en **sqlcmd** anslutning till den primära repliken via lyssnaren med Windows-autentisering:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Om lyssnaren använder en annan port än standardvärdet standardporten (1433), ange porten i anslutningssträngen. Till exempel ansluter kommandot sqlcmd till en lyssnare på port 1435: 

@@ -3,7 +3,7 @@ title: Förbereda och testa ditt erbjudande för distribution till Azure Marketp
 description: Detaljerade anvisningar om hur du tillhandahåller marknadsföring innehåll, konfiguration av prisinformation och testa ditt erbjudande innan du distribuerar på Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: f1e6e779731564f714cc100d25a53da8732dca74
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714967"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075999"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Skapa erbjudandet med marknadsföringsinnehåll
 I det här steget av publiceringsprocessen behöver att tillhandahålla vissa marknadsföringsinnehåll och information om ditt erbjudande och/eller SKU: er i Azure Marketplace. Du kommer till exempel ange en beskrivning av din produkt, logotyp, priset planer, information om planer och annan information som krävs för att skicka ditt erbjudande och/eller SKU: N till mellanlagring. Den här informationen används som marknadsföringsinnehåll i Azure-portalen. Du börjar den här processen i den [publiceringsportalen][link-pubportal].
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Steg 1: Ange Marketplace marknadsföring innehåll
-**Engelska är standard och enda språk som stöds.** Se till att all information som anges i fälten är på engelska. Du kan redigera all information när du vill fram till dess att du väljer att mellanlagra.
+*Engelska är standard och enda språk som stöds.*  Kontrollera att all information som anges i fälten är på engelska. Du kan redigera all information när du vill fram till dess att du väljer att mellanlagra.
 
 1. Gå till publiceringsportalen, [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. På menyn till vänster klickar du på den **marknadsföring** fliken.
@@ -79,7 +80,7 @@ Alla logotyper som laddades upp i Publiceringsportalen bör följa den riktlinje
 
 * Hero-logotypen är valfritt. Utgivaren kan du inte ladda upp en Hero-logotyp. **Men en gång överförda ikonen hero-komponenten inte kan tas bort från publiceringen portal. Då måste partnern följer du riktlinjerna för Azure Marketplace för Hero ikoner annan erbjudandet inte kommer godkännas till produktion.**
 * Visningsnamn för utgivaren, plan rubrik och erbjudandet lång sammanfattning visas i vit teckenfärg. Därför bör du undvika att hålla alla ljusare i bakgrunden på Hero-ikonen. Svart, vit och transparent bakgrund är inte tillåtet för Hero-ikoner.
-* Visningsnamn för utgivaren, plan rubrik, lång sammanfattning av erbjudandet och knappen Skapa är inbäddade programmässigt inuti Hero-logotypen när erbjudandet går visas. Så bör du inte ange valfri text när du utformar Hero-logotypen. Lämna tomt utrymme till höger eftersom text (d.v.s. publisher visningsnamn, plan titel, lång sammanfattning av erbjudandet) kommer att inkluderas programmässigt av oss där. Det tomma utrymmet för texten bör vara 415 × 100 till höger (och det är förskjutas av 370px från vänster).
+* Visningsnamn för utgivaren, plan rubrik, lång sammanfattning av erbjudandet och knappen Skapa är inbäddade programmässigt inuti Hero-logotypen när erbjudandet går visas. Så bör du inte ange valfri text när du utformar Hero-logotypen. Lämna tomt utrymme till höger eftersom text (det vill säga publisher visningsnamn, plan titel, lång sammanfattning av erbjudandet) kommer att inkluderas programmässigt av oss där. Det tomma utrymmet för texten bör vara 415 × 100 till höger (och 370 kompenseras px från vänster).
   
   ![Rita](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -104,7 +105,7 @@ På den **juridiska** fliken, anger du en länk till dina policyer/villkor för 
 
 ![Rita](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-**Obs:** för virtuell dator-erbjudanden, när ett erbjudande/SKU mellanlagras i Azure-portalen du inte ändra de fält som anges nedan:
+**Obs!** När ett erbjudande/SKU mellanlagras i Azure-portalen för virtuell dator-erbjudanden kan inte du ändrar vilka fält som anges nedan:
 
 * **Erbjudande-ID:** [Publiceringsportal -> virtuella datorer -> ditt erbjudande avbildningar av Virtuella datorer -> fliken erbjuder ID ->]
 * **SKU-ID:** [Publiceringsportal -> virtuella datorer -> Välj ditt erbjudande -> SKU: er fliken -> Lägg till en SKU]
@@ -125,7 +126,7 @@ VM-erbjudanden när erbjudande/SKU visas i Azure Marketplace, kan inte du ändra
 ### <a name="pricing-models"></a>Prismodellerna
 | Prismodell | Beskrivning |
 | --- | --- |
-| Bas |Fast månadskostnad betald vid inköpstillfället; t.ex. $10 per månad. |
+| Bas |Fast månadskostnad betald vid inköpstillfället; till exempel 10 USD/månad. |
 | Förbrukning (alias) användning, mätaren) |Betala per användning, som definieras av utgivaren av erbjudandet. Överförbrukning kan inte definieras per plats per användare och så vidare, eftersom det inte finns något begrepp om en bråkdel av en användare eller möjligheten att göra kostnaden. Partnern rapporterar användning per timme. Kunden betalar på på av månatliga faktureringsperiod, till skillnad från direkt like månatliga planer. |
 | Kostnadsfri utvärderingsversion |Kunder kan använda utan kostnad under en begränsad tid, och betala normala avgifter för därefter. |
 | Gratis nivå |Prenumerationen är alltid kostnadsfria. |
@@ -144,15 +145,15 @@ VM-erbjudanden när erbjudande/SKU visas i Azure Marketplace, kan inte du ändra
 | Developer-tjänsten |Ja |Ja |Ja |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Ange priset för virtuella datorer
-För närvarande för virtuella datorer, har vi följande **3 typer av faktureringsmodellerna:**
+För närvarande för virtuella datorer, har vi följande **tre typer av faktureringsmodellerna:**
 
-* **Varje timme:** kunder debiteras på basis av per timme baserat på priserna som anges av utgivare på VM-storlekar. I följande fall **timme** modell av SKU: er, blir det totala priset summering av kostnad för programvara som debiteras utgivaren och infrastrukturkostnader debiteras av Microsoft. Den totala kostnaden kommer att visas för kunden som ett pris per timme och månatliga när de överväger köpet (se skärmbilden nedan). **Utgivare får 80% av kostnad för programvara som debiteras av dem.** Därför kan du se priser för beräkning i enlighet med detta innan inställningen för dina SKU: er.
+* **Per timme:** Kunder debiteras på basis av per timme baserat på priserna som anges av utgivare på VM-storlekar. I följande fall **timme** modell av SKU: er, blir det totala priset summering av kostnad för programvara som debiteras utgivaren och infrastrukturkostnader debiteras av Microsoft. Den totala kostnaden kommer att visas för kunden som ett pris per timme och månatliga när de överväger köpet (se skärmbilden nedan). **Utgivare får 80% av kostnad för programvara som debiteras av dem.** Ställ därför beräkningen därefter innan du anger priserna för dina SKU: er.
   
     ![Rita](media/marketplace-publishing-push-to-staging/img2.1-01.png)
-* **Kostnadsfri utvärderingsversion:** det här är en annan smak av modellen per timme. Kunden debiteras inte här för kostnad för programvara för de första 30 days(Free) när du har distribuerat den virtuella datorn. Efter 30days debiteras de på basis av per timme baserat på priserna som anges av utgivare i modellen per timme.
-* **Bring-Your-Own-License (BYOL):** utgivarna hantera licensieringen av den programvara som körs på den virtuella datorn.
+* **Kostnadsfri utvärderingsversion:** Det här alternativet är en annan smak av modellen per timme. Kunden debiteras inte här för kostnad för programvara för de första 30 days(Free) när du har distribuerat den virtuella datorn. Efter 30 dagar debiteras de på basis av per timme baserat på priserna som anges av utgivare i modellen per timme.
+* **Bring-Your-Own-License (BYOL):** Utgivare hantera licensieringen av den programvara som körs på den virtuella datorn.
 
-**Viktigt:** när erbjudande/SKU är listad i Azure Marketplace kan du inte ändra de fält som anges nedan.
+**Viktigt!** När erbjudande/SKU finns i Azure Marketplace, kan du inte ändra de fält som anges nedan.
 
 * **Priser för ändring av listan SKU: er**
 * **Fakturering Modelländringen för angivna SKU: er**
@@ -174,22 +175,22 @@ Du måste du noga överväga där du tillgängliggöra dina SKU: er. Vissa länd
 > 
 > 
 
-### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 hur du ställer in per timme prismodellen för en SKU
-Följ anvisningarna nedan för att konfigurera varje timme prismodellen för en SKU:
+### <a name="211-how-to-set-up-hourly-pricing-model-for-a-sku"></a>2.1.1 hur du ställer in per timme prismodellen för en SKU
+Följ anvisningarna nedan för att ställa in varje timme prismodellen för en SKU:
 
 1. Logga in på den [Publiceringsportal](https://publish.windowsazure.com).
 2. Navigera till den **VIRTUELLA datorer** fliken och väljer ditt erbjudande.
-3. I den vänstra menyn, klickar du på den **SKU: er** fliken.
+3. Menyn till vänster klickar du på den **SKU: er** fliken.
 4. Se till att SKU: N har markerats som ”fakturering Timmodell”. Om inte, klicka sedan på den **redigera** knappen för att återställa faktureringsmodellen. Ett fönster öppnas. Avmarkera kryssrutan ”support för fakturering och licensiering görs externt från Azure (även kallat Bring Your Own License)” och spara ändringarna.
-5. Om du vill aktivera kostnadsfri utvärderingsversion för den första 30days av SKU-distribution, Välj alternativet ”en månad” för frågan ”är en kostnadsfri utvärderingsversion tillgänglig”? Annars väljer du alternativet ”Nej utvärdering”. Nu ska du följa anvisningarna nedan.
-6. I den vänstra menyn, klickar du på den **priser** fliken.
+5. Om du vill aktivera utvärderingsversion gratis under de första 30 dagarna av SKU-distribution, Välj alternativet ”en månad” för frågan ”är en kostnadsfri utvärderingsversion tillgänglig”? Annars väljer du alternativet ”Nej utvärdering”. Nu ska du följa anvisningarna nedan.
+6. Menyn till vänster klickar du på den **priser** fliken.
 7. Välj grundläggande region.
    
    ![Rita](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
-8. Ange priser för alla kärnor. **Du måste ange pris för alla kärnor i en SKU även om inte stöds av din SKU.**
+8. Ange priser för alla kärnor. *Ange ett pris för alla kärnor i en SKU även om inte stöds av din SKU.*
    
     ![Rita](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
-9. Ange priser för andra regioner manuellt eller du kan använda guiden AUTOPRICE för att ange priserna för andra regioner som är baserad på den grundläggande regionen. Att använda AUTOPRICE guiden Klicka på knappen **AUTOPRICE andra marknader baserat på PRISET i USA.** **Obs:** knappens etikett kan skilja sig beroende på den region som du har valt. Eftersom vi har valt USA när du skapar det här dokumentet, så knappen har etiketten som ”automatisk pris andra marknader som baseras på priserna i USA” i skärmbilden nedan.
+9. Ange priser för andra regioner manuellt eller du kan använda guiden AUTOPRICE för att ange priserna för andra regioner som är baserad på den grundläggande regionen. Att använda AUTOPRICE guiden Klicka på knappen **AUTOPRICE andra marknader baserat på PRISET i USA.** **Obs!** Knappens etikett kan vara olika beroende på den region som du har valt. Eftersom vi har valt USA när du skapar det här dokumentet, så knappen har etiketten som ”automatisk pris andra marknader som baseras på priserna i USA” i skärmbilden nedan.
    
    ![Rita](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 10. Pris-guiden automatiskt öppnas. Den första sidan visar valet för grundläggande marknaden. Gör din avsnittet och gå till nästa sida genom att klicka på knappen ”->”.
@@ -198,21 +199,21 @@ Följ anvisningarna nedan för att konfigurera varje timme prismodellen för en 
 11. Alternativet för att välja kärnor och planer visas på sidan 2. Välj önskad planer och klicka på ”->” knappen. Klicka på den **växla alla** för att välja alla den **Service planer** och **taxor** manuellt kontrollera kryssrutorna. **Du måste ange pris för alla kärnor i en SKU även om inte stöds av din SKU.** Se därför till att alla core-storlekar är markerade.
     
     ![Rita](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
-12. Sidan 3 visas marknader/regioner. Klicka på den **växla alla** för att välja alla regioner eller manuellt markerar du kryssrutorna för regionen. Klicka på knappen ”->” för att flytta till nästa sida. **Obs:** Microsoft skatt efterges länder är enligt ett hus som symbolen. Mer information finns i avsnittet ”sälja till” länderna i SKU: N för den här sidan.
+12. Sidan 3 visas marknader/regioner. Klicka på den **växla alla** för att välja alla regioner eller manuellt markerar du kryssrutorna för regionen. Klicka på knappen ”->” för att flytta till nästa sida. **Obs!** Microsoft skatt efterges länder betecknas med ett hus som symbolen. Mer information finns i avsnittet ”sälja till” länderna i SKU: N för den här sidan.
     
     ![Rita](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 13. Sida 4 visar växelkurserna. Klicka på Slutför för att slutföra stegen.
 
-### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 hur du ställer in BYOL prismodellen för en SKU
-Följ anvisningarna nedan för att konfigurera BYOL prismodellen för en SKU:
+### <a name="212-how-to-set-up-byol-pricing-model-for-a-sku"></a>2.1.2 hur du ställer in BYOL prismodellen för en SKU
+Följ anvisningarna nedan för att ställa in BYOL prismodellen för en SKU:
 
 1. Logga in på den [Publiceringsportal](https://publish.windowsazure.com).
 2. Navigera till den **VIRTUELLA datorer** fliken och väljer ditt erbjudande.
-3. I den vänstra menyn, klickar du på den **SKU: er** fliken.
+3. Menyn till vänster klickar du på den **SKU: er** fliken.
 4. Se till att SKU: N har markerats som ”ta med din egen licens-SKU: N”. Annars kan du klicka på knappen Redigera om du vill återställa faktureringsmodellen. Ett fönster öppnas. Markera kryssrutan ”support för fakturering och licensiering görs externt från Azure (även kallat Bring Your Own License)” och spara ändringarna.
    
    ![Rita](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
-5. I den vänstra menyn, klickar du på den **priser** fliken.
+5. Menyn till vänster klickar du på den **priser** fliken.
 6. Välj grundläggande region och tillgängliggöra SKU i regionen genom att markera kryssrutan med SKU: N under avsnittet EXTERNALLY-LICENSED (BYOL) tillgänglighet för SKU (se skärmbilden nedan).
    
    ![Rita](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
@@ -221,7 +222,7 @@ Följ anvisningarna nedan för att konfigurera BYOL prismodellen för en SKU:
 ### <a name="22-set-your-developer-service-prices"></a>2.2. Ange Developer servicepriser
 Planerna kan vara valfri kombination av bas + förbrukning, där base är månadspriset och överförbrukning är priset för betalning per användning. (Se nedan för mer information.)
 
-**Exempel:** Contoso developer tjänst-erbjudande
+**Exempel:**  Contoso developer tjänst-erbjudande
 
 | Planera | Pris | Inkluderar | Migreringsvägen |
 | --- | --- | --- | --- |
@@ -233,7 +234,7 @@ Planerna kan vara valfri kombination av bas + förbrukning, där base är månad
 | Silver Plus |$20/ månad + $0.15/meter01 + $0.01/meter02 |Grundläggande funktioner och en kvot på 10 000 av X-funktionen och 100 av Y-funktionen.  När du använder funktionen X-kvot, kan kunden betala per användning via meter01.  När du använder funktionen Y-kvot, kan kunden betala per användning via meter02. |Kan migrera till Brons Plus och Gold planer |
 | Guld |$ 1 000/månad |Kvot på 10 000 av funktionen X, 1 000 av funktionen Y, och funktionen Z. |Kan migrera för alla planer förutom kostnadsfritt |
 
-## <a name="step-3-provide-support-information"></a>Steg 3: Ge support information
+## <a name="step-3-provide-support-information"></a>Steg 3: Tillhandahåll supportinformation
 Kontaktuppgifter används för intern kommunikation mellan partner och Microsoft endast. Stöd för URL: en blir tillgänglig för slutkunder.
 
 1. Gå till den **Support** rubriken på vänster sida i publiceringsportalen.
@@ -242,7 +243,7 @@ Kontaktuppgifter används för intern kommunikation mellan partner och Microsoft
 4. Ange Webbadressen till support.
 
 ## <a name="step-4-choose-azure-marketplace-categories"></a>Steg 4: Välj Azure Marketplace-kategorier
-Den **kategorier** fliken innehåller en matris med val. Ditt erbjudande kan hamna under något av dessa, och du kan välja upp till fem kategorier.
+Den **kategorier** fliken innehåller en matris med val. Du kan välja upp till fem kategorier.
 
 ## <a name="how-your-marketing-will-appear"></a>Hur din marknadsföring visas
 Nedan visas en detaljerad vy av hur erbjudandet marknadsföring information används på den [webbplatsen för Azure Marketplace](https://azure.microsoft.com/marketplace/) och i den [Azure-portalen](https://portal.azure.com).
@@ -265,7 +266,7 @@ Nedan visas en detaljerad vy av hur erbjudandet marknadsföring information anv�
 ### <a name="azure-portal"></a>Azure Portal
 ![Rita](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Lista över erbjudanden i Azure Portal*
+*Lista över erbjudanden i Azure portal*
 
 ![Rita](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
@@ -278,7 +279,7 @@ Nu när dina Marketplace-innehållet har lästs in, kan vi gå vidare för med t
 * [Testa ditt lösning mall erbjudande i mellanlagringen](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>Se också
-* [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Komma igång: Hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

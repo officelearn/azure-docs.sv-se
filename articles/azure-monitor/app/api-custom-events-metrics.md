@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7422e7145acfece9c9da3277c8d92c949220dbab
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bbb849b19d523c315e192110ce71c4f382e04657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039324"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077920"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -1076,7 +1076,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamisk instrumenteringsnyckeln
 
-Om du vill undvika att blanda in telemetri från utveckling, testning och produktionsmiljöer, kan du [skapa separata Application Insights-resurser](../../application-insights/app-insights-create-new-resource.md) och ändrar sina nycklar, beroende på miljön.
+Om du vill undvika att blanda in telemetri från utveckling, testning och produktionsmiljöer, kan du [skapa separata Application Insights-resurser](../../azure-monitor/app/create-new-resource.md ) och ändrar sina nycklar, beroende på miljön.
 
 Du kan ange den i din kod i stället för att hämta instrumenteringsnyckeln från konfigurationsfilen. Ange nyckeln i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
@@ -1170,7 +1170,7 @@ För att bestämma hur länge data bevaras, se [kvarhållning av Data och sekret
     Ingen. Du behöver inte lägga in dem i trycatch-satser. Om SDK påträffar problem, loggas meddelanden i debug konsolens utdata och--om meddelanden får via--i Diagnostiksökning.
 * *Finns det en REST-API för att hämta data från portalen?*
 
-    Ja, den [dataåtkomst API](https://dev.applicationinsights.io/). Du kan extrahera data att [exportera från analys till Power BI](../../application-insights/app-insights-export-power-bi.md) och [löpande export](../../azure-monitor/app/export-telemetry.md).
+    Ja, den [dataåtkomst API](https://dev.applicationinsights.io/). Du kan extrahera data att [exportera från analys till Power BI](../../azure-monitor/app/export-power-bi.md ) och [löpande export](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Nästa steg
 

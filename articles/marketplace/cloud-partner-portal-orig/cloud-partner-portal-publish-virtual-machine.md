@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247083"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078124"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicera en virtuell dator på Azure Marketplace
 
@@ -31,35 +31,23 @@ Följande tekniska och icke-tekniska krav som gäller för att publicera en virt
 
 ### <a name="technical"></a>Teknik
 
--   [Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [Skapa och ladda upp en VHD för Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Skapa och testa en Linux VM från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Skapa och ladda upp en VHD för Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Skapa och testa en virtuell Windows-dator från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [Så här felsöker du vanliga problem som uppstod vid skapande av virtuell Hårddisk](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [Så här felsöker du vanliga problem som uppstod vid skapande av virtuell Hårddisk](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Säkerhetsrekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>Icke-teknisk (affärskrav)
 
  -   Ditt företag (eller dess filial) finns i ett köpland som stöds av Azure Marketplace
-
 -   Produkten måste ha licens på ett sätt som är kompatibel med faktureringsmodellerna som stöds av Azure Marketplace
-
 -   Du är ansvarig för att göra teknisk support tillgänglig för kunder på ett kommersiellt rimligt sätt. Det här stödet kan erbjudas utan kostnad, betalning eller via support.
-
 -   Du är ansvarig för att licensiera ditt program och eventuella beroenden för programvara från tredje part.
-
--   Du kan ange innehåll som uppfyller villkoren för ditt erbjudande ska visas på Azure Marketplace och i Azure-hanteringsportalen.
-
+-   Du kan ange innehåll som uppfyller villkoren för ditt erbjudande ska visas på Azure Marketplace och i Azure-portalen.
 -   Du samtycker till villkoren i Deltagandepolicyer för Azure Marketplace och avtalet för utgivare.
-
 -   Du samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified-programavtalet](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -116,7 +104,7 @@ En SKU visas den under det överordnade erbjudandet på Azure Marketplace och vi
 
     **Namn**
 
-    Visningsnamn för ditt erbjudande. Det här namnet visas i Azure Marketplace och i Azure Portal. Det får innehålla högst 50 tecken. Använd följande riktlinjer för erbjudandenamn:
+    Visningsnamn för ditt erbjudande. Det här namnet visas i Azure Marketplace och i Azure-portalen. Det får innehålla högst 50 tecken. Använd följande riktlinjer för erbjudandenamn:
     -  Ange ett igenkännligt varumärke för produkten. 
     - Omfattar inte företagets namn här såvida detta inte hur erbjudandet släpps.
     - Om du marknadsföring erbjudandet på din egen webbplats, kontrollera att namnet är identiskt med namnet på din webbplats.
@@ -177,9 +165,9 @@ Du hanterar licensieringen av den programvara som körs på den virtuella datorn
 
 #### <a name="usage-based-monthly-billed-sku"></a>Användning baserat per månad faktureras SKU
 
-Kunder debiteras på basis av per timme baserat på priserna som anges av utgivare på VM-storlekar. I följande fall **timme** modell av SKU: er, blir det totala priset summering av kostnad för programvara som debiteras utgivaren och infrastrukturkostnader debiteras av Microsoft. Den totala kostnaden ska visas för kunden som ett pris per timme och månatliga när de överväger köpet. Fakturering kommer i det här fallet att per månad.
+Kunder debiteras på basis av per timme baserat på priserna som anges av utgivare på VM-storlekar. Om den **timme** modellen används blir det totala priset summering av kostnad för programvara som debiteras utgivaren och infrastrukturkostnader debiteras av Microsoft. Den totala kostnaden ska visas för kunden som ett pris per timme och månatliga när de överväger köpet. Fakturering kommer i det här fallet att per månad.
 
-Det finns ytterligare inställningar som krävs av dig i Användningsbaserade-modellen.
+Det finns ytterligare inställningar som krävs av dig i användningsbaserad-modellen.
 
 **Kostnadsfri utvärderingsversion**
 
@@ -188,21 +176,21 @@ Här debiteras kunden inte för kostnad för programvara för de första 30/90 d
 
 **Per kärna priser**
 
-Du kan ange priser per kärna för din SKU. För detta, behöver du bara ange en baspris för en enda kärna och vi automatiskt-beräkning priserna för resten av kärnorna. Ange priserna i USD i portalen och vi kommer automatisk – beräkna priser för andra regioner. Du kan kontrollera priserna i andra regioner med hjälp av **exportera priser för Data**
+Du kan ange priser per kärna för din SKU. För det här alternativet behöver du bara ange en baspris för en enda kärna och vi automatiskt-beräkning priserna för resten av kärnorna. Ange priserna i USD i portalen och vi kommer automatisk – beräkna priser för andra regioner. Du kan kontrollera priserna i andra regioner med hjälp av **exportera priser för Data**
 
 ![Per kärna priser](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
 
 **Diskret priser**
 
-Du kan ange prisinformationen för varje uppsättningar kärnor separat om du skulle vilja pris varje kärna separat.
+Du kan ange prisinformationen för varje uppsättning kärnor separat om du skulle vilja pris varje kärna separat.
 
 ![Diskret priser](./media/cloud-partner-portal-publish-virtual-machine/publishvm7.png)
 
 **Priser för export-Import**
 
-Du har möjlighet att exportera de priser som har konfigurerats via portalen för att göra ändringar via excel-gränssnittet. Detta kan du också kontrollera priser per region och priser i lokal valuta.
-När du klickar på **Export-priser** hämtas en excel-fil med prisinformation förifylld. Du kommer att kunna redigera dessa i excel och sedan använda **Import-priser** att importera de ändringar som gjorts.
+Du har möjlighet att exportera de priser som har konfigurerats via portalen för att göra ändringar via excel-gränssnittet. Det här alternativet kan du kontrollera priser per region och priser i lokal valuta.
+När du klickar på **Export-priser** hämtas en Excel-fil med prisinformation förifylld. Du kommer att kunna redigera detaljerna i kalkylbladet och sedan använda **Import-priser** att importera de ändringar som gjorts.
 Importerade priserna visas i portalen samt.
 
 I den här prissättningen excel visas priserna för de olika regionerna i lokal valuta. En valutakurs som vi använder uppdateras dagligen.
@@ -219,24 +207,18 @@ I den här prissättningen excel visas priserna för de olika regionerna i lokal
 
 Nästa avsnitt för att slutföra kommer att avsnittet avbildningar av Virtuella datorer. Du måste ha den virtuella Hårddisken som du vill publicera klar innan du fortsätter till det här avsnittet. Här följer några länkar som hjälper dig att skapa en virtuell Hårddisk:
 
--   [Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Skapa och ladda upp en VHD för Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Skapa och testa en Linux VM från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Skapa och ladda upp en virtuell Windows-Hårddisk ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Skapa och testa en virtuell Windows-dator från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [Så här felsöker du vanliga problem som uppstod vid skapande av virtuell Hårddisk](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [Så här felsöker du vanliga problem som uppstod vid skapande av virtuell Hårddisk](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-När du har virtuella Hårddisken är redo kan börja du fylla i det här avsnittet.
-Här är viss information för vissa fält.
+När du har virtuella Hårddisken är redo kan börja du fylla i det här avsnittet.  Här är viss information för vissa fält.
 
 ### <a name="recommended-vm-sizes"></a>Rekommenderade storlekar för Virtuella datorer
 
-Välj upp till sex rekommenderade virtuella datorstorlekar. Detta är rekommendationer visas för kunden i Azure Marketplace och bladet prisnivå i Azure Portal när de beslutar sig att köpa och distribuera din avbildning. **Detta är bara rekommendationer. Kunden kan välja vilken storlek som kan hanterar diskarna som specificerats i din avbildning.**  Följande skärmdump visar de VM-storlekarna som rekommenderas att en kund kommer att se i Azure Portal.
+Välj upp till sex rekommenderade virtuella datorstorlekar. Dessa rekommendationer visas för kunder i Azure Marketplace och i bladet prisnivå i Azure portal när de beslutar sig att köpa och distribuera din avbildning. *De här storlekarna är bara rekommendationer. Kunden kan välja vilken storlek som kan hanterar diskarna som specificerats i din avbildning.*  Följande skärmdump visar de rekommendera storlekar som en kund kommer att se i Azure-portalen.
 
 
 ![Rekommenderade storlekar för Virtuella datorer](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -248,9 +230,9 @@ Ange vilka portar som du vill ha gjort öppen och tillgänglig. Dessa portar är
 
 ### <a name="adding-vm-images"></a>Att lägga till avbildningar av Virtuella datorer
 
-Nästa steg är att lägga till en VM-avbildning för din SKU. Du kan lägga till upp till 8 versioner per SKU. Endast det högsta disk versionsnumret för en viss SKU visas på Azure Marketplace. Andra kommer att vara synliga via API: er.
+Nästa steg är att lägga till en VM-avbildning för din SKU. Du kan lägga till upp till åtta versioner per SKU. Endast det högsta disk versionsnumret för en viss SKU visas på Azure Marketplace. Andra kommer att vara synliga via API: er.
 
-Under **Disk version**väljer **+ ny version**. Detta visar följande fält som du behöver för att fylla i.
+Under **Disk version**väljer **+ ny version**. Det här alternativet visar följande fält som du behöver för att fylla i.
 
 #### <a name="vm-image-version"></a>Versionsnumret för VM-avbildningen
 
@@ -258,13 +240,13 @@ Versionsnumret för VM-avbildningen måste följa den [sémantickou verzi](http:
 
 #### <a name="os-vhd-url"></a>OS-VHD-URL
 
-Ange den [signatur för delad åtkomst URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) skapade för det virtuella Hårddisken för operativsystemet.
+Ange den [signatur för delad åtkomst URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) skapade för det virtuella Hårddisken för operativsystemet.
 
 Om det finns datadiskar kopplade till denna SKU, kan du lägga till dessa diskar genom att välja den **+ ny datadisk** länk. Den här åtgärden visar ytterligare fält för att fylla.
 
 #### <a name="lun-vhd-url"></a>LUN VHD URL
 
-Ange den [signatur för delad åtkomst URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) för din datadisk.
+Ange den [signatur för delad åtkomst URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) för din datadisk.
 
 #### <a name="lun-number"></a>LUN-numret
 
@@ -294,7 +276,7 @@ Lista med Azure-prenumeration-ID som du vill ha åtkomst till erbjudandet om erb
 
 ### <a name="suggested-categories"></a>Föreslagna kategorier
 
-Välj upp till 5 kategorier från den angivna listan som ditt erbjudande bäst kan associeras med. De valda kategorierna som används för att mappa ditt erbjudande till produktkategorierna i [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure-portalen](https://portal.azure.com/).
+Välj upp till fem kategorier från den angivna listan som ditt erbjudande bäst kan associeras med. De valda kategorierna som används för att mappa ditt erbjudande till produktkategorierna i [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure-portalen](https://portal.azure.com/).
 
 I följande exempel visas information för marketplace i Azure Marketplace och Azure-portalen.
 
@@ -316,7 +298,6 @@ I följande exempel visas information för marketplace i Azure Marketplace och A
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
 
 
-
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
 
 
@@ -333,7 +314,7 @@ Följ dessa riktlinjer för logotyper som överförts till Cloud Partner Portal:
 
 -   Använd inte en tonad bakgrund för logotypen.
 
--   Undvik att placera texten på logotypen. Detta inkluderar ditt företag eller varumärke. Utseendet och känslan av din logotyp måste vara *fast* och du bör undvika att toningar.
+-   Undvik att placera text, inklusive företaget eller varumärke på logotypen.  Utseendet och känslan av din logotyp måste vara *fast* och du bör undvika att toningar.
 
 -   Logotypen bör inte att sträckas ut.
 
@@ -343,9 +324,9 @@ Hero-logotypen är valfritt. Utgivaren kan du inte ladda upp en Hero-logotyp. Me
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Riktlinjer för ikonen Hero-logotyp
 
--   Visningsnamn för utgivaren, plan rubrik och erbjudandets lång sammanfattning visas med en vit färgade teckensnitt. Undvik att använda alla ljusare i bakgrunden. Svart, bakgrunder med vit och transparent är inte tillåtna för Hero-ikoner.
+-   Visningsnamn för utgivaren, plan rubrik och erbjudandets lång sammanfattning visas med ett vitt färgade teckensnitt. Undvik att använda alla ljusare i bakgrunden. Svart, vit och transparent bakgrund är inte tillåtna för Hero-ikoner.
 
--   Utgivaren visningsnamn, plan rubrik, lång sammanfattning av erbjudandet och knappen Skapa bäddas programmässigt inuti Hero-logotypen när erbjudandets visas. Ange inte någon text när du utformar Hero-logotypen. Lämna ett tomt utrymme till höger om logotypen. Här ska vara 415 × 100 bildpunkter och förskjutas av 370 px från vänster.
+-   Utgivaren visningsnamn, plan rubrik, lång sammanfattning av erbjudandet och knappen Skapa är inbäddade programmässigt inuti Hero-logotypen när erbjudandet anges. Ange inte någon text när du utformar Hero-logotypen. Lämna ett tomt utrymme till höger om logotypen. Här ska vara 415 × 100 bildpunkter och förskjutas av 370 px från vänster.
 
 ![Exempel på Hero-logotyp](./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png)
 

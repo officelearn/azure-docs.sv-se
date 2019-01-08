@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845203"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061031"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
@@ -33,7 +33,7 @@ Den här översikten beskriver hur en ISE ger dina logic apps och integrationsko
 
 ## <a name="isolated-versus-global"></a>Isolerade jämfört med globala
 
-När du skapar en integrerad tjänst-miljö (ISE) i Azure kan du välja ett Azure-nätverk där din *mata in* miljö. Azure har distribuerat en privat instans av Logic Apps-tjänsten till ditt virtuella nätverk. Den här åtgärden skapar en isolerad miljö där du kan skapa och köra dina logic apps på dedikerade resurser. När du skapar en logikapp, väljer du den här miljön som din Apps plats, som ger dina logic app direkt åtkomst till resurser i det virtuella nätverket. 
+När du skapar en integrerad tjänst-miljö (ISE) i Azure kan du välja Azure-nätverket där du vill *mata in* din ISE. Azure har distribuerat en privat instans av Logic Apps-tjänsten till ditt virtuella nätverk. Den här åtgärden skapar en isolerad miljö där du kan skapa och köra dina logic apps på dedikerade resurser. När du skapar en logikapp, väljer du den här miljön som din Apps plats, som ger dina logic app direkt åtkomst till resurser i det virtuella nätverket. 
 
 Logic apps i en ISE kan du ange samma användarupplevelser och liknande funktioner som tjänsten för global Logic Apps. Inte bara kan du använda samma inbyggda åtgärder och anslutningsprogram i tjänsten för global Logic Apps, men du kan också använda ISE-specifika anslutningsappar. Här är till exempel vissa Standardanslutningar som erbjuder versioner som körs i en ISE:
  

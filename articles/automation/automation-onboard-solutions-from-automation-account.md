@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632702"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065451"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -31,6 +31,24 @@ Navigera till ditt Automation-konto och välj antingen **inventering** eller **�
 Välj Log analytics-arbetsytan och Automation-kontot och klicka på **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicera inventeringslösningen](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
+
+När du aktiverar lösningar stöds endast i vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
+
+I följande tabell visas mappningarna som stöds:
+
+|**Log Analytics arbetsytans Region**|**Azure Automation-Region**|
+|---|---|
+|Sydöstra Australien|Sydöstra Australien|
+|Kanadacentrala|Kanadacentrala|
+|Indiencentrala|Indiencentrala|
+|EastUS|Usaöstra2|
+|Sydostasien|Sydostasien|
+|SoutheastAsia|SoutheastAsia|
+|Västra centrala USA|Västra centrala USA|
+|Västeuropa|Västeuropa|
+|Södrastorbritannien|Södrastorbritannien|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
 
 Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 

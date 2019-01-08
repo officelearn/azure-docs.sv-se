@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291223"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063293"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM
 
@@ -30,9 +30,9 @@ Azure AD Privileged Identity Management (PIM) genererar aviseringar när det fin
 
 Det här avsnittet visar en lista över alla säkerhetsvarningar för katalogroller, samt hur du åtgärdar och hur du förhindrar. Allvarlighetsgrad har följande betydelse:
 
-* **Hög**: kräver omedelbara åtgärder på grund av en Policyöverträdelse.
-* **Medel**: inte kräver omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
-* **Låg**: inte kräver omedelbar åtgärd men en ändring av en bättre.
+* **Hög**: Kräver omedelbara åtgärder på grund av en Policyöverträdelse.
+* **Medel**: Kräver inte omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
+* **Låg**: Kräver inte omedelbar åtgärd men en ändring av en bättre.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Administratörer använder inte sina Privilegierade roller
 
@@ -69,7 +69,7 @@ Det här avsnittet visar en lista över alla säkerhetsvarningar för katalogrol
 | | |
 | --- | --- |
 | **Allvarlighetsgrad** | Medel |
-| **Varför får jag den här aviseringen?** | Konton som inte har ändrat sitt lösenord kanske tjänsten nyligen eller delade konton som inte är kvar. Dessa konton i Privilegierade roller är sårbara för angripare. |
+| **Varför får jag den här aviseringen?** | Konton i en privilegierad roll som inte har ändrat sitt lösenord under de senaste 90 dagarna. Dessa konton kan vara service eller delade konton som inte är som underhålls och är sårbara för angripare. |
 | **Så här åtgärdar du?** | Granska kontona i listan. Om de inte längre behöver åtkomst kan du ta bort dem från sina Privilegierade roller. |
 | **Dataförlustskydd** | Se till att konton som delas rotera starka lösenord när det finns en ändring i de användare som känner till lösenordet. </br>Granska regelbundet konton med Privilegierade roller med hjälp av [åtkomstgranskningar](pim-how-to-start-security-review.md) och ta bort rolltilldelningar som inte längre behövs. |
 | **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |

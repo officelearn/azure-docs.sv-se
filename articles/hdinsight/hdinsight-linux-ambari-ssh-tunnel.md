@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 3cf13dc7b3a57435e4e93d6f01da482a2b992bb9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743879"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065315"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Apache Ambari-webbgränssnittet, JobHistory, NameNode, Apache Oozie och andra web UIs
 
@@ -126,10 +126,10 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 När klustret har upprättats, Använd följande steg för att verifiera att du kan komma åt tjänsten web UIs Ambari Web:
 
-1. I webbläsaren går du till http://headnodehost:8080. Den `headnodehost` adress skickas via tunneln till klustret och Lös till huvudnoden som Ambari körs på. När du uppmanas, anger du det användarnamn för administratör (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så, fall ange informationen.
+1. I webbläsaren går du till http\:/ / headnodehost:8080. Den `headnodehost` adress skickas via tunneln till klustret och Lös till huvudnoden som Ambari körs på. När du uppmanas, anger du det användarnamn för administratör (admin) och lösenord för klustret. Du kan uppmanas en gång med Ambari-webbgränssnittet. I så, fall ange informationen.
 
    > [!NOTE]  
-   > När du använder den http://headnodehost:8080 -adressen för att ansluta till klustret, du ansluter via tunneln. Kommunikationen skyddas med hjälp av SSH-tunnel i stället för HTTPS. Om du vill ansluta via internet med hjälp av HTTPS, https://clustername.azurehdinsight.net, där **clustername** är namnet på klustret.
+   > När du använder http\://headnodehost:8080 adress att ansluta till klustret, du ansluter via tunneln. Kommunikationen skyddas med hjälp av SSH-tunnel i stället för HTTPS. Använda https för att ansluta via internet med hjälp av HTTPS,\:/ / clustername.azurehdinsight.net, där **clustername** är namnet på klustret.
 
 2. Ambari-Webbgränssnittet Välj HDFS i listan till vänster på sidan.
 
@@ -149,7 +149,7 @@ När klustret har upprättats, Använd följande steg för att verifiera att du 
     ![Bild av NameNode Användargränssnittet](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]  
-   > Lägg märke till URL-Adressen för den här sidan. Det bör likna **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. URI: N använder det interna fullständigt kvalificerade domännamnet (FQDN) för noden och är endast tillgänglig när du använder en SSH-tunnel.
+   > Lägg märke till URL-Adressen för den här sidan. Det bör likna **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. URI: N använder det interna fullständigt kvalificerade domännamnet (FQDN) för noden och är endast tillgänglig när du använder en SSH-tunnel.
 
 ## <a name="next-steps"></a>Nästa steg
 

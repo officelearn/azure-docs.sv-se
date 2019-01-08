@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282738"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062075"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med en Azure Resource Manager-mall
 I den här snabbstarten skapar du en Azure Resource Manager-mall som skapar ett Service Bus-namnområde av typen **Messaging** med en **Standard** SKU. Artikeln definierar också de parametrar som har angetts för körning av distributionen. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Läs den fullständiga mallen, den [mall för Service Bus-namnområde] [ Service Bus namespace template] på GitHub.
@@ -96,7 +96,7 @@ Skapa en JSON-fil med namnet **MyServiceBusNamespace.json** med följande inneh�
 }
 ```
 
-Den här mallen skapar en standard Service Bus-namnområdet.
+Den här mallen skapar en standard Service Bus-namnområdet. JSON-syntax och egenskaper finns i [namnområden](/azure/templates/microsoft.servicebus/namespaces) mallreferensen.
 
 ## <a name="create-the-parameters-json"></a>Skapa JSON-parametrar
 Den mall du skapade i föregående steg har ett avsnitt som heter `Parameters`. Du kan definiera parametrar för de värden som varierar utifrån det projekt som du distribuerar eller utifrån målmiljön. Den här mallen definierar följande parametrar: **serviceBusNamespaceName**, **serviceBusSku**, och **plats**. Läs mer om SKU: er för Service Bus i [SKU: er för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) att skapa.

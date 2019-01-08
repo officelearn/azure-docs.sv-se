@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: e6552984fd629810fd5e422c92ef9ee8ecd2b342
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053116"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063836"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 > [!div class="op_single_selector"]
@@ -332,9 +332,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ### <a name="configure-cluster-wide-credentials"></a>Konfigurera autentiseringsuppgifter för klustret
 
-Service Fabric Tillåt startar v6.3 användaren att konfigurera kluster hela autentiseringsuppgifter som kan användas som lagringsplats standardautentiseringsuppgifter av program.
+Från och med 6.3 runtime, kan Service Fabric du konfigurera kluster hela autentiseringsuppgifter som kan användas som lagringsplats standardautentiseringsuppgifter av program.
 
-Du kan aktivera/inaktivera funktionen genom att lägga till attributet ”UseDefaultRepositoryCredentials” ContainerHostPolicies i ApplicationManifest.xml med ett ”sant/falskt” booleskt värde.
+Du kan aktivera eller inaktivera funktionen genom att lägga till den `UseDefaultRepositoryCredentials` attributet `ContainerHostPolicies` i ApplicationManifest.xml med en `true` eller `false` värde.
 
 ```xml
 <ServiceManifestImport>
@@ -348,14 +348,14 @@ Du kan aktivera/inaktivera funktionen genom att lägga till attributet ”UseDef
 </ServiceManifestImport>
 ```
 
-Detta talar om för Service Fabric för att använda standardautentiseringsuppgifter för databasen som du kan ange i ClusterManifest under avsnittet Hosting.  Om UseDefaultRepositoryCredentials anges till true, Service Fabric kommer nu Läs följande värden i clustermanifest:
+Service Fabric använder sedan standardautentiseringsuppgifter för databasen som du kan ange i ClusterManifest under den `Hosting` avsnittet.  Om `UseDefaultRepositoryCredentials` är `true`, Service Fabric läser du följande värden från ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (sträng)
 * DefaultContainerRepositoryPassword (sträng)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType(string)---Stöds från v6.4
+* DefaultContainerRepositoryPasswordType (sträng)---stöds från och med 6.4 runtime
 
-Här är ett exempel på vad du kan lägga till i avsnittet Hosting i ClusterManifestTemplate.json. Mer information om [hur du konfigurerar kluster](service-fabric-cluster-fabric-settings.md) och [ kryptera lösenord](service-fabric-application-secret-management.md)
+Här är ett exempel på vad du kan lägga till i den `Hosting` -avsnittet i ClusterManifestTemplate.json. Mer information finns i [ändra Azure Service Fabric-klusterinställningar](service-fabric-cluster-fabric-settings.md) och [hantera Azure Service Fabric-programhemligheter](service-fabric-application-secret-management.md)
 
 ```json
       {
@@ -384,7 +384,6 @@ Här är ett exempel på vad du kan lägga till i avsnittet Hosting i ClusterMan
         ]
       },
 ```
-
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
 Windows stöder två isoleringslägen för containrar: process och Hyper-V. Om processisoleringsläget används delar alla containrar som körs på samma värddator kärna med värden. Om Hyper-V-isoleringsläget används isoleras kärnorna mellan varje Hyper-V-container och containervärden. Isoleringsläget anges i `ContainerHostPolicies`-elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är isoleringsläge på Windows Server-värdar. På Windows 10-värdar stöds bara Hyper-V-isoleringsläget, så att behållaren körs i Hyper-V-isoleringsläget oavsett inställningen för domänläge dess isolering. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.

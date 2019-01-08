@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025274"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076781"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än kvarhållningsperioden standard? Eller bearbeta dem i något specialiserade sätt? Löpande Export är perfekt för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagringen i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriver det kod som du behöver bearbetas.  
@@ -27,7 +27,7 @@ Innan du konfigurerar löpande export finns några alternativ som du kanske vill
 * Exportera-knappen högst upp på ett mått eller Sök blad kan du överföra tabeller och diagram till ett Excel-kalkylblad.
 
 * [Analytics](../../azure-monitor/app/analytics.md) tillhandahåller ett kraftfullt frågespråk för telemetri. Det kan också exportera resultat.
-* Om du vill att [Utforska dina data i Power BI](../../application-insights/app-insights-export-power-bi.md), kan du göra det utan att använda löpande Export.
+* Om du vill att [Utforska dina data i Power BI](../../azure-monitor/app/export-power-bi.md ), kan du göra det utan att använda löpande Export.
 * Den [dataåtkomst REST API](https://dev.applicationinsights.io/) får du tillgång till din telemetri programmässigt.
 * Du kan även använda installationsprogrammet [löpande export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 

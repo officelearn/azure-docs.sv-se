@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52b18f3f6f1166650fb13694f3eed54c28bbc0a9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731680"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065621"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
 Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](../../application-insights/app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](../../azure-monitor/app/app-insights-dashboards.md).
@@ -48,7 +48,7 @@ Vi sedan räknar antalet poster per land (att data som hittas i kolumnen *client
 Språket har många attraktiva funktioner:
 
 * [Filtret](/azure/kusto/query/whereoperator) apptelemetrin raw genom att ett fält, inklusive anpassade egenskaper och mått.
-* [Ansluta till](/azure/kusto/query/joinoperator) flera tabeller korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
+* [Ansluta till](/azure/kusto/query/joinoperator) flera tabeller - korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
 * Kraftfulla statistiska [aggregeringar](/azure/kusto/query/summarizeoperator).
 * Omedelbar och kraftfulla visualiseringar.
 * [REST API](https://dev.applicationinsights.io/) att du kan använda för att köra frågor via programmering, till exempel från PowerShell.

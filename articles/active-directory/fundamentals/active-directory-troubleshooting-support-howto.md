@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083911"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064954"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Få hjälp och öppna ett supportärende för Azure Active Directory
 Microsoft tillhandahåller global teknisk, förförsäljnings, fakturering och prenumerationsstöd för Azure Active Directory (AD Azure). Support fås både online och per telefon för Microsoft Azure betalda prenumerationer och provprenumerationer. Telefonsupport och faktureringssupport online är tillgänglig på andra språk. 
@@ -51,7 +51,7 @@ Om det inte går att hitta svar med hjälp av självhjälpsresurserna kan öppna
    
 4. För **Service**väljer **Azure Active Directory**, och välj sedan **nästa**.
 
-5. På den **Problem** bladet och välja en [allvarlighetsgrad](https://azure.microsoft.com/support/plans/response/)).
+5. På den **Problem** bladet och välja en [allvarlighetsgrad](https://azure.microsoft.com/support/plans/response/).
   
 6. Välj en **problemtyp**, och välj sedan en **kategori** för den typen. Nu kan erbjuds du också information för självhjälp för problem-kategori.
   
@@ -70,7 +70,7 @@ Om det inte går att hitta svar med hjälp av självhjälpsresurserna kan öppna
 
 2. På den **Support** panelen, väljer **ny tjänstbegäran**: ![Office 365-portalen skärmbild](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. På den **stöder översikt** väljer **Identitetshantering** eller **hantering av användare och domän**: ![Azure AD support kategorier skärmbild](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. På den **Supportöversikt** väljer **Identitetshantering** eller **hantering av användare och domän**: ![Azure AD support kategorier skärmbild](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. För **funktionen**, Välj Azure AD-funktionen som du vill ha support.
 

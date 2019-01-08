@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c63872ce19cc7076929785cc7bd150c1599c5705
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099060"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063060"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera gruppinformation med hjälp av Azure Active Directory
 
@@ -50,7 +50,7 @@ Med Azure Active Directory (Azure AD) kan redigera du inställningarna för en g
 
     - **Typ av grupp.** Du kan inte ändra typ av grupp när det har skapats. Ändra den **grupptyp**, måste du ta bort gruppen och skapa en ny.
     
-    - **Typ av medlemskap.** Ändra medlemskap. Mer information om de olika typerna av tillgängliga medlemskap finns [så här: skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory-portalen](active-directory-groups-create-azure-portal.md)
+    - **Typ av medlemskap.** Ändra medlemskap. Mer information om de olika typerna av tillgängliga medlemskap finns [så här: Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory-portalen](active-directory-groups-create-azure-portal.md).
     
     - **Objekt-ID.** Du kan inte ändra objekt-ID, men du kan kopiera och använda det i din PowerShell-kommandon för gruppen. Mer information om hur du använder PowerShell-cmdlets finns i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

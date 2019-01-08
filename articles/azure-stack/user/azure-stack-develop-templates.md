@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244057"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065400"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Överväganden för Azure Resource Manager-mall
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 När du utvecklar dina program är det viktigt att se till att mallen portabilitet mellan Azure och Azure Stack. Den här artikeln innehåller överväganden vid utveckling av Azure Resource Manager [mallar](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), så att du kan skapa prototyper program och testa distributionen i Azure utan åtkomst till en Azure Stack-miljö.
 
@@ -34,7 +34,7 @@ Den mall som du planerar att distribuera måste bara använda Microsoft Azure-tj
 
 ## <a name="public-namespaces"></a>Offentliga namnområden
 
-Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än i Azures offentliga moln. Därför misslyckas hårdkodad offentliga slutpunkter i Azure Resource Manager-mallar när du försöker distribuera dem till Azure Stack. Du kan dynamiskt skapa tjänstslutpunkter med den *referens* och *sammanfoga* funktioner för att hämta värden från resursprovidern under distributionen. Till exempel i stället för hardcoding *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) med den *osDisk.URI* slutpunkt:
+Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än i Azures offentliga moln. Därför kan inte hårdkodade offentliga slutpunkter i Azure Resource Manager-mallar när du försöker distribuera dem till Azure Stack. Du kan dynamiskt skapa tjänstslutpunkter med den `reference` och `concatenate` funktioner för att hämta värden från resursprovidern under distributionen. Till exempel i stället för att hårdkoda *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) med den *osDisk.URI* slutpunkt:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":

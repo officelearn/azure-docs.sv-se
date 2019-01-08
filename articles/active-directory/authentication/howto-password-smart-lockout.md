@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 80b1896c55d00a4ac8e5dea62afc08ace1a84249
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435284"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078532"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
@@ -70,6 +70,14 @@ För att kontrollera eller ändra smart kontoutelåsning värdena för din organ
 > Om den första inloggningen när en utelåsning genererar ett fel, kontot låser ut igen. Om ett konto har låsts upprepade gånger kan ökar utelåsningstiden.
 
 ![Anpassa Azure AD-princip i Azure-portalen för smart kontoutelåsning](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+
+## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Så här kontrollerar du om funktionen Smartlockout fungerar eller inte
+
+När tröskelvärdet smartlockout utlöses får du följande meddelande när kontot är låst:
+
+**Ditt konto har låsts temporärt för att förhindra obehörig användning. Försök igen senare och kontakta administratören om du fortfarande har problem**
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Lär dig hur du förbjuda felaktiga lösenord i din organisation använder Azure AD.](howto-password-ban-bad.md)

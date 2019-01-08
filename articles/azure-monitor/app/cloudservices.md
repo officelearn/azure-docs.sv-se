@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 710b584777abc312388c3857ced06ce196416a31
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 170ba8e85318ab3774aef95b0a62e452bc2c5e24
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042945"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077869"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -217,7 +217,7 @@ Du kan få en överblick över systemet genom att placera alla de viktigaste öv
 
 Om systemet använder andra Azure-tjänster, till exempel Stream Analytics, kan du även lägga till övervakningsdiagrammen för dem. 
 
-Om du har en klientmobilapp använder du [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Skapa frågor i [Analytics](../../azure-monitor/app/analytics.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
+Om du har en klientmobilapp använder du [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Skapa frågor i [Analytics](../../azure-monitor/app/analytics.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
 
 ## <a name="example"></a>Exempel
 [Exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) övervakar en tjänst som har en webbroll och två arbetsroller.

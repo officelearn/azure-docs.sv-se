@@ -1,35 +1,35 @@
 ---
-title: Unika funktionerna för Azure-sidblobar | Microsoft Docs
-description: En översikt över Azure page blobs och deras fördelar, inklusive användningsfall med exempel på skript.
+title: Översikt över Azure-sidblobar | Microsoft Docs
+description: En översikt över Azure page blobs och deras fördelar, däribland användningsfall med exempel på skript.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022696"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063943"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Unika funktionerna för Azure-sidblobar
+# <a name="overview-of-azure-page-blobs"></a>Översikt över Azure-sidblobar
 
 Azure Storage erbjuder tre typer av blob-lagring: Blockblobbar, Tilläggsblobbar och sidblobbar. Blockblobar består av block och är perfekt för att lagra text eller binära filer och för att överföra stora filer effektivt. Lägg till BLOB-objekt är också består av block, men de är optimerade för tilläggsåtgärder, vilket gör dem perfekt för loggningsscenarier. Sidblobar är består av 512 byte-sidor på till 8 TB i total storlek och är utformad för frekventa slumpmässig läsning/skrivning åtgärder. Sidblobar är grunden i Azure IaaS-diskar. Den här artikeln handlar om förklarar funktioner och fördelar med sidblobar.
 
 Sidblobar är en samling 512 byte-sidor, vilket ger möjlighet att läsa/skriva godtyckliga områden i byte. Därför är sidblobar utmärkt för att lagra index-baserade och utspridda datastrukturer som Operativsystemet och datadiskarna för virtuella datorer och databaser. Till exempel använder Azure SQL DB sidblobar som underliggande beständig lagring för dess databaser. Dessutom används sidblobar ofta för filer med Intervallbaserat uppdateringar.  
 
-Viktiga funktioner i Azure-sidblobar är dess REST-gränssnittet, tillförlitlighet gällande det underliggande lagringsutrymmet och funktioner för sömlös migrering till Azure. Dessa funktioner beskrivs närmare i nästa avsnitt. Dessutom kan Azure-sidblobar stöds för närvarande på två typer av lagring: Premium-lagring och Standard-lagring. Premium Storage har utformats speciellt för arbetsbelastningar som kräver konsekvent hög prestanda och låg latens, vilket gör premium-sidblobar perfekt för högpresterande data databaserna.  Standard-lagring är mer kostnadseffektivt sätt latens-okänslig arbetsbelastningar som körs.
+Viktiga funktioner i Azure-sidblobar är dess REST-gränssnittet, tillförlitlighet gällande det underliggande lagringsutrymmet och funktioner för sömlös migrering till Azure. Dessa funktioner beskrivs närmare i nästa avsnitt. Dessutom stöds för närvarande Azure sidblobar på två typer av lagring: Premium-lagring och Standard-lagring. Premium Storage har utformats speciellt för arbetsbelastningar som kräver konsekvent hög prestanda och låg latens, vilket gör premium-sidblobar perfekt för högpresterande data databaserna.  Standard-lagring är mer kostnadseffektivt sätt latens-okänslig arbetsbelastningar som körs.
 
 ## <a name="sample-use-cases"></a>Exemplet användningsfall
 
 Vi ska diskutera några användningsområden för sidblobar som börjar med Azure IaaS-diskar. Azure-sidblobar är basen för den virtuella diskar plattformen för Azure IaaS. Både Azure OS och datadiskar implementeras som virtuella diskar där data sparas varaktigt i Azure Storage-plattformen och sedan levereras till de virtuella datorerna för maximal prestanda. Azure-diskar finns kvar i Hyper-V [VHD-format](https://technet.microsoft.com/library/dd979539.aspx) och lagras som en [sidblob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) i Azure Storage. Förutom att använda virtuella diskar för virtuella Azure IaaS-datorer, aktivera sidblobar också PaaS och DBaaS scenarier, till exempel Azure SQL DB-tjänsten, som för närvarande använder sidblobar för att lagra SQL-data vilket möjliggör snabb slumpmässig Läs-och skrivåtgärder för databasen. Ett annat exempel är om du har en PaaS-tjänst för delade media åtkomst för samarbetsfunktioner video redigeringsprogram sidblobar ge snabb åtkomst till sekventiella skrivåtgärder i mediet. Dessutom kan snabba och effektiva redigera och slå samman samma mediets av flera användare. 
 
 Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, samt många tredjepartsutvecklare har implementerat branschledande innovationer med hjälp av sidans blob REST-gränssnittet. Här följer några av de unika scenarier implementerat i Azure: 
-* Hantering av program-riktade inkrementella ögonblicksbilder: program kan använda sidan blob-ögonblicksbilder och REST API: er för att spara programmet kontrollpunkter utan att det medför kostsamma duplicering av data. Azure Storage stöder lokala ögonblicksbilder för sidblobbar, som inte kräver kopiera hela blobben. De här offentliga ögonblicksbild API: er också kan få åtkomst till och kopiera deltan mellan ögonblicksbilder.
-* Direktmigrering av program och data från lokal till molnet: kopiera lokala data och använda REST API: er för att skriva direkt till en sida för Azure-blob när den lokala virtuella datorn fortsätter att köras. När målet har fått allt, men du kan snabbt växla över till virtuell Azure-dator med hjälp av dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokal till molnet med minimal avbrottstid eftersom migrering av data sker i bakgrunden medan du fortsätter att använda den virtuella datorn och den stilleståndstiden som behövs för redundans kommer att korta (i minuter).
+* Hantering av program-riktade inkrementell ögonblicksbild: Program kan använda sidan blob-ögonblicksbilder och REST API: er för att spara programmet kontrollpunkter utan att det medför kostsamma duplicering av data. Azure Storage stöder lokala ögonblicksbilder för sidblobbar, som inte kräver kopiera hela blobben. De här offentliga ögonblicksbild API: er också kan få åtkomst till och kopiera deltan mellan ögonblicksbilder.
+* Direktmigrering av program och data från lokal till molnet: Kopiera lokala data och använda REST API: er för att skriva direkt till en sida för Azure-blob när den lokala virtuella datorn fortsätter att köras. När målet har fått allt, men du kan snabbt växla över till virtuell Azure-dator med hjälp av dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokal till molnet med minimal avbrottstid eftersom migrering av data sker i bakgrunden medan du fortsätter att använda den virtuella datorn och den stilleståndstiden som behövs för redundans kommer att korta (i minuter).
 * [SAS-baserad](../common/storage-dotnet-shared-access-signature-part-1.md) delad åtkomst, vilket möjliggör scenarier som flera läsare och single-skrivare med stöd för samtidighetskontroll.
 
 ## <a name="page-blob-features"></a>Funktioner för sidblob

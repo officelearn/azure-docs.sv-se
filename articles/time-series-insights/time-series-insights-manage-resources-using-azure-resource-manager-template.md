@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554698"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062663"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights-resurser med Azure Resource Manager-mallar
 
@@ -34,6 +34,7 @@ En Resource Manager-mall är en JSON-fil som definierar infrastruktur och konfig
 
 - [Översikt av Azure Resource Manager - malldistribution](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Microsoft.TimeSeriesInsights resurstyper](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 Den [201-timeseriesinsights-miljö-med-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) snabbstartsmall publiceras på GitHub. Den här mallen skapar en Time Series Insights-miljö, en underordnad händelsekällan som konfigurerats för att konsumera händelser från en Event Hub och åtkomstprinciper som beviljar åtkomst till den miljön data. Om en befintlig Händelsehubb har inte angetts, skapas en med distributionen.
 

@@ -1,6 +1,6 @@
 ---
-title: Övervaka prestanda i Azure App Service | Microsoft Docs
-description: Övervakning av programprestanda för Azure-webbappar. Skapa diagram över inläsnings- och svarstider och beroendeinformation och ställ in aviseringar för prestanda.
+title: Övervaka prestanda för Azure-tjänster | Microsoft Docs
+description: Övervakning av programprestanda för Azure app services. Skapa diagram över inläsnings- och svarstider och beroendeinformation och ställ in aviseringar för prestanda.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96a7b775ec051f3511a179ebd4e879f50b9af32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3e027b92114bdf8cebf6e6bf239ebd9beb4943d6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019649"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073347"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 I den [Azure-portalen](https://portal.azure.com) du kan konfigurera övervakning av programprestanda för dina webbappar, mobila serverdelar och API-appar i [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../application-insights/app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -25,20 +25,20 @@ I den [Azure-portalen](https://portal.azure.com) du kan konfigurera övervakning
 ## <a name="run-time-or-build-time"></a>Vid körning eller utveckling
 Du kan konfigurera övervakning genom att instrumentera appen på något av två sätt:
 
-* **Vid körning** – Du kan välja ett tillägg för prestandaövervakning när din webbapp redan är live. Du behöver inte återskapa eller installera om appen. Du får en standarduppsättning med paket som övervakar svarstider, framgångsfrekvens, undantag, beroenden och så vidare. 
+* **Körning** – du kan välja ett tillägg för prestandaövervakning när din app service redan är live. Du behöver inte återskapa eller installera om appen. Du får en standarduppsättning med paket som övervakar svarstider, framgångsfrekvens, undantag, beroenden och så vidare. 
 * **Vid utveckling** – Du kan installera ett paket i din app i samband med utvecklingen. Det här alternativet är mer flexibelt. Förutom motsvarande standardpaket kan du skriva kod för att anpassa telemetrin eller skicka din egen telemetri. Du kan logga specifika aktiviteter eller registrera händelser baserat på semantiken för din appdomän. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentering i samband med körning med Application Insights
-Om du redan kör en webbapp i Azure har du redan tillgång till viss övervakning: begärande- och felfrekvens. Lägg till Application Insights om du vill få tillgång till mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och det kraftfulla Log Analytics-frågespråket. 
+Om du redan kör en app service i Azure måste du redan tillgång till viss övervakning: begärande- och Felfrekvens. Lägg till Application Insights om du vill få tillgång till mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och det kraftfulla Log Analytics-frågespråket. 
 
-1. **Välj Application Insights** på Azure-kontrollpanelen för din webbapp.
+1. **Välj Application Insights** i Azure-Kontrollpanelen för app service.
 
     ![Välj Application Insights under inställningar](./media/azure-web-apps/settings-app-insights.png)
 
    * Välja att skapa en ny resurs, såvida inte du redan har konfigurerat en Application Insights-resurs för det här programmet. 
 
     > [!NOTE]
-    > När du klickar på **OK** att skapa den nya resursen som du kommer att uppmanas att **tillämpa övervakningsinställningar**. Att välja **Fortsätt** länkar nya Application Insights-resursen till din webbapp, gör du så kommer också **utlösa en omstart av webbappen**. 
+    > När du klickar på **OK** att skapa den nya resursen som du kommer att uppmanas att **tillämpa övervakningsinställningar**. Att välja **Fortsätt** länkar nya Application Insights-resursen till app service, gör du så kommer också **utlösa en omstart av app service**. 
 
     ![Instrumentera din webbapp](./media/azure-web-apps/create-resource.png)
 
@@ -46,7 +46,7 @@ Om du redan kör en webbapp i Azure har du redan tillgång till viss övervaknin
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options.png)
 
-3. **Instrumentera din webbapp** när Application Insights har installerats.
+3. **Instrumentera din apptjänst** när Application Insights har installerats.
 
    **Aktivera övervakning på klientsidan** för sidvy och användartelemetri.
 
@@ -95,6 +95,17 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED orsakar ofullständig HTML-svaret i NET CORE-webbprogram.
+
+Aktivera Javascript via App Services kan orsaka html-svar på att stängas.
+
+- Lösning 1: Ange APPINSIGHTS_JAVASCRIPT_ENABLED inställningen till false eller ta bort det helt och starta om
+- Lösning 2: Lägg till sdk via kod och ta bort tillägget (Profiler och Snapshot debugger inte med den här konfigurationen)
+
+Vi följer upp problemet [här](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör profileraren för din live-app](../../azure-monitor/app/profiler.md).

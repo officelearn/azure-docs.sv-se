@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104279"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061903"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Lägg till eller ta bort en grupp från någon annan grupp med Azure Active Directory
 Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon annan grupp med Azure Active Directory.
@@ -29,7 +29,7 @@ Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon
 Du kan lägga till en befintlig säkerhetsgrupp till en annan befintlig säkerhetsgrupp (även kallat kapslade grupper), skapar en medlem i gruppen (Undergrupp) och en överordnad grupp. Medlem-grupp ärver de attribut och egenskaperna för den överordnade gruppen, sparar du konfigurationen.
 
 >[!Important]
->Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som har synkroniserats med den lokala Active Directory</li><li>Att lägga till säkerhetsgrupper till Office 365-grupper</li><li>Lägga till Office 365-grupper till säkerhetsgrupper eller andra Office 365-grupper</li><li>Tilldelning av appar till kapslade grupper</li><li>Tillämpa licenser på kapslade grupper</li></ul>
+>Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som har synkroniserats med den lokala Active Directory.</li><li>Lägga till säkerhetsgrupper till Office 365-grupper.</li><li>Lägga till Office 365-grupper till säkerhetsgrupper eller andra Office 365-grupper.</li><li>Tilldelning av appar till kapslade grupper.</li><li>Använder licenser kapslade grupper.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Lägg till en grupp som en medlem i en annan grupp
 

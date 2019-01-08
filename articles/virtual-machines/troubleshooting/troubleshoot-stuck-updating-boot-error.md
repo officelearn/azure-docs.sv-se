@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355547"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063668"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM Start har fastnat på Windows update
 
 Den här artikeln hjälper dig att lösa problemet när dina virtuella datorer (VM) har fastnat i Windows Update-skedet under starten. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributionsmodellen.
 
  ## <a name="symptom"></a>Symtom
 
@@ -47,16 +47,16 @@ Beroende på antalet uppdateringar som får installerat eller återställas säk
 
 1. Ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md). 
 2. [Koppla OS-disk till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
-3. När OS-disken är ansluten på den Virtuella återställningsdatorn, öppnar du den **Diskhanteraren** och se till att det är **ONLINE**. Anteckna den enhetsbeteckning som är tilldelad till den anslutna OS-disken som innehåller mappen \windows. Om disken är krypterad dekryptera disken innan du fortsätter med nästa steg i det här dokumentet.
+3. När OS-disken är ansluten på den Virtuella återställningsdatorn, köra **diskmgmt.msc** att öppna Diskhantering och kontrollera ansluten disk är **ONLINE**. Anteckna den enhetsbeteckning som är tilldelad till den anslutna OS-disken som innehåller mappen \windows. Om disken är krypterad dekryptera disken innan du fortsätter med nästa steg i det här dokumentet.
 
-3. Hämta en lista över de paket som finns på den anslutna OS-disken:
+4. Öppna en upphöjd kommandotolk-instans (Kör som administratör). Kör följande kommando för att hämta listan över uppdateringspaket som finns på den anslutna OS-disken:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     Till exempel om den anslutna OS-disken är enhet F, kör du följande kommando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Öppna filen C:\temp\Patch_level.txt och läsa det längst ned. Hitta den uppdatering som finns i **installation väntar** eller **avinstallera väntande** tillstånd.  Följande är ett exempel på uppdateringsstatus:
+5. Öppna filen C:\temp\Patch_level.txt och läsa det längst ned. Hitta den uppdatering som finns i **installation väntar** eller **avinstallera väntande** tillstånd.  Följande är ett exempel på uppdateringsstatus:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -64,7 +64,7 @@ Beroende på antalet uppdateringar som får installerat eller återställas säk
     Release Type : Security Update
     Install Time :
     ```
-5. Ta bort den uppdatering som orsakade problemet:
+6. Ta bort den uppdatering som orsakade problemet:
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -72,10 +72,10 @@ Beroende på antalet uppdateringar som får installerat eller återställas säk
     Exempel: 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > Beroende på storleken på paketet kan DISM-verktyget ta ett tag att bearbeta un-installationen. Processen kommer normalt slutföras inom 16 minuter.
 
-6. Koppla från den OS-disken och sedan [återskapa den virtuella datorn med hjälp av OS-disken](troubleshoot-recovery-disks-portal-windows.md). 
+7. [Koppla från den OS-disken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Kontrollera sedan om problemet är löst.

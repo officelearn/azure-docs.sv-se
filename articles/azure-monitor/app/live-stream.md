@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040242"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079178"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
@@ -38,7 +38,7 @@ Med Live Metrics Stream kan du:
 
 ## <a name="get-started"></a>Kom igång
 
-1. Om du inte gjort ännu [installerat Application Insights](../../azure-monitor/app/asp-net.md) i ASP.NET-webbapp eller [Windows server-appen](../../application-insights/app-insights-windows-services.md), gör du det nu. 
+1. Om du inte gjort ännu [installerat Application Insights](../../azure-monitor/app/asp-net.md) i ASP.NET-webbapp eller [Windows server-appen](../../azure-monitor/app/windows-services.md), gör du det nu. 
 2. **Uppdatera till den senaste versionen** av Application Insights-paketet. I Visual Studio högerklickar du på projektet och välj **hantera Nuget-paket**. Öppna den **uppdateringar** fliken Kontrollera **inkludera förhandsversion**, och välj de Microsoft.ApplicationInsights.* paket.
 
     Distribuera om din app.

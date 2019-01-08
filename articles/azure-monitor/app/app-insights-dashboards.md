@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052487"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074843"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [ställa in Application Insights i projektet](../../application-insights/app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).
@@ -113,10 +113,10 @@ Du kan automatisera instrumentpanel skapas med hjälp av [Azure Resource Manager
 * [**Sök** ](../../azure-monitor/app/diagnostic-search.md) – Undersök specifika instanser av händelser som begäranden, undantag, eller loggspårningar.
 * [**Analytics** ](../../azure-monitor/app/analytics.md) -kraftfulla frågor via din telemetri.
 * **Tidsintervall** -Justera intervall som visas av alla diagram på bladet.
-* **Ta bort** -ta bort Application Insights-resurs för den här appen. Du bör också antingen ta bort Application Insights-paket från din kod, eller redigera den [instrumenteringsnyckeln](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) i din app att dirigera telemetri till en annan Application Insights-resurs.
+* **Ta bort** -ta bort Application Insights-resurs för den här appen. Du bör också antingen ta bort Application Insights-paket från din kod, eller redigera den [instrumenteringsnyckeln](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) i din app att dirigera telemetri till en annan Application Insights-resurs.
 
 ### <a name="essentials-tab"></a>Fliken Essentials
-* [Instrumenteringsnyckeln](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) – identifierar den här appresursen.
+* [Instrumenteringsnyckeln](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) – identifierar den här appresursen.
 
 ### <a name="app-navigation-bar"></a>App navigeringsfältet
 ![Vänster navigeringsfält](./media/app-insights-dashboards/app-left-nav-bar.png)

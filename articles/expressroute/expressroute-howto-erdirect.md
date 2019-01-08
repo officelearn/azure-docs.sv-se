@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: be20f01511990ef8de6ce6e0e13ddfa99b004dcd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076618"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076235"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Så här konfigurerar du ExpressRoute Direct (förhandsversion)
 
@@ -69,7 +69,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
 3. Ta reda på om en plats som anges ovan har tillgänglig bandbredd
 
   ```powershell
-  Get-AzureRMExpressRoutePortsLocations -Name "Equinix-San-Jose-SV1"
+  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Exempel på utdata**
@@ -239,7 +239,7 @@ Skapa en krets på ExpressRoute Direct-resursen.
   New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  Andra bandbredder omfattar: 5.0, 10.0 och 40.0
+  Andra bandbredder är: 5.0, 10.0 och 40.0
 
   **Exempel på utdata:**
 

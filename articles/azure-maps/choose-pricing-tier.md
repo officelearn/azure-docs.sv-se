@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993968"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063241"
 ---
-# <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
+# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
-Azure Maps erbjuder två prisnivåer. Syftet med den här artikeln är att hjälpa dig att välja rätt prisnivån för dina behov. För att välja rätt prisnivå, ställa dig två frågor:
+Azure Maps erbjuder två prisnivåer. Syftet med den här artikeln är att hjälpa dig att välja rätt prisnivån för dina behov. För att välja rätt prisnivå kan du fråga dig själv följande två.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Vilka geospatiala funktioner jag tänker använda?
-Om du anser som din systemkrav uppfylls av core geospatiala API: er och S0 prisnivån är rätt för dig. Om du vill ha mer avancerade funktioner för ditt program, till exempel areal + hybridbilder komma vägen intervallet batch-geokodning osv bör du överväga att väljer du prisnivån S1. I tabellen nedan med **priser funktioner** ska ge dig en bättre uppfattning av ditt programs behov och du får också hjälp med att du väljer en prisnivå mest lämpliga för ditt program.
+S0 prisnivån är rätt för dig om core geospatiala API: er som uppfyller dina tjänstekrav på. Om du vill ha mer avancerade funktioner för ditt program bör du du väljer du prisnivån S1. Exempel-funktioner är areal plus hybridbilder komma vägen intervall och batch-geokodning. Den **priser funktioner** tabellen nedan ger dig en bättre uppfattning om programmets behov. Du kan också välja en prisnivå som är mest lämpliga för ditt program.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Hur många samtidiga användare planerar för att stödja? 
-S0 och S1 prisnivåer kan hantera olika mängder data dataflöde. Överväg att fråga dig själv frågor som hur många samtidiga användare vill att stödja innan du väljer ett Azure Maps prisnivå? S0 prisnivå kan hantera upp till **50 frågor per sekund** och S1-prisnivån kan hantera **mer än 50 frågor per sekund**.
+S0 och S1 prisnivåer hantera olika mängder data dataflöde. Innan du väljer ett Azure Maps prisnivå kan du fråga dig själv några frågor. Ett exempel är ”hur många samtidiga användare vill jag stöder”? S0 prisnivån hanterar upp till **50 frågor per sekund**. S1 prisnivå nivå handtagen **mer än 50 frågor per sekund**.
 
 ### <a name="pricing-tier-capabilities"></a>Priser för funktioner
 
@@ -34,31 +34,32 @@ S0 och S1 prisnivåer kan hantera olika mängder data dataflöde. Överväg att 
 | Rendering                                  |        ✓           |     ✓    |
 | Trafik                                 |        ✓           |     ✓    |
 | Tidszoner                              |        ✓           |     ✓    |
-| * Bilder + Hybridbilder (förhandsversion)     |        ✓           |     ✓    |
+| * Bilder plus hybridbilder (förhandsversion)  |        ✓           |     ✓    |
 | * Vägen intervallet (förhandsversion)                  |        ✓           |     ✓    |
 | * IP 2 plats (förhandsversion)                |        ✓           |     ✓    |
 | * Polygoner från sökning (förhandsversion)         |        ✓           |     ✓    |
-| * Batch Geokodning (förhandsversion)              |        ✓           |     ✓    |
-| * Batch routning (förhandsversion)                |        ✓           |     ✓    |
+| * Batch geokodning (förhandsversion)              |        ✓           |     ✓    |
+| * Batch-routning (förhandsversion)                |        ✓           |     ✓    |
 | * Matris routning (förhandsversion)               |        ✓           |     ✓    |
 
-> [!Note]
-> Åtkomst till dessa funktioner från S0 prisnivån upphör att gälla efter 4 februari 2019.
+\* Åtkomst till dessa funktioner från S0 prisnivån upphör att gälla efter 4 februari 2019.
 
-Vissa ytterligare datapunkter värt överväger, vilken typ av enterprise har du eller hur viktiga är programmet skapas?
+Dessa ytterligare datapunkter är värda att överväga:
+* Vilken typ av enterprise har du?
+* Hur viktiga är programmet skapas?
 
-Se tabellen med **prisnivå riktad kunder** att få en bättre uppfattning av prisnivåer S0 och S1. För mer information om priser för Azure Maps, se [priser för Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
+Se den **prisnivån riktad kunder** tabell för att få en bättre uppfattning S0 och S1 prisnivåer. Mer information finns i [priser för Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
 ### <a name="pricing-tier-targeted-customers"></a>Prisnivå riktad kunder
 
-| Prisnivå  |        Aktuella kunder                                                                |
+| Prisnivå  |     Aktuella kunder                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>S0-prisnivån är för kunder som är små eller medelstora företag. Det är rätt prisnivå du om du inte räknar med stora volymer av samtidiga användare och din systemkrav uppfylls av core geospatiala API: er som anges av tabellen ovan. Den här nivån är allmänt tillgängligt och kan användas för program i alla led i produktion från bevis på koncept utveckling och testning till produktion för program och distribution för tidigt.<p>|
-| S1            |    <p>Du prisnivån S1 för kunder behöver stöd för storskaliga enterprise, verksamhetskritiska program och stora volymer av samtidiga användare eller kräver avancerade geospatiala tjänster.</p>|
+| S0            |    <p>S0-prisnivån är för kunder som är små eller medelstora företag. Det är rätt prisnivå du om du inte tror stora volymer av samtidiga användare. Det är också rätt om core geospatiala API: er som visas i tabellen ovan uppfyller dina tjänstekrav. Den här nivån är allmänt tillgänglig. Den fungerar för program i alla led i produktion: från proof of concept-utveckling och testning till produktion för program och distribution för tidigt.<p>|
+| S1            |    <p>Du prisnivån S1 är avsedd för kunder behöver stöd för storskaliga enterprise, verksamhetskritiska program eller stora volymer av samtidiga användare. Det är också för de kunder som behöver avancerad geospatiala tjänster.</p>|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att visa och ändra prisnivå:
+Läs mer om hur du visar och ändrar prisnivåer:
 
-> [!div class="nextstepaction"]
-> [Hantera prisnivå](how-to-manage-pricing-tier.md)
+> [!div class="nextstepaction"] 
+> [Hantera en prisnivå](how-to-manage-pricing-tier.md)

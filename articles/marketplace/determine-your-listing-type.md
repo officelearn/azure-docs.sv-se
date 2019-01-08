@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081548"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074478"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa din publiceringsalternativ
 Publiceringsalternativ som du väljer för ditt erbjudande kopplat direkt till både marketplace GTM-fördelar och krav för berättigande. Ännu viktigare är definierar valet av publicera alternativet och erbjudandetypen i Cloud Partner Portal hur användare kommer att interagera med ditt erbjudande i marketplace.
@@ -44,7 +44,7 @@ Innan du väljer en publiceringsalternativ är det viktigt att förstå storefro
 
 **Azure Marketplace** program är tekniska ”byggblock”-lösningar som bygger på eller skapat för Azure. Azure Marketplace-konsulttjänster är professionella tjänster erbjudanden som hjälpa kunderna att komma igång med eller accelerera användningen av Azure.
 
-**AppSource** program är line-of-business-lösningar som kan vara bygger på Azure eller bygger för: Dynamics 365, Office 365, Power BI och Power Apps. AppSource-konsulttjänster är professionella tjänster-erbjudanden som hjälpa kunderna att komma igång med eller accelerera användningen av Dynamics 365 och Power BI.
+**AppSource** program är line-of-business-lösningar som kan vara bygger på Azure eller bygger för: Dynamics 365, Office 365, PowerBI eller Powerapps. AppSource-konsulttjänster är professionella tjänster-erbjudanden som hjälpa kunderna att komma igång med eller accelerera användningen av Dynamics 365 och Power BI.
 
 När du har registrerat dig att bli en utgivare och har fått åtkomst till partnerportalen i molnet för att skapa, konfigurera och publicera marketplace-erbjudanden, kommer du att:
 
@@ -62,12 +62,12 @@ Storefront där kommer att se ditt erbjudande, Azure Marketplace och/eller AppSo
 
 ## <a name="choose-a-publishing-option"></a>Välj en publiceringsalternativ
 
-Publicera alternativen erbjuder differentierad Kundengagemang samtidigt som du får åtkomst till dela leads och [Go-To-Market-fördelar](https://partner.microsoft.com/en-US/reach-customers/gtm). Välj tre möjliga publiceringsalternativ innan du använder Cloud Partner Portal för att skapa ett marketplace-erbjudande. Observera den anrop-till-åtgärd som motsvarar publiceringsalternativet:
+Publicera alternativen erbjuder differentierad Kundengagemang samtidigt som du får åtkomst till dela leads och [Go-To-Market-fördelar](https://partner.microsoft.com/reach-customers/gtm). Välj tre möjliga publiceringsalternativ innan du använder Cloud Partner Portal för att skapa ett marketplace-erbjudande. Observera den anrop-till-åtgärd som motsvarar publiceringsalternativet:
 
 | **Publiceringsalternativ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
 | **Lista** | Enkel lista över programmet eller tjänsten som gör det möjligt för en marketplace-användare att begära att du kan ansluta till kunden via den **kontakta mig** anrop till åtgärden. |
-| **Utvärdering** | Använd marketplace för att förbättra identifieringsmöjligheten och automatisera etableringen av ditt programs utvärderingen, potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. Används för utvärdering publiceringsalternativ anrop-till-action är antingen: **kostnadsfri utvärderingsversion av** eller **Test Drive**. |
+| **Utvärdering** | Använd marketplace för att förbättra identifieringsmöjligheten och automatisera etableringen av ditt programs utvärderingen, potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. Används för utvärdering publiceringsalternativ anrop-till-action är antingen: **Kostnadsfri utvärderingsversion** eller **provkörning**. |
 | **Transact** | Ditt program körs på Azure och kan etableras som en resurs direkt till kundens Azure-prenumeration när kunden väljer Get det nu anropa åtgärden. Din programvarulicensavgifter kan du kan också köpas och faktureras via kundens val av betalningsmedel och villkor och du kan välja att erbjuda tidsbegränsad åtkomst till din **kostnadsfri utvärderingsversion av programvara** (endast tillgängligt för Azure Marketplace.) |
 
 >[!Note]

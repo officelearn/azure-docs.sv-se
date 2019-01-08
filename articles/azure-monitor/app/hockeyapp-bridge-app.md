@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 73e1fac5ba9fbb981c92ff8d32064f7d34729ef7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 06a9cf124708984444bc2bc19f2529a3c0f75283
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812512"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074367"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Utforska HockeyApp-data i Application Insights
 
 > [!NOTE]
-> HockeyApp är inte längre tillgängligt för nya program. Befintliga HockeyApp distributioner fortsätter att fungera. Visual Studio App Center är nu den rekommenderade tjänsten från Microsoft för att övervaka nya mobila appar. [Lär dig hur du ställer in dina appar med App Center och Application Insights](../../application-insights/app-insights-mobile-center-quickstart.md).
+> HockeyApp är inte längre tillgängligt för nya program. Befintliga HockeyApp distributioner fortsätter att fungera. Visual Studio App Center är nu den rekommenderade tjänsten från Microsoft för att övervaka nya mobila appar. [Lär dig hur du ställer in dina appar med App Center och Application Insights](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) är en tjänst för att övervaka live stationära och mobila appar. Från HockeyApp kan du skicka anpassade och spåra telemetri för att övervaka användning samt hjälpa till vid diagnos (utöver komma kraschdata). Den här strömmen av telemetri kan efterfrågas med hjälp av det kraftfulla [Analytics](../../azure-monitor/app/analytics.md) funktion i [Azure Application Insights](../../application-insights/app-insights-overview.md). Dessutom kan du [exportera anpassat och spåra telemetri](export-telemetry.md). Om du vill aktivera dessa funktioner måste ställa du in en brygga som vidarebefordrar anpassade HockeyApp-data till Application Insights.
 
@@ -33,7 +33,7 @@ HockeyApp Bridge-appen är core-funktion som gör att du kan komma åt dina anpa
 
 ![Hämta ett HockeyApp-API-token](./media/hockeyapp-bridge-app/01.png)
 
-Öppna Microsoft Azure-portalen och [skapar en Application Insights-resurs](../../application-insights/app-insights-create-new-resource.md). Ange programtypen till ”HockeyApp bridge-program”:
+Öppna Microsoft Azure-portalen och [skapar en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ). Ange programtypen till ”HockeyApp bridge-program”:
 
 ![Ny Application Insights-resurs](./media/hockeyapp-bridge-app/02.png)
 

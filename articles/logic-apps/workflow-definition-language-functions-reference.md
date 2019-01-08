@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 31c4268522ca373ca0b467c13dd83500e18ef8e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890950"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065893"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -102,6 +102,7 @@ Du kan använda dessa funktioner för samlingen om du vill arbeta med samlingar,
 | [tom](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrollera om en samling är tom. | 
 | [första](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. | 
 | [skärningspunkten](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnerar en samling som har *endast* vanliga objekt mellan de angivna samlingarna. | 
+| [Objekt](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Returnerar en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. | 
 | [senaste](../logic-apps/workflow-definition-language-functions-reference.md#last) | Returnera det sista objektet från en samling. | 
 | [Längd](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller en matris. | 
@@ -265,7 +266,7 @@ Om du vill arbeta med uniform resource Identifier (URI: er) och få olika värde
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>Funktioner för strängmanipulering: JSON och XML
+## <a name="manipulation-functions-json--xml"></a>Funktioner för strängmanipulering: JSON OCH XML
 
 Om du vill arbeta med JSON-objekt och XML-noder måste använda du dessa funktioner för datahantering. Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
@@ -691,7 +692,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln | 
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter att lägga till | 
-| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month”, ”år” | 
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”månad”, ”år” | 
 | <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 ||||| 
 
@@ -752,9 +753,9 @@ and(false, false)
 
 Och returnerar följande resultat:
 
-* Det första exemplet: båda uttrycken är uppfyllda, så returnerar `true`. 
-* Andra exempel: ett uttryck är FALSKT, så returnerar `false`.
-* Tredje exempel: båda uttrycken är FALSKT, så returnerar `false`.
+* Det första exemplet: Båda uttrycken är uppfyllda, så returnerar `true`. 
+* Andra exempel: Ett uttryck är FALSKT, så returnerar `false`.
+* Tredje exempel: Båda uttrycken är FALSKT, så returnerar `false`.
 
 *Exempel 2*
 
@@ -768,9 +769,9 @@ and(equals(1, 2), equals(1, 3))
 
 Och returnerar följande resultat:
 
-* Det första exemplet: båda uttrycken är uppfyllda, så returnerar `true`. 
-* Andra exempel: ett uttryck är FALSKT, så returnerar `false`.
-* Tredje exempel: båda uttrycken är FALSKT, så returnerar `false`.
+* Det första exemplet: Båda uttrycken är uppfyllda, så returnerar `true`. 
+* Andra exempel: Ett uttryck är FALSKT, så returnerar `false`.
+* Tredje exempel: Båda uttrycken är FALSKT, så returnerar `false`.
 
 <a name="array"></a>
 
@@ -1646,8 +1647,8 @@ empty('abc')
 
 Och returnerar följande resultat: 
 
-* Det första exemplet: skickar en tom sträng så returneras `true`. 
-* Andra exempel: skickar strängen ”abc”, så returnerar funktionen `false`. 
+* Det första exemplet: Skickar en tom sträng så returneras `true`. 
+* Andra exempel: Skickar strängen ”abc”, så returnerar funktionen `false`. 
 
 <a name="endswith"></a>
 
@@ -1721,8 +1722,8 @@ equals('abc', 'abcd')
 
 Och returnerar följande resultat: 
 
-* Det första exemplet: båda värdena är likvärdiga, så returnerar funktionen `true`.
-* Andra exempel: båda värdena inte är likvärdiga, returnerar funktionen `false`.
+* Det första exemplet: Båda värdena är likvärdiga, så returnerar funktionen `true`.
+* Andra exempel: Båda värdena inte är likvärdiga, returnerar funktionen `false`.
 
 <a name="first"></a>
 
@@ -1895,7 +1896,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parameter | Krävs | Typ | Beskrivning | 
 | --------- | -------- | ---- | ----------- | 
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter att subtrahera | 
-| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month”, ”år” | 
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”månad”, ”år” | 
 | <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. | 
 ||||| 
 
@@ -1937,7 +1938,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Parameter | Krävs | Typ | Beskrivning | 
 | --------- | -------- | ---- | ----------- | 
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter att subtrahera | 
-| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month”, ”år” | 
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”månad”, ”år” | 
 | <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. | 
 ||||| 
 
@@ -2725,8 +2726,8 @@ not(true)
 
 Och returnera följande resultat:
 
-* Det första exemplet: uttrycket är FALSKT, så returnerar funktionen `true`.
-* Andra exempel: uttrycket är sant, så returnerar funktionen `false`.
+* Det första exemplet: Uttrycket är FALSKT, så returnerar funktionen `true`.
+* Andra exempel: Uttrycket är sant, så returnerar funktionen `false`.
 
 *Exempel 2*
 
@@ -2739,8 +2740,8 @@ not(equals(1, 1))
 
 Och returnera följande resultat:
 
-* Det första exemplet: uttrycket är FALSKT, så returnerar funktionen `true`.
-* Andra exempel: uttrycket är sant, så returnerar funktionen `false`.
+* Det första exemplet: Uttrycket är FALSKT, så returnerar funktionen `true`.
+* Andra exempel: Uttrycket är sant, så returnerar funktionen `false`.
 
 <a name="or"></a>
 
@@ -2773,8 +2774,8 @@ or(false, false)
 
 Och returnera följande resultat:
 
-* Det första exemplet: minst en uttrycket är sant, så returnerar funktionen `true`.
-* Andra exempel: båda uttrycken är falska, så returnerar funktionen `false`.
+* Det första exemplet: Minst en uttrycket är sant, så returnerar funktionen `true`.
+* Andra exempel: Båda uttrycken är falska, så returnerar funktionen `false`.
 
 *Exempel 2*
 
@@ -2787,8 +2788,8 @@ or(equals(1, 2), equals(1, 3))
 
 Och returnera följande resultat:
 
-* Det första exemplet: minst en uttrycket är sant, så returnerar funktionen `true`.
-* Andra exempel: båda uttrycken är falska, så returnerar funktionen `false`.
+* Det första exemplet: Minst en uttrycket är sant, så returnerar funktionen `true`.
+* Andra exempel: Båda uttrycken är falska, så returnerar funktionen `false`.
 
 <a name="parameters"></a>
 
@@ -3294,7 +3295,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln | 
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter att subtrahera | 
-| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month”, ”år” | 
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall*: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”månad”, ”år” | 
 | <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. | 
 ||||| 
 

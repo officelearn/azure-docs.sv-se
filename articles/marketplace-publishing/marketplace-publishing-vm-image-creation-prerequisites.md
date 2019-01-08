@@ -3,7 +3,7 @@ title: Tekniska krav för att skapa en avbildning av virtuell dator för Azure M
 description: Förstå kraven för att skapa och distribuera en avbildning av virtuell dator på Azure Marketplace för andra att köpa.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1fdf945645b2d5c89d7f3750ec836595adb90b06
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255276"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077087"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace
 Läs noggrant innan du börjar processen och förstå var och varför ett steg utförs. Så mycket som möjligt du ska förbereda företagets information och andra data, ladda ned nödvändiga verktyg och/eller skapa tekniska komponenter innan du börjar skapa erbjudandet. De här objekten ska rensa från granska den här artikeln.  
@@ -50,6 +51,6 @@ Du kan utveckla Azure-baserade virtuella datorer i Windows eller Linux. Vissa de
 Du kan utveckla Azure-VHD: er i molnet eller lokalt:
 
 * Molnbaserad utveckling innebär att alla utveckling steg utförs via en fjärranslutning på en virtuell Hårddisk på Azure.
-* Lokal utveckling kräver att ladda ned en virtuell Hårddisk och utveckla den med hjälp av den lokala infrastrukturen. Även om det är möjligt rekommenderar vi inte den. Observera att utveckla för Windows eller SQL lokalt måste du ha licensnycklar relevanta lokalt. Du kan inte inkludera eller installera SQL Server när du har skapat en virtuell dator. Erbjudandet måste också baseras på en godkänd SQL-avbildning från Azure-portalen. Om du vill utveckla lokalt, måste du utföra några steg annorlunda än om du skapar i molnet. Du kan hitta relevant information i [skapa en VM-avbildning från en lokal](marketplace-publishing-vm-image-creation-on-premise.md).
+* Lokal utveckling kräver att ladda ned en virtuell Hårddisk och utveckla den med hjälp av den lokala infrastrukturen. Även om den här metoden är möjligt rekommenderar vi inte den. Utveckla för Windows eller SQL lokalt måste du ha licensnycklar relevanta lokalt. Du kan inte inkludera eller installera SQL Server när du har skapat en virtuell dator. Erbjudandet måste också baseras på en godkänd SQL-avbildning från Azure-portalen. Om du vill utveckla lokalt, måste du utföra några steg annorlunda än om du skapar i molnet. Du kan hitta relevant information i [skapa en VM-avbildning från en lokal](marketplace-publishing-vm-image-creation-on-premise.md).
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

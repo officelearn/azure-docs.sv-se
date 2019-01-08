@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076363"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074384"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -483,12 +483,12 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
 
-1. Gå till <https://portal.azure.com>
+1. Gå till < https\://portal.azure.com >
 1. Öppna bladet Azure Active Directory  
    Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
 1. Klicka på App-registreringar
 1. Klicka på Lägg till
-1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
+1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http\://localhost) och klicka på Skapa
 1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
@@ -525,7 +525,7 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehåll till d
 
 Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägarrollen längre!
 
-1. Gå till https://portal.azure.com
+1. Gå till https\://portal.azure.com
 1. Öppna bladet alla resurser
 1. Välj den virtuella datorn från den första noden i klustret
 1. Klicka på åtkomstkontroll (IAM)

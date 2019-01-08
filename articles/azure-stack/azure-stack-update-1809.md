@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754058"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077971"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -48,6 +48,8 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
    Mer information finns i [Azure Stack syslog-vidarebefordran](azure-stack-integrate-security.md).
 
 - Du kan nu [flytta resursen registrering](azure-stack-registration.md#move-a-registration-resource) i Azure mellan resursgrupper utan att behöva registrera igen. Cloud Solution Providers (CSP) kan också flytta resursen registrering prenumerationer så länge som både nya och gamla prenumerationer mappas till samma CSP-partner-ID. Detta påverkar inte befintliga kund klient mappningar. 
+
+- Stöd har lagts till för att tilldela flera IP-adresser per nätverksgränssnitt.  Mer information finns i [tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 

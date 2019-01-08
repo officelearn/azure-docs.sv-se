@@ -10,16 +10,15 @@ ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296558"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074061"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
 
@@ -27,7 +26,7 @@ Azure Key Vault har stöd för JSON-formaterade begäranden och svar. Begärande
 
 Det här avsnittet beskriver specifika för Azure Key Vault-tjänsten. Allmän information om hur du använder Azure REST-gränssnitt, inklusive autentisering/auktorisering och hur du skaffar ett åtkomsttoken, finns i [Azure REST API-referens](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>Fråge-URL  
+## <a name="request-url"></a>URL för begäran  
  Nyckelhanteringsåtgärder använda HTTP DELETE, GET, korrigering, PUT- och HTTP POST och kryptografiska åtgärder mot befintliga viktiga objekt använder HTTP POST. Klienter som inte stöder specifika HTTP-verb använder också HTTP POST med hjälp av huvudet för X-HTTP-begäran för att ange det avsedda verbet. begäranden som normalt inte kräver en brödtext ska inkludera en brödtext när du använder HTTP-POST, till exempel när du använder POST i stället för att ta bort.  
 
  Om du vill arbeta med objekt i Azure Key Vault följer exempel URL: er:  
@@ -65,13 +64,13 @@ Det här avsnittet beskriver specifika för Azure Key Vault-tjänsten. Allmän i
 ## <a name="error-responses"></a>Felsvar  
  Felhantering använder HTTP-statuskoder. Typiska resultat är:  
 
--   2xx – lyckades: används för normal drift. Svarstexten innehåller förväntat resultat  
+-   2xx – lyckades: Används för normal drift. Svarstexten innehåller förväntat resultat  
 
--   3xx – Omdirigering: The 304 ”inte ändra” kan returneras för att utföra en villkorlig hämtning. Andra 3xx koder kan användas i framtiden för att ange DNS-och sökväg.  
+-   3xx – Omdirigering: 304 ”ändras inte” kan returneras för att utföra en villkorlig GET. Andra 3xx koder kan användas i framtiden för att ange DNS-och sökväg.  
 
--   4xx – klientfel: används för ogiltiga förfrågningar, saknade nycklar, syntaxfel, ogiltiga parametrar, autentiseringsfel, osv. Svarstexten innehåller detaljerade felet förklaring.  
+-   4xx – klientfel: Används för ogiltiga förfrågningar, saknade nycklar, syntaxfel, ogiltiga parametrar, autentiseringsfel, osv. Svarstexten innehåller detaljerade felet förklaring.  
 
--   5xx – Serverfel: används för interna serverfel. Svarstexten innehåller sammanfattade felinformation.  
+-   5xx – Serverfel: Används för interna serverfel. Svarstexten innehåller sammanfattade felinformation.  
 
  Systemet fungerar bakom en proxyserver eller brandvägg. Därför kan en klient kan ta emot andra felkoder.  
 
@@ -115,9 +114,9 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
  Parametrarna i WWW-autentisera-huvudet är:  
 
--   auktorisering: adressen för auktorisering OAuth2-tjänsten som kan användas för att hämta en åtkomsttoken för begäran.  
+-   Auktorisering: Adressen till auktorisering OAuth2-tjänsten som kan användas för att hämta en åtkomsttoken för begäran.  
 
--   resurs: namnet på resursen som ska användas i auktoriseringsbegäran.  
+-   resursen: Namnet på resursen som ska användas i auktoriseringsbegäran.  
 
 ## <a name="see-also"></a>Se även  
  [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)

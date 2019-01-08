@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017574"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073959"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägg till BLOB-objekt till objekt i Azure Digital Twins
 
 BLOB-lagring är Ostrukturerade framställningar av vanliga filtyper, t.ex. bilder och loggar. Blobbar hålla reda på vilken typ av data som de representerar med hjälp av en MIME-typ (till exempel: ”bild/jpeg”) och metadata (namn, beskrivning, typ och så vidare).
 
-Azure Digital Twins stöder bifoga blobbar till enheter, blanksteg och användare. Blobar kan representera en profilbild för en användare, ett foto av enhet, en video, en karta eller en logg.
+Azure Digital Twins stöder bifoga blobbar till enheter, blanksteg och användare. Blobar kan representera en profilbild för en användare, ett foto av enhet, en video, en karta, en inbyggd programvara zip, JSON-data, en logg, osv.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -32,7 +32,7 @@ Du kan använda flera delar begäranden för att ladda upp blobar till specifika
 
 ### <a name="blob-metadata"></a>Blob-metadata
 
-Förutom **Content-Type** och **Content-Disposition**, multipart begäranden måste ange rätt JSON-texten. Vilka JSON-texten att skicka beror på vilken typ av HTTP-begäran-åtgärd som utförs.
+Förutom **Content-Type** och **Content-Disposition**, Azure Digital Twins blob multipart begäranden måste ange rätt JSON-texten. Vilka JSON-texten att skicka beror på vilken typ av HTTP-begäran-åtgärd som utförs.
 
 Det finns fyra huvudsakliga JSON-scheman:
 
@@ -48,12 +48,15 @@ Läs om hur du använder referensdokumentationen genom att läsa [hur du använd
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Att göra en **POST** begäran som laddar upp en textfil som en blob och kopplar det till ett blanksteg:
+För att ladda upp en textfil som en blob och associera det med ett blanksteg, gör du en autentiserad HTTP POST-begäran till:
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+Med följande text:
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -96,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+I båda exemplen:
+
+1. Kontrollera att rubrikerna som inkluderar: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Kontrollera att brödtexten är flera delar:
+
+   - Den första delen innehåller nödvändiga blobmetadata.
+   - Den andra delen innehåller textfilen.
+
+1. Kontrollera att filen har angetts som `Content-Type: text/plain`.
+
 ## <a name="api-endpoints"></a>API-slutpunkter
 
 I följande avsnitt beskrivs core blob-relaterade API-slutpunkter och deras funktioner.
@@ -106,7 +119,7 @@ Du kan koppla blobar till enheter. Följande bild visar Swagger-referensdokument
 
 ![Enheten blobar][2]
 
-Till exempel om du vill uppdatera eller skapa en blob och bifoga blob till en enhet, göra en **KORRIGERA** begäran om att:
+Till exempel om du vill uppdatera eller skapa en blob och bifoga blob till en enhet, gör du en autentiserad HTTP PATCH-begäran till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -132,7 +145,7 @@ Du kan även bifoga blobbar i blanksteg. Följande bild visar en lista över all
 
 ![Utrymme blobar][3]
 
-Till exempel för att returnera en blob som är kopplat till ett blanksteg, göra en **hämta** begäran om att:
+Till exempel för att returnera en blob som är kopplat till ett utrymme, gör du en autentiserad HTTP GET-begäran till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -142,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | Önskad blob-ID. |
 
-Gör en **KORRIGERA** begäran till samma slutpunkt kan du uppdatera en metadatabeskrivning och skapa en ny version av blobben. HTTP-begäran skickas via den **KORRIGERA** metod, tillsammans med alla nödvändiga metadata och multipart formulärdata.
+En PATCH-begäran till samma slutpunkt uppdaterar metadata beskrivningar och skapar nya versioner av blobben. HTTP-begäran görs via PATCH-metoden, tillsammans med alla nödvändiga metadata och multipart formulärdata.
 
 Lyckade åtgärder returnerar en **SpaceBlob** objekt som överensstämmer med följande schema. Du kan använda den för att använda data som returneras.
 
@@ -157,7 +170,7 @@ Du kan koppla blobar till användaren modeller (t.ex, för att associera en prof
 
 ![Användaren blobar][4]
 
-Till exempel om du vill hämta en blob som är kopplade till en användare, gör en **hämta** begäran med alla nödvändiga formulärdata till:
+Till exempel om du vill hämta en blob som är kopplade till en användare, gör du en autentiserad HTTP GET-begäran med alla nödvändiga formulärdata till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID

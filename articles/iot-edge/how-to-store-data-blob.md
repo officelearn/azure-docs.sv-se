@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 287f67ff9eb0ecc214bd8e8fd3c27660cea185c7
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055072"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065825"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -86,7 +86,7 @@ Azure Marketplace är IoT Edge-moduler som kan distribueras direkt till din IoT 
       >[!IMPORTANT]
       >Azure IoT Edge är skiftlägeskänsliga när du gör anrop till moduler och Storage-SDK som standard till gemener. För att säkerställa att dina anslutningar till Azure Blob Storage på IoT Edge-modul inte avbryts, namnge den gemener. 
 
-   2. Standard **behållare skapa alternativ** port-bindningar som krävs för din behållare, men du måste också lägga till information på lagringskontot och en bindning för storage-katalog på din enhet. Skriv över JSON i portalen med den JSON nedan:
+   2. Standard **behållare skapa alternativ** port-bindningar som krävs för din behållare, men du måste också lägga till information på lagringskontot och en bindning för storage-katalog på din enhet. Skriv över JSON i portalen med JSON nedan:
     
       ```json
       {

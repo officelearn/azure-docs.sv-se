@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840171"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076968"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Lead-hantering för marknadsplats i molnet
 
@@ -60,7 +60,7 @@ När de tekniska konfigurera är på plats, ska du införliva dessa leads i din 
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Vanliga lead-konfigurationsfel vid publicering på partnerportalen i molnet 
 
-**Det gick inte att spara ditt lead till Dynamics CRM. Kontrollera inställningarna för Dynamics CRM-konto. LastCRMError: Det gick inte att logga in på Dynamics CRM, LastCRMException:** 
+**Det gick inte att spara ditt lead till Dynamics CRM. Kontrollera inställningarna för Dynamics CRM-konto. LastCRMError: Det går inte att logga in på Dynamics CRM, LastCRMException:** 
 
 > Om O365-autentisering har valts, kontrollerar du om användarkontot och lösenordet är giltigt. Om AAD har valts, kontrollerar du om klient-ID, program-ID och programmet hemlig nyckel matchar vad konfigurerades på AAD. Följ instruktionerna [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Om kontot användarnamn/lösenord är giltigt, kontrollera att den har åtkomst till Dynamics 365 och tilldelas en licens (steg 11-15 om du använder Azure Active Directory eller säkerhetsinställningar om du använder en Office-användare). 
 
@@ -69,7 +69,7 @@ När de tekniska konfigurera är på plats, ska du införliva dessa leads i din 
 
 > Program/användaren saknar security roll(er) till Microsoft Marketplace lead writer. Följ steg 11-15 om du använder Azure Active Directory eller säkerhetsinställningar om du använder en Office-användare [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
-**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag:: Innehavaren hittades inte. Den här instansen kan inträffa om det finns inga aktiva prenumerationer för klienten.**  
+**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag: Klienten hittades inte. Den här instansen kan inträffa om det finns inga aktiva prenumerationer för klienten.**  
 
 > Katalog-Id som anges i avsnittet om lead-hantering är inte en giltig katalog. Skaffa katalog-Id som baseras på anvisningarna i steg 2 (under Azure Active Directory, från [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
@@ -77,21 +77,21 @@ När de tekniska konfigurera är på plats, ska du införliva dessa leads i din 
 
 > Lösning: Tilldela säkerhetsrollen till lead-skrivaren för Microsoft Marketplace. Följ instruktionerna [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) under säkerhetsinställningar 
 
-**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag:: Programmet med ID: t hittades inte i katalogen** 
+**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag: Programmet med ID: t hittades inte i katalogen** 
 
 > Program-Id som anges i avsnittet om lead-hantering är inte en giltig katalog. Skaffa katalog-Id som baseras på anvisningarna i steg 8 (under Azure Active Directory, från [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag:: Begärt klient-ID är inte giltigt och inte giltig extern domän format** 
+**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag: Begärda klient-ID är inte giltigt och inte giltig extern domän format** 
 
 > Katalog-Id som anges i avsnittet om lead-hantering är inte en giltig katalog. Skaffa katalog-Id som baseras på anvisningarna i steg 2 (under Azure Active Directory, från [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag: Fel vid validering av autentiseringsuppgifter.: Ogiltig klienthemlighet har angetts.** 
+**Gick inte att spara ditt lead i Dynamics CRM med AAD. Undantag: Fel vid validering av autentiseringsuppgifter.: Ogiltig klienthemlighet tillhandahålls.** 
 
-> Lösning: Logga in på Azure-portalen, kontrollerar du om programnyckeln matchar vad som finns i partnerportalen i molnet. Generera lösenord baserat på instruktionen på steg 10 (under Azure Active Directory), från [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Lösning: Logga in på Azure-portalen bör du kontrollera om programnyckeln matchar vad som finns i partnerportalen i molnet. Generera lösenord baserat på instruktionen på steg 10 (under Azure Active Directory), från [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Det gick inte att spara ditt lead till Dynamics CRM. LastCRMError: Begärandekanalen nådde sin tidsgräns medan du väntar på svar efter 00:02:00. Öka timeout-värdet skickas till anropet på begäran eller öka värdet SendTimeout på bindningen. Den tid som tilldelats till den här åtgärden kan ha varit en del av en längre tidsgräns.**  
 
-> Lösning: Inloggningen till Cloud Partner Portal klientkontrollen Storefront >> Lead mål >> URL, kontrollera om det är en giltig dynamisk CRM-instans
+> Lösning: Logga in på partnerportalen i molnet, Storefront klientkontrollen >> Lead mål >> URL, kontrollera om det är en giltig dynamisk CRM-instans
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -102,7 +102,7 @@ Leads är kunder som distribuerar dina produkter från Marketplace. Om din produ
 
 **Var kan jag få hjälp att konfigurera min lead-mål?** 
 
-Du hittar dokumentationen här: [hämta kundleads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) eller skicka in ett supportärende via aka.ms/marketplacepublishersupport Välj erbjudandetypen och lead-hantering. 
+Du hittar dokumentationen här: [Hämta kundleads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) eller skicka in ett supportärende via aka.ms/marketplacepublishersupport Välj erbjudandetypen och lead-hantering. 
 
 
 
@@ -150,7 +150,7 @@ Rubrik = MSFT_TEST_636573304831318844
 
 **Jag har ett levande erbjudande, men jag ser inte alla leads?**
 
-Varje lead har data som skickas i fälten i ditt valda lead-mål, den potentiella kunden kommer i följande format: **åtgärd för källa | Erbjudande** 
+Varje lead har data som skickas i fälten i ditt valda lead-mål, den potentiella kunden kommer i följande format: **Åtgärd för källa | Erbjudande** 
 
   *Källor:*
 

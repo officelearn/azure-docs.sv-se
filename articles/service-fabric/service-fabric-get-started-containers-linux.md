@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: 5432266bd042b527156852aaf30fef09f3bf8c72
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053304"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062374"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -193,7 +193,7 @@ Ange mappningen för port i rätt format. I den här artikeln måste du ange ```
    </ServiceManifestImport>
 ``` 
 
-Vi rekommenderar att du krypterar centrallagrets lösenord, referera till [ hantera krypterade hemligheter i Service Fabric-program](service-fabric-application-secret-management.md)
+Vi rekommenderar att du krypterar centrallagrets lösenord. Referera till [ hantera krypterade hemligheter i Service Fabric-program](service-fabric-application-secret-management.md) anvisningar.
 
 ### <a name="configure-cluster-wide-credentials"></a>Konfigurera autentiseringsuppgifter för klustret
 Referera till [dokumentationen här](

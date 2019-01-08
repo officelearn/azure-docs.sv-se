@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857779"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065179"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Ta bort avbildningar i Azure Container Registry
 
@@ -60,7 +60,7 @@ Avbildningens namn innehåller också det fullständigt kvalificerade namnet fö
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-En beskrivning på avbildningen taggning metodtips finns i den [Docker-märkning: bästa metoder för taggning och versionshantering docker-avbildningar] [ tagging-best-practices] blogginlägget på MSDN.
+En beskrivning på avbildningen taggning metodtips finns i den [Docker-märkning: Bästa metoder för taggning och versionshantering docker-avbildningar] [ tagging-best-practices] blogginlägget på MSDN.
 
 ### <a name="layer"></a>Lager
 
@@ -129,9 +129,9 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 Du kan ta bort avbildningsdata från behållarregistret på flera olika sätt:
 
-* Ta bort en [databasen](#delete-repository): tar bort alla avbildningar och alla unika lager i databasen.
-* Ta bort genom att [taggen](#delete-by-tag): tar bort en avbildning, taggen, alla unika lager som refereras av avbildningen och alla andra taggar som är kopplade till avbildningen.
-* Ta bort genom att [manifest sammanfattad](#delete-by-manifest-digest): tar bort en avbildning, alla unika lager som refereras av avbildningen och alla taggar som är kopplade till avbildningen.
+* Ta bort en [databasen](#delete-repository): Tar bort alla avbildningar och alla unika lager i databasen.
+* Ta bort genom att [taggen](#delete-by-tag): Tar bort en avbildning, taggen, alla unika lager som refereras av avbildningen och alla andra taggar som är kopplade till avbildningen.
+* Ta bort genom att [manifest sammanfattad](#delete-by-manifest-digest): Tar bort en avbildning, alla unika lager som refereras av avbildningen och alla taggar som är kopplade till avbildningen.
 
 ## <a name="delete-repository"></a>Ta bort lagringsplats
 
@@ -239,20 +239,20 @@ Som vi nämnde i den [Manifest sammanfattad](#manifest-digest) avsnittet push-ö
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Som du ser i utdata från det sista steget i sekvensen har nu en överblivna manifest vars `"tags"` egenskapen är `null`. Den här manifestet finns fortfarande i registret, tillsammans med unika layer data som den refererar till. **Att ta bort, till exempel frånkopplade avbildningar och deras layer, måste du ta bort av manifest sammanfattad**.
+Som du ser i utdata från det sista steget i sekvensen har nu en överblivna manifest vars `"tags"` egenskapen är en tom matris. Den här manifestet finns fortfarande i registret, tillsammans med unika layer data som den refererar till. **Att ta bort, till exempel frånkopplade avbildningar och deras layer, måste du ta bort av manifest sammanfattad**.
 
 ### <a name="list-untagged-images"></a>Lista över ej taggade bilder
 
 Du kan visa alla ej taggade bilder i databasen med hjälp av följande Azure CLI-kommando. Ersätt `<acrName>` och `<repositoryName>` med värden som är lämpliga för din miljö.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Ta bort alla ej taggade bilder
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

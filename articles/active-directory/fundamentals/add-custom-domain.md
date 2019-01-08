@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098315"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076815"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain@contoso.com*.
@@ -63,7 +63,7 @@ När du har skapat din katalog kan du lägga till ditt domännamn.
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Lägga till DNS-information i domänregistratorn
 När du lägger till ett anpassat domännamn till Azure AD måste du gå tillbaka till din domänregistrator och lägga till Azure AD-DNS-information från den kopierade TXT-filen. Skapa den här TXT verifierar-post för din domän ”” ägarskap för ditt domännamn.
 
--  Gå tillbaka till din domänregistrator, skapa en ny TXT-post för din domän baserat på din kopierade DNS-information i **TTL** (tid till live) till 60 minuter och sedan spara informationen.
+-  Gå tillbaka till din domänregistrator, skapa en ny TXT-post för din domän baserat på din kopierade DNS-information i **TTL** (tid till live) till 3 600 sekunder (60 minuter) och sedan spara informationen.
 
     >[!Important]
     >Du kan registrera så många domännamn som du vill ha. Varje domän får dock sin egen TXT-posten från Azure AD. Var försiktig när du anger din TXT-fil uppgifter på domänregistratorn. Om du anger fel eller duplicera information av misstag, kommer du behöva vänta tills TTL-Perioden tidsgränsen (60 minuter) innan du kan försöka igen.
@@ -98,10 +98,10 @@ När du registrerar ditt domännamn måste du kontrollera att den är giltig i A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lägg till en annan Global administratör i din katalog. Mer information finns i [så här tilldelar du roller och administratörer](active-directory-users-assign-role-azure-portal.md)
+- Lägg till en annan Global administratör i din katalog. Mer information finns i [så här tilldelar du roller och administratörer](active-directory-users-assign-role-azure-portal.md).
 
-- Lägga till användare i din domän, se [lägga till eller ta bort användare](add-users-azure-active-directory.md)
+- Lägga till användare i din domän, se [lägga till eller ta bort användare](add-users-azure-active-directory.md).
 
-- Hantera ditt domännamn i Azure AD. Mer information finns i [hantera anpassade domännamn](../users-groups-roles/domains-manage.md)
+- Hantera ditt domännamn i Azure AD. Mer information finns i [hantera anpassade domännamn](../users-groups-roles/domains-manage.md).
 
 - Om du har lokala versioner av Windows Server som du vill använda tillsammans med Azure Active Directory, se [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).

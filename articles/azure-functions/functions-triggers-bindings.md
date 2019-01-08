@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993835"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074561"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -674,6 +674,10 @@ I C# och andra .NET-språk, kan du använda ett viktigt bindning mönster, till 
 ## <a name="functionjson-file-schema"></a>Function.JSON filschemat
 
 Den *function.json* filschemat finns på [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Testa bindningar
+
+När du utvecklar funktioner lokalt, kan du testa dina bindningar som använder Visual Studio 2017 eller Visual Studio Code. Mer information finns i [strategier för att testa din kod i Azure Functions](functions-test-a-function.md). Du kan även anropa icke-HTTP-bindningar med hjälp av REST API: er. Mer information finns i [manuellt köra en icke HTTP-utlöst funktion](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Hantering av Bindningsfel
 

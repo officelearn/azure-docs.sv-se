@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231635"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063224"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Skapa variabler för att spara och hantera värden i Azure Logic Apps
 
@@ -28,7 +28,10 @@ Du kan skapa variabler för datatyper som heltal, flyttal, booleskt, sträng, ma
 * Tilldela variabeln ett annat värde.
 * Infoga eller *lägga till* variabelns värde som senast i en sträng eller en matris.
 
-Variabler finns och är globala endast inom den logic app-instansen där de skapas. De behåller dessutom, över alla loop iterationer inuti en logikappinstans. När du refererar till en variabel, kan du använda variabelns namn som token inte åtgärdens namn, vilket är vanligt att referera till en åtgärd utdata.
+Variabler finns och är globala endast inom den logic app-instansen där de skapas. De behåller dessutom, över alla loop iterationer inuti en logikappinstans. När du refererar till en variabel, kan du använda variabelns namn som token inte åtgärdens namn, vilket är vanligt att referera till en åtgärd utdata. 
+
+> [!IMPORTANT]
+> Som standard köras cykler i en ”Foreach”-loop parallellt. När du använder variabler i slingor kör loopen [sekventiellt](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) därför variabler returnerar förutsägbara resultat. 
 
 Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>. 
 
@@ -38,7 +41,7 @@ Om du vill följa den här artikeln, är här de objekt som du behöver:
 
 * Logikappen där du vill skapa en variabel 
 
-  Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * En [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts) som det första steget i din logikapp 
 
@@ -73,7 +76,7 @@ Du kan skapa en variabel och deklarera dess datatyp och ursprungsvärdet – all
    |----------|----------|-------|--------------|
    | Namn | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
    | Typ | Ja | <*typ av variabel*> | Datatypen för variabeln | 
-   | Värde | Nej | <*Start-värde*> | Det inledande värdet för variabeln <p><p>**Tips**: även om det är valfritt, anger du det här värdet som bästa praxis så att du alltid vet startvärdet för variabeln. | 
+   | Värde | Nej | <*Start-värde*> | Det inledande värdet för variabeln <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet startvärdet för variabeln. | 
    ||||| 
 
    ![Initiera variabel](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -208,7 +211,7 @@ Att öka eller *ökningen* en variabel med ett konstant värde, lägga till den 
    | Egenskap  | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
    | Namn | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
-   | Värde | Nej | <*öka värdet*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips**: även om det är valfritt, anger du det här värdet som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
+   | Värde | Nej | <*öka värdet*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
    |||| 
 
    Exempel: 
@@ -328,7 +331,7 @@ Här följer egenskaperna för den **minska variabel** åtgärd:
 | Egenskap  | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
 | Namn | Ja | <*variabeln-name*> | Namnet på variabeln för att minska | 
-| Värde | Nej | <*öka värdet*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips**: även om det är valfritt, anger du det här värdet som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
+| Värde | Nej | <*öka värdet*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
 ||||| 
 
 Om du växlar från designer till vyn Kodredigeraren här är sätt den **minska variabel** åtgärden visas i dina logic app-definition som är i JSON-format.

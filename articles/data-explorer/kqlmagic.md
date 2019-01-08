@@ -8,21 +8,22 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7152b1d09a11d5860d52b5f73ae601422bd0f722
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 179cc133e755a317c70b84acc95aafc61f4e0e68
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654500"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078175"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kqlmagic"></a>Analysera data med Jupyter-anteckningsbok och Kqlmagic
+
 Jupyter Notebook är ett webbprogram med öppen källkod som gör det möjligt att skapa och dela dokument med live-koden, formler, visualiseringar och löpande text. Användning innehåller Datarensning och transformering, numeriska simulering, statistisk modellering, datavisualisering och maskininlärning.
-[Jupyter Notebook](https://jupyter.org/) stöder magic funktioner som utökar funktionerna i kernel genom att stödja fler kommandon. Kqlmagic är en funktion som utökar funktionerna i Python-kerneln i Jupyter-anteckningsbok så att du kan köra Kusto query language-frågor internt. Du enkelt kombinera Python och Kusto frågespråk för att fråga och visualisera data med hjälp av omfattande Plot.ly bibliotek som är integrerad med `render` kommandon. Datakällor för att köra frågor som stöds. Dessa datakällor är bland annat Azure Data Explorer, en tjänst för Kunskapsutveckling för snabba och skalbara data för logg- och telemetri data, samt Log Analytics och Application Insights.
+[Jupyter Notebook](https://jupyter.org/) stöder magic funktioner som utökar funktionerna i kernel genom att stödja fler kommandon. Kqlmagic är ett kommando som utökar funktionerna i Python-kerneln i Jupyter-anteckningsbok så att du kan köra frågor med Kusto språk internt. Du enkelt kombinera Python och Kusto frågespråk för att fråga och visualisera data med hjälp av omfattande Plot.ly bibliotek som är integrerad med `render` kommandon. Datakällor för att köra frågor som stöds. Dessa datakällor är bland annat Azure Data Explorer, en tjänst för Kunskapsutveckling för snabba och skalbara data för logg- och telemetri data, samt Log Analytics och Application Insights. Kqlmagic fungerar även med Azure anteckningsböcker, Jupyter labb och Visual Studio Code Jupyter-tillägget.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 - Organisationens e-postkonto som är medlem av Azure Active Directory (AAD).
 - Jupyter Notebook installerad på den lokala datorn eller använda Azure-anteckningsböcker och klona exemplet [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
-
 
 ## <a name="install-kqlmagic-library"></a>Installera Kqlmagic biblioteket
 
@@ -31,8 +32,10 @@ Jupyter Notebook är ett webbprogram med öppen källkod som gör det möjligt a
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
+    > [!NOTE]
+    > När du använder Azure anteckningsböcker, krävs inte det här steget.
 
-2. Läs in Kqlmagic:
+1. Läs in Kqlmagic:
 
     ```python
     reload_ext Kqlmagic
@@ -41,7 +44,6 @@ Jupyter Notebook är ett webbprogram med öppen källkod som gör det möjligt a
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Ansluta till Azure Data Explorer hjälp-kluster
 
 Använd följande kommando för att ansluta till den *exempel* databasen finns på den *hjälpa* kluster. För icke - Microsoft AAD-användare, ersätter du klientnamnet `Microsoft.com` med AAD-klient.
-
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -54,8 +56,8 @@ Fråga data med hjälp av den [rendera operatorn](/azure/kusto/query/renderopera
 ### <a name="query-and-render-piechart"></a>Fråga efter och rendera piechart
 
 ```python
-%%kql 
-StormEvents 
+%%kql
+StormEvents
 | summarize statecount=count() by State
 | sort by statecount 
 | limit 10
@@ -75,6 +77,7 @@ StormEvents
 > Dessa diagram är interaktiva. Välj ett tidsintervall för att zooma in en viss tid.
 
 ### <a name="customize-the-chart-colors"></a>Anpassa Diagramfärger som
+
 Om du inte gillar standardfärgpaletten, anpassa de diagram med hjälp av paletten alternativ. Tillgängliga färgpalett finns här: [Välj färgpalett för Kqlmagic diagrammet frågeresultatet](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
 1. En lista över färgpalett:
@@ -87,16 +90,16 @@ Om du inte gillar standardfärgpaletten, anpassa de diagram med hjälp av palett
 
     ```python
     %%kql -palette_name "cool"
-    StormEvents 
+    StormEvents
     | summarize statecount=count() by State
-    | sort by statecount 
+    | sort by statecount
     | limit 10
     | render piechart title="My Pie Chart by State"
     ```
 
-## <a name="parametrize-a-query-with-python"></a>Parametrize en fråga med Python
+## <a name="parameterize-a-query-with-python"></a>Parameterisera en fråga med Python
 
-Kqlmagic möjliggör enkel utbytet mellan Kusto-frågespråk och Python. Mer information: [Parametrize Kqlmagic frågan med Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+Kqlmagic möjliggör enkel utbytet mellan Kusto-frågespråk och Python. Mer information: [Parameterisera Kqlmagic frågan med Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>Använd en Python-variabel i KQL frågan
 
@@ -115,7 +118,7 @@ StormEvents
 | render timechart title = "Trend"
 ```
 
-### <a name="convert-query-results-to-pandas-dataframe"></a>Konvertera frågeresultaten till Pandas-DataFrame 
+### <a name="convert-query-results-to-pandas-dataframe"></a>Konvertera frågeresultaten till Pandas-DataFrame
 
 Du kan komma åt resultaten av en KQL fråga i Pandas-DataFrame. Få åtkomst till de senast utförda frågeresultat av variabeln `_kql_raw_result_` och enkelt konvertera resultatet till Pandas-DataFrame på följande sätt:
 
@@ -124,7 +127,7 @@ df = _kql_raw_result_.to_dataframe()
 df.head(10)
 ```
 
-### <a name="example"></a>Exempel 
+### <a name="example"></a>Exempel
 
 I många scenarier för dataanalys, kanske du vill skapa återanvändbara anteckningsböcker som innehåller många frågor och skicka resultaten från en fråga till efterföljande frågor. I exemplet nedan används Python-variabeln `statefilter` att filtrera data.
 
@@ -132,7 +135,7 @@ I många scenarier för dataanalys, kanske du vill skapa återanvändbara anteck
 
     ```python
     %%kql
-    StormEvents 
+    StormEvents
     | summarize max(DamageProperty) by State
     | order by max_DamageProperty desc
     | limit 10
@@ -152,25 +155,22 @@ I många scenarier för dataanalys, kanske du vill skapa återanvändbara anteck
     %%kql
     let _state = statefilter;
     StormEvents 
-    | where State in (_state) 
+    | where State in (_state)
     | summarize statecount=count() by bin(StartTime,1d), State
     | render timechart title = "Trend"
     ```
 
-1. Köra hjälpkommandot: 
+1. Köra hjälpkommandot:
 
     ```python
     %kql --help "help"
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-    
+
 Kör hjälpkommandot för att utforska följande exempelanteckningsböcker som innehåller alla funktioner som stöds:
 - [Kom igång med Kqlmagic för Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Kom igång med Kqlmagic för Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
 - [Kom igång med Kqlmagic för Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Parametrize Kqlmagic frågan med Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Välj färgpalett för Kqlmagic diagrammet frågeresultatet](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
-
-
-

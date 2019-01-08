@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: c37676a32dd1fb58c1ac03640ff0bbfbdc3f7d8f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2467da8d5a87a3a9325b807aec48c584ab0197cb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972899"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079110"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -64,18 +64,6 @@ För att slutföra den här självstudien behöver du:
 - Se till att de datorer som du vill replikera följer [replikerade datorn support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
-## <a name="create-a-vault"></a>Skapa ett valv
-
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
-## <a name="choose-a-protection-goal"></a>Välja ett skyddsmål
-
-Välj vad som ska replikera och var du vill replikera den till.
-
-1. Klicka på **Site Recovery** > **förbereda infrastrukturen** > **skyddsmål**.
-2. Välj **till återställningsplats** > **Ja, med VMware vSphere Hypervisor**. Klicka sedan på **OK**.
-3. I **Scout installationsprogrammet**, ladda ned InMage Scout 8.0.1 GA-programvara och nyckel för tjänstregistrering. Filer för installationsprogrammet för alla komponenter som ingår i den hämtade ZIP-fil.
-
 ## <a name="download-and-install-component-updates"></a>Hämta och installera Komponentuppdateringar
 
  Granska och installera senast [uppdateringar](#updates). Uppdateringar ska installeras på servrar i följande ordning:
@@ -86,6 +74,108 @@ Välj vad som ska replikera och var du vill replikera den till.
 4. Master Target-servrar
 5. vContinuum-servrar
 6. Källservern (både Windows och Linux-servrar)
+
+Installera uppdateringar på följande sätt:
+
+> [!NOTE]
+>Alla Scout-komponenterna filversion uppdatering kanske inte är samma i update .zip-filen. Den äldre versionen betyda att det finns ingen ändring i komponenten sedan tidigare uppdateringen till den här uppdateringen.
+
+Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen. Filen innehåller alla base binärfiler och ackumulerad uppgradering binärfilerna för följande komponenter: 
+  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
+  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+1. Extrahera .zip-filer.
+2. **RX server**: Kopiera **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** till RX-servern och extrahera den. I den extrahera mappen kör **/Install**.
+3. **Konfigurationsservern och processervern**: Kopiera **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** till konfigurationsservern och processervern. Dubbelklicka för att köra den.<br>
+4. **Windows-huvudmålservern**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för helt ny installation. Samma enhetlig agentuppdatering gäller även för källservern.
+  Uppdateringen behöver inte tillämpa på Huvudmålservern mål förbereds med **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** eftersom det här är den nya GA installer med de senaste ändringarna.
+5. **vContinuum-server**:  Kopiera **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern.  Kontrollera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
+6. **Linux huvudmålserver**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** till Linux Master Target-servern och extrahera den. I den extrahera mappen kör **/Install**.
+7. **Windows-källservern**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till källservern. Dubbelklicka på filen för att köra den. 
+8. **Linux-källservern**: Kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
+9. När du har uppgraderat konfigurationsservern, Processervern och RX-server med de ovan nämnda installationsprogram, PHP och MySQL-bibliotek måste uppgraderas manuellt med stegen i den [avsnittet](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+
+## <a name="enable-replication"></a>Aktivera replikering
+
+1. Konfigurera replikering mellan källa och mål VMware-webbplatser.
+2. Se följande dokument för mer information om installation, skydd och återställning:
+
+   * [Viktig information](https://aka.ms/asr-scout-release-notes)
+   * [Kompatibilitetsöversikten](https://aka.ms/asr-scout-cm)
+   * [Användarhandbok](https://aka.ms/asr-scout-user-guide)
+   * [Användarhandbok för RX](https://aka.ms/asr-scout-rx-user-guide)
+   * [Snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide)
+   * [Uppgradera MYSQL och PHP-bibliotek](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+
+## <a name="updates"></a>Uppdateringar
+
+### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 uppdatering 7 
+Uppdaterad: Ladda ned den 31 december 2018 [Scout uppdatering 7](https://aka.ms/asr-scout-update7).
+Scout uppdatering 7 är en fullständig installer som kan användas för nyinstallation samt att uppgradera befintliga agenter/MT på tidigare uppdateringar (från Update 1 till uppdatering 6). Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 6 plus de nya korrigeringar och förbättringar som beskrivs nedan.
+ 
+#### <a name="new-features"></a>Nya funktioner
+* PCI-efterlevnad
+* TLS version 1.2-stöd
+
+#### <a name="bug-and-security-fixes"></a>Programfel och säkerhetskorrigeringar
+* Åtgärdat: Windows kluster/fristående datorer har felaktig IP-konfiguration vid återställning/DR-test.
+* Åtgärdat: Lägg till disk åtgärden misslyckas ibland för V2V-kluster.
+* Åtgärdat: vContinuum guiden fastnar under fasen för återställning om Huvudmålet är Windows Server 2016
+* Åtgärdat: Säkerhetsproblem för MySQL-skriptkommandot genom att uppgradera MySQL till version 5.7.23
+
+#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Manuell uppgradering för PHP och MySQL på CS, PS och RX
+PHP-skriptplattform bör uppgraderas till version 7.2.10 på konfigurationsservern, Processervern och RX-Server.
+MySQL-databashanteringssystem bör uppgraderas till version 5.7.23 på konfigurationsservern, Processervern och RX-Server.
+Följ manaual stegen i den [snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide) till uppgraderingar PHP och MySQL.
+
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 uppdatering 6 
+Uppdaterad: 12 oktober 2017
+
+Ladda ned [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
+
+Scout uppdatering 6 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 5 plus de nya korrigeringar och förbättringar som beskrivs nedan. 
+
+#### <a name="new-platform-support"></a>Stöd för nya plattformar
+* Stöd har lagts till för källa Windows Server 2016
+* Stöd har lagts till för följande Linux-operativsystem:
+    - Red Hat Enterprise Linux (RHEL) 6,9
+    - CentOS 6,9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* Stöd har lagts till för VMware Center 6.5
 
 Installera uppdateringar på följande sätt:
 
@@ -111,34 +201,6 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update6) .zip-filen. Filen in
     Du behöver inte installera uppdatering 5-agenten på källservern om den redan har uppdaterats till uppdatering 4 eller källagent installeras med installationsprogrammet för senaste grundläggande **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
 8. **Linux-källservern**: Kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
 
-## <a name="enable-replication"></a>Aktivera replikering
-
-1. Konfigurera replikering mellan källa och mål VMware-webbplatser.
-2. Se följande dokument för mer information om installation, skydd och återställning:
-
-   * [Viktig information](https://aka.ms/asr-scout-release-notes)
-   * [Kompatibilitetsöversikten](https://aka.ms/asr-scout-cm)
-   * [Användarhandbok](https://aka.ms/asr-scout-user-guide)
-   * [Användarhandbok för RX](https://aka.ms/asr-scout-rx-user-guide)
-   * [Snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide)
-
-## <a name="updates"></a>Uppdateringar
-
-### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 uppdatering 6 
-Uppdaterad: 12 oktober 2017
-
-Ladda ned [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
-
-Scout uppdatering 6 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 5 plus de nya korrigeringar och förbättringar som beskrivs nedan. 
-
-#### <a name="new-platform-support"></a>Stöd för nya plattformar
-* Stöd har lagts till för källa Windows Server 2016
-* Stöd har lagts till för följande Linux-operativsystem:
-    - Red Hat Enterprise Linux (RHEL) 6,9
-    - CentOS 6,9
-    - Oracle Linux 5.11
-    - Oracle Linux 6.8
-* Stöd har lagts till för VMware Center 6.5
 
 > [!NOTE]
 > * Grundläggande Unified Agent(UA) installationsprogrammet för Windows har uppdaterats till support för Windows Server 2016. Det nya installationsprogrammet **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Samma installationsprogrammet ska användas för alla Windows-version som stöds. 

@@ -12,21 +12,21 @@ ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 405e86506f13472886878eb18557121c752e9464
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092238"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062306"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Ta bort en grupp med Azure Active Directory
 Du kan ta bort en grupp för Azure Active Directory (AD Azure) till många olika orsaker, men vanligtvis det kommer att du:
 
-- Ange ett felaktigt sätt den **grupptyp** till fel alternativ
+- Ange ett felaktigt sätt den **grupptyp** till fel alternativ.
 
-- Skapat felaktigt eller en dublettgrupp av misstag 
+- Skapa fel eller en dublettgrupp av misstag. 
 
-- Inte längre behöver gruppen
+- Behöver inte längre i gruppen.
 
 ## <a name="to-delete-a-group"></a>Ta bort en grupp
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.

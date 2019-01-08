@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 088d8155fda6c370d89cded516bfa6c174c9380a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8b3b28d2bf7fc75b9f70d145290af1edf44c94f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438039"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063203"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
 Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
@@ -186,6 +186,21 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+I exemplet ovan regexDelimiter har definierats som ”\\n” för ny rad. Log avgränsare kanske också är en tidsstämpel.  Det här är format som stöds:
+
+| Format | JSON RegEx-formatet använder två \\ för varje \ i en standard RegEx om testning i en app för RegEx minska \\ till \ |
+| --- | --- |
+| ÅÅÅÅ-MM-DD: MM: SS | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\d)) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| M/D/ÅÅÅÅ HH: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9]) / (([0-3]\\\\d)\|(\\\\d)) / ((\\\\d{2})\|() \\ \\d{4}))\\\\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])): [0-5] [0-9]: [ 0-5] [0-9]\\\\s (AM\|PM\|är\|pm) |
+| dd/mm/åååå: mm: ss | ((([0-3]\\\\d)\|(\\\\d)) / (Jan\|Feb\|Mar\|maj\|Apr\|Jul\|Jun\|Aug\|okt\|Sep\|Nov\|Dec\|jan\|feb\|mar\|kan\|apr\|jul\|jun\|aug\|okt\|sep\|nov\|dec) / ((\\\\d{2})\|(\\\\d{4})) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
+| MMM dd-åååå: mm: ss | (((?: Jan(?:uary)? \|Feb(?:ruary)? \|Mar(?:ch)? \|Apr(?:il)? \|Kan\|Jun(?:e)?\| Jul(?:y)? \|Aug(?:ust)? \|Sep(?:tember)? \|Sept\|Oct(?:o ber)? \|Nov(?:ember)? \|Dec(?:ember)?)). *? ((?: (?: [0-2]? \\ \\d{1})\|(?: [3] [01]{1}))) (?! [\\\\d]).* ? ((?: (?: [1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?: [2]{1} \\ \\d{3}))) (?! [\\\\d]). *? ((?: (?: [0-1][0-9])\|(?: [2][0-3])\|(?: [0-9])):(?:[0-5][0-9])(?::[0-5][0-9])? (?:\\\\s? (?: am\|AM\|pm\|PM))?)) |
+| ååmmdd: mm: ss | ([0-9]{2}([0] [1 – 9]\|[1][0-2]) ([0-2] [0-9]\|[3][0-1])\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| ddMMyy: mm: ss | (([0-2] [0-9]\|[3][0-1]) ([0] [1 – 9]\|[1][0-2]) [0-9]{2}\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| MMM d: mm: ss | (Jan\|Feb\|Mar\|Apr\|kan\|Jun\|Jul\|Aug\|Sep\|okt\|Nov\|Dec)\\ \\s\\\\s? () [0]? [1 – 9] \|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0-1]? [ 0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
+| MMM d: mm: ss<br> två blanksteg efter MMM | (Jan\|Feb\|Mar\|Apr\|kan\|Jun\|Jul\|Aug\|Sep\|okt\|Nov\|Dec)\\ \\s\\\\s ([0]? [ 1 – 9]\|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| MMM d: mm: ss | (Jan\|Feb\|Mar\|Apr\|kan\|Jun\|Jul\|Aug\|Sep\|okt\|Nov\|Dec)\\ \\s ([0]? [ 1 – 9]\|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| dd/mm/yyyy:HH:mm:ss + zzzz<br> där + är + eller -<br> där zzzz tidsförskjutning | (([0-2] [1 – 9]\|[3][0-1])\\\\/ (Jan\|Feb\|Mar\|Apr\|maj\|Jun\|Jul\|Aug\|Sep \|Okt\|Nov\|Dec)\\\\/((19\|20) [0-9] [0-9]): ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\ \\s [\\\\+\|\\\\-] [0-9]{4}) |
+| åååå-MM-ddTHH<br> T är en literal bokstaven T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\d)) T ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Konfigurera Log Analytics för att indexera Azure-diagnostik
 För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till Log Analytics och kräver inte data som ska skrivas till ett lagringskonto. Resurser som stöds är:

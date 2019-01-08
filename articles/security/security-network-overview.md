@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548933"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065689"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
@@ -104,7 +104,7 @@ Du kan till exempel har en virtuell nätverkssäkerhetsinstallation i det virtue
 
 [Tvingad tunneltrafik](https://www.petri.com/azure-forced-tunneling) är en mekanism som du kan använda för att säkerställa att dina tjänster inte tillåts att initiera en anslutning till enheter på internet. Observera att detta skiljer sig från att acceptera inkommande anslutningar och sedan svara på dem. Frontend-webbservrar måste svara på begäranden från internet-värdar och så internet källkod trafik tillåts inkommande till dessa webbservrar och webbservrarna ska kunna svara.
 
-Vad du verkar t vill tillåta är en klientwebbserver för att starta en utgående begäran. Sådana begäranden kan representera en säkerhetsrisk eftersom dessa anslutningar kan användas för att hämta skadlig kod. Även om du vill att dessa frontservrar initierar utgående begäranden till internet, kan du tvinga dem att gå igenom dina lokala webbproxyservrar. På så sätt kan du dra nytta av URL-filtrering och loggning.
+Vad du inte vill tillåta är en klientwebbserver för att starta en utgående begäran. Sådana begäranden kan representera en säkerhetsrisk eftersom dessa anslutningar kan användas för att hämta skadlig kod. Även om du vill att dessa frontservrar initierar utgående begäranden till internet, kan du tvinga dem att gå igenom dina lokala webbproxyservrar. På så sätt kan du dra nytta av URL-filtrering och loggning.
 
 I stället kan du använda Tvingad tunneltrafik för att förhindra detta. När du aktiverar Tvingad tunneltrafik kan tvingas alla anslutningar till internet via en lokal gateway. Du kan konfigurera Tvingad tunneltrafik genom att utnyttja udr: er.
 
@@ -127,7 +127,7 @@ Till exempel kan dina säkerhetskrav innehålla:
 * Åtkomstkontroll för programmet
 * Ytterligare DDoS-skydd (ovanför DDoS-skydd som tillhandahålls av Azure-strukturen själva)
 
-Du kan komma åt de här förbättrade funktioner för nätverkssäkerhet med hjälp av en Azure-partner-lösning. Du hittar det senaste Azure-partner-nätverket säkerhetslösningar genom att besöka den [Azure Marketplace](https://azure.microsoft.com/marketplace/), och söka efter säkerhets- och nätverkssäkerhet.
+Du kan komma åt de här förbättrade funktioner för nätverkssäkerhet med hjälp av en Azure-partner-lösning. Du hittar det senaste Azure-partner-nätverket säkerhetslösningar genom att besöka den [Azure Marketplace](https://azure.microsoft.com/marketplace/), och söka efter ”säkerhet” och ”nätverkssäkerhet”.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -171,7 +171,7 @@ Läs mer:
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Ansluta ditt lokala nätverk till ett virtuellt nätverk med en VPN-anslutning
 
-Du kanske vill ansluta hela företagsnätverket, eller delar av det, till ett virtuellt nätverk. Detta är vanligt i hybrid-IT scenarier där organisationer [utöka sina lokala datacenter till Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). I många fall vara delar av en tjänst i Azure, och delar en lokal värd för organisationer. De kan till exempel göra det när en lösning innehåller frontend-webbservrar i Azure och backend-databaser på plats. Dessa typer av anslutningar mellan platser också göra hantering av Azure finns resurser blir säkrare och aktivera scenarier, till exempel utöka Active Directory-domänkontrollanter i Azure.
+Du kanske vill ansluta hela företagsnätverket, eller delar av det, till ett virtuellt nätverk. Detta är vanligt i hybrid-IT scenarier där organisationer [utöka sina lokala datacenter till Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). I många fall vara delar av en tjänst i Azure, och delar en lokal värd för organisationer. De kan till exempel göra det när en lösning innehåller frontend-webbservrar i Azure och backend-databaser på plats. Dessa typer av ”anslutningar på flera platser” också göra hantering av Azure finns resurser blir säkrare och aktivera scenarier, till exempel utöka Active Directory-domänkontrollanter i Azure.
 
 Ett sätt att åstadkomma detta är att använda en [plats-till-plats VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). Skillnaden mellan en plats-till-plats-VPN och en punkt-till-plats-VPN är att det senare ansluter en enhet till ett virtuellt nätverk. En plats-till-plats-VPN ansluter hela nätverket (till exempel ditt lokala nätverk) till ett virtuellt nätverk. Plats-till-plats VPN: er till ett virtuellt nätverk använder mycket säkra IPSec-tunnelläge VPN-protokoll.
 
@@ -199,7 +199,7 @@ Läs mer:
 
 Det är möjligt att använda flera virtuella nätverk för dina distributioner. Det finns olika orsaker till varför du kan göra detta. Du kanske vill förenkla hanteringen eller du ökad säkerhet. Oavsett skälet till att placera resurser på olika virtuella nätverk, kan det finnas tillfällen när du vill att resurser på var och en av de nätverk som ska anslutas till varandra.
 
-Ett alternativ är för tjänster på ett virtuellt nätverk för att ansluta till tjänster på ett annat virtuellt nätverk genom att loopa tillbaka via internet. Anslutningen startar på ett virtuellt nätverk, går via internet och sedan kommer tillbaka till det virtuella nätverket för målet. Det här alternativet visar anslutningen till säkerhetsfrågorna i alla internet-baserad kommunikation.
+Ett alternativ är för tjänster på ett virtuellt nätverk för att ansluta till tjänster på ett annat virtuellt nätverk genom att ”loopa tillbaka” via internet. Anslutningen startar på ett virtuellt nätverk, går via internet och sedan kommer tillbaka till det virtuella nätverket för målet. Det här alternativet visar anslutningen till säkerhetsfrågorna i alla internet-baserad kommunikation.
 
 Ett bättre alternativ kan vara att skapa en plats-till-plats-VPN som ansluter mellan två virtuella nätverk. Den här metoden använder samma [IPSec-tunnelläge](https://technet.microsoft.com/library/cc786385.aspx) protokoll som nämns ovan mellan lokala plats-till-plats VPN-anslutningen.
 
@@ -213,7 +213,7 @@ Ett annat sätt att ansluta dina virtuella nätverk är [VNET-peering](../virtua
 
 ## <a name="availability"></a>Tillgänglighet
 
-Tillgänglighet är en viktig del av alla säkerhetsprogram. Om dina användare och system kan inte komma åt vad de behöver att komma åt över nätverket, tjänsten kan ses äventyras. Azure har nätverkstekniker som har stöd för följande mekanismer för hög tillgänglighet:
+Tillgänglighet är en viktig del av alla säkerhetsprogram. Om dina användare och system inte kan komma åt vad de behöver att komma åt över nätverket, tjänsten kan ses äventyras. Azure har nätverkstekniker som har stöd för följande mekanismer för hög tillgänglighet:
 
 * HTTP-baserade belastningsutjämning
 * Nivå för belastningsutjämning
@@ -222,7 +222,7 @@ Tillgänglighet är en viktig del av alla säkerhetsprogram. Om dina användare 
 Utjämning av nätverksbelastning är en mekanism som utformats för att fördela jämnt anslutningar mellan flera enheter. Målen för Utjämning av nätverksbelastning är:
 
 * Att öka tillgängligheten. När du läser in saldo anslutningar på flera enheter, kan en eller flera av enheterna som vara tillgänglig utan att kompromissa med tjänsten. De tjänster som körs på de återstående online enheterna kan fortsätta att leverera innehåll från tjänsten.
-* Att öka prestandan. När du läser in saldo anslutningar på flera enheter en enskild enhet har hantera all bearbetning. I stället och minnesresurser kraven för att betjäna innehållet är fördelade på flera enheter.
+* Att öka prestandan. När du läser in saldo anslutningar på flera enheter har inte en enskild enhet att hantera all bearbetning. I stället och minnesresurser kraven för att betjäna innehållet är fördelade på flera enheter.
 
 ### <a name="http-based-load-balancing"></a>HTTP-baserade belastningsutjämning
 
@@ -231,7 +231,7 @@ Organisationer som kör webbaserade tjänster ofta vilja ha en HTTP-baserad bela
 Azure Application Gateway erbjuder belastningsutjämning för dina webbtjänster i HTTP-baserade. Application Gateway stöder:
 
 * Cookie-baserad sessionstillhörighet. Den här funktionen ser till att anslutningar till en av servrarna bakom den belastningsutjämnaren förblir intakta mellan klienten och servern. Detta säkerställer stabiliteten för transaktioner.
-* SSL-avlastning. När en klient ansluter med belastningsutjämnaren, är den aktuella sessionen krypterad med hjälp av HTTPS (SSL)-protokollet. För att öka prestanda använda du dock HTTP (okrypterat)-protokollet för att ansluta mellan belastningsutjämnare och webbservern bakom belastningsutjämnaren. Detta kallas SSL-avlastning, eftersom webbservrar bakom load balancer don t uppleva processor arbetet med kryptering. Webbservrar kan därför hanterar begäranden snabbt.
+* SSL-avlastning. När en klient ansluter med belastningsutjämnaren, är den aktuella sessionen krypterad med hjälp av HTTPS (SSL)-protokollet. För att öka prestanda använda du dock HTTP (okrypterat)-protokollet för att ansluta mellan belastningsutjämnare och webbservern bakom belastningsutjämnaren. Detta kallas ”SSL-avlastning”, eftersom webbservrar bakom belastningsutjämnaren inte stöter på processor arbetet med kryptering. Webbservrar kan därför hanterar begäranden snabbt.
 * URL-baserad innehållsroutning. Den här funktionen gör det möjligt för belastningsutjämnaren för att fatta beslut om var du vill vidarebefordra anslutningar baserat på mål-URL. Detta ger mycket bättre flexibilitet än lösningar som gör att läsa in belastningsutjämning beslut baserat på IP-adresser.
 
 Läs mer:
@@ -256,7 +256,7 @@ Läs mer:
 
 ### <a name="global-load-balancing"></a>Global belastningsbalansering
 
-Vissa organisationer vill det möjligt för högsta möjliga tillgänglighet. Ett sätt att nå detta mål är att hantera program i globalt distribuerade datacenter. När ett program finns i datacenter runtom i världen det möjligt för en hel geopolitiska region blir otillgänglig och fortfarande har programmet igång s.
+Vissa organisationer vill det möjligt för högsta möjliga tillgänglighet. Ett sätt att nå detta mål är att hantera program i globalt distribuerade datacenter. När ett program finns i datacenter runtom i världen, är det möjligt för en hel geopolitiska region blir otillgänglig och fortfarande ha programmet upp och körs.
 
 Den här strategin för belastningsutjämning kan även ge prestandafördelarna. Du kan dirigera begäranden för tjänsten till de datacenter som ligger närmast den enhet som ansvarar för att göra begäran.
 
@@ -268,11 +268,11 @@ Läs mer:
 
 ## <a name="name-resolution"></a>Namnmatchning
 
-Namnmatchningen är en viktig funktion för alla tjänster du ha i Azure. Från ett säkerhetsperspektiv kan kompromettering av funktionen name resolution leda till en angripare omdirigera begäranden från dina webbplatser till en angripare s-plats. Säker namnmatchningen är ett krav för alla dina tjänster i molnet.
+Namnmatchningen är en viktig funktion för alla tjänster du ha i Azure. Från ett säkerhetsperspektiv kan kompromettering av funktionen name resolution leda till en angripare omdirigera begäranden från dina webbplatser till en angripares webbplats. Säker namnmatchningen är ett krav för alla dina tjänster i molnet.
 
 Det finns två typer av namnmatchning som du måste uppfylla:
 
-* Intern namnmatchning. Det här används av tjänsterna i ditt virtuella nätverk eller den lokala nätverk. Namn som används för intern namnmatchning är inte tillgängliga via internet. För optimal säkerhet den s som är viktigt att dina interna namnet lösning schema inte är tillgänglig för externa användare.
+* Intern namnmatchning. Det här används av tjänsterna i ditt virtuella nätverk eller den lokala nätverk. Namn som används för intern namnmatchning är inte tillgängliga via internet. För optimal säkerhet är det viktigt att dina interna namnet lösning schema inte är tillgänglig för externa användare.
 * Externa namnmatchning. Detta används av personer och enheter utanför ditt lokala nätverk och virtuella nätverk. Det här är de namn som är synlig på internet och som används för att dirigera anslutning till dina molnbaserade tjänster.
 
 För intern namnmatchning har du två alternativ:
@@ -292,7 +292,7 @@ För externa namnmatchning har du två alternativ:
 
 Stora organisationer vara värd för sina egna DNS-servrar på plats. De kan göra detta eftersom de har nätverk expertis och global närvaro gör.
 
-I de flesta fall är det bättre att vara värd för din DNS s namnlösningstjänster med en tjänstleverantör. Dessa leverantörer har nätverk expertis och global närvaro så mycket hög tillgänglighet för din tjänst. Tillgänglighet är nödvändigt för DNS-tjänster, eftersom om din namnmatchningstjänster misslyckas, ingen kommer att kunna nå tjänster som riktas mot internet.
+I de flesta fall är det bättre att vara värd för dina DNS-tjänst med en tjänstleverantör. Dessa leverantörer har nätverk expertis och global närvaro så mycket hög tillgänglighet för din tjänst. Tillgänglighet är nödvändigt för DNS-tjänster, eftersom om din namnmatchningstjänster misslyckas, ingen kommer att kunna nå tjänster som riktas mot internet.
 
 Azure ger dig en hög tillgänglighet och hög prestanda externa DNS-lösning i form av Azure DNS. Den här lösningen för matchning av externa namn drar nytta av över hela världen Azure DNS-infrastrukturen. Det kan du använda din domän i Azure, med samma autentiseringsuppgifter, API: er, verktyg och fakturering som för dina andra Azure-tjänster. Som en del av Azure ärver även de starka säkerhetskontroller som är inbyggd i plattformen.
 
@@ -303,7 +303,7 @@ Läs mer:
 
 ## <a name="perimeter-network-architecture"></a>Nätverksarkitektur i perimeternätverket
 
-Stora organisationer använda perimeternätverk för att segmentera sina nätverk och skapa buffertzoner mellan internet och sina tjänster. Perimeter-delen av nätverket anses en zon med låg säkerhet och inga värdefulla tillgångar är placerade i det nätverkssegmentet. Du lla finns vanligtvis i security nätverksenheter som har ett nätverksgränssnitt i perimeternätverket nätverkssegment. Ett annat nätverksgränssnitt är ansluten till ett nätverk som har virtuella datorer och tjänster som tar emot inkommande anslutningar från internet.
+Stora organisationer använda perimeternätverk för att segmentera sina nätverk och skapa buffertzoner mellan internet och sina tjänster. Perimeter-delen av nätverket anses en zon med låg säkerhet och inga värdefulla tillgångar är placerade i det nätverkssegmentet. Normalt ser du security nätverksenheter som har ett nätverksgränssnitt i perimeternätverket nätverkssegment. Ett annat nätverksgränssnitt är ansluten till ett nätverk som har virtuella datorer och tjänster som tar emot inkommande anslutningar från internet.
 
 Du kan utforma perimeternätverk i ett antal olika sätt. Beslut att distribuera ett perimeternätverk och vilken typ av perimeternätverket nätverk ska användas om du vill använda en, beror på dina krav på säkerhet.
 
@@ -313,7 +313,7 @@ Läs mer:
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 
-Distribuerade överbelastningsattacker (DDoS) är några av de största tillgänglighets- och säkerhetsproblemen för kunder som flyttar sina program till molnet. DDoS-attacker försöker att få slut på ett program s resurser som gör programmet tillgängligt för behöriga användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
+Distribuerade överbelastningsattacker (DDoS) är några av de största tillgänglighets- och säkerhetsproblemen för kunder som flyttar sina program till molnet. DDoS-attacker försöker att få slut på ett programs resurser, som gör programmet tillgängligt för behöriga användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
 Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del av Azure-plattformen. Detta kommer utan kostnad och omfattar alltid på övervaknings- och i realtid minskning av vanliga på nätverksnivå. Förutom de skydd som ingår i DDoS protection **grundläggande** kan du aktivera den **Standard** alternativet. DDoS Protection standardfunktioner omfattar:
 
 * **Inbyggd plattformsintegrering:** Inbyggt i Azure. Innehåller konfiguration via Azure portal. DDoS Protection Standard förstår dina resurser och resurskonfigurationer.
@@ -321,10 +321,10 @@ Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del 
 * **Ständigt aktiverad övervakning:** Din mönster i programtrafiken övervakas 24 timmar per dag, 7 dagar i veckan letar du efter indikatorer för DDoS-attacker. Minskning utförs när appskyddsprinciper överskrids.
 * **Angrepp minskning rapporter** Attack minskning rapporter använder aggregerade flow nätverksdata som ger detaljerad information om attacker som är riktad mot dina resurser.
 * **Angrepp minskning Flow loggar** Attack minskning Flow loggar kan du granska förlorad trafik vidarebefordras trafiken och andra attacker data i realtid under ett pågående DDoS-angrepp.
-* **Anpassningsbar justering:** Intelligent trafik profilering lär sig dina program s trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden. Nivå 3 till nivå 7-skydd: Ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
+* **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden. Nivå 3 till nivå 7-skydd: Ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
 * **Omfattande minskning skala:** Över 60 olika angreppstyper kan undvikas med globala kapacitet att skydda mot största kända DDoS-attacker.
 * **Attack mått:** Summerade mått från varje attack är tillgängliga via Azure Monitor.
-* **Attack varning:** Aviseringar kan konfigureras vid start och stopp av ett angrepp, och under attack s, med hjälp av inbyggda attack mätvärden. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
+* **Attack varning:** Aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
 * **Kostnad garanti:**  Överföring av replikeringsdata och programmet skalbar servicekrediter för dokumenterad DDoS-attacker.
 * **DDoS snabba dynamiska** DDoS Protection Standard-kunder har nu tillgång till Rapid Response team under ett pågående angrepp. DRR kan hjälpa dig med attack undersökningar, anpassade åtgärder under en attack och efter attack analys.
 

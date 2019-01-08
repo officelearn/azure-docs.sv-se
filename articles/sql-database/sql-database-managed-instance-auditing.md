@@ -9,28 +9,29 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b295f7a2a454e3987e8639814f785b7457dd452b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973102"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063887"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanterad instans-granskning
 
 [Azure SQL Database Managed Instance](sql-database-managed-instance.md) granskning spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
+
 - Hjälper dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
 - Aktiverar och underlättar infört efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-
-## <a name="set-up-auditing-for-your-server"></a>Konfigurera granskning för din server
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Konfigurera granskning för din server till Azure Storage 
 
 I följande avsnitt beskrivs konfigurationen av granskning på din hanterade instans.
+
 1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Följande steg skapar ett Azure Storage **behållare** där granskningsloggar lagras.
 
@@ -124,15 +125,69 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
     GO
     ```
 
-## <a name="analyze-audit-logs"></a>Analysera granskningsloggar
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Konfigurera granskning för din server och Event Hub eller Log Analytics
+
+Granskningsloggar från en hanterad instans kan skickas till och med hubbar eller Log Analytics med Azure Monitor. Det här avsnittet beskrivs hur du konfigurerar detta:
+
+1. Navigera i den [Azure-portalen](https://portal.azure.com/) till SQL-hanterad instans.
+
+2. Klicka på **diagnostikinställningar**.
+
+3. Klicka på **slå på diagnostik**. Om diagnostik är redan aktiverad i *+ Lägg till diagnostikinställning* visas i stället.
+
+4. Välj **SQLSecurityAuditEvents** i listan över loggar.
+
+5. Välj ett mål för granskningshändelser - Event Hub, Log Analytics eller båda. Konfigurera för varje mål de obligatoriska parametrarna (t.ex. Log Analytics-arbetsytan).
+
+6. Klicka på **Spara**.
+
+  ![Navigeringsfönster][9]
+
+7. Ansluta till den hanterade instansen med hjälp av **SQL Server Management Studio (SSMS)** eller någon annan klient som stöds.
+
+8. Kör följande T-SQL-instruktion för att skapa en servergranskning:
+
+    ```SQL
+    CREATE SERVER AUDIT [<your_audit_name>] TO EXTERNAL_MONITOR;
+    GO
+    ```
+
+9. Skapa en granskningsspecifikation för servern eller databasgranskningsspecifikation precis som för SQL Server:
+
+   - [Skapa Server audit specification T-SQL-guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Skapa databas audit specification T-SQL-guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+10. Aktivera servergranskning skapade i steg 7:
+ 
+    ```SQL
+    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    GO
+    ```
+
+## <a name="consume-audit-logs"></a>Använd granskningsloggar
+
+### <a name="consume-logs-stored-in-azure-storage"></a>Använda loggar som lagras i Azure Storage
+
 Det finns flera metoder som du kan använda för att visa blob granskningsloggar.
 
 - Använd systemfunktionen `sys.fn_get_audit_file` (T-SQL) att returnera granskningsloggdata i tabellformat. Mer information om hur du använder den här funktionen finns i den [sys.fn_get_audit_file dokumentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
+- Med hjälp av ett verktyg som Azure Storage Explorer kan du utforska granskningsloggar. Granskningsloggarna sparas i Azure storage som en samling av blobfiler i en behållare med namnet sqldbauditlogs. Mer information om hierarkin för mappen storage finns namngivningskonventioner och loggformat, i Blob Audit Log Format referens.
+
 - En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
-> Metoden för visning av granskningsposter från Azure portal (”granskningsposter”-rutan) är inte tillgänglig för hanterad instans.
+> Visning av granskningsposter från Azure portal (”granskningsposter”-rutan) är inte tillgänglig för hanterad instans.
+
+### <a name="consume-logs-stored-in-event-hub"></a>Använda loggar som lagras i Event Hub
+
+Om du vill använda granskning loggar data från Event Hub, behöver du ställer in en dataström som förbrukar händelser och skriva dem till ett mål. Mer information finns i dokumentation om Azure Event Hubs.
+
+### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Använda och analysera loggar som lagras i Log Analytics
+
+Om granskningsloggarna skrivs till Log Analytics, är de tillgängliga i Log Analytics-arbetsyta där du kan köra avancerade sökningar på granskningsdata. Som en startpunkt, navigera till Log Analytics och under *Allmänt* avsnittet klickar du på *loggar* och ange en enkel fråga, till exempel: `search "SQLSecurityAuditEvents"` att visa granskningen loggar.  
+
+Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 ## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Granskning skillnaderna mellan hanterad instans, Azure SQL Database och SQL Server
 
@@ -145,22 +200,17 @@ De viktigaste skillnaderna mellan SQL-granskning på hanterad instans, Azure SQL
 XEvent granskning i Managed Instance stöder prestandamål i Azure blob storage. Fil- och windows-loggar är **stöds inte**.
 
 Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob storage är:
+
 - En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där de `.xel` filerna är placerade.
+- En ny syntax `TO EXTERNAL MONITOR` är tillgänglig för att även Hub och Log Analytics-mål.
 - Syntaxen `TO FILE` är **stöds inte** eftersom hanterad instans inte kan komma åt Windows-filresurser.
 - Stäng av alternativet är **stöds inte**.
 - `queue_delay` 0 är **stöds inte**.
-
 
 ## <a name="next-steps"></a>Nästa steg
 
 - En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 - Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
-
-
-<!--Anchors-->
-[Set up auditing for your server]: #subheading-1
-[Analyze audit logs]: #subheading-2
-[Auditing differences between Managed Instance, Azure SQL DB and SQL Server]: #subheading-3
 
 <!--Image references-->
 [1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
@@ -171,3 +221,4 @@ Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob
 [6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
 [7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
 [8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
+[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png

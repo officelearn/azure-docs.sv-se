@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 4653803623ed0c847fa63663204b5842f7a03d08
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584215"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063921"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Självstudie för Azure Log Integration: Bearbeta händelser med Azure Key Vault med hjälp av Event Hubs
 
@@ -25,13 +25,13 @@ ms.locfileid: "53584215"
 
 Du kan använda Azure Log Integration för att hämta loggade händelser och göra dem tillgängliga för din säkerhet och händelsehantering (SIEM) hanteringssystemet. Den här självstudien visar ett exempel på hur Azure Log Integration kan användas för att bearbeta loggar som skaffas genom Azure Event Hubs.
 
-Den bästa metoden för att integrera Azure loggar är genom att använda din SIEM leverantör s Azure Monitor-anslutningsapp och följa de här [instruktioner](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Om din SIEM leverantör t Anger en anslutning till Azure Monitor kan kanske du att kunna använda Azure Log Integration som en tillfällig lösning (om din siem-server som stöds av Azure Log Integration) tills en sådan anslutning är tillgänglig.
+Den bästa metoden för att integrera Azure loggar är genom att använda din SIEM-leverantör Azure Monitor-koppling och följa de här [instruktioner](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Men om din SIEM-leverantör inte tillhandahåller en anslutning till Azure Monitor, du kan använda Azure Log Integration som en tillfällig lösning (om din siem-server som stöds av Azure Log Integration) tills en sådan anslutning är tillgänglig.
 
  
-Använd den här självstudiekursen för att bekanta dig med hur Azure Log Integration och Händelsehubbar tillsammans genom att följa stegen exempel och förstå hur varje steg stöder lösningen. Du kan sedan ta vad du har lärt oss här att skapa dina egna steg för att stödja företagets s unika krav.
+Använd den här självstudiekursen för att bekanta dig med hur Azure Log Integration och Händelsehubbar tillsammans genom att följa stegen exempel och förstå hur varje steg stöder lösningen. Du kan sedan ta vad du har lärt oss här att skapa dina egna steg för att stödja ditt företags unika krav.
 
 >[!WARNING]
-De steg och kommandon i den här självstudien är inte avsedda att kopieras och klistras in. Det är bara exempel. Använd inte PowerShell-kommandon som finns i miljön live. Du måste anpassa dem baserat på din miljö.
+De steg och kommandon i den här självstudien är inte avsedda att kopieras och klistras in. Det är bara exempel. Använd inte PowerShell-kommandon ”i befintligt skick” i live-miljön. Du måste anpassa dem baserat på din miljö.
 
 
 Den här självstudien vägleder dig genom processen för att möjliggöra Azure Key Vault-aktivitet som loggas till en händelsehubb och gör den tillgänglig som JSON-filer till din SIEM-system. Sedan kan du konfigurera din SIEM-system för att bearbeta JSON-filerna.
@@ -80,7 +80,7 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
 ## <a name="create-supporting-infrastructure-elements"></a>Skapa stödjande infrastrukturelement
 
 1. Öppna en upphöjd PowerShell-kommandotolk och gå till **C:\Program Files\Microsoft Azure Log Integration**.
-1. Importera AzLog-cmdlets genom att köra skriptet LoadAzLogModule.ps1. Ange den `.\LoadAzLogModule.ps1` kommando. (Observera det. \ i det kommandot.) Du bör se något liknande följande:</br>
+1. Importera AzLog-cmdlets genom att köra skriptet LoadAzLogModule.ps1. Ange den `.\LoadAzLogModule.ps1` kommando. (Observera de ”. \" i det kommandot.) Du bör se något liknande följande:</br>
 
    ![Lista med inlästa moduler](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
 
    ![PowerShell-fönster](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Skapa variabler för att lagra värden som ska användas senare. Ange var och en av följande PowerShell-rader. Du kan behöva justera värden som matchar din miljö.
-    - ```$subscriptionName = �Visual Studio Ultimate with MSDN�``` (Ditt prenumerationsnamn kan vara annorlunda. Du kan se det som en del av utdata från föregående kommando.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Ditt prenumerationsnamn kan vara annorlunda. Du kan se det som en del av utdata från föregående kommando.)
     - ```$location = 'West US'``` (Den här variabeln används för att skicka den plats där resurser ska skapas. Du kan ändra den här variabeln för att vara vilken plats som du väljer.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (Namnet kan vara vad som helst, men den bör innehålla endast gemener och siffror.)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: db2972019e81ab413857d49ffa65eade3ff061ec
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bfd6f59ca61d14bc8187aa7c56c29ac44b40b8e9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051194"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074297"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilera ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
@@ -136,7 +136,7 @@ Du bör se utdata som liknar följande exempel:
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Lägg till Application Insights för att övervaka dina web apps
 
-1. [Skapa en Application Insights-resurs](./../../application-insights/app-insights-create-new-resource.md).
+1. [Skapa en Application Insights-resurs](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Kopiera den **iKey** värdet för Application Insights-resursen och konfigurera följande inställningar i web apps:
 

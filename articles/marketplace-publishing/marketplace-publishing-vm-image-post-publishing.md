@@ -3,7 +3,7 @@ title: Hantera din avbildning av virtuell dator på Azure Marketplace | Microsof
 description: Detaljerad vägledning om hur du hanterar din avbildning av virtuell dator på Azure Marketplace efter första publicering
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
@@ -14,28 +14,29 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7aea357c22a928d8af96791bf9cb4bd3c94f37b4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252980"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077070"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Efter produktion guide för virtuell dator-erbjudanden på Azure Marketplace
 Den här artikeln förklarar hur du kan uppdatera en Direktmigrering av virtuell dator-erbjudande på Azure Marketplace. Den vägleder dig genom processen att lägga till en eller flera nya SKU: er till ett befintligt erbjudande. Även vägleder dig genom processen med att ta bort ett erbjudande för Direktmigrering av virtuell dator eller SKU: N från Marketplace.
 
 När ett erbjudande/SKU mellanlagras i den [Azure-portalen](http://portal.azure.com), du kan inte ändra följande textrutor:
 
-* **Erbjuder identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
-* **SKU-identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **SKU: er** > **Lägg till en SKU**.
-* **Publisher-Namespace**: I den Publisher-portalen, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag**(finns under ”steg 2 registrera ditt företag”) > **Publisher Namespace** > **Namespace**.
+* **Erbjuder identifierare**: I avsnittet Publicera portalen går du till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
+* **SKU-identifierare**: I avsnittet Publicera portalen går du till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **SKU: er** > **Lägg till en SKU**.
+* **Publisher-Namespace**: I avsnittet Publicera portalen går du till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag** (finns under ”steg 2 registrera din Company ”) > **Publisher Namespace** > **Namespace**.
 
 När erbjudande/SKU har listats i den [Marketplace](https://azure.microsoft.com/marketplace), du kan inte ändra följande textrutor:
 
-* **Erbjuder identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
-* **SKU-identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **SKU: er** > **Lägg till en SKU**.
-* **Publisher-Namespace**: I den Publisher-portalen, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag**(finns under ”steg 2 registrera”) **Publisher Namespace** > **Namespace**.
-* **Portar**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **öppnar du portar**.
+* **Erbjuder identifierare**: I avsnittet Publicera portalen går du till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
+* **SKU-identifierare**: I avsnittet Publicera portalen går du till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **SKU: er** > **Lägg till en SKU**.
+* **Publisher-Namespace**: I avsnittet Publicera portalen går du till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag** (finns under ”steg 2 registrera”) **Publisher Namespace** > **Namespace**.
+* **Portar**: I avsnittet Publicera portalen går du till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **öppnar du portar**.
 * **Priser för ändring av listan SKU: er**
 * **Fakturering modelländringen för angivna SKU: er**
 * **Borttagning av fakturering regioner för angivna SKU: er**
@@ -310,7 +311,7 @@ Följ dessa steg om du vill återställa faktureringsmodell till produktionsvär
 
 2. Gå till den **virtuella datorer** och sedan ditt erbjudande.
 3. I menyn till vänster, klickar du på den **SKU: er** fliken.
-4. Klicka på den **redigera** knappen för att återställa faktureringsmodellen. I fönstret som öppnas markerar eller avmarkerar du den **fakturering och licensiering görs externt från Azure (även kallat Bring Your Own License)** markerar du kryssrutan.
+4. Klicka på den **redigera** knappen för att återställa faktureringsmodellen. I fönstret som öppnas markerar eller avmarkerar den **fakturering och licensiering görs externt från Azure (även kallat Bring Your Own License)** markerar du kryssrutan.
 
     ![Redigera fakturering](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. Följ stegen i ”Återställ lista priset till produktionsvärden” i den här artikeln.
@@ -330,10 +331,10 @@ Följ dessa steg om du vill återställa inställningar för en listade SKU till
 5. När du är klar med ändringarna klickar du på **begära godkännande att skicka till produktion** att publicera ditt erbjudande i Marketplace.
 
 ## <a name="see-also"></a>Se också
-* [Komma igång: Publicera ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Kom igång: Publicera ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Förstå betalnings reporting](marketplace-publishing-report-payout.md)
 * [Ändra din återförsäljare Cloud Solution Provider-incitament](marketplace-publishing-csp-incentive.md)
 * [Felsöka vanliga problem med publicering på Marketplace](marketplace-publishing-support-common-issues.md)
 * [Få support som en utgivare](marketplace-publishing-get-publisher-support.md)
 * [Skapa en VM-avbildning lokalt](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Skapa en virtuell dator som kör Windows i Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Skapa en virtuell dator som kör Windows i Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

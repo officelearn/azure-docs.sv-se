@@ -10,18 +10,18 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229425"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061065"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa strömmande customer insights instrumentpanel med Azure Logic Apps och Azure Functions
 
-Azure erbjuder serverfria verktyg som hjälper dig att snabbt skapa och kör appar i molnet, utan att behöva tänka på infrastrukturen. I den här självstudien kan du skapa en instrumentpanel som utlöser på feedback från kunder, analyserar feedback med machine learning och publicerar insikter till en källa, till exempel Power BI eller Azure Data Lake.
+Azure erbjuder [serverlös](https://azure.microsoft.com/solutions/serverless/) verktyg som hjälper dig att snabbt skapa och vara värd för appar i molnet, utan att behöva tänka på infrastrukturen. I den här självstudien kan du skapa en instrumentpanel som utlöser på feedback från kunder, analyserar feedback med machine learning och publicerar insikter till en källa, till exempel Power BI eller Azure Data Lake.
 
-För den här lösningen kan du använda dessa viktiga Azure-komponenter för appar utan server: [Azure Functions](https://azure.microsoft.com/services/functions/) och [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+För den här lösningen kan använda du dessa viktiga Azure-komponenter för appar utan server: [Azure Functions](https://azure.microsoft.com/services/functions/) och [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps ger en serverlös motor i molnet så att du kan skapa orkestreringar över serverlös komponenter och ansluta till över 200 tjänster och API: er. Azure Functions erbjuder serverlös databehandling i molnet. Den här lösningen använder Azure Functions för flagga kunden tweets som baseras på fördefinierade nyckelord.
 
 I det här scenariot skapar du en logikapp som utlöser på att söka efter feedback från kunder. Vissa anslutningar att hjälp du svara på feedback från kunder inkluderar Outlook.com, Office 365, undersökningen apa, Twitter, och en [HTTP-begäran från ett webbformulär](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Arbetsflödet som du skapar övervakar en hashtag på Twitter.
@@ -34,7 +34,7 @@ Du kan [skapa hela lösningen i Visual Studio](../logic-apps/quickstart-create-l
 
    Om du är nybörjare till logic apps, granska de [Snabbstart för Azure-portalen](../logic-apps/quickstart-create-first-logic-app-workflow.md) eller [Snabbstart för Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. I Logic App Designer, hitta och Lägg till Twitter-utlösare som har den här åtgärden: **när en ny tweet publiceras**
+2. Hitta och Lägg till Twitter-utlösare som har den här åtgärden i Logic App Designer: **När en ny tweet publiceras**
 
 3. Konfigurera utlösaren att lyssna efter tweets som baseras på ett nyckelord eller en hashtagg.
 
@@ -60,10 +60,10 @@ Du kan använda för att identifiera sentimentet bakom text [Azure Cognitive Ser
 
 Du kan nu använda flera andra relevanta anslutningsappar och åtgärder när du har hämtat tweet data och insikter om tweeten:
 
-* **Power BI – lägga till rader till strömmande datauppsättning**: Visa inkommande tweets på en Power BI-instrumentpanel.
+* **Power BI – Lägg till rader i strömmande datauppsättning**: Visa inkommande tweets på en Power BI-instrumentpanel.
 * **Azure Data Lake - Lägg till filen**: Lägg till kunddata till en Azure Data Lake-datamängd som ska ingå i analytics-jobb.
 * **SQL – lägga till rader**: Store data i en databas för senare hämtning.
-* **Slack - skicka meddelande**: meddela en Slack-kanal om negativ feedback som kan kräva åtgärder.
+* **Slack - skicka meddelande**: Meddela en Slack-kanal om negativ feedback som kan kräva åtgärder.
 
 Du kan också skapa och en Azure fungerar så att du kan utföra anpassad bearbetning på dina data. 
 

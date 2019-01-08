@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 1c6579776b86decb78c172578cbe55a66c05d78f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026561"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079263"
 ---
 > [!NOTE]
 > Flera delar begäranden kräver vanligtvis tre uppgifter:
@@ -34,3 +34,5 @@ Flera delar begäranden kan göras via programmering (via C#), via ett REST-klie
 > * Blobbinnehåll bland annat Ostrukturerade innehållet i en fil som ska laddas upp
 >
 > Ingen av de två delarna som krävs för **KORRIGERA** begäranden. Båda värdena krävs för **POST** eller skapa-åtgärder.
+
+Den [användandet Snabbstart källkoden](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) innehåller fullständig C# exempel visas hur du begär multipart mot Azure Digital Twins Management API: erna.

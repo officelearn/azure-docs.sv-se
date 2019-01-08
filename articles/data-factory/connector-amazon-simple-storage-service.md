@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 7373cc23654e2168963a364e4b4069331bf196c5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8a0808c0e82ee31a5fd684d449fa30cd331d3dba
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969938"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063884"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon Simple Storage Service med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Aktuell version](connector-amazon-simple-storage-service.md)
 
@@ -31,7 +31,7 @@ Du kan kopiera data Amazon S3 till alla datalager för mottagare som stöds. En 
 Mer specifikt den här Amazon S3-anslutningsappen stöder kopiera filer som-är eller parsningsfilerna med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Du kan använda den här Amazon S3-anslutningen för att kopiera data från **alla S3-kompatibla lagringsprovidrar** t.ex. [Google Cloud Storage](#copy-from-google-cloud-storage). Ange den motsvarande URL i konfigurationen av den länkade tjänsten.
+>Du kan använda den här Amazon S3-anslutningen för att kopiera data från **alla S3-kompatibla lagringsprovidrar** t.ex. [Google Cloud Storage](connector-google-cloud-storage.md). Ange den motsvarande URL i konfigurationen av den länkade tjänsten.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
@@ -212,35 +212,6 @@ För att kopiera data från Amazon S3, ange typ av datakälla i kopieringsaktivi
         }
     }
 ]
-```
-
-## <a name="copy-from-google-cloud-storage"></a>Kopiera från Google Cloud Storage
-
-Eftersom Google Cloud Storage tillhandahåller S3-kompatibla samverkan, du kan använda Amazon S3-anslutningen för att kopiera data från Google Cloud Storage till någon [datalager för mottagare som stöds](copy-activity-overview.md#supported-data-stores-and-formats). 
-
-Du hittar den specifika Google Cloud Storage-posten i ADF redigering Användargränssnittet connector galleriet, som fylls i automatiskt tjänstens URL som `https://storage.googleapis.com`. Du hittar åtkomstnyckeln och hemligheten genom att gå till **Google Cloud Storage** > **inställningar** > **samverkan**. I den här artikeln från början för en detaljerad översikt över med S3-anslutningen för att kopiera data.
-
-**Exempel länkad tjänst:**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

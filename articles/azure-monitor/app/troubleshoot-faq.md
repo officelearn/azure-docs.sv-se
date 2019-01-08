@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e620deae1a73c110dd22133a12155166a55b999
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cb2383ee8a921aa2c9c4e3b536edc203dd883200
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052027"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074452"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -141,7 +141,7 @@ Vi ser IP-adress (IPv4 eller IPv6) för webbklienten med [GeoLite2](http://dev.m
 
 Du kan konfigurera den `ClientIpHeaderTelemetryInitializer` att ta den IP-adressen från en annan rubrik. I vissa system, till exempel den flyttas av en proxy, läsa in belastningsutjämnare eller CDN för att `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-Du kan [använda Power BI](../../application-insights/app-insights-export-power-bi.md) att visa din begärandetelemetri på en karta.
+Du kan [använda Power BI](../../azure-monitor/app/export-power-bi.md ) att visa din begärandetelemetri på en karta.
 
 
 ## <a name="data"></a>Hur länge sparas data i portalen? Är den säker?

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752545"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078787"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Åtkomst med Kubernetes-hemlighet
 
-I vissa fall kanske du inte att kunna tilldela rollen krävs att automatiskt genererade AKS tjänstens huvudnamn åtkomst till ACR beviljas. På grund av säkerhetsmodellen för din organisation, kanske du exempelvis inte har tillräcklig behörighet i din Azure AD-katalog för att tilldela en roll till AKS-genererade tjänstens huvudnamn. I sådana fall kan du skapa ett nytt huvudnamn för tjänsten och sedan ge det åtkomst till behållarregistret med en Kubernetes-hemlighet som bild pull.
+I vissa fall kanske du inte att kunna tilldela rollen krävs att automatiskt genererade AKS tjänstens huvudnamn åtkomst till ACR beviljas. På grund av säkerhetsmodellen för din organisation, kan du exempelvis inte har tillräckliga behörigheter i din Azure Active Directory-klient för att tilldela en roll till AKS-genererade tjänstens huvudnamn. Tilldela en roll till tjänstens huvudnamn kräver Azure AD-konto har skrivbehörighet till din Azure AD-klient. Om du inte har behörighet, kan du skapa ett nytt huvudnamn för tjänsten och sedan ge det åtkomst till behållarregistret med en Kubernetes-hemlighet som bild pull.
 
 Använd följande skript för att skapa ett nytt huvudnamn för tjänsten (du ska använda dess autentiseringsuppgifter för Kubernetes bild pull-hemlighet). Ändra den `ACR_NAME` variabeln för din miljö innan du kör skriptet.
 

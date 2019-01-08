@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602179"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077750"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -36,10 +36,8 @@ Kundens användning attribution krävs på alla [lösningsmallar](./cloud-partne
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 
-Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en Snabbstart ska processen för att ändra din mall för att aktivera den nya spårnings-metoden vara enkelt. Om du inte använder en Azure Resource Manager-mall, är här några länkar som hjälper dig att bättre förstå Resource Manager-mallar och hur du skapar en: 
+Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en Snabbstart ska processen för att ändra din mall för att aktivera den nya spårnings-metoden vara enkelt. Mer information finns i [skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Skapa en lösningsmall för Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Lägga till ett GUID i mallen
 
@@ -270,11 +268,15 @@ Microsoft ger partner med en vy av kunders distributioner av sina mallar och ins
 
 **Vem kan lägga till en GUID till en mall?**
 
-Spårnings-resurs är avsedd att ansluta den partnerlösning till kundens Azure-användning. Användningsdata är knutna till identitet för en partner Microsoft Partner Network (MPN-ID). 
+Spårnings-resurs är avsedd att ansluta den partnerlösning till kundens Azure-användning. Användningsdata är knutna till identitet för en partner Microsoft Partner Network (MPN-ID). Reporting är tillgängligt för partner i CPP.
 
 **När ett GUID har lagts till, kan det ändras?**
  
 Ja, en kund eller implementering partner kan anpassa mallen och kan ändra eller ta bort GUID. Vi rekommenderar att partner proaktivt beskriver rollen för resursen och GUID för sina kunder och partner som förhindrar borttagning eller ändringar till spårning GUID. Om du ändrar GUID påverkas endast nya, inte befintliga distributioner och resurser.
+
+**När rapportering blir tillgängligt?**
+
+En beta-versionen av reporting ska vara tillgänglig snart. Rapportering kommer att integreras i CPP.
 
 **Kan jag spåra mallar distribueras från en icke-Microsoft-lagringsplats som GitHub?**
 

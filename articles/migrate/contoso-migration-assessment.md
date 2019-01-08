@@ -8,29 +8,29 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635024"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065502"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: utvärdera lokala arbetsbelastningar för migrering till Azure
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
 I den här artikeln utvärderar Contoso dess lokal SmartHotel360-app för migrering till Azure.
 
-Den här artikeln är en del av en serie som dokumenterar hur det fiktiva företaget Contoso migrerar sina lokala resurser till Microsoft Azure-molnet. Serien innehåller bakgrunden egäran om kontaktinformation och detaljerade distributions-scenarier som illustrerar hur du ställer in en infrastruktur för migrering, bedöma lokala resurser för migrering och kör olika typer av migreringar. Scenarier växer i komplexitet. Artiklar läggs till seriens över tid.
+Den här artikeln är en del av en serie som dokumenterar hur det fiktiva företaget Contoso migrerar sina lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och detaljerade distributions-scenarier som illustrerar hur du ställer in en infrastruktur för migrering, bedöma lokala resurser för migrering och kör olika typer av migreringar. Scenarier växer i komplexitet. Artiklar läggs till seriens över tid.
 
 Artikel | Information | Status
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
+[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
 [Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla artiklar i serien. | Tillgängligt
 Artikel 3: Utvärdera lokala resurser för migrering till Azure | Contoso kör en utvärdering av dess lokal SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Den här artikeln
 [Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel360-app. Den har migrerats appen frontend med hjälp av Azure Site Recovery-tjänsten. Den migrerar app-databasen till en Azure SQL Database Managed Instance med Azure Database Migration Service. | Tillgängligt
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel360 app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel360-app med Site Recovery migrera app-datorer och Database Migration Service för att migrera app-databasen till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till Azure virtuella datorer med Site Recovery. Den har migrerats app-databas till Azure Database for MySQL med MySQL Workbench. | Tillgängligt
+[Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
+[Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till Azure virtuella datorer med Site Recovery. Den har migrerats app-databas till Azure Database for MySQL med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app i en Azure webbapp och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar dess SmartHotel360-app till en Azure webbapp och migrerar app-databasen till en Azure SQL Server-instans med Databse Migration Assistant. | Tillgängligt
 [Artikel 10: Omstrukturera en Linux-app i en Azure-webbapp och en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera Team Foundation Server på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar dess lokal Team Foundation Server-distribution till Azure DevOps-tjänsterna i Azure. | Tillgängligt
@@ -70,8 +70,8 @@ Contosos IT-ledning har arbetat tillsammans med företagets affärspartners att 
 
 - **Åtgärda tillväxten**: Contoso växer. Därför ökat trycket på företagets lokala system och infrastruktur.
 - **Öka effektiviteten**: Contoso måste ta bort onödiga procedurer och effektivisera processer för utvecklare och användare. Affärsbehov IT är fast och som inte spill tid eller pengar, så företaget kan leverera snabbare på kunders behov.
-- **Förbättrad flexibilitet**: Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än de ändringar som sker i marketplace för företag för att utföra en global ekonomi. IT på Contoso måste inte vara i vägen eller bli en blockerare för företag.
-- **Skala**: enligt företagets verksamhet växer har Contoso IT måste tillhandahålla system som kan växa i samma takt.
+- **Förbättrad flexibilitet**:  Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än de ändringar som sker i marketplace för företag för att utföra en global ekonomi. IT på Contoso måste inte vara i vägen eller bli en blockerare för företag.
+- **Skala**: När företagets verksamhet växer har måste Contoso IT ange system som kan växa i samma takt.
 
 ## <a name="assessment-goals"></a>Utvärdering av mål
 
@@ -135,14 +135,14 @@ Contoso och andra användare måste uppfylla följande krav för utvärderingen:
 Här är hur Contoso utför dess utvärdering:
 
 > [!div class="checklist"]
-> * **Steg 1: Hämta och installera Data Migration Assistant**: Contoso förbereder Data Migration Assistant för utvärdering av en lokal SQL Server-databasen.
+> * **Steg 1: Ladda ned och installera Data Migration Assistant**: Contoso förbereder Data Migration Assistant för utvärdering av en lokal SQL Server-databasen.
 > * **Steg 2: Utvärdera databasen med hjälp av Data Migration Assistant**: Contoso körs och analyserar databasutvärderingen.
-> * **Steg 3: Förbereda för VM-utvärdering genom att använda Azure Migrate**: Contoso ställer in lokala konton och justerar inställningarna för VMware.
+> * **Steg 3: Förbereda för VM-utvärdering genom att använda Azure Migrate**: Contoso konfigurerar lokala konton och justerar inställningarna för VMware.
 > * **Steg 4: Identifiera lokala virtuella datorer med hjälp av Azure Migrate**: Contoso skapar ett Azure Migrate collector VM. Sedan körs Contoso insamlaren för att identifiera virtuella datorer för utvärdering.
 > * **Steg 5: Förbereda för beroendeanalys med hjälp av Azure Migrate**: Contoso installerar Azure Migrate-agenter på de virtuella datorerna, så att företaget kan se beroendemappningen mellan de virtuella datorer.
-> * **Steg 6: Utvärdera de virtuella datorerna med hjälp av Azure Migrate**: Contoso kontrollerar beroenden, grupperar de virtuella datorerna och kör utvärderingen. När utvärderingen är klar, analyserar Contoso utvärderingen vid förberedelserna för migreringen.
+> * **Steg 6: Utvärdera de virtuella datorerna med hjälp av Azure Migrate**: Contoso kontrollerar beroenden, grupper de virtuella datorerna, och kör utvärderingen. När utvärderingen är klar, analyserar Contoso utvärderingen vid förberedelserna för migreringen.
 
-## <a name="step-1-download-and-install-data-migration-assistant"></a>Steg 1: Hämta och installera Data Migration Assistant
+## <a name="step-1-download-and-install-data-migration-assistant"></a>Steg 1: Ladda ned och installera Data Migration Assistant
 
 1. Contoso hämtar Data Migration Assistant från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
     - Data Migration Assistant kan installeras på en dator som kan ansluta till SQL Server-instansen. Contoso behöver inte köra den på SQL Server-datorn.
@@ -186,11 +186,11 @@ Resultatet visas så fort de är tillgängliga. Om Contoso åtgärdar problem, d
 
 1. I den **kompatibilitetsproblem** rapportera, Contoso söker efter eventuella problem på respektive kompatibilitetsnivå. Kompatibilitetsnivåerna mappar till SQL Server-versioner på följande sätt:
 
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
+    - 100: SQL Server 2008/Azure SQL-databas
+    - 110: SQL Server 2012/Azure SQL-databas
+    - 120: SQL Server 2014/Azure SQL-databas
+    - 130: SQL Server 2016/Azure SQL-databas
+    - 140: SQL Server 2017/Azure SQL-databas
 
     ![Data Migration Assistant – kompatibilitetsproblem rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
 
@@ -217,9 +217,9 @@ Contoso behöver skapa ett VMware-konto med Azure Migrate kan använda för att 
 
 VM-identifiering kräver ett skrivskyddat konto i vCenter Server som har följande egenskaper:
 
-- **Användartyp**: minst en skrivskyddad användare.
-- **Behörigheter**: datacenter-objekt, Välj den **Sprid till underordnat objekt** kryssrutan. För **rollen**väljer **skrivskyddad**.
-- **Information om**: användaren tilldelas på datacenternivå åtkomst till alla objekt i datacentret.
+- **Användartyp**: Minst en skrivskyddad användare.
+- **Behörigheter**: Datacenter-objekt, Välj den **Sprid till underordnat objekt** kryssrutan. För **rollen**väljer **skrivskyddad**.
+- **Information om**: Användaren tilldelas på datacenternivå åtkomst till alla objekt i datacentret.
 - För att begränsa åtkomsten tilldelar den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 
 ### <a name="verify-permissions-to-create-a-vm"></a>Kontrollera behörigheter för att skapa en virtuell dator

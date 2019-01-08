@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974700"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077393"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -108,6 +108,12 @@ Ja, kan du lägga till nya virtuella datorer till en befintlig replikeringsgrupp
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan jag ändra virtuella datorer som replikerar genom att lägga till eller ändra storlek på diskar?
 
 Du kan ändra diskens storlek för VMware-replikering till Azure. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan jag migrera lokala datorer till en ny Vcenter utan att påverka pågående replikering?
+Nej, ändring av Vcenter eller migrering kommer att påverka pågående replikering. Du måste konfigurera ASR med nya Vcenter och aktivera replikering för virtuella datorer.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan jag replikera till cache/mål-lagringskontot som har ett virtuellt nätverk (med Azure storage-brandväggar) konfigurerats på den?
+Nej, Azure Site Recovery inte stöder replikering till lagring för virtuella nätverk.
 
 ## <a name="configuration-server"></a>Konfigurationsserver
 
@@ -225,9 +231,10 @@ Azure är utformat med flexibilitet i fokus. Site Recovery är utformat för red
 Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats om den ursprungliga som inte är tillgänglig. [Läs mer](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Varför behöver jag en VPN eller ExpressRoute för att återställa efter felet?
-
 När du växlar tillbaka från Azure kopieras data från Azure tillbaka till den lokala virtuella datorn och privat åtkomst krävs.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>Kan jag ändra storlek på virtuella Azure-datorer efter redundans?
+Nej, du kan inte ändra storleken på den Virtuella måldatorn efter redundansen.
 
 
 ## <a name="automation-and-scripting"></a>Automatisering och skript

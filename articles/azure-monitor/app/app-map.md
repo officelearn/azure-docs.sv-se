@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e89ba38b7993b8f2d17704ff592eecd3d02d303e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731632"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063122"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -191,7 +191,7 @@ Mer information om hur du åsidosätter egenskapen cloud_RoleName med telemetri-
 
 Om du har problem med att få Programkartan som fungerar som förväntat, kan du prova de här stegen:
 
-1. Se till att du använder en SDK som officiellt stöds. SDK: er som inte stöds/gruppen kanske inte stöder korrelation.
+1. Kontrollera att du använder en SDK som officiellt stöds. SDK: er som inte stöds/gruppen kanske inte stöder korrelation.
 
     Referera till denna [artikeln](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) en lista över stödda SDK: erna.
 

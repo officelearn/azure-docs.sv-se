@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001914"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076407"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begärandetelemetri: Application Insights-datamodell
 
@@ -63,9 +63,9 @@ Maxlängd: 1024 tecken
 
 ## <a name="success"></a>Lyckades
 
-Uppgift om lyckade och misslyckade anrop. Det här fältet är obligatoriskt. Ange när inte uttryckligen till `false` -begäran anses vara ska lyckas. Det här värdet till `false` om åtgärden avbröts av undantag eller felkoden resultat returnerades.
+Uppgift om lyckade och misslyckade anrop. Det här fältet är obligatoriskt. Ange när inte uttryckligen till `false` – en begäran anses ska lyckas. Det här värdet till `false` om åtgärden avbröts av undantag eller felkoden resultat returnerades.
 
-För webbprogram, Application Insights kan du definiera begäran som misslyckad när svarskoden är mindre den `400` eller lika med `401`. Det finns dock fall när den här standardmappningen inte matchar den semantiska av programmet. Svarskod `404` kan tyda på ”inga poster”, vilket kan vara en del av regelbundna flöde. Det kan också indikera en bruten länk. Du kan även implementera mer avancerad logik för brutna länkar. Du kan markera brutna länkar som fel endast när länkarna finns på samma plats genom att analysera url referent. Eller markera dem som fel vid åtkomst från företagets mobila program. På samma sätt `301` och `302` anger fel vid åtkomst från den klient som inte stöder omdirigering.
+För webbprogram, Application Insights definierar en begäran som lyckas när svarskoden är mindre än `400` eller lika med `401`. Det finns dock fall när den här standardmappningen inte matchar den semantiska av programmet. Svarskod `404` kan tyda på ”inga poster”, vilket kan vara en del av regelbundna flöde. Det kan också indikera en bruten länk. Du kan även implementera mer avancerad logik för brutna länkar. Du kan markera brutna länkar som fel endast när länkarna finns på samma plats genom att analysera url referent. Eller markera dem som fel vid åtkomst från företagets mobila program. På samma sätt `301` och `302` anger fel vid åtkomst från den klient som inte stöder omdirigering.
 
 Delvis accepterat innehåll `206` kan tyda på ett fel i en övergripande begäran. Application Insights slutpunkt får exempelvis en batch med telemetri objekt som en enskild begäran. Den returnerar `206` när vissa objekt i batchen inte bearbetades. Öka mängden `206` tyder på problem som behöver undersökas. Liknande logik som gäller för `207` flera Status där framgång kan vara sämsta av separata svarskoder.
 

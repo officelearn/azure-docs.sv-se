@@ -52,12 +52,9 @@
 ## [Säkerhetskopiering av SAP HANA-filnivå](sap-hana-backup-file-level.md)
 ## [Säkerhetskopior av ögonblicksbilder i SAP HANA-lagring](sap-hana-backup-storage-snapshots.md)
 # SAP NetWeaver och Business One på Azure Virtual Machines
-## [SAP Business One på Azure Virtual Machines](business-one-azure.md)
-## [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver på virtuella Azure Linux-datorer](suse-quickstart.md)
+## [Planera för SAP-arbetsbelastning och checklista för distribution](sap-deployment-checklist.md)
 ## [Planera och implementera SAP NetWeaver på Azure](planning-guide.md)
 ## [Distributionsguide för SAP NetWeaver](deployment-guide.md)
-## [SAP LaMa-anslutning för Azure](lama-installation.md)
 ## DBMS-distributionsguider för SAP-arbetsbelastning
 ### [DBMS-distribution för SAP-arbetsbelastning på vanliga Azure Virtual Machines](dbms_guide_general.md)
 ### [DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines](dbms_guide_sqlserver.md)
@@ -69,6 +66,10 @@
 ### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
 ### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
 ### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
+## [SAP Business One på Azure Virtual Machines](business-one-azure.md)
+## [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
+## [SAP NetWeaver på virtuella Azure Linux-datorer](suse-quickstart.md)
+## [SAP LaMa-anslutning för Azure](lama-installation.md)
 ## Hög tillgänglighet på Windows och Linux
 ### [Översikt](sap-high-availability-guide-start.md)
 ### Arkitektur med hög tillgänglighet

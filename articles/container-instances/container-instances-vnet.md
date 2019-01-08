@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993305"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077479"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -33,26 +33,28 @@ Behållargrupper som distribuerats till en Azure-nätverk möjliggör scenarier 
 
 Vissa begränsningar gäller när du distribuerar behållargrupper till ett virtuellt nätverk.
 
-* Windows-behållare som inte stöds
 * För att distribuera grupper med behållare till ett undernät måste får inte undernätet innehålla några andra typer av resurser. Ta bort alla befintliga resurser från ett befintligt undernät innan du distribuerar behållargrupper till den, eller skapa ett nytt undernät.
 * Behållargrupper som distribueras till ett virtuellt nätverk stöder för närvarande inte offentliga IP-adresser eller DNS-namnetiketter.
 * På grund av de ytterligare nätverksresurser som ingår är distribuera en behållargrupp till ett virtuellt nätverk vanligtvis något långsammare än att distribuera en behållarinstans som standard.
 
 ## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
 
-Den här funktionen är i förhandsversion, gäller följande begränsningar när du distribuerar behållarinstanser till ett virtuellt nätverk.
+Den här funktionen är i förhandsversion, gäller följande begränsningar när du distribuerar behållarinstanser till ett virtuellt nätverk. 
 
-**Stöds** regioner:
+**Regioner som stöds och resursbegränsningar**
 
-* Nordeuropa (europanorra)
-* Västeuropa (westeurope)
-* Västra USA (westus)
-* Östra USA (eastus)
+| Plats | Operativsystem | Processor | Minne (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Västra Europa | Linux | 4 | 14 |
+| Östra USA, västra USA | Linux | 2 | 3.5 |
+| Östra Europa, Norra | Linux | 1 | 1.5 |
 
-**Stöds inte** nätverksresurser:
+Behållaren resursgränser kan skilja sig från gränser för icke-nätverksanslutna container instances i dessa regioner. För närvarande endast Linux-behållare har stöd för den här funktionen. Windows-stöd planeras.
 
-* Nätverkssäkerhetsgrupp
+**Nätverk som inte stöds resurser och funktioner**
+
 * Azure Load Balancer
+* Virtuell nätverkspeering
 
 **Nätverks-ta bort resursen** kräver [ytterligare steg](#delete-network-resources) när du har distribuerat behållargrupper till det virtuella nätverket.
 

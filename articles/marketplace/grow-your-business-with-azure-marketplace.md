@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233022"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074560"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Utöka verksamheten på marketplace 
 När du har publicerat ditt erbjudande i Azure Marketplace eller AppSource, kan du använda din registrering som en startplats för gemensamma (GTM) go-to-market-aktiviteter med Microsoft. Kör trafik till dina Marketplace-erbjudande- och köpet Marketplace leads, till exempel är bra sätt att snabba upp din verksamhet att växa. 
@@ -33,15 +33,15 @@ Tabeller i nästa avsnitt innehåller förslag för att skapa engagerande market
 ### <a name="storefront-offer-details"></a>Storefront erbjudandeinformation
 | Storefront inställningen | Bästa praxis |
 |:--- |:--- |  
-| Erbjudandets namn | Ange ett starkt namn:<br>Appnamnet på din ska kommunicera kärnan som dina kunder får. Inklusive sökord i din app rubrik kan din app att rangordna högre i sökresultat.<br><br>Följ ett set rubrik format för consulting service listor:<br>[Erbjudandets namn]: [varaktighet] [Erbjudandetyp] \(till exempel *Contoso: 2 veckor implementering*)<br><br>Följa varumärke riktlinjer:<br>Följ [varumärke riktlinjer och Microsoft Trademark](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) och andra relevanta, produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster. |
+| Erbjudandets namn | Ange ett starkt namn:<br>Appnamnet på din ska kommunicera kärnan som dina kunder får. Inklusive sökord i din app rubrik kan din app att rangordna högre i sökresultat.<br><br>Följ ett set rubrik format för consulting service listor:<br>[Erbjudandets namn]: [varaktighet] [Erbjudandetyp] (till exempel *Contoso: 2 veckor implementering*)<br><br>Följa varumärke riktlinjer:<br>Följ [varumärke riktlinjer och Microsoft Trademark](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) och andra relevanta, produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster. |
 | Beskrivning av erbjudande | Ange en beskrivning av Rensa erbjudande:<br>Beskriv tydligt ditt erbjudande förslagsvärde i de första några meningarna beskrivningen. Tänk på att de första några meningarna kan visas i sökresultat. Förlita dig inte på Egenskaper och funktioner för att sälja din produkt. I stället fokusera på det värdet du levererar. Använd branschspecifika ordförråd eller förmånen-baserade formulering så mycket som möjligt.<br><br>Kärnkomponenterna i din förslagsvärde bör innehålla följande information:<ul><li>Beskrivning av produkten</li><li>Typ av användare som kan dra nytta av produkten</li><li>Kunden behöver eller enkelt som åtgärdar produkten</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Storefront lista information
 | Storefront inställningen | Bästa praxis |
 |:--- |:--- |  
-| Branscher: AppSource-appar och konsulttjänster endast | Välj branscher om ditt erbjudande adresser branschspecifika krav:<br>Anropa branschspecifika-funktionerna i beskrivningen för erbjudandet.<br><br>**Obs**: det maximala antalet alternativen varierar beroende på typ av erbjudande som anges i Cloud Partner portal. |
-| Kategorier | Välj kategorier som passar bäst för ditt erbjudande:<br>Välj kategorier noggrant, eftersom kunder använda dem för att söka efter relevanta appar. Glöm inte att anropa reda på hur ditt erbjudande stöder kategorispecifik behov i beskrivningen för erbjudandet.<br><br> **Obs**: det maximala antalet alternativen varierar beroende på typ av erbjudande som anges i Cloud Partner portal. |
-| Produkter som din app fungerar med (3&nbsp;max): endast AppSource-appar | Lista över ytterligare produkter och tekniker som din lösning använder eller utökar:<br>Till exempel Azure IoT Hub eller Azure Machine Learning. |
+| Branscher: AppSource-appar och konsulttjänster endast | Välj branscher om ditt erbjudande adresser branschspecifika krav:<br>Anropa branschspecifika-funktionerna i beskrivningen för erbjudandet.<br><br>**Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande som anges i Cloud Partner portal. |
+| Kategorier | Välj kategorier som passar bäst för ditt erbjudande:<br>Välj kategorier noggrant, eftersom kunder använda dem för att söka efter relevanta appar. Glöm inte att anropa reda på hur ditt erbjudande stöder kategorispecifik behov i beskrivningen för erbjudandet.<br><br> **Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande som anges i Cloud Partner portal. |
+| Produkter som din app fungerar med (3&nbsp;max): AppSource-appar | Lista över ytterligare produkter och tekniker som din lösning använder eller utökar:<br>Till exempel Azure IoT Hub eller Azure Machine Learning. |
 | Sök efter nyckelord (3&nbsp;max) | Använd sökord som hjälper företag användarna att hitta ditt erbjudande när de söker i Azure Marketplace och på AppSource eller med hjälp av sökmotorer:<br>Identifiera de främsta tre sökord för ditt erbjudande; införliva sökord i ditt erbjudande sammanfattning och beskrivning; och lista sökord här. |
 
 ### <a name="storefront-marketing-details"></a>Storefront marknadsföring information
@@ -147,8 +147,8 @@ Azure Marketplace-märket tillhandahålls som en del av din kostnadsfria [go-to-
 
 ### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>Länka till din lista appsidan i marketplace från din webbplats
 När du länkar från AppSource eller Azure Marketplace-märket på din webbplats till din registrering i marketplace, stöd för stark analyser och rapporter genom att inkludera följande Frågeparametrar i slutet av URL: en:
-* **SRC**: inkludera den källa som trafiken dirigeras till AppSource (till exempel webbplats, LinkedIn eller Facebook).
-* **mktcmpid**: din marknadsföring kampanj-ID, som kan innehålla upp till 16 tecken i valfri kombination av bokstäver, siffror, understreck, och bindestreck (till exempel *blogpost_12*).
+* **SRC**: Inkludera den källa som trafiken dirigeras till AppSource (till exempel webbplats, LinkedIn eller Facebook).
+* **mktcmpid**: Din marknadsföring kampanj-ID, som kan innehålla upp till 16 tecken i valfri kombination av bokstäver, siffror, understreck, och bindestreck (till exempel *blogpost_12*).
 
 Följande exempel-URL innehåller både för föregående frågeparametrar: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

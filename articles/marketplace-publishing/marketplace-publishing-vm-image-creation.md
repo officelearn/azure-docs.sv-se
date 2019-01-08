@@ -3,7 +3,7 @@ title: Skapa en avbildning av virtuell dator för Azure Marketplace | Microsoft 
 description: Detaljerade anvisningar om hur du skapar en avbildning av virtuell dator på Azure Marketplace för andra att köpa.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6737e16efa93370b5b5d2b46026fce3bbc22d38f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686372"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075166"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guiden för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, beskriver hur du förbereder de virtuella hårddiskarna (VHD) som du distribuerar på Azure Marketplace. De virtuella hårddiskarna är grunden för din SKU. Processen skiljer sig beroende på om du erbjuder en Linux- eller Windows-baserad SKU. Den här artikeln tas båda scenarier upp. Den här processen kan utföras parallellt med [skapande och registrering][link-acct-creation].
@@ -30,14 +31,14 @@ I det här avsnittet får du lära dig att definiera dina erbjudanden och deras 
 Ett erbjudande är överordnat alla sina SKU:er. Du kan ha flera erbjudanden. Hur du väljer att strukturera dina erbjudanden är upp till dig. När ett erbjudande skickas till mellanlagringen, skickas det tillsammans med alla SKU:er. Överväg noggrant dina SKU-identifierare eftersom de kommer att vara synliga i URL: en:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure preview-portalen: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+* Azure-portalen: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 En SKU är det kommersiella namnet för en VM-avbildning. En datoravbildning av virtuell innehåller en operativsystemdisk och noll eller flera datadiskar. Det är i grund och botten den fullständiga lagringsprofilen för en virtuell dator. En VHD krävs per disk. Även tomma datadiskar kräver en virtuell Hårddisk som ska skapas.
 
 Oavsett vilket operativsystem du använder lägger du endast till det minsta antalet datadiskar som SKU n kräver. Kunder kan inte ta bort diskar som är en del av en avbildning vid tidpunkten för distribution, men kan alltid lägga till diskar under eller efter distributionen om de behöver dem.
 
 > [!IMPORTANT]
-> **Ändra inte Diskantalet i en ny Avbildningsversion.** Om du måste konfigurera om datadiskar i bilden, definierar du en ny SKU. Publicera en ny Avbildningsversion med annan disk antal kommer har potentialen hos de senaste ny distribution baseras på den nya avbildningsversionen i fall av automatisk skalning, automatiska distributioner av lösningar via ARM-mallar och andra scenarier.
+> *Ändra inte Diskantalet i en ny Avbildningsversion.* Om du måste konfigurera om datadiskar i bilden, definierar du en ny SKU. Publicera en ny Avbildningsversion med annan disk antal kommer har potentialen hos de senaste ny distribution baseras på den nya avbildningsversionen i fall av automatisk skalning, automatiska distributioner av lösningar via ARM-mallar och andra scenarier.
 >
 >
 
@@ -59,7 +60,7 @@ När du har lagt till ett erbjudande, måste du definiera och identifiera dina S
 3. Om du använder Windows-baserade SKU:er följer du de rekommenderade länkarna för att hämta godkända versioner av Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Skapa en Azure-kompatibel VHD (Linux-baserad)
-Det här avsnittet fokuserar på Metodtips för att skapa en Linux-baserade VM-avbildning för Azure Marketplace. En stegvis genomgång finns i följande dokumentation: [skapa en anpassad Linux VM-avbildning](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Det här avsnittet fokuserar på Metodtips för att skapa en Linux-baserade VM-avbildning för Azure Marketplace. En stegvis genomgång finns följande dokumentation: [Skapa en anpassad Linux VM-avbildning](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Skapa en Azure-kompatibel VHD (Windows-baserad)
 Det här avsnittet beskrivs stegen för att skapa en SKU som baseras på Windows Server på Azure Marketplace.
@@ -81,13 +82,13 @@ Du hittar även dessa länkar i publiceringsportalen på SKU-sidan.
 >
 
 ### <a name="32-create-your-windows-based-vm"></a>3.2 Skapa en Windows-baserad virtuell dator
-Du kan använda Microsoft Azure-portalen för att skapa en virtuell dator baserat på en godkänd Källavbildning med några få enkla steg. Här följer en översikt över processen:
+Du kan använda Microsoft Azure-portalen för att skapa en virtuell dator baserat på en godkänd Källavbildning med några få enkla steg. I följande lista innehåller en översikt över processen:
 
 1. Från sidan basavbildningen Välj **Skapa virtuell dator** så att de dirigeras till den nya [Microsoft Azure-portalen][link-azure-portal].
 
     ![Rita][img-acom-1]
 2. Logga in på portalen med Microsoft-konto och lösenord för den Azure-prenumeration du vill använda.
-3. Följ anvisningarna för att skapa en virtuell dator med Källavbildningen du har valt. Du måste ange en värd namn (namnet på datorn), användarnamn (registrerad som administratör) och lösenord för den virtuella datorn.
+3. Följ anvisningarna för att skapa en virtuell dator med Källavbildningen du har valt. Ange en värd namn (namnet på datorn), användarnamn (registrerad som administratör) och lösenord för den virtuella datorn.
 
     ![Rita][img-portal-vm-create]
 4. Välj storleken på den virtuella datorn ska distribueras:
@@ -110,7 +111,7 @@ Du kan använda Microsoft Azure-portalen för att skapa en virtuell dator basera
 
     a.    Om du planerar att utveckla den VHD: N lokalt spelar ingen plats eftersom du kommer att överföra avbildningen till Azure senare.
 
-    b.    Om du planerar att utveckla avbildningen i Azure bör du överväga att använda en av amerikanska Microsoft Azure-regionerna från start. Detta förbättrar VHD kopieringen som Microsoft utför åt dig när du skickar in din avbildning för certifiering.
+    b.    Om du planerar att utveckla avbildningen i Azure bör du överväga att använda en av amerikanska Microsoft Azure-regionerna från start. Det här alternativet går det snabbare VHD kopiering som Microsoft utför åt dig när du skickar in din avbildning för certifiering.
 
     ![Rita][img-portal-vm-location]
 7. Klicka på **Skapa**. Den virtuella datorn börjar distribuera. Inom några minuter har du en färdig distribution och kan börja skapa avbildningen för din SKU.
@@ -152,7 +153,7 @@ Mer information om RDP finns på MSDN i artikeln [Anslut till en Azure-dator med
 
 **Konfigurera en virtuell dator och skapa din SKU**
 
-Efter att operativsystemet VHD hämtas, använder Hyper-v och konfigurerar en virtuell dator för att börja skapa din SKU. Detaljerade anvisningar finns på följande TechNet-länk: [installera Hyper-v och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
+Efter att operativsystemet VHD hämtas, använder Hyper-v och konfigurerar en virtuell dator för att börja skapa din SKU. Detaljerade anvisningar finns på följande TechNet-länk: [Installera Hyper-v och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 Välj rätt VHD-storlek
 Windows-operativsystemet VHD i din avbildning av virtuell dator bör skapas som en 128 GB fast format virtuell Hårddisk.  
@@ -168,7 +169,7 @@ Källavbildningen innehåller de senaste uppdateringarna fram till och med det d
 Om ytterligare konfigurationer behövs bör du överväga att använda en schemalagd aktivitet som körs vid start för att göra ytterligare ändringar till den virtuella datorn när den har distribuerats:
 
 * Det är bäst att låta uppgiften radera sig själv när den här utförts.
-* Ingen konfiguration bör förlita sig på några andra enheter än enheter C eller D, eftersom det är dessa två enheter som garanterat alltid finns. Enhet C är operativsystemdisken och enhet D är den temporära lokala disken.
+* Ingen konfiguration bör förlita sig på några andra enheter än enheter C eller D, eftersom dessa enheter är de enda två som garanterat alltid finns. Enhet C är operativsystemdisken och enhet D är den temporära lokala disken.
 
 ### <a name="37-generalize-the-image"></a>3.7 generalisera avbildningen
 Alla avbildningar i Azure Marketplace måste kunna återanvändas på ett generiskt sätt. Med andra ord måste vara generaliserad virtuell Hårddisk för operativsystem:
@@ -178,10 +179,10 @@ Alla avbildningar i Azure Marketplace måste kunna återanvändas på ett generi
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Information om hur du använder sysprep operativsystemet finns i steg i MSDN-artikeln: [skapa och ladda upp en Windows Server VHD till Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Anvisningar för hur du sysprep operativsystemet finns i steg i följande MSDN-artikel: [Skapa och ladda upp en Windows Server VHD till Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="4-deploy-a-vm-from-your-vhds"></a>4. Distribuera en virtuell dator från dina VHD: er
-När du har laddat upp dina VHD: er (generaliserad operativsystemet VHD och noll eller fler datadisk VHD: er) till ett Azure storage-konto, kan du registrera dem som en avbildning för användaren. Du kan sedan testa avbildningen. Observera att eftersom operativsystemet VHD är generaliserad, du inte kan direkt distribuera den virtuella datorn genom att tillhandahålla VHD-URL.
+När du har laddat upp dina VHD: er (generaliserad operativsystemet VHD och noll eller fler datadisk VHD: er) till ett Azure storage-konto, kan du registrera dem som en avbildning för användaren. Du kan sedan testa avbildningen. Du kan inte direkt distribuera den virtuella datorn genom att tillhandahålla VHD-URL eftersom operativsystemet VHD är generaliserad.
 
 Om du vill veta mer om VM-avbildningar kan du granska följande blogginlägg:
 
@@ -189,7 +190,7 @@ Om du vill veta mer om VM-avbildningar kan du granska följande blogginlägg:
 * [VM Image PowerShell så här](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Om VM-avbildningar i Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Konfigurera nödvändiga verktyg, PowerShell och Azure klassiskt CLI
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Konfigurera de nödvändiga verktyg, PowerShell och Azure klassiskt CLI
 * [Så här konfigurerar du PowerShell](/powershell/azure/overview)
 * [Så här konfigurerar du Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
@@ -225,7 +226,7 @@ Om du vill distribuera en virtuell dator från en användare VM-avbildning, du k
 
 **Distribuera en virtuell dator från PowerShell**
 
-Du kan använda följande cmdletar för att distribuera en stor virtuell dator från den generaliserade avbildningen som nyss skapade.
+Du kan använda följande cmdletar för att distribuera en stor virtuell dator från den nyligen skapade generaliserade avbildningen.
 
     $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
@@ -276,7 +277,7 @@ När testet är klart visas resultaten (Pass/Fail/Warning) för varje del av tes
 
 ![Testfall för Windows VM-avbildning][img-cert-vm-test-win]
 
-Om någon av testerna misslyckas certifieras inte din avbildning. Om detta inträffar kan du granska kraven och gör nödvändiga ändringar.
+Om någon av testerna misslyckas certifieras inte din avbildning. Om det här problemet uppstår, granska kraven och gör nödvändiga ändringar.
 
 Efter den automatiserade testen uppmanas du att ange ytterligare information i din avbildning via en enkät skärm.  Slutför frågorna och välj sedan **nästa**.
 
@@ -289,18 +290,18 @@ När du har slutfört enkäten, kan du ange ytterligare information, till exempe
 ![Spara certifiering testresultat][img-cert-vm-results]
 
 ### <a name="52-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 hämta signatur för delad åtkomst URI för dina VM-avbildningar
-Under publiceringsprocessen ska ange du uniform resource Identifier (URI: er) som leder till VHD: erna som du har skapat för din SKU. Microsoft behöver åtkomst till dessa VHD:er under certifieringsprocessen. Därför måste du skapa en signatur för delad åtkomst URI för varje VHD. Det här är den URI som ska anges i den **avbildningar** fliken i Publiceringsportalen.
+Under publiceringsprocessen ska ange du uniform resource Identifier (URI: er) som leder till VHD: erna som du har skapat för din SKU. Microsoft behöver åtkomst till dessa VHD:er under certifieringsprocessen. Därför måste du skapa en signatur för delad åtkomst URI för varje VHD. URI: N ska anges i den **avbildningar** fliken i Publiceringsportalen.
 
 Signatur för delad åtkomst som URI: N skapas bör uppfylla följande krav:
 
-Obs: följande instruktioner gäller endast för ohanterade diskar som är den enda typ som stöds.
+Följande instruktioner gäller endast för ohanterade diskar, vilket är den enda typen som stöds.
 
 * När du genererar signatur för delad åtkomst URI: er för de virtuella hårddiskarna är List och Read-behörigheter tillräckliga. Bevilja inte skriv- eller raderingsbehörighet.
 * Varaktigheten för åtkomsten bör vara minst tre (3) veckor från när signaturen för delad åtkomst URI: N skapas.
 * Välj dag före aktuellt datum för att skydda för UTC-tid. Om det aktuella datumet infaller 6 oktober 2014, väljer du till exempel 10/5/2014.
 
 SAS-URL kan skapas på flera olika sätt att dela din VHD för Azure Marketplace.
-Följande är de 3 rekommendera verktyg:
+Följande är de tre rekommendera verktyg:
 
 1.  Azure Lagringsutforskaren
 2.  Microsoft Storage Explorer
@@ -323,7 +324,7 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
     ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. Ange lagringskontonamn, din lagringskontonyckel och domän för lagringsslutpunkter. Det här är storage-konto i din Azure-prenumeration där du har sparat din VHD i Azure portal.
+5. Ange lagringskontonamn, din lagringskontonyckel och domän för lagringsslutpunkter. Det här lagringskontot är i din Azure-prenumeration där du har sparat din VHD i Azure portal.
 
     ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -347,11 +348,11 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
     ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
-    a. **Åtkomst tillåts från:** för att skydda för UTC-tid, väljer du dag före aktuellt datum. Om det aktuella datumet infaller 6 oktober 2014, väljer du till exempel 10/5/2014.
+    a. **Åtkomst tillåts från:** Välj dag före aktuellt datum för att skydda för UTC-tid. Om det aktuella datumet infaller 6 oktober 2014, väljer du till exempel 10/5/2014.
 
-    b. **Åtkomst till tillåten:** väljer ett datum som är minst tre veckor efter den **åtkomst tillåts från** datum.
+    b. **Åtkomst till tillåten:** Välj ett datum som är minst tre veckor efter den **åtkomst tillåts från** datum.
 
-    c. **Åtgärder som tillåts:** väljer den **lista** och **Läs** behörigheter.
+    c. **Åtgärder som tillåts:** Välj den **lista** och **Läs** behörigheter.
 
     d. Om du har valt VHD-filen korrekt kommer din fil visas i **blobnamnet att komma åt** med filnamnstillägget .vhd.
 
@@ -360,12 +361,12 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
     f. I **genereras delad åtkomst signatur-URI för den här behållaren**, Sök efter följande som markerade ovan:
 
        - Se till att din avbildning filnamn och **”VHD”** i URI: N.
-       - I slutet av signaturen, se till att **”= rl”** visas. Detta demonstrerar att läs- och lista åtkomst har angetts korrekt.
-       - I mitten av signaturen, se till att **”sr = c”** visas. Detta demonstrerar att du har åtkomst till nivån-behållare
+       - I slutet av signaturen, se till att **”= rl”** visas. Det här värdet visar att läs- och lista åtkomst har angetts korrekt.
+       - I mitten av signaturen, se till att **”sr = c”** visas. Det här värdet visar att du har åtkomst till nivån-behållare
 
 11. För att säkerställa att den genererade delad åtkomst signatur URI: N fungerar, klickar du på **Test in Browser**. Den bör starta hämtningen.
 
-12. Kopiera signatur för delad åtkomst URI. Detta är URI:n som ska klistras in i publiceringsportalen.
+12. Kopiera signatur för delad åtkomst URI. Klistra in den här URI: N i publiceringen Portal.
 
 13. Upprepa steg 6 – 10 för varje VHD i SKU.
 
@@ -395,11 +396,11 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Micro
 
     ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.  **Starttid:** för att skydda för UTC-tid, väljer du dag före aktuellt datum. Om det aktuella datumet infaller 6 oktober 2014, väljer du till exempel 10/5/2014.
+    a.  **Starttid:** Välj dag före aktuellt datum för att skydda för UTC-tid. Om det aktuella datumet infaller 6 oktober 2014, väljer du till exempel 10/5/2014.
 
-    b.  **Förfallotid:** väljer ett datum som är minst tre veckor efter den **starttid** datum.
+    b.  **Förfallotid:** Välj ett datum som är minst tre veckor efter den **starttid** datum.
 
-    c.  **Behörigheter:** väljer den **lista** och **Läs** behörigheter
+    c.  **Behörigheter:** Välj den **lista** och **Läs** behörigheter
 
 8.  Kopiera URI: N signatur för delad åtkomst
 
@@ -418,12 +419,12 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Micro
     TestRGVM201631920152.vhd är den virtuella Hårddiskens namn och sedan VHD SAS URL: en blir `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Se till att din avbildning filnamn och **”VHD”** i URI: N.
-    - I mitten av signaturen, se till att **”sp = rl”** visas. Detta demonstrerar att läs- och lista åtkomst har angetts korrekt.
-    - I mitten av signaturen, se till att **”sr = c”** visas. Detta demonstrerar att du har åtkomst till nivån-behållare
+    - I mitten av signaturen, se till att **”sp = rl”** visas. Det här värdet visar att läs- och lista åtkomst har angetts korrekt.
+    - I mitten av signaturen, se till att **”sr = c”** visas. Det här värdet visar att du har åtkomst till nivån-behållare
 
 9.  Säkerställ att den genererade delad åtkomst signatur URI: N fungerar genom att testa den i webbläsaren. Den bör starta hämtningen
 
-10. Kopiera signatur för delad åtkomst URI. Detta är URI:n som ska klistras in i publiceringsportalen.
+10. Kopiera signatur för delad åtkomst URI. Klistra in den här URI: N i publiceringen Portal.
 
 11. Upprepa stegen för varje VHD i SKU:n.
 
@@ -435,7 +436,7 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
 1.  Ladda ned Microsoft Azure-CLI från [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Du kan också hitta olika länkar för **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** och  **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
-2.  När det har laddats ned, installera
+2.  När den har hämtats, kan du installera det här verktyget.
 
 3.  Skapa en Bash (eller andra motsvarande skript körbara filen) med följande kod och spara den lokalt
 
@@ -451,16 +452,16 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
     b. **`<VHD Blob Name>`**: Ge namnet på din VHD-blob.
 
-    Välj ett datum som är minst tre veckor efter startdatumet (standardvärde sas-token genererades). Ett exempel är: **2018-10-11T23:56Z**.
+    Välj ett datum som är minst tre veckor efter startdatum (standardvärde sas-token genererades). Ett exempel är: `2018-10-11T23:56Z`.
 
-    Följande är exempelkoden efter uppdatering rätt parametrar exportera AZURE_STORAGE_ACCOUNT = vhdstorage1ba78dfb6bc2d8 förfallodatum = $(date -d ”3 veckor” ”+ %Y-%m-% dT % H: % MZ”) CONTAINER_SAS = $(az storage container generera sas - n virtuella hårddiskar – behörigheter rl – utgången $ FÖRFALLODATUM - otsv) BLOB_URL = $(az storage blob url - c VHD - n osdisk_1ba78dfb6b.vhd - otsv) echo $BLOB_URL\?$CONTAINER_SAS
+    Följande är exempelkoden efter uppdatering rätt parametrar exportera AZURE_STORAGE_ACCOUNT = vhdstorage1ba78dfb6bc2d8 förfallodatum = $(date -d ”tre veckor” ”+ %Y-%m-% dT % H: % MZ”) CONTAINER_SAS = $(az storage container generera sas - n VHD--behörigheter rl-- förfallodatum $EXPIRY - otsv) BLOB_URL = $(az storage blob url - c VHD - n osdisk_1ba78dfb6b.vhd - otsv) echo $BLOB_URL\?$CONTAINER_SAS
 
 4.  Kör skriptet och ger du SAS-Webbadressen för åtkomst till nivån-behållare.
 
 5.  Kontrollera din SAS-URL.
 
     - Se till att ditt filnamn för avbildning och ”VHD” finns i URI: N.
-    -   I mitten av signaturen, se till att ”sp = rl” visas. Detta demonstrerar att läs- och lista åtkomst har angetts korrekt.
+    -   I mitten av signaturen, se till att ”sp = rl” visas. Det här värdet visar att läs- och lista åtkomst har angetts korrekt.
     -   I mitten av signaturen, se till att ”sr = c” visas. Detta demonstrerar att du har åtkomst till nivån-behållare
 
     Exempel:
@@ -469,7 +470,7 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
 8.  Säkerställ att den genererade delad åtkomst signatur URI: N fungerar genom att testa den i webbläsaren. Den bör starta hämtningen
 
-9.  Kopiera signatur för delad åtkomst URI. Detta är URI:n som ska klistras in i publiceringsportalen.
+9.  Kopiera signatur för delad åtkomst URI. Klistra in den här URI: N i publiceringen Portal.
 
 10. Upprepa stegen för varje VHD i SKU:n.
 
@@ -483,7 +484,7 @@ När du har skapat ett erbjudande och SKU, bör du ange avbildningsdetaljerna so
 4. Fyll i egenskaperna under den **SKU: er** avsnittet.
 5. Under **operativsystemets familj**, klickar du på den typ av operativsystem som är associerade med det virtuella Hårddisken för operativsystemet.
 6. I den **operativsystemet** rutan, beskriver du operativsystemet. Överväg att ett format till exempel operativsystemets familj, typ, version och uppdateringar. Ett exempel är ”Windows Server Datacenter 2014 R2”.
-7. Välj upp till sex rekommenderade virtuella datorstorlekar. Det här är rekommendationer visas för kunden i bladet prisnivå i Azure Portal när de beslutar sig att köpa och distribuera din avbildning. **Detta är bara rekommendationer. Kunden kan välja vilken storlek som kan hanterar diskarna som specificerats i din avbildning.**
+7. Välj upp till sex rekommenderade virtuella datorstorlekar. Dessa storlekar finns rekommendationer visas för kunden i bladet prisnivå i Azure Portal när de beslutar sig att köpa och distribuera din avbildning. **Detta är bara rekommendationer. Kunden kan välja vilken storlek som kan hanterar diskarna som specificerats i din avbildning.**
 8. Ange version. Versionsfältet kapslar in en semantiska version för att identifiera produkten med uppdateringar:
    * Versionerna bör vara i formatet X.Y.Z, där X, Y och Z är heltal.
    * Bilder i olika SKU: er kan ha olika versioner av högre och den lägre.
@@ -507,10 +508,10 @@ När du har skapat ett erbjudande och SKU, bör du ange avbildningsdetaljerna so
 |Det gick inte att kopiera avbildningar – SAS-Url ”a” och ”se” parametrar har inte fullständig datum / tid-specifikation|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av felaktiga SAS-Url |SAS URL: en Start- och slutdatum parametrar (”a”, ”se”) måste ha fullständig datum / tid-specifikationen, till exempel 11-02-2017T00:00:00Z, och inte bara det eller de förkortade versioner för tiden. Det är möjligt att stöta på det här scenariot med Azure CLI version 2.0 eller senare. Var noga med att tillhandahålla fullständig datum / tid-specifikationen och återskapa SAS-webbadressen.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Nästa steg
-När du är klar med SKU-information kan du gå vidare och den [marketing content för för Azure Marketplace][link-pushstaging]. I det steget i publiceringsprocessen ska du ange marknadsföring innehåll, priser och annan information som krävs före **steg3: testa den virtuella datorn erbjuder i mellanlagringen**, där du testa olika Användningsscenarier innan du distribuerar den erbjudande på Azure Marketplace för offentliga synlighet och köp.  
+När du är klar med SKU-information kan du gå vidare och den [marketing content för för Azure Marketplace][link-pushstaging]. I det steget i publiceringsprocessen ska du ange marknadsföring innehåll, priser och annan information som krävs före **steg3: Testa din virtuella dator erbjudande i mellanlagringen**, där du testa olika Användningsscenarier innan du distribuerar erbjudandet på Azure Marketplace för offentliga synlighet och köp.  
 
 ## <a name="see-also"></a>Se också
-* [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Komma igång: Hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

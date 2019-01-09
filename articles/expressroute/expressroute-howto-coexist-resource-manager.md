@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104041"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103323"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute och plats-till-plats-anslutningar för samexistens mellan med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "53104041"
 > 
 
 
-Den här artikeln hjälper dig att konfigurera ExpressRoute och VPN för plats-till-plats-anslutningar som samexistera. Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda plats-till-plats-VPN för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller distributionsmodellen i Resource Manager.
+Den här artikeln hjälper dig att konfigurera ExpressRoute och VPN-anslutningar för plats till plats som samexisterar. Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda plats-till-plats-VPN för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller distributionsmodellen i Resource Manager.
 
 Att konfigurera VPN för plats till plats och samexisterande ExpressRoute-anslutningar har flera fördelar:
 
@@ -43,6 +43,7 @@ Stegen för att konfigurera båda scenarierna beskrivs i den här artikeln. Den 
 * **Basic-SKU-gatewayen stöds inte.** Du måste använda en icke-Basic SKU-gateway för både [ExpressRoute-gatewayen](expressroute-about-virtual-network-gateways.md) och [VPN-gatewayen](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Enbart routebaserad VPN-gateway stöds.** Du måste använda en routebaserad [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Statiska vägar ska konfigureras för din VPN-gateway.** Om ditt lokala nätverk är anslutet både till ExpressRoute och en plats-till-plats-VPN så måste du ha konfigurerat en statisk väg i ditt lokala nätverk för att routa plats-till-plats-VPN-anslutningen till det offentliga Internet.
+* **VPN-Gateway ASN 65515 som standard om inget anges.** Azure VPN-Gateway har stöd för BGP-routningsprotokoll. Du kan ange ASN (AS Number) för ett virtuellt nätverk genom att lägga till växeln - Asn. Om du inte anger den här parametern standard som talet är 65515. Du kan använda valfri ASN för konfigurationen, men om du väljer något annat än 65515, måste du återställa gatewayen för att inställningen ska börja gälla.
 
 ## <a name="configuration-designs"></a>Konfigurationsdesign
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurera en VPN för plats till plats som en redundanssökväg för ExpressRoute

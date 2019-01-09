@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 58afbdf3488850a643e7d4b8979bf860f93141df
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 34a3b00fdc0644294a97272be7b3a06715c029a1
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014122"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121336"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -292,7 +292,7 @@ namespace SampleApp
 Om du vill använda innehåll för stdout.txt i underordnade aktiviteter kan du hämta sökvägen till filen stdout.txt i uttrycket ”\@activity('MyCustomActivity').output.outputs [0]”. 
 
   > [!IMPORTANT]
-  > - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat. 
+  > - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat. 
   > - För länkade tjänster som använder den lokala Integration Runtime definierats känslig information som nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna är kvar i kundens privata nätverk. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs. 
 
 ## <a name="pass-outputs-to-another-activity"></a>Pass utdata till en annan aktivitet

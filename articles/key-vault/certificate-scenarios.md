@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d3adeb2e9fab22d1e9c10b2deb4591c29ccff748
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1441e16e141bd33acfdfe4087f74afbc7b47bc77
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074401"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118293"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
@@ -57,7 +57,7 @@ Certifikat består av tre relaterade resurser som länkas samman som ett Key Vau
 
      Mer information om hur du skapar konton med CA-providrar finns i relaterade inlägg på den [Key Vault-bloggen](https://aka.ms/kvcertsblog).  
 
-**Steg 3.1** – Ställ in [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Det här är kontakten för Key Vault-användaren. Key Vault påtvingar inte det här steget.  
+**Steg 3.1** -konfigurera [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Det här är kontakten för Key Vault-användaren. Key Vault påtvingar inte det här steget.  
 
 Obs! – den här processen via steg 3.1 är en onetime åtgärd.  
 

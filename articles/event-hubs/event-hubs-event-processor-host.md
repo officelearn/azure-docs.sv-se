@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089641"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106130"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Ta emot händelser från Azure Event Hubs med värden för händelsebearbetning
 
@@ -37,10 +37,10 @@ Varje sensor skickar data till en händelsehubb. Händelsehubben har konfigurera
 
 När du designar konsumenten i en distribuerad miljö, måste scenariot hantera följande krav:
 
-1. **Skala:** skapa flera konsumenter med varje konsument ägarskap av läsning från några Event Hubs-partitioner.
-2. **Belastningsutjämna:** öka eller minska konsumenterna dynamiskt. Till exempel när en ny typ av sensor (till exempel en kolmonoxid detektor) läggs till varje hem, ökar antalet händelser. I så fall ökar operatorn (en människa) antalet instanser av konsumenten. Sedan, pool med konsumenter kan balansera om antalet partitioner som de äger, dela belastningen med de nyligen tillagda konsumenterna.
-3. **Sömlös återupptagande för fel:** om en konsument (**konsument A**) misslyckas (till exempel den virtuella datorn som är värd konsumenten plötsligt kraschar), och andra användare måste kunna hämta de partitioner som ägs av **konsument A** och fortsätta. Dessutom fortsättning punkten, kallas en *kontrollpunkt* eller *offset*, ska vara den exakta tidpunkt då **konsument A** misslyckades, eller något innan dess.
-4. **Konsumera händelser:** medan de föregående tre punkterna handlar om hanteringen av konsumenten, måste det finnas en kod för att använda händelserna och gör något praktiskt med den; exempelvis aggregera och överföra den till blob storage.
+1. **Skala:** Skapa flera konsumenter med varje konsument ägarskap av läsning från några Event Hubs-partitioner.
+2. **Belastningsutjämna:** Öka eller minska konsumenterna dynamiskt. Till exempel när en ny typ av sensor (till exempel en kolmonoxid detektor) läggs till varje hem, ökar antalet händelser. I så fall ökar operatorn (en människa) antalet instanser av konsumenten. Sedan, pool med konsumenter kan balansera om antalet partitioner som de äger, dela belastningen med de nyligen tillagda konsumenterna.
+3. **Sömlös återupptagande för fel:** Om en konsument (**konsument A**) misslyckas (till exempel den virtuella datorn som är värd konsumenten plötsligt kraschar), och andra användare måste kunna hämta de partitioner som ägs av **konsument A** och fortsätta. Dessutom fortsättning punkten, kallas en *kontrollpunkt* eller *offset*, ska vara den exakta tidpunkt då **konsument A** misslyckades, eller något innan dess.
+4. **Konsumera händelser:** Även om föregående tre punkter handlar om hanteringen av konsumenten, måste det finnas en kod för att använda händelser och göra ett beskrivande där. till exempel sammanställa den och överför den till blob storage.
 
 I stället för att skapa en egen lösning för det här Event Hubs tillhandahåller den här funktionen via den [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) gränssnitt och [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) klass.
 
@@ -84,10 +84,10 @@ public class SimpleEventProcessor : IEventProcessor
 Därefter skapa en instans av en [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instans. Beroende på överbelastning, när du skapar den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instans i konstruktorn används följande parametrar:
 
 - **Värdnamn:** namnet på varje konsumentinstans. Varje instans av **EventProcessorHost** måste ha ett unikt värde för den här variabeln inom en konsumentgrupp, så det är bäst att inte hårt code det här värdet.
-- **eventHubPath:** namnet på händelsehubben.
-- **consumerGroupName:** Event Hubs använder **$Default** eftersom namnet på förinställd konsumentgrupp, men det är en bra idé att skapa en konsumentgrupp för din specifika aspekter av bearbetning.
-- **eventHubConnectionString:** anslutningssträngen till event hub, som kan hämtas från Azure-portalen. Den här anslutningssträngen måste ha **lyssna** behörigheter i event hub.
-- **storageConnectionString:** lagringskonton som används för interna resurshantering.
+- **eventHubPath:** Namnet på händelsehubben.
+- **consumerGroupName:** Händelsehubbar använder **$Default** eftersom namnet på förinställd konsumentgrupp, men det är en bra idé att skapa en konsumentgrupp för din specifika aspekter av bearbetning.
+- **eventHubConnectionString:** Anslutningssträngen till event hub, som kan hämtas från Azure-portalen. Den här anslutningssträngen måste ha **lyssna** behörigheter i event hub.
+- **StorageConnectionString:** Det lagringskonto som används för interna resurshantering.
 
 Slutligen användare registrerar den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) -instansen med Event Hubs-tjänsten. Registrera en händelseklass-processor med en instans av EventProcessorHost startar bearbetning av händelser. Registrera instruerar Event Hubs-tjänsten kan förvänta sig att appen konsument förbrukar händelser från vissa av tabellens partitioner, och att anropa den [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementeringskod när den skickar händelser för att använda. 
 
@@ -123,7 +123,9 @@ Varje värd skaffar här ägarskapet för en partition för en viss varaktighet 
 
 ## <a name="receive-messages"></a>Ta emot meddelanden
 
-Varje anrop till [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) levererar en insamling av händelser. Det är ditt ansvar att hantera dessa händelser. Vi rekommenderar att du gör saker som är relativt snabbt. det vill säga göra bearbetningen som möjligt. Använd istället konsumentgrupper. Om du behöver skriva till lagring och vissa routning, är det vanligtvis bättre att använda två konsumentgrupper och har två [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementeringar som kör separat.
+Varje anrop till [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) levererar en insamling av händelser. Det är ditt ansvar att hantera dessa händelser. Om du vill kontrollera värden för händelsebearbetning bearbetar alla meddelanden minst en gång som du behöver skriva din egen keep försöker kod. Men var försiktig om förgiftat meddelanden.
+
+Vi rekommenderar att du gör saker som är relativt snabbt. det vill säga göra bearbetningen som möjligt. Använd istället konsumentgrupper. Om du behöver skriva till lagring och vissa routning, är det vanligtvis bättre att använda två konsumentgrupper och har två [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementeringar som kör separat.
 
 Du kanske vill hålla reda på vad du har läst och slutfört någon gång under bearbetningen. Spåra är kritiskt om du måste starta om läsning, så att du inte gå tillbaka till början av strömmen. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) förenklar den här spårning med hjälp av *kontrollpunkter*. En kontrollpunkt är en plats eller offset för en given partition inom en viss konsumentgrupp, vid vilken tidpunkt som du är nöjd som du har bearbetat meddelandena. Markera en kontrollpunkt i **EventProcessorHost** åstadkoms genom att anropa den [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) metoden på den [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) objekt. Den här åtgärden görs i den [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) metoden men kan också göras [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -152,11 +154,11 @@ Som tidigare förklarats tabellen Uppföljning förenklar den Autoskala natur [E
 
 Dessutom kan en överlagring för [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) tar en [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) objektet som en parameter. Använd den här parametern för att styra beteendet för [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) själva. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) fyra egenskaper och en händelse:
 
-- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): den maximala storleken för den samling som du vill ta emot i en körning av [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Den här storleken är inte minst, endast den maximala storleken. Om det finns färre meddelanden som tas emot **ProcessEventsAsync** utför med så många som var tillgängliga.
-- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): ett värde som används av den underliggande AMQP-kanalen för att fastställa den övre gränsen för hur många meddelanden klienten ska ta emot. Det här värdet ska vara större än eller lika med [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
-- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): om den här parametern **SANT**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) anropas när tidsgränsen uppnås för underliggande anropet för att ta emot händelser på en partition. Den här metoden är användbar för att utföra åtgärder för tidsbaserade perioder av inaktivitet på partitionen.
-- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): gör en pekare eller lambda funktionsuttryck anges, som kallas för att tillhandahålla den första förskjutningen när en läsare börjar läsa en partition. Utan att ange denna offset läsaren börjar vid den äldsta händelsen, såvida inte en JSON-fil med en förskjutning redan har sparats i storage-kontot som angetts för den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) konstruktor. Den här metoden är användbar när du vill ändra beteendet för läsare-start. När den här metoden har anropats innehåller parametern objektet partitions-ID som läsaren startas.
-- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): gör det möjligt att få meddelanden om alla underliggande undantag som uppstår i [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Om allt inte fungerar som förväntat, är ett bra ställe att börja titta i den här händelsen.
+- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): Den maximala storleken för den samling som du vill ta emot i en körning av [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Den här storleken är inte minst, endast den maximala storleken. Om det finns färre meddelanden som tas emot **ProcessEventsAsync** utför med så många som var tillgängliga.
+- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): Ett värde som används av den underliggande AMQP-kanalen för att fastställa den övre gränsen för hur många meddelanden som klienten ska använda. Det här värdet ska vara större än eller lika med [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): Om den här parametern **SANT**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) anropas när tidsgränsen uppnås för underliggande anropet för att ta emot händelser på en partition. Den här metoden är användbar för att utföra åtgärder för tidsbaserade perioder av inaktivitet på partitionen.
+- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): Gör en pekare eller lambda funktionsuttryck anges, som kallas för att tillhandahålla den första förskjutningen när en läsare börjar läsa en partition. Utan att ange denna offset läsaren börjar vid den äldsta händelsen, såvida inte en JSON-fil med en förskjutning redan har sparats i storage-kontot som angetts för den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) konstruktor. Den här metoden är användbar när du vill ändra beteendet för läsare-start. När den här metoden har anropats innehåller parametern objektet partitions-ID som läsaren startas.
+- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Gör det möjligt att få meddelanden om alla underliggande undantag som uppstår i [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Om allt inte fungerar som förväntat, är ett bra ställe att börja titta i den här händelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 

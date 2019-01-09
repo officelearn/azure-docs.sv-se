@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 57cc1d25f38c1aec7495a3ea542a7b467829dc41
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ebe0b9d3cbe14bf35e05db3349a5aebb11b5716
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184720"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120112"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla Azure Web App-resurser
 
@@ -28,4 +28,4 @@ ms.locfileid: "53184720"
 > Azure Web App Analytics-lösningen har flyttats till community-support.  
 >- Lösningen är inte längre är tillgänglig från Azure Marketplace men du kan installera från [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/101-webappazure-oms-monitoring/) där den stöds av communityn.
 >- Kunder som redan har installerat lösningen kan fortsätta att använda den med ändringar.  
->- Microsoft rekommenderar att du använder [Application Insights](../../application-insights/app-insights-overview.md) att övervaka dina webbprogram.
+>- Microsoft rekommenderar att du använder [Application Insights](../../azure-monitor/app/app-insights-overview.md) att övervaka dina webbprogram.

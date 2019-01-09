@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 27c8fce8c8eac936708dbac72ca60a1c0af286ea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556806"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106145"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrera från Managed Cache Service till Azure Cache för Redis
 Migrera dina program som använder Azure Managed Cache Service till Azure Cache för Redis kan åstadkommas med minimala ändringar till ditt program, beroende på vilka Managed Cache Service-funktioner som programmets cachelagring. API: er är inte exakt samma de liknar varandra och mycket av din befintliga kod som använder Managed Cache Service för att få åtkomst till en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör den nödvändiga konfigurationen och program ändras för att migrera dina Managed Cache Service-appar använder Azure Cache för Redis och visar hur några av funktionerna i Azure Cache för Redis kan användas för att implementera funktionerna i en cache Managed Cache Service.
@@ -53,7 +53,7 @@ Azure Managed Cache Service och Azure Cache för Redis liknar men implementerar 
 | Lokal cache |Lagrar en kopia av cachelagrade objekt som lokalt på klienten för extra snabb åtkomst. |Klientprogram behöver du implementera den här funktionen med hjälp av en ordlista eller liknande datastruktur. |
 | Princip för borttagning |Ingen eller LRU. Standardprincipen är LRU. |Azure Redis-Cache har stöd för följande avlägsningsprinciper: beräkningsbara lru, allkeys lru, beräkningsbara slumpmässiga, allkeys slumpmässiga beräkningsbara-ttl, noeviction. Standardprincipen är beräkningsbara lru. Mer information finns i [Default Redis server configuration](cache-configure.md#default-redis-server-configuration). |
 | Princip |Standardprincipen för förfallodatum är absoluta och upphör att gälla Standardintervallet är 10 minuter. Glidande och aldrig principer är också tillgängliga. |Som standard upphör inte objekt i cacheminnet, men ett förfallodatum kan konfigureras på basis av per skrivning med hjälp av cache set överlagringar. |
-| Regioner och taggning |Regionerna är undergrupper för cachelagrade objekt. Regioner stöder också anteckningen av cachelagrade objekt med ytterligare beskrivande strängar som kallas taggar. Regioner har stöd för möjligheten att utföra sökningar på alla objekt som taggats i den regionen. Alla objekt inom en region finns i en enda nod i cacheklustret. |Azure Cache för Redis består av en enskild nod (såvida inte Redis-kluster är aktiverat) så inte gäller begreppet Managed Cache Service regioner. Redis stöder sökning och jokertecken åtgärder vid hämtning av nycklar så beskrivande taggar kan vara inbäddad i nyckelnamnen och används för att hämta objekten senare. Ett exempel för att implementera en taggning lösning med hjälp av Redis finns i [implementera taggning med Redis cache](http://stackify.com/implementing-cache-tagging-redis/). |
+| Regioner och taggning |Regionerna är undergrupper för cachelagrade objekt. Regioner stöder också anteckningen av cachelagrade objekt med ytterligare beskrivande strängar som kallas taggar. Regioner har stöd för möjligheten att utföra sökningar på alla objekt som taggats i den regionen. Alla objekt inom en region finns i en enda nod i cacheklustret. |Azure Cache för Redis består av en enskild nod (såvida inte Redis-kluster är aktiverat) så inte gäller begreppet Managed Cache Service regioner. Redis stöder sökning och jokertecken åtgärder vid hämtning av nycklar så beskrivande taggar kan vara inbäddad i nyckelnamnen och används för att hämta objekten senare. Ett exempel för att implementera en taggning lösning med hjälp av Redis finns i [implementera taggning med Redis cache](https://stackify.com/implementing-cache-tagging-redis/). |
 | Serialisering |Managed Cache stöder NetDataContractSerializer BinaryFormatter och användningen av anpassade serializers. Standardvärdet är NetDataContractSerializer. |Det är ansvar för klientprogram att serialisera .NET-objekt innan du placerar dem i cachen med valet av serialiserare upp till programutvecklare för klienten. Mer information och exempelkod finns i [arbeta med .NET-objekt i cachen](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
 | Cache-emulatorn |Hanterad Cache ger en lokal cache-emulator. |Azure Redis-Cache har inte en emulator, men du kan [kör MSOpenTech version av redis-server.exe lokalt](cache-faq.md#cache-emulator) ska få en emulator-upplevelse. |
 

@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 1b6f3a3d4f130792ee606050338a2c30f7fc7847
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514986"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118888"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Schemalägg och Sänd jobb (Node)
 
@@ -30,7 +30,7 @@ Den övergripande ett jobb omsluter på sådana åtgärder och spårar förloppe
 
 Mer information om var och en av de här funktionerna i de här artiklarna:
 
-* Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar] [ lnk-get-started-twin] och [självstudie: Så här använder du tvillingegenskaper][lnk-twin-props]
+* Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar] [ lnk-get-started-twin] och [självstudien: Så här använder du tvillingegenskaper][lnk-twin-props]
 * Direkta metoder: [IoT Hub developer guide - direkta metoder] [ lnk-dev-methods] och [självstudie: direkta metoder][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -55,7 +55,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -97,7 +97,7 @@ I det här avsnittet skapar du en Node.js-konsolapp som svarar på en direkt met
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
@@ -262,7 +262,7 @@ I den här självstudien använde du ett jobb för att schemalägga en direkt me
 
 Om du vill fortsätta att komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering, se:
 
-[Självstudie: Hur du gör en firmware-uppdatering][lnk-fwupdate]
+[Självstudier: Hur du gör en firmware-uppdatering][lnk-fwupdate]
 
 Om du vill komma igång med IoT Hub går [komma igång med Azure IoT Edge][lnk-iot-edge].
 

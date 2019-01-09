@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 066ae6ffba64c7dd71c982172f7cd15a881809b4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036808"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118429"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i varaktiga funktioner i Azure
 
@@ -23,7 +23,7 @@ Det finns flera alternativ för att diagnostisera problem med [varaktiga funktio
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../application-insights/app-insights-overview.md) är det rekommendera sättet att göra diagnostik och övervakning i Azure Functions. Samma gäller för varaktiga funktioner. En översikt över hur du kan använda Application Insights i din funktionsapp, se [övervaka Azure Functions](../functions-monitoring.md).
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) är det rekommendera sättet att göra diagnostik och övervakning i Azure Functions. Samma gäller för varaktiga funktioner. En översikt över hur du kan använda Application Insights i din funktionsapp, se [övervaka Azure Functions](../functions-monitoring.md).
 
 Azure Functions varaktiga Extension genererar även *spårning av händelser* som gör det möjligt att spåra slutpunkt till slutpunkt-körningen av en orkestrering. Dessa kan hittas och fråga med hjälp av den [Application Insights Analytics](../../azure-monitor/app/analytics.md) verktyg i Azure-portalen.
 

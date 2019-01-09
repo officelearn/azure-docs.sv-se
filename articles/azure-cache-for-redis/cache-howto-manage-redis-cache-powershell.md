@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 0186882183ed0848fd8b14d186b55ad1a5ff58ea
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020046"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105244"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure Cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdater
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Läs mer om den klassiska distributionsmodellen [Azure Resource Manager och klassisk distribution: distributionsmodeller och dina resursers tillstånd](../azure-resource-manager/resource-manager-deployment-model.md).
+Läs mer om den klassiska distributionsmodellen [Azure Resource Manager och klassisk distribution: Distributionsmodeller och dina resursers tillstånd](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell, version 1.0.0 eller senare. Du kan kontrollera versionen av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell-Kommandotolken.
@@ -137,7 +137,7 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 | StaticIP |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. | |
 | Undernät |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. | |
 | VirtualNetwork |När du har ditt cacheminne i ett virtuellt nätverk, anger du resurs-ID för det virtuella nätverket där du kan distribuera cacheminnet. | |
-| KeyType |Anger vilka åtkomstnyckel att återskapa när du förnyar åtkomstnycklar. Giltiga värden är: primär, sekundär | |
+| KeyType |Anger vilka åtkomstnyckel att återskapa när du förnyar åtkomstnycklar. Giltiga värden är: Primär, sekundär | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration egenskaper
 | Egenskap  | Beskrivning | Prisnivåer |
@@ -148,11 +148,11 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 | maxmemory-reserverade |Konfigurerar den [minne reserverade](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för icke-cache-processer |Standard och Premium |
 | princip för max. minne |Konfigurerar den [avlägsningsprincipen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cache |Alla prisnivåer |
 | meddela-keyspace-händelser |Konfigurerar [keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) |Standard och Premium |
-| hash-max-ziplist-transaktioner |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| hash-max-ziplist-value |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| set-max-intset-transaktioner |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset-max-ziplist-transaktioner |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset / max-ziplist-värde |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| hash-max-ziplist-transaktioner |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| hash-max-ziplist-value |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| set-max-intset-transaktioner |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset-max-ziplist-transaktioner |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset / max-ziplist-värde |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | databaser |Konfigurerar hur många databaser. Den här egenskapen kan endast konfigureras hos skapa cache. |Standard och Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
@@ -237,7 +237,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `New
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Kör följande kommando för att skapa ett cacheminne med standardparametrar.
 
@@ -317,7 +317,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Set
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Den `Set-AzureRmRedisCache` cmdlet kan användas för att uppdatera egenskaperna som `Size`, `Sku`, `EnableNonSslPort`, och `RedisConfiguration` värden. 
 
@@ -421,7 +421,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Get
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 För att returnera information om alla cacheminnen i den aktuella prenumerationen, kör `Get-AzureRmRedisCache` utan några parametrar.
 
@@ -488,7 +488,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Get
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Hämta nycklarna för din cachelagring genom att anropa den `Get-AzureRmRedisCacheKey` cmdlet och skicka namnet på din cache namnet på resursgruppen som innehåller cachen.
 
@@ -533,7 +533,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `New
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Om du vill återskapa den primära eller sekundära nyckeln för ditt cacheminne, anropa den `New-AzureRmRedisCacheKey` cmdleten och ange namn, resursgrupp och ange antingen `Primary` eller `Secondary` för den `KeyType` parametern. I följande exempel återskapas den sekundära åtkomstnyckeln för cache.
 
@@ -584,7 +584,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Rem
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 I följande exempel cachen med namnet `myCache` tas bort.
 
@@ -648,7 +648,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Imp
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Följande kommando importerar data från blob som anges av SAS-uri i Azure Cache för Redis.
@@ -707,7 +707,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Exp
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Följande kommando exporterar data från en Azure-Cache för Redis-instans i den behållare som angavs av SAS-URI: n.
@@ -768,7 +768,7 @@ Att se en lista över tillgängliga parametrar och deras beskrivningar för `Res
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Följande kommando startar om båda noderna i den angivna cachen.
@@ -781,9 +781,9 @@ Följande kommando startar om båda noderna i den angivna cachen.
 Mer information om hur du använder Windows PowerShell med Azure finns i följande resurser:
 
 * [Azure Cache för Redis cmdlet-dokumentationen på MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
-* [Azure Resource Manager-Cmdlets](https://go.microsoft.com/fwlink/?LinkID=394765): Lär dig att använda cmdletarna i modulen Azure Resource Manager.
+* [Azure Resource Manager-cmdletar](https://go.microsoft.com/fwlink/?LinkID=394765): Lär dig att använda cmdlets i modulen Azure Resource Manager.
 * [Hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-template-deploy-portal.md): Lär dig hur du skapar och hanterar resursgrupper i Azure-portalen.
-* [Azure-bloggen](https://azure.microsoft.com/blog/): Lär dig mer om nya funktioner i Azure.
-* [Windows PowerShell-blogg](https://blogs.msdn.com/powershell): Lär dig mer om nya funktioner i Windows PowerShell.
-* [”Hey, Scripting Guy”! Blogg](http://blogs.technet.com/b/heyscriptingguy/): få verkliga tips och tricks från Windows PowerShell-communityn.
+* [Azure-bloggen](https://azure.microsoft.com/blog/): Läs mer om nya funktioner i Azure.
+* [Windows PowerShell-blogg](https://blogs.msdn.com/powershell): Läs mer om nya funktioner i Windows PowerShell.
+* [”Hey, Scripting Guy”! Blogg](https://blogs.technet.com/b/heyscriptingguy/): Få verkliga tips och tricks från Windows PowerShell-communityn.
 

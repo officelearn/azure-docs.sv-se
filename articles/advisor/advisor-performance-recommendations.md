@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 93757c9f589ec1a6d5065d32740831dac922a015
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079076"
+ms.locfileid: "54101725"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
@@ -53,7 +53,7 @@ Advisor identifierar virtuella datorer som tillhör ett lagringskonto som når s
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Förbättra säkerheten och tillförlitligheten för virtuella diskar med Premium Storage
 
-Advisor identifierar virtuella datorer med standarddiskar som har ett stort antal överföringar på ditt lagringskonto och rekommenderar att du uppgraderar till premium-diskar. 
+Advisor identifierar virtuella datorer med standarddiskar som har en stor mängd transaktioner på ditt lagringskonto och rekommenderar att du uppgraderar till premium-diskar. 
 
 Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Virtuella diskar som använder premium storage-konton kan du lagra data på SSD (solid-state drive). För bästa prestanda för ditt program rekommenderar vi att du har migrerat alla virtuella diskar som kräver hög IOPS till premium storage.
 
@@ -71,7 +71,7 @@ Azure Advisor identifierar om SQL Data Warehouse har hög cache används procent
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Konvertera SQL Data Warehouse-tabeller i replikerade tabeller för att öka prestanda för frågor
 
-Advisor identifierar tabeller som inte är replikerade tabeller men skulle ha nytta av konvertering och föreslår att du konverterar dessa tabeller. Rekommendationerna baseras på replikerad tabellstorlek, antal kolumner, tabelltyp för distribution och antalet partitioner i SQL Data Warehouse-tabell. Ytterligare heurisitics kan anges i rekommendationen för kontext. Mer information om hur den här rekommendationen bestäms finns [rekommendationer för SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Advisor identifierar tabeller som inte är replikerade tabeller men skulle ha nytta av konvertering och föreslår att du konverterar dessa tabeller. Rekommendationerna baseras på replikerad tabellstorlek, antal kolumner, tabelltyp för distribution och antalet partitioner i SQL Data Warehouse-tabell. Ytterligare heuristik kan anges i rekommendationen för kontext. Mer information om hur den här rekommendationen bestäms finns [rekommendationer för SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrera ditt Storage-konto till Azure Resource Manager för att få alla de senaste Azure-funktionerna
 

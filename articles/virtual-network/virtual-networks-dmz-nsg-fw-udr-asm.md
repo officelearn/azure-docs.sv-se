@@ -1,6 +1,6 @@
 ---
 title: Perimeternätverksexempel – skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG | Microsoft Docs
-description: Skapa en DMZ med en brandvägg, användardefinierade routning (UDR) och Nätverkssäkerhetsgrupper (NSG)
+description: Bygg en DMZ med brandvägg, användardefinierad routning (UDR) och Nätverkssäkerhetsgrupper (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23885247"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119449"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exempel 3 – skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG
-[Gå tillbaka till gränsen bästa praxis säkerhetssidan][HOME]
+[Gå tillbaka till gränsen bästa praxis sidan][HOME]
 
-Det här exemplet skapar en DMZ med en brandvägg, fyra windows-servrar, användaren definierat routning, IP-vidarebefordring och Nätverkssäkerhetsgrupper. Det hjälper även genom relevanta kommandon för att ge en bättre förståelse för varje steg. Det finns också ett trafik scenariot avsnitt för att ge en detaljerad steg för steg hur trafik fortsätter via lager i skyddsstrategierna i Perimeternätverket. Slutligen är avsnitt i hänvisning den fullständiga koden och anvisningarna för att skapa den här miljön för att testa och experimentera med olika scenarier. 
+Det här exemplet skapar en DMZ med en brandvägg, fyra windows-servrar, användaren definierats routning, IP-vidarebefordring och Nätverkssäkerhetsgrupper. Den visar även hur var och en av relevanta kommandon för att ge en bättre förståelse för varje steg. Det finns också ett avsnitt för trafik scenariot att ge en djupgående steg för steg hur trafik fortsätter genom försvarslinjer i Perimeternätverket. Slutligen är avsnittet i referenserna den fullständiga koden och anvisningarna för att skapa den här miljön för att testa och experimentera med olika scenarier. 
 
 ![Dubbelriktat perimeternätverk med NVA, NSG och UDR][1]
 
-## <a name="environment-setup"></a>Miljökonfiguration
+## <a name="environment-setup"></a>Konfigurera miljön
 I det här exemplet finns det en prenumeration som innehåller följande:
 
 * Tre molntjänster: ”SecSvc001”, ”FrontEnd001” och ”BackEnd001”
-* Ett virtuellt nätverk ”CorpNetwork” med tre undernät: ”SecNet”, ”FrontEnd” och ”BackEnd”
-* En virtuell nätverksenhet, i det här exemplet en brandvägg, som är anslutet till undernätet för SecNet
+* Ett virtuellt nätverk ”CorpNetwork” med tre undernät: ”SecNet”, ”FrontEnd” och ”serverdel”
+* En virtuell nätverksinstallation, i det här exemplet en brandvägg, som är anslutna till undernätet för SecNet
 * En Windows-Server som representerar en program-webbserver (”IIS01”)
-* Två windows-servrar som representerar tillbaka programmet avslutas servrar (”AppVM01”, ”AppVM02”)
+* Två windows-servrar som representerar programmet tillbaka sluta servrar (”AppVM01”, ”AppVM02”)
 * En Windows-server som representerar en DNS-server (”DNS01”)
 
-I referensavsnittet nedan finns ett PowerShell-skript som skapar de flesta i miljön som beskrivs ovan. Skapande av virtuella datorer och virtuella nätverk, även om den är klar med exempelskriptet som inte beskrivs i detalj i detta dokument.
+I referensavsnittet nedan finns ett PowerShell-skript som skapar de flesta av miljön som beskrivs ovan. Att skapa virtuella datorer och virtuella nätverk, även om utförs av exempelskript, som inte beskrivs i detalj i det här dokumentet.
 
 Att skapa miljön:
 
-1. Spara nätverket XML-konfigurationsfilen finns i referensavsnittet (uppdaterade med namn, plats och IP-adresser för att matcha det aktuella scenariot)
-2. Uppdatera Användarvariabler i skript för att matcha den miljö som skriptet ska köras mot (prenumerationer, tjänstnamn och så vidare)
+1. Spara nätverk XML-konfigurationsfilen i referensavsnittet (uppdateras med namn, plats och IP-adresser för att matcha det aktuella scenariot)
+2. Uppdatera Användarvariabler i skriptet så att den matchar den miljö som skriptet ska köras mot (prenumerationer, tjänstnamn osv.)
 3. Kör skriptet i PowerShell
 
-**Obs**: den region som visas i PowerShell-skriptet måste matcha den region som visas i nätverket XML-konfigurationsfilen.
+**Obs!** Den region som visas i PowerShell-skriptet måste matcha den region som visas i nätverket XML-konfigurationsfilen.
 
-När skriptet har körts vidtas efter skriptet följande steg:
+När skriptet har körts kan följande efterskript steg vidtas:
 
-1. Konfigurera brandväggsregler detta beskrivs i avsnittet nedan: beskrivning av brandväggen.
-2. Du kan också är i referensavsnittet två skript för att konfigurera webbserver- och app-servern med en enkel webbapp för att testa med den här DMZ-konfigurationen.
+1. Konfigurera brandväggsreglerna beskrivs detta i avsnittet nedan: Beskrivning av brandväggen.
+2. Du kan också är i referensavsnittet två skript för att konfigurera webbserver- och app-servern med en enkel webbapp för att testa med den här perimeternätverkskonfigurationen.
 
-När skriptet har körts brandväggen regler måste slutföras kan detta beskrivs i avsnittet: brandväggsregler.
+När skriptet har körts brandväggen regler måste slutföras beskrivs detta i avsnittet: Brandväggsregler.
 
 ## <a name="user-defined-routing-udr"></a>Användardefinierad routning (UDR)
 Som standard definieras följande systemvägar som:
@@ -68,35 +68,35 @@ Som standard definieras följande systemvägar som:
          {172.16.0.0/12}   Null                                 Active   Default    
          {192.168.0.0/16}  Null                                 Active   Default
 
-VNETLocal är alltid definierad address-prefix för VNet för det specifika nätverket (ie ändras från VNet till VNet beroende på hur varje specifik VNet har definierats). De återstående systemvägarna är statiska och standard som ovan.
+VNETLocal är alltid definierad adress-prefix för det virtuella nätverket för den specifika nätverk (d.v.s. den kommer att ändras från VNet till VNet beroende på hur varje specifik virtuellt nätverk har definierats). Återstående systemvägar är statiska och standard som ovan.
 
-För prioritet, vägar bearbetas via metoden längsta Prefix-matchning (LPM), därför den mest specifika vägen i tabellen gäller för en viss måladress.
+För prioritet, vägar bearbetas via metoden längsta Prefix-matchning (LPM), därför den mest specifika vägen i tabellen skulle gälla för en viss måladress.
 
-Därför skulle trafik (till exempel till servern DNS01 10.0.2.4) är avsedda för det lokala nätverket (10.0.0.0/16) dirigeras mellan virtuella nätverk till dess mål på grund av 10.0.0.0/16 vägen. Med andra ord för 10.0.2.4, 10.0.0.0/16 vägen är den mest specifika vägen, även om 10.0.0.0/8 och 0.0.0.0/0 kunde gäller även, men eftersom de är mindre specifika de påverkar inte den här trafiken. Därmed skulle trafiken till 10.0.2.4 ha nexthop för det lokala VNet och bara vidarebefordra till målet.
+Därför dirigeras trafik (till exempel till DNS01-servern, 10.0.2.4) som är avsedd för det lokala nätverket (10.0.0.0/16) över det virtuella nätverket till dess mål på grund av 10.0.0.0/16 vägen. Med andra ord för 10.0.2.4, 10.0.0.0/16 vägen är den mest specifika vägen, även om 10.0.0.0/8 och 0.0.0.0/0 kunde gäller även, men eftersom de är mindre specifika de påverkar inte den här trafiken. Trafiken till 10.0.2.4 skulle därför ha ett nexthop för det lokala virtuella nätverket och helt enkelt dirigera till mål.
 
-Om trafiken är avsedd för 10.1.1.1 till exempel, 10.0.0.0/16 vägen skulle tillämpas, men 10.0.0.0/8 är den mest specifika och trafiken skulle detta bort (”svart holed”) eftersom nästa hopp är Null. 
+Om trafik är avsedd för 10.1.1.1 till exempel, 10.0.0.0/16 vägen inte tillämpa, men 10.0.0.0/8 är den mest specifika och trafiken skulle detta bort (”black holed”) eftersom nästa hopp är Null. 
 
-Om målet kunde inte tillämpas för Null-prefix eller VNETLocal prefix och det skulle följer den minst specifika vidarebefordra 0.0.0.0/0 och skickas till Internet som nexthop och därmed ut Azures internet kant.
+Om målet inte gäller för någon av Null-prefix eller VNETLocal-prefix kommer det följer den minst specifika dirigera 0.0.0.0/0 och skickas till Internet som nästa hopp och därmed ut Azures internet-anslutning.
 
-Om det finns två identiska prefix i routningstabellen, följer efter prioritet baserat på vägar ”källattribut”:
+Om det finns två identiska prefix i routningstabellen, följer efter prioritet baserat på vägar ”källa”-attribut:
 
-1. ”VirtualAppliance” = en definierad väg manuellt lagts till i tabellen
-2. ”VPNGateway” = en dynamisk väg BGP (när det används med hybrid nätverk), lagts till av en dynamisk nätverksprotokoll, dessa vägar kan ändras med tiden som dynamiska protokollet automatiskt återger ändringar i peerkoppla nätverk
-3. ”Standard” = Systemvägar, lokal VNet och statiska poster som visas i tabellen vägen.
+1. ”VirtualAppliance” = en definierade väg läggs till manuellt i tabellen
+2. ”VPNGateway” = en dynamisk väg (BGP när det används med hybrid-nätverk), läggs till av en dynamisk nätverksprotokoll, dessa vägar kan ändras med tiden när protokollet dynamisk visar automatiskt ändringar i peer-kopplade nätverket
+3. ”Standard” = Systemvägarna, det lokala virtuella nätverket och statiska poster som visas i routningstabellen ovan.
 
 > [!NOTE]
-> Du kan nu använda användaren definierat routning (UDR) med ExpressRoute- och VPN-gatewayer att tvinga utgående och inkommande anslutningar mellan lokala trafik vidarebefordras till en virtuell nätverksenhet (NVA).
+> Du kan nu använda användardefinierad routning (UDR) med ExpressRoute och VPN-gatewayer att tvinga utgående och inkommande mellan lokala trafiken ska dirigeras till en virtuell nätverksinstallation (NVA).
 > 
 > 
 
-#### <a name="creating-the-local-routes"></a>Skapa de lokala vägarna
-I det här exemplet krävs två routningstabeller, en för Frontend och Backend-undernät. Varje tabell har lästs in med statiska vägar som är lämpliga för det angivna undernätet. I det här exemplet har varje tabell tre vägar:
+#### <a name="creating-the-local-routes"></a>Skapa lokala vägar
+I det här exemplet krävs två routningstabeller, en för Frontend och Backend-undernät. Varje tabell har lästs in med statiska vägar som är lämpliga för det angivna undernätet. Varje tabell har tre vägar i det här exemplet:
 
-1. Lokal undernätstrafik med ingen nästa hopp som definierats för att tillåta lokal undernätstrafik kringgå brandväggen
-2. Trafik i virtuella nätverk med en nästa hopp har definierats som brandväggen, åsidosätts Standardregeln som tillåter lokala VNet-trafik att dirigera direkt
+1. Lokal undernätstrafik med inga nästa hopp som definierats för att tillåta lokal undernätstrafik passera brandväggen
+2. Trafik i virtuella nätverk med en nästa hopp har definierats som brandvägg, åsidosätts Standardregeln som tillåter lokal VNet-trafik för dirigering direkt
 3. Alla återstående trafik (0/0) med en nästa hopp har definierats som brandväggen
 
-När routningstabeller skapas är de kopplade till sina undernät. För undernätet Frontend routningstabell, skapas en gång och bunden till undernätet bör se ut så här:
+När routningstabeller skapas är de bundna till sina undernät. För undernätet på klientsidan routningstabell, skapas en gång och bunden till undernätet bör se ut så här:
 
         Effective routes : 
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -106,65 +106,65 @@ När routningstabeller skapas är de kopplade till sina undernät. För undernä
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 
-I det här exemplet används följande kommandon för att bygga routningstabellen, lägga till en användardefinierad väg och sedan binda routningstabellen till ett undernät (Obs!; eventuella objekt nedan som börjar med ett dollartecken (t.ex.: $BESubnet) är användardefinierade variabler från skriptet i referensavsnittet i det här dokumentet):
+I det här exemplet används följande kommandon för att skapa routningstabellen, lägga till en användardefinierad väg och Binder routningstabellen till ett undernät (Obs!; eventuella objekt nedan som börjar med ett dollartecken (t.ex.: $BESubnet) är användardefinierade variabler i skriptet i den referensavsnittet i det här dokumentet):
 
-1. Först måste du skapa bastabellen routning. Kodutdrag skapandet av tabellen för Backend-undernät. I skriptet skapas även en motsvarande tabell för undernätet Frontend.
+1. Först måste du skapa grundläggande routningstabellen. Det här kodfragmentet visar tabellen för Backend-undernät. I skriptet skapas också en motsvarande tabell för undernätet på klientsidan.
    
-     Nya AzureRouteTable-Name $BERouteTableName '
+     Ny AzureRouteTable-namnge $BERouteTableName '
    
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
-2. När du har skapat routningstabellen läggas specifika användardefinierade vägar. I det här liten, kommer all trafik (0.0.0.0/0) att dirigeras via virtuell installation (en variabel, $VMIP [0] används för att skicka in IP-adress som tilldelats när den virtuella installationen skapades tidigare i skriptet). En motsvarande regel skapas också i tabellen klientdel i skriptet.
+2. När routningstabellen har skapats kan specifikt användardefinierade vägar läggas till. I det här liten, kommer all trafik (0.0.0.0/0) att dirigeras via den virtuella installationen (en variabel, $VMIP [0] används för att skicka in IP-adressen som tilldelas när den virtuella installationen har skapats tidigare i skriptet). I skriptet skapas också en motsvarande regel i Frontend-tabellen.
    
      Get-AzureRouteTable $BERouteTableName | `
    
          Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
          -NextHopType VirtualAppliance `
          -NextHopIpAddress $VMIP[0]
-3. Ovanstående väg åsidosätter ”0.0.0.0/0” standardvägen, men 10.0.0.0/16 Standardregeln fortfarande befintliga som vill tillåta trafik inom VNet att dirigera direkt till målet och inte virtuell nätverksenhet. Rätt problemet Följ regeln måste läggas till.
+3. Posten ovan vägen åsidosätter ”0.0.0.0/0” standardvägen, men 10.0.0.0/16 Standardregeln fortfarande befintliga som skulle tillåta trafik inom det virtuella nätverket kan dirigera direkt till målet och inte till den virtuella nätverksinstallationen. Till rätt problemet Följ regeln läggas.
    
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
             -NextHopType VirtualAppliance `
             -NextHopIpAddress $VMIP[0]
-4. Det är nu ett val görs. Med ovanstående två vägar dirigerar all trafik till brandväggen för bedömning även trafik i ett enda undernät. Detta kan det vara önskvärt, men för att tillåta trafik i ett undernät för att dirigera lokalt utan medverkan från brandväggen tredje mycket specifik regel kan läggas till. Den här vägen tillstånd för alla adresser destine för det lokala undernätet enkelt kan vidarebefordra det direkt (NextHopType = VNETLocal).
+4. Det finns nu ett val görs. Med ovanstående två vägar dirigerar all trafik till brandväggen för utvärdering, även trafik i ett enda undernät. Detta kan det vara önskvärt, men för att tillåta trafik i ett undernät för att dirigera lokalt utan inblandning av brandväggen tredje mycket specifik regel kan läggas till. Den här vägen för aviseringar som alla adresser destine för det lokala undernätet behöver bara vidarebefordra det direkt (NextHopType = VNETLocal).
    
         Get-AzureRouteTable $BERouteTableName | `
             Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
             -NextHopType VNETLocal
-5. Slutligen med routningstabellen skapas och konfigureras med en användardefinierade vägar, måste tabellen nu vara bunden till ett undernät. Routningstabellen klientdelen är även kopplad till undernätet Frontend i skriptet. Här är skriptet bindning för backend-undernät.
+5. Slutligen med routningstabellen skapas och konfigureras med en användardefinierad routning, måste tabellen nu vara bundet till ett undernät. I skriptet routningstabellen klientdelen också är bundet till undernätet på klientsidan. Här är skriptet bindning för backend-undernät.
    
-     Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName '
+     Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName ”
    
         -SubnetName $BESubnet `
         -RouteTableName $BERouteTableName
 
 ## <a name="ip-forwarding"></a>IP-vidarebefordran
-En tillhörande funktion som UDR, är IP-vidarebefordring. Det här är en inställning i en virtuell installation som gör att det kan ta emot trafik som inte är adresserad till enhet och vidarebefordra trafiken till destinationen ultimate.
+En tillhörande funktion till UDR, är IP-vidarebefordran. Det här är en inställning på en virtuell installation som kan det ta emot trafik som inte är adresserad till installationen och sedan vidarebefordra trafiken till destinationen ultimate.
 
-Exempelvis om trafik från AppVM01 ställer en förfrågan till servern DNS01 skulle UDR vidarebefordra detta i brandväggen. Med IP-vidarebefordran aktiverat, kommer trafiken för DNS01 mål (10.0.2.4) accepteras av installation (10.0.0.4) och sedan vidarebefordras till dess slutliga destinationen (10.0.2.4). Utan IP-vidarebefordran aktiverad i brandväggen, kan trafik inte godkännas av anordningen även om routningstabellen har brandväggen som nexthop. 
+Till exempel om trafik från AppVM01 gör en begäran till servern DNS01 skulle UDR vidarebefordra detta i brandväggen. Med IP-vidarebefordring aktiverad, att trafik för DNS01 mål (10.0.2.4) accepteras av installationen (10.0.0.4) och sedan vidarebefordras till dess ultimate mål (10.0.2.4). Utan IP-vidarebefordring aktiverad i brandväggen, skulle trafik inte accepteras av installationen trots routningstabellen har brandväggen som nästa hopp. 
 
 > [!IMPORTANT]
-> Det är viktigt att komma ihåg att aktivera IP-vidarebefordring tillsammans med användaren definierat routning.
+> Det är viktigt att komma ihåg att aktivera IP-vidarebefordran tillsammans med användaren definierats routning.
 > 
 > 
 
-Konfigurera IP-vidarebefordran är ett enda kommando och kan göras vid tidpunkten för skapandet av virtuell dator. För flödet av det här exemplet kodfragmentet mot slutet av skriptet och grupperas med UDR-kommandon:
+Konfigurera IP-vidarebefordran är ett enda kommando och kan göras vid tidpunkten för skapandet av virtuell dator. Kodfragmentet är mot slutet av skriptet och grupperas med UDR-kommandon för flödet av det här exemplet:
 
-1. Anropa den VM-instans som är din virtuella installation brandväggen i det här fallet och aktiverar IP-vidarebefordring (Obs!; ett objekt i rött som börjar med ett dollartecken (t.ex.: $VMName[0]) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet. Noll i hakparenteserna, [0], som representerar den första virtuella datorn i matrisen med virtuella datorer för exempelskriptet utan modifikation, den första virtuella datorn (VM 0) måste vara brandväggen):
+1. Anropa den VM-instans som är din virtuella installation brandväggen i det här fallet och aktivera IP-vidarebefordran (Obs!; ett objekt i rött som börjar med ett dollartecken (t.ex.: $VMName[0]) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet. Nollbaserade omges av hakparenteser [0] representerar den första virtuella datorn i matrisen med virtuella datorer för exempelskript för att fungera utan modifiering, den första virtuella datorn (VM 0) måste vara brandväggen):
    
-     Get-AzureVM-Name $VMName [0] - ServiceName $ServiceName [0] | `
+     Get-AzureVM-och namnge $VMName [0] - ServiceName $ServiceName [0] | `
    
         Set-AzureIPForwarding -Enable
 
 ## <a name="network-security-groups-nsg"></a>Nätverkssäkerhetsgrupper (NSG)
-I det här exemplet bygger en NSG-grupp och sedan in med en enskild regel. Den här gruppen binds sedan bara till Frontend och Backend-undernät (inte SecNet). Deklarativt skapas följande regel:
+I det här exemplet bygger en NSG-grupp och sedan läsa in med en enda regel. Den här gruppen binds sedan endast till de Frontend och Backend-undernät (inte SecNet). Deklarativt följande regel håller på att skapas:
 
-1. All trafik (alla portar) från Internet till hela VNet (alla undernät) nekas
+1. All trafik (alla portar) från Internet till det hela virtuella nätverket (alla undernät) nekas
 
-Även om NSG: er som används i det här exemplet är huvudsakliga syftet som en sekundär försvarslinje mot manuell felaktig konfiguration. Vi vill blockera alla inkommande trafik från internet till antingen klientdelen eller Backend-undernät, trafik bör endast flödar genom brandväggen SecNet undernätet (och om lämpliga in klientdelen eller serverdelen undernät). Dessutom med UDR regler på plats, skulle all trafik som har gjort i klientdelen eller serverdelen undernät dirigeras ut till brandväggen (tack vare UDR). Brandväggen visas detta som en asymmetrisk dataflöde och skulle sjunka utgående trafik. Det finns därför tre säkerhetsnivåer skydda Frontend och Backend-undernät; 1) inga öppna slutpunkter på FrontEnd001 och BackEnd001 molntjänster, 2) NSG: er nekar trafik från Internet, 3) brandväggen släppa asymmetriska trafiken.
+Även om NSG: er som används i det här exemplet, är dess huvudsakliga syfte som en sekundär försvarslinje mot manuell felkonfiguration. Vi vill blockera alla inkommande trafik från internet till antingen klientdelen eller serverdelen undernät, trafik endast ska flöda via SecNet undernätet i brandväggen (och sedan om lämpliga in på klientdelen eller serverdelen undernät). Dessutom med UDR-regler på plats, skulle all trafik som gjorde det i klientdelen eller serverdelen undernät omdirigerad ut till brandväggen (tack vare UDR). Brandväggen visas följande som en asymmetrisk flöde och skulle släpp den utgående trafiken. Det finns därför tre lager av säkerhet som skyddar Frontend och Backend-undernät; (1) inga öppna slutpunkter på FrontEnd001 och BackEnd001 molntjänster, 2) NSG: er nekar trafik från Internet, 3) brandväggen släpper asymmetrisk trafiken.
 
-En intressant avseende Nätverkssäkerhetsgruppen i det här exemplet är att den innehåller endast en regel som visas nedan, vilket är att neka internet-trafik till hela virtuella nätverket som omfattar säkerhet undernätet. 
+En intressant avseende Nätverkssäkerhetsgruppen i det här exemplet är att den innehåller endast en regel som visas nedan, vilket är att neka internet-trafik till det hela virtuella nätverket som skulle inkludera Security-undernätet. 
 
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
@@ -175,7 +175,7 @@ En intressant avseende Nätverkssäkerhetsgruppen i det här exemplet är att de
         -DestinationPortRange '*' `
         -Protocol *
 
-Men eftersom NSG: N är bara bunden till Frontend och Backend-undernät, regeln inte bearbetas på trafik inkommande till undernätet för säkerhet. Trots att uttrycket NSG anger ingen Internet-trafik till varje adress för virtuella nätverk, eftersom NSG: N inte är bunden till undernätet för säkerhet, därför flödar trafiken till undernätet för säkerhet.
+Men eftersom NSG: N är bara kopplat till Frontend och Backend-undernät, regeln inte bearbetas på trafik inkommande till undernätet för säkerhet. Även om NSG-regel säger utan Internet-trafik till en adress på det virtuella nätverket, eftersom NSG: N har aldrig kopplad till undernätet för säkerhet, därför flödar trafik till undernätet för säkerhet.
 
     Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
         -SubnetName $FESubnet -VirtualNetworkName $VNetName
@@ -184,131 +184,131 @@ Men eftersom NSG: N är bara bunden till Frontend och Backend-undernät, regeln 
         -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
 ## <a name="firewall-rules"></a>Brandväggsregler
-I brandväggen måste vidarebefordran regler skapas. Eftersom brandväggen blockerar eller vidarebefordran alla inkommande, utgående och intra-VNet-trafik krävs många brandväggsregler. Dessutom träffar all inkommande trafik Security Service offentliga IP-adress (olika portar) för att kunna bearbetas av brandväggen. Bästa praxis är att diagram logiska flöden innan du konfigurerar undernäten och brandväggsregler för att undvika omarbeta senare. Följande bild är en logisk vy för brandväggsregler för det här exemplet:
+I brandväggen måste vidarebefordra regler skapas. Eftersom brandväggen blockerar eller vidarebefordran alla inkommande, utgående och intra-VNet-trafik krävs många brandväggsregler. Dessutom överskrids all inkommande trafik säkerhetstjänst offentliga IP-adress (på olika portar), för att bearbetas av brandväggen. Ett bra tips är att diagram logiska flöden innan du konfigurerar undernäten och brandväggsregler för att undvika att omarbeta senare. Följande bild är en logisk vy för brandväggsregler i det här exemplet:
 
-![Logisk vy för brandväggsregler][2]
+![Logisk vy för brandväggsreglerna][2]
 
 > [!NOTE]
-> Baserat på den virtuella nätverksenhet som används varierar av hanteringsportar. I det här exemplet refererar till en brandvägg för nästa generation av Barracuda som använder port 22, 801 och 807. Läs dokumentationen om enheten leverantör för att hitta exakt vilka portar som används för hantering av den enhet som används.
+> Baserat på den virtuella nätverksinstallationen som används kan varierar hanteringsportar. I det här exemplet refererar till en Barracuda NextGen Firewall som använder port 22, 801 och 807. I dokumentationen för installation-leverantör för att hitta exakt portarna som används för hantering av enhet som används.
 > 
 > 
 
-### <a name="logical-rule-description"></a>Beskrivning av logiska regel
-I den logiska diagrammet ovan visas inte säkerhet undernätet eftersom brandväggen inte är den enda resursen i undernätet och det här diagrammet visar brandväggsregler och hur de logiskt Tillåt eller neka trafikflöde och inte den faktiska routade sökvägen. Dessutom externa portar som valts för RDP-trafik är högre låg portar (8014 – 8026) och har valts för något överensstämmer med de två sista oktetterna i lokal IP-adress för att lättare att läsa (t.ex. lokala serveradress 10.0.1.4 är associerad med externa porten 8014), men alla högre icke motstridig portar kan användas.
+### <a name="logical-rule-description"></a>Beskrivning av logisk regel
+I den logiska diagrammet ovan visas inte security undernätet eftersom den är den enda resursen i undernätet och det här diagrammet visar brandväggsreglerna och hur de logiskt tillåter eller nekar trafikflöden och inte den faktiska routade sökvägen. Dessutom externa portar som valts för RDP-trafik är högre intervallet portar (8014 – 8026) och har valts för något överensstämmer med de två sista oktetterna i den lokala IP-adressen för enklare läsbarheten (t.ex. lokala serveradress is 10.0.1.4 är associerad med extern port 8014), men alla högre icke motstridiga portar kan användas.
 
-Vi behöver 7 typer av regler, dessa regeltyper är som följer beskrivs i det här exemplet:
+I det här exemplet behöver vi 7 typer av regler, dessa regeltyper beskrivs på följande sätt:
 
 * Externa regler (för inkommande trafik):
-  1. Hantering av brandväggsregel: Regeln App omdirigering tillåter trafik skickas till hanteringsportar för virtuell nätverksenhet.
-  2. RDP-regler (för varje windows server): dessa fyra regler (en för varje server) kan hantera enskilda servrar via RDP. Detta kan också ihop till en regel beroende på den virtuella nätverksenhet som används.
-  3. Regler för nätverkstrafik för programmet: Det finns två programregler för nätverkstrafik, först för webbtrafik klientdelen och andra för backend-trafik (t ex webbservern datanivå). Konfigurationen av dessa regler kommer beroende nätverksarkitekturen (där servrarna placeras) och trafiken flödar (vilken riktning trafikflöde och vilka portar som används).
-     * Den första regeln tillåter faktiska programmet trafiken till programservern. Medan de andra reglerna tillåter för säkerhet, hantering, etc., är program vad tillåta externa användare eller tjänster att komma åt program. Det finns en enda webbserver på port 80, vilket en enda brandväggsregel för programmet att omdirigera inkommande trafik till externa IP, web servrar interna IP-adress för det här exemplet. Den omdirigerade trafik sessionen skulle NAT tas till den interna servern.
-     * Regel för nätverkstrafik av andra program är serverdelen regeln för att tillåta att webbservern ska kommunicera med AppVM01 server (men inte AppVM02) via alla portar.
+  1. Brandväggsregel för hantering: Den här appen omdirigeringsregel tillåter trafik skickas till hanteringsportar på den virtuella nätverksinstallationen.
+  2. RDP-regler (för varje windows-server): Dessa fyra regler (en för varje server) gör att hanteringen av de enskilda servrarna via RDP. Detta kan också använda paketeras i en regel beroende på den virtuella nätverksinstallationen som används.
+  3. Regler för trafik för program: Det finns två program trafikregler, först för webbtrafik klientdelen och andra för backend-server-trafik (t.ex webbservern till datanivå). Konfigurationen av dessa regler kommer beror på nätverksarkitekturen (där dina servrar placeras) och trafik flöden (vilken riktning trafiken flödar och vilka portar används).
+     * Den första regeln kan själva programmet trafiken till programservern. Medan de andra reglerna tillåter för säkerhet, hantering, o.s.v., är program-regler vad som ska tillåta externa användare eller tjänster att komma åt programmen. Det finns en webbserver på port 80 i det här exemplet, därför ett program för en enda brandväggsregel omdirigerar inkommande trafik till den externa IP-Adressen, web servrar interna IP-adress. Omdirigerad trafik sessionen skulle NAT tas till den interna servern.
+     * Regel för nätverkstrafik av andra program är backend-regel som tillåter webbservern att kommunicera med AppVM01 server (men inte AppVM02) via någon annan port.
 * Interna regler (för intra-VNet-trafik)
-  1. Utgående till regel för Internet: den här regeln tillåter trafik från alla nätverk ska skickas till de valda nätverken. Den här regeln är vanligtvis en standardregel redan i brandväggen, men i ett inaktiverat tillstånd. Den här regeln ska aktiveras för det här exemplet.
-  2. DNS-regel: Den här regeln kan endast DNS (port 53) trafik skickas till DNS-servern. För den här miljön som de flesta trafik från klientdelen till serverdelen blockeras tillåter den här regeln specifikt DNS från alla lokala undernätet.
-  3. Undernät undernät regel: den här regeln är att låta alla servrar på backend-undernät kan ansluta till någon server i klientdelens undernät (men inte omvänt).
+  1. Utgående till Internetregel: Den här regeln ska tillåta trafik från alla nätverk ska skickas till de valda nätverken. Den här regeln är vanligtvis en standardregel redan i brandväggen, men i ett inaktiverat tillstånd. Den här regeln ska aktiveras för det här exemplet.
+  2. DNS-regel: Den här regeln tillåter endast DNS (port 53)-trafik skickas till DNS-servern. För den här miljön som de flesta trafik från klientdelen till serverdelen blockeras, kan den här regeln särskilt DNS från alla lokala undernätet.
+  3. Undernätet till undernätet regel: Den här regeln är att låta alla servrar i serverdelen undernät att ansluta till en server på klientdelens undernät (men inte tvärtom).
 * Felsäker regel (för trafik som inte uppfyller något av ovanstående):
-  1. Neka alla Trafikregel: Detta ska alltid vara sista regeln (vad gäller prioritet) och som sådan om en trafiken flödar inte matchar någon av ovanstående regler tas bort av den här regeln. Det här är en standardregel och vanligtvis aktiverad behövs vanligtvis inga ändringar.
+  1. Neka alla regel för nätverkstrafik: Detta bör alltid vara den sista regeln (när det gäller prioritet) och därför om en trafiken flödar inte matchar någon av de föregående regler som den kommer att tas bort av den här regeln. Det här är en standardregel och vanligtvis aktiverad behövs vanligtvis inga ändringar.
 
 > [!TIP]
-> På den andra program trafik regeln, valfri port tillåts för enkelt i detta exempel i ett verkligt scenario mest specifika porten och adressintervall som ska användas för att minska risken för angrepp på den här regeln.
+> Alla portar tillåts för enkelt för det här exemplet i ett scenario med verkliga den mest specifika porten på den andra program trafik regeln och adressintervall som ska användas för att minska risken för angrepp på den här regeln.
 > 
 > 
 
 <br />
 
 > [!IMPORTANT]
-> När alla ovanstående regler skapas, är det viktigt att granska prioriteten för varje regel för att se till att trafik ska tillåtas eller nekas efter behov. I det här exemplet är reglerna i prioritetsordning. Det är lätt att låsas utanför brandväggen på grund av felaktigt beställda regler. Kontrollera management för själva brandväggen är alltid absolut högsta prioritet regeln minimum.
+> När alla ovanstående regler skapas, är det viktigt att granska prioriteten för varje regel för att se till att trafik ska tillåtas eller nekas efter behov. I det här exemplet är reglerna i prioritetsordning. Det är enkelt att vara utelåst från brandväggen på grund av felaktigt sorterad regler. Kontrollera hanteringen för brandväggen själva är alltid den absoluta högsta prioritet regeln som ett minimum.
 > 
 > 
 
 ### <a name="rule-prerequisites"></a>Regel för krav
-En förutsättning för den virtuella datorn körs i brandväggen är offentliga slutpunkter. Offentliga slutpunkter måste vara öppna för brandväggen för att bearbeta trafik. Det finns tre typer av trafik i det här exemplet; 1) hanteringstrafik till kontrollen brandväggen och brandväggsregler, 2) RDP-trafik som styr windows-servrar och 3) programmets trafik. Dessa är de tre kolumnerna av trafiktyper i övre hälften av logisk vy för brandväggsregler ovan.
+En förutsättning för den virtuella datorn körs i brandväggen är offentliga slutpunkter. Offentliga slutpunkter måste vara öppna för brandväggen för att bearbeta trafik. Det finns tre typer av trafik i det här exemplet; (1) hanteringstrafik kontroll brandväggen och brandväggsregler, 2) RDP-trafik för att styra windows-servrar och 3) programtrafik. Det här är tre kolumner i trafiktyper i övre hälften av logisk vy för brandväggsregler ovan.
 
 > [!IMPORTANT]
-> En nyckel takeway är att komma ihåg att **alla** trafik kommer genom brandväggen. Så till fjärrskrivbord till IIS01-servern, kommer även om den är i Front End-Molntjänsten och på frontend-undernät för att komma åt den här servern vi behöver brandväggen på port 8014 till RDP, och låt brandväggen för att dirigera internt RDP-begäran till IIS01 RDP-porten. Azure portal ”Anslut” knappen fungerar inte eftersom det finns ingen direkt RDP-väg till IIS01 (som portalen kan se). Detta innebär att alla anslutningar från internet Security Service och en Port, t.ex. secscv001.cloudapp.net:xxxx (referens i ovanstående diagram för matchning av extern Port och intern IP-adress och Port).
+> En viktig takeway är att komma ihåg att **alla** kommer trafik genom brandväggen. Så till fjärrskrivbord till IIS01-servern, ska även om det är i Front End-Molntjänsten och på frontend-undernätet för att komma åt den här servern vi behöva RDP i brandväggen på port 8014, och låt brandväggen för att dirigera begäran RDP internt till RDP-Por IIS01 t. Azure portal ”Anslut” knappen fungerar inte eftersom det finns ingen direkt RDP-väg till IIS01 (så länge portalen kan se). Det innebär att alla anslutningar från internet kommer att tjänsten Security och en Port, t.ex. secscv001.cloudapp.net:xxxx (referens i ovanstående diagram för mappningen för extern Port och intern IP-adress och Port).
 > 
 > 
 
-En slutpunkt kan öppnas antingen vid tidpunkten för att skapa en virtuell dator eller efter version som är klar i exempelskriptet med och nedan i det här kodstycket (Obs!; alla objekt som börjar med ett dollartecken (t.ex.: $VMName[$i]) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet. ”$I” i hakparenteserna, [$i] representerar matris-numret för en specifik virtuell dator i en matris av virtuella datorer):
+En slutpunkt kan öppnas antingen vid tidpunkten för skapandet av VM eller anslår versionen som är klar i exempelskriptet och nedan i det här kodfragmentet (Obs!; alla objekt som börjar med ett dollartecken (t.ex.: $VMName[$i]) är en användardefinierad variabel från skriptet i referens AVS n i det här dokumentet. ”$I” i hakparenteserna, [$i] representerar matris-numret för en specifik virtuell dator i en matris med virtuella datorer):
 
     Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
         -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
         Update-AzureVM
 
-Även om inte klart visas här beror på användning av variabler, men slutpunkter är **endast** öppnas på Molntjänsten säkerhet. Detta är att se till att all inkommande trafik hanteras (dirigeras, NAT hade, släppa) av brandväggen.
+Även om inte tydligt visas här på grund av användningen av variabler, men slutpunkter är **endast** öppnas på Molntjänsten säkerhet. Detta är att se till att all inkommande trafik hanteras (dirigeras, NAT hade, släppa) av brandväggen.
 
-Management-klienten måste installeras på en dator som kan hantera brandväggen och skapa de konfigurationer som krävs. Se dokumentationen från brandväggen (eller andra NVA)-leverantören om hur du hanterar enheten. Resten av det här avsnittet och i nästa avsnitt, brandvägg regler skapas, beskriver konfigurationen av brandväggen, via Hanteringsklient leverantörer (d.v.s. inte Azure-portalen eller PowerShell).
+En management-klienten måste installeras på en dator som kan hantera brandväggen och skapa de konfigurationer som krävs. Se dokumentationen från din brandvägg (eller andra NVA)-leverantören om hur du hanterar enheten. Resten av det här avsnittet och i nästa avsnitt, brandvägg regler skapas, beskriver konfigurationen av brandväggen, via leverantörer management-klienten (dvs. inte Azure-portalen eller PowerShell).
 
-Instruktioner för att klienten ska ladda ned och ansluter till Barracuda som används i det här exemplet finns här: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Instruktioner för att klienten ska ladda ned och ansluter till Barracuda som används i det här exemplet finns här: [Barracuda NG-administratör](https://techlib.barracuda.com/NG61/NGAdmin)
 
-När inloggad på brandväggen men innan du skapar brandväggsregler, finns det två nödvändiga objektklasser som kan göra att skapa reglerna enklare; Nätverks- och objekt.
+När du har loggat till brandväggen men innan du skapar brandväggsregler, finns det två nödvändiga objektklasser som kan göra att man skapar reglerna enklare; Nätverks- och objekt.
 
-I det här exemplet ska tre namngivna nätverksobjekt definierade (ett för undernätet Frontend och Backend-undernät, även ett nätverksobjekt för IP-adress för DNS-servern). Så här skapar du ett namngivet nätverk. från instrumentpanelen Barracuda NG Admin klienten navigerar du till konfigurationsfliken, i avsnittet konfiguration RuleSet-metod, sedan klickar du på ”nätverk” under menyn Brandväggsobjekt Klicka på ny i menyn Redigera nätverk. Nätverksobjektet kan nu skapas genom att lägga till namnet och prefixet:
+I det här exemplet ska tre namngivna nätverksobjekt vara definierade (ett för undernätet på klientsidan och Backend-undernät, även ett nätverksobjekt för IP-adressen för DNS-servern). Du skapar ett namngivna nätverk; från och med Barracuda NG Admin klient-instrumentpanelen, navigerar du till konfigurationsfliken, i konfigurationsavsnittet Operational RuleSet-metod, sedan klickar du på ”nätverk” under menyn brandväggen objekt Klicka på New på menyn Redigera nätverk. Nätverksobjektet kan nu skapas genom att lägga till namnet och prefixet:
 
-![Skapa en FrontEnd-objektet][3]
+![Skapa ett nätverk på klientsidan-objekt][3]
 
-Detta skapar ett namngivet nätverk för undernätet FrontEnd, en liknande objekt ska skapas för BackEnd-undernät. Nu kan undernäten refereras enklare efter namn i brandväggsreglerna.
+Detta skapar ett namngivna nätverk för undernätet på klientsidan, ett liknande objekt ska skapas för BackEnd-undernät. Nu kan undernäten refereras enklare efter namn i brandväggsreglerna.
 
 För DNS-Server-objekt:
 
-![Skapa en DNS-Server-objekt][4]
+![Skapa ett DNS-Server-objekt][4]
 
-Den här enda IP-adress referensen används i en DNS-regel senare i dokumentet.
+Referens för den här IP-adress ska användas i en DNS-regel senare i dokumentet.
 
-Andra nödvändiga objekt är Services-objekt. Dessa representerar RDP anslutningsportar för varje server. Eftersom det befintliga objektet i RDP-tjänsten är bunden till RDP standardporten kan 3389, nya tjänster skapas för att tillåta trafik från externa portar (8014 8026). De nya portarna kan också läggas till den befintliga RDP-tjänsten, men för att underlätta demonstration, kan du skapa en regel för varje server. Skapa en ny RDP-regel för en server. från instrumentpanelen Barracuda NG Admin klienten navigerar du till konfigurationsfliken, i avsnittet användningsinställningar Klicka på RuleSet-metod, ”tjänster” Brandväggsobjekt-menyn, bläddrar du nedåt i listan över tjänster och välj tjänsten ”RDP”. Högerklicka och välj Kopiera, högerklicka och välj Klistra in. Det finns nu en RDP-Copy1 Service-objekt som kan redigeras. Högerklicka på RDP-Copy1 och väljer Redigera serviceobjektet redigera kommer popup-fönster upp som visas här:
+Andra nödvändiga objekten är Services-objekt. Dessa representerar RDP anslutningsportar för varje server. Eftersom det befintliga objektet i RDP-tjänsten är bunden till standard-RDP-porten kan 3389, nya tjänster skapas för att tillåta trafik från externa portar (8014 8026). De nya portarna kan också läggas till den befintliga RDP-tjänsten, men för att underlätta demonstration, kan du skapa en regel för varje server. Skapa en ny regel för RDP för en server. från och med Barracuda NG Admin klient-instrumentpanelen, navigerar du till konfigurationsfliken, i avsnittet användningsinställningar Klicka på regeluppsättning, ”tjänster” under menyn brandväggen objekt, rulla nedåt i listan över tjänster och välj tjänsten ”RDP”. Högerklicka på och välj Kopiera, högerklicka och välj Klistra in. Det finns nu en RDP-Copy1 Service-objekt som kan redigeras. Högerklicka på RDP-Copy1 och välj Redigera, redigera objektet fönster visas upp som visas här:
 
-![Kopia av RDP standardregel][5]
+![Kopia av standard RDP-regel][5]
 
-Värdena kan sedan redigeras för att representera RDP-tjänst för en specifik server. För AppVM01 ovan RDP Standardregeln ska ändras för att återspegla en nytt namn, beskrivning och externa RDP-porten som används i figur 8 diagrammet (Obs: portarna ändras från standardvärdet RDP 3389 till den externa porten som används för den här specifika servern, den externa porten är AppVM01 8025) ändrade tjänsten visas nedan :
+Värdena kan sedan redigeras för att representera RDP-tjänsten för en specifik server. För AppVM01 ovan RDP Standardregeln ska ändras så att den återspeglar en nytt namn, beskrivning och externa RDP-porten som används i figur 8 diagrammet (Obs: ändra portarna från 3389 standardvärdet RDP till den externa porten som används för den här specifika servern När det gäller AppVM01 externa porten är 8025) den ändrade tjänsten visas nedan:
 
 ![AppVM01 regel][6]
 
-Den här processen upprepas för att skapa RDP-tjänster för de återstående servrarna; AppVM02 DNS01 och IIS01. Skapandet av dessa tjänster gör skapa regeln enklare och mer påtagligt i nästa avsnitt.
+Den här processen upprepas för att skapa RDP-tjänster för de återstående servrarna; AppVM02 DNS01 och IIS01. Skapandet av dessa tjänster blir regeln skapades enklare och tydligare i nästa avsnitt.
 
 > [!NOTE]
-> En RDP-tjänst för brandväggen behövs inte av två skäl. 1) första brandväggen VM är en avbildning av Linux-baserade så SSH används på port 22 för hantering av virtuell dator i stället för RDP och 2) port 22, och två andra hanteringsportar tillåts i den första management regeln som beskrivs nedan för att tillåta anslutning till.
+> En RDP-tjänst för brandväggen behövs inte för två skäl. (1) första brandväggen VM är en Linux-baserad avbildning så att SSH ska användas på port 22 för hantering av virtuell dator i stället för RDP och 2) port 22 och två andra hanteringsportar tillåts i den första management-regeln som beskrivs nedan för att tillåta anslutning till.
 > 
 > 
 
-### <a name="firewall-rules-creation"></a>Skapa regler för brandvägg
-Det finns tre typer av brandväggsregler som används i det här exemplet, alla har olika ikoner:
+### <a name="firewall-rules-creation"></a>Skapa regler för brandväggen
+Det finns tre typer av brandväggsregler som används i det här exemplet, de alla har olika ikoner:
 
-Regeln programmet omdirigera: ![omdirigera programikon][7]
+Programmet omdirigerings-regel: ![Programikon för omdirigering][7]
 
-Mål NAT-regel: ![mål NAT-ikon][8]
+Mål-NAT-regel: ![Mål NAT-ikon][8]
 
-Regeln Pass: ![skicka ikon][9]
+Pass-regel: ![Skicka ikon][9]
 
 Mer information om dessa regler finns på webbplatsen Barracuda.
 
-För att skapa följande regler (eller verifiera befintliga standardregler) börjar från instrumentpanelen klienten Barracuda NG Admin, gå till konfigurationsfliken klickar du i de användningsinställningar avsnittet RuleSet-metod. Ett rutnät som kallas ”Main regler” visas de befintliga reglerna för aktiva och inaktiva på den här brandväggen. I det övre högra hörnet i det här rutnätet är en liten, grön ”+” knappen, klicka här för att skapa en ny regel (Obs: brandväggen kan vara ”låst” för ändringar, om du ser en knapp som markerats ”låsa” och det inte går att skapa eller redigera regler, klicka på knappen för att ”låsa upp” regeluppsättningen och tillåta redigering). Om du vill redigera en befintlig regel markerar du regeln, högerklickar och väljer Redigera regel.
+Från och med Barracuda NG Admin-klienten instrumentpanelen, gå till konfigurationsfliken för att skapa följande regler (eller verifiera befintliga standardregler), i de användningsinställningar avsnittet klickar du på RuleSet-metod. Ett rutnät som kallas ”Main regler” visar befintliga aktiva och inaktiva regler på den här brandväggen. I det övre högra hörnet av det här rutnätet är en liten, grön ”+” knappen, klicka här för att skapa en ny regel (Obs: brandväggen kan vara i ”låst” för ändringar, om du ser en knapp markerad ”låsa” och du kan inte skapa eller redigera regler, klicka på knappen för att ”låsa upp” regeluppsättningen och  Tillåt redigering). Om du vill redigera en befintlig regel, Välj regeln, högerklickar och väljer Redigera regel.
 
-När reglerna skapas eller ändras, måste vara pushas till brandväggen och sedan aktiveras, om det inte görs regeln ändringarna börjar inte gälla. Push- och aktiveringsbehörigheter process beskrivs nedan information regeln beskrivningar.
+När reglerna skapas och/eller ändras, de måste flyttas till brandväggen och därefter aktiverar du, om detta inte görs regeln ändringarna börjar inte gälla. Push-meddelanden och aktivering processen beskrivs nedan information om regeln beskrivningar.
 
-Egenskaperna för varje regel som krävs för att slutföra det här exemplet beskrivs enligt följande:
+Egenskaperna för varje regel som krävs för att slutföra det här exemplet beskrivs på följande sätt:
 
-* **Brandväggen Management regeln**: den här appen omdirigera regeln tillåter trafik skickas till hanteringsportar av nätverksenhet virtuella i det här exemplet Barracuda nästa generation brandvägg. Management-portar är 801, 807 och eventuellt 22. Externa och interna portar är samma (dvs. inga port translation). Detta regeln för installationsprogrammet MGMT åtkomst, är en standardregel och aktiverat som standard (i brandväggen för nästa generation av Barracuda version 6.1).
+* **Brandväggsregel Management**: Den här appen omdirigeringsregel tillåter trafik skickas till hanteringsportar för en virtuell enhet i nätverket, i det här exemplet en Barracuda NextGen-brandväggen. Management-portarna är 801, 807 och eventuellt 22. De externa och interna portarna är desamma (d.v.s. Ingen port translation). Detta regeln för installationen-MGMT-åtkomst, finns en standardregel och aktiverat som standard (i Barracuda NextGen Firewall version 6.1).
   
-    ![Hantering av brandväggsregel][10]
+    ![Brandväggsregel för hantering][10]
 
 > [!TIP]
-> Käll-adressutrymme i den här regeln finns, om hantering av IP-adressintervall är känt att minska det här området skulle också minska angreppsytan till management-portar.
+> Käll-adressutrymmet i den här regeln är valfri, om hantering av IP-adressintervall är kända, vilket minskar det här omfånget skulle också minska risken för angrepp till hanterade portar.
 > 
 > 
 
-* **RDP-regler**: dessa mål NAT-regler kan hantera enskilda servrar via RDP.
+* **RDP-regler**:  Dessa mål NAT-regler kan hanteringen av de enskilda servrarna via RDP.
   Det finns fyra viktiga fält som behövs för att skapa den här regeln:
   
-  1. Källa – för att Tillåt RDP från var som helst, referensen ”någon” används i fältet källa.
-  2. Service – Använd lämpligt serviceobjektet skapat tidigare i det här fallet ”AppVM01 RDP”, externa portar omdirigera till den lokala IP-adressen för servrar och till port 3386 (standardporten RDP). Den här specifika regeln är för RDP-åtkomst till AppVM01.
-  3. Målet – måste vara den *lokal port i brandväggen*, ”DCHP 1 lokala-IP- eller eth0 om du använder statiska IP-adresser. Ordningstalet (eth0, eth1 osv.) kan skilja sig om en nätverksenhet har flera lokala gränssnitt. Detta är den port i brandväggen skickar ut från (kan vara samma som den mottagande porten), den faktiska routade destinationen fältet är i mållistan.
-  4. Omdirigering av – det här avsnittet visar den virtuella installationen var slutligen dirigera trafiken. Den enklaste omdirigeringen är att placera IP och Port (valfritt) i fältet mållistan. Om ingen port används målport på en inkommande begäran kommer att användas (d.v.s. Ingen översättning) om en port används porten tas också skulle NAT tillsammans med IP adressen.
+  1. Källa – för att tillåta RDP från var som helst, referensen ”alla” används i fältet källa.
+  2. Tjänsten – använda lämpliga serviceobjektet skapat tidigare i det här fallet ”AppVM01 RDP”, externa portar omdirigera till den lokala IP-adressen för servrar och till port 3386 (standardporten RDP). Den här specifika regeln är för RDP-åtkomst till AppVM01.
+  3. Målet – bör vara den *lokal port i brandväggen*, ”DCHP 1 lokala IP” eller eth0 om du använder statiska IP-adresser. Ordningstalet (eth0, eth1 osv.) kan skilja sig om din nätverksapparat har flera lokala gränssnitt. Den porten i brandväggen skickar ut från (kan vara samma som den mottagande porten), faktiska routade målet är i fältet mållistan.
+  4. Omdirigering – det här avsnittet visar den virtuella installationen var du vill omdirigera slutligen den här trafiken. Den enklaste omdirigeringen är att placera IP och Port (valfritt) i fältet mållistan. Om ingen port används målporten för den inkommande begäran kommer att användas (d.v.s. inga translation) om en port är utsedd porten kommer också att skulle NAT tillsammans med IP adressen.
      
      ![RDP-brandväggsregel][11]
      
-     Summan av fyra RDP-regler måste skapas: 
+     Totalt fyra RDP-regler måste skapas: 
      
      | Regelnamn | Server | Tjänst | Mållistan |
      | --- | --- | --- | --- |
@@ -318,277 +318,277 @@ Egenskaperna för varje regel som krävs för att slutföra det här exemplet be
      | RDP-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
-> Begränsa ned omfånget för käll- och -fält kommer att minska risken för angrepp. Den mest begränsat omfång som gör att funktionerna ska användas.
+> Teknikområde omfånget för fälten käll- och minskar risken för angrepp. Den mest begränsat omfång som gör att funktionerna ska användas.
 > 
 > 
 
-* **Regler för nätverkstrafik i programmet**: det finns två programregler för nätverkstrafik, först för webbtrafik klientdelen och andra för backend-trafik (t ex webbservern datanivå). Reglerna kommer beror på den nätverksarkitekturen (där servrarna placeras) och trafiken flödar (vilken riktning trafikflöde och vilka portar som används).
+* **Programmet trafikregler**: Det finns två program trafikregler, först för webbtrafik klientdelen och andra för backend-server-trafik (t.ex webbservern till datanivå). De här reglerna kommer beror på nätverksarkitekturen (där dina servrar placeras) och trafik flöden (vilken riktning trafiken flödar och vilka portar används).
   
-    Först beskrivs är frontend-regel för webbtrafik:
+    Först beskrivs är klientdelen-regel för webbtrafik:
   
-    ![Web brandväggsregel][12]
+    ![Webb-brandväggsregel][12]
   
-    Det här målet NAT-regeln tillåter faktiska programtrafik till programservern. Medan de andra reglerna tillåter för säkerhet, hantering, etc., är program vad tillåta externa användare eller tjänster att komma åt program. I det här exemplet att det finns en enda webbserver på port 80, därför den enda brandväggsregeln för programmet att omdirigera inkommande trafik till externa IP, web servrar interna IP-adress.
+    Det här målet NAT-regeln tillåter trafik själva programmet att nå programservern. Medan de andra reglerna tillåter för säkerhet, hantering, o.s.v., är program-regler vad som ska tillåta externa användare eller tjänster att komma åt programmen. Det finns en webbserver på port 80 i det här exemplet, därför den enda brandväggsregeln för application omdirigerar inkommande trafik till den externa IP-Adressen, web servrar interna IP-adress.
   
-    **Obs**: att ingen port har tilldelats i fältet mållistan, vilket den inkommande porten 80 (eller 443 för tjänsten som markerats) ska användas i omdirigering av webbservern. Om webbservern lyssnar på en annan port, till exempel port 8080, fältet mållistan kunde uppdateras till 10.0.1.4:8080 för Port omdirigeringen samt.
+    **Obs**: att ingen port har tilldelats i fältet mållistan, alltså den inkommande porten 80 (eller 443 för tjänsten som valts) ska användas i omdirigering av webbservern. Om servern lyssnar på en annan port, till exempel port 8080, fältet mållistan kunde uppdateras till 10.0.1.4:8080 så att även Port omdirigeringen.
   
-    Nästa program trafik regeln är serverdelen regeln för att tillåta att webbservern ska kommunicera med AppVM01 server (men inte AppVM02) via någon tjänst:
+    Nästa program trafik regeln är backend-regel som tillåter webbservern att kommunicera med AppVM01 server (men inte AppVM02) via valfri tjänst:
   
     ![AppVM01 brandväggsregel][13]
   
-    Den här Pass regeln kan alla IIS-servrar på undernätet Frontend att nå AppVM01 (IP-adress 10.0.2.5) med hjälp av ett protokoll för att komma åt data som krävs av webbprogrammet på alla portar.
+    Regeln Pass tillåter alla IIS-servrar på undernätet på klientsidan för att nå AppVM01 (IP-adressen 10.0.2.5) med hjälp av alla protokoll som ska få åtkomst till data som krävs av webbprogrammet på alla portar.
   
-    I den här skärmbilden en ”\<explicit dest\>” används i fältet mål för en obestämd 10.0.2.5 som mål. Detta kan vara något explicit enligt eller en med namnet nätverksobjekt (som har utförts i förutsättningarna för DNS-servern). Detta är upp till administratören av brandväggen om vilken metod som ska användas. Om du vill lägga till 10.0.2.5 som en Explict Desitnation och dubbelklicka på den första tomma raden under \<explicit dest\> och ange adressen i fönstret som öppnas.
+    I den här skärmbilden en ”\<explicit dest\>” används i fältet mål för en obestämd 10.0.2.5 som mål. Det kan antingen explicit enligt eller en med namnet nätverksobjekt (som gjordes i förutsättningarna för DNS-servern). Det här är upp till administratören för brandväggen om vilka metoden ska användas. Om du vill lägga till 10.0.2.5 som en Explict Desitnation dubbelklickar du på den första tomma raden under \<explicit dest\> och ange adressen i fönstret som öppnas.
   
-    Med regeln skicka krävs ingen NAT eftersom det är intern trafik, så anslutningsmetoden kan vara inställd på ”Nej SNAT”.
+    Med regeln skicka krävs inga NAT eftersom detta är intern trafik så anslutningsmetoden kan anges till ”Nej SNAT”.
   
-    **Obs**: Source nätverk i den här regeln är alla resurser på undernätet FrontEnd om det ska bara finnas en eller ett specifikt kända antal webbservrar, nätverksobjekt gick att skapa en resurs för att vara mer specifika för de exakta IP-adresserna i stället för hela undernätet Frontend.
+    **Obs!** Källnätverket i den här regeln är alla resurser på undernätet på klientsidan, om det ska bara finnas en eller ett visst kända antal webbservrar, nätverksobjekt gick att skapa en resurs mer specifikt till de exakta IP-adresserna i stället för hela Frontend-undernätet.
 
 > [!TIP]
-> Den här regeln använder tjänsten ”alla” att göra det enklare att konfigurera och använda exempelprogrammet, det gör också att ICMPv4 (ping) i en enda regel. Men rekommenderas detta inte. Portar och protokoll (”tjänsten”) bör begränsas till lägsta möjliga som gör att programmet igen att minska risken för angrepp på den här begränsningen.
+> Den här regeln använder tjänsten ”alla” att göra det enklare att konfigurera och använda exempelprogrammet, detta innebär även att ICMPv4 (ping) i en enda regel. Detta är dock inte alltid. Portar och protokoll (”tjänsten”) bör begränsas till det minimum som är möjligt och som gör att programmet igen att minska risken för angrepp på gränsen.
 > 
 > 
 
 <br />
 
 > [!TIP]
-> Även om den här regeln visar en referens till en explicit dest används, bör du använda en konsekvent metod under brandväggskonfigurationen av. Du rekommenderas att objektet namngivna nätverket används i hela för enklare läsbarhet och hanterbarhet. Den explicita dest används här endast för att visa en alternativ metod och rekommenderas vanligtvis inte (särskilt för komplexa konfigurationer).
+> Även om den här regeln visar en explicit dest referens som används, är det en konsekvent metod som ska användas i brandväggskonfigurationen. Vi rekommenderar att det namngivna nätverksobjektet användas i hela för enklare Läs- och support. Den explicita dest används här endast för att visa en alternativ metod och rekommenderas vanligtvis inte (särskilt för komplexa konfigurationer).
 > 
 > 
 
-* **Utgående till Internet regeln**: skicka den här regeln tillåter trafik från alla Källnätverk ska skickas till valda Målnätverk. Den här regeln är en standardregel vanligtvis redan Barracuda nästa generation brandväggen, men är i ett inaktiverat tillstånd. Högerklicka på den här regeln kan komma åt kommandot aktivera regeln. Regeln som visas här har ändrats för att lägga till de två lokala undernät som har skapats som referens i avsnittet förutsättningar i det här dokumentet till källattributet för den här regeln.
+* **Utgående till Internet regeln**: Regeln Pass ska tillåta trafik från alla källnätverket ska skickas till de valda Målnätverk. Den här regeln finns en standardregel vanligtvis redan Barracuda NextGen-brandväggen, men är i ett inaktiverat tillstånd. Högerklicka på den här regeln kan komma åt kommandot aktivera regeln. Regeln visas här har ändrats för att lägga till två lokala undernät som har skapats som referenser i avsnittet förutsättningar i det här dokumentet i källattributet för den här regeln.
   
     ![Utgående brandväggsregel][14]
-* **DNS-regel**: skicka den här regeln kan endast DNS (port 53) trafik skickas till DNS-servern. Den här regeln kan särskilt DNS för den här miljön som de flesta trafik från klientdelen till serverdelen blockeras.
+* **DNS-regel**: Regeln Pass kan endast DNS (port 53)-trafik skickas till DNS-servern. Den här regeln kan särskilt DNS för den här miljön som de flesta trafik från klientdelen till serverdelen blockeras.
   
     ![DNS-brandväggsregel][15]
   
-    **Obs**: I den här skärmen som visar anslutningsmetoden ingår. Eftersom den här regeln är intern IP-adress till interna IP-adress trafik kan inga NATing krävs, detta anslutningsmetoden är inställt på ”Nej SNAT” för den här regeln Pass.
-* **Undernät undernät regeln**: skicka den här regeln är en standardregel som har aktiverats och ändras för att låta alla servrar på backend-undernät kan ansluta till alla servrar i klientdelen undernät. Den här regeln är alla intern trafik så anslutningsmetoden kan vara inställd på Nej SNAT.
+    **Obs!** Som visar anslutningsmetoden ingår i den här skärmen. Eftersom den här regeln är för interna IP-adress till interna IP-adress-trafik, inga NATing krävs, detta anslutningsmetoden är inställt på ”Nej SNAT” för den här regeln Pass.
+* **Undernätet till undernätet regeln**: Regeln Pass är en standardregel som har aktiverats och ändras för att låta alla servrar i serverdelen undernät att ansluta till en server på klientdelens undernät. Den här regeln är alla intern trafik så anslutningsmetoden vara inställt på Nej SNAT.
   
-    ![Inom VNet brandväggsregel][16]
+    ![Intra-VNet-brandväggsregeln][16]
   
-    **Obs**: kryssrutan dubbelriktad kontrolleras inte (är inte heller incheckad regler för de flesta), detta är viktig för den här regeln eftersom den gör detta regel ”envägs”, en anslutning kan initieras från backend-undernätet frontend-nätverk, men inte tvärtom. Om kryssrutan är markerad skulle med den här regeln göra dubbelriktad trafik som från våra logiskt diagram inte används.
-* **Neka alla Trafikregel**: bör alltid sista regeln (vad gäller prioritet) och som sådan om en trafiken flödar inte matchar någon av de föregående regler tas bort av den här regeln. Det här är en standardregel och vanligtvis aktiverad behövs vanligtvis inga ändringar. 
+    **Obs!** Dubbelriktad kryssrutan inte är markerat (eller är det här alternativet är markerat i de flesta regler), detta är viktig för den här regeln eftersom den gör det regeln ”envägs”, en anslutning kan initieras från backend-undernät till klientdelens nätverk, men inte tvärtom. Om kryssrutan checkades skulle den här regeln Aktivera dubbelriktad trafik som inte är det önskade från våra logiskt diagram.
+* **Neka alla Trafikregel**: Detta bör alltid vara den sista regeln (när det gäller prioritet) och därför om en trafiken flödar inte matchar någon av de föregående regler som den kommer att tas bort av den här regeln. Det här är en standardregel och vanligtvis aktiverad behövs vanligtvis inga ändringar. 
   
-    ![Regel för att neka brandväggen][17]
+    ![Regel för Brandvägg för att neka][17]
 
 > [!IMPORTANT]
-> När alla ovanstående regler skapas, är det viktigt att granska prioriteten för varje regel för att se till att trafik ska tillåtas eller nekas efter behov. I det här exemplet är regler i den ordning som de ska visas i rutnätet Main vidarebefordra regler i Barracuda Management-klienten.
+> När alla ovanstående regler skapas, är det viktigt att granska prioriteten för varje regel för att se till att trafik ska tillåtas eller nekas efter behov. I det här exemplet är reglerna i den ordning de ska visas i rutnätet Main för att vidarebefordra regler i Barracuda Management-klienten.
 > 
 > 
 
-## <a name="rule-activation"></a>Regeln aktivering
-Med RuleSet-metod som ändrats till specificering av logiska diagram, måste den RuleSet-metod har överförts till brandväggen och sedan aktiveras.
+## <a name="rule-activation"></a>Regel för aktivering
+Med RuleSet-metod som har ändrats för att specifikation av logic-diagram, måste ruleset överförs till brandväggen och sedan aktiveras.
 
 ![Brandväggen regeln aktivering][18]
 
-Är ett kluster på knapparna i det övre högra hörnet i management-klienten. Klicka på ”Skicka ändringar” för att skicka ändrade regler i brandväggen och sedan på knappen ”Aktivera”.
+I det övre högra hörnet av management-klienten finns i ett kluster med knappar. Klicka på ”Skicka ändringar” för att skicka ändrade regler i brandväggen och sedan på knappen ”Aktivera”.
 
-Det här exemplet miljö bygget har slutförts med aktivering av brandvägg RuleSet-metod.
+Det här exemplet miljö-versionen har slutförts med aktivering brandväggen RuleSet-metod.
 
-## <a name="traffic-scenarios"></a>Trafik scenarier
+## <a name="traffic-scenarios"></a>Trafik-scenarier
 > [!IMPORTANT]
-> En nyckel takeway är att komma ihåg att **alla** trafik kommer genom brandväggen. Så till fjärrskrivbord till IIS01-servern, kommer även om den är i Front End-Molntjänsten och på frontend-undernät för att komma åt den här servern vi behöver brandväggen på port 8014 till RDP, och låt brandväggen för att dirigera internt RDP-begäran till IIS01 RDP-porten. Azure portal ”Anslut” knappen fungerar inte eftersom det finns ingen direkt RDP-väg till IIS01 (som portalen kan se). Detta innebär att alla anslutningar från internet Security Service och en Port, t.ex. secscv001.cloudapp.net:xxxx.
+> En viktig takeway är att komma ihåg att **alla** kommer trafik genom brandväggen. Så till fjärrskrivbord till IIS01-servern, ska även om det är i Front End-Molntjänsten och på frontend-undernätet för att komma åt den här servern vi behöva RDP i brandväggen på port 8014, och låt brandväggen för att dirigera begäran RDP internt till RDP-Por IIS01 t. Azure portal ”Anslut” knappen fungerar inte eftersom det finns ingen direkt RDP-väg till IIS01 (så länge portalen kan se). Det innebär att alla anslutningar från internet kommer att tjänsten Security och en Port, t.ex. secscv001.cloudapp.net:xxxx.
 > 
 > 
 
-Följande brandväggsregler bör vara på plats för dessa scenarier:
+Dessa scenarier kan ska följande brandväggsregler finnas:
 
 1. Brandväggshantering
 2. RDP till IIS01
 3. RDP till DNS01
 4. RDP till AppVM01
 5. RDP till AppVM02
-6. App-trafik på webben
-7. App-trafik till AppVM01
+6. Trafik på webben
+7. Trafik till AppVM01
 8. Utgående till Internet
-9. Klientdel till DNS01
-10. Intra-undernätstrafik (serverdel front end)
+9. Klientdelen till DNS01
+10. Intra-undernätstrafik (serverdel till endast klientdel)
 11. Neka alla
 
-Verklig brandvägg RuleSet-metod har antagligen många andra regler Förutom dessa, reglerna på alla angivna brandväggen har även olika prioritetsnummer än de som visas här. Den här listan och tillhörande nummer är att tillhandahålla relevans mellan bara reglerna elva och den relativa prioriteten bland dem. Med andra ord; den faktiska brandväggen kan den ”RDP till IIS01” vara regeln tal 5, men så länge det är under ”Brandväggshantering” regeln och ovan ”RDP DNS01” regeln skulle justera att den här listan. Listan också underlätta vid den nedan scenarier för att tillåta planeringsaspekter; t.ex. ”FW regeln 9 (DNS)”. Planeringsaspekter, fyra RDP-regler kommer gemensamt kallas även, ”RDP-regler” när trafiken är inte relaterat till RDP.
+Faktiska brandväggen RuleSet-metod har antagligen många andra regler Förutom dessa, reglerna på alla angivna brandväggen kommer även att ha olika prioritetsnummer än de som visas här. Den här listan och tillhörande nummer är att tillhandahålla relevans mellan bara reglerna elva och den relativa prioriteten vilken av dessa. Med andra ord; på den faktiska brandväggen kan den ”RDP till IIS01” vara regeln tal 5, men så länge den hamnar under ”brandväggen Management”-regeln och ovanför ”RDP till DNS01” regeln skulle justera avsikt att den här listan. Listan ska också underlätta den nedan scenarier för att tillåta kortfattat; t.ex. ”FW regeln 9 (DNS)”. Även kortfattat, fyra RDP-reglerna gemensamt kallas, ”RDP-regler” när trafik scenariot är inte relaterat till RDP.
 
-Återkalla också att Nätverkssäkerhetsgrupper är på plats för inkommande trafik för internet på Frontend och Backend-undernät.
+Kom också ihåg att Nätverkssäkerhetsgrupper är på plats för inkommande Internettrafik på Frontend och Backend-undernät.
 
 #### <a name="allowed-internet-to-web-server"></a>(Tillåts) Internet till webbservern
-1. Internet användaren begär http-sida från SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
-2. Cloud service överför trafik via öppna slutpunkter på port 80 till brandväggens gränssnitt på 10.0.0.4:80
-3. Inga NSG som tilldelats till undernätet för säkerhet, så system NSG-regler tillåter trafik för brandväggen
-4. Trafik träffar interna IP-adressen för brandväggen (10.0.1.4)
-5. Brandväggen börjar regeln bearbetning:
-   1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-   2. FW regler 2-5 (RDP regler) inte tillämpas, gå till nästa regel
-   3. FW regel 6 (App: Web) gäller, tillåts trafik, brandvägg NAT att 10.0.1.4 (IIS01)
-6. Undernätet Frontend börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (blockera Internet) kan inte användas (den här trafiken har NAT genom brandväggen, vilket källadressen är nu i brandväggen som finns i undernät säkerhet och ses av undernätet Frontend NSG ska ”lokal” trafik och tillåts därför), flyttar till nästa regel
-   2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
-7. IIS01 lyssnar för webbtrafik, tar emot denna begäran och startar bearbetning av begäran
-8. IIS01 försöker initierar en FTP-session till AppVM01 på Backend-undernät
-9. UDR väg för undernätet Frontend gör brandväggen nästa hopp
-10. Inga regler för utgående trafik på undernätet Frontend, tillåts trafik
-11. Brandväggen börjar regeln bearbetning:
-    1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-    2. FW regel 2-5 (RDP regler) inte tillämpas, gå till nästa regel
-    3. FW regel 6 (App: Web) inte tillämpas, gå till nästa regel
-    4. FW regel 7 (App: Backend) gäller, tillåts trafik, brandvägg vidarebefordrar trafik till 10.0.2.5 (AppVM01)
+1. Internet-begäranden HTTP användarsidan från SecSvc001.CloudApp.Net (Internet som riktas mot Cloud Services)
+2. Cloud service skickar trafik via öppna slutpunkter på port 80 till brandväggens gränssnitt på 10.0.0.4:80
+3. Ingen Nätverkssäkerhetsgrupp som tilldelats Security undernät, så systemet NSG-regler tillåta trafik till brandväggen
+4. Trafiken kommer till den interna IP-adress för brandvägg (is 10.0.1.4)
+5. Brandväggen börjar Regelbearbetning:
+   1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+   2. VB regler 2 – 5 (RDP-regler) inte tillämpa, flytta till nästa regel
+   3. VB regel 6 (App: Web) gäller, trafik tillåts, brandvägg NAT den till is 10.0.1.4 (IIS01)
+6. Undernätet på klientsidan börjar bearbetning av inkommande regel:
+   1. NSG-regel 1 (blockera Internet) gäller inte (den här trafiken har NAT skulle genom brandväggen, därför källadressen är nu i brandväggen som finns i säkerhet-undernät och setts av NSG för undernätet på klientsidan ska vara ”local” trafik och tillåts därför), flytta till nästa regel
+   2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
+7. IIS01 lyssnar för webbtrafik, får den här förfrågan och startar bearbetning av begäran
+8. IIS01 försöker initierar en FTP-sessionen till AppVM01 på Backend-undernät
+9. UDR-väg på Frontend-undernätet gör brandväggen nästa hopp
+10. Inga utgående regler på Frontend-undernätet trafik tillåts
+11. Brandväggen börjar Regelbearbetning:
+    1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+    2. VB-regel 2 – 5 (RDP-regler) inte tillämpa, flytta till nästa regel
+    3. VB regel 6 (App: Web) inte tillämpa, gå till nästa regel
+    4. VB regel 7 (App: Serverdel) gäller, trafik tillåts, brandvägg vidarebefordrar trafik till 10.0.2.5 (AppVM01)
 12. Backend-undernät börjar bearbetning av inkommande regel:
-    1. NSG regel 1 (blockera Internet) inte tillämpas, gå till nästa regel
-    2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
+    1. NSG-regel 1 (blockera Internet) inte tillämpa, gå till nästa regel
+    2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
 13. AppVM01 tar emot begäran och initierar sessionen och svarar
-14. UDR vägen på Backend-undernät gör brandväggen nästa hopp
-15. Eftersom det inte finns några utgående NSG-regler på Backend-undernät svaret tillåts
+14. UDR-väg på Backend-undernät gör brandväggen nästa hopp
+15. Eftersom det finns inga utgående NSG-regler på Backend-undernät som svaret tillåts
 16. Eftersom detta returnerar trafik på en upprättad session skickar brandväggen svaret tillbaka till webbservern (IIS01)
-17. Undernätet frontend börjar bearbetning av inkommande regel:
-    1. NSG regel 1 (blockera Internet) inte tillämpas, gå till nästa regel
-    2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
-18. IIS-servern tar emot svaret Slutför transaktionen med AppVM01 och slutför sedan bygga HTTP-svaret, skickas HTTP-svar till begäranden
-19. Eftersom det finns inga utgående NSG-regler på undernätet Frontend svaret tillåts
-20. HTTP-svaret träffar brandväggen och eftersom det här är svaret på en upprättad session NAT accepteras av brandväggen
+17. Frontend-undernätet börjar bearbetning av inkommande regel:
+    1. NSG-regel 1 (blockera Internet) inte tillämpa, gå till nästa regel
+    2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
+18. IIS-servern tar emot svaret, Slutför transaktionen med AppVM01 och slutför sedan att skapa HTTP-svaret, skickas HTTP-svar till begäranden
+19. Eftersom det finns inga utgående regler i NSG på undernätet på klientsidan svaret tillåts
+20. HTTP-svaret kommer till brandväggen och eftersom detta är svaret på en upprättad session NAT godkänns av brandväggen
 21. Brandväggen omdirigerar sedan svaret tillbaka till Internet-användare
-22. Eftersom det inte finns inte utgående får NSG-regler eller UDR hopp i Klientdelens undernät svaret tillåts och Internet-användare den begärda webbsidan.
+22. Eftersom det finns inte utgående får NSG-regler eller UDR hopp på undernätet på klientsidan svaret tillåts och Internet-användare den webbsida som begärdes.
 
 #### <a name="allowed-internet-rdp-to-backend"></a>(Tillåts) Internet RDP till serverdelen
-1. Serveradministratören på internet begär RDP-session till AppVM01 via SecSvc001.CloudApp.Net:8025, där 8025 är portnumret för användaren som har tilldelats för brandväggsregeln ”RDP AppVM01”
-2. Molntjänsten skickar trafik via öppna slutpunkten på port 8025 till brandväggens gränssnitt på 10.0.0.4:8025
-3. Inga NSG som tilldelats till undernätet för säkerhet, så system NSG-regler tillåter trafik för brandväggen
-4. Brandväggen börjar regeln bearbetning:
-   1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-   2. FW regel 2 (RDP IIS) inte tillämpas, gå till nästa regel
-   3. FW regel 3 (RDP DNS01) inte tillämpas, gå till nästa regel
-   4. FW regel 4 (RDP AppVM01) gäller, tillåts trafik, brandvägg NAT att 10.0.2.5:3386 (RDP-porten på AppVM01)
+1. Serveradministratören på internet begär RDP-session till AppVM01 via SecSvc001.CloudApp.Net:8025, där 8025 är användartilldelade portnumret för brandväggsregeln ”RDP till AppVM01”
+2. Molntjänsten skickar trafik via den öppna slutpunkten på port 8025 till brandväggens gränssnitt på 10.0.0.4:8025
+3. Ingen Nätverkssäkerhetsgrupp som tilldelats Security undernät, så systemet NSG-regler tillåta trafik till brandväggen
+4. Brandväggen börjar Regelbearbetning:
+   1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+   2. VB regel 2 (RDP IIS) inte tillämpa, gå till nästa regel
+   3. VB regel 3 (RDP DNS01) inte tillämpa, gå till nästa regel
+   4. VB regel 4 (RDP AppVM01) gäller, trafik tillåts, brandvägg NAT den till 10.0.2.5:3386 (RDP-porten på AppVM01)
 5. Backend-undernät börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (blockera Internet) kan inte användas (den här trafiken har NAT genom brandväggen, vilket källadressen är nu i brandväggen som finns i undernät säkerhet och ses av Backend-undernät NSG ska ”lokal” trafik och tillåts därför), flyttar till nästa regel
-   2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
+   1. NSG-regel 1 (blockera Internet) gäller inte (den här trafiken har NAT skulle genom brandväggen, därför källadressen är nu i brandväggen som finns i säkerhet-undernät och setts av NSG för Backend-undernät ska vara ”local” trafik och tillåts därför), flytta till nästa regel
+   2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
 6. AppVM01 lyssnar efter RDP-trafik och svarar
-7. Med inga utgående NSG-regler gäller standardregler och returnera trafik tillåts
-8. UDR vägar utgående trafik i brandväggen som nästa hopp
+7. Med ingen utgående NSG-regler gäller för standard och återvändande trafik tillåts
+8. UDR dirigerar trafik i brandväggen som nästa hopp
 9. Eftersom detta returnerar trafik på en upprättad session skickar brandväggen svaret tillbaka till internet-användare
-10. RDP-session är aktiverad
-11. AppVM01 efterfrågar användarnamn lösenord
+10. RDP-session är aktiverat
+11. AppVM01 frågar efter användarnamn lösenord
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Tillåts) Web Server DNS-sökning på DNS-server
-1. Web Server, IIS01, måste en datafeed på www.data.gov, men måste matcha adressen.
-2. Nätverkskonfigurationen för listorna VNet DNS01 (10.0.2.4 på Backend-undernät) som den primära DNS-servern, IIS01 skickar en DNS-begäran till DNS01
-3. UDR vägar utgående trafik i brandväggen som nästa hopp
-4. Inga utgående NSG-reglerna är bundna till undernätet Frontend, tillåts trafik
-5. Brandväggen börjar regeln bearbetning:
-   1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-   2. FW regel 2-5 (RDP regler) inte tillämpas, gå till nästa regel
-   3. FW reglerna 6 och 7 (Appregler) inte tillämpas, flyttar till nästa regel
-   4. FW regeln 8 (till Internet) inte tillämpas, gå till nästa regel
-   5. FW regel 9 (DNS) gäller, tillåts trafik, brandvägg vidarebefordrar trafik till 10.0.2.4 (DNS01)
+1. Web Server, IIS01, måste en data-feed på www.data.gov, men måste matcha adressen.
+2. Nätverkskonfigurationen för VNet-listor DNS01 (10.0.2.4 på Backend-undernät) som den primära DNS-servern, IIS01 skickar en DNS-begäran till DNS01
+3. UDR dirigerar trafik i brandväggen som nästa hopp
+4. Ingen utgående NSG-regler är bundna till undernätet på klientsidan, tillåts trafik
+5. Brandväggen börjar Regelbearbetning:
+   1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+   2. VB-regel 2 – 5 (RDP-regler) inte tillämpa, flytta till nästa regel
+   3. VB regler 6 och 7 (regler) inte tillämpa, flytta till nästa regel
+   4. VB regeln 8 (till Internet) inte tillämpa, flytta till nästa regel
+   5. VB regel 9 (DNS) gäller, trafik tillåts, brandvägg vidarebefordrar trafik till 10.0.2.4 (DNS01)
 6. Backend-undernät börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (blockera Internet) inte tillämpas, gå till nästa regel
-   2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
+   1. NSG-regel 1 (blockera Internet) inte tillämpa, gå till nästa regel
+   2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
 7. DNS-servern tar emot begäran
-8. DNS-servern har inte cachelagrade-adress och begär en rot-DNS-server på internet
-9. UDR vägar utgående trafik i brandväggen som nästa hopp
-10. Inga utgående NSG-regler på Backend-undernät, tillåts trafik
-11. Brandväggen börjar regeln bearbetning:
-    1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-    2. FW regel 2-5 (RDP regler) inte tillämpas, gå till nästa regel
-    3. FW reglerna 6 och 7 (Appregler) inte tillämpas, flyttar till nästa regel
-    4. FW regeln 8 (till Internet) gäller, tillåts trafik, sessionen är SNAT ut till rot-DNS-server på Internet
-12. Internet-DNS-servern svarar, eftersom denna session har startats från brandväggen svaret accepteras av brandväggen
-13. Eftersom det är en upprättad session vidarebefordrar brandväggen svar till den ursprungliga servern, DNS01
+8. DNS-servern har inte den adress som cachelagras och frågar en rot-DNS-server på internet
+9. UDR dirigerar trafik i brandväggen som nästa hopp
+10. Ingen utgående NSG-regler på Backend-undernät tillåts trafik
+11. Brandväggen börjar Regelbearbetning:
+    1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+    2. VB-regel 2 – 5 (RDP-regler) inte tillämpa, flytta till nästa regel
+    3. VB regler 6 och 7 (regler) inte tillämpa, flytta till nästa regel
+    4. VB regeln 8 (till Internet) gäller, trafik tillåts, session är SNAT ut till rot-DNS-servern på Internet
+12. Internet-DNS-servern svarar, eftersom den här sessionen initierades från brandväggen, svaret accepteras av brandväggen
+13. Eftersom det här är en upprättad session vidarebefordrar brandväggen svar till den ursprungliga servern, DNS01
 14. Backend-undernät börjar bearbetning av inkommande regel:
-    1. NSG regel 1 (blockera Internet) inte tillämpas, gå till nästa regel
-    2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
-15. DNS-servern tar emot och cachelagrar svaret och svarar sedan den ursprungliga begäranden tillbaka till IIS01
-16. UDR vägen på backend-undernät gör brandväggen nästa hopp
-17. Det finns några utgående NSG-regler på Backend-undernät, tillåts trafik
+    1. NSG-regel 1 (blockera Internet) inte tillämpa, gå till nästa regel
+    2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
+15. DNS-servern tar emot och cachelagrar svaret och sedan svarar på den första begäran tillbaka till IIS01
+16. UDR-väg på backend-undernät gör brandväggen nästa hopp
+17. Det finns inga utgående NSG-regler på Backend-undernät, tillåts trafik
 18. Det här är en upprättad session i brandväggen, svaret vidarebefordras av brandväggen tillbaka till IIS-servern
-19. Undernätet frontend börjar bearbetning av inkommande regel:
-    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät till undernätet Frontend, så att ingen av NSG: N regler tillämpas
-    2. System Standardregeln som tillåter trafik mellan undernät skulle göra att den här trafiken så att trafik tillåts
+19. Frontend-undernätet börjar bearbetning av inkommande regel:
+    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+    2. System Standardregeln som tillåter trafik mellan undernät skulle tillåta den här trafiken så att trafiken tillåts
 20. IIS01 tar emot svaret från DNS01
 
-#### <a name="allowed-backend-server-to-frontend-server"></a>(Tillåts) Backend-servern till klientdel
-1. En administratör som är inloggad på AppVM02 via RDP begär en fil direkt från IIS01 servern via Utforskaren i windows
-2. UDR vägen på Backend-undernät gör brandväggen nästa hopp
-3. Eftersom det inte finns några utgående NSG-regler på Backend-undernät svaret tillåts
-4. Brandväggen börjar regeln bearbetning:
-   1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-   2. FW regel 2-5 (RDP regler) inte tillämpas, gå till nästa regel
-   3. FW reglerna 6 och 7 (Appregler) inte tillämpas, flyttar till nästa regel
-   4. FW regeln 8 (till Internet) inte tillämpas, gå till nästa regel
-   5. FW regel 9 (DNS) inte tillämpas, gå till nästa regel
-   6. FW regeln 10 (Intra-undernät) gäller, tillåts trafik, brandvägg skickar trafik till 10.0.1.4 (IIS01)
-5. Undernätet frontend börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (blockera Internet) inte tillämpas, gå till nästa regel
-   2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
-6. Under förutsättning att korrekt autentisering och auktorisering, IIS01 godkänner begäran och svarar
-7. UDR väg för undernätet Frontend gör brandväggen nästa hopp
-8. Eftersom det finns inga utgående NSG-regler på undernätet Frontend svaret tillåts
-9. Eftersom det är en befintlig session i brandväggen svaret tillåts och brandväggen returnerar svaret på AppVM02
+#### <a name="allowed-backend-server-to-frontend-server"></a>(Tillåts) Backend-servern till Frontend-server
+1. En administratör som har loggat in på AppVM02 via RDP begär en fil direkt från IIS01 servern via Utforskaren i windows
+2. UDR-väg på Backend-undernät gör brandväggen nästa hopp
+3. Eftersom det finns inga utgående NSG-regler på Backend-undernät som svaret tillåts
+4. Brandväggen börjar Regelbearbetning:
+   1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+   2. VB-regel 2 – 5 (RDP-regler) inte tillämpa, flytta till nästa regel
+   3. VB regler 6 och 7 (regler) inte tillämpa, flytta till nästa regel
+   4. VB regeln 8 (till Internet) inte tillämpa, flytta till nästa regel
+   5. VB regel 9 (DNS) inte tillämpa, gå till nästa regel
+   6. VB regeln 10 (Intra-undernät) gäller, trafik tillåts, brandvägg skickar trafik till is 10.0.1.4 (IIS01)
+5. Frontend-undernätet börjar bearbetning av inkommande regel:
+   1. NSG-regel 1 (blockera Internet) inte tillämpa, gå till nästa regel
+   2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
+6. Under förutsättning att korrekt autentisering och auktorisering, IIS01 tar emot begäran och svarar
+7. UDR-väg på Frontend-undernätet gör brandväggen nästa hopp
+8. Eftersom det finns inga utgående regler i NSG på undernätet på klientsidan svaret tillåts
+9. Eftersom det här är en befintlig session i brandväggen svaret tillåts och brandväggen returnerar svaret till AppVM02
 10. Backend-undernät börjar bearbetning av inkommande regel:
-    1. NSG regel 1 (blockera Internet) inte tillämpas, gå till nästa regel
-    2. Standard NSG-reglerna tillåter undernät undernätstrafik, tillåts trafik, stoppa NSG-Regelbearbetning
+    1. NSG-regel 1 (blockera Internet) inte tillämpa, gå till nästa regel
+    2. Standardreglerna för NSG tillåter undernät undernätstrafik, trafik tillåts, stoppa NSG-Regelbearbetning
 11. AppVM02 tar emot svaret
 
 #### <a name="denied-internet-direct-to-web-server"></a>(Nekad) Internet direkt till webbservern
 1. Internet-användare försöker komma åt webbservern, IIS01, via tjänsten FrontEnd001.CloudApp.Net
-2. Eftersom det inte finns några slutpunkter som är öppen för HTTP-trafik, detta skulle inte passerar Molntjänsten och skulle nå servern
-3. Om slutpunkterna öppna av någon anledning skulle NSG: N (blockera Internet) på undernätet Frontend blockera den här trafiken
-4. Slutligen klientdel undernät UDR vägen skulle skicka all utgående trafik från IIS01 i brandväggen som nexthop och brandväggen skulle se detta som en asymmetrisk trafik och släpp utgående svar är därför det minst tre oberoende lager i skyddsstrategierna mellan internet och IIS01 via dess Molntjänsten hindrar obehöriga/olämplig åtkomst.
+2. Eftersom det finns inga slutpunkter som är öppna för HTTP-trafik är detta skulle inte passerar Molntjänsten och skulle nå servern
+3. Om du slutpunkterna öppna av någon anledning skulle NSG (blockera Internet) på undernätet på klientsidan blockera den här trafiken
+4. Slutligen Frontend-undernätet UDR vägen skickar all utgående trafik från IIS01 till som nästa hopp-brandväggen och brandväggen skulle se detta som en asymmetrisk trafik och släpp det utgående svaret Thus som det finns minst tre oberoende försvarslinjer mellan internet och IIS01 via dess molntjänst som förhindrar obehörig/oönskad åtkomst.
 
 #### <a name="denied-internet-to-backend-server"></a>(Nekad) Internet till Backend-servern
 1. Internet-användare försöker få åtkomst till en fil på AppVM01 via tjänsten BackEnd001.CloudApp.Net
-2. Eftersom det inte finns några slutpunkter som är öppna för filresursen, detta skulle inte klarar Molntjänsten och skulle nå servern
-3. Om slutpunkterna öppna av någon anledning skulle NSG: N (blockera Internet) blockera den här trafiken
-4. Slutligen UDR vägen skulle skicka all utgående trafik från AppVM01 i brandväggen som nexthop och brandväggen skulle se detta som en asymmetrisk trafik och släpp utgående svar är därför det minst tre oberoende lager i skyddsstrategierna mellan internet och AppVM01 via dess Molntjänsten hindrar obehöriga/olämplig åtkomst.
+2. Eftersom det finns inga slutpunkter som är öppna för filresursen är detta skickar inte Molntjänsten och skulle nå servern
+3. Om du slutpunkterna öppna av någon anledning skulle NSG (blockera Internet) blockera den här trafiken
+4. Slutligen UDR vägen skickar all utgående trafik från AppVM01 till som nästa hopp-brandväggen och brandväggen skulle se detta som en asymmetrisk trafik och släpp den utgående svar vilket det finns minst tre oberoende försvarslinjer mellan internet och AppVM01 via dess molntjänst som förhindrar obehörig/oönskad åtkomst.
 
 #### <a name="denied-frontend-server-to-backend-server"></a>(Nekad) Frontend-server till Backend-servern
-1. Anta IIS01 har drabbats och kör skadlig kod som försöker skanna undernät Backend-servrarna.
-2. Klientdelens undernät UDR vägen skulle skicka all utgående trafik från IIS01 i brandväggen som nexthop. Detta är inte något som kan ändras av avslöjade VM.
-3. Brandväggen kan behandla trafiken, om begäran var AppVM01 eller DNS-server för DNS-sökning trafik potentiellt tillåts genom brandväggen (på grund av FW regler 7 och 9). All annan trafik skulle blockeras av FW regel 11 (neka alla).
-4. Om avancerade hotidentifiering har aktiverats på brandväggen (som inte omfattas i det här dokumentet, finns i leverantörens dokumentation för din specifika nätverksenhet advanced threat funktioner), även trafik som skulle vara tillåten av grundläggande vidarebefordringsregler som beskrivs i det här dokumentet kan förhindras om trafiken finns kända signaturer eller mönster som flaggan en regel för avancerade hot.
+1. Anta IIS01 har drabbats och kör skadlig kod försöker skanna undernät Backend-servrarna.
+2. Frontend-undernätet UDR vägen skulle skicka all utgående trafik från IIS01 i brandväggen som nästa hopp. Detta är inte något som kan ändras av den komprometterade virtuella datorn.
+3. Brandväggen skulle behandla trafiken, om förfrågan var AppVM01 och DNS-server för DNS-sökning som trafik potentiellt bli nekad av brandväggen (på grund av FW regler 7 och 9). All annan trafik blockeras av FW regel 11 (neka alla).
+4. Om avancerad hotidentifiering har aktiverats i brandväggen (som inte omfattas i det här dokumentet, finns i leverantörens dokumentation om din specifika nätverksinstallation advanced threat funktioner), även trafik som ska tillåtas av de grundläggande vidarebefordringsregler beskrivs i det här dokumentet kan förhindras om trafiken innehåller signaturer för kända eller mönster som flagga en regel för Avancerat.
 
 #### <a name="denied-internet-dns-lookup-on-dns-server"></a>(Nekad) Internet-DNS-sökning på DNS-server
-1. Internet-användare försöker att söka efter en intern DNS-post på DNS01 via BackEnd001.CloudApp.Net-tjänsten 
-2. Eftersom det inte finns några slutpunkter som är öppen för DNS-trafik, detta skulle inte passerar Molntjänsten och skulle nå servern
-3. Om slutpunkterna öppna av någon anledning skulle NSG-regeln (blockera Internet) på undernätet Frontend blockera den här trafiken
-4. Slutligen serverdelsvägar undernät UDR skulle skicka all utgående trafik från DNS01 i brandväggen som nexthop och brandväggen skulle se detta som en asymmetrisk trafik och släpp utgående svar är därför det minst tre oberoende lager i skyddsstrategierna mellan internet och DNS01 via dess Molntjänsten hindrar obehöriga/olämplig åtkomst.
+1. Internet-användare försöker att söka efter en intern DNS-post på DNS01 genom BackEnd001.CloudApp.Net-tjänsten 
+2. Eftersom det finns inga slutpunkter som är öppen för DNS-trafik är detta skulle inte passerar Molntjänsten och skulle nå servern
+3. Om du slutpunkterna öppna av någon anledning skulle NSG-regel (blockera Internet) på undernätet på klientsidan blockera den här trafiken
+4. Slutligen serverdelsvägar undernät UDR skulle skicka all utgående trafik från DNS01 till som nästa hopp-brandväggen och brandväggen skulle se detta som en asymmetrisk trafik och släpp det utgående svaret Thus som det finns minst tre oberoende försvarslinjer mellan den Internet och DNS01 via dess molntjänst som förhindrar obehörig/oönskad åtkomst.
 
-#### <a name="denied-internet-to-sql-access-through-firewall"></a>(Nekad) Internet till SQL-åtkomst genom brandväggen
-1. Internet-användare begär SQL-data från SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
-2. Eftersom inga slutpunkter är öppen för SQL är detta skulle inte klarar Molntjänsten och skulle nå brandväggen
-3. Om SQL-slutpunkter öppna av någon anledning skulle brandväggen börja regeln bearbetning:
-   1. FW regel 1 (FW Mgmt) inte tillämpas, gå till nästa regel
-   2. FW regler 2-5 (RDP regler) inte tillämpas, gå till nästa regel
-   3. FW regel 6 och 7 (programmet regler) inte tillämpas, flyttar till nästa regel
-   4. FW regeln 8 (till Internet) inte tillämpas, gå till nästa regel
-   5. FW regel 9 (DNS) inte tillämpas, gå till nästa regel
-   6. FW regeln 10 (Intra-undernät) inte tillämpas, gå till nästa regel
-   7. FW regel 11 (neka alla) gäller, trafik är blockerad, stoppa regel bearbetning
+#### <a name="denied-internet-to-sql-access-through-firewall"></a>(Nekad) Internet för att SQL-åtkomst via brandväggen
+1. Internet-användare begär SQL-data från SecSvc001.CloudApp.Net (Internet som riktas mot Cloud Services)
+2. Eftersom det finns inga slutpunkter som är öppen för SQL är detta skickar inte Molntjänsten och skulle nå brandväggen
+3. Om SQL-slutpunkter öppna av någon anledning skulle brandväggen börja Regelbearbetning:
+   1. VB regel 1 (VB Mgmt) inte tillämpa, gå till nästa regel
+   2. VB regler 2 – 5 (RDP-regler) inte tillämpa, flytta till nästa regel
+   3. VB regel 6 och 7 (program-regler) inte tillämpa, flytta till nästa regel
+   4. VB regeln 8 (till Internet) inte tillämpa, flytta till nästa regel
+   5. VB regel 9 (DNS) inte tillämpa, gå till nästa regel
+   6. VB regeln 10 (Intra-undernät) inte tillämpa, flytta till nästa regel
+   7. VB regel 11 (neka alla) gäller, trafik är blockerad, stoppa regelbehandling
 
 ## <a name="references"></a>Referenser
-### <a name="main-script-and-network-config"></a>Huvudskriptet och nätverkskonfiguration
-Spara fullständig skript i ett PowerShell-skriptfil. Spara konfigurationen nätverk i en fil med namnet ”NetworkConf2.xml”.
-Ändra användardefinierade variabler. Kör skriptet och följ brandväggen regeln installationsprogrammet anvisningarna ovan.
+### <a name="main-script-and-network-config"></a>Huvudskriptet och konfigurationer för nätverk
+Spara fullständigt skript i en PowerShell-skriptfilen. Spara konfiguration för nätverk i en fil med namnet ”NetworkConf2.xml”.
+Ändra variablerna användardefinierade efter behov. Kör skriptet och följ brandväggen regeln installationsprogrammet anvisningarna ovan.
 
-#### <a name="full-script"></a>Fullständig skript
-Det här skriptet kommer utifrån användardefinierade variabler:
+#### <a name="full-script"></a>Fullständigt skript
+Det här skriptet kommer baserat på användardefinierade variabler:
 
 1. Ansluta till en Azure-prenumeration
 2. Skapa ett nytt lagringskonto
-3. Skapa ett nytt virtuellt nätverk och tre undernät som har definierats i konfigurationsfilen för nätverk
-4. Skapa fem virtuella maskiner; Brandvägg för 1 och 4 windows server virtuella datorer
-5. Konfigurera UDR inklusive:
-   1. Skapa två nya vägtabeller
-   2. Lägga till vägar i tabellerna
+3. Skapa ett nytt virtuellt nätverk och tre undernät som definierats i konfigurationsfilen för nätverk
+4. Skapa fem virtuella datorer; 1-brandväggen och 4 windows server virtuella datorer
+5. Konfigurera UDR, inklusive:
+   1. Skapa två nya routningstabeller
+   2. Lägga till vägar till tabellerna
    3. Binda tabeller till lämpliga undernät
-6. Aktivera IP-vidarebefordring på en NVA
-7. Konfigurera NSG inklusive:
-   1. Skapa en NSG
+6. Aktivera IP-vidarebefordring på NVA
+7. Konfigurera NSG, inklusive:
+   1. Skapa en Nätverkssäkerhetsgrupp
    2. Lägger till en regel
    3. Bindning NSG: N till lämpliga undernät
 
-Detta PowerShell-skript ska köras lokalt på en internet-ansluten dator eller server.
+Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator eller server.
 
 > [!IMPORTANT]
-> När du kör det här skriptet kanske varningar eller andra informationsmeddelanden som visas i PowerShell. Endast felmeddelanden i rött är orsaken till problem.
+> När skriptet har körts kanske varningar eller andra informationsmeddelanden som pop i PowerShell. Endast felmeddelanden i rött är orsaka problem.
 > 
 > 
 
@@ -782,7 +782,7 @@ Detta PowerShell-skript ska köras lokalt på en internet-ansluten dator eller s
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -923,7 +923,7 @@ Detta PowerShell-skript ska köras lokalt på en internet-ansluten dator eller s
 
 
 #### <a name="network-config-file"></a>Konfigurationsfilen för nätverk
-Spara XML-filen med uppdaterad plats och lägga till länken till den här filen till variabeln $NetworkConfigFile i skriptet ovan.
+Spara den här xml-filen med uppdaterade plats och lägga till länken till den här filen till variabeln $NetworkConfigFile i skriptet ovan.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
@@ -958,27 +958,27 @@ Spara XML-filen med uppdaterad plats och lägga till länken till den här filen
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### <a name="sample-application-scripts"></a>Exempelskript för programmet
-Om du vill installera ett exempelprogram för det här och andra DMZ exempel något finns på följande länk: [exempelskript för programmet][SampleApp]
+#### <a name="sample-application-scripts"></a>Exempelskript för program
+Om du vill installera ett exempelprogram för detta och andra DMZ-exempel finns en på följande länk: [Exempelskript för program][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Dubbelriktat perimeternätverk med NVA, NSG och UDR"
-[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Logisk vy för brandväggsregler"
-[3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Skapa en FrontEnd-objektet"
-[4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Skapa en DNS-Server-objekt"
-[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Kopia av RDP standardregel"
+[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Logisk vy för brandväggsreglerna"
+[3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Skapa ett nätverk på klientsidan-objekt"
+[4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Skapa ett DNS-Server-objekt"
+[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Kopia av standard RDP-regel"
 [6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "AppVM01 regel"
-[7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Omdirigerings-ikon"
+[7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Programikon för omdirigering"
 [8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "Mål NAT-ikon"
 [9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Skicka ikon"
-[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Hantering av brandväggsregel"
+[10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Brandväggsregel för hantering"
 [11]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulerdp.png "RDP-brandväggsregel"
-[12]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleweb.png "Web brandväggsregel"
+[12]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleweb.png "Webb-brandväggsregel"
 [13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "AppVM01 brandväggsregel"
 [14]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleoutbound.png "Utgående brandväggsregel"
 [15]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledns.png "DNS-brandväggsregel"
-[16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "Inom VNet brandväggsregel"
-[17]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledeny.png "Regel för att neka brandväggen"
+[16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "Intra-VNet-brandväggsregeln"
+[17]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledeny.png "Regel för Brandvägg för att neka"
 [18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Brandväggen regeln aktivering"
 
 <!--Link References-->

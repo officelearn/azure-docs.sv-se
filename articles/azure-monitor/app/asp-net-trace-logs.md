@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2afed85c0c86e541c281f579294676fa889d4f27
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041449"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118803"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Utforska .NET spårningsloggarna i Application Insights
 Om du använder NLog, log4Net eller System.Diagnostics.Trace för diagnostikspårning i ASP.NET-program, kan du använda dina loggar som skickas till [Azure Application Insights][start], där du kan utforska och söka dem. Loggarna tillsammans med den telemetri som kommer från ditt program, så att du kan identifiera spårningar som är associerade med Underhåll varje användarbegäran och korrelera dem med andra händelser och undantagsrapporter.
@@ -207,4 +207,4 @@ Om programmet skickar stora mängder data och du använder Application Insights 
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

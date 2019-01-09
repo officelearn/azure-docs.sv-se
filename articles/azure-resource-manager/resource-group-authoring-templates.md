@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96dcb584ac23a2298463524add1aeb971f29e24b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7d6b942ea8b2bf61bee472811648e5089f280354
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725889"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102422"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
@@ -28,7 +28,7 @@ I sin enklaste struktur har en mall följande element:
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
@@ -40,7 +40,7 @@ I sin enklaste struktur har en mall följande element:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| $schema |Ja |Platsen för schemat JSON-fil som beskriver versionen av mallspråk.<br><br> Distribution av resursgrupper, använda `http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Prenumerationsdistributioner, använda `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Ja |Platsen för schemat JSON-fil som beskriver versionen av mallspråk.<br><br> Distribution av resursgrupper, använda `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Prenumerationsdistributioner, använda `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Ja |Versionen av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
 | parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
 | Variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
@@ -52,7 +52,7 @@ Varje element har egenskaper som du kan ange. I följande exempel visas den full
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  
         "<parameter-name>" : {

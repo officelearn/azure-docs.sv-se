@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076407"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117154"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begärandetelemetri: Application Insights-datamodell
 
-Ett begärandetelemetriobjekt (i [Application Insights](../../application-insights/app-insights-overview.md)) representerar den logiska ordningsföljden körning som utlöses av en extern begäran till programmet. Varje begäran-körning identifieras med unikt `ID` och `url` som innehåller parametrarna för körning. Du kan gruppera begäranden efter logiska `name` och definiera den `source` för den här förfrågan. Fjärrkörning av kod kan medföra `success` eller `fail` och har en viss `duration`. Både lyckade och misslyckade körningar kan grupperas ytterligare med `resultCode`. Starttid för begärandetelemetri som definierats för kuvert-nivå.
+Ett begärandetelemetriobjekt (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar den logiska ordningsföljden körning som utlöses av en extern begäran till programmet. Varje begäran-körning identifieras med unikt `ID` och `url` som innehåller parametrarna för körning. Du kan gruppera begäranden efter logiska `name` och definiera den `source` för den här förfrågan. Fjärrkörning av kod kan medföra `success` eller `fail` och har en viss `duration`. Både lyckade och misslyckade körningar kan grupperas ytterligare med `resultCode`. Starttid för begärandetelemetri som definierats för kuvert-nivå.
 
 Begäran om telemetri stöder standard utökningsmodellen med hjälp av anpassade `properties` och `measurements`.
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065621"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120894"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
-Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](../../application-insights/app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](../../azure-monitor/app/app-insights-dashboards.md).
+Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](../../azure-monitor/app/app-insights-dashboards.md).
 
 ![Öppna portal.azure.com, öppna Application Insights-resursen och klicka på Analytics.](./media/analytics/001.png)
 

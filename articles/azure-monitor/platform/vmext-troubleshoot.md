@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 72a24175b93057bf774810517f4d6c5e4b6c41eb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f2f50144e188a297468ac8ea8fc8891d2e4ec145
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183326"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106502"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Felsökning av Log Analytics VM-tillägget
 Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-tillägg för Windows och Linux-datorer som körs på Microsoft Azure och ger förslag på lösningar för att lösa dem.
 
 Utför följande steg från Azure-portalen för att kontrollera status för tillägget.
 
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver **virtuella datorer**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **virtuella datorer**.
 3. Hitta och markera den i din lista över virtuella datorer.
 3. Klicka på den virtuella datorn, **tillägg**.

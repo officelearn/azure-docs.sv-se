@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385540"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103136"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Så här övervakar du Gen2-cache
 Lagringsarkitektur Gen2 fördelar automatiskt dina mest efterfrågade columnstore-segment i ett cacheminne på NVMe SSD-baserade enheter som har utformats för informationslager Gen2. Bättre prestanda realiseras när dina frågor hämtar segment som är bosatta i cacheminnet. Den här artikeln beskriver hur du övervakar och felsöker långsam frågeprestanda genom att fastställa om din arbetsbelastning optimalt utnyttjar Gen2 cache.  
@@ -39,13 +39,13 @@ Matrisen nedan beskrivs scenarier som baseras på värden för cache-mått:
 | **Hög procentandel av Cache som används** |          Scenario 1           |          Scenario 2          |
 | **Låg Cache används procent**  |          Scenario 3           |          Scenario 4          |
 
-**Scenario 1:** du optimalt använder din cache. [Felsöka](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andra områden som kan sänka dina frågor.
+**Scenario 1:** Optimalt använder du din cache. [Felsöka](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andra områden som kan sänka dina frågor.
 
-**Scenario 2:** din aktuella arbetsminnet för data kan inte placeras i cacheminnet som orsakar en låg Cacheträff procent på grund av fysiska läsningar. Överväg att skala upp din prestandanivå och kör din arbetsbelastning för att fylla i cachen.
+**Scenario 2:** Din aktuella arbetsminnet för data kan inte placeras i cacheminnet som orsakar en låg Cacheträff procent på grund av fysiska läsningar. Överväg att skala upp din prestandanivå och kör din arbetsbelastning för att fylla i cachen.
 
-**Scenario 3:** är det troligt att frågan är långsamt på grund av orsaker som inte är relaterade till cachen. [Felsöka](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andra områden som kan sänka dina frågor. Du kan även överväga [skalar ned din instans](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) att minska cachestorleken på din för att spara kostnader. 
+**Scenario 3:** Det är troligt att frågan är långsamt på grund av orsaker som inte är relaterade till cachen. [Felsöka](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) andra områden som kan sänka dina frågor. Du kan även överväga [skalar ned din instans](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) att minska cachestorleken på din för att spara kostnader. 
 
-**Scenario 4:** du hade en kalla cache som kan vara orsaken till varför din fråga gick långsamt. Överväg att köra frågan eftersom fungerande datauppsättningen ska nu i cachelagras. 
+**Scenario 4:** Du hade en kalla cache som kan vara orsaken till varför din fråga gick långsamt. Överväg att köra frågan eftersom fungerande datauppsättningen ska nu i cachelagras. 
 
 **Viktigt: Om Cacheträff procent eller Använd cache procent uppdateras inte när du kör igen din arbetsbelastning, din arbetsminnet kan redan som finns i minnet. Observera endast grupperade tabeller cachelagras.**
 

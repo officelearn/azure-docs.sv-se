@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
 ms.custom: seodec18
-ms.openlocfilehash: 176d0f00774106bbf9ae8dade0fe3fd4062530bb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 385f829002d65335c8039e478c148b6140148ad8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277190"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117256"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
 
@@ -25,12 +25,12 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 * Beroendefrekvens, svarstider och Felfrekvens.
 * Undantag.
 
-[Läs mer om Application Insights](../../application-insights/app-insights-overview.md). 
+[Läs mer om Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 * En lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat en Azure Machine Learning-arbetsyta. Information om hur du hämtar dessa krav finns i [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md).
 * En tränad modell för maskininlärning för distribution till Azure Kubernetes Service (AKS) eller Azure Container-instans (ACI). Om du inte har någon kan se den [träningsmodell bild klassificering](tutorial-train-models-with-aml.md) självstudien.
@@ -126,7 +126,7 @@ Visa den:
 
    [![Anpassade spårningar](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-Mer information om hur du använder Application Insights finns [vad är Application Insights?](../../application-insights/app-insights-overview.md).
+Mer information om hur du använder Application Insights finns [vad är Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
 
 ## <a name="example-notebook"></a>Exempel-anteckningsbok

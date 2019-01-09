@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 616738b60f4a26b15c8245136860692f84349cc4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f0d1a51a3c787bd4d9602eeaad9ac92eda7bacb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326364"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103748"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Lagra och visa diagnostikdata i Azure Storage
 Diagnostiska data lagras inte permanent såvida inte du överföra den till Microsoft Azure storage-emulatorn eller Azure storage. En gång i lagring, den kan visas med en av flera tillgängliga verktyg.
@@ -75,7 +75,7 @@ Det finns flera verktyg för att visa data när den överförs till lagring. Exe
 
 * Server Explorer i Visual Studio - om du har installerat Azure Tools för Microsoft Visual Studio, du kan använda Azure Storage-noden i Server Explorer visa skrivskyddade blob- och tabelldata från Azure storage-konton. Du kan visa data från lokala emulatorn lagringskontot och även från storage-konton du har skapat för Azure. Mer information finns i [webbsökning och hantera lagringsresurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, OSX och Linux.
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) innehåller Azure Diagnostics Manager där du kan visa, ladda ned och hantera diagnostics-data som samlas in av programmen som körs på Azure.
+* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) innehåller Azure Diagnostics Manager där du kan visa, ladda ned och hantera diagnostics-data som samlas in av programmen som körs på Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 [Spåra flödet i Cloud Services-program med Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)

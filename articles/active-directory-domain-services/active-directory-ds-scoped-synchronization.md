@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Omfattar synkronisering | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Begränsade synkronisering | Microsoft Docs'
 description: Konfigurera begränsade synkronisering från Azure AD till din hanterade domäner
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442989"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121540"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Konfigurera begränsade synkronisering från Azure AD till din hanterade domän
 Den här artikeln visar hur du konfigurerar endast specifika användarkonton som ska synkroniseras från din Azure AD-katalog till din hanterade domän i Azure AD Domain Services.
@@ -61,7 +61,7 @@ Utför följande steg för att konfigurera gruppbaserad begränsade synkroniseri
   * [Uppgift 1: Installera PowerShell-moduler som krävs](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
   * [Uppgift 2: Skapa nödvändiga tjänstens huvudnamn i Azure AD-katalogen](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
   * [Uppgift 3: Skapa och konfigurera gruppen ”AAD DC-administratörer”](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Uppgift 4: Registrera Azure AD Domain Services-resursprovidern](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+  * [Uppgift 4: Registrera resursprovidern Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
   * [Uppgift 5: Skapa en resursgrupp](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
   * [Uppgift 6: Skapa och konfigurera det virtuella nätverket](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
@@ -79,7 +79,7 @@ Utför följande steg för att konfigurera gruppbaserad begränsade synkroniseri
   > I listan över grupper som konfigurerats för begränsade synkronisering måste du inkludera gruppen ”AAD DC-administratörer”. Om du inte använder den här gruppen, blir den hanterade domänen inte kan användas.
   >
 
-4. Nu kan skapa den hanterade domänen och aktivera gruppbaserad begränsade synkronisering för den hanterade domänen. Egenskapen ```"filteredSync" = "Enabled"``` i den ```Properties``` parametern. Till exempel finns i den följande skript fragment som kopieras från [uppgift 7: etablera den hanterade domänen i Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Nu kan skapa den hanterade domänen och aktivera gruppbaserad begränsade synkronisering för den hanterade domänen. Egenskapen ```"filteredSync" = "Enabled"``` i den ```Properties``` parametern. Till exempel finns i den följande skript fragment som kopieras från [uppgift 7: Etablera den hanterade domänen i Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016134"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119280"
 ---
 # <a name="application-insights-export-data-model"></a>Datamodell för Application Insights-Export
-Den här tabellen anger egenskaperna för telemetri som skickas från den [Application Insights](../../application-insights/app-insights-overview.md) SDK: er till portalen.
+Den här tabellen anger egenskaperna för telemetri som skickas från den [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK: er till portalen.
 Ser du de här egenskaperna i utdata från [löpande Export](export-telemetry.md).
 De visas också i egenskapsfilter i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) och [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md).
 
@@ -130,9 +130,11 @@ Alla typer av telemetri åtföljs av en kontext-avsnittet. Inte alla de här fä
 | Context.Device.Locale |sträng |en-GB, de-DE... |
 | Context.Device.Network |sträng | |
 | context.device.oemName |sträng | |
+| Context.Device.OS |sträng | |
 | context.device.osVersion |sträng |Gästoperativsystem |
 | context.device.roleInstance |sträng |ID för server-värd |
 | context.device.roleName |sträng | |
+| context.device.screenResolution |sträng | |
 | Context.Device.Type |sträng |PC, webbläsare... |
 | Context.Location |objekt |Hämtad från clientip. |
 | Context.location.City |sträng |Härleds från clientip, om det är möjligt |
@@ -146,10 +148,13 @@ Alla typer av telemetri åtföljs av en kontext-avsnittet. Inte alla de här fä
 | Context.session.ID |sträng |ID för en grupp av åtgärder från samma källa. 30 minuter utan att en åtgärd signalerar till slutet av en session. |
 | context.session.isFirst |boolesk | |
 | context.user.accountAcquisitionDate |sträng | |
+| context.user.accountId |sträng | |
 | context.user.anonAcquisitionDate |sträng | |
 | context.user.anonId |sträng | |
 | context.user.authAcquisitionDate |sträng |[Autentiserad användare](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |sträng | |
 | context.user.isAuthenticated |boolesk | |
+| context.user.storeRegion |sträng | |
 | internal.data.documentVersion |sträng | |
 | internal.data.ID |sträng | Unikt id som tilldelas när ett objekt matas till Application Insights |
 
@@ -347,6 +352,6 @@ I stället förväg sammanställning av mått, kan du använda [sampling](../../
 Förutom där annat anges, representeras varaktigheter i tiondels databehandlingsnoder, så att 10000000.0 innebär 1 sekund.
 
 ## <a name="see-also"></a>Se också
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Löpande Export](export-telemetry.md)
 * [Kodexempel](export-telemetry.md#code-samples)

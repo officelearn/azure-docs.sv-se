@@ -1,6 +1,6 @@
 ---
-title: Samla in Nagios och Zabbix-aviseringar i Azure Monitor | Microsoft Docs
-description: Nagios och Zabbix är verktyg med öppen källkod. Du kan samla in aviseringar från de här verktygen i Azure Monitor för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+title: Samla in Nagios och Zabbix-aviseringar i Log Analytics | Microsoft Docs
+description: Nagios och Zabbix är verktyg med öppen källkod. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: cccc42cd925c123b52c0f2416599bb989ce44d8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713505"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107539"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Azure Monitor från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen i Azure Monitor för att analysera dem med loggdata från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem med loggdata från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+
 
 > [!NOTE]
 > [Aviseringar som skapats av Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) lagras separat från loggdata och inte kan nås från loggfrågor.
@@ -83,7 +84,7 @@ Utför följande steg för att samla in aviseringar på Nagios-servern.
 
 
 ## <a name="alert-records"></a>Aviseringsposter
-Du kan hämta aviseringsposter från Nagios och Zabbix med [logga frågor](../log-query/log-query-overview.md) i Azure Monitor.
+Du kan hämta aviseringsposter från Nagios och Zabbix med [logga frågor](../log-query/log-query-overview.md) i Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Nagios-avisering poster
 

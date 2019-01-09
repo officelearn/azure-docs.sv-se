@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074843"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117085"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
-När du har [ställa in Application Insights i projektet](../../application-insights/app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).
+När du har [ställa in Application Insights i projektet](../../azure-monitor/app/app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Hitta din telemetri
 Logga in på den [Azure-portalen](https://portal.azure.com) och gå till Application Insights-resursen som du skapade för din app.
@@ -34,7 +34,7 @@ Logga in på den [Azure-portalen](https://portal.azure.com) och gå till Applica
 Du kan anpassa någon av de diagram och rutnät och fästa dem på en instrumentpanel. På så sätt kan du kan samla ihop viktig telemetri från olika appar på en central instrumentpanel.
 
 ## <a name="dashboards"></a>Instrumentpaneler
-Första du ser när du loggar in på den [Microsoft Azure-portalen](https://portal.azure.com) är en instrumentpanel. Här kan du samla diagrammen som är viktigast för dig i alla dina Azure-resurser, inklusive telemetri från [Azure Application Insights](../../application-insights/app-insights-overview.md).
+Första du ser när du loggar in på den [Microsoft Azure-portalen](https://portal.azure.com) är en instrumentpanel. Här kan du samla diagrammen som är viktigast för dig i alla dina Azure-resurser, inklusive telemetri från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Anpassad instrumentpanel.](./media/app-insights-dashboards/31.png)
 

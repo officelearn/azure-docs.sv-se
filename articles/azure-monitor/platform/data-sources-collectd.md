@@ -1,6 +1,6 @@
 ---
-title: Samla in data från insamlade i Azure Monitor | Microsoft Docs
-description: Insamlade är en Linux-daemon för öppen källkod som regelbundet samlar in data från program och system nivåinformation.  Den här artikeln innehåller information om att samla in data från insamlade i Azure Monitor.
+title: Samla in data från insamlade i Log Analytics | Microsoft Docs
+description: Insamlade är en Linux-daemon för öppen källkod som regelbundet samlar in data från program och system nivåinformation.  Den här artikeln innehåller information om att samla in data från insamlade i Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 72f47794d8798c6d4b7bcc1c75c3c6d4dc41e6a3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3ccb307eb028170f2dc65fd7cf90edf3115ae9a7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434621"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102694"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
-[Insamlade](https://collectd.org/) är en Linux-daemon för öppen källkod som regelbundet samlar in prestandamått från program och system nivåinformation. Exempelprogram är Java Virtual Machine (JVM), MySQL-Server och Nginx. Den här artikeln innehåller information om att samla in prestandadata från insamlade i Azure Monitor.
+# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Samla in data från insamlade på Linux-agenter i Log Analytics
+[Insamlade](https://collectd.org/) är en Linux-daemon för öppen källkod som regelbundet samlar in prestandamått från program och system nivåinformation. Exempelprogram är Java Virtual Machine (JVM), MySQL-Server och Nginx. Den här artikeln innehåller information om att samla in prestandadata från insamlade i Log Analytics.
 
 En fullständig lista över tillgängliga plugin-program finns på [tabellen av plugin-program](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
@@ -57,7 +57,7 @@ Insamlade konfigurationen använder standard`write_http` plugin-program för att
 > [!NOTE]
 > Den här porten kan konfigureras till ett egendefinierat porten om det behövs.
 
-Log Analytics-agenten för Linux också lyssnar på port 26000 för insamlade mått och konverterar dem till Azure Monitor schemat mått. Följande är Log Analytics-agenten för Linux-konfiguration `collectd.conf`.
+Log Analytics-agenten för Linux också lyssnar på port 26000 för insamlade mått och konverterar dem till Log Analytics-schemat mått. Följande är Log Analytics-agenten för Linux-konfiguration `collectd.conf`.
 
     <source>
       type http
@@ -71,12 +71,12 @@ Log Analytics-agenten för Linux också lyssnar på port 26000 för insamlade m�
 
 
 ## <a name="versions-supported"></a>Versioner som stöds
-- Azure Monitor stöder för närvarande insamlade version 4.8 och senare.
+- Log Analytics stöder för närvarande insamlade version 4.8 och senare.
 - Log Analytics-agenten för Linux v1.1.0-217 eller högre krävs för insamlade mått samling.
 
 
 ## <a name="configuration"></a>Konfiguration
-Följande är de grundläggande stegen för att konfigurera insamling av insamlade data i Azure Monitor.
+Följande är de grundläggande stegen för att konfigurera insamling av insamlade data i Log Analytics.
 
 1. Konfigurera insamlade för att skicka data till Log Analytics-agenten för Linux med hjälp av plugin-programmet write_http.  
 2. Konfigurera Log Analytics-agenten för Linux för att lyssna efter insamlade data på rätt port.
@@ -107,10 +107,10 @@ Följande är de grundläggande stegen för att konfigurera insamling av insamla
 
     sudo service insamlade omstart sudo /opt/microsoft/omsagent/bin/service_control omstart
 
-## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Insamlade mått för att Azure Monitor schemakonverteringen
+## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Insamlade mått till Log Analytics schemakonverteringen
 Om du vill upprätthålla en modell med välbekanta infrastruktur mått som redan har samlats in av Log Analytics-agenten för Linux och den nya måtten som samlas in av insamlade följande schemamappning används:
 
-| Insamlade mått fält | Azure Monitor-fält |
+| Insamlade mått fält | Log Analytics-fält |
 |:--|:--|
 | värd | Dator |
 | Plugin-programmet | Ingen |

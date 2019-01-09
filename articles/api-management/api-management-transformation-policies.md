@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965384"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119381"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -318,7 +318,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>T.ex. åtkomst till innehållet som en JObject. Observera att eftersom vi inte reserverar ursprungliga begärandetexten, öppnar den senare i pipelinen resulterar i ett undantag.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>T.ex. åtkomst till innehållet som en JObject. Observera att eftersom vi inte reserverar ursprungliga begärandetexten, kommer åt dem senare i pipelinen resulterar i ett undantag.
 
 ```xml
 <set-body> 
@@ -334,7 +334,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filtrera respons baserat på produkt
- Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dataelement från svaret från serverdelstjänsten när du använder den `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 34:30. Starta vid 31:50 att se en översikt över [mörk Sky Prognostisera API](https://developer.forecast.io/) används för den här demon.
+ Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dataelement från svaret från serverdelstjänsten när du använder den `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: Fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 34:30. Starta vid 31:50 att se en översikt över [mörk Sky Prognostisera API](https://developer.forecast.io/) används för den här demon.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Vidarebefordra kontextinformation till serverdelstjänsten
- Det här exemplet visar hur du tillämpa principen på API-nivå för att ange kontextinformation till serverdelstjänsten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 10:30. Det finns en demo för att anropa en åtgärd i developer-portalen där du kan se principen på arbetet vid 12:10.
+ Det här exemplet visar hur du tillämpa principen på API-nivå för att ange kontextinformation till serverdelstjänsten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: Fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 10:30. Det finns en demo för att anropa en åtgärd i developer-portalen där du kan se principen på arbetet vid 12:10.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Vidarebefordra kontextinformation till serverdelstjänsten
- Det här exemplet visar hur du tillämpa principen på API-nivå för att ange kontextinformation till serverdelstjänsten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 10:30. Det finns en demo för att anropa en åtgärd i developer-portalen där du kan se principen på arbetet vid 12:10.
+ Det här exemplet visar hur du tillämpa principen på API-nivå för att ange kontextinformation till serverdelstjänsten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: Fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 10:30. Det finns en demo för att anropa en åtgärd i developer-portalen där du kan se principen på arbetet vid 12:10.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->

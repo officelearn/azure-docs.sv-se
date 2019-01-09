@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 32da4ad6f35d8fd5585135a71572e0ad4fa41499
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083157"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117239"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 Azure Application Insights visar data om ditt program i en Microsoft Azure *resource*. Skapa en ny resurs är därför en del av [ställa in Application Insights för att övervaka ett nytt program][start]. I många fall kan skapar en resurs göras automatiskt av IDE. Men i vissa fall kan du skapa en resurs manuellt – till exempel om du vill ha separata resurser för utveckling och produktion build-versioner av ditt program.
@@ -79,5 +79,5 @@ Du kan skriva en [PowerShell-skript](../../azure-monitor/app/powershell.md) att 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

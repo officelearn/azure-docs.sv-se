@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/8/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792655"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104343"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -114,10 +114,28 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 9.  Rensa frågefönstret anger du följande T-SQL-kommando och markera **kör** i verktygsfältet.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    Kommandot bör slutföras utan problem, och ge innesluten användare behörighet att skapa en databas (SSISDB).
+
+10.  Om din SSISDB har skapats med SQL-autentisering och vill du istället för att använda Azure AD-autentisering för din Azure-SSIS IR kan komma åt det, högerklickar du på **SSISDB** databasen och välj **ny fråga**.
+
+11.  Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    Kommandot bör slutföras utan problem, skapa en innesluten användare för att representera gruppen.
+
+12.  Rensa frågefönstret anger du följande T-SQL-kommando och markera **kör** i verktygsfältet.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    Kommandot bör slutföras utan problem, och ge innesluten användare behörighet att skapa en databas.
+    Kommandot bör slutföras utan problem, och ge innesluten användare behörighet att få åtkomst till SSISDB.
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Aktivera Azure AD i Azure SQL Database Managed Instance
 
@@ -127,15 +145,15 @@ Azure SQL Database Managed Instance kan du skapa en databas med den hanterade id
 
 1.   I Azure-portalen väljer du **alla tjänster** -> **SQL-servrar** från det vänstra navigeringsfältet.
 
-1.   Välj din hanterade instans måste konfigureras med Azure AD-autentisering.
+2.   Välj din hanterade instans måste konfigureras med Azure AD-autentisering.
 
-1.   I den **inställningar** på bladet, väljer **Active Directory-administratör**.
+3.   I den **inställningar** på bladet, väljer **Active Directory-administratör**.
 
-1.   I kommandofältet väljer **konfigurera administratör**.
+4.   I kommandofältet väljer **konfigurera administratör**.
 
-1.   Välj en Azure AD-användarkonto att göras administratör för servern och välj sedan **Välj**.
+5.   Välj en Azure AD-användarkonto att göras administratör för servern och välj sedan **Välj**.
 
-1.   I kommandofältet väljer **spara**.
+6.   I kommandofältet väljer **spara**.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Lägg till hanterad identitet för din ADF som en användare i Azure SQL Database Managed Instance
 
@@ -168,7 +186,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    Kommandot bör slutföras utan problem, bevilja den hanterade identitet för din ADF möjligheten att skapa en databas.
+    Kommandot bör slutföras utan problem, bevilja den hanterade identitet för din ADF möjligheten att skapa en databas (SSISDB).
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Etablera Azure-SSIS IR i Azure portal/ADF-app
 

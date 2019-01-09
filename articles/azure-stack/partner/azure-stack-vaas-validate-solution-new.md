@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 7949e764baa7a4e20eb988c78817b6b4f0045593
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e6cfdca207b114871a478262f14ea960be5985df
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333776"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104972"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Verifiera en ny Azure Stack-lösning
 
@@ -35,32 +35,53 @@ Kör lösningen valideringsarbetsflödet två gånger för att certifiera din l�
 ## <a name="create-a-solution-validation-workflow"></a>Skapa en lösning valideringsarbetsflödet
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Välj **starta** på den **lösning verifieringar** panelen.
+
+3. Välj **starta** på den **lösning verifieringar** panelen.
 
     ![Lösningen verifieringar arbetsflöde panel](media/tile_validation-solution.png)
 
-3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
-4. Välj den **lösningskonfigurationen**.
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Välj den **lösningskonfigurationen**.
     - **Minsta**: lösningen har konfigurerats med det minsta tillåtna antalet noder.
     - **Maximal**: lösningen har konfigurerats med det högsta tillåtna antalet noder.
-5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Lösningen verifieringsinformation](media/workflow_validation-solution_info.png)
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Miljö-parametrar kan inte ändras när du har skapat ett arbetsflöde.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Du omdirigeras till sammanfattningssidan tester.
 
-## <a name="execute-solution-validation-tests"></a>Köra verifieringstester för lösningen
+## <a name="run-solution-validation-tests"></a>Köra verifieringstester för lösningen
 
-I den **lösning tester verifieringssammanfattning** sidan visas en lista över de tester som krävs för att slutföra verifieringen.
+I den **lösning verifiering testar sammanfattning** sidan visas en lista över de tester som krävs för att slutföra verifieringen.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+I arbetsflöden verifiering **schemaläggning** ett test använder de gemensamma parametrarna för arbetsflödet på servernivå som du angav under arbetsflödet skapats (se [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](azure-stack-vaas-parameters.md)). Om någon av test parametervärden blir ogiltiga måste du resupply dem som finns beskrivet i [ändra arbetsflödesparametrar](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+> [!NOTE]
+> Schemalägga ett verifieringstest över en befintlig instans skapas en ny instans i stället för den gamla instansen i portalen. Loggar för den gamla instansen kommer att hållas kvar, men är inte tillgängliga från portalen.  
+När ett test har slutförts, den **schema** åtgärden inaktiveras.
+
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
+2. Välj följande test:
+    - Simulering Molnteknik
+    - Compute SDK operativa Suite
+    - Disk identifiering Test
+    - KeyVault-tillägget SDK operativa Suite
+    - KeyVault SDK operativa Suite
+    - Nätverket SDK operativa Suite
+    - Storage-konto SDK operativa Suite
+
+3. Välj **schema** från snabbmenyn för att öppna en kommandotolk för att schemalägga test-instans.
+
+4. Granska de test-parametrarna och välj sedan **skicka** att schemalägga testet för körning.
 
 ![Schema för lösningen verifieringstest](media/workflow_validation-solution_schedule-test.png)
 

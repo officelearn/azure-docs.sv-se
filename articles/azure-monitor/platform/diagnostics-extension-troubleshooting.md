@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326268"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103952"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Felsökning av Azure-diagnostik
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure Diagnostics. Läs mer om Azure diagnostics [översikt över Azure Diagnostics](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ Diagnostikkonfigurationen innehåller instruktioner för en viss typ av data ska
 #### <a name="is-the-host-generating-data"></a>Värden genererar data?
 - **Prestandaräknare**: Öppna perfmon och kontrollera räknaren.
 
-- **Spårningsloggar**:  Fjärransluten åtkomst till den virtuella datorn och Lägg till en TextWriterTraceListener i appens config-filen.  Se http://msdn.microsoft.com/library/sk36c28t.aspx att ställa in text-lyssnaren.  Kontrollera att den `<trace>` elementet har `<trace autoflush="true">`.<br />
+- **Spårningsloggar**:  Fjärransluten åtkomst till den virtuella datorn och Lägg till en TextWriterTraceListener i appens config-filen.  Se https://msdn.microsoft.com/library/sk36c28t.aspx att ställa in text-lyssnaren.  Kontrollera att den `<trace>` elementet har `<trace autoflush="true">`.<br />
 Om du inte ser spårningsloggar som genereras, se [mer om spårningsloggar saknas](#more-about-trace-logs-missing).
 
 - **ETW-spårningar**: Fjärråtkomst till den virtuella datorn och installera PerfView.  Kör i PerfView, **filen** > **användarkommando** > **lyssna etwprovder1** > **etwprovider2**och så vidare. Den **lyssna** kommandot är skiftlägeskänsligt och det får inte finnas blanksteg mellan CSV-listan för ETW-leverantörer. Om kommandot misslyckas att köra kan du välja den **Log** längst ned till höger i verktyget Perfview för att se vad försökte köra och vilka resultatet var.  Anta att indata är rätt och öppnas ett nytt fönster. I några sekunder börjar du se ETW-spårningar.
@@ -217,9 +217,9 @@ Du kan också fjärrskrivbord på datorn och titta på Azure Diagnostics konfigu
 
 I båda fallen söker du efter **Microsoft.Azure.Diagnostics**, och sedan för den **xmlCfg** eller **WadCfg** fält.
 
-Om du söker på en virtuell dator och **WadCfg** fältet finns, betyder det konfig är i JSON-format. Om den **xmlCfg** fältet finns, innebär det att konfig XML och är base64-kodad. Du behöver [avkoda den](http://www.bing.com/search?q=base64+decoder) att se den XML som har lästs in av diagnostik.
+Om du söker på en virtuell dator och **WadCfg** fältet finns, betyder det konfig är i JSON-format. Om den **xmlCfg** fältet finns, innebär det att konfig XML och är base64-kodad. Du behöver [avkoda den](https://www.bing.com/search?q=base64+decoder) att se den XML som har lästs in av diagnostik.
 
-För molntjänstroll, om du väljer konfigurationen från disken, data är base64-kodad, så du behöver [avkoda den](http://www.bing.com/search?q=base64+decoder) att se den XML som har lästs in av diagnostik.
+För molntjänstroll, om du väljer konfigurationen från disken, data är base64-kodad, så du behöver [avkoda den](https://www.bing.com/search?q=base64+decoder) att se den XML som har lästs in av diagnostik.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure Diagnostics-plugin-programmet slutkoder för aktiviteter
 Plugin-programmet returnerar följande svarskoderna:

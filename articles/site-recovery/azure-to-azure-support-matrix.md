@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 40ee4fe15b2fde917c1d056a1454b95b9655b465
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999738"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103782"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -44,6 +44,9 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 
 Du kan replikera och återställa virtuella datorer mellan alla två regioner inom samma geografiska kluster. Geografisk kluster definieras att hålla datafördröjning och datasuveränitet i åtanke.
 
+>[!NOTE]
+>Om du inte kan se en region inom ett geografiskt kluster under replikering och sedan kontrollera att din prenumeration har behörighet att skapa virtuella datorer i den regionen. Om inte än stöd begär ”typ av problem”-prenumeration.
+>
 **Geografisk kluster** | **Azure-regioner**
 -- | --
 Sydamerika | Kanada, östra, Kanada, centrala, södra centrala USA, USA, västra centrala, USA, östra, USA, östra 2, västra USA, västra USA 2, centrala USA, norra centrala USA

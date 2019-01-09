@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002220"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102983"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
-Ankomsten av moderna molnet och [mikrotjänster](http://azure.com/microservices) arkitekturer har gett upphov till enkla, oberoende av varandra distribuerbar tjänster som kan hjälpa dig att minska kostnaderna samtidigt som de ökar tillgängligheten och dataflöde. Men även om dessa förflyttningar har gjort enskilda tjänster som är lättare att förstå hela, de har gjort övergripande system svårare att anledning om och felsöka.
+Ankomsten av moderna molnet och [mikrotjänster](https://azure.com/microservices) arkitekturer har gett upphov till enkla, oberoende av varandra distribuerbar tjänster som kan hjälpa dig att minska kostnaderna samtidigt som de ökar tillgängligheten och dataflöde. Men även om dessa förflyttningar har gjort enskilda tjänster som är lättare att förstå hela, de har gjort övergripande system svårare att anledning om och felsöka.
 
 I monolitisk arkitekturer har vi tagit emot för att felsöka med anropsstackar. Anropsstackar är fantastiska verktyg för att visa flödet av körningen (Method A anropade metoden B, som kallas metoden C), tillsammans med detaljer och parametrar om var och en av dessa anrop. Det här är bra för monoliter bryts eller tjänster som körs på en enda process, men hur vi Felsöka när anropet är för en gräns för processen, inte bara en referens i den lokala stacken? 
 
@@ -59,4 +59,4 @@ Webbplatsen OpenCensus underhåller API-referensdokumentation för [Python](http
 
 * [OpenCensus Python-användningsguiden](https://opencensus.io/api/python/trace/usage.html)
 * [Programkarta](./../../azure-monitor/app/app-map.md)
-* [Prestandaövervakning för slutpunkt till slutpunkt](./../../application-insights/app-insights-tutorial-performance.md)
+* [Prestandaövervakning för slutpunkt till slutpunkt](./../../azure-monitor/learn/tutorial-performance.md)

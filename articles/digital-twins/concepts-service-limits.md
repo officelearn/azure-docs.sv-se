@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 7d9686b9bcc6cb89fabf4fdaa79bf5b8c6c45ddc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020633"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118825"
 ---
 # <a name="public-preview-service-limits"></a>Tjänstbegränsningar för allmän förhandsversion
 
@@ -74,4 +74,4 @@ Det totala antalet alla meddelanden som dina enheter kan skicka till din instans
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill prova ett exempel på Azure Digital Twins, gå till [Snabbstart för att hitta tillgängliga rum](./quickstart-view-occupancy-dotnet.md).
+- Om du vill prova ett exempel på Azure Digital Twins, gå till [Snabbstart för att hitta tillgängliga rum](./quickstart-view-occupancy-dotnet.md).

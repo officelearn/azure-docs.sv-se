@@ -1,6 +1,6 @@
 ---
-title: Samla in och analysera Syslog-meddelanden i Azure Monitor | Microsoft Docs
-description: Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar insamling av Syslog-meddelanden i Azure Monitor och information för de poster som de skapar.
+title: Samla in och analysera Syslog-meddelanden i Log Analytics | Microsoft Docs
+description: Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar insamling av Syslog-meddelanden i Log Analytics och information för de poster som de skapar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6af1dcd6ffac1722ed39f8fe69f3d78aa4ed8313
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436729"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104428"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
-Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När Log Analytics-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
+# <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i Log Analytics
+Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När Log Analytics-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Log Analytics där en motsvarande post skapas.  
 
 > [!NOTE]
-> Azure Monitor har stöd för insamling av meddelanden som skickas av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Samla in syslog-data från den här versionen av dessa distributioner kan de [rsyslog-daemon](http://rsyslog.com) ska installeras och konfigureras för att ersätta sysklog.
+> Log Analytics har stöd för insamling av meddelanden som skickas av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Samla in syslog-data från den här versionen av dessa distributioner kan de [rsyslog-daemon](http://rsyslog.com) ska installeras och konfigureras för att ersätta sysklog.
 >
 >
 

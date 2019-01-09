@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335171"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106493"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Verifiering som en tjänst viktiga begrepp
 
@@ -44,7 +44,7 @@ Arbetsflöden är kategoriserade genom att testa scenariotyp. Inofficiella testa
 ![VaaS arbetsflöde paneler](media/tile_all-workflows.png)
 
 > [!NOTE]
-> Den **Paketvalideringen** arbetsflöde stöder för närvarande två scenarier: [Validera OEM-paket](azure-stack-vaas-validate-oem-package.md) och [Validera programuppdateringar från Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> Den **lösning verifiering** arbetsflöde stöder för närvarande två scenarier: [Verifiera OEM-paket](azure-stack-vaas-validate-oem-package.md) och [Validera programuppdateringar från Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Läs mer på arbetsflödestyper [vad är verifiering som en tjänst för Azure Stack?](azure-stack-vaas-overview.md).
 
@@ -52,10 +52,10 @@ Läs mer på arbetsflödestyper [vad är verifiering som en tjänst för Azure S
 
 1. Skapa en ny lösning eller välj en befintlig på instrumentpanelen för lösningar. Detta uppdaterar och gör att arbetsflödet paneler.
 2. Om du vill skapa ett nytt arbetsflöde, väljer du på **starta** på valfri panel. Information som är specifika för varje arbetsflöde finns i följande artiklar:
-    - Testet: [Snabbstart: använda verifieringen som en tjänst-portal för att schemalägga första testet](azure-stack-vaas-schedule-test-pass.md)
-    - Lösningen-verifiering: [verifiera en ny Azure Stack-lösning](azure-stack-vaas-validate-solution-new.md)
-    - Paketverifiering: [Validera programuppdateringar från Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Paketverifiering: [verifiera OEM-paket](azure-stack-vaas-validate-oem-package.md)
+    - Testet: [Snabbstart: Använda verifieringen som en tjänst-portal för att schemalägga första testet](azure-stack-vaas-schedule-test-pass.md)
+    - Lösningen-verifiering: [Verifiera en ny Azure Stack-lösning](azure-stack-vaas-validate-solution-new.md)
+    - Lösningen-verifiering: [Verifiera programuppdateringar från Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Lösningen-verifiering: [Verifiera OEM-paket](azure-stack-vaas-validate-oem-package.md)
 
 3. För att hantera eller övervaka ett befintligt arbetsflöde, väljer du på **hantera** på panelen arbetsflöde. Välj namnet på arbetsflödet och Använd den **redigera** för att visa egenskaperna eller ändra parametrarna för testning.
 

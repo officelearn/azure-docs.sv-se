@@ -1,18 +1,17 @@
 ---
-title: Översikt över URL-baserad innehållsroutning | Microsoft Docs
-description: Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln.
+title: Översikt över dirigering av URL-baserat innehåll med Azure Application Gateway
+description: Den här sidan innehåller en översikt över Azure Application Gateway URL-baserad innehållsroutning, UrlPathMap-konfigurationen och PathBasedRouting-regeln.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218431"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118376"
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
@@ -20,7 +19,7 @@ URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpool
 
 Ett av scenarierna är att dirigerar begäranden för olika innehållstyper till olika serverdels-serverpooler.
 
-I följande exempel servar Application Gateway trafik åt contoso.com från tre serverdels-serverpooler, till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
+I följande exempel Application Gateway fungerar som värd för trafik åt contoso.com från tre serverdels serverpooler till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -62,8 +61,37 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 }]
 ```
 
-> [!NOTE]
-> PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter först? eller # och de tecknen tillåts inte här. I annat fall tillåts alla tecken som tillåts i en URL i PathPattern.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter först? eller # och de tecknen tillåts inte här. I annat fall tillåts alla tecken som tillåts i en URL i PathPattern.
+
+De mönster som stöds beror på vilket om du distribuerar Application Gateway v1 eller v2:
+
+#### <a name="v1"></a>V1
+
+Sökväg för regler är skiftlägeskänsliga.
+
+|V1 sökvägsmönster  |Stöds?  |
+|---------|---------|
+|`/images/*`     |ja|
+|`/images*`     |nej|
+|`/images/*.jpg`     |nej|
+|`/*.jpg`     |nej|
+|`/Repos/*/Comments/*`     |nej|
+|`/CurrentUser/Comments/*`     |ja|
+
+#### <a name="v2"></a>v2
+
+Sökväg för regler är skiftlägeskänsliga.
+
+|v2 sökvägsmönster  |Stöds?  |
+|---------|---------|
+|`/images/*`     |ja|
+|`/images*`     |ja|
+|`/images/*.jpg`     |nej|
+|`/*.jpg`     |nej|
+|`/Repos/*/Comments/*`     |nej|
+|`/CurrentUser/Comments/*`     |ja|
 
 Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) för mer information.
 

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 01/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6cf415112f245421b3225c2e2ccb07a7bbf9332
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098313"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103173"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -72,6 +72,9 @@ Alla inställningar för nätverkssäkerhetsgrupper som tillämpas måste fortfa
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brandvägg
 Den virtuella datorn måste kunna komma åt ett nyckelvalv. Referera till vägledning för åtkomst till nyckelvalv bakom en brandvägg som den [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) teamet bibehåller. 
+
+### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
+Den virtuella datorn måste kunna komma åt den [tjänsten Azure Instance Metadata](../virtual-machines/windows/instance-metadata-service.md) slutpunkt som använder en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux pakethantering bakom en brandvägg
 

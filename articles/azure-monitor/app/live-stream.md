@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079178"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119246"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
-Avsökning datorer centralt i webbprogrammet live, i produktion med hjälp av Live Metrics Stream från [Application Insights](../../application-insights/app-insights-overview.md). Välja och filtrera statistik och prestandaräknare kan du titta på i realtid, utan störningar i tjänsten. Granska stackspårningar från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), och [prestandatestning](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream ger en kraftfull och icke-inkräktande diagnostikverktyg för webbplatsen plats.
+Avsökning datorer centralt i webbprogrammet live, i produktion med hjälp av Live Metrics Stream från [Application Insights](../../azure-monitor/app/app-insights-overview.md). Välja och filtrera statistik och prestandaräknare kan du titta på i realtid, utan störningar i tjänsten. Granska stackspårningar från exemplet misslyckades begäranden och undantag. Tillsammans med [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), och [prestandatestning](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream ger en kraftfull och icke-inkräktande diagnostikverktyg för webbplatsen plats.
 
 Med Live Metrics Stream kan du:
 

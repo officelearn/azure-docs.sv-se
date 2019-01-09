@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4efd4622745a4a86c691cec32f5b93225715930a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6e2621103e79e201a6f3a9d45350e3b71d15f47c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974392"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119619"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
-Den [Azure Application Insights](../../application-insights/app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kan behöva veta dessa adresser om den app som du övervakar finns bakom en brandvägg.
+Den [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kan behöva veta dessa adresser om den app som du övervakar finns bakom en brandvägg.
 
 > [!NOTE]
-> Även om dessa adresser är statiska är det möjligt att vi behöver ändra dem från tid till annan.
+> Även om dessa adresser är statiska är det möjligt att vi behöver ändra dem från tid till annan. All trafik för Application Insights representerar utgående trafik med undantag för tillgänglighetsövervakning och webhooks som kräver brandväggsregler för inkommande trafik.
 > 
 > 
 

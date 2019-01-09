@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255983"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104224"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -32,13 +32,13 @@ Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kon
 - Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
 - Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
 
-**Direkt:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
+**Omedelbar tillfredsställelse:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
 Installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
-- Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): För att återspegla dessa ändringar i Azure-portalen, kan du stoppar identifieringen av programmet och sedan starta det igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+- Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): Om du vill återspegla dessa ändringar på Azure-portalen kan du stoppa identifieringen från installationen och sedan starta den igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
-- Borttagning av virtuella datorer: Borttagning av virtuella datorer återspeglas inte på grund av det sätt som är utformad för installationen, även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+- Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 > [!NOTE]
 > Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.
@@ -63,7 +63,7 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
     - Välj Azure Global om du planerar att migrera till kommersiella Azure-molnet.
     - Baserat på molnet som anges här kan skickar installationen identifierade metadata till respektive slutpunkter.
 - **Kontrollera Internetanslutningen**: Insamlaren kan ansluta till internet, direkt eller via en proxyserver.
-    - Kravkontrollen verifierar anslutningen till [URL: er med obligatoriska och valfria](#connect-to-urls).
+    - Kravkontrollen verifierar anslutningen till [URL: er med obligatoriska och valfria](#urls-for-connectivity).
     - Om du har en direkt anslutning till internet kan krävs ingen specifik åtgärd, förutom att se till att insamlaren kan nå URL: er som krävs.
     - Om du ansluter via en proxyserver, notera den [krav nedan](#connect-via-a-proxy).
 - **Kontrollera tidssynkronisering**: Insamlaren ska synkroniseras med internet-tidsservern så autentiseras begäranden till tjänsten.
@@ -105,7 +105,7 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
 
 
 
-### <a name="connect-to-urls"></a>Ansluta till URL: er
+### <a name="urls-for-connectivity"></a>URL: er för anslutning
 
 Anslutningskontrollen verifieras genom att ansluta till en lista över webbadresser.
 

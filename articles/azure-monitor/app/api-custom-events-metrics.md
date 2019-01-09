@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbb849b19d523c315e192110ce71c4f382e04657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: aac5010ca6b0ed958a849bf203f1d2f80bcdb81c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077920"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119838"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
-Infoga några rader med kod i ditt program för att ta reda på vad användarna gör med den eller för att diagnostisera problem. Du kan skicka telemetri från enheter och skrivbordsenheter appar, webbklienter och servrar. Använd den [Azure Application Insights](../../application-insights/app-insights-overview.md) core telemetriska API: N att skicka anpassade händelser och mått och din egen version av standardmoduler. Detta API är som standard datainsamlare för Application Insights använder samma API.
+Infoga några rader med kod i ditt program för att ta reda på vad användarna gör med den eller för att diagnostisera problem. Du kan skicka telemetri från enheter och skrivbordsenheter appar, webbklienter och servrar. Använd den [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) core telemetriska API: N att skicka anpassade händelser och mått och din egen version av standardmoduler. Detta API är som standard datainsamlare för Application Insights använder samma API.
 
 > [!NOTE]
 > `TrackMetric()` är inte längre den bästa metoden för att skicka anpassade mått för din .NET-baserade program. I [version 2,60 beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) av Application Insights .NET SDK en ny metod [ `TelemetryClient.GetMetric()` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) introducerades. Från och med Application Insights .NET SDK [version 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) den här funktionen är nu en del av den stabila versionen.

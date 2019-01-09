@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 23c2206a873dc37f5b4f40e0c692e6a35869c419
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014879"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106497"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 
@@ -46,7 +46,7 @@ Intern infrastruktur för virtuella IP-adresser inte visas eftersom de inte krä
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista över återkallade certifikat|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP OCH UDP|53|
-|Som är värd för | * .hosting. \<region >. \<fqdn > | HTTPS | 443 |
+|Värd | * .hosting. \<region >. \<fqdn > | HTTPS | 443 |
 |Key Vault (användare)|&#42;.Vault.  *&lt;region >.&lt; FQDN >*|HTTPS|443|
 |Key Vault (administratör)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lagringskö|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -75,7 +75,7 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 |Patch & Update|https://&#42;.azureedge.net|HTTPS|443|
 |Registrering|https://management.azure.com|HTTPS|443|
 |Användning|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
-|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|(IP för NTP-server för distribution)|UDP|123|
 |DNS|(IP-DNS-server för distribution)|TCP<br>UDP|53|
 |LISTAN ÖVER ÅTERKALLADE CERTIFIKAT|(URL under CRL-distributionspunkter på ditt certifikat)|HTTP|80|

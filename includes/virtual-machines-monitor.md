@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3c2924380ef5175b330deb5052a962bfecf820ae
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594353"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122827"
 ---
-Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/application-insights/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
+Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/azure-monitor/app/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="diagnostics-and-metrics"></a>Diagnostik och mått 
 

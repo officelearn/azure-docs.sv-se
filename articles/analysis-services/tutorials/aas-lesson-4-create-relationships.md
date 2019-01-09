@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d37b30708e3817460e5aa01f045c1e9f9032532e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428501"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117749"
 ---
 # <a name="create-relationships"></a>Skapa relationer
 
 I den här lektionen verifierar du relationerna som skapades automatiskt när du importerade data och lägger till nya relationer mellan olika tabeller. En relation är en koppling mellan två tabeller som anger hur data i tabellerna ska vara korrelerade. Tabellen DimProduct och tabellen DimProductSubcategory har till exempel en relation baserat på det faktum att varje produkt tillhör en underkategori. Mer information finns i [Relationer](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
-Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
-Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört föregående lektion: [Lektion 3: Markera som datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 3: Markera som Datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Granska befintliga relationer och lägga till nya relationer  
-När du importerade data med Hämta data fick du sju tabeller från databasen AdventureWorksDW2014. Vanligtvis när du importerar data från en relationell källa importeras befintliga relationer automatiskt tillsammans med data. För att Hämta data automatiskt ska kunna skapa relationer i datamodellen måste det finnas relationer mellan tabeller och i datakällan.
+När du importerade data med Hämta data fick du sju tabeller från databasen AdventureWorksDW2014. Vanligtvis när du importerar data från en relationell källa importeras befintliga relationer automatiskt tillsammans med data. För att hämta Data för att automatiskt skapa relationer i datamodellen måste det finnas relationer mellan tabeller i datakällan.
 
 Innan du börjar redigera din modell bör du kontrollera att relationerna mellan tabellerna har skapats på korrekt sätt. I den här självstudiekursen lägger du även till tre nya relationer.  
 

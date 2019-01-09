@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: 369bdba063f8582b8343682dcbbc990d2f63e21a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078073"
+ms.locfileid: "54107845"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Skapa och kör återkommande uppgifter och arbetsflöden med Azure Logic Apps
 
@@ -39,7 +39,7 @@ Den här utlösaren stödjer många mönster, till exempel:
 
 När den återkommande utlösaren utlöses varje gång Logic Apps skapar och kör en ny instans av ditt logikapparbetsflöde. 
 
-För att utlösa logikappen omedelbart och kör en gång utan återkommande, se [kör jobb bara en gång](#run-once) senare i det här avsnittet.
+Om du vill utlösa logikappen och kör bara en gång i framtiden, se [kör jobb bara en gång](#run-once) senare i det här avsnittet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -141,8 +141,8 @@ Här är ett exempel [upprepning utlösardefinition](../logic-apps/logic-apps-wo
 
 <a name="run-once"></a>
 
-**F:** Vad händer om jag vill köra en logikapp omedelbart och en gång endast? </br>
-**S:** Du kan använda för att utlösa logikappen omedelbart och kör en gång utan återkommande, den **Scheduler: Kör en gång jobb** mall. När du har skapat en ny logikapp, men innan du öppnar Logic Apps-designern under den **mallar** avsnittet från den **kategori** väljer **schema**, och välj sedan mallen:
+**F:** Vad händer om jag vill köra en logikapp en gång endast i framtiden? </br>
+**S:** Du kan använda för att utlösa logikappen och kör en gång utan återkommande, den **Scheduler: Kör en gång jobb** mall. När du har skapat en ny logikapp, men innan du öppnar Logic Apps-designern under den **mallar** avsnittet från den **kategori** väljer **schema**, och välj sedan mallen:
 
 ![Välj ”Scheduler: Kör en gång jobb ”mall](./media/connectors-native-recurrence/choose-run-once-template.png)
 

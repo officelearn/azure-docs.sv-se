@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020016"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105210"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner. När en cache har skapats kan skala du storleken och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skalar cachen med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
@@ -136,7 +136,7 @@ Nej, ditt cachenamn och dina nycklar har inte ändrats under en skalning.
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Kommer jag att förlora data från mitt cacheminne under skalning?
 * När en **grundläggande** cache skalas till en ny storlek, alla data går förlorade och cachen inte är tillgänglig under skalning åtgärden.
 * När en **grundläggande** cache skalas till en **Standard** bevaras vanligtvis cache, data i cacheminnet.
-* När en **Standard** cache skalas till en större storlek eller nivå, eller en **Premium** cache skalas till en större storlek, bevaras normalt alla data. När du skalar en **Standard** eller **Premium** cache ned till en mindre storlek på data kan gå förlorade beroende på hur mycket data som finns i cacheminnet relaterade till den nya storleken när det skalas. Om data går förlorade vid Nedskalning kan avlägsnas nycklar med hjälp av den [allkeys lru](http://redis.io/topics/lru-cache) avlägsningsprincipen. 
+* När en **Standard** cache skalas till en större storlek eller nivå, eller en **Premium** cache skalas till en större storlek, bevaras normalt alla data. När du skalar en **Standard** eller **Premium** cache ned till en mindre storlek på data kan gå förlorade beroende på hur mycket data som finns i cacheminnet relaterade till den nya storleken när det skalas. Om data går förlorade vid Nedskalning kan avlägsnas nycklar med hjälp av den [allkeys lru](https://redis.io/topics/lru-cache) avlägsningsprincipen. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Är Mina anpassade databaser konfigurera berörda under skalning?
 Om du har konfigurerat ett anpassat värde för den `databases` konfigurera under Skapa cache, Tänk på att vissa priser nivåerna har olika [databaser gränser](cache-configure.md#databases). Följande är några saker vid skalning i det här scenariot:

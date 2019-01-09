@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 46d113d06ee9d59cd3c3143b87c9166c9bd09fdc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336432"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101811"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i Log Analytics
 
@@ -31,7 +31,7 @@ Den här guiden hjälper dig att förstå hur instrumentpanelerna i Log Analytic
 
 Alla anpassade instrumentpaneler som du skapar i OMS-portalen är också tillgängliga i OMS Mobile-appen. Finns på följande sidor för mer information om appar.
 
-* [OMS-mobilappen från Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [OMS-mobilappen från Microsoft Store](https://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 * [OMS-mobilappen från Apple iTunes](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![mobila instrumentpanel](./media/dashboards/oms-search-mobile.png)

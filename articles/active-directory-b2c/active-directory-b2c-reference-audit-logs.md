@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320245"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117409"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -39,7 +39,7 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 > Objektet CRUD användaraktiviteter, finns det **Kärnkatalog** kategori.
 
 ## <a name="example-activity"></a>Exemplet på aktivitet
-Exemplet nedan visar data som hämtats när en användare loggar in med en extern identitetsleverantör: ![granskningsloggar - exempel](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+Exemplet nedan visar data som hämtats när en användare loggar in med en extern identitetsprovider: ![Granskningsloggar – exempel](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure Portal
 1. Gå till [Azure-portalen](https://portal.azure.com). Kontrollera att du är i din B2C-katalog.
@@ -68,7 +68,7 @@ Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azu
 ### <a name="prerequisites"></a>Förutsättningar
 För att autentisera till Azure AD reporting API: et måste du först registrera ett program. Se till att följa stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-### <a name="accesing-the-api"></a>Öppnar API: et
+### <a name="accessing-the-api"></a>Åtkomst till API: et
 Om du vill ladda ned Azure AD B2C-granskningsloggar via API: et, bör du filterloggar till den **B2C** kategori. Om du vill filtrera efter kategori, använder du parametern för frågesträngen när du anropar Azure AD reporting API-slutpunkter, enligt nedan:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`

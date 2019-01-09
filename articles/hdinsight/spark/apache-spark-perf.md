@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653738"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117868"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimera Apache Spark-jobb
 
@@ -24,7 +24,7 @@ I följande avsnitt beskrivs vanliga optimeringar för Spark-jobb och rekommenda
 
 ## <a name="choose-the-data-abstraction"></a>Välj data abstraction
 
-Spark-1.x använder rdd-datauppsättningar till abstrakta data och sedan Spark 2.x introducerades dataramar och datauppsättningar. Överväg följande eller nackdelar:
+Tidigare versioner av Spark använder rdd-datauppsättningar till abstrakta data, Spark 1.3 och 1.6 introducerades dataramar och datauppsättningar, respektive. Överväg följande eller nackdelar:
 
 * **Dataramar**
     * Bästa val i de flesta situationer.
@@ -42,7 +42,7 @@ Spark-1.x använder rdd-datauppsättningar till abstrakta data och sedan Spark 2
     * Hög GC-kostnader.
     * Delar upp hela steg kodgenerering.
 * **Rdd-datauppsättningar**
-    * I Spark 2.x kan du inte behöver använda rdd-datauppsättningar, såvida du inte behöver skapa en ny anpassad RDD.
+    * Du behöver inte använda rdd-datauppsättningar, såvida du inte behöver skapa en ny anpassad RDD.
     * Inga Frågeoptimeringen via Catalyst.
     * Inga hela steg kodgenerering.
     * Hög GC-kostnader.

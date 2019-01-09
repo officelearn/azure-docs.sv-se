@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 2467da8d5a87a3a9325b807aec48c584ab0197cb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079110"
+ms.locfileid: "54105193"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -80,7 +80,7 @@ Installera uppdateringar på följande sätt:
 > [!NOTE]
 >Alla Scout-komponenterna filversion uppdatering kanske inte är samma i update .zip-filen. Den äldre versionen betyda att det finns ingen ändring i komponenten sedan tidigare uppdateringen till den här uppdateringen.
 
-Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen. Filen innehåller alla base binärfiler och ackumulerad uppgradering binärfilerna för följande komponenter: 
+Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen och [MySQL och PHP uppgradera](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) konfigurationsfiler. Uppdatera ZIP-filen innehåller alla base binärfiler och ackumulerad uppgradering binärfilerna för följande komponenter: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
   - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
@@ -126,7 +126,7 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen. Filen in
 6. **Linux huvudmålserver**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** till Linux Master Target-servern och extrahera den. I den extrahera mappen kör **/Install**.
 7. **Windows-källservern**: Om du vill uppdatera enhetlig agenten, kopiera **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till källservern. Dubbelklicka på filen för att köra den. 
 8. **Linux-källservern**: Kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
-9. När du har uppgraderat konfigurationsservern, Processervern och RX-server med de ovan nämnda installationsprogram, PHP och MySQL-bibliotek måste uppgraderas manuellt med stegen i den [avsnittet](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+9. När du har uppgraderat konfigurationsservern, Processervern och RX-server med de ovan nämnda installationsprogram, PHP och MySQL-bibliotek måste uppgraderas manuellt med stegen i avsnittet 7.4 i den [snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 

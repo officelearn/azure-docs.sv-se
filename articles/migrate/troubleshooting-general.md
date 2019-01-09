@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9bf445b54ab6ac2d3edf53fcc4bbcc39ee475a81
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259162"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119109"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -23,11 +23,11 @@ ms.locfileid: "53259162"
 
 Identifiering av kontinuerlig installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
-- Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): För att återspegla dessa ändringar i Azure-portalen, kan du stoppar identifieringen av programmet och sedan starta det igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+- Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): Om du vill återspegla dessa ändringar på Azure-portalen kan du stoppa identifieringen från installationen och sedan starta den igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
    ![Stoppa identifiering](./media/troubleshooting-general/stop-discovery.png)
 
-- Borttagning av virtuella datorer: Borttagning av virtuella datorer återspeglas inte på grund av det sätt som är utformad för installationen, även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+- Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Skapa projekt för migreringen misslyckades med felet *förfrågningar måste innehålla användaridentitetsrubriker*
 
@@ -136,7 +136,7 @@ Azure Migrate collector laddar ned PowerCLI och installerar den på installation
 2. Gå till katalogen C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Kör skriptet InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Interna felet UnhandledException uppstod: System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Interna felet UnhandledException uppstod: System.IO.FileNotFoundException
 
 Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-installationen. Följ de stegen nedan för att lösa problemet:
 

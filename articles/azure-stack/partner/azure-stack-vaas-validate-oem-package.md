@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261810"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105555"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
@@ -70,7 +70,7 @@ När du skapar en **Paketvalideringen** arbetsflöde i VaaS-portalen, måste du 
 
 Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbetsflöde i VaaS-portalen.
 
-#### <a name="option-2-using-public-read-container"></a>Alternativ 2: Använda offentliga Läs behållare
+#### <a name="option-2-using-public-read-container"></a>Alternativ 2: Offentliga behållare som skrivskyddad
 
 > [!CAUTION]
 > Det här alternativet öppnas din behållare för anonym åtkomst för skrivskyddat läge.
@@ -113,9 +113,23 @@ Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbet
 
 ## <a name="run-package-validation-tests"></a>Köra verifieringstester för paketet
 
-I den **paketera verifieringstester sammanfattning** sidan visas en lista över de tester som krävs för att slutföra verifieringen. Tester i det här arbetsflödet kör för ungefär 24 timmar.
+1. I den **Paketvalideringen testar sammanfattning** sidan visas en lista över de tester som krävs för att slutföra verifieringen. Tester i det här arbetsflödet kör för ungefär 24 timmar.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    I arbetsflöden verifiering **schemaläggning** ett test använder de gemensamma parametrarna för arbetsflödet på servernivå som du angav under arbetsflödet skapats (se [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](azure-stack-vaas-parameters.md)). Om någon av test parametervärden blir ogiltiga måste du resupply dem som finns beskrivet i [ändra arbetsflödesparametrar](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Schemalägga ett verifieringstest över en befintlig instans skapas en ny instans i stället för den gamla instansen i portalen. Loggar för den gamla instansen kommer att hållas kvar, men är inte tillgängliga från portalen.  
+    När ett test har slutförts, den **schema** åtgärden inaktiveras.
+
+2. Välj den agent som ska köra testet. Information om att lägga till lokala webbtestagenter körning, se [distribuera lokal agent](azure-stack-vaas-local-agent.md).
+
+3. För var och en av följande test steg fyra och fem:
+    - Verifiering av OEM-tillägg-paketet
+    - Simulering Molnteknik
+
+4. Välj **schema** från snabbmenyn för att öppna en kommandotolk för att schemalägga test-instans.
+
+5. Granska de test-parametrarna och välj sedan **skicka** att schemalägga testet för körning.
 
 När alla tester har slutförts, skicka namnet på din VaaS lösning och verifiera paketet till [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) till Begär signering av paketet.
 

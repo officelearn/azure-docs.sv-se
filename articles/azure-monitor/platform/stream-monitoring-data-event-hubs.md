@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a39d497c90f49f8699b9d27be175e501973804c5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811519"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118395"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -26,7 +26,7 @@ Azure Monitor innehåller en enda pipeline för att få åtkomst till alla över
 Det finns flera ”nivåer” för övervakning av data inom Azure-miljön, och metoden för att komma åt data från varje nivå varierar något. Dessa nivåer kan normalt beskrivas som:
 
 - **Program övervakade data:** Data om prestanda och funktioner i koden som du har skrivit och körs på Azure. Exempel på program övervakningsdata är prestandaspårningar, programloggar och telemetri för användaren. Programövervakning data samlas vanligtvis på något av följande sätt:
-  - Genom att instrumentera din kod med ett SDK som den [Application Insights SDK](../../application-insights/app-insights-overview.md).
+  - Genom att instrumentera din kod med ett SDK som den [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md).
   - Genom att köra en övervakningsagent som lyssnar efter nya program loggar in på datorn köra ditt program, till exempel den [Windows Azure-Diagnostikagenten](./../../azure-monitor/platform/diagnostics-extension-overview.md) eller [Linux Azure-Diagnostikagenten](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Övervakningsdata för Gästoperativsystem:** Information om operativsystemet där programmet körs. Exempel på övervakningsdata för gäst-OS är Linux syslog eller Windows-systemhändelser. Om du vill samla in den här typen av data, måste du installera en agent som den [Windows Azure-Diagnostikagenten](./../../azure-monitor/platform/diagnostics-extension-overview.md) eller [Linux Azure-Diagnostikagenten](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure-resurs övervakning av data:** Information om driften av en Azure-resurs. För vissa typer av Azure-resurser, till exempel virtuella datorer, finns ett gäst-OS och programmen för att övervaka inuti den Azure-tjänsten. För andra Azure-resurser, till exempel Nätverkssäkerhetsgrupperna, är resurs-övervakningsdata den högsta nivån av tillgängliga data (eftersom det finns ingen gäst-OS eller program som körs i dessa resurser). Dessa data kan samlas in med [resursdiagnostikinställningar](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
@@ -98,7 +98,7 @@ Den [Windows Azure Diagnostics-agenten](./../../azure-monitor/platform/diagnosti
 
 ## <a name="application-monitoring-data"></a>Program övervakade data
 
-Programmet övervakningsdata kräver att koden är utrustade med ett SDK, så det finns en allmänna lösning till routning program övervakning av data till en händelsehubb i Azure. Dock [Azure Application Insights](../../application-insights/app-insights-overview.md) är en tjänst som kan användas för att samla in data för Azure på programnivå. Om du använder Application Insights kan du strömma övervakningsdata till en händelsehubb genom att göra följande:
+Programmet övervakningsdata kräver att koden är utrustade med ett SDK, så det finns en allmänna lösning till routning program övervakning av data till en händelsehubb i Azure. Dock [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) är en tjänst som kan användas för att samla in data för Azure på programnivå. Om du använder Application Insights kan du strömma övervakningsdata till en händelsehubb genom att göra följande:
 
 1. [Konfigurera löpande export](../../azure-monitor/app/export-telemetry.md) av Application Insights-data till ett lagringskonto.
 
@@ -108,7 +108,7 @@ Programmet övervakningsdata kräver att koden är utrustade med ett SDK, så de
 
 Routning övervakningsdata till en event hub med Azure Monitor kan du lätt kan integrera med partner SIEM och övervakningsverktyg. De flesta verktygen kräver event hub-anslutningssträngen och vissa behörigheter för din Azure-prenumeration för att läsa data från händelsehubben. Här är en ofullständig lista över verktyg med Azure Monitor-integrering:
 
-* **IBM QRadar** – The DSM för Microsoft Azure och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](http://www.ibm.com/support). Du kan [lära dig mer om integrering med Azure här](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** – The DSM för Microsoft Azure och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](https://www.ibm.com/support). Du kan [lära dig mer om integrering med Azure här](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -det finns två sätt beroende på din Splunk-konfiguration:
     1. [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/) är tillgängligt i Splunkbase och ett projekt med öppen källkod. [Dokumentationen är här](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Om du inte kan installera ett tillägg i din instans av Splunk (t.ex.) Om en proxy eller som körs på Splunk molnet), du kan vidarebefordra dessa händelser till Splunk HTTP Event Collector med [den här funktionen som utlöses av nya meddelanden i event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).

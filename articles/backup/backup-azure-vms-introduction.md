@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: ebb8d5d141dab39e73297342907d4439b30a9fbf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042486"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107437"
 ---
 # <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
 
@@ -30,7 +30,7 @@ Här är hur Azure Backup är klar en säkerhetskopiering för virtuella Azure-d
     - Tillägget installeras under den första säkerhetskopieringen av virtuella datorer.
     - Om du vill installera tillägget, måste du köra den virtuella datorn.
     - Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
-4. Säkerhetskopieringstillägget tar en storage-nivå, programkonsekvent ögonblicksbild.
+4. Säkerhetskopieringstillägget tar en lagringsnivå, krascher konsekvent/filkonsekvent ögonblicksbild.
 5. När ögonblicksbilden tas data har överförts till valvet. För att maximera effektiviteten, tjänsten identifierar och överför endast datablock som har ändrats sedan föregående säkerhetskopia (delta).
 5. När dataöverföringen har slutförts tas ögonblicksbilden bort och en återställningspunkt skapas.
 

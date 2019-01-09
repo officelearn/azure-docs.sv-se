@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333032"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106281"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Viktig information för verifiering som en tjänst
 
@@ -49,7 +49,7 @@ Den 29 augusti 2018
 
 - VaaS krav och VHD-uppdateringar
 
-    `Install-VaaSPrerequisites` kräver nu att molnet administratörsautentiseringsuppgifter för att åtgärda problem vid Paketverifiering av. I dokumentationen på [ladda ned och installera agenten](azure-stack-vaas-local-agent.md#download-and-install-the-agent) har uppdaterats med följande:
+    `Install-VaaSPrerequisites` kräver nu att molnet administratörsautentiseringsuppgifter för att åtgärda problem vid verifiering av lösningen. I dokumentationen på [ladda ned och installera agenten](azure-stack-vaas-local-agent.md#download-and-install-the-agent) har uppdaterats med följande:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ Den 29 augusti 2018
 
   - Paket som loggar meddelanden
 
-    När ett paket för OEM-anpassning skickas som en del av paketet valideringsarbetsflödet kommer formatet paketet att valideras för att säkerställa att det följer specifikationen publicerade. Om paketet är inte kompatibel, misslyckas körningen. E-postmeddelanden skickas till e-postadress på den registrerade Azure Active Directory-kontakten för klienten.
+    När ett paket för OEM-anpassning skickas som en del av lösningen valideringsarbetsflödet kommer formatet paketet att valideras för att säkerställa att det följer specifikationen publicerade. Om paketet är inte kompatibel, misslyckas körningen. E-postmeddelanden skickas till e-postadress på den registrerade Azure Active Directory-kontakten för klienten.
 
   - Interaktiv test-kategori
 

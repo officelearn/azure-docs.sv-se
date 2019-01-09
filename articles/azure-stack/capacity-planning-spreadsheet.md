@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: a37575e6e6e8902dc2dd89a26011031c2e1419c4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557265"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106519"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner är ett kalkylblad som används för kapacitetsplanering för Azure Stack-resurs. Capacity planner ger dig möjlighet att utforma olika allokeringen av datorresurser och se hur de skulle passa över ett urval av maskinvara. Detaljerade anvisningar för användning av Azure Stack-Kalkylatorn finns nedan.
 
 ## <a name="worksheet-descriptions"></a>Kalkylbladet beskrivningar
-Följande är en kort sammanfattning av kalkylblad i Azure Stack Capacity Planner-kalkylblad som kan laddas ned från [ http://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
+Följande är en kort sammanfattning av kalkylblad i Azure Stack Capacity Planner-kalkylblad som kan laddas ned från [ https://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
 
 |Fliknamn|Beskrivning|
 |-----|-----|

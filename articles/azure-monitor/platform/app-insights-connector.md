@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e6d750d62ccd31a85cbf47e13c12be078bcb2c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023132"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121421"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -27,7 +27,7 @@ ms.locfileid: "54023132"
 >[!NOTE]
 > Med hjälp av [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md), hanteringslösningen för Application Insights-anslutning krävs inte längre och upphör att gälla. Från och juli, kommer du inte att kunna länka ny Application Insights-resurser till Log Analytics-arbetsytor. Befintliga länkar och instrumentpaneler kommer fortsätta att fungera tills November 2018. Mer information finns i [OMS-portalen som flyttar till Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
-Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användarna gör med din app när den är övervakad med [Application Insights](../../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare kan se i Application Insights är tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics, ökas visningen av dina program genom att använda åtgärden och programdata på samma ställe. Att ha samma vyer hjälper dig att samarbeta med dina apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både programmet och plattformsproblem.
+Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användarna gör med din app när den är övervakad med [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare kan se i Application Insights är tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics, ökas visningen av dina program genom att använda åtgärden och programdata på samma ställe. Att ha samma vyer hjälper dig att samarbeta med dina apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både programmet och plattformsproblem.
 
 När du använder lösningen kan du:
 

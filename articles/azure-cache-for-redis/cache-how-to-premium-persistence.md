@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: d74f552395a80509c76adf70aef0581260126b49
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020028"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105856"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du datapersistence för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar du persistence i en Azure Cache på premiumnivå för Redis-instans.
@@ -130,7 +130,7 @@ För både RDB och AOF persistence:
 
 * Om du har skalat till en större storlek, påverkas inte.
 * Om du har skalat till en mindre storlek och du har en anpassad [databaser](cache-configure.md#databases) inställning som är större än den [databaser gränsen](cache-configure.md#databases) för din nya storleken är inte återställa data i dessa databaser. Mer information finns i [är Mina anpassade databaser konfigurera berörda under skalning?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* Om du har skalat till en mindre storlek, och det finns inte tillräckligt med utrymme i den mindre storleken att innehålla alla data från den senaste säkerhetskopieringen, nycklar kommer att avlägsnas under återställningsprocessen, vanligtvis med hjälp av den [allkeys lru](http://redis.io/topics/lru-cache) avlägsningsprincipen.
+* Om du har skalat till en mindre storlek, och det finns inte tillräckligt med utrymme i den mindre storleken att innehålla alla data från den senaste säkerhetskopieringen, nycklar kommer att avlägsnas under återställningsprocessen, vanligtvis med hjälp av den [allkeys lru](https://redis.io/topics/lru-cache) avlägsningsprincipen.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Kan jag ändra frekvensen för RDB-säkerhetskopiering när du har skapat cacheminnet?
 Ja, du kan ändra frekvensen för säkerhetskopiering för RDB persistence på den **Redis-datapersistens** bladet. Anvisningar finns i [konfigurera Redis persistence](#configure-redis-persistence).

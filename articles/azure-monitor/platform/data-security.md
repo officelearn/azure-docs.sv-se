@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: a791ac5424a0c0e70ba5480e51f5e21fe3c061ea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652072"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104751"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -124,8 +124,8 @@ Log Analytics-programutveckling och service-teamet arbetar aktivt med Microsoft 
 ## <a name="certifications-and-attestations"></a>Certifieringar och attesteringar
 Azure Log Analytics uppfyller följande krav:
 
-* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
-* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO/IEC 27001](https://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
 * [STANDARDEN ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Säkerhetsstandard för Payment Card Industry (PCI-kompatibel) Data (PCI-DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) av PCI Security Standards Council.
 * [Tjänsten organisation Controls (SOC) 1 typ 1 och SOC 2 typ 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) kompatibla

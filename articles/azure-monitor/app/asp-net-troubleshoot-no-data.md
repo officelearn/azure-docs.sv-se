@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076050"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118770"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -34,7 +34,7 @@ ms.locfileid: "54076050"
 
 *Jag [installerat statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md) på webbservern för att övervaka befintliga appar. Jag ser inte några resultat.*
 
-* Se [felsökning statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
+* Se [felsökning statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
 
 ## <a name="q01"></a>Alternativet ”Lägg till Application Insights” i Visual Studio
 *När jag högerklickar på ett befintligt projekt i Solution Explorer kan se jag inte några alternativ för Application Insights.*
@@ -154,7 +154,7 @@ Data kommer från skript i webbsidor.
 Se [beroendetelemetri](../../azure-monitor/app/asp-net-dependencies.md) och [undantagstelemetri](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Inga prestandadata
-Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows-skrivbordsappar](../../azure-monitor/app/windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md), och [Azure Cloud Services](../../application-insights/app-insights-overview.md). Du hittar det under inställningar för servrar.
+Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows-skrivbordsappar](../../azure-monitor/app/windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md), och [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Du hittar det under inställningar för servrar.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Inga (server) data eftersom jag har publicerat appen till Min server
 * Kontrollera att du faktiskt kopieras alla Microsoft. ApplicationInsights DLL-filer till servern, tillsammans med Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

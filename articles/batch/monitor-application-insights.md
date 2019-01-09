@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075149"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119915"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) är ett elegant och kraftfullt sätt för utvecklare för att övervaka och felsöka program som distribueras till Azure-tjänster. Använda Application Insights för att övervaka prestandaräknare och undantag samt instrumentera din kod med anpassade mått och spårning. Integrera Application Insights med ett Azure Batch-program kan du få djupare insikter om beteenden och undersöka problem i nära realtid.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) är ett elegant och kraftfullt sätt för utvecklare för att övervaka och felsöka program som distribueras till Azure-tjänster. Använda Application Insights för att övervaka prestandaräknare och undantag samt instrumentera din kod med anpassade mått och spårning. Integrera Application Insights med ett Azure Batch-program kan du få djupare insikter om beteenden och undersöka problem i nära realtid.
 
 Den här artikeln visar hur du lägger till och konfigurera Application Insights-biblioteket i din Azure Batch .NET-lösning och instrumentera din programkod. Den visar även sätt att övervaka program via Azure-portalen och skapa anpassade instrumentpaneler. För Application Insights på andra språk, titta på den [språk, plattformar och integreringar dokumentation](../azure-monitor/app/platforms.md).
 
@@ -342,7 +342,7 @@ På grund av storskaliga natur Azure Batch-program som körs i produktionsmiljö
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [Application Insights](../application-insights/app-insights-overview.md).
+* Läs mer om [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * För Application Insights på andra språk, titta på den [språk, plattformar och integreringar dokumentation](../azure-monitor/app/platforms.md).
 

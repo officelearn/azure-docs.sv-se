@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: d9f3685e0a3961631f1577827cc415cb91d38a15
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 913b23946f70500ace7ab7e4ff7b5cd2858492fc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074248"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121675"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -292,7 +292,7 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
 
 ## <a name="add-application-insights-logging"></a>Lägg till Application Insights-loggning
 
-När projektet körs i Azure, kan du övervaka körning av funktion genom att granska konsolutdata. Övervakningslösning som vi rekommenderar att du är [Application Insights](../application-insights/app-insights-overview.md). Mer information finns i [övervaka Azure Functions](../azure-functions/functions-monitoring.md).
+När projektet körs i Azure, kan du övervaka körning av funktion genom att granska konsolutdata. Övervakningslösning som vi rekommenderar att du är [Application Insights](../azure-monitor/app/app-insights-overview.md). Mer information finns i [övervaka Azure Functions](../azure-functions/functions-monitoring.md).
 
 I det här avsnittet ska göra du följande uppgifter för att konfigurera Application Insights loggning innan du distribuerar till Azure:
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: bcf33538479a18d1849515f00e9a0d02ef77dba2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5596675d428fcf8403d001a8f807507ab1e42e43
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003829"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117290"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
-Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](../../application-insights/app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md), Ställ in [aviseringar](../../azure-monitor/app/alerts.md), ange den [priser schema](pricing.md), och skapa andra Azure-resurser .
+Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](../../azure-monitor/app/app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md), Ställ in [aviseringar](../../azure-monitor/app/alerts.md), ange den [priser schema](pricing.md), och skapa andra Azure-resurser .
 
 Nyckeln till att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). Kortfattat, proceduren är: ladda ned JSON-definitioner av befintliga resurser. Parameterisera vissa värden, till exempel namn. och kör sedan mallen när du vill skapa en ny resurs. Du kan paketera flera resurser tillsammans, skapa dem på en go - exempel: en app Övervakare med tillgänglighetstester, aviseringar och lagring för löpande export. Det finns vissa nyanser till vissa av parameterizations som beskrivs här.
 

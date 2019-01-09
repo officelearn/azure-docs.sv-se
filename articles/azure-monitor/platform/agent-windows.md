@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189905"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104130"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -128,9 +128,9 @@ I följande exempel installeras 64-bitars agent, identifieras av den `URI` värd
 
 32-bitars och 64-bitars versioner av agenten paketet har olika produktkoder och nya versioner är också ha ett unikt värde.  Den här koden är ett GUID som är en huvudnamn identifiering av ett program eller en produkt och representeras av Windows Installer **ProductCode** egenskapen.  Den `ProductId` värde i den **MMAgent.ps1** skriptet måste matcha den här koden från 32-bitars eller 64-bitars agent installer-paketet.
 
-För att hämta den här koden från installationspaket för agenten direkt, du kan använda Orca.exe från den [Windows SDK-komponenterna för Windows Installer-utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en komponent i Windows Software Development Kit eller med hjälp av Följande PowerShell en [exempelskript](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) skrivs av en Microsoft Valuable Professional (MVP).  För båda metoder, måste du först extrahera den **MOMagent.msi** filen i MMASetup installationspaket.  Detta visas tidigare i det första steget i avsnittet [installera agenten från kommandoraden](#install-the-agent-using-the-command-line).  
+För att hämta den här koden från installationspaket för agenten direkt, du kan använda Orca.exe från den [Windows SDK-komponenterna för Windows Installer-utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en komponent i Windows Software Development Kit eller med hjälp av Följande PowerShell en [exempelskript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) skrivs av en Microsoft Valuable Professional (MVP).  För båda metoder, måste du först extrahera den **MOMagent.msi** filen i MMASetup installationspaket.  Detta visas tidigare i det första steget i avsnittet [installera agenten från kommandoraden](#install-the-agent-using-the-command-line).  
 
-1. Importera xPSDesiredStateConfiguration DSC-modul från [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) till Azure Automation.  
+1. Importera xPSDesiredStateConfiguration DSC-modul från [ https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) till Azure Automation.  
 2.  Skapa Azure Automation variabler för tillgångar för *OPSINSIGHTS_WS_ID* och *OPSINSIGHTS_WS_KEY*. Ange *OPSINSIGHTS_WS_ID* till Log Analytics arbetsyte-ID och set *OPSINSIGHTS_WS_KEY* till den primära nyckeln i din arbetsyta.
 3.  Kopiera skriptet och spara den som MMAgent.ps1.
 

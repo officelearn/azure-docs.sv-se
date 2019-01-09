@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016750"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106832"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-importrestriktioner och kända problem
 ## <a name="about-this-list"></a>Om den här listan
@@ -47,6 +47,7 @@ WSDL-filer används för att generera API: er för SOAP-direkt eller fungera som
 * **WCF-wsHttpBinding** -SOAP-tjänster som skapats med Windows Communication Foundation bör använda basicHttpBinding – wsHttpBinding stöds inte.
 * **MTOM** - tjänster med hjälp av MTOM <em>kan</em> fungerar. Officiella support erbjuds inte just nu.
 * **Rekursion** -typer som är definierade rekursivt (till exempel finns i en matris med själva) stöds inte av APIM.
+* **Flera namnområden** – flera namnområden kan användas i ett schema, men endast målnamnområdet kan användas för att definiera meddelandedelar. Namnområden än målet som används för att definiera andra inkommande eller utgående element bevaras inte. Även om en sådan WSDL-dokumentet kan importeras i exporten har alla meddelandedelar målnamnområdet för WSDL.
 
 ## <a name="wadl"> </a>WADL
 Det finns för närvarande inga kända problem i WADL import.

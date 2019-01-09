@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999587"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117613"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
-I en värld av mikrotjänster kräver varje logisk åtgärd jobbet klart på olika komponenter i tjänsten. Var och en av de här komponenterna separat kan övervakas av [Application Insights](../../application-insights/app-insights-overview.md). Webbkomponenten appen kommunicerar med autentisering providerns komponent för att verifiera användarens autentiseringsuppgifter och med API-komponenten för att hämta data för visualisering. API-komponenten i sin tur kan fråga efter data från andra tjänster använder cache-provider-komponenter och meddela komponenten fakturering om det här anropet. Application Insights har stöd för distribuerade telemetrikorrelation. Det kan du identifiera vilka komponenten är ansvarig för fel eller försämrade prestanda.
+I en värld av mikrotjänster kräver varje logisk åtgärd jobbet klart på olika komponenter i tjänsten. Var och en av de här komponenterna separat kan övervakas av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Webbkomponenten appen kommunicerar med autentisering providerns komponent för att verifiera användarens autentiseringsuppgifter och med API-komponenten för att hämta data för visualisering. API-komponenten i sin tur kan fråga efter data från andra tjänster använder cache-provider-komponenter och meddela komponenten fakturering om det här anropet. Application Insights har stöd för distribuerade telemetrikorrelation. Det kan du identifiera vilka komponenten är ansvarig för fel eller försämrade prestanda.
 
 Den här artikeln beskriver den datamodell som används av Application Insights för att korrelera telemetri som skickas av flera komponenter. Den behandlar kontext spridning metoder och protokoll. Den behandlar också implementeringen av Korrelations-koncept på olika språk och plattformar.
 

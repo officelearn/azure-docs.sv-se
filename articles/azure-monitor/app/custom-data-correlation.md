@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 892342dfa4407a7ed138ffb004e7854c0cd07b4a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798186"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103124"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelera Application Insights-data med anpassade datakällor
 
@@ -28,7 +28,7 @@ Vissa situationer där du anpassade data är:
 
 - Berikande eller -uppslag datatabeller: till exempel kompletterar ett servernamn med ägaren av servern och lab platsen där den finns 
 - Korrelationen med Application Insights-datakällor: till exempel korrelera data om ett inköp på ett webb-Arkiv med information från ditt köp betjäna tjänsten att avgöra hur exakt din leveranstiden beräknar har 
-- Helt anpassade data: många av våra kunder älskar frågespråk och prestanda för Log Analytics-dataplattform som säkerhetskopierar Application Insights och vill använda den för att köra frågor mot data som inte är relaterad till Application Insights. Till exempel att spåra solpaneler prestanda som en del av en smart home installation som beskrivs [här]( http://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Helt anpassade data: många av våra kunder älskar frågespråk och prestanda för Log Analytics-dataplattform som säkerhetskopierar Application Insights och vill använda den för att köra frågor mot data som inte är relaterad till Application Insights. Till exempel att spåra solpaneler prestanda som en del av en smart home installation som beskrivs [här]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Så här att korrelera anpassade data med Application Insights-data 
 

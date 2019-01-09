@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a43e14401861ee33789054a8dcd48289dbbcc88
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9c62f4c58742c2c3247ff19b76575d1ca11499cb
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187185"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101641"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Ta bort en Azure Log Analytics-arbetsyta med Azure portal
 Den här artikeln visar hur du använder Azure-portalen för att ta bort en Log Analytics-arbetsyta som du kan inte längre behöver. 
@@ -38,7 +38,7 @@ Alla agenter och System Center Operations Manager-hanteringsgrupper som konfigur
  
 Om du är administratör och det finns flera användare som är kopplade till arbetsytan bryts kopplingen mellan användare och arbetsytan. Om användarna är associerade med andra arbetsytor kan de fortsätta använda Log Analytics med de andra arbetsytorna. Men om de inte är associerade med andra arbetsytor behöver sedan de skapa en arbetsyta om du vill använda Log Analytics. 
 
-1. Logga in på [Azure-portalen](http://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj en arbetsyta i fönstret Log Analytics-prenumerationer och klicka sedan på **ta bort** högst upp på den mellersta rutan.<br><br> ![Ta bort alternativet från fönstret med arbetsytans egenskaper](media/delete-workspace/log-analytics-delete-workspace.png)<br>  
 4. När fönstret bekräftelse meddelande visas där du uppmanas att bekräfta borttagningen i arbetsytan, klickar du på **Ja**.<br><br> ![Bekräfta borttagning av arbetsyta](media/delete-workspace/log-analytics-delete-workspace-confirm.png)

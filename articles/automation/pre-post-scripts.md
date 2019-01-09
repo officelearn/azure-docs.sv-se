@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584629"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121319"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -100,10 +100,7 @@ Följande är ett exempel på en JSON-sträng som skickas till den **SoftwareUpd
    }
 ```
 
-Ett fullständigt exempel med alla egenskaper finns på: [konfigurationer Update - hämta efter namn](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> Datorer som har lagts till i en distribution med hjälp av [dynamiska grupper (förhandsversion)](automation-update-management.md#using-dynamic-groups) är inte just nu en del av den **SoftwareUpdateConfigurationRunContext** parametern.
+Ett fullständigt exempel med alla egenskaper finns på: [Uppdatera konfigurationer - hämta efter namn](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>Exempel
 

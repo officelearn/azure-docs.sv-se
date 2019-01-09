@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035421"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084063"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till virtuell dator i Azure som påverkas: oplanerat maskinvaruunderhåll, oväntat driftavbrott och planerat underhåll.
@@ -32,7 +32,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 
 * [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
-* [Använda schemalagda händelser för att proaktivt bemöta VM som påverkar händelser ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Använda schemalagda händelser för att proaktivt bemöta VM som påverkar händelser](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Konfigurera varje programnivå i separata tillgänglighetsuppsättningar]
 * [Kombinera en lastbalanserare med tillgänglighetsuppsättningar]
 * [Använd tillgänglighetszoner för att skydda mot datacenterproblem nivå]
@@ -65,6 +65,10 @@ Om du planerar att använda virtuella datorer med [ohanterade diskar](../article
 1. **Förvara alla diskar (operativsystem och data) som är associerade med en virtuell dator i samma lagringskonto**
 2. **Kontrollera [gränserna](../articles/storage/common/storage-scalability-targets.md) för antalet ohanterade diskar i ett Storage-konto** innan du lägger till fler virtuella hårddiskar till ett lagringskonto
 3. **Använd ett separat lagringskonto för varje virtuell dator i en tillgänglighetsuppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är virtuella datorer i olika Tillgänglighetsuppsättningar kan dela lagringskonton om rekommendationerna ovan följs ![ohanterade diskar FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Använda schemalagda händelser för att proaktivt besvara VM som påverkar händelser
+
+När du prenumererar på [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), den virtuella datorn får ett meddelande om kommande underhållshändelser som kan påverka den virtuella datorn. När schemalagda händelser är aktiverad kan får den virtuella datorn en minimal mängd tid innan aktiviteten underhåll utförs. Till exempel Värdoperativsystem uppdateringar som kan påverka den virtuella datorn är i kö som händelser som anger påverkan, samt en tid då underhållet utförs om ingen åtgärd utförs. Schema-händelser finns också i kö när Azure upptäcker överhängande maskinvarufel som kan påverka din virtuella dator där du kan bestämma när den återställning ska utföras. Kunder kan använda händelsen för att utföra uppgifter före underhåll, till exempel sparande av tillstånd, redundansväxla till sekundärt och så vidare. När du har slutfört logik för att hantera ett smidigt sätt händelsen Underhåll kan du godkänna utestående händelsen för att tillåta plattform för att fortsätta med Underhåll.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Konfigurera varje programnivå i separata tillgänglighetsuppsättningar
 Om de virtuella datorerna är nästan identiska och tjänar samma syfte för ditt program rekommenderar vi att du konfigurerar en tillgänglighetsuppsättning för varje nivå av ditt program.  Om du placerar två olika nivåer i samma tillgänglighetsuppsättning kan alla virtuella datorer på samma programnivå startas om samtidigt. Genom att konfigurera minst två virtuella datorer i en tillgänglighetsuppsättning för varje nivå garanterar du att minst en virtuell dator är tillgänglig på varje nivå.

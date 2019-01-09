@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837179"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121200"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
-Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
 Under administratörsövertagandet kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs administratörsupplevelsen mer detaljerat, men här följer en sammanfattning:
@@ -41,7 +41,7 @@ Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365
 
 3. I e-postbekräftelsen från Power BI, väljer **Ja, det är jag**.
 
-4. Logga in på den [Office 365 Administrationscenter](https://portal.office.com/adminportal/Home) med Power BI-konto. Du får ett meddelande där du uppmanas att **bli administratör** för det domännamn som har redan verifierats i en ohanterad klient. Välj **Ja, jag vill att administratören**.
+4. Logga in på den [Office 365 Administrationscenter](https://portal.office.com/admintakeover) med Power BI-konto. Du får ett meddelande där du uppmanas att **bli administratör** för det domännamn som har redan verifierats i en ohanterad klient. Välj **Ja, jag vill att administratören**.
   
   ![första skärmbild för bli administratör](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ Du kan hantera Azure AD-klienten när DNS TXT-poster har verifierats i din domä
 
 När du har slutfört föregående steg, men du är nu global administratör för den fjärde kaffe klienten i Office 365. Om du vill integrera domännamnet med dina andra Azure-tjänster, kan du ta bort den från Office 365 och lägga till den i en annan hanterad klient i Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Att lägga till domännamnet till en hanterad klient i Azure AD 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Att lägga till domännamnet till en hanterad klient i Azure AD
 
-1. Öppna den [Office 365 Administrationscenter](https://portal.office.com/adminportal/Home).
+1. Öppna den [Office 365 Administrationscenter](https://portal.office.com/admintakeover).
 2. Välj **användare** fliken och skapa ett nytt användarkonto med ett namn som liknar *user@fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domännamnet. 
 3. Kontrollera att det nya användarkontot har globala administratörsrättigheter för Azure AD-klient.
 4. Öppna **domäner** fliken i Office 365 Administrationscenter, Välj domännamnet och välj **ta bort**. 

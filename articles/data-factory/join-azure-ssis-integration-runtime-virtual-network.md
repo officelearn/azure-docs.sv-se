@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/08/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a228bba9effeb803fcc664e06448646b06645d5e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015635"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119092"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -72,6 +72,10 @@ I följande avsnitt innehåller mer information.
 -   Om du använder Azure Express Route eller konfigurera användardefinierad väg (UDR), se [Använd Azure ExpressRoute eller användaren användardefinierade vägen](#route). 
 
 -   Kontrollera att resursgruppen för det virtuella nätverket kan skapa och ta bort vissa Azure-nätverksresurser. Se [krav för resursgruppen](#resource-group). 
+
+Här är ett diagram som visar krävs anslutningar för din Azure-SSIS IR:
+
+![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="perms"></a> Behörigheter som krävs
 

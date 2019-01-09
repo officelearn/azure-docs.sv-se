@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322047"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117443"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med Azure-datorer anger
 En Azure VM-skalningsuppsättning kan automatiskt öka eller minska antalet Virtuella datorinstanser som kör programmet. Detta automatiserad och elastiska minskar hanteringsomkostnaderna för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar acceptabel prestanda för en positiv kundupplevelse. När de definierade tröskelvärdena är uppfyllda, regler för automatisk skalning att vidta åtgärder för att justera kapaciteten för din skalningsuppsättning. Du kan även schemalägga händelser att automatiskt öka eller minska kapaciteten för din skalningsuppsättning på fast gånger. Den här artikeln innehåller en översikt över vilka mått som är tillgängliga och vilka åtgärder som automatisk skalning kan utföra.
@@ -122,7 +122,7 @@ Mer information finns i artiklarna om att aktivera Azure-diagnostiktillägget p�
 ## <a name="application-level-metrics-with-app-insights"></a>Programnivå mått med App Insights
 Du kan använda Application Insights för att få bättre översyn i, till programmens prestanda. Du installerar ett litet instrumentationspaket i ditt program som övervakar appen och skickar telemetri till Azure. Du kan övervaka mått, till exempel svarstiderna för ditt program, sidinläsningsprestanda, och sessionen räknas. Dessa mätvärden för application kan användas för att skapa regler för automatisk skalning på en detaljerad och inbäddade nivå som du utlösa regler baserat på värdefulla insikter som kan påverka kundupplevelsen.
 
-Mer information om App Insights finns i artikeln [Vad är Application Insights](../application-insights/app-insights-overview.md).
+Mer information om App Insights finns i artikeln [Vad är Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## <a name="scheduled-autoscale"></a>Schemalagd automatisk skalning

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e80eaf8e2ab1cf001e06aac1b5f23c7714c9013b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543418"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117019"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
@@ -55,7 +55,7 @@ I dina Batch-program, använder du Batch-API: er att övervaka eller fråga stat
 
 ## <a name="vm-performance-counters-and-application-monitoring"></a>Prestandaräknare för virtuell dator och programövervakning
 
-* [Application Insights](../application-insights/app-insights-overview.md) är en Azure-tjänst du kan använda för att programmässigt övervaka tillgänglighet, prestanda och användning för dina Batch-jobb och uppgifter. Enkelt beräkningsnoder get prestandaräknare från (virtuella datorer) och anpassad information om aktiviteter från de virtuella datorerna. 
+* [Application Insights](../azure-monitor/app/app-insights-overview.md) är en Azure-tjänst du kan använda för att programmässigt övervaka tillgänglighet, prestanda och användning för dina Batch-jobb och uppgifter. Enkelt beräkningsnoder get prestandaräknare från (virtuella datorer) och anpassad information om aktiviteter från de virtuella datorerna. 
 
   Ett exempel finns i [övervaka och felsöka ett Batch .NET-program med Application Insights](monitor-application-insights.md) och den tillhörande [kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 

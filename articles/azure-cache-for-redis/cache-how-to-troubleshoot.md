@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: a0bf8543338043d9a1990fd2be33a65a478af721
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019965"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104156"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Felsökning av Azure Cache för Redis
 Den här artikeln innehåller riktlinjer för felsökning av följande typer av Azure Cache för Redis-problem.
@@ -142,7 +142,7 @@ Minnesbelastning på serversidan leder till alla typer av problem med prestanda 
 2. Redis ser hög minnesfragmentering - oftast på grund av att lagra stora objekt (Redis är optimerad för en liten objekt – Se den [vad är perfekt värdeintervallet storlek för redis? Är 100 KB för stor? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) publicera information). 
 
 #### <a name="measurement"></a>Mått
-Redis visar två mått som kan hjälpa dig identifiera problemet. Först är `used_memory` och den andra är `used_memory_rss`. [De här måtten](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) är tillgängliga i Azure Portal eller via den [Redis INFO](http://redis.io/commands/info) kommando.
+Redis visar två mått som kan hjälpa dig identifiera problemet. Först är `used_memory` och den andra är `used_memory_rss`. [De här måtten](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) är tillgängliga i Azure Portal eller via den [Redis INFO](https://redis.io/commands/info) kommando.
 
 #### <a name="resolution"></a>Lösning
 Det finns flera möjliga ändringar som du kan göra för att hålla minnesanvändning felfri:
@@ -227,9 +227,9 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
    
    * Kontrollera om du är komma bunden av processor på klienten, vilket kan leda till begäran om att inte bearbetas inom den `synctimeout` intervall, vilket leder till en tidsgräns. Flytta till en större storlek på klientens eller fördela belastningen kan bidra till att styra det här problemet. 
    * Kontrollerar du om du får CPU-bundna på servern genom att övervaka den `CPU` [cachelagra prestandamått](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Begäranden som kommer Redis är CPU-bundna kan orsaka dessa begäranden till timeout. För att åtgärda problemet, kan du fördela belastningen över flera shard i en premium-cache eller uppgradera till en större storlek eller prisnivå. Mer information finns i [servern sida bandbredd överskridit](#server-side-bandwidth-exceeded).
-5. Finns det kommandon tar längre tid att bearbeta på servern? Tidskrävande kommandon som tar lång tid att bearbeta på redis-servern kan orsaka timeout. Några exempel på kommandon som körs under lång tid är `mget` med stort antal nycklar, `keys *` eller felaktiga lua-skript. Du kan ansluta till din Azure-Cache för Redis-instans med hjälp av redis-cli-klienten eller använda den [Redis-konsolen](cache-configure.md#redis-console) och kör den [SlowLog](http://redis.io/commands/slowlog) kommando för att se om det finns begäranden som tar längre tid än förväntat. Redis-servern och StackExchange.Redis är optimerade för många små begäranden i stället för färre stora begäranden. Dela dina data i mindre segment kan förbättra saker här. 
+5. Finns det kommandon tar längre tid att bearbeta på servern? Tidskrävande kommandon som tar lång tid att bearbeta på redis-servern kan orsaka timeout. Några exempel på kommandon som körs under lång tid är `mget` med stort antal nycklar, `keys *` eller felaktiga lua-skript. Du kan ansluta till din Azure-Cache för Redis-instans med hjälp av redis-cli-klienten eller använda den [Redis-konsolen](cache-configure.md#redis-console) och kör den [SlowLog](https://redis.io/commands/slowlog) kommando för att se om det finns begäranden som tar längre tid än förväntat. Redis-servern och StackExchange.Redis är optimerade för många små begäranden i stället för färre stora begäranden. Dela dina data i mindre segment kan förbättra saker här. 
    
-    Information om hur du ansluter till Azure Cache för Redis SSL-slutpunkten med hjälp av redis-cli och stunnel finns i den [Vi presenterar ASP.NET-Sessionstillståndsprovider Redis förhandsversionen](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg. Mer information finns i [SlowLog](http://redis.io/commands/slowlog).
+    Information om hur du ansluter till Azure Cache för Redis SSL-slutpunkten med hjälp av redis-cli och stunnel finns i den [Vi presenterar ASP.NET-Sessionstillståndsprovider Redis förhandsversionen](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg. Mer information finns i [SlowLog](https://redis.io/commands/slowlog).
 6. Hög Redis-serverbelastningen kan orsaka timeout. Du kan övervaka belastningen på servern genom att övervaka den `Redis Server Load` [cachelagra prestandamått](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). En serverbelastning på 100 (högsta värde) innebär det att redis-servern har varit upptagen med någon inaktiv tid, bearbetning av begäranden. Om du vill se om vissa begäranden som tar upp alla server-kapacitet, kör du kommandot SlowLog enligt beskrivningen i föregående stycke. Mer information finns i [hög CPU-användning / serverbelastningen](#high-cpu-usage-server-load).
 7. Var det andra händelser på klientsidan som kan ha orsakat en nätverk blip? Kontrollera på klienten (webb, worker-roll eller en Iaas VM) om det uppstod en händelse som skala antalet klientinstanser som upp eller ned eller distribuerar en ny version av klienten eller automatisk skalning är aktiverat? I våra tester, vi har hittat som automatisk skalning eller skala upp/ned kan utgående nätverksanslutning för orsak kan vara förlorad under flera sekunder. StackExchange.Redis-koden är motståndskraftiga mot sådana händelser och återansluter. Under denna tid för återansluter kan alla begäranden i kön timeout.
 8. Var det en stor begäran föregående flera små begäranden till Azure Cache för Redis som gjort timeout? Parametern `qs` i felet meddelande som anger hur många förfrågningar skickades från klienten till servern, men ännu inte behandlats ett svar. Det här värdet kan hålla växer eftersom StackExchange.Redis använder en enda TCP-anslutning och endast kan läsa ett svar i taget. Även om den första tidsgränsen uppnåddes, slutar den inte de data som skickas till och från servern och andra begäranden blockeras tills stora begäran har slutförts, orsakar timeout. En lösning är att minimera risken för tidsgränser genom att säkerställa att din cache är tillräckligt stort för din arbetsbelastning och dela upp stora värden i mindre segment. En annan möjlig lösning är att använda en pool med `ConnectionMultiplexer` objekt i din klient och Välj minst inlästa `ConnectionMultiplexer` när du skickar en ny begäran. Detta bör förhindra att en enda tidsgräns orsakar övriga förfrågningar till också timeout.

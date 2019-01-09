@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343851"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117121"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera klienten registrering i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Den här artikeln innehåller information om registreringsåtgärder. Du kan använda de här åtgärderna till:
 - Hantera registreringar för klient
@@ -51,7 +51,7 @@ Läs mer om Azure Stack och API-profiler, [hantera API-versionsprofiler i Azure 
 |---                         | --- |
 | registrationSubscriptionID | Azure-prenumerationen som har använts för den första registreringen. |
 | customerSubscriptionID     | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste skapas i Cloud Service Provider (CSP) erbjudandet via Partnercenter. Om en kund har fler än en klient, skapat en prenumeration att logga in på Azure Stack-klient. |
-| ResourceGroup              | Resursgruppen i Azure som är lagrade i din registrering. |
+| resourceGroup              | Resursgruppen i Azure som är lagrade i din registrering. |
 | registrationName           | Namnet på registreringen av din Azure Stack. Det är ett objekt som lagras i Azure. Namnet är vanligtvis i formuläret azurestack-CloudID, där CloudID är moln-ID för Azure Stack-distributionen. |
 
 > [!Note]  
@@ -59,7 +59,7 @@ Läs mer om Azure Stack och API-profiler, [hantera API-versionsprofiler i Azure 
 
 ### <a name="powershell"></a>PowerShell
 
-Använd cmdleten New-AzureRmResource för att uppdatera resursen för registrering. Logga in på Azure (`Add-AzureRmAccount`) med hjälp av det konto du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
+Använd cmdleten New-AzureRmResource för att uppdatera resursen för registrering. Här är ett exempel på hur du lägger till en klient:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -67,11 +67,11 @@ Använd cmdleten New-AzureRmResource för att uppdatera resursen för registreri
 
 ### <a name="api-call"></a>API-anrop
 
-**Åtgärden**: PLACERA  
+**Åtgärden**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Svaret**: 201 skapas  
-**Svarstexten**: tom  
+**Svaret**: 201 Skapad  
+**Svarstexten**: Tom  
 
 ## <a name="list-all-registered-tenants"></a>Lista över alla registrerade klienter
 
@@ -85,7 +85,7 @@ Hämta en lista över alla klienter som har lagts till en registrering.
 | Parameter                  | Beskrivning          |
 |---                         | ---                  |
 | registrationSubscriptionId | Azure-prenumerationen som har använts för den första registreringen.   |
-| ResourceGroup              | Resursgruppen i Azure som är lagrade i din registrering.    |
+| resourceGroup              | Resursgruppen i Azure som är lagrade i din registrering.    |
 | registrationName           | Namnet på registreringen av din Azure Stack. Det är ett objekt som lagras i Azure. Namnet på är vanligtvis i form av **azurestack**-***CloudID***, där ***CloudID*** är moln-ID för Azure Stack-distributioner.   |
 
 ### <a name="powershell"></a>PowerShell
@@ -100,7 +100,7 @@ Använd cmdleten Get-AzureRmResource att lista alla registrerade klienter. Logga
 
 Du kan hämta en lista över alla klient-mappningar med hjälp av GET-åtgärd
 
-**Åtgärden**: hämta  
+**Åtgärden**: HÄMTA  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -135,7 +135,7 @@ Du kan ta bort en klient som har lagts till en registrering. Om klienten fortfar
 | Parameter                  | Beskrivning          |
 |---                         | ---                  |
 | registrationSubscriptionId | Prenumerations-ID för registreringen.   |
-| ResourceGroup              | Resursgrupp för registreringen.   |
+| resourceGroup              | Resursgrupp för registreringen.   |
 | registrationName           | Namnet på registreringen.  |
 | customerSubscriptionId     | Kundens prenumerations-ID.  |
 
@@ -149,12 +149,12 @@ Du kan ta bort en klient som har lagts till en registrering. Om klienten fortfar
 
 Du kan ta bort klient mappningarna med åtgärden ta bort.
 
-**Åtgärden**: ta bort  
+**Åtgärden**: DELETE  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Svaret**: 204 inget innehåll  
-**Svarstexten**: tom
+**Svarstexten**: Tom
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a330f92e0a44153cb258ff86299d34aa408496d2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326430"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104598"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
 > [!NOTE]
@@ -404,7 +404,7 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
  De taggar som följer är ungefär i ordning som visas i föregående exempel.  Om du inte ser en fullständig beskrivning där du förväntar dig, söksida för elementet eller attributet.  
 
 ## <a name="common-attribute-types"></a>Vanliga attributtyper  
- **scheduledTransferPeriod** attributet visas i flera element. Det är intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** attributet visas i flera element. Det är intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
@@ -459,7 +459,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
 |**CrashDumps**|Se beskrivning någon annanstans på den här sidan.|  
-|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostic infrastructure-loggar är användbara vid felsökning av själva systemet diagnostik. Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighetsgraden för loggarna som samlas in.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostic infrastructure-loggar är användbara vid felsökning av själva systemet diagnostik. Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighetsgraden för loggarna som samlas in.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Kataloger**|Se beskrivning någon annanstans på den här sidan.|  
 |**EtwProviders**|Se beskrivning någon annanstans på den här sidan.|  
 |**Mått**|Se beskrivning någon annanstans på den här sidan.|  
@@ -532,8 +532,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -568,7 +568,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 

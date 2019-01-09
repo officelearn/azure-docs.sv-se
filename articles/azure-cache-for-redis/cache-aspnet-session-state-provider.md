@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: c9b843bfd448c05cb2b11165e54d19db0a7ad60e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020088"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105295"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>ASP.NET-Sessionstillståndsprovider för Azure Cache för Redis
 Azure Cache för Redis ger en sessionstillståndsprovider som du kan använda för att lagra din session tillstånd i minnet med Azure Cache för Redis i stället för en SQL Server-databas. För att använda cachelagring sessionstillståndsprovidern måste först konfigurera din cache och konfigurera ASP.NET-program för cache med hjälp av Azure Cache för Redis-Session tillstånd NuGet-paket.
@@ -127,7 +127,7 @@ När dessa steg utförs har ditt program konfigurerats för att använda Azure C
 * Provider av sessionstillstånd för SQL Server - den här providern lagrar sessionens tillstånd i Sql Server. Använd den här providern om du vill lagra sessionstillståndet i permanent lagring. Du kan skala din Webbapp, men med hjälp av Sql Server för sessionen har en prestandapåverkan på din Webbapp. Du kan också använda den här providern med en [In-Memory OLTP configuration](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) för att förbättra prestanda.
 * Distribuerade i minnet Sessionstillståndsprovider, till exempel Azure Cache för Redis-Sessionstillståndsprovider - providern ger dig bäst av båda världar. Din Webbapp kan ha en enkel, snabb och skalbar Sessionstillståndsprovider. Eftersom den här providern lagrar sessionens tillstånd i ett cacheminne, har din app att ta hänsyn till alla egenskaper som är associerade när man talar till en distribuerad i cacheminnet, till exempel tillfälliga nätverksfel. Bästa metoder för att använda Cache finns [riktlinjer för cachelagring](../best-practices-caching.md) från Microsoft Patterns & Practices [Azure Cloud programmets Design och Implementeringsguide](https://github.com/mspnp/azure-guidance).
 
-Läs mer om sessionstillstånd och andra bästa praxis, [Web Development Best Practices (Building Real-World Cloud Apps med Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Läs mer om sessionstillstånd och andra bästa praxis, [Web Development Best Practices (Building Real-World Cloud Apps med Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="next-steps"></a>Nästa steg
 Kolla in den [ASP.NET-Utdatacacheprovider för Azure Cache för Redis](cache-aspnet-output-cache-provider.md).

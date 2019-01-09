@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635381"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104768"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Använd informationen i den här artikeln för att distribuera App Service i Azure Stack.
 
@@ -204,10 +204,10 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     Om du distribuerar till ett befintligt virtuellt nätverk och använda en intern IP-adress för att ansluta till din filserver, måste du lägga till en utgående säkerhetsregel. Regeln gör det möjligt för SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
 
-    - Källa: alla
+    - Källa: Alla
     - Käll-portintervall: *
     - Mål: IP-adresser
-    - Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+    - Mål-IP-adressintervall: Intervall av IP-adresser för din filserver
     - Målportintervall: 445
     - Protokoll: TCP
     - Åtgärd: Tillåt
@@ -260,9 +260,9 @@ Du kan också prova att använda andra [plattform som en tjänst (PaaS) tjänste
  - [MySQL-resursprovider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

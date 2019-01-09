@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076633"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121251"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
-[Application Insights](../../application-insights/app-insights-overview.md) analyseras prestanda för ditt webbprogram automatiskt och kan varna dig om potentiella problem. Du kan vara att läsa det eftersom du har en av våra smart identifiering meddelanden.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) analyseras prestanda för ditt webbprogram automatiskt och kan varna dig om potentiella problem. Du kan vara att läsa det eftersom du har en av våra smart identifiering meddelanden.
 
 Den här funktionen kräver några särskilda inställningar, förutom att konfigurera din app för Application Insights (på [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md), eller [Node.js](../../azure-monitor/app/nodejs.md), och i [webbsida kod](../../azure-monitor/app/javascript.md)). Den är aktiv när din app genererar mycket telemetri.
 

@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fe4a3a4c5bbb1954fb44bd94d33d108b81ba3893
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057248"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121079"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
 Verktyget Application Insights Trends hjälper dig att visualisera hur webbappens viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostisk information kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och avslöja insikter från anpassade händelser.
@@ -29,7 +29,7 @@ Verktyget Application Insights Trends hjälper dig att visualisera hur webbappen
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Konfigurera webbappen för Application Insights
 
-Om du inte redan har gjort det ska du [konfigurera webbappen för Application Insights](../../application-insights/app-insights-overview.md). Då kan det skicka telemetri till Application Insights-portalen. Verktyget Trends läser telemetrin därifrån.
+Om du inte redan har gjort det ska du [konfigurera webbappen för Application Insights](../../azure-monitor/app/app-insights-overview.md). Då kan det skicka telemetri till Application Insights-portalen. Verktyget Trends läser telemetrin därifrån.
 
 Application Insights Trends är tillgängligt i Visual Studio 2015 Update 3 och senare.
 
@@ -69,7 +69,7 @@ Klicka på **Analysera telemetri** för att köra frågan.
 Så här navigerar du mellan bubblor i visualiseringen:
 
 * Klicka för att välja en bubbla. När du gör det uppdateras filtren längst ned i fönstret och en sammanfattning över bara de händelser som inträffat under en viss tidsperiod visas.
-* Dubbelklicka på en bubblan om du vill gå till sökverktyget och se alla enskilda telemetrihändelser som inträffat under tidsperioden
+* Dubbelklicka på en bubbla om du vill gå till sökverktyget och se alla enskilda telemetrihändelser som inträffat under tidsperioden
 * Tryck på Ctrl och klicka på en bubbla om du vill avmarkera den i visualiseringen.
 
 > [!TIP]
@@ -94,7 +94,7 @@ Om du vill ta bort dessa filter klickar du på knappen **Ta bort valda filter oc
 ![Flera filter](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Identifiera avvikelser
-Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört med andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar bubblor med avvikande händelser. Avvikelser definieras som bubblor med ett antal/procentvärde som överstiger 2,1 gånger standardavvikelsen för antalet/procentvärdet under de föregående två tidsperioderna (48 timmar om du visar de senaste 24 timmarna osv.).
+Verktyget Trends kan markera bubblor med händelser som är avvikande jämfört med andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar bubblor med avvikande händelser. Avvikelser definieras som bubblor med ett antal/procentvärde som överstiger 2,1 gånger standardavvikelsen för antalet/procentvärdet som under föregående två tidsperioderna (48 timmar om du visar de senaste 24 timmarna osv.).
 
 ![Färgade punkter representerar avvikelser](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

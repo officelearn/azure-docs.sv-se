@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820366"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119058"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -48,7 +48,7 @@ Om du anger en avbildning som Azure Container Instances inte stöder en `OsVersi
 
 Det här felet uppstår oftast när distribuera Windows-avbildningar som baseras på en Halvårskanal kanal SAC ()-versionen. Till exempel Windows version 1709 och 1803 är SAC versioner och generera felet på distributionen.
 
-Azure Container Instances stöder Windows-avbildningar som endast baseras på Long-Term Servicing kanal (LTSC)-versioner. Om du vill åtgärda problemet när du distribuerar Windows-behållare, alltid distribuera LTSC-baserade avbildningar.
+Azure Container Instances stöder för närvarande baseras bara på Windows-avbildningar i **Windows Server 2016 Long-Term Servicing kanal (LTSC)** versionen. Om du vill åtgärda problemet när du distribuerar Windows-behållare, alltid distribuera Windows Server 2016 LTSC-baserade avbildningar. Bilder baserat på Windows Server 2019 (LTSC) stöds inte.
 
 Mer information om LTSC och SAC versioner av Windows finns i [översikt över Windows Server Halvårskanal][windows-sac-overview].
 

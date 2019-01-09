@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999823"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107510"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -169,7 +169,7 @@ Gäst/server krypterad disk | Nej
 Gäst/server NFS | Nej
 Gäst/server SMB 3.0 | Nej
 Gäst/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
-Gäst/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB
+Gäst/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB<br/><br/> Disken måste vara större än 1 024 MB.
 Gäst/server disk med 4K logisk och 4 k fysisk sektorstorlek | Ja
 Gäst/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja
 Gäst/server-volym med stripe-disk > 4 TB <br/><br/>Hantering av logisk volym (LVM)| Ja

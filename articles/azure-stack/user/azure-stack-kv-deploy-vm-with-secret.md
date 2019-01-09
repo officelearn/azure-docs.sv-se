@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e35a63a36a84316815d609afa178f9a896415c2b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2ccfe09e35dc819542739df77d26a6f8a08152f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584124"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102830"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Skapa en virtuell dator med ett säkert lösenord som lagras i Azure Stack Key Vault
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Den här artikeln visar att distribuera en Windows Server-datorn med ett lösenord som lagras i Azure Stack Key Vault. Med ett key vault-lösenord är säkrare än att skicka ett lösenord i oformaterad text.
 
@@ -88,7 +88,7 @@ Uppdatera filen azuredeploy.parameters.JSON med KeyVault för URI, secretName, a
 
 ```json
 {
-    "$schema":  "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion":  "1.0.0.0",
     "parameters":  {
        "adminUsername":  {

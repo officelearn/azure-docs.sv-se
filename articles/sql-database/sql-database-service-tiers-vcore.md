@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/02/2019
-ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001608"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118208"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
 
@@ -66,6 +66,10 @@ Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga
 I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
 
 ![prissättning](./media/sql-database-service-tiers/pricing.png)
+
+Om du vill använda din befintliga lokala SQL Server-licenser betalar du bara baspris för de underliggande Azure-infrastrukturen (till exempel virtuella Azure-datorn där databasen körs) när SQL Server-databasen inte tas med motorn licens på fakturan. Du kan använda din lokala licens både för SQL Server och Azure SQL Database i en period. I annat fall inkluderas licenskostnaden för SQL Server-databasmotorn i priset för din databas eller en instans. Om du använder PowerShell eller Azure CLI för att skapa eller uppdatera din databas eller en instans, finns det två prisalternativ som du kan välja:
+- **BasePrice** innebär att du har en giltig SQL Server-licens som du vill använda som en del av [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/) och att du vill betala endast grundläggande infrastrukturkostnader.
+- **LicenseIncluded** innebär att du inte har en lokal SQL Server-licens eller du inte vill använda din lokala-licens för databasen eller hanterad instans. SQL Server-licens kan i så fall ska ingå i din faktura. 
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migrering från DTU-modellen till vCore-modellen
 

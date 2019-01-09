@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 50eb70799506ecd5203ff4fd0c2649726658b3e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551592"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104989"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -83,7 +83,7 @@ Insamling av diagnostikloggar kan aktiveras [som en del av en resurs i en Resour
 
 Du kan aktivera insamling av resursdiagnostikloggar i Azure-portalen när en resurs har skapats genom att gå till en specifik resurs eller genom att gå till Azure Monitor. För att aktivera detta via Azure Monitor:
 
-1. I den [Azure-portalen](http://portal.azure.com), gå till Azure Monitor och klicka på **diagnostikinställningar**
+1. I den [Azure-portalen](https://portal.azure.com), gå till Azure Monitor och klicka på **diagnostikinställningar**
 
     ![Avsnittet av Azure Monitor övervakning](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

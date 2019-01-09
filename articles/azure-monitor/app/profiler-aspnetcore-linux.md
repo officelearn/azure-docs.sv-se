@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: bfd6f59ca61d14bc8187aa7c56c29ac44b40b8e9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: cb294f0a3c22d52bc40f30e1d8655aed185857c6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074297"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118497"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilera ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
 Den här funktionen är för närvarande en förhandsversion.
 
-Ta reda på hur mycket tid på varje metod för ditt webbprogram när du använder [Application Insights](../../application-insights/app-insights-overview.md). Application Insights Profiler är nu tillgängligt för ASP.NET Core web apps som finns i Linux på Azure App Service. Den här guiden innehåller stegvisa instruktioner om hur Profiler-spårningar samlas in för ASP.NET Core Linux web apps.
+Ta reda på hur mycket tid på varje metod för ditt webbprogram när du använder [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler är nu tillgängligt för ASP.NET Core web apps som finns i Linux på Azure App Service. Den här guiden innehåller stegvisa instruktioner om hur Profiler-spårningar samlas in för ASP.NET Core Linux web apps.
 
 När du har slutfört den här genomgången kommer din app kan samla in Profiler-spårningar som spårningar som visas i bilden. I det här exemplet indikerar Profiler-spårning att en viss webbegäran går långsamt på grund av tid att vänta. Den *heta sökvägen* i koden som saktas appen markeras med en flammförebyggande ikon. Den **om** -metod i den **HomeController** avsnittet saktas webbappen eftersom metoden anropar den **Thread.Sleep** funktion.
 

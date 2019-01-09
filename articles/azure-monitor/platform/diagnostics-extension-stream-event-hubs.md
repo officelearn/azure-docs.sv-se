@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: bb240437870ce5457e40e8dcc3b31f3909b546fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607140"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103374"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
 Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -316,7 +316,7 @@ namespace EventHubListener
     Kontrollera först att event hub och konfiguration information är korrekt enligt beskrivningen ovan. Ibland den **PrivateConfig** återställs i en uppdatering i distributionen. Rekommenderade korrigeringen är att göra alla ändringar i *.wadcfgx* i projektet och sedan push en uppdatering för hela appen. Om det inte är möjligt, se till att uppdateringen diagnostik skickar ett komplett **PrivateConfig** som innehåller SAS-nyckeln.  
 * Jag försökte förslagen och event hub fortfarande fungerar inte.
 
-    Testa att titta i Azure Storage-tabell som innehåller loggarna och fel för Azure-diagnostik själva: **WADDiagnosticInfrastructureLogsTable**. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](http://www.storageexplorer.com) för att ansluta till det här lagringskontot, visa den här tabellen och Lägg till en fråga för tidsstämpel under de senaste 24 timmarna. Du kan använda verktyget för att exportera en CSV-fil och öppna den i ett program, till exempel Microsoft Excel. Excel är det enkelt att söka efter strängar kort, till exempel **EventHubs**, för att se vilka fel rapporteras.  
+    Testa att titta i Azure Storage-tabell som innehåller loggarna och fel för Azure-diagnostik själva: **WADDiagnosticInfrastructureLogsTable**. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagringskontot, visa den här tabellen och Lägg till en fråga för tidsstämpel under de senaste 24 timmarna. Du kan använda verktyget för att exportera en CSV-fil och öppna den i ett program, till exempel Microsoft Excel. Excel är det enkelt att söka efter strängar kort, till exempel **EventHubs**, för att se vilka fel rapporteras.  
 
 ## <a name="next-steps"></a>Nästa steg
 • [Läs mer om Event Hubs](https://azure.microsoft.com/services/event-hubs/)

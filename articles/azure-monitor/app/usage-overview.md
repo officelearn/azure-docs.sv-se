@@ -13,22 +13,22 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076985"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118531"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
-Vilka funktioner för webb- eller mobilappen som är mest populära? Användarna att uppnå sina mål med din app? De försvinner vid specifika tidpunkter och de komma tillbaka senare?  [Azure Application Insights](../../application-insights/app-insights-overview.md) hjälper dig att få kraftfulla insikter om hur personer använder din app. Varje gång du uppdaterar din app kan du utvärdera hur väl den fungerar för användare. Med denna kunskap kan göra du datadrivna beslut om din nästa utvecklingscykler.
+Vilka funktioner för webb- eller mobilappen som är mest populära? Användarna att uppnå sina mål med din app? De försvinner vid specifika tidpunkter och de komma tillbaka senare?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hjälper dig att få kraftfulla insikter om hur personer använder din app. Varje gång du uppdaterar din app kan du utvärdera hur väl den fungerar för användare. Med denna kunskap kan göra du datadrivna beslut om din nästa utvecklingscykler.
 
 ## <a name="send-telemetry-from-your-app"></a>Skicka telemetri från din app
 
 Den bästa upplevelsen hämtas genom att installera Application Insights både i serverkoden app och i dina webbsidor. Klient- och komponenterna i din app skickar telemetri till Azure-portalen för analys.
 
-1. **Kod:** Installera modulen lämpliga för din [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), eller [andra](../../azure-monitor/app/platforms.md) App.
+1. **Kod:** Installera modulen lämpliga för din [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), eller [andra](../../azure-monitor/app/platforms.md) App.
 
     * *Vill du installera serverkoden inte? Bara [skapa en Azure Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ).*
 

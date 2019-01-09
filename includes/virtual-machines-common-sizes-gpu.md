@@ -8,24 +8,29 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007938"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122844"
 ---
 GPU-optimerad VM storlekar är specialiserade virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU: er. De här storlekarna är utformade för arbetsbelastningar för beräkningsintensiva, grafik och visualisering. Den här artikeln innehåller information om antalet och typen av GPU: er, virtuella processorer, diskar och nätverkskort. Storage dataflöde och nätverket bandbredd ingår också för varje storlek i den här grupperingen. 
 
 * **NC, NCv2, NCv3, ND och NDv2** storlekarna är optimerade för beräkningsintensiva och nätverksintensiva program och algoritmer. Några exempel är CUDA - och OpenCL-baserade program och simuleringar, AI och Djupinlärning. NCv3-serien fokuserar på högpresterande arbetsbelastningar med NVIDIA: s Tesla V100 GPU.  ND-serien fokuserar på utbildning och inferensscenarier för djupinlärning. I serien används NVIDIA Tesla P40 GPU:er
+
+* Den **NC-serien** har en Intel Xeon® E5-2690 v3 2,60 GHz-processor.
+
+* Den **NCSv3**, **NCSv2**, och **ND** storlekar använder en Intel Xeon® E5-2690 v4 2,60 GHz-processorer.
+                      
 * **NV och NVv2** storlekar optimerade och utformade för fjärrvisualiserings, streaming, spel, kodning och VDI-scenarier med ramverk som OpenGL och DirectX.  Dessa virtuella datorer backas upp av NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>NC-serien
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 Virtuella datorer NC-serien drivs av den [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) kort. Användare kan bearbeta data snabbare genom att utnyttja CUDA för energiutforskningstillämpningar, krascha simuleringar, ray spårade rendering och djupinlärning. NC24r-konfiguration ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
 
@@ -43,9 +48,9 @@ Virtuella datorer NC-serien drivs av den [NVIDIA Tesla K80](https://www.nvidia.c
 
 ## <a name="ncv2-series"></a>NCv2-serien
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage cachelagring:  Stöds
 
 Virtuella datorer NCv2-serien drivs av [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU: er. Dessa GPU: erna kan tillhandahålla mer än 2 x dataprestanda NC-serien. Kunder kan dra nytta av de här uppdaterade GPU: erna för traditionella HPC-arbetsbelastningar, till exempel modellering av behållare, DNA sekvensering, proteinanalys, Monte Carlo-simuleringar och andra. Konfigurationen för NC24rs v2 ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
 
@@ -66,9 +71,9 @@ Virtuella datorer NCv2-serien drivs av [NVIDIA Tesla P100](http://images.nvidia.
 
 ## <a name="ncv3-series"></a>NCv3-serien
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage cachelagring:  Stöds
 
 Virtuella datorer i NCv3-serien drivs av [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU: er. Dessa GPU: erna kan tillhandahålla 1,5 gånger mer dataprestanda NCv2-serien. Kunder kan dra nytta av de här uppdaterade GPU: erna för traditionella HPC-arbetsbelastningar, till exempel modellering av behållare, DNA sekvensering, proteinanalys, Monte Carlo-simuleringar och andra. NC24rs v3 konfigurationen ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
 
@@ -90,9 +95,9 @@ Virtuella datorer i NCv3-serien drivs av [NVIDIA Tesla V100](http://www.nvidia.c
 ## <a name="ndv2-series-preview"></a>NDv2-serien (förhandsversion)
 
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage cachelagring:  Stöds
 
 Infiniband: Stöds inte
 
@@ -109,9 +114,9 @@ NDv2-serien virtuella datorn är en nyhet i GPU-familjen som utformats för beho
 
 ## <a name="nd-series"></a>ND-serien
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage cachelagring:  Stöds
 
 De virtuella datorerna ND-serien är en nyhet i GPU-familjen som utformats för AI och Djupinlärning arbetsbelastningar. De erbjuder utmärkta prestanda för utbildning och inferens. ND-instanserna drivs av [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU: er. Dessa instanser tillhandahåller utmärkta prestanda för enkel precision flytande punkt, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, Caffe och andra ramverk. ND-serien erbjuder även en mycket större GPU-minnesstorlek (24 GB), vilket gör det möjligt att passa större neurala nätverksmodeller. Precis som NC-serien erbjuder ND-serien en konfiguration med ett sekundära nätverk med låg latens, högt dataflöde genom RDMA och InfiniBand-anslutning så att du kan köra storskaliga upplärningsjobb över flera GPU: er.
 
@@ -132,9 +137,9 @@ De virtuella datorerna ND-serien är en nyhet i GPU-familjen som utformats för 
 
 ## <a name="nv-series"></a>NV-serien
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 De virtuella datorerna NV-serien drivs av [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU: er och NVIDIA GRID teknik för desktop skrivbordsaccelererade program och virtuella skrivbord där kunder kan visualisera sina data eller simuleringar. Användarna kan visualisera grafikintensiva arbetsflöden på NV-instanserna och få överlägsen grafikkapacitet samt köra enskilda precisionsarbetsbelastningar som kodning och rendering. 
 
@@ -150,9 +155,9 @@ Varje GPU i NV-instanserna levereras med en GRID-licens. Denna licens ger dig fl
 
 ## <a name="nvv2-series-preview"></a>NVv2-serien (förhandsversion)
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage cachelagring:  Stöds
 
 De virtuella datorerna NVv2-serien drivs av [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU: er och NVIDIA GRID teknik med Intel Broadwell-processorer. Dessa virtuella datorer är avsedda för GPU accelerated grafikprogram och virtuella skrivbord där kunder vill visualisera sina data, simulera resultat att visa, arbeta med CAD- eller rendering och stream-innehåll. Dessutom kan dessa virtuella datorer köra arbetsbelastningar med enkel precision som kodning och rendering. NVv2 virtuella datorer stöd för Premium Storage och levereras med två gånger systemminne (RAM) jämfört med föregångaren NV-serien.  
 

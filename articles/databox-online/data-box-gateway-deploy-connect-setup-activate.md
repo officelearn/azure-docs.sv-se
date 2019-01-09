@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166754"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120521"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway (förhandsversion) 
 
@@ -84,7 +84,10 @@ Du har kommit till den **instrumentpanelen** för din enhet.
     - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. Därför kan tilldelas automatiskt en IP-adress, undernät, gateway och DNS.
     - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
     - Du kan konfigurera nätverksgränssnittets som IPv4.
-   
+
+    >[!NOTE] 
+    > Vi rekommenderar att du inte växla lokala IP-adressen för gränssnittet netowrk från statisk till DCHP, såvida du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla adpaters i den **enhetsegenskaper** i Azure-portalen för din tjänst.
+
 4. (Valfritt) Konfigurera din webbproxyserver. Men webbproxykonfigurationen är valfritt, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
@@ -111,7 +114,7 @@ Du har kommit till den **instrumentpanelen** för din enhet.
     
     1. Ange den **aktiveringsnyckeln** som du fick i [hämta aktiveringsnyckeln](data-box-gateway-deploy-prep.md#get-the-activation-key) för Data Box-Gateway.
 
-    2. Klicka på **aktivera**. 
+    2. Klicka på **Aktivera**. 
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     

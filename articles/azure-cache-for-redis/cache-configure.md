@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581257"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104683"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för din Azure-Cache för Redis-instanser. Det här avsnittet innehåller också Redis server standardkonfigurationen för Azure Cache för Redis-instanser.
@@ -147,7 +147,7 @@ Den **princip för max. minne**, **maxmemory-reserverade**, och **maxfragmentati
 * `volatile-ttl`
 * `noeviction`
 
-Mer information om `maxmemory` principer, se [avlägsningsprinciper](http://redis.io/topics/lru-cache#eviction-policies).
+Mer information om `maxmemory` principer, se [avlägsningsprinciper](https://redis.io/topics/lru-cache#eviction-policies).
 
 Den **maxmemory-reserverade** inställningen konfigurerar mängden minne i MB som har reserverats för icke-cache-åtgärder, till exempel replikering under en redundansväxling. Det här värdet kan du ha en mer konsekvent användarupplevelse för Redis-server när din belastningen varierar. Det här värdet ska anges högre för arbetsbelastningar som är skriva aktiverat. När minnet är reserverat för sådana åtgärder är inte tillgänglig för lagring av cachelagrade data.
 
@@ -170,7 +170,7 @@ Redis keyspace-meddelanden har konfigurerats på den **avancerade inställningar
 > 
 > 
 
-Mer information finns i [Redis Keyspace-meddelanden](http://redis.io/topics/notifications). Exempelkoden finns på [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) fil i den [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exemplet.
+Mer information finns i [Redis Keyspace-meddelanden](https://redis.io/topics/notifications). Exempelkoden finns på [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) fil i den [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) exemplet.
 
 
 <a name="recommendations"></a>
@@ -406,7 +406,7 @@ Den nya Azure Cache för Redis-instanser har konfigurerats med följande Redis c
 | `maxmemory-samples` |3 |Är uppskattade algoritmer i stället för exakta algoritmer för att spara minne, LRU- och minimal TTL-algoritmer. Redis kontrollerar tre nycklar och plockningar det som har använts nyligen mindre som standard. |
 | `lua-time-limit` |5 000 |Maximal körningstid för ett Lua-skript i millisekunder. Om den högsta körningstiden har nåtts loggar Redis att ett skript är fortfarande i körningen efter att den längsta tillåtna tid och börjar svarar på frågor med ett fel. |
 | `lua-event-limit` |500 |Maxstorlek på skriptet händelsekön. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Klienten utdata bufferten gränserna kan användas för att framtvinga frånkoppling av klienter som inte är att läsa data från servern som är tillräckligt fort av någon anledning (en vanlig orsak är att en Pub/Sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns på [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Klienten utdata bufferten gränserna kan användas för att framtvinga frånkoppling av klienter som inte är att läsa data från servern som är tillräckligt fort av någon anledning (en vanlig orsak är att en Pub/Sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns på [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>gränsen för `databases` är olika för varje Azure-Cache för Redis prisnivå och kan anges på Skapa cache. Om ingen `databases` inställningen anges när cache skapas standardvärdet är 16.
@@ -424,7 +424,7 @@ Den nya Azure Cache för Redis-instanser har konfigurerats med följande Redis c
   * P2 (13 GB - 130 GB) – upp till 32 databaser
   * P3 (26 GB 260 GB) – upp till 48 databaser
   * P4 (53 GB 530 GB) – upp till 64 databaser
-  * Alla premium-cache med Redis-kluster som är aktiverad - Redis-kluster stöder bara användning av databas 0 så `databases` begränsa för alla premium-cache med Redis-kluster som är aktiverad är effektivt 1 och [Välj](http://redis.io/commands/select) kommandot är inte tillåtet. Mer information finns i [behöver jag göra ändringar i mitt klientprogram för att använda kluster?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Alla premium-cache med Redis-kluster som är aktiverad - Redis-kluster stöder bara användning av databas 0 så `databases` begränsa för alla premium-cache med Redis-kluster som är aktiverad är effektivt 1 och [Välj](https://redis.io/commands/select) kommandot är inte tillåtet. Mer information finns i [behöver jag göra ändringar i mitt klientprogram för att använda kluster?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Mer information om databaser finns i [vad är Redis-databaser?](cache-faq.md#what-are-redis-databases)
 
@@ -473,14 +473,14 @@ Mer information om databaser finns i [vad är Redis-databaser?](cache-faq.md#wha
 > 
 > 
 
-Mer information om Redis-kommandon finns i [ http://redis.io/commands ](http://redis.io/commands).
+Mer information om Redis-kommandon finns i [ https://redis.io/commands ](https://redis.io/commands).
 
 ## <a name="redis-console"></a>Redis-konsol
 Du kan på ett säkert sätt skicka kommandon till din Azure-Cache för Redis-instanser med hjälp av den **Redis-konsolen**, som är tillgängligt i Azure-portalen för alla nivåer av cache.
 
 > [!IMPORTANT]
 > - Redis-konsolen fungerar inte med [VNET](cache-how-to-premium-vnet.md). När din cache är en del av ett virtuellt nätverk kan endast klienter i det virtuella nätverket kan komma åt cachen. Eftersom Redis-konsolen körs i din lokala webbläsare, vilket är utanför det virtuella nätverket, kan den inte kan ansluta till ditt cacheminne.
-> - Inte alla Redis-kommandon stöds i Azure Cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure Cache för Redis, finns i den tidigare [Redis-kommandon som inte stöds i Azure Cache för Redis](#redis-commands-not-supported-in-azure-cache-for-redis) avsnittet. Mer information om Redis-kommandon finns i [ http://redis.io/commands ](http://redis.io/commands).
+> - Inte alla Redis-kommandon stöds i Azure Cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure Cache för Redis, finns i den tidigare [Redis-kommandon som inte stöds i Azure Cache för Redis](#redis-commands-not-supported-in-azure-cache-for-redis) avsnittet. Mer information om Redis-kommandon finns i [ https://redis.io/commands ](https://redis.io/commands).
 > 
 > 
 

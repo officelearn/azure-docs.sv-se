@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: ca924494231f422d6edc8990ef851c9ef454cd1d
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972005"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120010"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
-Använda resursprovidern MySQL-Server för att visa MySQL-databaser som en tjänst för Azure Stack. MySQL-resursprovider körs som en tjänst på en Windows Server 2016 Server Core-dator (VM).
+Använd MySQL Server-resursprovidern för att exponera MySQL-databaser som en Azure Stack-tjänst. MySQL-resursprovider körs som en tjänst på en Windows Server 2016 Server Core-dator (VM).
 
 > [!IMPORTANT]
 > Endast resursprovidern stöds för att skapa objekt på servrar som värd SQL eller MySQL. Objekt som har skapats på en värdserver som inte skapats med resursprovidern kan resultera i ett felaktigt tillstånd.
@@ -45,6 +45,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
   |Lägsta version av Azure Stack|MySQL RP-version|
   |-----|-----|
+  |Version 1811 (1.1811.0.101)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -97,7 +98,7 @@ Du kan ange dessa parametrar från kommandoraden. Om du inte, eller om någon pa
 | **RetryDuration** | Timeout-intervall mellan försök i sekunder. | 120 |
 | **Avinstallera** | Tar bort resursprovidern och alla associerade resurser (se nedan). | Nej |
 | **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej |
-| **AcceptLicense** | Hoppar över uppmaningen om att acceptera licensen GPL.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **AcceptLicense** | Hoppar över uppmaningen om att acceptera licensen GPL.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Distribuera MySQL-resursprovidern med ett anpassat skript
 

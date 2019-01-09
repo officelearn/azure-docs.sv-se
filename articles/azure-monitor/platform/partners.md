@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580220"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106672"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 | Partner |  |  |
@@ -126,7 +126,7 @@ PagerDuty, den ledande lösningen för hantering av incidenter, har tillhandahå
 [Gå till dokumentationen.][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-Microsoft Azure DSM och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](http://www.ibm.com/support). Du kan [mer information om integrering med Azure här][qradar-doc].
+Microsoft Azure DSM och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](https://www.ibm.com/support). Du kan [mer information om integrering med Azure här][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic levererar nästa generations IT assurance plattform för hantering av teknik, var som helst. ScienceLogic ger skalbarhet, säkerhet, automation och återhämtning som behövs för att förenkla uppgifter för att hantera IT-resurser, tjänster och program. ScienceLogic-plattformen använder Azure API: er för gränssnittet med Microsoft Azure. ScienceLogic ger dig i realtid insyn i dina Azure-tjänster och resurser. Så att du vet när något inte fungerar och du kan åtgärda det snabbare. Du kan också hantera Azure tillsammans med dina andra moln och data center-system och tjänster.
@@ -230,8 +230,8 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduktion."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduktion."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog dokumentation."
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduktion."
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog dokumentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace dokumentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic-dokumentationen."
 [grafana-doc]: ./grafana-plugin.md "Integrering med Azure Monitor Grafana."

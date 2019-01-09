@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409249"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105006"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -142,7 +142,7 @@ Du kan använda följande procedur för att konfigurera hybridanslutningen som s
     - **Slutpunktsport**: Typ 5724
     - **Servicebus-namnområdet**: Använd en befintlig servicebus namespace eller skapa en ny.
     - **Plats**: Välj platsen.
-    -  **Namn på**: Ange ett namn som servicebus om du skapar den.
+    -  **Namn**: Ange ett namn som servicebus om du skapar den.
 
     ![Hybrid anslutningsvärden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Klicka på **OK** att Stäng den **skapa hybridanslutning** bladet och börja skapa hybridanslutningen.
@@ -222,9 +222,9 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 | **Anslutningsnamn**   | Skriv ett namn för den ServiceNow-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare i Log Analytics när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **ServiceNow**. |
 | **Användarnamn**   | Typ integration användarnamnet som du skapade i ServiceNow-app för anslutningen till ITSMC. Mer information: [Skapa användarroll för ServiceNow app](#create-integration-user-role-in-servicenow-app).|
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs**: Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.  |
+| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs!** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.  |
 | **Serveradress**   | Ange Webbadressen till den ServiceNow-instans som du vill ansluta till ITSMC. |
-| **Klient-ID**   | Ange klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om att generera klient-ID och hemlighet:   [OAuth-installationen](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **Klient-ID**   | Ange klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om att generera klient-ID och hemlighet:   [OAuth-installationen](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Klienthemlighet**   | Ange klienthemlighet genereras för detta ID.   |
 | **Datasynkroniseringsomfång**   | Välj ServiceNow-arbetsobjekten som du vill synkronisera till Azure Log Analytics, via ITSMC.  De valda värdena importeras till log analytics.   **Alternativ:**  Incidenter och ändringsförfrågningar.|
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
@@ -317,7 +317,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Anslutningsnamn**   | Skriv ett namn för den Provance-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **Provance**. |
 | **Användarnamn**   | Ange det användarnamn som kan ansluta till ITSMC.    |
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i tjänsten ITSMC. _|
+| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs!** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i tjänsten ITSMC. _|
 | **Serveradress**   | Ange Webbadressen till din Provance-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din Provance-instans.  Mer information om klient-ID finns i [hur du konfigurerar active directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
 | **Datasynkroniseringsomfång**   | Välj Provance arbetsobjekten som du vill synkronisera till Azure Log Analytics, via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**   Incidenter, ändringsbegäranden.|
@@ -368,7 +368,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Anslutningsnamn**   | Skriv ett namn för den Cherwell-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **Cherwell.** |
 | **Användarnamn**   | Skriv användarnamnet Cherwell som kan ansluta till ITSMC. |
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.|
+| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs!** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.|
 | **Serveradress**   | Ange Webbadressen till din Cherwell-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din instans av Cherwell.   |
 | **Datasynkroniseringsomfång**   | Välj Cherwell arbetsobjekten som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**  Incidenter, ändringsbegäranden. |

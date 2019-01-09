@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0524e38f155049c630ace7f33805ef230c8dccca
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344252"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121001"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -89,7 +89,7 @@ Om GET-begäran lyckas HTTP-statuskoden 200 returneras, tillsammans med en lista
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -186,7 +186,7 @@ Det här svaret anger aviseringarna har har utökats till Azure-aviseringar. Ver
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -263,7 +263,7 @@ catch
 {
 
     $ErrorMessage = $_.Exception.Message
-    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
     exit 
 }
 

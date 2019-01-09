@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999211"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106849"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -102,6 +102,15 @@ Användardefinierade funktioner kan skrivas i JavaScript. Hjälpmetoder interage
 - Koppla graph metadata till sensorn läsning innan du skickar ut ett meddelande.
 
 Mer information finns i [hur du använder användardefinierade funktioner](./how-to-user-defined-functions.md).
+
+
+#### <a name="examples"></a>Exempel
+
+Den [GitHub-lagringsplatsen för Digital Twins C# exempel](https://github.com/Azure-Samples/digital-twins-samples-csharp/) innehåller några exempel på användardefinierade funktioner:
+- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) söker efter koldioxid rörelse och temperaturvärden att avgöra om ett rum är tillgängliga med dessa värden i intervallet. Den [självstudier för Digital Twins](tutorial-facilities-udf.md) Utforska den här funktionen i mer information. 
+- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) söker efter data från flera rörelsesensorer och avgör att området är tillgänglig om ingen av dem kan identifiera eventuella rörelse. Du kan enkelt ersätta den användardefinierade funktionen som används i antingen den [Snabbstart](quickstart-view-occupancy-dotnet.md), eller [självstudier](tutorial-facilities-setup.md), genom att göra de ändringar som nämns i kommentarsavsnittet i filen. 
+
+
 
 ### <a name="role-assignment"></a>Rolltilldelning
 

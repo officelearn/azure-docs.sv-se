@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3eaa5de1b1378ba78a7c57172fd0a155f72cd6c5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434706"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102524"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-initierare i varaktiga funktioner (Azure Functions)
 
@@ -91,7 +91,7 @@ Som standard genereras instans-ID: N är slumpmässigt GUID. Men i det här fall
 > När du utvecklar lokalt i JavaScript, behöver du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t.ex. `localhost:7071` att använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
-> Det finns ett potentiella konkurrenstillstånd i det här exemplet. Om två instanser av **HttpStartSingle** kör du samtidigt, resultatet kunde två olika skapas instanser av singleton, något som skriver över den andra. Beroende på dina krav kan detta få oönskade sidoeffekter. Därför är det viktigt att se till att inga två begäranden kan köra den här Utlösarfunktion samtidigt.
+> Det finns ett potentiella konkurrenstillstånd i det här exemplet. Om två instanser av **HttpStartSingle** köra samtidigt, både funktionsanrop rapporterar lyckades, men endast en orchestration-instansen kommer startar. Beroende på dina krav kan detta få oönskade sidoeffekter. Därför är det viktigt att se till att inga två begäranden kan köra den här Utlösarfunktion samtidigt.
 
 Implementeringsinformationen om orchestrator-funktion faktiskt spelar roll. Det kan vara en vanlig orchestrator-funktion som startas och slutförs eller ett som körs alltid (det vill säga en [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). Det viktiga är att det finns endast en enda instans som körs på en gång.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 6fe7152e43640a809ab9f4de39b1c6b599975a20
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ced306b00a5761ae096e918b43a8e67e649580dd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969955"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106026"
 ---
 # <a name="common-questions---azure-to-azure-replication"></a>Vanliga frågor – Azure till Azure replikering
 
@@ -62,7 +62,7 @@ Nej, Site Recovery kräver inte ansluten till internet men åtkomsten till Site 
 ## <a name="replication-policy"></a>Replikeringsprincip
 
 ### <a name="what-is-a-replication-policy"></a>Vad är en replikeringsprincip?
-Den definierar inställningarna för recovery point kvarhållning och frekvensen för programkonsekventa ögonblicksbilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållning av återställningspunkt och” 60 minuters för frekvens för appkonsekvent ögonblicksbild.
+Den definierar inställningarna för recovery point kvarhållning och frekvensen för programkonsekventa ögonblicksbilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållning av återställningspunkt och” 60 minuters för frekvens för appkonsekvent ögonblicksbild. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings) så här konfigurerar du replikeringsprincip]
 
 ### <a name="what-is-crash-consistent-recovery-point"></a>Vad är kraschkonsekvent återställningspunkt?
 Kraschkonsekvent återställningspunkt representerar data på disken som om den virtuella datorn har kraschat eller kontakten hämtades från servern när ögonblicksbilden togs. De omfattar inte något som fanns i minnet när ögonblicksbilden togs. Idag är kan de flesta program återställa från krascher programkonsekventa ögonblicksbilder. En kraschkonsekvent återställningspunkt är vanligtvis tillräckligt för ingen databas operativsystem och program, t.ex filservrar, DHCP-servrar, utskriftsservrar och så vidare.
@@ -96,6 +96,24 @@ Vid inledande replikering den första återställningspunkten som hämtar genere
 
 ### <a name="does-increasing-recovery-points-retention-windows-increases-the-storage-cost"></a>Kan du ökar den lagringskostnad genom att öka recovery punkter kvarhållningsfönstret?
 Ja, om du ökar kvarhållningsperioden från 24 timmar till 72 timmar och sedan Site Recovery sparar återställningspunkterna för tillägg 48 timmar som tillkommer du lagringskostnader. Till exempel om en enda återställningspunkt har deltaändringar på 10 GB och per GB kostnaden är $0.16 per månad, och sedan det skulle vara $1.6 * 48 ytterligare kostnader per månad.
+
+## <a name="multi-vm-consistency"></a>Konsekvens 
+
+### <a name="what-is-multi--vm-consistency"></a>Vad är Multi - VM-konsekvens?
+Det innebär att se till att återställningspunkten är konsekvent för alla replikerade virtuella datorer.
+Site Recovery tillhandahåller ett alternativ för ”konsekvens” som under valda skapar en replikeringsgrupp för att replikera alla datorer tillsammans som ingår i gruppen.
+Alla virtuella datorer har delade kraschkonsekventa och appkonsekventa återställningspunkter vid redundansväxling.
+Gå igenom självstudiekursen och [aktivera ”” konsekvens](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+
+### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Kan jag redundans enskild virtuell dator i en replikeringsgrupp för ”Multi-VM” konsekvens?
+Genom att välja alternativet ”konsekvens” du talar om att programmet har ett beroende på alla virtuella datorer i en grupp. Därför är redundans för virtuell dator inte tillåtet. 
+
+### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-multi-vm-consistency-replication-group"></a>Hur många virtuella datorer som en del av ”Multi-VM” replikeringsgruppen för konsekvens kan jag replikera?
+Du kan replikera 16 virtuella datorn tillsammans i en replikeringsgrupp.
+
+### <a name="when-should-i-enable-multi-vm-consistency-"></a>När ska jag aktivera konsekvens?
+Aktivering av konsekvens för flera datorer kan påverka en arbetsbelastningens prestanda (eftersom det är Processorintensiva) och bör endast användas om datorer kör samma arbetsbelastning och konsekvens mellan flera datorer. Till exempel om du har 2 sql-servrar och 2 webbservrar i ett program och du bör ha ”” konsekvens för sql-servrar.
+
 
 ## <a name="failover"></a>Redundans
 

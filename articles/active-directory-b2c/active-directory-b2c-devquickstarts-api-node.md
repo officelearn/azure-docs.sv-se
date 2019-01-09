@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 47b501fef8d6e0e3fecf944e3b67d563b8cce5eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847668"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117919"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Säkra ett webb-API med Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -265,13 +265,13 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 ### <a name="required-values"></a>Värden som krävs
 `clientID`: Klient-ID för programmet Web API.
 
-`IdentityMetadata`: Det är där `passport-azure-ad` letar efter konfigurationsdata för din identitetsprovider. Den letar också efter nycklarna för att validera JSON-webb-token.
+`IdentityMetadata`: Det är där `passport-azure-ad` söker efter konfigurationsdata för identitetsprovidern. Den letar också efter nycklarna för att validera JSON-webb-token.
 
-`audience`: Den URI (Uniform Resource Identifier) från portalen som identifierar ditt anropande program.
+`audience`: Uniform resource identifier (URI) från portalen som identifierar ditt anropande program.
 
 `tenantName`: Ditt klientnamn (till exempel **contoso.onmicrosoft.com**).
 
-`policyName`: Den princip som du vill använda för att validera token som kommer till servern. Det bör vara samma princip som du använder i klientprogrammet för inloggning.
+`policyName`: Den princip som du vill validera token som kommer till servern. Det bör vara samma princip som du använder i klientprogrammet för inloggning.
 
 > [!NOTE]
 > Använd samma principer för både klient- och serverinstallationen. Om du har redan gjort en genomgång och skapat dessa principer behöver du inte göra det igen. Eftersom du har gjort genomgången ska du inte behöva ställa in nya principer för klientgenomgångarna på webbplatsen.
@@ -337,13 +337,13 @@ När du har talat om för servern vilken MongoDB-databas som ska användas, mås
 ### <a name="expand-the-model"></a>Expandera modellen
 Den här schemamodellen är enkel. Du kan expandera den efter behov.
 
-`owner`: Den som har tilldelats aktiviteten. Det här objektet är en **sträng**.  
+`owner`: Som har tilldelats aktiviteten. Det här objektet är en **sträng**.  
 
 `Text`: Själva aktiviteten. Det här objektet är en **sträng**.
 
-`date`: Det datum då aktiviteten ska vara klar. Det här objektet är en **datetime**.
+`date`: Det datum då uppgiften förfaller. Det här objektet är en **datetime**.
 
-`completed`: Om aktiviteten har slutförts. Det här objektet är en **boolesk**.
+`completed`: Om uppgiften har slutförts. Det här objektet är en **boolesk**.
 
 ### <a name="create-the-schema-in-the-code"></a>Skapa schemat i koden
 Ändra katalogen till `azuread` från kommandoraden, om den inte redan finns där:
@@ -549,7 +549,7 @@ Med Restify och Express kan anpassa för en REST API-server på en mycket ingåe
 
 
 var server = restify.createServer({
-    name: "Microsoft Azure Active Directroy TODO Server",
+    name: "Microsoft Azure Active Directory TODO Server",
     version: "2.0.1"
 });
 

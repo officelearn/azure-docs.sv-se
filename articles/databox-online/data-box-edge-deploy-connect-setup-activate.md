@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: f4ca513e3c2e2345dc0005b95ddb7927c0164ffe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e5f2ecd2cdff0ae5f3f5f086bde0741f7f6d2dbb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383025"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121625"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Självstudiekurs: Ansluta, konfigurera och aktivera Azure Data Box Edge (förhandsversion) 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Självstudier: Ansluta, konfigurera och aktivera Azure Data Box Edge (förhandsversion) 
 
 Den här självstudien beskrivs hur du kan ansluta, konfigurera och aktivera din Azure Data Box Edge-enhet med hjälp av det lokala webbgränssnittet. 
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera och aktivera den fysiska enheten
 
 > [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Innan du ordna och distribuera den här lösningen kan du granska den [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -85,7 +85,10 @@ Instrumentpanelen visar olika inställningar som krävs för att konfigurera och
     - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. En IP-adress, undernät, gateway och DNS-tilldelas automatiskt.
     - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
     - Du kan konfigurera nätverksgränssnittets som IPv4.
-   
+
+    >[!NOTE] 
+    > Vi rekommenderar att du inte växla lokala IP-adressen för gränssnittet netowrk från statisk till DCHP, såvida du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla adpaters i den **enhetsegenskaper** i Azure-portalen för din tjänst.
+
 1. (Valfritt) I den vänstra rutan väljer **Web proxyinställningar**, och sedan konfigurera din webbproxyserver. Även om webbproxykonfigurationen är valfritt, om du använder en webbproxy kan du konfigurera det på den här sidan endast.
    
    ![Sidan ”Webbproxyinställningar”](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)

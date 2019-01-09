@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036605"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119738"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 I Azure Stack, kan du tillgängliggöra avbildningar av virtuella datorer till dina användare. Dessa avbildningar kan refereras av Azure Resource Manager-mallar eller du kan lägga till dem till Azure Marketplace-Gränssnittet som ett Marketplace-objekt. Du kan använda antingen en bild form global Azure Marketplace eller lägga till en egen anpassad avbildning. Du kan lägga till en virtuell dator med portalen eller med Windows PowerShell.
 
@@ -48,7 +48,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
    * Anteckna URI där du laddar upp avbildningen för blob-lagring. URI för blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **åtkomstprincip**. Du kan i stället skapar en signatur för delad åtkomst för behållaren, och lägger till den som en del av blob-URI. Det här steget ser till att bloben är tillgängliga att användas för att lägga till detta som en bild. Om du inte kan nås anonymt blob skapas VM-avbildning till i ett felaktigt tillstånd.
+   * För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **åtkomstprincip**. Du kan också generera en signatur för delad åtkomst för behållaren och lägger till den som en del av blob-URI. Det här steget ser till att bloben är tillgängliga att användas för att lägga till detta som en bild. Om du inte kan nås anonymt blob skapas VM-avbildning till i ett felaktigt tillstånd.
 
    ![Gå till lagringskontoblobbar](./media/azure-stack-add-vm-image/image1.png)
 
@@ -154,7 +154,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 3. Logga in på Azure Stack som en operatör. Anvisningar finns i [logga in på Azure Stack som operatör](azure-stack-powershell-configure-admin.md).
 
-4. Skapa ett lagringskonto i globala Azure eller Azure Stack för att lagra din anpassade Virtuella datoravbildning. Instruktioner finns i [Snabbstart: ladda upp, ladda ned och lista blobar med Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Skapa ett lagringskonto i globala Azure eller Azure Stack för att lagra din anpassade Virtuella datoravbildning. Instruktioner finns i [snabbstarten: Ladda upp, ladda ned och lista blobar med Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Förbereda en Windows- eller Linux operativsystemavbildning i VHD-format (inte VHDX), överför avbildningen till ditt storage-konto och hämta URI där VM-avbildning kan hämtas med PowerShell.  
 

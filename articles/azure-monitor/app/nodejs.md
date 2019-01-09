@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8414633ae90cccdf4496826bee673e82e3c80460
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035550"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119806"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) övervakar dina serverdelstjänster och komponenter när du har distribuerat dem för att hjälpa dig att [upptäcka och snabbt diagnostisera problem med prestanda och annat](../../azure-monitor/app/detect-triage-diagnose.md). Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina serverdelstjänster och komponenter när du har distribuerat dem för att hjälpa dig att [upptäcka och snabbt diagnostisera problem med prestanda och annat](../../azure-monitor/app/detect-triage-diagnose.md). Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 

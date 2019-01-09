@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025155"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120673"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Datamodell för Application Insights-telemetri
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) skickar telemetri från din webbapp till Azure-portalen så att du kan analysera prestanda och användning av ditt program. Telemetri modellen är standardiserat så att det är möjligt att skapa plattform och språkoberoende övervakning. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar telemetri från din webbapp till Azure-portalen så att du kan analysera prestanda och användning av ditt program. Telemetri modellen är standardiserat så att det är möjligt att skapa plattform och språkoberoende övervakning. 
 
 Data som samlas in av Application Insights-modeller det här mönstret för körning av vanliga program:
 

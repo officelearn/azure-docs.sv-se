@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 592efa5cc6a4918c03680e9785f85792eaa90099
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046121"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121489"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Att separera telemetri från utveckling, testning och produktion
 
-När du skapar i nästa version av ett program kan du inte vill blanda ihop den [Application Insights](../../application-insights/app-insights-overview.md) telemetri från den nya versionen och den redan utgivna versionen. Skicka telemetri från olika utveckling faser för att separera Application Insights-resurser med separat instrumenteringsnycklar (ikeys) för att undvika förvirring. Om du vill göra det lättare att ändra instrumenteringsnyckeln som en version som flyttar från ett stadium till en annan, kan det vara praktiskt att ange nyckeln i koden i stället för i konfigurationsfilen. 
+När du skapar i nästa version av ett program kan du inte vill blanda ihop den [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetri från den nya versionen och den redan utgivna versionen. Skicka telemetri från olika utveckling faser för att separera Application Insights-resurser med separat instrumenteringsnycklar (ikeys) för att undvika förvirring. Om du vill göra det lättare att ändra instrumenteringsnyckeln som en version som flyttar från ett stadium till en annan, kan det vara praktiskt att ange nyckeln i koden i stället för i konfigurationsfilen. 
 
 (Om datorn är en Azure-molntjänst är det [ett annat sätt för att ange olika ikeys](../../azure-monitor/app/cloudservices.md).)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632797"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102626"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver Underhåll principen för integrerade Azure Stack-sy
 
 Microsoft kommer att släppa både fullständig månatliga uppdateringspaket samt hotfix-paket för att bemöta specifika problem. 
 
-Månatliga uppdateringspaket finns i en säker Azure-slutpunkt. Du kan hämta dem manuellt med hjälp av den [Azure Stack uppdaterar installationshämtaren verktyget](http://aka.ms/azurestackupdatedownload). Om skalningsenheten är ansluten uppdateringen visas automatiskt i administratörsportalen som **uppdatering**. Fullständiga, är varje månad uppdateringspaket väl dokumenterat på varje version. Mer information om varje version kan du klicka på någon version från den [uppdatera paketet frisläppningstakt](#update-package-release-cadence) i den här artikeln.
+Månatliga uppdateringspaket finns i en säker Azure-slutpunkt. Du kan hämta dem manuellt med hjälp av den [Azure Stack uppdaterar installationshämtaren verktyget](https://aka.ms/azurestackupdatedownload). Om skalningsenheten är ansluten uppdateringen visas automatiskt i administratörsportalen som **uppdatering**. Fullständiga, är varje månad uppdateringspaket väl dokumenterat på varje version. Mer information om varje version kan du klicka på någon version från den [uppdatera paketet frisläppningstakt](#update-package-release-cadence) i den här artikeln.
 
 Snabbkorrigeringen uppdateringspaket finns i samma säkra Azure-slutpunkten. Du kan ladda ned dem manuellt med hjälp av den inbäddade länken i var och en i respektive snabbkorrigering KB-artiklar. till exempel [Azure Stack-snabbkorrigeringen 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Liknar de fullständiga, månatliga uppdateringspaket, Azure Stack-operatörer kan hämta XML-, .bin- och .exe-filer och importera dem med hjälp av proceduren i [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md). Azure Stack-operatörer med anslutna skalningsenheter visas snabbkorrigeringar visas automatiskt i administratörsportalen med meddelandet **uppdatering**.
 

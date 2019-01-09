@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: b702d375f7a66843918a960ca3783c078eac541e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579742"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118446"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
@@ -23,6 +23,7 @@ Azure SQL Data Warehouse är en molnbaserad Enterprise Data mpp-modell som utnyt
 
 Klicka på länkarna nedan för att få mer information om nya funktioner och förbättringar som du kan förvänta dig i den senaste versionen av Azure SQL Data Warehouse. Du kan förvänta dig att få dessa tjänsteuppdateringar under ditt identifierade underhållsschema.
 
+- [December 2018](./release-notes-december-2018.md)
 - [Oktober 2018](./release-notes-october-2018.md)
 - [September 2018](./release-notes-september-2018.md)
 - [Augusti 2018](./release-notes-august-2018.md)

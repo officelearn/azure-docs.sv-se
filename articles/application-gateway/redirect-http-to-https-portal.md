@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: 1d30ddfb97b065d0d2fdf3bf91a73d3f7eb1b70f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a10314d4c396298f018459e56252d0d0d1656f08
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110222"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107794"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering i Azure Portal
 
@@ -65,7 +65,7 @@ Export-PfxCertificate `
 
 Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 3. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
 4. Ange följande värden för programgatewayen:

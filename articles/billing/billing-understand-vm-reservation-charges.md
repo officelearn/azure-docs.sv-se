@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 096cf8e7a03f00cd5854ac4ce9569b14fe4b761b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cdcb4e06afab2cccff7baa92989ccf904f42cf88
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581484"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118021"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Förstå hur Azure reservationsrabatten tillämpas på virtuella datorer
 
@@ -52,6 +52,10 @@ För att förstå och visa tillämpningen av dina Azure-reservationer i fakturer
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Tillämpning av reservationsrabatten på Windows virtuella datorer
 
 När du kör Windows VM-instanser, ska reservationen gälla för att täcka infrastrukturkostnaderna. Tillämpning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-programvara på basis av per vCPU. Se [Windows kostnader för programvara med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows licenskostnaden med [Azure Hybrid-förmånen för Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Rabatten gäller för olika storlekar med flexibilitet för datorinstanser storlek
+
+När du köper en reserverad VM-instans, om du väljer **optimerade för**: **instans storlek flexibilitet**, rabatt täckning beror på virtuella datorstorlek som du väljer. Reservationen kan använda för storlekar för virtuella datorer (VM) i gruppen för serien av samma storlek. Mer information finns i [VM-storlek flexibilitet med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

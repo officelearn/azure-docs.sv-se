@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0e325de3a9a28d824ea9a6bfb7b3346bf9285e58
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033323"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120962"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -55,7 +55,7 @@ Du kan välja varje listad objektmodell för en mer detaljerad översikt över n
 
 ![Swagger-modell][3]
 
-De genererade Swagger-objektmodellerna bekvämt att se alla tillgängliga Azure Digital Twins [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan tillgängliggöra användning av den här resursen när de skapar lösningar på Azure Digital Twins.
+De genererade Swagger-objektmodellerna bekvämt att se alla tillgängliga Azure Digital Twins [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan använda den här resursen när de skapar lösningar på Azure Digital Twins.
 
 ## <a name="endpoint-summary"></a>Sammanfattning av slutpunkt
 
@@ -79,7 +79,7 @@ När du har valt en viss slutpunkt kan du se **prova**.
 
 ![Swagger-försök][5]
 
-Expandera avsnittet att ta fram inmatningsfält för alla obligatoriska och valfria parametrar. Ange värden i enlighet med detta och väljer **kör**.
+Expandera avsnittet att ta fram inmatningsfält för alla obligatoriska och valfria parametrar. Ange rätt värden och välj **kör**.
 
 ![Ett försök gjordes att swagger][6]
 

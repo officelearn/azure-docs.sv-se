@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 34ced37213ddb585b382965cf73c454d4c9f93e9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 76348ef6984585856565ff39bfa707f1319477bb
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014054"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107223"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Distribuera en mall i Azure Stack med hjälp av PowerShell
 
@@ -35,7 +35,7 @@ Det här exemplet används **AzureRM** PowerShell-cmdlets och en mall som lagras
 >[!NOTE]
 >Innan du testar det här exemplet måste du se till att du har [konfigurerat PowerShell](azure-stack-powershell-configure-user.md) för en Azure Stack-användare.
 
-1. Gå till [ http://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) och hitta den **101-enkel-windows-vm** mall. Spara mallen i den här platsen: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Gå till [ https://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) och hitta den **101-enkel-windows-vm** mall. Spara mallen i den här platsen: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Öppna en upphöjd PowerShell-kommandotolk.
 3. Ersätt `username` och `password` i skriptet nedan med ditt användarnamn och lösenord och kör skriptet:
 

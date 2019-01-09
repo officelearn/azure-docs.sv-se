@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 1/8/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5920ec5ec8e864b5bdb986544a3cdc259e7344da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053644"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107590"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
@@ -54,7 +54,7 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
  
    Namnet på din ADF måste vara globalt unikt. Om du får följande fel ändrar du namnet på din ADF (till exempel Dittnamnmyazuressisdatafactory) och försöker skapa igen. Se [Data Factory – namnregler](naming-rules.md) du lär dig om namnregler för ADF artefakter.
   
-   `Data factory name �MyAzureSsisDataFactory� is not available`
+   `Data factory name MyAzureSsisDataFactory is not available`
       
 4. Välj Azure **prenumeration** under som du vill skapa din ADF. 
 5. Gör något av följande för **Resursgrupp**:
@@ -86,23 +86,21 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
    
 2. I **aktiviteter** verktygslådan Expandera **Allmänt** -menyn och dra och släpp en **Web** aktiviteten till pipelinedesignytan. I **Allmänt** fliken ändra aktivitetsnamnet på i egenskapsfönstret aktivitet **startMyIR**. Växla till **inställningar** fliken och göra följande.
 
-    1. För **URL**, ange följande URL för REST-API som startar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`.
+    1. För **URL**, ange följande URL för REST-API som startar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Du kan alternativt kan du också kopiera och klistra in resurs-ID för din IR från den övervakning sidan på ADF användargränssnitt/app för att ersätta följande del av URL: en ovan: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
     
-    Du kan alternativt kan du också kopiera och klistra in resurs-ID för din IR från den övervakning sidan på ADF användargränssnitt/app för att ersätta följande del av URL: en ovan: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
-    
-   ![ADF SSIS IR resurs-ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
+       ![ADF SSIS IR resurs-ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
     2. För **metoden**väljer **POST**. 
     3. För **brödtext**, ange `{"message":"Start my IR"}`. 
     4. För **autentisering**väljer **MSI** för att använda den hanterade identitet för din ADF, se [tjänstidentitet för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikeln för mer information.
-    5. För **Resource**, ange `https://management.azure.com/`. 
+    5. För **Resource**, ange `https://management.azure.com/`.
     
-   ![ADF Web aktivitetsschemat SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
+       ![ADF Web aktivitetsschemat SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
   
 3. Klona den första pipelinen för att skapa en andra profil, ändra aktivitetsnamnet på **stopMyIR** och ersätter följande egenskaper.
 
     1. För **URL**, ange följande URL för REST-API som stoppar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
-  
+    
     2. För **brödtext**, ange `{"message":"Stop my IR"}`. 
 
 4. Skapa en tredje pipeline, dra och släpp en **köra SSIS-paket** aktivitet från **aktiviteter** verktygslådan till pipelinedesignern pipelinedesignytan och konfigurera den följa anvisningarna i [ Anropa ett SSIS-paket med aktiviteten kör SSIS-paket i ADF](how-to-invoke-ssis-package-ssis-activity.md) artikeln.  Du kan också använda en **lagringsprocedur** aktivitet i stället och konfigurera den följa anvisningarna i [anropa ett SSIS-paket med lagringsprocedur-aktivitet i ADF](how-to-invoke-ssis-package-stored-procedure-activity.md) artikeln.  Länka sedan kör SSIS paket/lagrad procedur-aktivitet mellan två webbaktiviteter som Starta/Stoppa din IR som liknar dessa webbaktiviteterna i pipelines första/sekund.

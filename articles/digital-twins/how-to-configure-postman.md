@@ -8,18 +8,19 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 32c56a2ac3df9f386300a6ee8207a76c8031ab10
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016723"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117527"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för Azure Digital Twins
 
-Den här artikeln beskriver hur du konfigurerar Postman REST-klient för att interagera med och testa Azure Digital Twins Management API: erna.
+Den här artikeln beskriver hur du konfigurerar Postman REST-klient för att interagera med och testa Azure Digital Twins Management API: erna. Mer specifikt beskrivs:
 
-Artikeln visar hur du konfigurerar ett Azure Active Directory-program att använda OAuth 2.0 implicit beviljande av flödet. Det beskriver också hur du konfigurerar Postman REST-klient för att göra token med HTTP-begäranden till din Management-API: er.
+* Så här konfigurerar du ett Azure Active Directory-program att använda OAuth 2.0 implicit beviljande av flödet.
+* Så här konfigurerar du Postman REST-klient för att göra token med HTTP-begäranden till din Management-API: er.
 
 ## <a name="postman-summary"></a>Sammanfattning av postman
 
@@ -88,7 +89,11 @@ Nu ska installera och konfigurera Postman att skaffa en Azure Active Directory-t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om autentisering med API: er för Management [autentisera med API: er](./security-authenticating-apis.md).
+- Mer om Digital Twins management API: er och hur de används finns [hur du använder Azure Digital Twins management API: er](how-to-navigate-apis.md).
+
+- Läs om autentisering med API: er för Management [autentisera med API: er](./security-authenticating-apis.md). 
+
+
 
 <!-- Images -->
 [1]: media/how-to-configure-postman/implicit-flow.png

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232315"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104020"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Förbered en Red Hat-baserad virtuell dator för Azure Stack
 
 I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure Stack. RHEL-versioner som beskrivs i den här artikeln är 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware.
 
-Red Hat Enterprise Linux supportinformation i [Red Hat och Azure Stack: vanliga frågor och svar](https://access.redhat.com/articles/3413531).
+Red Hat Enterprise Linux supportinformation i [Red Hat och Azure Stack: Vanliga frågor och svar](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Förbered en Red Hat-baserad virtuell dator från Hyper-V Manager
 
@@ -347,7 +347,7 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Förbered en Red Hat-baserad virtuell dator från VMware
 
-Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VMware. Mer information om hur du installerar ett operativsystem i VMware finns i [installationsguide för VMware Guest Operating System](http://partnerweb.vmware.com/GOSIG/home.html).
+Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VMware. Mer information om hur du installerar ett operativsystem i VMware finns i [installationsguide för VMware Guest Operating System](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för LVM, vilket ofta är standard för många installationer. På så sätt undviker LVM namnet står i konflikt med den klonade virtuella datorn, särskilt om en operativsystemdisk någonsin måste kopplas till en annan virtuell dator för felsökning. LVM eller RAID kan användas på datadiskar om du så föredrar.
 * Konfigurera inte swap-partition på operativsystemdisken. Du kan konfigurera Linux-agenten för att skapa en växlingsfil på temporär disk. Du hittar mer information om detta i stegen nedan.

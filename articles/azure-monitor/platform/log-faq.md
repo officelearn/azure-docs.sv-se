@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d062108dbb27095e978b4973cb7bc5172a4d814
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186284"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107235"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -81,7 +81,7 @@ S: Lista över vyer och installerade lösningar är tillgängliga i Azure-portal
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>F. Varför kan jag skapa arbetsytor i regionen USA, västra region? 
 
-S: Den här regionen är i tillfälligt kapacitetsgränsen. Gränsen är planerad att åtgärdas i den första halvan av 2019.
+S: Den här regionen är tillfälligt vid kapacitetsgränsen. Gränsen planeras att åtgärdas under den första halvan av 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>F. Använder Log Analytics samma agent som Azure Security Center?
@@ -219,7 +219,7 @@ A. Det kostnadsfria abonnemanget anger en daglig högsta gräns på 500 MB per a
 
 Log Analytics-agenten har utformats för att se till att den har ett litet utrymme. Datavolymen varierar beroende på de lösningar som du aktiverar. Du kan hitta detaljerad information på datavolymen och se en analys på detaljnivå av lösningen i den [användning](../../azure-monitor/platform/data-usage.md) sidan.
 
-Mer information kan du läsa en [kunden blogg](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) visar sina resultat när du har utvärderat Resursanvändning (fotavtryck) OMS-agenten.
+Mer information kan du läsa en [kunden blogg](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) visar sina resultat när du har utvärderat Resursanvändning (fotavtryck) OMS-agenten.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>F. Hur mycket nätverksbandbredd används av Microsoft Management Agent (MMA) när du skickar data till Log Analytics?
 

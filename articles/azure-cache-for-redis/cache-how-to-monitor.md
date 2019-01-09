@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582719"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105125"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Så här övervakar du Azure Cache för Redis
 Azure Cache för Redis använder [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) tillhandahåller flera alternativ för övervakning av cache-instanser. Du kan visa mått, fästa måttdiagram på startsidan, anpassa intervallet datum och tid för övervakning av diagram, lägga till och ta bort mått från diagrammen och ställa in aviseringar när vissa villkor är uppfyllda. Dessa verktyg kan du övervaka hälsotillståndet för din Azure-Cache för Redis-instanser och hjälper dig att hantera dina cachelagring program.
 
-Mätvärden för Azure Cache för Redis-instanser samlas in med hjälp av Redis [INFO](http://redis.io/commands/info) kommandot ungefär två gånger per minut och lagras automatiskt i 30 dagar (se [exportera cachemått](#export-cache-metrics) att konfigurera en olika bevarandeprincip) så att de kan visas i diagrammen mått och utvärderas från Varningsregler. Läs mer om de olika INFO-värdena som används för varje cache-mått, [tillgängliga mått och rapportering intervall](#available-metrics-and-reporting-intervals).
+Mätvärden för Azure Cache för Redis-instanser samlas in med hjälp av Redis [INFO](https://redis.io/commands/info) kommandot ungefär två gånger per minut och lagras automatiskt i 30 dagar (se [exportera cachemått](#export-cache-metrics) att konfigurera en olika bevarandeprincip) så att de kan visas i diagrammen mått och utvärderas från Varningsregler. Läs mer om de olika INFO-värdena som används för varje cache-mått, [tillgängliga mått och rapportering intervall](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Varje mått innehåller två versioner. Ett mått som mäter prestanda för hela
 
 | Mått | Beskrivning |
 | --- | --- |
-| Cacheträffar |Antal lyckade sökningar som nyckel för under det angivna intervallet för rapportering. Detta mappas till `keyspace_hits` från Redis [INFO](http://redis.io/commands/info) kommando. |
+| Cacheträffar |Antal lyckade sökningar som nyckel för under det angivna intervallet för rapportering. Detta mappas till `keyspace_hits` från Redis [INFO](https://redis.io/commands/info) kommando. |
 | Svarstid för cache (förhandsversion) | Svarstiden för cachen beräknas utifrån av Distributionsrestriktioner svarstiden för cachen. Det här måttet mäts i mikrosekunder och har tre dimensioner: ”Genomsnittlig”, ”Min” och ”Max” som representerar genomsnittlig, minsta och högsta svarstiden för cachen respektive under det angivna intervallet för rapportering. |
 | Cachemissar |Antal misslyckade viktiga sökningar under det angivna intervallet för rapportering. Detta mappas till `keyspace_misses` från Redis INFO-kommandot. Cachemissar innebär inte nödvändigtvis att det finns ett problem med cacheminnet. Till exempel när du använder mönstret cache-aside programmeringsspråk, ett program att leta i cacheminnet för ett objekt. Om objektet inte är det (cachemiss), är objektet hämtas från databasen och läggs till i cachen till nästa gång. Cachemissar är normalt att programming cache aside-mönstret. Om antalet cachemissar är högre än förväntat, granskar du programlogik som fyller på och läser från cachen. Om objekt avlägsnas från cache på grund av minnesbelastning och det kan finnas vissa cachemissar, men ett bättre mått att övervaka minnesbelastning skulle vara `Used Memory` eller `Evicted Keys`. |
 | Cacheläsning |Mängden data som lästs från cacheminnet i megabyte per sekund (MBIT/s) under det angivna intervallet för rapportering. Det här värdet härleds från nätverkskort som har stöd för den virtuella datorn som är värd för cachen och kan inte Redis specifika. **Det här värdet motsvarar nätverksbandbredden som används av det här cacheminnet. Om du vill ställa in aviseringar för serversidan nätverk bandbreddsgränser, skapar den sedan med det här `Cache Read` räknaren. Se [den här tabellen](cache-faq.md#cache-performance) för observerade bandbreddsgränserna för olika cache priser nivåer och storlekar.** |

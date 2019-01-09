@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714363"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118259"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -178,7 +178,7 @@ Med upp ditt program och som körs i Azure kan behöver du för att kunna överv
 
 -   **Visual Studio Application Insights**: En Azure-värdbaserade utökningsbar analystjänst som kan integreras med Visual Studio för att övervaka dina live-webbprogram. Det ger dig de data som du behöver att kontinuerligt förbättra prestanda och användbarhet dina appar, oavsett om de är på Azure eller inte.
 
-    >**Kom igång**: Följ den [Application Insights-självstudien](../../application-insights/app-insights-overview.md).
+    >**Kom igång**: Följ den [Application Insights-självstudien](../../azure-monitor/app/app-insights-overview.md).
 
 -   **Azure Monitor**: En tjänst som hjälper dig att visualisera, fråga, vidarebefordra, arkivera och vidta åtgärder för mått och loggar som genereras av Azure-infrastrukturen och resurser. Monitor innehåller datavyer att du ser i Azure-portalen och är en enda källa för övervakning av Azure-resurser.
  

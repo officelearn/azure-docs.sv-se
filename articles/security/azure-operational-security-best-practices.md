@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725328"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118191"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metodtips för Azure driftsäkerhet
 Azure driftsäkerhet refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Azure. Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som funktioner som är unika för Microsoft, inklusive den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programmet och djup medvetenhet om hotlandskapet.
@@ -87,7 +87,7 @@ Du kan använda [Azure Resource Manager](https://azure.microsoft.com/documentati
 - Se till att din app kan hantera trafik för nästa start eller marknadsföring kampanjen.
 
 **Bästa praxis**: Övervaka programmets prestanda.  
-**Information om**: [Azure Application Insights](../application-insights/app-insights-overview.md) är en utökningsbar (APM) Hanteringstjänst för programprestanda för webbutvecklare på flera plattformar. Du kan använda Application Insights för att övervaka ditt webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller analysverktyg för att hjälpa dig att diagnostisera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
+**Information om**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) är en utökningsbar (APM) Hanteringstjänst för programprestanda för webbutvecklare på flera plattformar. Du kan använda Application Insights för att övervaka ditt webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller analysverktyg för att hjälpa dig att diagnostisera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Minimera och skydda mot DDoS
 Distribuerade överbelastningsattacker (DDoS) är en typ av angrepp som används för att få slut på resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begäranden. Dessa attacker blir allt mer sofistikerade och större i storlek och effekt. De kan riktas till valfri slutpunkt som kan nås offentligt via internet.

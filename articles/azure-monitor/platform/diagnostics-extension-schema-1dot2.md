@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 322cd75fe9198bae459e7c22bed794f583d13363
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326370"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106706"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schema för Azure Diagnostics 1.2-konfiguration
 > [!NOTE]
@@ -109,12 +109,12 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|Krävs. Valfritt attribut är:<br /><br /> -                     **overallQuotaInMB** -maximal mängd lokalt diskutrymme som kan användas av de olika typerna av diagnostiska data som samlas in av Azure Diagnostics. Standardinställningen är 5 120 MB.<br /><br /> -                     **useProxyServer** – konfigurera Azure Diagnostics för att använda inställningarna för proxyservern som angetts i Internet Explorer-inställningarna.|  
 |**CrashDumps**|Aktivera insamling av kraschdumpar. Valfritt attribut är:<br /><br /> -                     **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra kraschdumpar.<br /><br /> -                     **crashDumpType** -konfigurerar Azure Diagnostics för att samla in Mini eller fullständig kraschen Dumpar.<br /><br /> -                     **directoryQuotaPercentage**-konfigurerar procentandelen **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
-|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostic infrastructure-loggar är användbara vid felsökning av själva systemet diagnostik. Valfritt attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighetsgraden för loggarna som samlas in.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**Kataloger**|Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostic infrastructure-loggar är användbara vid felsökning av själva systemet diagnostik. Valfritt attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighetsgraden för loggarna som samlas in.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Kataloger**|Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW Manifest baserade providers.|  
 |**Mått**|Det här elementet kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. Varje prestandaräknare som definieras i den **PerformanceCounters** elementet lagras i tabellen mått förutom tabellen prestandaräknaren. Obligatoriskt attribut:<br /><br /> **resourceId** – detta är resurs-ID för den virtuella datorn som du distribuerar Azure Diagnostics-data till. Hämta den **resourceID** från den [Azure-portalen](https://portal.azure.com). Välj **Bläddra** -> **resursgrupper** -> **< namn\>**. Klicka på den **egenskaper** panelen och kopiera värdet från den **ID** fält.|  
-|**PerformanceCounters**|Aktiverar insamling av prestandaräknare. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatypen”.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Aktiverar insamlingen av Windows-händelseloggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatypen”.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**PerformanceCounters**|Aktiverar insamling av prestandaräknare. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatypen”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Aktiverar insamlingen av Windows-händelseloggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatypen”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
  Aktiverar insamling av kraschdumpar. I följande tabell beskrivs underordnade element:  
@@ -154,8 +154,8 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). I följande tabell beskrivs underordnade element:  
@@ -178,7 +178,7 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters Element  
  Aktiverar insamling av prestandaräknare. I följande tabell beskrivs underordnade element:  

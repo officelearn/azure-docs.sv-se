@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cfbb04ea56eacfd859b6ce520da5396ad91d9abf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970339"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121302"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-Mallresurser
 Azure API Management ger följande typer av resurser för användning i utvecklaren portal mallar.  
@@ -108,7 +108,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Vill du ta bort programmet?|  
 |WebDevelopersAppNotPublished|Inte publicerade|  
-|WebDevelopersAppNotSubminted|Inte skickat|  
+|WebDevelopersAppNotSubmitted|Inte skickat|  
 |WebDevelopersAppTableCategoryHeader|Kategori|  
 |WebDevelopersAppTableNameHeader|Namn|  
 |WebDevelopersAppTableStateHeader|Status|  
@@ -122,7 +122,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
   
 |Namn|Text|  
 |----------|----------|  
-|WebApplicationsHeader|Program|  
+|WebApplicationsHeader|Appar|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
@@ -155,7 +155,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |PasswordTooManyRepetitions|För många repetitioner|  
 |PasswordSequenceFound|Lösenordet innehåller sekvenser|  
 |PagerLabelPageSize|Sidstorlek|  
-|CurtainLabelLoading|Läser in ...|  
+|CurtainLabelLoading|Laddar...|  
 |TablePlaceholderNothingToDisplay|Det finns inga data för den valda perioden och omfånget|  
 |ButtonLabelClose|Stäng|  
   
@@ -287,7 +287,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |OAuth2SendingMethod_QueryParam|Frågeparameter|  
 |OAuth2AuthorizationServerGeneralException|Ett fel uppstod vid auktorisering av åtkomst via {0}|  
 |OAuth2AuthorizationServerCommunicationException|Det gick inte att upprätta en HTTP-anslutning till auktoriseringsservern eller också har den oväntat stängts.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Ett oväntat fel inträffade.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Det har uppstått ett oväntat fel.|  
 |AuthorizationServerCommunicationException|Auktorisering server kommunikation undantagsfel har uppstått. Kontakta administratören.|  
 |TextblockSubscriptionKeyHeaderDescription|Prenumerationsnyckel som ger åtkomst till den här API: et. Hittades i din < en href ='/ developer'\>profil < /a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0-åtkomsttoken har erhållits från < jag\>{0}< /i\>. Beviljandetyper som stöds: < jag\>{1}< /i\>.|  

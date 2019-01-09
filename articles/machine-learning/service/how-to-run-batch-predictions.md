@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adac498b2f1e3331497c08f41558575c06b5823c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752630"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102949"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
 
@@ -185,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>Skriv din bedömningsskriptet
 
 >[!Warning]
->Följande kod är bara ett exempel på vad som finns i den [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) används av den [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Du måste skapa din egen bedömningsskriptet för ditt scenario.
+>Följande kod är bara ett exempel på vad som finns i den [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) används av den [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). Du måste skapa din egen bedömningsskriptet för ditt scenario.
 
 Den `batch_score.py` skriptet tar indatabilder *dataset_path*, tränats modeller i *model_dir,* och matar ut *resultat label.txt* till *output_dir*.
 

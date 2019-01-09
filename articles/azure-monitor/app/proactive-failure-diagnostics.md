@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 901e12e989bb5a6f18c79e086357624648b1b7b9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028855"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117664"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – Felavvikelser
-[Application Insights](../../application-insights/app-insights-overview.md) meddelar i nära realtid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en onormal ökning av HTTP-begäranden eller beroendeanrop som rapporteras som misslyckad. För begäranden är misslyckade förfrågningar vanligtvis de med svarskoder på 400 eller högre. För att hjälpa dig att hantera och diagnostisera problemet, finns en analys av egenskaperna för fel och relaterad telemetri i meddelandet. Det finns också länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen installation eller konfiguration, eftersom den använder machine learning-algoritmer för att förutsäga normalt felintervall.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) meddelar i nära realtid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en onormal ökning av HTTP-begäranden eller beroendeanrop som rapporteras som misslyckad. För begäranden är misslyckade förfrågningar vanligtvis de med svarskoder på 400 eller högre. För att hjälpa dig att hantera och diagnostisera problemet, finns en analys av egenskaperna för fel och relaterad telemetri i meddelandet. Det finns också länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen installation eller konfiguration, eftersom den använder machine learning-algoritmer för att förutsäga normalt felintervall.
 
 Den här funktionen fungerar för Java- och ASP.NET web apps, finns i molnet eller på dina egna servrar. Den fungerar även för alla appar som genererar begäran eller beroende telemetri – till exempel om du har en arbetsroll som anropar [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
-När du har installerat [Application Insights för ditt projekt](../../application-insights/app-insights-overview.md), och under förutsättning att din app genererar en viss minsta mängd telemetri, Smart identifiering av avvikelser i fel tar 24 timmar att lära dig det normala beteendet för din app, innan den är aktiverat och som kan skicka aviseringar.
+När du har installerat [Application Insights för ditt projekt](../../azure-monitor/app/app-insights-overview.md), och under förutsättning att din app genererar en viss minsta mängd telemetri, Smart identifiering av avvikelser i fel tar 24 timmar att lära dig det normala beteendet för din app, innan den är aktiverat och som kan skicka aviseringar.
 
 Här är en exempel-avisering.
 

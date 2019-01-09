@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257384"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118310"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -27,7 +27,7 @@ I följande tabell visar skillnaderna mellan de två identity val:
 |Fakturering|Måste vara kapacitet<br> Endast Enterprise Agreement (EA)|Kapacitet eller betalning som du-användning<br>EA- eller leverantörer av Molnlösningar (CSP)|
 |Identitet|Måste vara AD FS|Azure AD eller AD FS|
 |Marketplace |Stöds<br>BYOL-licensiering|Stöds<br>BYOL-licensiering|
-|Registrering|Rekommenderas, kräver flyttbart medium<br> och en separat ansluten enhet.|Automatiserad|
+|Registrering|Krävs, kräver flyttbart medium<br> och en separat ansluten enhet.|Automatiserad|
 |Korrigeringar och uppdateringar|Krävs, kräver flyttbart medium<br> och en separat ansluten enhet.|Uppdateringspaket kan hämtas direkt<br> från Internet till Azure Stack.|
 
 > [!IMPORTANT]

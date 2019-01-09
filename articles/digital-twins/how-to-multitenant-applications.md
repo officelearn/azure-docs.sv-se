@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: mavoge
-ms.openlocfilehash: 443a697a576aa26fe352d8ad47d9e61214c3fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024118"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119976"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Aktivera program för flera innehavare med Azure Digital Twins
 
@@ -41,7 +41,7 @@ I det här scenariot du överväga att utvecklare att skapa en Digital Twins fö
 Problem:
 
 - När **kunden** loggar in på **DEVELOPER**'s program, appen inte går att hämta token för **kunden**'s användare att autentisera med Azure Digital Twins Management API: erna.
-- Ett undantag ska utfärdas i Azure Active Directory som anger att Azure Digital Twins inte känns igen inom **kunden**'s directory.
+- Ett undantag är utfärdat i Azure Active Directory som anger att Azure Digital Twins inte känns igen inom **kunden**'s directory.
 
 ## <a name="problem-solution"></a>Problem-lösning
 

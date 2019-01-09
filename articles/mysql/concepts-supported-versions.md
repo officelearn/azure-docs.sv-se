@@ -5,28 +5,40 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 720644519eb0031f9f2837cc8321a0def39c37a6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/07/2019
+ms.openlocfilehash: ecd6466d8d7a7e4497d076ced0c9f2375d5dfb7f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545713"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106046"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Stöds Azure Database för MySQL server-versioner
-Azure Database för MySQL har utvecklats från [MySQL Community Edition](https://www.mysql.com/products/community/), InnoDB-motorn. Azure Database för MySQL stöder för närvarande följande versioner:
+Azure Database för MySQL har utvecklats från [MySQL Community Edition](https://www.mysql.com/products/community/), InnoDB-motorn.
 
-## <a name="mysql-version-5639"></a>MySQL-Version 5.6.39
-Referera till MySQL [dokumentation](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) mer information om förbättringar och korrigeringar i MySQL 5.6.39.
+MySQL använder X.Y.Z namngivningsschemat. X är den högre versionen, Y är den lägre versionen och Z är den felkorrigering-versionen. Mer information om schemat finns i den [MySQL-dokumentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-## <a name="mysql-version-5721"></a>MySQL-Version 5.7.21
-Referera till MySQL [dokumentation](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) vill veta mer om förbättringar och korrigeringar i MySQL 5.7.21.
+Azure Database för MySQL stöder för närvarande följande versioner:
+
+## <a name="mysql-version-56"></a>MySQL-Version 5.6
+
+Felkorrigering version: 5.6.39
+
+Referera till MySQL [viktig](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) mer information om förbättringar och korrigeringar i MySQL 5.6.39.
+
+## <a name="mysql-version-57"></a>MySQL-Version 5.7
+
+Felkorrigering version: 5.7.21
+
+Referera till MySQL [viktig](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) vill veta mer om förbättringar och korrigeringar i MySQL 5.7.21.
 
 > [!NOTE]
 > I tjänsten används en gateway för att omdirigera anslutningarna till server-instanser. När anslutningen har upprättats, visar MySQL-klienten versionen av MySQL i gatewayen, inte den faktiska versionen som körs på din MySQL-server-instans. Om du vill kontrollera vilken version av MySQL-serverinstans, använda den `SELECT VERSION();` i Kommandotolken MySQL.
 
 ## <a name="managing-updates-and-upgrades"></a>Hantera uppdateringar och uppgraderingar
-Tjänsten hanterar automatiskt korrigeringar för felkorrigering versionuppdateringar. För närvarande stöds delversion uppgradering inte. Till exempel stöds uppgradering från MySQL 5.6 till MySQL 5.7 inte. Om du vill uppgradera till den lägre versionen av nästa kan ta en [dumpa och Återställ](./concepts-migrate-dump-restore.md) den till en server som har skapats med ny version.
+Tjänsten hanterar automatiskt korrigeringar för felkorrigering versionuppdateringar. Till exempel 5.7.20 5.7.21.  
+
+För närvarande kan stöds små och stora versionsuppgraderingar inte. Till exempel stöds uppgradering från MySQL 5.6 till MySQL 5.7 inte. Om du vill uppgradera från 5.6 till 5.7 kan ta en [dumpa och Återställ](./concepts-migrate-dump-restore.md) den till en server som har skapats med ny version.
 
 ## <a name="next-steps"></a>Nästa steg
 

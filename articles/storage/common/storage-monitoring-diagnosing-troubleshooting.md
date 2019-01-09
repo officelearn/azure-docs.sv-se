@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626005"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121744"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -69,10 +69,10 @@ En praktisk guide till slutpunkt till slutpunkt felsökning i Azure Storage-prog
   * [Felsökning av problem med Azure Files med Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Felsökning av problem med Azure Files med Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Tilläggen]
-  * [Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]
-  * [Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]
-  * [Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]
-  * [Tillägg 4: Använda Excel för att visa mått och logga data]
+  * [Bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS]
+  * [Bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik]
+  * [Tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik]
+  * [Tillägg 4: Använda Excel för att visa mätvärden och loggdata]
   * [Tillägg 5: Övervakning med Application Insights för Azure DevOps]
 
 ## <a name="introduction"></a>Introduktion
@@ -123,9 +123,9 @@ Resten av det här avsnittet beskriver vilka mått som bör du övervaka och var
 Du kan använda den [Azure-portalen](https://portal.azure.com) att visa hälsotillståndet för Storage-tjänsten (och andra Azure-tjänster) i alla Azure-regioner runtom i världen. Övervakning kan påverkar du direkt se om ett problem utanför din kontroll lagringstjänst i den region som du använder för ditt program.
 
 Den [Azure-portalen](https://portal.azure.com) kan också ge meddelanden om incidenter som påverkar olika Azure-tjänster.
-Obs: Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](http://status.azure.com).
+Obs! Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](http://status.azure.com).
 
-Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: övervakning med Application Insights för Azure DevOps](#appendix-5)”.
+Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: Övervakning med Application Insights för Azure DevOps](#appendix-5)”.
 
 ### <a name="monitoring-capacity"></a>Övervakningskapacitet
 Mätvärden i Storage lagrar bara kapacitet för blob-tjänsten eftersom blobar vanligtvis hänsyn till största andelen av lagrade data (vid tidpunkten för skrivning, det går inte att använda Lagringsmått för att övervaka kapaciteten för dina tabeller och köer). Du hittar dessa data i den **$MetricsCapacityBlob** tabellen om du har aktiverat övervakning för Blob-tjänsten. Lagringsmått registrerar dessa data en gång per dag och du kan använda värdet för den **RowKey** att fastställa om raden innehåller en entitet som är kopplad till användarens data (värdet **data**) eller analytics-data (värde **analytics**). Innehåller information om mängden lagringsutrymme som används för varje lagrad entitet (**kapacitet** mätt i byte) och det aktuella antalet behållare (**ContainerCount**) och blobar (**ObjectCount** ) används i lagringskontot. Mer information om kapacitetsmåtten lagras i den **$MetricsCapacityBlob** tabellen, se [Schema över Måttabeller i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -220,9 +220,9 @@ Storage-klientbiblioteket för .NET kan du samla in loggdata för klientsidan so
 ### <a name="using-network-logging-tools"></a>Med hjälp av verktyg för loggning
 Du kan fånga in trafik mellan klienten och servern som ger detaljerad information om de data som klienten och servern utbyter och underliggande nätverksförhållanden. Användbara verktyg för loggning är:
 
-* [Fiddler](http://www.telerik.com/fiddler) är en kostnadsfri web proxy som hjälper dig att granska rubriker och nyttolasten för HTTP och HTTPS-begäran och svar-meddelanden för felsökning. Mer information finns i [bilaga 1: med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [Wireshark](http://www.wireshark.org/) är kostnadsfria network protocol analysverktyg som hjälper dig att visa Paketinformation om detaljerade för en mängd olika nätverksprotokoll. Mer information om Wireshark finns i ”[bilaga 2: använda Wireshark att avbilda nätverkstrafik](#appendix-2)”.
-* Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och att hämta paket nätverksdata, hjälper dig att visa och analysera loggdata från andra verktyg. Mer information finns i ”[tillägg 3: använda Microsoft Message Analyzer att avbilda nätverkstrafik](#appendix-3)”.
+* [Fiddler](http://www.telerik.com/fiddler) är en kostnadsfri web proxy som hjälper dig att granska rubriker och nyttolasten för HTTP och HTTPS-begäran och svar-meddelanden för felsökning. Mer information finns i [bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [Wireshark](http://www.wireshark.org/) är kostnadsfria network protocol analysverktyg som hjälper dig att visa Paketinformation om detaljerade för en mängd olika nätverksprotokoll. Mer information om Wireshark finns i ”[bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik](#appendix-2)”.
+* Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och att hämta paket nätverksdata, hjälper dig att visa och analysera loggdata från andra verktyg. Mer information finns i ”[tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik](#appendix-3)”.
 * Om du vill utföra en grundläggande anslutningstest för att kontrollera att klientdatorn kan ansluta till Azure storage-tjänsten över nätverket, du kan inte göra detta med standarden **ping** verktyget på klienten. Men du kan använda den [ **tcping** verktyget](http://www.elifulkerson.com/projects/tcping.php) att kontrollera anslutningen.
 
 Loggdata från Storage loggning och Storage-klientbiblioteket är tillräckligt för att diagnostisera problem i många fall, men i vissa fall kan du behöva mer detaljerad information som kan ge dessa verktyg för loggning. Med hjälp av Fiddler för att visa meddelanden för HTTP och HTTPS kan du visa huvud och nyttolast data som skickas till och från lagringstjänster, vilket gör att du kan granska hur ett klientprogram försöker lagringsåtgärder. Protokollet analysverktyg, till exempel Wireshark fungerar på paketnivå så att du kan visa data för TCP, vilket gör att du kan felsöka förlorade paket och problem med nätverksanslutningen. Message Analyzer kan fungera både HTTP och TCP-lager.
@@ -372,9 +372,9 @@ Du bör kolla på klientsidan-loggarna och se hur många begäranden klientprogr
 #### <a name="investigating-network-latency-issues"></a>Undersöka problem med nätverkssvarstiden
 Hög svarstiden för slutpunkt till slutpunkt som orsakas av nätverket är vanligtvis bero på tillfälliga. Du kan undersöka både tillfälliga och permanenta nätverksproblem, till exempel avbrutna paket med hjälp av verktyg som Wireshark eller Microsoft Message Analyzer.
 
-Mer information om hur du använder Wireshark felsökning av nätverksproblem med finns i ”[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]”.
+Mer information om hur du använder Wireshark felsökning av nätverksproblem med finns i ”[bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik]”.
 
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverksproblem finns i ”[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverkstrafik]”.
+Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverksproblem finns i ”[tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik]”.
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Mätningar visar låga AverageE2ELatency och AverageServerLatency, men klienten har hög latens
 I det här scenariot är den mest troliga orsaken en fördröjning i lagringsbegäranden når lagringstjänsten. Du bör undersöka varför förfrågningar från klienten inte gör det via blob-tjänsten.
@@ -389,9 +389,9 @@ Också kontrollera om klienten utför flera återförsök och ta reda på vad om
 
 Om det finns inga problem i klienten, bör du undersöka potentiella problem i nätverket, till exempel paketförlust. Du kan använda verktyg som Wireshark eller Microsoft Message Analyzer för att undersöka nätverksproblem.
 
-Mer information om hur du använder Wireshark felsökning av nätverksproblem med finns i ”[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]”.
+Mer information om hur du använder Wireshark felsökning av nätverksproblem med finns i ”[bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik]”.
 
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverksproblem finns i ”[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverkstrafik]”.
+Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverksproblem finns i ”[tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik]”.
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Mätningar visar hög AverageServerLatency
 När det gäller hög **AverageServerLatency** för blob-hämtningsbegäranden, bör du använda loggningen i Storage-loggar för att se om det finns upprepade begäranden för samma blob (eller uppsättning blobbar). För förfrågningar om blob överför bör du undersöka vilka blockera klienten är använder (till exempel blockeras som mindre än 64 kB i storlek kan resultera i omkostnader, såvida inte läsningar finns också i mindre än 64 kB segmenterar) och om flera klienter laddar upp block till samma blob i stycke llellt. Du bör också kontrollera mått per minut för toppar i antalet begäranden som resulterar i mer än den per sekund skalbarhetsmål: Se även ”[mätningar visar en ökning i PercentTimeoutError]”.
@@ -452,14 +452,14 @@ Din mätningar visar en ökning i **PercentTimeoutError** för en storage-tjäns
 > 
 > 
 
-Den **PercentTimeoutError** mått är en sammanställning av följande mätvärden: **ClientTimeoutError**, **AnonymousClientTimeoutError**,  **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**, och **SASServerTimeoutError**.
+Den **PercentTimeoutError** mått är en sammanställning av följande mått: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**,  **AnonymousServerTimeoutError**, och **SASServerTimeoutError**.
 
 Server-timeout orsakas av ett fel på servern. Klient-timeout inträffar eftersom en åtgärd på servern har överskridit tidsgränsen som angetts av klienten. en klient som använder Storage-klientbiblioteket kan till exempel ange en tidsgräns för en åtgärd med hjälp av den **ServerTimeout** egenskapen för den **QueueRequestOptions** klass.
 
 Server-timeout tyda på ett problem med storage-tjänsten som kräver ytterligare undersökning. Du kan använda mått för att se om du stöter på skalbarhetsgränserna för tjänsten och för att identifiera eventuella toppar i trafiken som gör att det här problemet. Om problemet är tillfälligt, kan det bero belastningsutjämning aktivitet i tjänsten. Om problemet är permanent och inte orsakas av ditt program når skalbarhetsgränserna för tjänsten, bör du öka ett supportärende. För klient-timeout måste du bestämma om timeout-värdet är inställt på ett lämpligt värde i klienten och antingen ändra timeout-värdet som angetts i klienten eller undersöka hur du kan förbättra prestanda för åtgärder i storage-tjänsten, till exempel genom att optimera tabell-frågor eller minska storleken på dina meddelanden.
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Mätningar visar en ökning i PercentNetworkError
-Din mätningar visar en ökning i **PercentNetworkError** för en storage-tjänster. Den **PercentNetworkError** mått är en sammanställning av följande mätvärden: **NetworkError**, **AnonymousNetworkError**, och **SASNetworkError** . Dessa visas när lagringstjänsten uppstår ett fel när klienten skickar en begäran om lagring.
+Din mätningar visar en ökning i **PercentNetworkError** för en storage-tjänster. Den **PercentNetworkError** mått är en sammanställning av följande mått: **NetworkError**, **AnonymousNetworkError**, och **SASNetworkError**. Dessa visas när lagringstjänsten uppstår ett fel när klienten skickar en begäran om lagring.
 
 Den vanligaste orsaken till felet är en klient kopplar från innan tidsgränsen upphör att gälla i lagringstjänsten. Undersöka koden i din klient för att förstå varför och när klienten kopplas från storage-tjänsten. Du kan också använda Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten. Dessa verktyg beskrivs i den [tilläggen].
 
@@ -471,9 +471,9 @@ Om klientprogrammet som utlöste HTTP 403 (förbjudet) fel, är en trolig orsak 
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar åtgärden med platsen primära per platsläget PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar synkron begäran om att https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (403) förbjuden. |
+| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) förbjuden. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Statuskod = 403, ID för begäran = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, innehåll MD5 = ETag =. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: fjärrservern returnerade ett fel: (403) nekad... |
+| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) nekad... |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden ska göras. Antal nya försök = 0, HTTP-statuskod = 403, undantag = fjärrservern returnerade ett fel: (403) nekad... |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Nästa plats har angetts till primär, beroende på plats. |
 | Microsoft.WindowsAzure.Storage |Fel |1 |85d077ab-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) förbjuden. |
@@ -534,7 +534,7 @@ Loggposter:
 | de8b1c3c-... |Startar synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = LÄGG till... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-Type:BlockBlob.x-MS-Client-Request-ID:de8b1c3c-...x-MS-Date:TUE 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Förbereder att skriva data för begäran. |
-| e2d06d78-... |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (404) gick inte att hitta... |
+| e2d06d78-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (404) gick inte att hitta... |
 | e2d06d78-... |Svaret togs emot. Statuskod = 404, ID för begäran = 353ae3bc..., innehåll MD5 = ETag =. |
 | e2d06d78-... |Svarshuvuden bearbetades, fortsätter med resten av åtgärden. |
 | e2d06d78-... |Hämtar svarstexten. |
@@ -544,12 +544,12 @@ Loggposter:
 | e2d06d78-... |Väntar på svar. |
 | de8b1c3c-... |Begäran-skrivdata. |
 | de8b1c3c-... |Väntar på svar. |
-| e2d06d78-... |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (409) konflikt... |
+| e2d06d78-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (409) konflikt... |
 | e2d06d78-... |Svaret togs emot. Statuskod = 409, ID för begäran = c27da20e..., innehåll MD5 = ETag =. |
 | e2d06d78-... |Hämtar fel svarstexten. |
-| de8b1c3c-... |Ett undantag uppstod under väntan på svar: fjärrservern returnerade ett fel: (404) gick inte att hitta... |
+| de8b1c3c-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (404) gick inte att hitta... |
 | de8b1c3c-... |Svaret togs emot. Statuskod = 404, ID för begäran = 0eaeab3e..., innehåll MD5 = ETag =. |
-| de8b1c3c-... |Ett undantag uppstod under åtgärden: fjärrservern returnerade ett fel: (404) gick inte att hitta... |
+| de8b1c3c-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (404) gick inte att hitta... |
 | de8b1c3c-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (404) gick inte att hitta... |
 | e2d06d78-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (409) konflikt... |
 
@@ -677,8 +677,8 @@ Mer information finns i [Använd Azure Storage-emulatorn för utveckling och tes
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Det uppstår några problem med att installera Azure SDK för .NET
 När du försöker installera SDK: N misslyckas försök att installera storage-emulatorn på den lokala datorn. Installationsloggen innehåller något av följande meddelanden:
 
-* CAQuietExec: Fel: Det gick inte att komma åt SQL-instansen
-* CAQuietExec: Fel: Det gick inte att skapa databas
+* CAQuietExec:  Fel: Det går inte att komma åt SQL-instansen
+* CAQuietExec:  Fel: Det går inte att skapa databas
 
 Orsaken är ett problem med befintlig LocalDB-installation. Som standard använder lagringsemulatorn LocalDB kan bevara data när den simulerar Azure storage-tjänster. Du kan återställa LocalDB-instansen genom att köra följande kommandon i ett kommandotolksfönster innan du försöker installera SDK.
 
@@ -698,16 +698,16 @@ Om föregående felsökningsavsnitt inte inkluderar det problem du har med en la
 * Du kan använda informationen om mått på hur du söker serversidan loggdata för mer detaljerad information om eventuella fel som uppstår. Den här informationen kan hjälpa dig att felsöka och lösa problemet.
 * Om informationen i loggarna för serversidan inte är tillräckligt för att felsöka problemet har kan du använda Lagringsklientbiblioteket klientside-loggar för att undersöka beteendet för dina klientprogram och verktyg som Fiddler, Wireshark och Microsoft Analysverktyg för att undersöka ditt nätverk.
 
-Mer information om hur du använder Fiddler finns i ”[Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]”.
+Mer information om hur du använder Fiddler finns i ”[bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS]”.
 
-Mer information om hur du använder Wireshark finns i ”[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]”.
+Mer information om hur du använder Wireshark finns i ”[bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik]”.
 
-Mer information om hur du använder Microsoft Message Analyzer finns i ”[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverkstrafik]”.
+Mer information om hur du använder Microsoft Message Analyzer finns i ”[tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik]”.
 
 ## <a name="appendices"></a>Tilläggen
 Tilläggen beskrivs flera verktyg som kan vara användbart när du diagnostiserar och felsökning av problem med Azure Storage (och andra tjänster). Dessa verktyg är inte en del av Azure Storage och vissa är produkter från tredje part. Därför måste de verktyg som beskrivs i de här tilläggen inte omfattas av alla supportavtal som du kan ha med Microsoft Azure eller Azure Storage och därför som en del av din utvärdering du bör undersöka alternativen licensiering och support tillgänglig från den leverantörer av dessa verktyg.
 
-### <a name="appendix-1"></a>Bilaga 1: Använda Fiddler för att avbilda trafik över HTTP och HTTPS
+### <a name="appendix-1"></a>Bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS
 [Fiddler](http://www.telerik.com/fiddler) är användbart för att analysera HTTP och HTTPS-trafik mellan klientprogrammet och Azure storage-tjänst som du använder.
 
 > [!NOTE]
@@ -726,7 +726,7 @@ Om du vill begränsa mängden trafik som Fiddler samlar in, kan du använda filt
 
 ![][5]
 
-### <a name="appendix-2"></a>Bilaga 2: Använda Wireshark för att avbilda nätverkstrafik
+### <a name="appendix-2"></a>Bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik
 [Wireshark](http://www.wireshark.org/) är en nätverksprotokollanalysator där du kan visa detaljerad paketinformationen för en mängd olika nätverksprotokoll.
 
 Följande procedur visar hur du kan få detaljerad paketinformationen för trafik från den lokala datorn där du installerade Wireshark till tabelltjänsten igen i ditt Azure storage-konto.
@@ -737,7 +737,7 @@ Följande procedur visar hur du kan få detaljerad paketinformationen för trafi
 4. Lägg till ett filter för att den **Capture Filter** textrutan. Till exempel **värd contosoemaildist.table.core.windows.net** konfigurerar Wireshark för att samla in endast paket som skickas till eller från table service-slutpunkt i den **contosoemaildist** storage-konto. Kolla in den [fullständig lista över avbilda filter](http://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
-5. Klicka på **starta**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
+5. Klicka på **Start**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
 6. När du är klar, klicka på huvudmenyn **avbilda** och sedan **stoppa**.
 7. Om du vill spara insamlade data i en Wireshark avbilda fil på huvudmenyn klickar du på **filen** och sedan **spara**.
 
@@ -754,7 +754,7 @@ Du kan också välja att visa TCP-data som programnivån ser det genom att höge
 > 
 > 
 
-### <a name="appendix-3"></a>Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik
+### <a name="appendix-3"></a>Tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik
 Du kan använda Microsoft Message Analyzer för att avbilda HTTP och HTTPS-trafik på ett liknande sätt att Fiddler och avbilda nätverkstrafik på ett liknande sätt att Wireshark.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Konfigurera spårning av en webbsession med hjälp av Microsoft Message Analyzer
@@ -805,7 +805,7 @@ Du kan också använda funktionen Application Insights för Azure DevOps som en 
 * Kontrollera att din webbtjänst är tillgänglig och svarar. Om din app är en webbplats eller en app för enheter som använder en webbtjänst, kan den Testa URL några minuters mellanrum från platser runtom i världen och att du vet om det finns ett problem.
 * Diagnostisera snabbt eventuella problem med prestanda eller undantag i din webbtjänst. Lär dig om CPU- eller andra resurser är sträcks, få stackspårningar från undantag och enkelt söka igenom loggspårningar. Om appens prestanda sjunker under rimliga gränser, kan Microsoft skicka ett e-postmeddelande. Du kan övervaka både .NET och Java-webbtjänster.
 
-Du hittar mer information på [vad är Application Insights](../../application-insights/app-insights-overview.md).
+Du hittar mer information på [vad är Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduktion]: #introduction
@@ -861,10 +861,10 @@ Du hittar mer information på [vad är Application Insights](../../application-i
 [Du har ett annat problem med en storage-tjänst]: #you-have-a-different-issue-with-a-storage-service
 
 [Tilläggen]: #appendices
-[Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]: #appendix-1
-[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]: #appendix-2
-[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]: #appendix-3
-[Tillägg 4: Använda Excel för att visa mått och logga data]: #appendix-4
+[Bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS]: #appendix-1
+[Bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik]: #appendix-2
+[Tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik]: #appendix-3
+[Tillägg 4: Använda Excel för att visa mätvärden och loggdata]: #appendix-4
 [Tillägg 5: Övervakning med Application Insights för Azure DevOps]: #appendix-5
 
 <!--Image references-->

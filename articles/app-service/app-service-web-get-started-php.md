@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261559"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630027"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53261559"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en PHP-webbapp i App Service på Linux](./containers/quickstart-php.md).
 >
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -181,13 +181,13 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+![Portalnavigering till Azure-app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
 Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 

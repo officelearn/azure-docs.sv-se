@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851136"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793078"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -136,9 +136,9 @@ På sidan **Förbered källa** klickar du på **+ Konfigurationsserver**.
     11. **Installationsförloppet** visar dig information om installationsprocessen. När den är klar väljer du **Avsluta**. Ett fönster visar ett meddelande om en omstart. Välj **OK**. Därefter visar ett fönster ett meddelande om lösenfrasen för anslutning för konfigurationsservern. Kopiera lösenfrasen till Urklipp och spara den på en säker plats.
 6. Kör cspsconfigtool.exe på den virtuella datorn för att skapa ett eller flera hanteringskonton på konfigurationsservern. Se till att hanteringskontona har administratörsbehörighet på de EC2-instanser som du vill migrera.
 
-När du är klar med konfigurationen av konfigurationsservern går du tillbaka till portalen och väljer den server du skapade för **konfigurationsservern**. Välj **OK** för att gå till 3: förbered målet.
+När du är klar med konfigurationen av konfigurationsservern går du tillbaka till portalen och väljer den server du skapade för **konfigurationsservern**. Välj **OK** för att gå till 3: Förbered målet.
 
-### <a name="3-prepare-target"></a>3: förbered målet
+### <a name="3-prepare-target"></a>3: Förbered målet
 
 I det här avsnittet anger du information om de resurser som du skapade i [Förbered Azure-resurser](#prepare-azure-resources) tidigare i de här självstudierna.
 
@@ -224,7 +224,7 @@ Kör redundanstestet i portalen:
 2. Välj en återställningspunkt som ska användas för redundans:
     - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data så den ger ett lågt mål för återställningstid (RTO).
     - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste appkonsekventa återställningspunkten. Tidsstämpeln visas.
-    - **Anpassad**: Välj annan återställningspunkt.
+    - **Anpassat**: Välj en annan återställningspunkt.
 
 3. I **Redundanstest** väljer du det Azure-målnätverk som de virtuella Azure-datorerna ska ansluta till efter redundans. Det här bör vara det nätverk du skapade i [Förbered Azure-resurser](#prepare-azure-resources).
 4. Välj **OK** för att starta redundansväxlingen. Om du vill spåra förloppet klickar du på den virtuella datorn för visa dess egenskaper. Eller så kan du välja jobbet **Redundanstest** på sidan för ditt valv. Om du vill göra det, väljer du **Övervakning och rapporter** > **Jobb** >  **Site Recovery-jobb**.

@@ -8,29 +8,30 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: faf229d67a5b4a7a15774d6e01af1c5706d18058
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023159"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787451"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
 Du kan felsöka problem och fel vid användning av säkerhetskopiering av Azure-filresurser med hjälp av informationen i följande tabeller.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
-Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
+Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-konton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
 - Du kan inte skydda Azure-filresurser i lagringskonton med RA-GRS-replikering\* [geo-redundant lagring med läsbehörighet](../storage/common/storage-redundancy-grs.md).
 - Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
-- Det finns ingen tillgänglig PowerShell eller CLI som skyddar Azure Files med Azure Backup.
+- Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
 - Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
 - Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
 - Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel.
+- Ta inte bort filresurser som skyddas av Azure Backup. Den aktuella lösningen tar bort alla ögonblicksbilder som har tagits av Azure Backup när filresursen har tagits bort och förlorar därför alla återställningspunkter
 
 \*Azure-filresurser i lagringskonton med replikeringsfunktionen [Read-Access Geo-Redundant Storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) som GRS och fakturerade GRS-priser.
 
-Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA) och Europa, västra (WE).
+Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra (EUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA), Europa, västra (WE) och USA, västra 2 (WUS2).
 
 ## <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
 Följande tabell används för att konfigurera säkerhetskopieringen:

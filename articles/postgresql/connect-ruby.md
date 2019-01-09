@@ -1,24 +1,21 @@
 ---
 title: Ansluta till Azure Database for PostgreSQL med Ruby
 description: I den här snabbstarten finns ett kodexempel i Ruby som du kan använda för att ansluta till och fråga efter data från Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 2d132ba1b901c45df79507a974ee8d4786c6311d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6748f168624a20e17491a2f84b63b966ce5ad4c6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985037"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539304"
 ---
-# <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Ruby för att ansluta och fråga efter data
+# <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Använda Ruby för att ansluta och fråga mot data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Ruby och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

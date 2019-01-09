@@ -1,21 +1,18 @@
 ---
 title: 'Snabbstart: Skapa en Azure Database for MySQL-server – Azure Portal'
 description: Den här artikeln beskriver hur du använder Azure Portal för att snabbt skapa ett exempel på en Azure-databas för MySQL-server på fem minuter.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: aede3f432614023739d6967c6e76ff3aaf892cca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959230"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537808"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 
@@ -48,7 +45,7 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
     Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.    Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
     inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-    Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: Engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
     Plats | *Regionen som ligger närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
@@ -140,7 +137,7 @@ Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL 
     > [!TIP]
     > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
     >
-    > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server. (Klienten med IP-adress 123.456.789.0 har inte tillstånd att ansluta till servern.)
+    > FEL 2003 (28000): Klienten med IP-adress 123.456.789.0 har inte tillstånd att ansluta till servern.
     >
     > Lös felet genom att se till att serverkonfigurationen matchar stegen i avsnittet Konfigurera en brandväggsregel på servernivå i artikeln.
 

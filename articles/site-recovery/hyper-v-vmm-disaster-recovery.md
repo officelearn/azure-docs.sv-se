@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 040d0dae7bb16e0c2a79640812b18ad75754ca3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846614"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794523"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -65,7 +65,7 @@ Förbereda VMM:er på följande sätt:
 
 Välj vad och vart du vill replikera.
 
-1. Klicka på **Site Recovery** > **Steg 1: Förbereda infrastrukturen** > **Skyddsmål**.
+1. Klicka på **Webbplatsåterställning** > **steg 1: Förbered infrastrukturen** > **Skyddsmål**.
 2. Välj **Till återställningsplats** och **Ja, med Hyper-V**.
 3. Välj **Ja** för att indikera att du använder VMM för att hantera Hyper-V-värdar.
 4. Välj **Ja** om du har en sekundär VMM-server. Om du distribuerar replikering mellan moln på en enda VMM-server klickar du på **Nej**. Klicka sedan på **OK**.
@@ -133,8 +133,8 @@ Innan du börjar bör du se till att alla värdar som använder principen har sa
 1. I **Kopieringsfrekvens** anger du hur ofta du vill replikera förändringsdata (delta) efter den första replikeringen (med 30 sekunders mellanrum, var femte minut eller varje kvart).
 2. I **Kvarhållning av återställningspunkt** anger du hur länge (i antal timmar) kvarhållningsperioden för varje återställningspunkt ska vara. Replikerade datorer kan återställas till valfri punkt inom en period.
 3. I **Appkompatibel ögonblicksbildsfrekvens** anger du hur ofta (1–12 timmar) återställningspunkter som innehåller programkonsekventa ögonblicksbilder skapas. Hyper-V använder två typer av ögonblicksbilder:
-    - **Standardögonblicksbild**: tillhandahåller en inkrementell ögonblicksbild av hela den virtuella datorn.
-    - **Appkonsekvent ögonblicksbild**: tar en ögonblicksbild som baseras på tidpunkt av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att apparna är i ett konsekvent tillstånd när ögonblicksbilden tas. Om du aktiverar programkonsekventa ögonblicksbilder påverkas prestanda på virtuella källdatorer. Ange ett värde som är mindre än det antal ytterligare återställningspunkter som du konfigurerar.
+    - **Standardögonblicksbild**: Tillhandahåller en inkrementell ögonblicksbild av hela den virtuella datorn.
+    - **Appkonsekvent ögonblicksbild**: Tar en ögonblicksbild som baseras på tidpunkt av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att apparna är i ett konsekvent tillstånd när ögonblicksbilden tas. Om du aktiverar programkonsekventa ögonblicksbilder påverkas prestanda på virtuella källdatorer. Ange ett värde som är mindre än det antal ytterligare återställningspunkter som du konfigurerar.
 4. I **Komprimering av dataöverföring** anger du huruvida överförda replikeringsdata ska komprimeras.
 5. Välj **Delete replica VM** (Ta bort virtuell replikdator) för att ange att den replikerade virtuella datorn ska tas bort om du inaktiverar skydd för den virtuella källdatorn. Om du aktiverar den här inställningen gäller att när du inaktiverar skydd för den virtuella källdatorn så tas den bort från Site Recovery-konsolen, Site Recovery-inställningarna för VMM tas bort från VMM-konsolen och repliken tas bort.
 6. I **Metod för inledande replikering** gäller att om du replikerar över nätverket så anger du huruvida du vill starta den inledande replikeringen eller schemalägga den. För att spara nätverksbandbredd kan det vara bra att schemalägga den utanför kontorstid. Klicka sedan på **OK**.

@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093331"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602825"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudie: Lägga till Azure CDN i en Azure App Service-webbapp
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudier: Lägga till Azure CDN i en Azure App Service-webbapp
 
-Den här självstudiekursen beskriver hur du lägger till [Azure Content Delivery Network (CDN)](cdn-overview.md) till en [webbapp i Azure App Service](../app-service/app-service-web-overview.md). Web Apps är en värdtjänst för webbprogram, REST API:er och mobila backend-servrar. 
+Den här självstudiekursen beskriver hur du lägger till [Azure Content Delivery Network (CDN)](cdn-overview.md) till en [webbapp i Azure App Service](../app-service/overview.md). Web Apps är en värdtjänst för webbprogram, REST API:er och mobila backend-servrar. 
 
 Här är startsidan för den statiska exempel-HTML-platsen som du kommer att arbeta med:
 
@@ -268,6 +268,6 @@ Vad du lärt dig:
 Lär dig hur du optimerar CDN-prestanda i följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
+> [Självstudier: Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
 

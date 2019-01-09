@@ -1,306 +1,312 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med G Suite | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med G Suite | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och G Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcea7848c7331ecd326f0ccb6ab9f543ce972205
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: f4f7546efca0bd69fd71418116142acacb927604
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834697"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970907"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-integration med G Suite
+# <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-katalogintegrering med G Suite
 
-I den här självstudien får du lära dig hur du integrerar G Suite med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar G Suite med Azure Active Directory (Azure AD).
+Att integrera G Suite med Azure AD ger dig följande fördelar:
 
-Integrera G Suite med Azure AD ger dig följande fördelar:
+* I Azure AD kan du styra vem som har åtkomst till G Suite.
+* Du kan låta dina användare automatiskt loggas in på G Suite (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till G Suite.
-- Du kan aktivera användarna att automatiskt få loggat in på G Suite (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med G Suite, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En G Suite enkel inloggning aktiverat prenumeration
-- En prenumeration för Google Apps eller Google Cloud Platform-prenumeration.
+- En prenumeration med enkel inloggning med G Suite aktiverat
+- En Google Apps-prenumeration eller Google Cloud Platform-prenumeration.
 
 > [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö. Det här dokumentet har skapats med den nya användaren Single-Sign-on-upplevelse. Om du fortfarande använder gamla, letar installationen diferent. Du kan aktivera den nya upplevelsen i inställningarna för enkel inloggning för G Suite-program. Gå till **Azure AD, företagsprogram**väljer **G Suite**väljer **enkel inloggning** och klicka sedan på **testa vår nya upplevelsen**.
+> Vi rekommenderar att du inte använder en produktionsmiljö för att testa stegen i den här självstudien. Det här dokumentet har skapats med den nya användarupplevelsen Enkel inloggning. Om du fortfarande använder den gamla upplevelsen ser installationen annorlunda ut. Du kan aktivera den nya upplevelsen i inställningarna för enkel inloggning i G Suite-programmet. Gå till **Azure AD, företagsprogram**, välj **G Suite**, välj **enkel inloggning** och klicka sedan på **Testa vår nya upplevelse**.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-1. **F: kan den här integreringsstöd Google Cloud Platform SSO-integrering med Azure AD?**
+1. **F: Stöder den här integreringen enkel inloggning med Google Cloud Platform med Azure AD?**
 
-    S: Ja. Google Cloud Platform och Google Apps delar samma autentiseringsplattform. Så om du vill göra GCP integrationen måste du konfigurera SSO med Google Apps.
+    S: Ja. Google Cloud Platform och Google Apps delar samma autentiseringsplattform. Så om du vill göra GCP-integreringen måste du konfigurera enkel inloggning med Google Apps.
 
-2. **F: är Chromebooks och andra Chrome enheter kompatibla med Azure AD enkel inloggning?**
+2. **F: Är Chromebooks och andra Chrome-enheter kompatibla med enkel inloggning med Azure AD?**
   
-    S: Ja, användare kan logga in på sina Chromebook-enheter med sina autentiseringsuppgifter för Azure AD. Se den här [G Suite support-artikeln](https://support.google.com/chrome/a/answer/6060880) för information om varför användare kan få du tillfrågas om autentiseringsuppgifter två gånger.
+    S: Ja, användare kan logga in på sina Chromebook-enheter med sina autentiseringsuppgifter för Azure AD. Se den här [G Suite-supportartikeln](https://support.google.com/chrome/a/answer/6060880) för information om varför användare kan tillfrågas om autentiseringsuppgifter två gånger.
 
-3. **F: om jag aktiverar enkel inloggning, kommer användare att kunna använda sina autentiseringsuppgifter för Azure AD för att logga in på en Google-produkt, till exempel Google Classroom, GMail, Google Drive, YouTube och så vidare?**
+3. **F: Om jag aktiverar enkel inloggning, kommer användare att kunna använda sina autentiseringsuppgifter för Azure AD för att logga in på en Google-produkt, till exempel Google Classroom, GMail, Google Drive, YouTube och så vidare?**
 
-    S: Ja, beroende på [vilka G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) du väljer att aktivera eller inaktivera för din organisation.
+    S: Ja, beroende på [vilken G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) du väljer att aktivera eller inaktivera för din organisation.
 
-4. **F: kan jag aktivera enkel inloggning för endast en delmängd av Mina G Suite-användare?**
+4. **F: Kan jag aktivera enkel inloggning för endast en delmängd av mina G Suite-användare?**
 
-    S: Nej, aktivera enkel inloggning omedelbart kräver att alla dina G Suite-användare att autentisera med sina autentiseringsuppgifter för Azure AD. Eftersom G Suite har inte stöd för att ha flera Identitetsproviders, identitetsleverantören för din G Suite-miljö kan antingen vara Azure AD eller Google – men inte båda på samma gång.
+    S: Nej, aktivering av enkel inloggning kräver omedelbart att alla dina G Suite-användare autentiserar sig med sina autentiseringsuppgifter för Azure AD. Eftersom G Suite inte har stöd för att ha flera identitetsproviders, kan identitetsleverantören för din G Suite-miljö antingen vara Azure AD eller Google – men inte båda på samma gång.
 
-5. **F: om en användare har loggat in via Windows, är de automatiskt autentisera till G Suite utan ett lösenord uppmanas?**
+5. **F: Om en användare har loggat in via Windows, autentiseras hen automatiskt till G Suite utan att ett lösenord efterfrågas?**
 
-    S: det finns två alternativ för att aktivera det här scenariot. Först måste användare kan logga in på Windows 10-enheter via [Azure Active Directory Join](../device-management-introduction.md). Du kan också användare kan logga in på Windows-enheter som är anslutna till en domän till en lokal Active Directory som har aktiverats för enkel inloggning till Azure AD via en [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) distribution. I båda fallen måste du utföra stegen i följande självstudie för att aktivera enkel inloggning mellan Azure AD och G Suite.
+    S: Det finns två alternativ för att aktivera det här scenariot. Antingen kan användare logga in på Windows 10-enheter via [Azure Active Directory Join](../device-management-introduction.md). Alternativt kan användare logga in på Windows-enheter som är domänanslutna till en lokal Active Directory som har aktiverats för enkel inloggning till Azure AD via en [Active Directory Federation Services](../hybrid/plan-connect-user-signin.md)-distribution (AD FS). I båda fallen måste du utföra stegen i följande självstudie för att aktivera enkel inloggning mellan Azure AD och G Suite.
 
-6. **Fel: Ogiltig e-post**
+6. **F: Vad gör jag när jag får felmeddelandet ”Ogiltig e-post”?**
 
-    För den här konfigurationen krävs e-postadressattribut för användare för att kunna logga in. Det här attributet kan inte anges manuellt.
+    S: För den här konfigurationen krävs e-postadressattribut för användare för att kunna logga in. Det här attributet kan inte anges manuellt.
 
-    E-postadressattribut fylls för alla användare med en giltig Exchange-licens. Om användaren inte är e-postaktiverade kan tas emot felet allteftersom programmet behöver att få det här attributet för att ge åtkomst.
+    E-postadressattribut fylls i automatiskt för alla användare med en giltig Exchange-licens. Om användaren inte är e-postaktiverad, får hen det här felet allteftersom programmet behöver få det här attributet för att ge åtkomst.
 
-    Du kan gå till portal.office.com med ett administratörskonto och sedan klicka i administrationscentret, fakturering, prenumerationer, Välj din Office 365-prenumeration och sedan klicka på tilldela till användare väljer de användare som du vill kontrollera sin prenumeration och i den högra rutan klickar du på Redigera licenser.
+    Du kan gå till portal.office.com med ett administratörskonto och sedan i administrationscentret klicka på fakturering, prenumerationer, välja din Office 365-prenumeration och sedan klicka på tilldela till användare, välja de användare som du vill kontrollera prenumerationen för och i den högra rutan klicka på redigera licenser.
 
-    Det kan ta några minuter som ska användas när O365-licens har tilldelats. Efter det attributet user.mail blir autopopulated och problemet ska lösas.
+    När O365-licensen har tilldelats kan det ta några minuter innan den blir aktiv. Efter det kommer attributet user.mail att fyllas i automatiskt och problemet ska vara löst.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till G Suite från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* G Suite har stöd för **SP**-initierad enkel inloggning
+* G Suite har stöd för **[automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Att lägga till G Suite från galleriet
 
-Om du vill konfigurera integreringen av G Suite till Azure AD, som du behöver lägga till G Suite från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av G Suite till Azure AD, behöver du lägga till G Suite från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till G Suite från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **G Suite**väljer **G Suite** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **G Suite**, väljer **G Suite** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![G Suite i resultatlistan](./media/google-apps-tutorial/tutorial_gsuite_addfromgallery.png)
+     ![G Suite i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med G Suite baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med G Suite baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i G Suite upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i G Suite är en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i G Suite upprättas.
+Om du vill konfigurera och testa enkel inloggning till Azure AD med G Suite, måste du utföra följande byggblock:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med G Suite, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för G Suite](#configure-g-suite-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare av G Suite](#create-g-suite-test-user)** – för att få en motsvarighet till Britta Simon i G Suite som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för G Suite](#creating-a-g-suite-test-user)**  – du har en motsvarighet för Britta Simon i G Suite som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt G Suite-program.
+Utför följande steg för att konfigurera enkel inloggning till Azure AD med G Suite:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med G Suite:**
+1. I [Azure-portalen](https://portal.azure.com/), på **G Suite**-sidan för appintegrering väljer du **Enkel inloggning**.
 
-1. I Azure-portalen på den **G Suite** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera enkel inloggning för länken][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](common/tutorial_general_301.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](common/editconfigure.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+    ![Information om enkel inloggning till G Suite-domän och URL:er](common/sp-identifier.png)
 
-    ![G Suite-domän och URL: er med enkel inloggning för information](./media/google-apps-tutorial/tutorial_gsuite_url.png)
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
-
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [G Suite klienten supportteamet](https://www.google.com/contact/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Supportteamet för G Suite](https://www.google.com/contact/) för att hämta dessa värden.
 
-5. G Suite-program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+5. Ditt G Suite-program förväntar sig att SAML-intygen är i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men G Suite förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
 
-    ![image](./media/google-apps-tutorial/i3-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. I den **användaranspråk** avsnittet på den **användarattribut** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
-    a. Klicka på **redigera** knappen för att öppna den **hantera användaranspråk** dialogrutan.
+    | Namn | Källattribut |
+    | ---------------| --------------- |
+    | Unik användaridentifierare | User.mail |
 
-    ![image](./media/google-apps-tutorial/i2-attribute.png)
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](./media/google-apps-tutorial/i4-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    b. Från den **källattribut** lista selelct attributvärdet.
+    ![image](common/new-attribute-details.png)
 
-    c. Klicka på **Spara**.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-5. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Base64)** och spara certifikatfilen på datorn.
+    c. Lämna **Namnrymd** tom.
 
-    ![Länk för hämtning av certifikat](./media/google-apps-tutorial/tutorial_gsuite_certificate.png) 
+    d. Välj Källa som **Attribut**.
 
-6. På den **konfigurera G Suite** avsnittet, kopiera den lämpliga URL enligt dina behov.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    a. Inloggningswebbadress
+    f. Klicka på **Ok**
 
-    b. Microsoft Azure Active Directory-identifierare
+    g. Klicka på **Spara**.
+
+7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+
+8. I avsnittet **Konfigurera G Suite** kopierar du lämpliga URL:er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-    ![G Suite-konfiguration](common/configuresection.png)
+### <a name="configure-g-suite-single-sign-on"></a>Konfigurera enkel inloggning för G Suite
 
-9. Öppna en ny flik i webbläsaren och logga in på den [G Suite-administratörskonsolen](https://admin.google.com/) med ditt administratörskonto.
+1. Öppna en ny flik i webbläsaren och logga in på [G Suite-administratörskonsolen](http://admin.google.com/) med ditt administratörskonto.
 
-10. Klicka på **Security**. Om du inte ser länken, det kan vara dolda den **fler kontroller** menyn längst ned på skärmen.
+2. Klicka på **Säkerhet**. Om du inte ser länken, kan den vara dold under menyn **Fler kontroller** längst ned på skärmen.
 
-    ![Klicka på Security.][10]
+    ![Klicka på Säkerhet.][10]
 
-11. På den **Security** klickar du på **Konfigurera enkel inloggning (SSO).**
+3. På sidan **Säkerhet** klickar du på **Konfigurera enkel inloggning (SSO).**
 
     ![Klicka på enkel inloggning.][11]
 
-12. Utför följande konfigurationsändringar:
+4. Utför följande konfigurationsändringar:
 
     ![Konfigurera enkel inloggning][12]
 
-    a. Välj **installationsprogrammet SSO med tredjeparts identitetsprovider**.
+    a. Välj **Installera enkel inloggning med tredjeparts identitetsprovider**.
 
-    b. I den **inloggning sid-URL** fältet i G Suite, klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+    b. I fältet **URL för inloggningssida** i G Suite, klistrar du in det värde för **Inloggnings-URL** som du har kopierat från Azure Portal.
 
-    c. I den **utloggning sid-URL** fältet i G Suite, klistra in värdet för **URL för utloggning** som du har kopierat från Azure-portalen.
+    c. I fältet **URL för utloggningssida** i G Suite, klistrar du in det värde för **Utloggnings-URL** som du har kopierat från Azure Portal.
 
-    d. I den **ändra lösenord URL: en** fältet i G Suite, klistra in värdet för **ändra lösenord URL: en** som du har kopierat från Azure-portalen.
+    d. I fältet **URL för att ändra lösenord** i G Suite, klistrar du in det värde för **URL för att ändra lösenord** som du har kopierat från Azure Portal.
 
-    e. I G Suite för den **verifieringscertifikatet**, ladda upp det certifikat som du har hämtat från Azure-portalen.
+    e. I G Suite för **verifieringscertifikatet**, laddar du upp det certifikat som du har hämtat från Azure Portal.
 
-    f. Välj **använder en specifik domän-provider**.
+    f. Välj **Använd en domänspecifik utfärdare**.
 
-    g. Klicka på **spara ändringar**.
+    g. Klicka på **Spara ändringar**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Skapa en Azure AD-användare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](common/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
+    d. Klicka på **Skapa**.
 
-### <a name="creating-a-g-suite-test-user"></a>Skapa en testanvändare för G Suite
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i G Suite-program. G Suite har stöd för automatisk etablering, vilket är som standard aktiverat. Det finns inga åtgärder åt dig i det här avsnittet. Om en användare inte redan finns i G Suite-program, skapas en ny när du försöker få åtkomst till G Suite-program.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till G Suite.
+
+1. I Azure Portal väljer du **Företagsprogram**, **Alla program** och sedan **G Suite**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan över program skriver och väljer du **G Suite**.
+
+    ![G Suite-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-g-suite-test-user"></a>Skapa G Suite-testanvändare
+
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i G Suite-programmet. G Suite har stöd för automatisk etablering, vilket som standard är aktiverat. Det finns ingen åtgärd för dig i det här avsnittet. Om en användare inte redan finns i G Suite-programmet, skapas en ny när du försöker få åtkomst till G Suite-programmet.
 
 > [!NOTE]
-> Kontrollera att användaren finns redan i G Suite om etablering i Azure AD inte har aktiverats innan du testar enkel inloggning.
+> Kontrollera att användaren redan finns i G Suite om etablering i Azure AD inte har aktiverats innan du testar enkel inloggning.
 
 > [!NOTE]
-> Om du vill skapa en användare manuellt kan du kontakta den [Google support-teamet](https://www.google.com/contact/).
+> Om du vill skapa en användare manuellt kan du kontakta [Google-supportteamet](https://www.google.com/contact/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till G Suite.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
-
-    ![Tilldela användare][201]
-
-2. I listan med program väljer **G Suite**.
-
-    ![Konfigurera enkel inloggning](./media/google-apps-tutorial/tutorial_gsuite_app.png)
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
-
-6. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen G Suite i åtkomstpanelen du bör få automatiskt loggat in på ditt G Suite-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på G Suite-panelen i åtkomstpanelen så borde du automatiskt loggas in på den G Suite som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

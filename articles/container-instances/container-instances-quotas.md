@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249489"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602400"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
@@ -24,16 +24,17 @@ Alla Azure-tjänster har vissa standardgränser och kvoter för resurser och fun
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Azure Container Instances är tillgängligt i följande regioner med angivna processor- och minnesgränser.
+Azure Container Instances är tillgängligt i följande regioner med angivna processor- och minnesgränser. Värden är aktuella vid tidpunkten för publiceringen. Använd API [Listfunktioner](/rest/api/container-instances/listcapabilities/listcapabilities) för uppdaterad information.
 
 | Plats | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
+| Centrala Kanada | Linux | 4 | 16 |
 | USA, östra; Europa, norra; Europa, västra; USA, västra; USA, västra 2 | Linux | 4 | 14 |
 | Östra Japan | Linux | 2 | 8 |
 | Australien, östra; USA, östra 2; Asien, sydöstra | Linux | 2 | 7 |
-| Centrala Kanada, centrala Indien, östra Asien, norra centrala USA, södra centrala USA | Linux | 2 | 3.5 |
+| Centrala Indien, Asien och stillahavsområdet, norra centrala USA, södra centrala USA, södra Indien | Linux | 2 | 3.5 |
 | USA, östra; Europa, västra; USA, västra | Windows | 4 | 14 |
-| Östra australien, centrala Kanada, centrala Indien, Ostasien, östra USA 2, östra japan, norra centrala USA, Nordeuropa, USA, södra centrala; Asien, sydöstra; USA, västra 2 | Windows | 2 | 3.5 |
+| Östra Australien, centrala Kanada, centrala Indien, Asien och stillahavsområdet, östra USA 2, östra Japan, norra centrala USA, Nordeuropa, södra centrala USA, södra Indien, sydöstra Asien, västra USA 2 | Windows | 2 | 3.5 |
 
 Containerinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
 

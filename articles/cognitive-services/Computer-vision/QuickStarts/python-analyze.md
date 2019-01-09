@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Analysera en fjärrbild REST, Python – Visuellt innehåll'
+title: 'Snabbstart: Analysera en fjärrbild – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten analyserar du en fjärrbild med hjälp av API:et för visuellt innehåll med Python.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: daad35129c99deb37b44e4a98e0c228963d99840
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: f60a3c3c2ab586bdf1eb44cf1e81a9adb87584b0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854160"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583944"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och Python i Visuellt innehåll
 
-I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
+I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 

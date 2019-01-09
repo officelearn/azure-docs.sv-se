@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 4646456acb44f3054ef948a17d3db330e4e1e727
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5223a60663e05747b58aa04e7a102f1d350badd4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257988"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632305"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53257988"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js-webbapp i Azure App Service på Linux](./containers/quickstart-nodejs.md).
 >
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder ZipDeploy för att distribuera Node.js-exempelkoden till webbappen.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure App Service. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder ZipDeploy för att distribuera Node.js-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -169,13 +169,13 @@ Gå tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter
 
 ![Uppdaterad exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+I den vänstra menyn klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Portalnavigering till Azure-app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 

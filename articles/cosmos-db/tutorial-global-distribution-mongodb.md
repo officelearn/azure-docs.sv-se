@@ -1,36 +1,36 @@
 ---
-title: Självstudie om global distribution i Azure Cosmos DB för MongoDB-API
-description: Lär dig hur du konfigurerar global distribution i Azure Cosmos DB med MongoDB-API:et.
+title: Självstudie om global distribution med hjälp av Cosmos DB:s API för MongoDB
+description: Lär dig hur du konfigurerar global distribution med hjälp av Azure Cosmos DB:s API för MongoDB.
 services: cosmos-db
 keywords: global distribution, MongoDB
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-ms.openlocfilehash: 27fa9849c13de151f6922e829514cc8838f295ea
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a5bcfcac891a80807a15657a91eb44df1921f7ee
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874778"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787197"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Konfigurera global distribution i Azure Cosmos DB med MongoDB-API:et
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Konfigurera en globalt distribuerad databas med hjälp av Azure Cosmos DB:s API för MongoDB
 
-I den här artikeln visar vi hur du kan konfigurera global distribution i Azure Cosmos DB med Azure Portal och sedan ansluta med hjälp av MongoDB API.
+I den här artikeln visar vi dig hur du använder Azure-portalen till att konfigurera en globalt distribuerad databas och ansluter till den med hjälp av Azure Cosmos DB:s API för MongoDB.
 
 Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal
-> * Konfigurera global distribution med [MongoDB API](mongodb-introduction.md)
+> * Konfigurera global distribution med [Azure Cosmos DB:s API för MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Verifiera dina regionala inställningar med hjälp av MongoDB API
-Det enklaste sättet att kontrollera den globala konfigurationen inom API för MongoDB är att köra kommandot *isMaster()* från Mongo-gränssnittet.
+## <a name="verifying-your-regional-setup"></a>Verifiera dina regionala inställningar 
+Ett enkelt sätt att kontrollera din globala konfiguration med Cosmos DB:s API för MongoDB är att köra kommandot *isMaster()* från Mongo-gränssnittet.
 
 Från ditt Mongo-gränssnitt:
 
@@ -64,9 +64,9 @@ Exempel på resultat:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Ansluta till en önskad region med hjälp av MongoDB API
+## <a name="connecting-to-a-preferred-region"></a>Ansluta till en önskad region 
 
-Med MongoDB API kan du ange din samlings läsinställningar för en globalt distribuerad databas. För både läsningar med låg fördröjning och med globalt hög tillgänglighet rekommenderar vi att du ställer in din samlings läsinställningar på *närmaste*. Läsinställningen *närmaste* är konfigurerad att läsa från den närmaste regionen.
+Med Azure Cosmos DB:s API för MongoDB kan du ange samlingens läsinställningar för en globalt distribuerad databas. För både läsningar med låg fördröjning och med globalt hög tillgänglighet rekommenderar vi att du ställer in din samlings läsinställningar på *närmaste*. Läsinställningen *närmaste* är konfigurerad att läsa från den närmaste regionen.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -96,9 +96,9 @@ I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal
-> * Konfigurera global distribution med SQL-API:erna
+> * Konfigurera global distribution med Cosmos DB:s API för MongoDB
 
 Du kan nu fortsätta till nästa självstudiekurs och lära dig hur du utvecklar lokalt med hjälp av den lokala Azure Cosmos DB-emulatorn.
 
 > [!div class="nextstepaction"]
-> [Utveckla lokalt med emulatorn](local-emulator.md)
+> [Utveckla lokalt med Azure Cosmos DB-emulatorn](local-emulator.md)

@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 314f1c1656485f93942eb23f928cc66720a12565
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622542"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753548"
 ---
-# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snabbstart: Installera Azure Active Directory Power BI-innehållspaketet
+# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snabbstart: Installera innehållspaketet för Azure Active Directory Power BI
 
 |  |
 |--|
@@ -39,7 +39,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 * Ett Power BI-konto. Det här är samma konto som ditt O365- eller Azure AD-konto. 
 * Ditt Azure AD-klientorganisations-ID. Det här är **katalog-ID:t** för din katalog från [egenskapssidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) i Azure-portalen.
-* Licens för Azure AD Premium (P1/P2). 
+* Licens för Azure AD Premium (P1/P2). Se [Komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din version av Azure Active Directory.
 
 ## <a name="install-azure-ad-power-bi-content-pack"></a>Installera Azure AD Power BI-innehållspaket 
 

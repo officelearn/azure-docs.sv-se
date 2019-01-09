@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell skriptexempel - ta bort behållare efter prefix | Microsoft Docs
-description: Ta bort Azure Storage blob-behållare baserat på namnprefixet för en behållare.
+title: Exempel på Azure PowerShell-skript – Ta bort containrar efter prefix | Microsoft Docs
+description: Ta bort Azure Storage-blobcontainrar baserat på containerns namnprefix.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25983906"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628176"
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort behållare baserat på namnprefixet för behållaren
+# <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort containrar baserat på containerns namnprefix
 
-Det här skriptet tar bort behållare i Azure Blob storage baserat på ett prefix i behållarnamn.
+Det här skriptet tar bort containrar i Azure Blob Storage baserat på ett prefix i containernamnet.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -36,24 +36,24 @@ Det här skriptet tar bort behållare i Azure Blob storage baserat på ett prefi
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen återstående behållare, och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, återstående containrar och alla relaterade resurser.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att ta bort behållare baserat på namnprefixet för behållaren. Varje objekt i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon för att ta bort containrar baserat på containerns namnprefix. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Hämtar ett angivna Storage-konto eller alla lagringskonton i en resursgrupp eller prenumerationen. |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | Visar de behållare som är kopplade till ett lagringskonto. |
-| [Ta bort AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | Tar bort den angivna behållaren. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Hämtar ett angivet lagringskonto eller alla lagringskonton i en resursgrupp eller i prenumerationen. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Listar de lagringscontainrar som är associerade till ett lagringskonto. |
+| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Tar bort den angivna lagringscontainern. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare lagringsutrymme PowerShell-skript-exempel finns i [PowerShell-exempel för Azure Blob storage](../blobs/storage-samples-blobs-powershell.md).
+Ytterligare PowerShell-skriptexempel för lagring finns i [PowerShell-exempel för Azure Blob Storage](../blobs/storage-samples-blobs-powershell.md).

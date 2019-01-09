@@ -1,21 +1,19 @@
 ---
 title: Azure CLI-skript – Ändra serverkonfigurationer
 description: Det här CLI-skriptexemplet visar en lista med alla tillgängliga serverkonfigurationer och uppdaterar värdet för innodb_lock_wait_timeout.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: a2104b4a2a80dc7ca3f76edb6757a59fcc6c7a4f
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 514f2fe7e8c2b94e175bc6f6fb0cec8ea3d0c9c6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585262"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547430"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Visa och uppdatera konfigurationer av en Azure Database for MariaDB-server med hjälp av Azure CLI
 Det här CLI-exempelskriptet visar alla tillgängliga konfigurationsparametrar samt tillåtna värden för Azure Database for MariaDB-servern och anger *innodb_lock_wait_timeout* till ett annat värde än standardvärdet.
@@ -46,5 +44,5 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).
-- Prova fler skript: [Azure CLI-exempel för Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Prova ytterligare skript: [Azure CLI-exempel för Azure Database for MariaDB](../sample-scripts-azure-cli.md)
 - Mer information om serverparametrar finns i [Konfigurera serverparametrar i Azure Database for MariaDB](../howto-server-parameters.md).

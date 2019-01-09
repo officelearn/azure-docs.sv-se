@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använda Azure Key Vault med Azure Web App i .NET | Microsoft Docs
+title: Självstudie – Använda Azure Key Vault med Azure-webbapp i .NET – Azure Key Vault | Microsoft Docs
 description: Självstudie – Konfigurera ett ASP.NET Core-program för att läsa en hemlighet från Key Vault
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322149"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998803"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudie: Använda Azure Key Vault med en Azure-webbapp i .NET
 
 Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar. Det ger dig tillgång till dina program, tjänster och IT-resurser.
 
-I den här självstudien får du lära dig hur du skapar ett Azure-webbprogram som kan läsa information från ett Azure-nyckelvalv. Processen använder hanterade identiteter för Azure-resurser. Mer information om Azure-webbprogram finns i [Azure Web Apps](../app-service/app-service-web-overview.md).
+I den här självstudien får du lära dig hur du skapar ett Azure-webbprogram som kan läsa information från ett Azure-nyckelvalv. Processen använder hanterade identiteter för Azure-resurser. Mer information om Azure-webbprogram finns i [Azure App Service](../app-service/overview.md).
 
 Artikeln visar hur du:
 
@@ -256,4 +256,4 @@ Du har nu skapat en webbapp i .NET som lagrar och hämtar sina hemligheter från
 ## <a name="next-steps"></a>Nästa steg
 
 >[!div class="nextstepaction"]
->[Utvecklarguide för Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Utvecklarguide för Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

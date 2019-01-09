@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cced3d363f9eb7418d6f453eccb1bf1d7ac20ead
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583592"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972353"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Självstudie: Använda Azure Key Vault med virtuell Azure Windows-dator i Python
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Självstudier: Använda Azure Key Vault med virtuell Azure Windows-dator i Python
 
 Azure Key Vault hjälper dig att skydda hemligheter, till exempel API-nycklar, databasanslutningssträngar som behövs för att komma åt dina program, tjänster samt IT-resurser.
 
-I den här självstudien följer du de steg som behövs för att få ett Azure-webbprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Den här självstudien baseras på [Azure Web Apps](../app-service/app-service-web-overview.md). I följande avsnitt lär du dig att:
+I den här självstudien följer du de steg som behövs för att få ett Azure-webbprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. I följande avsnitt lär du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
@@ -80,7 +80,7 @@ Den resursgrupp du nyss skapade används i hela den här artikeln.
 
 Nu ska du skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg. Ange följande information:
 
-* Nyckelvalvsnamn: namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
+* Key Vault-namn: Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
 * Namn på resursgrupp.
 * Plats: **USA, västra**.
 
@@ -137,7 +137,7 @@ Du kan följa den här [självstudien](https://docs.microsoft.com/azure/virtual-
 
 ## <a name="create-and-run-sample-python-app"></a>Skapa och köra Python-exempelapp
 
-Filen nedan är bara en exempelfil med namnet ”Sample.py”. Den använder [begäransbiblioteket](http://docs.python-requests.org/master/) för att göra HTTP GET-anrop.
+Filen nedan är bara en exempelfil med namnet ”Sample.py”. Den använder [begäransbiblioteket](http://docs.python-requests.org/en/master/) för att göra HTTP GET-anrop.
 
 ## <a name="edit-samplepy"></a>Redigera Sample.py
 När du har skapat Sample.py öppnar du filen och kopierar den under koden

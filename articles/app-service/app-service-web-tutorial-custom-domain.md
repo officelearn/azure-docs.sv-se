@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270271"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714346"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Självstudie: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudier: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visar vi hur du mappar ett befintligt anpassat DNS-namn till Azure Web Apps.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. I den här självstudien visar vi hur du mappar ett befintligt anpassat DNS-namn till Azure App Service.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,7 +48,7 @@ För att slutföra den här självstudien behöver du:
   För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du kunna konfigurera DNS-inställningarna för rotdomänen `contoso.com`.
 
   > [!NOTE]
-  > Om du inte har något domännamn kan du [köpa en domän i Azure Portal](custom-dns-web-site-buydomains-web-app.md). 
+  > Om du inte har något domännamn kan du [köpa en domän i Azure Portal](manage-custom-dns-buy-domain.md). 
 
 ## <a name="prepare-the-app"></a>Förbereda appen
 
@@ -156,7 +156,7 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -231,7 +231,7 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 ![A-posten har lagts till](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -286,7 +286,7 @@ Välj ikonen **+** igen för att lägga till ytterligare ett värdnamn som match
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Testa i webbläsaren
 
@@ -305,7 +305,7 @@ Om du får ett HTTP 404-fel (Hittades inte) när du går till URL:en för den an
 
 ## <a name="migrate-an-active-domain"></a>Migrera en aktiv domän
 
-Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service utan avbrott kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](app-service-custom-domain-name-migrate.md).
+Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service utan avbrott kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](manage-custom-dns-migrate-domain.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Omdirigera till en anpassad katalog
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Mer information finns i [Mappa en anpassad domän till en webbapp](scripts/app-service-cli-configure-custom-domain.md). 
+Mer information finns i [Mappa en anpassad domän till en webbapp](scripts/cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Mer information finns i [Tilldela en anpassad domän till en webbapp](scripts/app-service-powershell-configure-custom-domain.md).
+Mer information finns i [Tilldela en anpassad domän till en webbapp](scripts/powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -363,4 +363,4 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudiekurs där du får lära dig att binda ett anpassat SSL-certifikat till en webbapp.
 
 > [!div class="nextstepaction"]
-> [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Binda ett befintligt anpassat SSL-certifikat till Azure App Service](app-service-web-tutorial-custom-ssl.md)

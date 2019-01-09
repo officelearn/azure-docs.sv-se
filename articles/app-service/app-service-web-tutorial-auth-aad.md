@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408862"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716420"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
-Med [Azure App Service](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](app-service-authentication-overview.md). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Vi använder en ASP.NET Core-app med Angular.js-klientdel, men det är bara ett exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](overview-authentication-authorization.md). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Vi använder en ASP.NET Core-app med Angular.js-klientdel, men det är bara ett exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
 
 I självstudiekursen använder vi exempelappen och visar hur du skyddar en självständig app (i [Aktivera autentisering och auktorisering för serverdelsapp](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -105,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Skicka till Azure från Git
 
-Åter i det _lokala terminalfönstret_ kör du följande Git-kommandon för att distribuera till serverdelsappen. Ersätt _&lt;deploymentLocalGitUrl-of-back-end-app>_ med webbadressen för den fjärranslutna Git som du sparade från [Skapa Azure-resurser](#create-azure-resources). När du blir ombedd av Git Credential Manager att ange autentiseringsuppgifter ska du se till att du anger [dina distributionsuppgifter](app-service-deployment-credentials.md) och inte de uppgifter som du använder till att logga in på Azure-portalen.
+Åter i det _lokala terminalfönstret_ kör du följande Git-kommandon för att distribuera till serverdelsappen. Ersätt _&lt;deploymentLocalGitUrl-of-back-end-app>_ med webbadressen för den fjärranslutna Git som du sparade från [Skapa Azure-resurser](#create-azure-resources). När du blir ombedd av Git Credential Manager att ange autentiseringsuppgifter ska du se till att du anger [dina distributionsuppgifter](deploy-configure-credentials.md) och inte de uppgifter som du använder till att logga in på Azure-portalen.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -119,7 +119,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Bläddra till Azure-webbapparna
+### <a name="browse-to-the-apps"></a>Bläddra till apparna
 
 Navigera till följande URL:er i en webbläsare och se hur de två apparna fungerar.
 
@@ -446,4 +446,4 @@ Vad du lärt dig:
 Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md)

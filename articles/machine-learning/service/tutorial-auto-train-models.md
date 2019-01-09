@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie om regressionsmodell: Träna modeller automatiskt'
+title: 'Självstudie om regressionsmodell: Automatisk ML'
 titleSuffix: Azure Machine Learning service
-description: Lär dig att skapa en ML-modell med automatiserad maskininlärning.  Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig. Den slutliga modellen distribueras sedan med Azure Machine Learning-tjänsten.
+description: Lär dig att skapa en maskininlärningsmodell med automatiserad maskininlärning. Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig. Den slutliga modellen distribueras sedan med Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,49 +11,49 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315211"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580526"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudie: Använda automatiserad maskininlärning för att skapa en regressionsmodell
+# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
 Självstudien är **del två i en självstudieserie i två delar**. I föregående självstudie [förberedde du NYC-taxidata för regressionsmodellering](tutorial-data-prep.md).
 
-Nu är du redo att börja skapa modellen med Azure Machine Learning-tjänsten. I den här delen av självstudien ska du använda förberedda data och automatiskt generera en regressionsmodell för att förutsäga taxipriser. Med hjälp av tjänstens automatiserade ML-funktioner ska du definiera maskininlärningsmål och -begränsningar, starta den automatiserade maskininlärningsprocessen och sedan låta algoritmval och hyperparameterjustering utföras åt dig. Den automatiserade ML-metoden itererar i många kombinationer av algoritmer och hyperparametrar tills den hittar den bästa modellen utifrån dina kriterier.
+Nu är du redo att börja skapa modellen med Azure Machine Learning-tjänsten. I den här delen av självstudien använder du förberedda data och automatiskt generera en regressionsmodell för att förutsäga taxipriser. Genom att använda automatiska maskininlärningsfunktioner för tjänsten kan du definiera dina maskininlärningsmål och -begränsningar. Du startar den automatiska processen för maskininlärning. Låt sedan algoritmval och finjustering av hyperparameter ske. Den automatiserade maskininlärningsmetoden itererar i många kombinationer av algoritmer och hyperparametrar tills den hittar den bästa modellen utifrån dina kriterier.
 
-![flödesdiagram](./media/tutorial-auto-train-models/flow2.png)
+![Flödesdiagram](./media/tutorial-auto-train-models/flow2.png)
 
-I den här guiden får du lära dig att:
+I den här självstudien kommer du att lära dig följande:
 
 > [!div class="checklist"]
-> * Konfigurera en Python-miljö och importera SDK-paketen
-> * Konfigurera en Azure Machine Learning-tjänstarbetsyta
-> * Träna en regressionsmodell automatiskt
-> * Köra modellen lokalt med anpassade parametrar
-> * Utforska resultaten
-> * Registrera den bästa modellen
+> * Konfigurera en Python-miljö och importera SDK-paketen.
+> * Konfigurera en Azure Machine Learning-tjänstarbetsyta.
+> * Träna en regressionsmodell automatiskt.
+> * Köra modellen lokalt med anpassade parametrar.
+> * Utforska resultaten.
+> * Registrera den bästa modellen.
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.0
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.0.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 > * [Kör självstudien för dataförberedelse](tutorial-data-prep.md).
-> * Miljö som konfigurerats för automatiserad maskininlärning, till exempel Azure Notebooks, lokal Python-miljö eller Data Science Virtual Machine. [Konfigurera](samples-notebooks.md) automatiserad maskininlärning.
+> * En konfigurerad miljö med automatiserad maskininlärning. Exempel är Azure Notebooks, en lokal Python-miljö eller en Data Science Virtual Machine. [Konfigurera automatiserad maskininlärning](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Kör anteckningsboken `regression-part2-automated-ml.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Kör anteckningsboken `regression-part2-automated-ml.ipynb` antingen i Azure Notebooks eller på din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## <a name="import-packages"></a>Importera paket
-Importera de Python-paket som du behöver i självstudien.
+Importera de Python-paket som du behöver i självstudien:
 
 
 ```python
@@ -68,9 +68,11 @@ import os
 
 ## <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En `Workspace` är en klass som accepterar din Azure-prenumerations- och resursinformation och skapar en molnresurs för att övervaka och spåra modellkörningarna. `Workspace.from_config()` läser filen **aml_config/config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En `Workspace` är en klass som accepterar din Azure-prenumeration och resursgruppsinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. 
 
-När du har ett arbetsyteobjekt anger du ett namn för experimentet. Skapa och registrera sedan en lokal katalog på arbetsytan. Historiken över alla körningar registreras under det angivna experimentet och i [Azure-portalen](https://portal.azure.com).
+`Workspace.from_config()` läser filen **aml_config/config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
+
+När du har ett objekt på arbetsytan kan du ange ett namn för experimentet. Skapa och registrera en lokal katalog med arbetsytan. Historiken över alla körningar registreras under det angivna experimentet och i [Azure Portal](https://portal.azure.com).
 
 
 ```python
@@ -93,7 +95,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Utforska data
 
-Använd dataflödesobjektet som skapades i föregående självstudie. Öppna och kör dataflödet och granska resultatet.
+Använd dataflödesobjektet som skapades i föregående självstudie. Öppna och kör dataflödet och granska resultatet:
 
 
 ```python
@@ -581,16 +583,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-Du förbereder data för experimentet genom att lägga till kolumner i `dflow_x` som funktioner för vårt modellskapande. Du definierar `dflow_y` som vårt förutsägelsevärde: cost.
+Du förbereder data för experimentet genom att lägga till kolumner i `dflow_x` som funktioner för vårt modellskapande. Du definierar `dflow_y` som vårt förutsägelsevärde, **kostnad**:
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### <a name="split-data-into-train-and-test-sets"></a>Dela data till uppsättningar för träning och testning
+### <a name="split-the-data-into-train-and-test-sets"></a>Dela data till uppsättningar för träning och testning
 
-Nu delar du data till uppsättningar för träning och testning med funktionen `train_test_split` i biblioteket `sklearn`. Den här funktionen segregerar data till datauppsättningen x (funktioner) för modellträning och datauppsättningen y (värden att förutsäga) för testning. Parametern `test_size` anger procentandelen av data som ska allokeras till testning. Parametern `random_state` anger ett startvärde för slumpgeneratorn, så att delningarna mellan träning och testning alltid är deterministiska.
+Nu delar du data till uppsättningar för träning och testning med funktionen `train_test_split` i biblioteket `sklearn`. Den här funktionen segregerar data till x, **funktioner**, datauppsättning för modellträning och y, **värden att förutsäga**, datauppsättning för testning. Parametern `test_size` anger procentandelen av data som ska allokeras till testning. Parametern `random_state` anger ett startvärde för slumpgeneratorn, så att delningarna mellan träning och testning alltid är deterministiska:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -607,23 +609,23 @@ Nu har du nödvändiga paket och data för att kunna träna din modell automatis
 
 ## <a name="automatically-train-a-model"></a>Träna en modell automatiskt
 
-Så här tränar du en modell automatiskt:
-1. Definiera inställningar för körningen av experimentet
-1. Skicka experimentet för modelljustering
+För att träna en modell automatiskt gör du följande:
+1. Definiera inställningar för körningen av experimentet.
+1. Skicka experimentet för modelljustering.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>Definiera inställningar för automatisk generering och justering
 
-Definiera experimentparametrarna och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md).
+Definiera experimentparametern och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md).
 
 
 |Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration|
-|**iterationer**|30|Antal iterationer. I varje iteration tränas modellen med data som har en specifik pipeline|
+|**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration.|
+|**iterationer**|30|Antal iterationer. I varje iteration tränas modellen med data med en specifik pipeline.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera.|
-|**preprocess**| True | True gör att experimentet kan utföra förbearbetning av indata.|
+|**preprocess**| True | Med hjälp av **Sant**, kan experimentet förbearbeta indata.|
 |**verbosity**| logging.INFO | Styr loggningsnivån.|
-|**n_cross_validationss**|5|Antalet delningar i korsverifieringar
+|**n_cross_validationss**|5|Antalet delningar i korsverifieringar.|
 
 
 
@@ -653,7 +655,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Träna den automatiska regressionsmodellen
 
-Starta experimentet för körning lokalt. Skicka det definierade objektet `automated_ml_config` till experimentet och ställ in utdata på `True` för att visa förloppet under experimentet.
+Starta experimentet för körning lokalt. Skicka det definierade `automated_ml_config`-objektet till experimentet. Ställ in utdatan till `True` för att visa förloppet under experimentet:
 
 
 ```python
@@ -709,7 +711,7 @@ Utforska resultatet av automatisk träning med en Jupyter-widget eller genom att
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Alternativ 1: Lägga till en Jupyter-widget för att se resultat
 
-Om du använder en Jupyter-anteckningsbok kan du använda den här Jupyter Notebook-widgeten för att se ett diagram och en tabell med alla resultat.
+Om du använder en Jupyter-anteckningsbok kan du använda den här Jupyter Notebook-widgeten för att se ett diagram och en tabell med alla resultat:
 
 
 ```python
@@ -722,7 +724,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Alternativ 2: Hämta och granska alla körningsiterationer i Python
 
-Du kan också hämta historiken för varje experiment och utforska enskilda mått för varje iterationskörning.
+Du kan också hämta historiken för varje experiment och utforska enskilda mått för varje iterationskörning:
 
 ```python
 children = list(local_run.get_children())
@@ -1071,7 +1073,7 @@ rundata
 
 ## <a name="retrieve-the-best-model"></a>Hämta den bästa modellen
 
-Välj bästa pipeline från våra iterationer. Metoden `get_output` på `automl_classifier` returnerar den bästa körningen och den anpassade modellen för det senaste anpassningsanropet. Det finns överlagringar på `get_output` som gör att du kan hämta den bästa körningen och anpassade modellen för valfritt loggat mått eller en viss iteration.
+Välj bästa pipeline från våra iterationer. Metoden `get_output` på `automl_classifier` returnerar den bästa körningen och den anpassade modellen för det senaste anpassningsanropet. Genom att använda överlagringar på `get_output` kan du hämta den bästa körningen och anpassade modellen för valfritt loggat mått eller en viss iteration:
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1081,7 +1083,7 @@ print(fitted_model)
 
 ## <a name="register-the-model"></a>Registrera modellen
 
-Registrera modellen på din Azure Machine Learning-tjänstarbetsyta.
+Registrera modellen på din Azure Machine Learning-tjänstarbetsyta:
 
 
 ```python
@@ -1093,14 +1095,14 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## <a name="test-the-best-model-accuracy"></a>Testa den bästa modellens precision
 
-Använd den bästa modellen för att köra förutsägelser på datauppsättningen för testning. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y (resekostnad) från datauppsättningen `x_test`. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`.
+Använd den bästa modellen för att köra förutsägelser på datauppsättningen för testning. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y, **resekostnad**, från `x_test`-datauppsättningen. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Skapa ett spridningsdiagram för att visualisera värden för beräknade kostnader jämfört med värden för faktiska kostnader. I följande kod används funktionen `distance` som x-axel och `cost` för resa som y-axel. De först 100 beräknade och faktiska värdena för kostnad skapas som separata serier i syfte att jämföra variansen för beräknad kostnad vid varje värde för reseavstånd. En undersökning av diagrammet visar att relationen mellan avstånd/kostnad nästan är linjär, och värdena för beräknad kostnad är i de flesta fall nära värdena för faktisk kostnad för samma reseavstånd.
+Skapa ett spridningsdiagram för att visualisera värden för beräknade kostnader jämfört med värden för faktiska kostnader. I följande kod används funktionen `distance` som x-axel och `cost` för resa som y-axel. I syfte att jämföra variansen för beräknad kostnad vid varje värde för reseavstånd skapas de först 100 beräknade och faktiska värdena för kostnad som separata serier. En undersökning av ritytan visar att relationen mellan avståndet/kostnaden är nästan linjär. Och de förväntade kostnadsvärdena är i de flesta fall mycket nära de faktiska kostnadsvärdena för samma reseavstånd.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1125,7 +1127,7 @@ plt.show()
 
 ![Spridningsdiagram för förutsägelse](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Beräkna `root mean squared error` för resultatet. Använd dataramen `y_test` och konvertera den till en lista som ska jämföras med de förutsagda värdena. Funktionen `mean_squared_error` tar emot två matriser med värden och beräknar det genomsnittliga kvadratfelet mellan dem. Kvadratroten av resultatet ger ett fel i samma enheter som y-variabeln (kostnad) och anger ungefär hur långt dina beräkningar ligger från det faktiska värdet.
+Beräkna `root mean squared error` för resultatet. Använd dataramen `y_test`. Konvertera den till en lista som ska jämföras med de förutsagda värdena. Funktionen `mean_squared_error` tar emot två matriser med värden och beräknar det genomsnittliga kvadratfelet mellan dem. Att ta kvadratroten ur resultatet ger ett fel i samma enheter som y-variabeln, **kostnad**. Det visar ungefär hur långt dina förutsägelser kommer från det faktiska värdet:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1139,7 @@ rmse
 
     3.2204936862688798
 
-Kör följande kod för att beräkna MAPE (medelabsolutfel i procent) med hjälp av de fullständiga datauppsättningarna `y_actual` och `y_predict`. Det här måttet beräknar en absolut skillnad mellan alla förutsagda och faktiska värden, summerar alla skillnader och anger sedan den summan som en procentandel av summan av de faktiska värdena.
+Kör följande kod för att beräkna medelabsolutfel i procent (MAPE) med hjälp av de fullständiga datauppsättningarna `y_actual` och `y_predict`. Det här måttet beräknar en absolut skillnad mellan varje förväntat och faktiskt värde och summerar alla skillnaderna. Det visar sedan denna summa som en procentandel av summan av de faktiska värdena:
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1170,12 +1172,12 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien om automatiserad maskininlärning har du:
+I den här automatiserade självstudiekursen om maskininlärning har du gjort följande uppgifter:
 
 > [!div class="checklist"]
-> * Konfigurerat en arbetsyta och förberett data för ett experiment
-> * Tränat med hjälp av en automatiserad regressionsmodell lokalt med anpassade parametrar
-> * Utforskat och granskat träningsresultat
-> * Registrerat den bästa modellen
+> * Konfigurerat en arbetsyta och förberett data för ett experiment.
+> * Tränat med hjälp av en automatiserad regressionsmodell lokalt med anpassade parametrar.
+> * Utforskat och granskat träningsresultat.
+> * Registrerat den bästa modellen.
 
 [Distribuera modellen](tutorial-deploy-models-with-aml.md) med Azure Machine Learning.

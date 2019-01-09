@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 48beb93fbc5952951fff1ed31e5f8625faf78ccd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d8ba7c89f320344081ed8f3a722883c3234fa90
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850405"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810992"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure CLI-exempel för Azure Cosmos DB
 
@@ -20,21 +20,21 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure Cos
 | |  |
 |---|---|
 |**Skapa Azure Cosmos DB-konton, databaser och containrar**||
-| [Skapa ett SQL API-konto](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett konto, en databas och en container för SQL API i Azure Cosmos DB. |
-| [Skapa ett MongoDB API-konto](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure Cosmos DB MongoDB API-konto, databas och samling. |
-| [Skapa ett Gremlin API-konto](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto, en databas och en graf för Gremlin API i Azure Cosmos DB. |
-| [Skapa ett Cassandra API-konto](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett enskilt Azure Cosmos DB-konto och -databas med API för Cassandra. |
-| [Skapa ett Table API-konto](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto för tabell-API för Azure Cosmos DB, en databas och en tabell. |
+| [Skapa ett Azure Cosmos DB-konto med hjälp av SQL API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett konto, en databas och en container i Azure Cosmos DB. |
+| [Skapa ett Azure Cosmos DB-konto med hjälp av Cosmos DB:s API för MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto, en databas och en samling i Azure Cosmos DB. |
+| [Skapa ett Azure Cosmos DB-konto med hjälp av Gremlin-API](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto, en databas och en graf i Azure Cosmos DB. |
+| [Skapa ett Azure Cosmos DB-konto med hjälp av API för Cassandra](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto och en databas i Azure Cosmos DB. |
+| [Skapa ett Azure Cosmos DB-konto med hjälp av Tabell-API](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett konto, en databas och en tabell i Azure Cosmos DB. |
 |**Skala Azure Cosmos DB**||
 | [Skala containerns dataflöde](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Ändrar dataflöde i en container.|
 | [Replikera ett Azure Cosmos DB-databaskonto i flera regioner och konfigurera redundansprioriteringar](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replikerar kontodata globalt till flera regioner med en angiven redundansprioritet.|
 |**Skydda Azure Cosmos DB**||
 | [Hämta kontonycklar](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hämtar de primära och sekundära huvudskrivnycklarna och de primära och sekundära skrivskyddade nycklarna för kontot.|
-| [Hämta anslutningssträngen för MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hämtar anslutningssträngen för att ansluta MongoDB-appen till Azure Cosmos DB-kontot.|
+| [Hämta en anslutningssträng för Cosmos-konto konfigurerat med Azure Cosmos DB:s API för MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hämtar anslutningssträngen för att ansluta MongoDB-appen till Azure Cosmos DB-kontot.|
 | [Återskapa kontonycklar](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Återskapa nycklar för kontot.|
 | [Skapa en brandvägg](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en princip för inkommande IP-åtkomstkontroll för att begränsa åtkomsten till kontot från en godkänd uppsättning datorer och/eller molntjänster.|
 |**Hög tillgänglighet, haveriberedskap, säkerhetskopiering och återställning**||
 | [Konfigurera redundansprincip](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Ställer in redundansprioritet för varje region i vilken kontot är replikerat.|
 |**Ansluta Azure Cosmos DB till resurser**||
-| [Ansluta en webbapp till Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Skapa och anslut en Azure Cosmos DB-databas och en Azure-webbapp.|
+| [Ansluta en webbapp till Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Skapa och anslut en Azure Cosmos DB-databas och en Azure-webbapp.|
 |||

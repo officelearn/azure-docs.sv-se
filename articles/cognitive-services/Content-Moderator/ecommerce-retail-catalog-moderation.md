@@ -1,252 +1,123 @@
 ---
-title: 'Självstudie: katalogmoderering för e-handel – Content Moderator'
+title: 'Självstudier: Moderera produktbilder för e-handel – Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Automoderera kataloger för e-handel med maskininlärning och AI.
+description: Konfigurera ett program för att analysera och klassificera produktbilder med angivna etiketter (med Visuellt innehåll i Azure och Custom Vision) och tagga stötande bilder som ska granskas ytterligare (med Azure Content Moderator).
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: sajagtap
-ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: pafarley
+ms.openlocfilehash: 209fb3bba2b5462caad53d809c46eba0ebf4d836
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256238"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547906"
 ---
-# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Självstudie: katalogmoderering för e-handel med maskininlärning
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Självstudier: Moderera produktbilder för e-handel med Azure Content Moderator
 
-I den här självstudien lär du dig implementera maskininläringsbaserad intelligent katalogmoderering för e-handel genom att kombinera maskinassisterade AI-tekniker med mänsklig moderering för att skapa ett intelligent katalogsystem.
+I den här självstudien får du lära dig att använda Azure Cognitive Services, inklusive Content Moderator för att effektivt klassificera och moderera produktbilder i ett scenario med e-handel. Du kommer att använda Visuellt innehåll och Custom Vision för att tillämpa olika taggar (etiketter) på bilder, och därefter skapar du en teamgranskning, som kombinerar Content Moderators maskininlärningsbaserade tekniker med mänskliga granskningsteam för att tillhandahålla ett intelligent modereringssystem.
 
-![Klassificerade produktbilder](images/tutorial-ecommerce-content-moderator.PNG)
+I den här självstudiekursen lär du dig att:
 
-## <a name="business-scenario"></a>Affärsscenario
+> [!div class="checklist"]
+> * Registrera dig för Content Moderator och skapa ett granskningsteam.
+> * Använd Content Moderators bild-API för att söka efter potentiellt vuxet eller vågat innehåll.
+> * Använd tjänsten för visuellt innehåll för att söka efter kändisinnehåll (eller andra identifierbara taggar för visuellt innehåll).
+> * Använd tjänsten Custom Vision om du vill söka efter flaggor, leksaker och pennor (eller andra anpassade taggar).
+> * Presentera kombinerade sökresultat för mänsklig granskning och slutgiltigt beslutsfattande.
 
-Använd maskinassisterade tekniker för att klassificera och ändra produktbilder i dessa kategorier:
+Den fullständiga exempelkoden är tillgänglig på lagringsplatsen [Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) på GitHub.
 
-1. Vuxen (nakenhet)
-2. Vågat (laddat)
-3. Kändisar
-4. Amerikanska flaggor
-5. Leksaker
-6. Pennor
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="tutorial-steps"></a>Självstudiesteg
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här självstudien vägleder dig genom dessa steg:
+- En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
+- En prenumerationsnyckel för visuellt innehåll (samma instruktioner som ovan).
+- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
+- En uppsättning bilder för varje etikett som klassificeraren för Custom Vision ska använda (i det här fallet leksaker, pennor och amerikanska flaggor).
 
-1. Registrera dig och skapa ett Content Moderator-team.
-2. Konfigurera modereringstaggar (etiketter) för potentiellt kändis- och flagginnehåll.
-3. Använd Content Moderators bild-API för att söka efter potentiellt vuxet eller vågat innehåll.
-4. Använd Computer Vision API för att söka efter potentiella kändisar.
-5. Använd Custom Vision-tjänsten för att söka efter möjlig förekomst av flaggor.
-6. Presentera nyanserade sökresultat för mänsklig granskning och slutgiltigt beslutsfattande.
+## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-## <a name="create-a-team"></a>Skapa ett team
+Referera till snabbstarten [Get familiar with Content Moderator](quick-start.md) (Bekanta dig med Content Moderator) för instruktioner om hur du registrerar dig för [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) och skapar ett granskningsteam. Anteckna värdet för **team-ID:t** på sidan **Autentiseringsuppgifter**.
 
-Gå till sidan [Snabbstart](quick-start.md) för att registrera dig för Content Moderator och skapa ett team. Anteckna **Team-ID** från sidan **Autentiseringsuppgifter**.
+## <a name="create-custom-moderation-tags"></a>Skapa anpassade modereringstaggar
 
-
-## <a name="define-custom-tags"></a>Definiera anpassade taggar
-
-Information om hur du lägger till anpassade taggar finns i artikeln [Taggar](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags). Utöver de inbyggda taggarna för **adult** (vuxet) och **racy** (vågat) innehåll gör de nya taggarna att granskningsverktyget kan visa beskrivande namn för taggarna.
-
-I vårt fall definierar vi dessa anpassade taggar (**celebrity** (kändis), **flag** (flagga), **us** (USA), **toy** (leksak) och **pen** (penna)):
+Därefter skapar du anpassade taggar i granskningsverktyget (läs artikeln [Taggar](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) om du behöver hjälp med den här processen). I det här fallet ska vi lägga till följande taggar: **kändisar**, **USA**, **flagga**, **leksak** och **penna**. Observera att alla taggar inte måste vara identifierbara kategorier i visuellt innehåll (t.ex. **kändisar**). Du kan lägga till dina egna anpassade taggar när du tränar Custom Vision-klassificeraren för att identifiera dem senare.
 
 ![Konfigurera anpassade taggar](images/tutorial-ecommerce-tags2.PNG)
 
-## <a name="list-your-api-keys-and-endpoints"></a>Lista dina API-nycklar och slutpunkter
+## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt
 
-1. I självstudiekursen används tre API:er och motsvarande nycklar och API-slutpunkter.
-2. Dina API-slutpunkter är olika baserat på din prenumerationsregioner och Content Moderators granskningsteams-ID.
+1. Öppna dialogrutan New Project (Nytt projekt) i Visual Studio. Expandera **Installerat**, sedan **Visual C#** och välj **Konsolapp (.NET Framework)**.
+1. Ge programmet namnet **EcommerceModeration** och klicka sedan på **OK**.
+1. Om du lägger till det här projektet i en befintlig lösning väljer du det här projektet som det enda startprojektet.
 
-> [!NOTE]
-> Självstudien är utformad för att använda prenumerationsnycklar i de regioner som visas i följande slutpunkter. Se till att matcha dina API-nycklar med region-URI:erna; annars fungerar nycklarna kanske inte med följande slutpunkter:
+Den här självstudien fokuserar på koden som är central för projektet, men den tar inte upp alla kodrader som behövs. Kopiera hela innehållet i _Program.cs_ från exempelprojektet ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) till filen _Program.cs_ för det nya projektet. Gå sedan igenom avsnitten nedan om du vill veta mer om hur projektet fungerar och hur du använder det själv.
 
-         // Your API keys
-        public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
+## <a name="define-api-keys-and-endpoints"></a>Definiera API-nycklar och slutpunkter
 
-        // Your end points URLs will look different based on your region and Content Moderator Team ID.
-        public const string ImageUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessImage/Evaluate";
-        public const string ReviewUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0/teams/YOURTEAMID/reviews";
-        public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
-        public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
+Som nämnts ovan använder den här självstudien tre kognitiva tjänster. Därför krävs tre motsvarande nycklar och API-slutpunkter. Se följande fält i klassen **Program**: 
 
-## <a name="scan-for-adult-and-racy-content"></a>Söka efter vuxet eller vågat innehåll
+[!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-1. Funktionen tar en bild-URL och en matris med nyckel/värde-par som parametrar.
-2. Den anropar Content Moderators bild-API för att få poängen för vuxet och vågat innehåll.
-3. Om poängen är högre än 0,4 (intervallet är från 0 till 1) anger den värdet i matrisen **ReviewTags** till **True** (Sant).
-4. Matrisen **ReviewTags** (Granskningstaggar) används för att markera motsvarande tagg i granskningsverktyget.
+Du måste uppdatera `___Key`-fältet med värdet för din prenumerationsnyckel (du får `CustomVisionKey` senare), och du kanske måste ändra `___Uri`-fälten så att de innehåller rätt regionsidentifierare. Fyll i `YOURTEAMID`-delen av fältet `ReviewUri` med ID:t för granskningsteamet som du skapade tidigare. Du ska fylla i den sista delen av fältet `CustomVisionUri` vid ett senare tillfälle.
 
-        public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
-        {
-            float AdultScore = 0;
-            float RacyScore = 0;
+## <a name="primary-method-calls"></a>Primära metodanrop
 
-            var File = ImageUrl;
-            string Body = $"{{\"DataRepresentation\":\"URL\",\"Value\":\"{File}\"}}";
+Se följande kod i **Main**-metoden, som loopar igenom en lista över webbadresser till bilder. Den analyserar varje bild med tre olika tjänster, registrerar tillämpade taggar i matrisen **ReviewTags** och skapar sedan en granskning för mänskliga moderatorer (skickar bilder för Content Moderator-granskningsverktyget). Du utforskar dessa metoder i följande avsnitt. Observera att här, om du vill, kan du kan styra vilka bilder som ska skickas till granskning med hjälp av matrisen **ReviewTags** i en villkorlig instruktion för att kontrollera vilka taggar har tillämpats.
 
-            HttpResponseMessage response = CallAPI(ImageUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+[!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
-            if (response.IsSuccessStatusCode)
-            {
-                // {“answers”:[{“answer”:“Hello”,“questions”:[“Hi”],“score”:100.0}]}
-                // Parse the response body. Blocking!
-                GetAdultRacyScores(response.Content.ReadAsStringAsync().Result, out AdultScore, out RacyScore);
-            }
+## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy-metod
 
-            ReviewTags[0] = new KeyValuePair();
-            ReviewTags[0].Key = "a";
-            ReviewTags[0].Value = "false";
-            if (AdultScore > 0.4)
-            {
-                ReviewTags[0].Value = "true";
-            }
+Se metoden **EvaluateAdultRacy** i klassen **Program**. Den här metoden tar en bild-URL och en matris med nyckel/värde-par som parametrar. Den anropar Content Moderators bild-API (med REST) för att få poängen för vuxet och vågat innehåll på bilden. Om poängen är högre än 0,4 (intervallet är från 0 till 1) anger den motsvarande värde i matrisen **ReviewTags** till **True**.
 
-            ReviewTags[1] = new KeyValuePair();
-            ReviewTags[1].Key = "r";
-            ReviewTags[1].Value = "false";
-            if (RacyScore > 0.3)
-            {
-                ReviewTags[1].Value = "true";
-            }
-            return response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="scan-for-celebrities"></a>Söka efter kändisar
+## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags-metod
 
-1. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) av [API för visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
-2. Klicka på knappen **Ladda ned API-nyckel**.
-3. Godkänn villkoren.
-4. Logga in genom att välja från listan över tillgängliga Internetkonton.
-5. Observera de API-nycklar som visas på tjänstsidan.
-    
-   ![Nycklar för API för visuellt innehåll](images/tutorial-computer-vision-keys.PNG)
-    
-6. Se projektkällkoden för den funktion som söker igenom bilden med API för visuellt innehåll.
+Nästa metod tar en bild-URL och din prenumerationsinformation för visuellt innehåll och analyserar bilden för förekomst av kändisar. Om det finns en eller flera kändisar ställs motsvarande värde i matrisen **ReviewTags** in på **True**. 
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
-            HttpResponseMessage Response = CallAPI(ComputerVisionUri, ComputerVisionKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags-metod
 
-            if (Response.IsSuccessStatusCode)
-            {
-                ReviewTags[2] = new KeyValuePair();
-                ReviewTags[2].Key = "cb";
-                ReviewTags[2].Value = "false";
+Sedan kan du titta på metoden **EvaluateCustomVisionTags** som klassificerar de faktiska produkterna&mdash;i det här fallet flaggor, leksaker och pennor. Följ instruktionerna i guiden [Skapa en klassificerare](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) för att skapa en egen anpassad bildklassificerare för att detektera förekomsten av flaggor, leksaker och pennor (eller det du valde som dina anpassade taggar) i bilder.
 
-                ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
+![Custom Vision-webbsida med inlärningsbilder av pennor, leksaker och flaggor](images/tutorial-ecommerce-custom-vision.PNG)
 
-                if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
-                    ReviewTags[2].Value = "true";
-                }
-            }
+När du har tränat din klassificerare hämtar du förutsägelsenyckeln och slutpunkts-URL:en för förutsägelse (se [Hämta URL och förutsägelsenyckel](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) om du behöver hjälp med att hämta dem), och tilldela dessa värden till dina fält `CustomVisionKey` respektive `CustomVisionUri`. Metoden använder dessa värden för att fråga klassificeraren. Om klassificeraren hittar en eller flera av de anpassade taggarna i bilden ställer den här metoden in de motsvarande värdena i matrisen **ReviewTags** på **True**. 
 
-            return Response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
-## <a name="classify-into-flags-toys-and-pens"></a>Klassificera som flaggor, leksaker och pennor
+## <a name="create-reviews-for-review-tool"></a>Skapa granskningar för granskningsverktyg
 
-1. [Logga in](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) på [förhandsversionen av Custom Vision API](https://www.customvision.ai/).
-2. Använd [snabbstarten](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) för att skapa din anpassade klassificerare för att identifiera potentiella förekomster av flaggor, leksaker och pennor.
-   ![Custom Vision-träningsbilder](images/tutorial-ecommerce-custom-vision.PNG)
-3. [Hämta slutpunkts-URL för förutsägelse](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) för din anpassade klassificerare.
-4. Se projektkällkoden för att se den funktion som anropar din anpassade klassificerares förutsägelseslutpunkt för att söka igenom bilden.
+I föregående avsnitt noterade du vilka metoder som söker igenom inkommande bilder efter vuxet och vågat innehåll (Content Moderator), kändisar (Visuellt innehåll) och olika andra objekt (Custom Vision). Se nu att metoden **CreateReview** överför bilderna, med alla tillämpade taggar (överförda som _Metadata_), till Content Moderator-granskningsverktyget så att de blir tillgängliga för mänsklig granskning. 
 
-        public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
-            HttpResponseMessage response = CallAPI(CustomVisionUri, CustomVisionKey, CallType.POST,
-                                                   "Prediction-Key", "application/json", "", Body);
+Bilderna visas på granskningsfliken i [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/).
 
-            if (response.IsSuccessStatusCode)
-            {
-                // Parse the response body. Blocking!
-                SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
-            }
-            return response.IsSuccessStatusCode;
-        }       
- 
-## <a name="reviews-for-human-in-the-loop"></a>Granskningar för human-in-the-loop
+![Skärmbild av Content Moderator-granskningsverktyget med flera bilder och deras markerade taggar](images/tutorial-ecommerce-content-moderator.PNG)
 
-1. I föregående avsnitt sökte du igenom inkommande bilder efter vuxet och vågat innehåll (Content Moderator), kändisar (Visuellt innehåll) och flaggor (Custom Vision).
-2. Baserat på vår matchningströskelvärden för varje sökning görs nyanserade fall tillgängliga för mänsklig granskning i granskningsverktyget.
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+## <a name="submit-a-list-of-test-images"></a>Skicka en lista över bilder för testning
 
-            ReviewCreationRequest Review = new ReviewCreationRequest();
-            Review.Item[0] = new ReviewItem();
-            Review.Item[0].Content = ImageUrl;
-            Review.Item[0].Metadata = new KeyValuePair[MAXTAGSCOUNT];
-            Metadata.CopyTo(Review.Item[0].Metadata, 0);
+Som du ser i metoden **Main** söker det här programmet efter en ”C:Test”-katalog med en _Urls.txt_ -fil som innehåller en lista över bild-URL:er. Skapa sådan fil och katalog, eller ändra sökvägen så att den pekar på textfilen och fyll i den här filen med URL:er till bilder som du vill testa.
 
-            //SortReviewItems(ref Review);
+[!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
-            string Body = JsonConvert.SerializeObject(Review.Item);
+## <a name="run-the-program"></a>Köra programmet
 
-            HttpResponseMessage response = CallAPI(ReviewUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
-
-            return response.IsSuccessStatusCode;
-        }
-
-## <a name="submit-batch-of-images"></a>Skicka batch med bilder
-
-1. Den här självstudiekursen förutsätter en ”C:Test”-katalog med en textfil som har en lista över bild-URL:er.
-2. Följande kod kontrollerar om filen finns och läser in alla URL:er i minnet.
-            // Sök efter en testkatalog för en textfil med listan över de bild-URL:er som ska genomsökas var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
-
-            if (!Directory.Exists(topdir))
-                return;
-
-            if (!File.Exists(Urlsfile))
-            {
-                return;
-            }
-
-            // Read all image URLs in the file
-            var Urls = File.ReadLines(Urlsfile);
-
-## <a name="initiate-all-scans"></a>Initiera alla genomsökningar
-
-1. Den här toppnivåfunktionen loopar igenom alla bildwebbadresser i den textfil som vi nämnde tidigare.
-2. Den söker igenom dem med varje API, och om förtroendepoängen faller inom våra kriterier skapar den en granskning för mänskliga moderatorer.
-             // för varje bild-IRL i filen... foreach (var Url in Urls) { // Initiera en ny matris med granskningstaggar ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
-
-                // Evaluate for potential adult and racy content with Content Moderator API
-                EvaluateAdultRacy(Url, ref ReviewTags);
-
-                // Evaluate for potential presence of celebrity (ies) in images with Computer Vision API
-                EvaluateComputerVisionTags(Url, ComputerVisionUri, ComputerVisionKey, ref ReviewTags);
-
-                // Evaluate for potential presence of custom categories other than Marijuana
-                EvaluateCustomVisionTags(Url, CustomVisionUri, CustomVisionKey, ref ReviewTags);
-
-                // Create review in the Content Moderator review tool
-                CreateReview(Url, ReviewTags);
-            }
-
-## <a name="license"></a>Licens
-
-Alla SDK:er i Microsoft Cognitive Services och exempel är licensierade med MIT-licensen. Mer information finns i [LICENS](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Uppförandekod för utvecklare
-
-Utvecklare som använder Cognitive Services, inklusive det här klientbiblioteket och exemplet, förväntas följa ”Uppförandekod för utvecklare i Microsoft Cognitive Services”, som finns på http://go.microsoft.com/fwlink/?LinkId=698895.
+Om du har följt alla steg ovan bör programmet bearbeta varje bild (och fråga alla tre tjänster för relevanta taggar) och sedan ladda upp bilder med tagginformation till Content Moderator-granskningsverktyget.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa och utöka självstudien med hjälp av [projektets källfiler](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) på GitHub.
+I den här självstudien konfigurerar du ett program för att analysera produktbilder i syfte att tagga dem via produkttyp och låta ett granskningsteam fatta välgrundade beslut om innehållsmoderering. Härnäst får du mer information om bildmoderering.
+
+> [!div class="nextstepaction"]
+> [Granska modererade bilder](./review-tool-user-guide/review-moderated-images.md)

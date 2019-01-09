@@ -5,270 +5,255 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 36f1bd9c11c8932968a3501ef22fdb7153411256
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 9d9f9d1e9a87802960fd2f004f3e19f47fdd3fe0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867569"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Självstudier: Azure Active Directory-integrering med Salesforce
 
-I den här självstudien får du lära dig hur du integrerar Salesforce med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Salesforce med Azure Active Directory (Azure AD).
+Du får följande fördelar när du integrerar Salesforce med Azure AD:
 
-Integrera Salesforce med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure AD vilka som har åtkomst till Salesforce.
+* Du kan göra så att dina användare automatiskt loggas in på Salesforce (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till Salesforce.
-- Du kan aktivera användarna att automatiskt få loggat in på Salesforce (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att kunna konfigurera Azure AD-integrering med Salesforce behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Salesforce, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Salesforce enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Salesforce-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till Salesforce från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* Salesforce har stöd för **SP**-initierad enkel inloggning
 
-## <a name="adding-salesforce-from-the-gallery"></a>Att lägga till Salesforce från galleriet
+* Salesforce stöder **just-in-time**-användaretablering
 
-Om du vill konfigurera integreringen av Salesforce till Azure AD, som du behöver lägga till Salesforce från galleriet i din lista över hanterade SaaS-appar.
+* Salesforce har stöd för [**automatisk** användaretablering](salesforce-provisioning-tutorial.md)
 
-**Utför följande steg för att lägga till Salesforce från galleriet:**
+## <a name="adding-salesforce-from-the-gallery"></a>Lägga till Salesforce från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+För att kunna konfigurera integreringen av Salesforce i Azure AD måste du lägga till Salesforce från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Gör följande för att lägga till Salesforce från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure Portal](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Knappen Nytt program][3]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-4. I sökrutan skriver **Salesforce**väljer **Salesforce** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Salesforce i resultatlistan](./media/salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+4. Skriv **Salesforce** i sökrutan, välj **Salesforce** på resultatpanelen och klicka på knappen **Lägg till** i programmet.
 
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med Salesforce baserat på en testanvändare som kallas ”Britta Simon”.
+     ![Salesforce i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i Salesforce är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Salesforce upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I Salesforce, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Salesforce baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Salesforce upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Salesforce, måste du utföra följande byggblock:
+För att kunna konfigurera och testa enkel inloggning i Azure AD med Salesforce måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare i Salesforce](#create-a-salesforce-test-user)**  – du har en motsvarighet för Britta Simon i Salesforce som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Salesforce](#configure-salesforce-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Skapa Salesforce-testanvändare](#create-salesforce-test-user)** – så att det finns en motsvarighet till Britta Simon i Salesforce som är länkad till Azure AD-representationen av användaren.
+5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Salesforce-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Salesforce:**
+Gör följande för att konfigurera enkel inloggning med Azure AD med Salesforce:
 
-1. I Azure-portalen på den **Salesforce** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Salesforce** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. Klicka på **ändra enkel inloggningsläge** på skärmen för att välja den **SAML** läge.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning för länken](./media/salesforce-tutorial/tutorial_general_300.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Konfigurera enkel inloggning för länken](./media/salesforce-tutorial/tutorial_general_301.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
-   
-    ![Konfigurera enkel inloggning för länken](./media/salesforce-tutorial/tutorial_general_302.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-5. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+    ![Salesforce – enkel inloggning-information för domän och -URL:er](common/sp-identifier.png)
 
-    ![Salesforce-domän och URL: er med enkel inloggning för information](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-
-    a. I den **inloggnings-URL** textrutan skriver du värdet med följande mönster:
+    a. I textrutan **Inloggnings-URL** anger du värdet med följande mönster:
 
     Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
     Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
 
-    b. I den **identifierare** textrutan skriver du värdet med följande mönster:
+    b. I textrutan **Identifierare** anger du värdet med följande mönster:
 
     Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
     Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta [Salesforce-klienten supportteamet](https://help.salesforce.com/support) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Salesforce-kundsupporten](https://help.salesforce.com/support) för att få dessa värden.
 
-6. På den **SAML-signeringscertifikat** avsnittet, klicka på **hämta** att ladda ned **Federation Metadata XML** och spara xml-filen på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](./media/salesforce-tutorial/tutorial_salesforce_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. Öppna en ny flik i webbläsaren och logga in på ditt Salesforce-administratörskonto.
+6. I avsnittet **Konfigurera Salesforce** kopierar du lämpliga URL:er enligt dina behov.
 
-8. Klicka på den **installationsprogrammet** under **inställningsikonen** i det övre högra hörnet på sidan.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-salesforce-single-sign-on"></a>Konfigurera enkel inloggning med Salesforce
+
+1. Öppna en ny flik i webbläsaren och logga in på ditt Salesforce-administratörskonto.
+
+2. Klicka på **Setup** (Konfiguration) under **inställningsikonen** i det övre högra hörnet på sidan.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/configure1.png)
 
-9. Rulla ned till den **inställningar** i navigeringsfönstret klickar du på **identitet** att expandera avsnittet relaterade. Klicka sedan på **inställningar för enkel inloggning**.
+3. Rulla ned till **INSTÄLLNINGAR** i navigeringsfönstret och klicka på **Identitet** för att expandera det relaterade avsnittet. Klicka sedan på **Inställningar för enkel inloggning**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-admin-sso.png)
 
-10. På den **inställningar för enkel inloggning** klickar du på den **redigera** knappen.
+4. På sidan med **Inställningar för enkel inloggning** klickar du på **Redigera**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
-    > Om det inte går att aktivera enkel inloggning för inställningar för ditt Salesforce-konto kan du behöva kontakta [Salesforce-klienten supportteamet](https://help.salesforce.com/support).
+    > Om du inte kan aktivera inställningar för enkel inloggning för ditt Salesforce-konto kanske du måste kontakta [Salesforce-kundsupporten](https://help.salesforce.com/support).
 
-11. Välj **SAML aktiverat**, och klicka sedan på **spara**.
+5. Välj **SAML-aktiverat** och klicka på **Spara**.
 
       ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-enable-saml.png)
 
-12. Om du vill konfigurera SAML enkel inloggning för, klickar du på **nytt från metadatafilen**.
+6. Konfigurera inställningarna för enkel inloggning med SAML genom att klicka på **Nytt från metadatafil**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-13. Klicka på **Välj fil** att ladda upp den XML-fil som du har hämtat i Azure-portalen och klicka på **skapa**.
+7. Klicka på **Välj fil** för att ladda upp XML-filen med metadata som du har laddat ned från Azure-portalen och klicka på **Skapa**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/xmlchoose.png)
 
-14. På den **SAML enkel inloggning inställningar** sidan fält fylla i automatiskt och klicka på Spara.
+8. På sidan med **inställningar för enkel inloggning med SAML** fylls fälten i automatiskt. Klicka på Spara.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/salesforcexml.png)
 
-15. I det vänstra navigeringsfönstret i Salesforce, klickar du på **Företagsinställningar** Expandera avsnittet relaterade och klicka sedan på **min domän**.
+9. I det vänstra navigeringsfönstret i Salesforce klickar du på **Företagsinställningar** för att expandera relaterat avsnitt och klickar sedan på **Min domän**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-my-domain.png)
 
-16. Rulla ned till den **Autentiseringskonfiguration** , och klicka på **redigera** knappen.
+10. Rulla ned till avsnittet **Autentiseringskonfiguration** och klicka på knappen **Redigera**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-17. I den **Autentiseringskonfiguration** avsnittet, kontrollera den **AzureSSO** som **autentisering Servie** SAML SSO-konfiguration och klicka sedan på **spara** .
+11. I avsnittet **Autentiseringskonfiguration** markerar du **AzureSSO** vid **Autentiseringstjänst** för din SAML SSO-konfiguration och klickar sedan på **Spara**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
-    > Om mer än en authentication-tjänsten är markerat uppmanas användarna att välja vilka autentiseringstjänst som de vill logga in med när du initierar enkel inloggning till ditt Salesforce-miljö. Om du inte vill det. inträffa så bör du **lämnar du alla andra autentiseringstjänster avmarkerad**.
+    > Om mer än en autentiseringstjänst har valts uppmanas användarna att välja vilken autentiseringstjänst de vill logga in med när de initierar enkel inloggning i din Salesforce-miljö. Om du inte vill att det ska hända ska du **låta alla andra autentiseringstjänster vara avmarkerade**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure Portal med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure Portal och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Skapa en Azure AD-användare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/salesforce-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Skapa en Azure AD-användare för testning](./media/salesforce-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
+    d. Klicka på **Skapa**.
 
-### <a name="create-a-salesforce-test-user"></a>Skapa en testanvändare i Salesforce
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Salesforce. Salesforce har stöd för just-in-time-etablering, som är aktiverat som standard. Det finns inga uppgift åt dig i det här avsnittet. Om en användare inte redan finns i Salesforce, skapas en ny när du försöker få åtkomst till Salesforce. Salesforce stöder även automatisk användaretablering, kan du hitta mer information om [här](salesforce-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till Salesforce.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Salesforce**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Salesforce.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-![Tilldela rollen][200]
+2. Välj **Salesforce** i programlistan.
 
-**Om du vill tilldela Britta Simon Salesforce, utför du följande steg:**
+    ![Salesforce-länken i programlistan](common/all-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Tilldela användare][201]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Salesforce**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Salesforce-länk i listan med program](./media/salesforce-tutorial/tutorial_salesforce_app.png)
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Länken ”användare och grupper”][202]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till användare** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Fönstret Lägg till tilldelning][203]
+### <a name="create-salesforce-test-user"></a>Skapa Salesforce-testanvändare
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet skapas en användare som heter Britta Simon i Salesforce. Salesforce stöder just-in-time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Salesforce skapas en ny när du försöker komma åt Salesforce. Salesforce stöder även automatisk användaretablering. Mer information finns [här](salesforce-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Salesforce i åtkomstpanelen du bör få automatiskt loggat in på ditt Salesforce-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på Salesforce-panelen i åtkomstpanelen bör du automatiskt loggas in på Salesforce som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](salesforce-provisioning-tutorial.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/salesforce-tutorial/tutorial_general_01.png
-[2]: ./media/salesforce-tutorial/tutorial_general_02.png
-[3]: ./media/salesforce-tutorial/tutorial_general_03.png
-[4]: ./media/salesforce-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/salesforce-tutorial/tutorial_general_100.png
-
-[200]: ./media/salesforce-tutorial/tutorial_general_200.png
-[201]: ./media/salesforce-tutorial/tutorial_general_201.png
-[202]: ./media/salesforce-tutorial/tutorial_general_202.png
-[203]: ./media/salesforce-tutorial/tutorial_general_203.png
+* [Konfigurera användaretablering](salesforce-provisioning-tutorial.md)

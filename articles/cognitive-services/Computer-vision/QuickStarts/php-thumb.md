@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en miniatyrbild – REST, PHP – Visuellt innehåll'
+title: 'Snabbstart: Skapa en miniatyrbild – REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och PHP.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964517"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579353"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:t och PHP i Visuellt innehåll
 
@@ -33,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Installera PHP5-paketet [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2).
+1. Installera PHP5-paketet [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2).
    1. Öppna ett kommandotolksfönster som administratör.
    1. Kör följande kommando:
 

@@ -1,7 +1,7 @@
 ---
 title: Fördefinierade avsikter och entiteter
 titleSuffix: Azure Cognitive Services
-description: Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka upp några yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
+description: I den här självstudien får du lägga till fördefinierade avsikter och entiteter i för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka upp några yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,24 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 804224898f90aa9af587d6d5b4b80c6afcfa586d
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074090"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754993"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Självstudie 2: Identifiera vanliga avsikter och entiteter
-I den här självstudien ändrar du Human Resources-appen. Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka några yttranden med fördefinierade entiteter eftersom entiteten identifieras automatiskt.
+# <a name="tutorial-identify-common-intents-and-entities"></a>Självstudier: Identifiera vanliga avsikter och entiteter
 
-Fördefinierade modeller av vanliga ämnesdomäner och datatyper hjälper dig att snabbt bygga din modell och ger ett exempel på hur en modell ser ut. 
+I den här självstudien lägger du till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte markera yttranden med förskapade entiteter eftersom entiteten identifieras automatiskt.
+
+Fördefinierade modeller (domäner, avsikter och entiteter) hjälper dig att snabbt bygga din modell.
 
 **I den här självstudiekursen får du lära du dig att:**
 
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp
+> * Skapa ny app
 > * Lägga till fördefinierade avsikter 
 > * Lägg till fördefinierade entiteter 
 > * Träna 
@@ -35,29 +36,24 @@ Fördefinierade modeller av vanliga ämnesdomäner och datatyper hjälper dig at
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
-Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+## <a name="create-a-new-app"></a>Skapa en ny app
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
 
-2. Importera JSON-koden till en ny app.
+## <a name="add-prebuilt-intents-to-help-with-common-user-intentions"></a>Lägg till flera fördefinierade avsikter som hjälper dig med vanliga användaravsikter
 
-3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `prebuilts`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
-
-## <a name="add-prebuilt-intents"></a>Lägga till fördefinierade avsikter
 LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användaravsikter.  
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Välj **Lägg till fördefinierad avsikt**. 
+1. Välj **Add prebuilt domain intent** (Lägg till fördefinierad domänavsikt). 
 
-3. Sök efter `Utilities`. 
+1. Sök efter `Utilities`. 
 
     [ ![Skärmbild av dialogrutan för fördefinierade avsikter med Utilities (Verktyg) i sökrutan](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Välj följande avsikter och välj **Done** (Klar): 
+1. Välj följande avsikter och välj **Done** (Klar): 
 
     * Utilities.Cancel (Verktyg.Avbryt)
     * Utilities.Confirm (Verktyg.Bekräfta)
@@ -65,118 +61,118 @@ LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användarav
     * Utilities.StartOver (Verktyg.Börja_om)
     * Utilities.Stop (Verktyg.Stoppa)
 
+    Dessa avsikter är till hjälp när du ska avgöra var i en konversation användaren är och vad de ber dig att göra. 
 
-## <a name="add-prebuilt-entities"></a>Lägg till fördefinierade entiteter
+
+## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Lägg till fördefinierade entiteter för att få hjälp med vanlig extrahering av datatyp
+
 LUIS har flera fördefinierade entiteter för extrahering av data. 
 
 1. Välj **Entities** (Entiteter) på den vänstra navigeringsmenyn.
 
-2. Välj knappen **Manage prebuilt entity** (Hantera fördefinierad entitet).
+1. Välj knappen för att **lägga till en fördefinierad entitet**.
 
-3. Välj **number** (nummer) och **datetimeV2** i listan över fördefinierade entiteter och sedan **Done** (Klar).
+1. Välj följande entiteter från listan över fördefinierade entiteter och välj sedan **Klart**:
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
     ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train"></a>Träna
+    Med dessa entiteter kan du lägga till namn och plats till ditt klientprogram.
+
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicera
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras mot den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Hämta avsikts- och entitetsförutsägelser från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Gå till slutet av webbadressen i webbläsarens adressfält och ange `I want to cancel on March 3`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
+1. Gå till slutet av webbadressen i webbläsarens adressfält och ange `I want to cancel my trip to Seattle to see Bob Smith`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
     ```json
     {
-      "query": "I want to cancel on March 3",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.7818295
+        "score": 0.807676256
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.7818295
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0237864349
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.017576348
+          "score": 0.807676256
         },
         {
           "intent": "Utilities.StartOver",
-          "score": 0.0130122062
+          "score": 0.0487322025
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.006731322
+          "score": 0.0208660364
         },
         {
           "intent": "None",
-          "score": 0.00524190161
+          "score": 0.008789532
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.004912514
+          "score": 0.006929268
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00092950504
+          "score": 0.00136293867
         }
       ],
       "entities": [
         {
-          "entity": "march 3",
-          "type": "builtin.datetimeV2.date",
-          "startIndex": 20,
-          "endIndex": 26,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2018-03-03"
-              },
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2019-03-03"
-              }
-            ]
-          }
+          "entity": "seattle",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 28,
+          "endIndex": 34
         },
         {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 26,
-          "endIndex": 26,
-          "resolution": {
-            "value": "3"
-          }
+          "entity": "bob smith",
+          "type": "builtin.personName",
+          "startIndex": 43,
+          "endIndex": 51
         }
       ]
     }
     ```
 
-    Resultatet förutsåg avsikten Utilities.Cancel (Verktyg.Avbryt) och extraherade datumet March 3 (3 mars) och numret 3. 
+    Resultatet förutsåg Utilities.Cancel-avsikt med 80 % och extraherade data för orten och personnamnet. 
 
-    Det finns två värden för March 3 (3 mars) eftersom yttrande inte anger om March 3 (3 mars) är i dåtid eller framtid. Det är upp till klientprogrammet att göra ett antagande eller be om förtydligande, om det behövs. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Relaterad information
+
+Läs mer om fördefinierade modeller:
+
+* [Fördefinierade domäner](luis-reference-prebuilt-domains.md): dessa är vanliga domäner som minskar övergripande LUIS-appredigering
+* Fördefinierade avsikter: det här är enskilda avsikter i de vanliga domänerna. Du kan lägga till avsikter individuellt i stället för att lägga till hela domänen.
+* [Fördefinierade entiteter](luis-prebuilt-entities.md): de är vanliga datatyper som är användbara för de flesta LUIS-appar.
+
+Lär dig mer om hur du arbetar med LUIS-appen:
+
+* [Så här tränar du](luis-how-to-train.md)
+* [Så här publicerar du](luis-how-to-publish-app.md)
+* [Så här testar du i LUIS-portalen](luis-interactive-test.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Genom att lägga till fördefinierade avsikter och entiteter kan klientprogrammet bestämma vanliga användaravsikter och extrahera vanliga datatyper. 
+Genom att lägga till fördefinierade avsikter och entiteter kan klientprogrammet bestämma vanliga användaravsikter och extrahera vanliga datatyper.  
 
 > [!div class="nextstepaction"]
 > [Lägga till en entitet för reguljärt uttryck i appen](luis-quickstart-intents-regex-entity.md)

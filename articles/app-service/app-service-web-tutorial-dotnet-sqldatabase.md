@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257785"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720060"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här kursen visar hur du distribuerar en datadriven ASP.NET-webbapp i Azure och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en SQL Database-ansluten ASP.NET-app som körs i Azure.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du distribuerar en datadriven ASP.NET-app i App Service och ansluter den till [Azure SQL Database](../sql-database/sql-database-technical-overview.md). När du är klar har du en SQL Database-ansluten ASP.NET-app som körs i Azure.
 
-![Publicerat ASP.NET-program i Azure webbapp](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Publicerat ASP.NET-program i Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 I den här guiden får du lära dig att:
 
@@ -65,7 +65,7 @@ Skriv `Ctrl+F5` för att köra appen utan felsökning. Appen visas i din standar
 
 Testa länkarna **Edit** (Redigera), **Details** (Information) och **Delete** (Ta bort).
 
-Appen använder en databaskontext för att ansluta till databasen. I det här exemplet använder databaskontexten en anslutningssträng med namnet `MyDbConnection`. Anslutningssträngen har angetts i filen *Web.config* och refereras till i filen *Models/MyDatabaseContext.cs*. Anslutningssträngens namn används senare under kursen för att ansluta Azure-webbappen till Azure SQL Database. 
+Appen använder en databaskontext för att ansluta till databasen. I det här exemplet använder databaskontexten en anslutningssträng med namnet `MyDbConnection`. Anslutningssträngen har angetts i filen *Web.config* och refereras till i filen *Models/MyDatabaseContext.cs*. Anslutningssträngens namn används senare under självstudien för att ansluta Azure-appen till Azure SQL Database. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Publicera i Azure med SQL Database
 
@@ -77,7 +77,7 @@ Se till att **Microsoft Azure App Service** är markerat och klicka på **Public
 
 ![Publicera från projektöversiktssidan](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-Dialogrutan **Skapa App Service** öppnas där du får hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-webbappen i Azure.
+Dialogrutan **Skapa App Service** öppnas där du får hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-appen i Azure.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -118,7 +118,7 @@ I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) ange
 
 | Inställning  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
-|**App Service-plan**| myAppServicePlan | [App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**App Service-plan**| myAppServicePlan | [App Service-planer](../app-service/overview-hosting-plans.md) |
 |**Plats**| Västra Europa | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Storlek**| Kostnadsfri | [Prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ Lägg till ett användarnamn och lösenord med administratörsbehörighet. För 
 Kom ihåg det här användarnamnet och lösenordet. Du behöver dem senare för att hantera den logiska serverinstansen.
 
 > [!IMPORTANT]
-> Även om ditt lösenord maskeras i anslutningssträngar (i Visual Studio och i App Service) så ökar din apps riskexponering eftersom lösenordet är sparat någonstans. App Service kan använda [hanterade tjänstidentiteter](app-service-managed-service-identity.md) till att eliminera den här risken, eftersom du inte behöver ha med några hemligheter alls i koden eller appkonfigurationen. Mer information finns under [Nästa steg](#next-steps).
+> Även om ditt lösenord maskeras i anslutningssträngar (i Visual Studio och i App Service) så ökar din apps riskexponering eftersom lösenordet är sparat någonstans. App Service kan använda [hanterade tjänstidentiteter](overview-managed-identity.md) till att eliminera den här risken, eftersom du inte behöver ha med några hemligheter alls i koden eller appkonfigurationen. Mer information finns under [Nästa steg](#next-steps).
 
 ![Skapa SQL Server-instans](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -163,7 +163,7 @@ När guiden för att skapa Azure-resurser har slutförts publiceras ASP.NET-appe
 
 Lägg till några att-göra-uppgifter.
 
-![Publicerat ASP.NET-program i Azure webbapp](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Publicerat ASP.NET-program i Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Grattis! Din datadrivna ASP.NET-app körs live i Azure App Service.
 
@@ -189,7 +189,7 @@ Ange databasadministratörens lösenord som du skapade tidigare och klicka på *
 
 ### <a name="allow-client-connection-from-your-computer"></a>Tillåta klientanslutning från datorn
 
-Dialogrutan **Create a new firewall rule** (Skapa en ny brandväggsregel) öppnas. Som standard tillåter SQL Database-instansen endast anslutningar från Azure-tjänster, till exempel din Azure-webbapp. Om du ska kunna ansluta till databasen måste du skapa en brandväggsregel i SQL Database-instansen. Brandväggsregeln tillåter din lokala dators offentliga IP-adress.
+Dialogrutan **Create a new firewall rule** (Skapa en ny brandväggsregel) öppnas. Som standard tillåter SQL Database-instansen endast anslutningar från Azure-tjänster, till exempel din Azure-app. Om du ska kunna ansluta till databasen måste du skapa en brandväggsregel i SQL Database-instansen. Brandväggsregeln tillåter din lokala dators offentliga IP-adress.
 
 Dialogrutan är redan ifylld med datorns offentliga IP-adress.
 
@@ -207,7 +207,7 @@ Expandera din anslutning > **Databaser** > **&lt;din databas>** > **Tabeller**. 
 
 ## <a name="update-app-with-code-first-migrations"></a>Uppdatera app med Code First Migrations
 
-Du kan använda välbekanta verktyg i Visual Studio för att uppdatera din databas och webbapp i Azure. I det här steget använder du Code First Migrations i Entity Framework för att göra en ändring i databasschemat och publicera det i Azure.
+Du kan använda välbekanta verktyg i Visual Studio för att uppdatera din databas och app i Azure. I det här steget använder du Code First Migrations i Entity Framework för att göra en ändring i databasschemat och publicera det i Azure.
 
 Mer information om att använda Entity Framework Code First Migrations finns i artikeln om att [komma igång med Entity Framework 6 Code First med MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -301,7 +301,7 @@ Du kan nu lägga till en att-göra-uppgift och markera **Klart**. Den ska sedan 
 
 ### <a name="enable-code-first-migrations-in-azure"></a>Aktivera Code First Migrations i Azure
 
-Nu när kodändringen fungerar, inklusive databasmigreringen, publicerar du den i din Azure-webbapp och uppdaterar även din SQL Database med Code First Migrations.
+Nu när kodändringen fungerar, inklusive databasmigreringen, publicerar du den i din Azure-app och uppdaterar även din SQL Database med Code First Migrations.
 
 Precis som tidigare högerklickar du på projektet och väljer **Publish** (Publicera).
 
@@ -315,40 +315,40 @@ Kontrollera att anslutningssträngen för din SQL Database fylls i för **MyData
 
 Välj **Execute Code First Migrations (runs on application start)** (Utför Code First Migrations (körs när programmet startar)) och klicka på **Save** (Spara).
 
-![Aktivera Code First Migrations i Azure-webbappen](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Aktivera Code First Migrations i Azure-app](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>Publicera dina ändringar
 
-Nu när du har aktiverat Code First Migrations i Azure-webbappen kan du publicera kodändringarna.
+Nu när du har aktiverat Code First Migrations i Azure-appen kan du publicera kodändringarna.
 
 Klicka på **Publicera** på publiceringssidan.
 
 Försök att lägga till uppgifter att göra igen och välj **Done** (Klar). De ska då visas på din startsida som en slutförd punkt.
 
-![Azure-webbapp efter Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Azure-app efter Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Alla befintliga att-göra-uppgifter visas fortfarande. När du återpublicerar ASP.NET-appen går inte befintliga data i SQL Database förlorade. Code First Migrations ändrar dessutom endast dataschemat, så att befintliga data lämnas intakta.
 
 
 ## <a name="stream-application-logs"></a>Strömma programloggar
 
-Du kan strömma spårningsmeddelanden direkt från din Azure-webbapp till Visual Studio.
+Du kan strömma spårningsmeddelanden direkt från din Azure-app till Visual Studio.
 
 Öppna _Controllers\TodosController.cs_.
 
-Varje åtgärd börjar med en `Trace.WriteLine()`-metod. Den här koden har lagts till för att visa hur du lägger till spårningsmeddelanden i din Azure-webbapp.
+Varje åtgärd börjar med en `Trace.WriteLine()`-metod. Den här koden har lagts till för att visa hur du lägger till spårningsmeddelanden i din Azure-app.
 
 ### <a name="open-server-explorer"></a>Öppna Server Explorer
 
-Gå till **Visa**-menyn och välj **Server Explorer**. Du kan konfigurera loggning för din Azure-webbapp i **Server Explorer**. 
+Gå till **Visa**-menyn och välj **Server Explorer**. Du kan konfigurera loggning för din Azure-app i **Server Explorer**. 
 
 ### <a name="enable-log-streaming"></a>Aktivera loggströmning
 
 I **Server Explorer**: Expandera **Azure** > **App Service**.
 
-Expandera resursgruppen **myResourceGroup** som du skapade när du först skapade Azure-webbappen.
+Expandera resursgruppen **myResourceGroup** som du skapade när du först skapade Azure-appen.
 
-Högerklicka på din Azure-webbapp och markera **View Streaming Logs** (Visa strömningsloggar).
+Högerklicka på din Azure-app och markera **View Streaming Logs** (Visa strömningsloggar).
 
 ![Aktivera loggströmning](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -356,13 +356,13 @@ Loggarna strömmas nu till fönstret **Output** (Utdata).
 
 ![Loggströmning i utdatafönstret](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-Men än ser du inga spårningsmeddelanden. Det beror på att när du väljer **View Streaming Logs** (Visa strömningsloggar) anges spårningsnivån i Azure-webbappen till `Error`, då endast felhändelser loggas (med `Trace.TraceError()`-metoden).
+Men än ser du inga spårningsmeddelanden. Det beror på att när du väljer **View Streaming Logs** (Visa strömningsloggar) anges spårningsnivån i Azure-appen till `Error`, då endast felhändelser loggas (med `Trace.TraceError()`-metoden).
 
 ### <a name="change-trace-levels"></a>Ändra spårningsnivåer
 
 Om du vill ändra spårningsnivåerna och ta emot andra spårningsmeddelanden ska du gå tillbaka till **Server Explorer**.
 
-Högerklicka på din Azure-webbapp igen och välj **View Settings** (Visa inställningar).
+Högerklicka på din Azure-app igen och välj **Visa inställningar**.
 
 I listrutan **Application Logging (File System)** (Programloggning (filsystem)) väljer du **Verbose** (Utförlig). Klicka på **Spara**.
 
@@ -373,7 +373,7 @@ I listrutan **Application Logging (File System)** (Programloggning (filsystem)) 
 >
 >
 
-Gå till webbläsaren och navigera till webbappen igen på *http://&lt;appens namn >. azurewebsites.net*. Försök klicka i programmet med att göra-listan i Azure. Spårningsmeddelanden strömmas nu till fönstret **Output** (Utdata) i Visual Studio.
+Gå till webbläsaren och navigera till appen igen på *http://&lt;appens namn >. azurewebsites.net*. Försök klicka i programmet med att göra-listan i Azure. Spårningsmeddelanden strömmas nu till fönstret **Output** (Utdata) i Visual Studio.
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -390,17 +390,17 @@ Om du vill avsluta loggströmningstjänsten klickar du på knappen **Stop monito
 
 ![Stoppa loggströmning](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>Hantera din Azure-webbapp
+## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade. 
+Gå till [Azure-portalen](https://portal.azure.com) för att se den app du skapade. 
 
 
 
-Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![Portalnavigering till Azure-app](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-Du har landat på webbappens sida. 
+Du har landat på appens sida. 
 
 Som standard visar portalen sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna. 
 

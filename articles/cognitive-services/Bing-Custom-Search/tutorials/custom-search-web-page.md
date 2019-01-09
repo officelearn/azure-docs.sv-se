@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa en webbsida för anpassad sökning – Anpassad sökning i Bing'
+title: 'Självstudier: Skapa en webbsida för anpassad sökning – Anpassad sökning i Bing'
 titlesuffix: Azure Cognitive Services
 description: Beskriver hur du konfigurerar en anpassad sökinstans och integrerar den i en webbsida.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427369"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558030"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
+# <a name="tutorial-build-a-custom-search-web-page"></a>Självstudier: Skapa en webbsida för anpassad sökning
 
 Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Om du till exempel äger en webbplats med sökfunktion om kampsport kan du ange vilka domäner, underwebbplatser och webbsidor Bing ska söka i. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland sökresultat som kan vara irrelevant. 
 
@@ -79,7 +79,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-pinned-entries"></a>Lägga till fästa poster
 
-För att fästa en specifik webbsida längst upp i sökresultatet lägger du till webbsidan och frågevillkoret till den **fästa** fliken. Den **fästa** fliken innehåller en lista över webbsidan och frågetermpar som anger webbsidan som visas i det översta resultatet för en specifik fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-to-top).
+För att fästa en specifik webbsida längst upp i sökresultatet lägger du till webbsidan och frågevillkoret till den **fästa** fliken. Den **fästa** fliken innehåller en lista över webbsidan och frågetermpar som anger webbsidan som visas i det översta resultatet för en specifik fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. På sidan **Konfiguration** klickar du på den **fästa** fliken och anger webbsidan och frågetermen för den webbsida som du vill ska returneras som ett översta resultat.  
   
@@ -128,9 +128,9 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
 Det finns två sätt att använda det värdbaserade användargränssnittet.  
 
 - Alternativ 1: Integrera medföljande JavaScript-kodfragment i programmet.
-- Alternativ 2: Använda HTML-slutpunkten som medföljer.
+- Alternativ 2: Använd HTML-slutpunkten som medföljer.
 
-Resten av den här självstudien visar **Alternativ 1: Javascript-kodavsnitt**.  
+Resten av den här självstudien visar **Alternativ 1: JavaScript-kodavsnitt**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Konfigurera din Visual Studio-lösning
 

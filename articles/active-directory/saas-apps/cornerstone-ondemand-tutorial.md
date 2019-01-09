@@ -1,233 +1,210 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Hörnstenen OnDemand | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Hörnstenen OnDemand.
+title: 'Självstudier: Azure Active Directory-integrering med Cornerstone OnDemand | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och CornerStone OnDemand.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/15/2017
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4927421afeddc337856c027b3ed32539f4f8c1fc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 40d5905764dbf139db28cd1c113d06981be8205d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441705"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972336"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Självstudier: Azure Active Directory-integration med Hörnstenen OnDemand
+# <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Självstudier: Azure Active Directory-integrering med Cornerstone OnDemand
 
-I den här självstudien får du lära dig hur du integrerar Hörnstenen OnDemand med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Cornerstone OnDemand med Azure Active Directory (AD Azure).
+När du integrerar Cornerstone OnDemand med Azure AD får du följande fördelar:
 
-Integrera Hörnstenen OnDemand med Azure AD ger dig följande fördelar:
+* I Azure AD kan du styra vem som har åtkomst till Cornerstone OnDemand.
+* Du kan göra så att dina användare automatiskt loggas in på Cornerstone OnDemand (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Hörnstenen OnDemand
-- Du kan aktivera användarna att automatiskt få loggat in på Hörnstenen OnDemand (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Cornerstone OnDemand behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Hörnstenen OnDemand, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En hörnsten OnDemand enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Cornerstone OnDemand-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Hörnstenen OnDemand från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Att lägga till Hörnstenen OnDemand från galleriet
-För att konfigurera integrering av OnDemand Hörnstenen i Azure AD, som du behöver lägga till Hörnstenen OnDemand från galleriet i din lista över hanterade SaaS-appar.
+* Cornerstone OnDemand har stöd för **SP**-initierad enkel inloggning
+* Cornerstone OnDemand har stöd för [automatisk användaretablering](cornerstone-ondemand-provisioning-tutorial.md)
 
-**Utför följande steg för att lägga till Hörnstenen OnDemand från galleriet:**
+## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Lägga till Cornerstone OnDemand från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av Cornerstone OnDemand i Azure AD behöver du lägga till Cornerstone OnDemand från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till Cornerstone OnDemand från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Program][3]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. I sökrutan skriver **Hörnstenen OnDemand**.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Skapa en Azure AD-användare för testning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_search.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-1. I resultatpanelen väljer **Hörnstenen OnDemand**, och klicka sedan på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Cornerstone OnDemand**, väljer **Cornerstone OnDemand** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_addfromgallery.png)
+     ![Cornerstone OnDemand i resultatlistan](common/search-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Hörnstenen OnDemand baserat på en testanvändare som kallas ”Britta Simon”.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Hörnstenen OnDemand är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Hörnstenen OnDemand upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Cornerstone OnDemand baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Cornerstone OnDemand upprättas.
 
-I Hörnstenen OnDemand tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Cornerstone OnDemand måste du utföra följande komponenter:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Hörnstenen OnDemand, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Cornerstone OnDemand](#configure-cornerstone-ondemand-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare för Cornerstone OnDemand](#create-cornerstone-ondemand-test-user)** – för att skapa en motsvarighet till Britta Simon i Cornerstone OnDemand som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en OnDemand-Hörnstenen testanvändare](#creating-a-cornerstone-ondemand-test-user)**  – du har en motsvarighet för Britta Simon i Hörnstenen OnDemand som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Hörnstenen OnDemand-program.
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Cornerstone OnDemand:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Hörnstenen OnDemand:**
+1. I [Azure-portalen](https://portal.azure.com/), på sidan för **Cornerstone OnDemand**-programintegrering, väljer du **Enkel inloggning**.
 
-1. I Azure-portalen på den **Hörnstenen OnDemand** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera enkel inloggning][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **Hörnstenen OnDemand domän och URL: er** avsnittet, utföra följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company>.csod.com`
+    ![Information om Cornerstone OnDemand-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    b. I **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<company>.csod.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<company>.csod.com`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Hörnstenen OnDemand klienten supportteamet](mailTo:moreinfo@csod.com) att hämta dessa värden.
+    b. I textrutan **Identifierare (entitets-ID)** skriver du in en URL enligt följande mönster: `https://<company>.csod.com`
 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Cornerstone OnDemand-klientens supportteam](mailto:moreinfo@csod.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-1. Klicka på **spara** knappen.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-    ![Konfigurera enkel inloggning](./media/cornerstone-ondemand-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Cornerstone OnDemand** kopierar du en eller flera lämpliga URL:er, enligt dina behov.
 
-1. På den **Hörnstenen OnDemand Configuration** klickar du på **konfigurera Hörnstenen OnDemand** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_configure.png) 
+    a. Inloggnings-URL
 
-1. Att konfigurera enkel inloggning på **Hörnstenen OnDemand** sida, som du behöver skicka de hämtade **certifikat**, **URL: en för utloggning** och **SAML enkel inloggning Tjänst-URL för** till [Hörnstenen OnDemand-supportteamet](mailTo:moreinfo@csod.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    b. Azure AD-identifierare
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    c. Utloggnings-URL
 
-![Skapa en Azure AD-användare][100]
+### <a name="configure-cornerstone-ondemand-single-sign-on"></a>Konfigurera enkel inloggning för Cornerstone OnDemand
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+För att kunna konfigurera enkel inloggning på **Cornerstone OnDemand**-sidan måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till [Cornerstone OnDemand-supporten](mailto:moreinfo@csod.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![Skapa en Azure AD-användare för testning](./media/cornerstone-ondemand-tutorial/create_aaduser_01.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Skapa en Azure AD-användare för testning](./media/cornerstone-ondemand-tutorial/create_aaduser_02.png) 
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/cornerstone-ondemand-tutorial/create_aaduser_03.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Skapa en Azure AD-användare för testning](./media/cornerstone-ondemand-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="creating-a-cornerstone-ondemand-test-user"></a>Skapa en OnDemand-Hörnstenen testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Hörnstenen OnDemand. Hörnstenen OnDemand stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information om [här](cornerstone-ondemand-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Cornerstone OnDemand.
 
-**Om du vill skapa användare manuellt kan du utföra följande steg:**
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Cornerstone OnDemand**.
 
-För att konfigurera användaretablering, skicka information (t.ex.: namn, e-post) om Azure AD-användare du vill etablera till den [Hörnstenen OnDemand-supportteamet](mailTo:moreinfo@csod.com).
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan över program skriver och väljer du **Cornerstone OnDemand**.
+
+    ![Länken för Cornerstone OnDemand i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-cornerstone-ondemand-test-user"></a>Skapa testanvändare för Cornerstone OnDemand
+
+Målet med det här avsnittet är att skapa en användare som heter Britta Simon i Cornerstone OnDemand. Cornerstone OnDemand stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](https://docs.microsoft.com/azure/active-directory/saas-apps/cornerstone-ondemand-provisioning-tutorial) om hur du konfigurerar automatisk användaretablering.
+
+**Om du behöver skapa användare manuellt så gör du följande:**
+
+För att konfigurera användaretablering skickar du information (t.ex.: namn, e-post) om Azure AD-användaren du vill etablera till [Cornerstone OnDemand-supportteamet](mailto:moreinfo@csod.com).
 
 >[!NOTE]
->Du kan använda alla andra Hörnstenen OnDemand användare konto verktyg för att skapa eller API: er som tillhandahålls av Hörnstenen OnDemand att etablera AAD-användarkonton.
+>Du kan använda andra verktyg eller API:er för att skapa Cornerstone OnDemand-användarkonton som tillhandahålls av Cornerstone OnDemand för att etablera AAD-användarkonton.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Hörnstenen OnDemand.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela användare][200] 
-
-**Om du vill tilldela Hörnstenen OnDemand Britta Simon utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **Hörnstenen OnDemand**.
-
-    ![Konfigurera enkel inloggning](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen för OnDemand-Hörnstenen i åtkomstpanelen du bör få automatiskt loggat in på ditt Hörnstenen OnDemand-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Cornerstone OnDemand-panelen i åtkomstpanelen bör du automatiskt loggas in på Cornerstone OnDemand som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](cornerstone-ondemand-provisioning-tutorial.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/cornerstone-ondemand-tutorial/tutorial_general_01.png
-[2]: ./media/cornerstone-ondemand-tutorial/tutorial_general_02.png
-[3]: ./media/cornerstone-ondemand-tutorial/tutorial_general_03.png
-[4]: ./media/cornerstone-ondemand-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/cornerstone-ondemand-tutorial/tutorial_general_100.png
+- [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/cornerstone-ondemand-provisioning-tutorial) 
 
-[200]: ./media/cornerstone-ondemand-tutorial/tutorial_general_200.png
-[201]: ./media/cornerstone-ondemand-tutorial/tutorial_general_201.png
-[202]: ./media/cornerstone-ondemand-tutorial/tutorial_general_202.png
-[203]: ./media/cornerstone-ondemand-tutorial/tutorial_general_203.png

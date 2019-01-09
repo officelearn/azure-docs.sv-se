@@ -11,20 +11,20 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273569"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807728"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning
 
-I den här snabbstarten ska du använda Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. Den här snabbstarten använder molnresurser och kräver ingen installation. Information om hur du i stället konfigurerar din egen Jupyter Notebook-server finns i [Snabbstart: Använd Python för att komma igång med Azure Machine Learning](quickstart-create-workspace-with-python.md).
-
+I den här snabbstarten ska du använda Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. Den här snabbstarten använder molnresurser och kräver ingen installation. Information om hur du i stället konfigurerar din egen Jupyter Notebooks-server finns i [Snabbstart: Använd Python för att komma igång med Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+ 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-I den här snabbstarten kommer du att göra följande:
+I den här snabbstarten utför du följande åtgärder:
 
 * Skapa en arbetsyta i din Azure-prenumeration.
 * Prova den med Python i en Azure-anteckningsbok och logga värden över flera iterationer.
@@ -37,7 +37,7 @@ Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regio
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-De resurser som du skapar kan användas som förutsättningar för andra självstudier och instruktionsartiklar om Machine Learning-tjänsten. Som med andra Azure-tjänster finns det begränsningar för vissa resurser som är associerade med Machine Learning, till exempel vad gäller storlek på beräkningskluster. Läs mer om [standardgränserna och hur du ökar kvoten](how-to-manage-quotas.md).
+De resurser som du skapar kan användas som förutsättningar för andra självstudier och instruktionsartiklar om Machine Learning-tjänsten. Som med andra Azure-tjänster finns det begränsningar för vissa resurser som är associerade med Machine Learning. Ett exempel är storleken på beräkningskluster. Läs mer om [standardgränserna och hur du ökar kvoten](how-to-manage-quotas.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
 
@@ -46,14 +46,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Välj `Explore your Azure Machine Learning service workspace` på sidan för arbetsytan.
+Välj `Explore your Azure Machine Learning service Workspace` på sidan för arbetsytan.
 
- ![Utforska arbetsyta](./media/quickstart-get-started/explore_aml.png)
+ ![Utforska arbetsytan](./media/quickstart-get-started/explore_aml.png)
 
 
 ## <a name="use-the-workspace"></a>Använda arbetsytan
 
-Nu ska vi se hur en arbetsyta hjälper dig att hantera dina maskininlärningsskript. I det här avsnittet får du:
+Nu ska vi se hur en arbetsyta hjälper dig att hantera dina maskininlärningsskript. I det här avsnittet gör du följande:
 
 * Öppna en anteckningsbok i Azure Notebooks.
 * Köra kod som skapar vissa loggade värden.
@@ -71,7 +71,7 @@ Välj `Open Azure Notebooks` för att testa ditt första experiment.
 
 Din organisation kan kräva [administratörens godkännande](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) innan du kan logga in.
 
-När du har loggat in öppnas en ny flik och en `Clone Library`-fråga visas. Välj `Clone`.
+Logga in på Azure Notebooks med samma konto som du använde för att logga in på Azure-portalen.  När du har loggat in öppnas en ny flik och en `Clone Library`-fråga visas. Välj `Clone`.
 
 
 ### <a name="run-the-notebook"></a>Köra anteckningsboken
@@ -80,9 +80,9 @@ Tillsammans med två anteckningsböcker ser du en `config.json`-fil. Den här ko
 
 Välj `01.run-experiment.ipynb` för att öppna anteckningsboken.
 
-Om du vill köra cellerna en i taget använder du `Shift`+`Enter`. Eller välj `Cells` > `Run All` om du vill köra hela anteckningsboken. När du ser en asterisk [*] bredvid en cell körs den. När koden för den cellen är klar visas ett tal. 
+Kör cellerna en i taget (Skift+Retur). Eller välj `Cells` > `Run All` om du vill köra hela anteckningsboken. När du ser en asterisk, __*__, bredvid en cell körs den. När koden för den cellen är klar visas ett tal. 
 
-När du har slutfört körningen av alla celler i anteckningsboken kan du visa de loggade värdena på arbetsytan.
+När du har kört alla celler i anteckningsboken kan du visa de loggade värdena på arbetsytan.
 
 ## <a name="view-logged-values"></a>Visa loggade värden
 
@@ -96,7 +96,7 @@ Stäng popup-fönstret `Reports`.
 
 Välj `my-first-experiment`.
 
-Visa information om körningen som du precis har utfört. Rulla ned på sidan för att hitta tabellen med körningar. Välj länken för att köra tal.
+Visa information om körningen som du precis har gjort. Rulla ned på sidan för att hitta tabellen med körningar. Välj länken för att köra tal.
 
  ![Länk för körningshistorik](./media/quickstart-get-started/report.png)
 
@@ -116,7 +116,7 @@ Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbe
 
 Du har skapat nödvändiga resurser för att experimentera med och distribuera modeller. Du har också kört lite kod i en anteckningsbok. Dessutom har du utforskat körningshistoriken från koden på arbetsytan i molnet.
 
-För mer djupgående beskrivningar av arbetsflödet rekommenderar vi att du går självstudiekurserna om Machine Learning för att träna och distribuera en modell.  
+Följ självstudierna om Machine Learning för att träna och distribuera en modell om du vill ha en djupgående arbetsflödesupplevelse:  
 
 > [!div class="nextstepaction"]
-> [Självstudie: Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md)
+> [Självstudier: Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md)

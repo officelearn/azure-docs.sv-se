@@ -1,6 +1,6 @@
 ---
-title: Ladda upp, koda och strömma med Azure Media Services – REST | Microsoft Docs
-description: Följ stegen i den här självstudien för att överföra en fil, koda videoklippet och strömma ditt innehåll med Azure Media Services med hjälp av REST.
+title: Koda en fjärrfil baserat på URL och strömma med Azure Media Services – REST | Microsoft Docs
+description: Följ stegen i den här självstudien för att koda en fil baserat på en URL och strömma ditt innehåll med Azure Media Services med hjälp av REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615780"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720959"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Självstudie: överför, koda och strömma videoklipp med REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudier: Koda en fjärrfil baserat på URL och strömma video – REST
 
 Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md).
 
-Den här självstudien visar hur du överför, kodar och strömmar videofiler med Azure Media Services med hjälp av REST. 
+I den här självstudien får du lära dig att koda en fil baserat på en URL och strömma videon med Azure Media Services med hjälp av REST. 
 
 ![Spela upp videon](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -111,7 +111,7 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 
 ### <a name="get-azure-ad-token"></a>Hämta Azure AD-token 
 
-1. I det vänstra fönstret i Postman, väljer du Steg 1: hämta AAD Auth-token.
+1. I det vänstra fönstret i Postman, väljer du ”Steg 1: Hämta AAD-autentiseringstoken”.
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
 3. Tryck på **Skicka**.
 
@@ -174,7 +174,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
@@ -228,7 +228,7 @@ I det här exemplet är jobbets indata baserat på en HTTPS-URL (https://nimbusc
 
 Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
-**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+**Jobbet** går vanligtvis igenom följande tillstånd: **Schemalagd**, **I kö**, **Bearbetar**, **Slutfört** (sluttillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 

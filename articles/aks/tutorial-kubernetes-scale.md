@@ -3,35 +3,34 @@ title: Självstudie om Kubernetes i Azure – Skala program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du skalar noder och poddar i Kubernetes och hur du implementerar horisontell automatisk skalning av poddar.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8d07c87a1849a25738c433b7a4c2753b51661947
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414190"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722727"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Skala program i Azure Kubernetes Service (AKS)
 
-Om du har följt självstudierna så har du ett fungerande Kubernetes-kluster i AKS och du har distribuerat programmet Azure Voting. I den här självstudien, som är del fem av sju, skalar du ut poddarna i appen och provar autoskalning av poddar. Du får också lära dig hur du skalar ut antalet Azure VM-noder så att du ändrar klustrets kapacitet som värd för arbetsbelastningar. Lär dig att:
+Om du har följt självstudierna så har du ett fungerande Kubernetes-kluster i AKS och du har distribuerat Azure Voting-exempelappen. I den här självstudien, som är del fem av sju, skalar du ut poddarna i appen och provar autoskalning av poddar. Du får också lära dig hur du skalar ut antalet Azure VM-noder så att du ändrar klustrets kapacitet som värd för arbetsbelastningar. Lär dig att:
 
 > [!div class="checklist"]
 > * Skala Kubernetes-noderna
 > * Skala Kubernetes-poddar som kör ditt program manuellt
 > * Konfigurera poddar för automatisk skalning som kör appens klientdel
 
-I senare självstudier uppdateras Azure Vote-programmet till en ny version.
+I ytterligare självstudier uppdateras Azure Vote-programmet till en ny version.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
+I tidigare självstudier paketerades ett program i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Programmet distribuerades sedan till AKS-klustret. Om du inte har utfört de här stegen och vill följa med så kan du börja med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien måste du köra Azure CLI version 2.0.38 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Skala poddar manuellt
 
@@ -55,7 +54,7 @@ Om du vill ändra antalet poddar i *azure-vote-front*-distributionen manuellt an
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Kör [kubectl get pods][kubectl-get] igen för att verifiera att Kubernetes skapar de nya poddarna. Efter någon minut finns de nya poddarna i klustret:
+Kör [kubectl get pods][kubectl-get] igen för att verifiera att AKS skapar de nya poddarna. Efter någon minut finns de nya poddarna i klustret:
 
 ```console
 $ kubectl get pods
@@ -84,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Om du vill använda autoskalning måste poddarna ha definierade CPU-krav och CPU-gränser. I `azure-vote-front`-distributionen begär klientdelscontainern 0,25 CPU med maxgränsen 0,5 CPU. Inställningarna ser ut så här:
+Om du vill använda autoskalning måste poddarna ha definierade CPU-krav och CPU-gränser. I `azure-vote-front`-distributionen begär klientdelscontainern redan 0,25 CPU med maxgränsen 0,5 CPU. Dessa resursbegäranden och begränsningar definieras enligt följande exempelavsnitt:
 
 ```yaml
 resources:
@@ -94,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] för att automatiskt skala antalet poddar i *azure-vote-front*-distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst 10 instanser:
+I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] för att automatiskt skala antalet poddar i *azure-vote-front*-distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -121,7 +120,7 @@ I följande exempel ökas antalet agentnoder till tre i Kubernetes-klustret med 
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
-Utdatan liknar följande:
+När klustret har skalats liknar utdata följande exempel:
 
 ```
 "agentPoolProfiles": [
@@ -144,9 +143,9 @@ Utdatan liknar följande:
 I den här självstudien har du använt olika skalningsfunktioner i Kubernetes-klustret. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skala Kubernetes-noderna
 > * Skala Kubernetes-poddar som kör ditt program manuellt
 > * Konfigurera poddar för automatisk skalning som kör appens klientdel
+> * Skala manuellt Kubernetes-noderna
 
 Gå vidare till nästa självstudie och lär dig hur du uppdaterar program i Kubernetes.
 

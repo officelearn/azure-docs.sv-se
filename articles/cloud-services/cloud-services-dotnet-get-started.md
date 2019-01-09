@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242134"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716114"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -35,10 +35,10 @@ Programmet är en anslagstavla för annonser. Användare skapar en annons genom 
 
 Programmet använder det [köcentriska arbetsmönstret](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) för att avlasta det processorintensiva arbetet med att skapa miniatyrbilder till en serverdelsprocess.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternativ arkitektur: Web Apps och WebJobs
-Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure Web Apps](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternativ arkitektur: App Service och WebJobs
+Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](../app-service/overview-compare.md).
 
-## <a name="what-youll-learn"></a>Det här får du lära du dig
+## <a name="what-youll-learn"></a>Detta får du får lära dig
 * Hur du aktiverar datorn för Azure-utveckling genom att installera Azure SDK.
 * Hur du skapar ett Visual Studio-molntjänstprojekt med en ASP.NET MVC-webbroll och en arbetsroll.
 * Hur du testar molntjänstprojektet lokalt med hjälp av Azure-lagringsemulatorn.
@@ -232,7 +232,7 @@ Azure-lagringskontots anslutningssträngar för både webbrollsprojektet och arb
 1. I **Solution Explorer** högerklickar du på **ContosoAdsWeb** under **Roles** (Roller) i **ContosoAdsCloudService**-projektet. Klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klicka på fliken **Settings** (Inställningar). Välj **Cloud** (Moln) i listrutan Service Configuration (Tjänstkonfiguration).
+2. Klicka på fliken **Settings** (Inställningar). Välj **Cloud** (Moln) i listrutan **Service Configuration** (Tjänstkonfiguration).
 
     ![Molnkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp (**...**) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
@@ -391,7 +391,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 8. När du har egenskapsfönstret för **ContosoAdsWorker [roll]** öppet lägger du till ytterligare en anslutningssträng:
 
    * Namn: ContosoAdsDbConnectionString
-   * Typ: Sträng
+   * Ange: Sträng
    * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```
@@ -775,7 +775,7 @@ Om du vill se en videointroduktion till bästa metoder och mönster i Azure Stor
 
 Mer information finns i följande resurser:
 
-* [Azure Cloud Services, del 1: Inledning](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services del1: Introduktion](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -1,24 +1,21 @@
 ---
 title: Ansluta till Azure Database for PostgreSQL med PHP
 description: I den här snabbstarten finns ett kodexempel i PHP som du kan använda för att ansluta till och fråga efter data från Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f45191d7844700906aac0a206aaaf8dc8cf6202
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f07dfabf854cf56e1c3cae87bbd0736839be8039
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985570"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608740"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda PHP för att ansluta och fråga efter data
+# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använd PHP för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om PHP och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -27,7 +24,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 - [Skapa DB – Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>Installera PHP
-Installera PHP på din server, eller skapa en Azure-[webbapp](../app-service/app-service-web-overview.md) som innehåller PHP.
+Installera PHP på din server, eller skapa en Azure-[webbapp](../app-service/overview.md) som innehåller PHP.
 
 ### <a name="windows"></a>Windows
 - Hämta [PHP 7.1.4 (x64), ej trådsäker version](https://windows.php.net/download#php-7.1)

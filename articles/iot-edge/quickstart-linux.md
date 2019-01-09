@@ -4,17 +4,17 @@ description: I den här snabbstarten får du lära dig att skapa en IoT Edge-enh
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: af95c2a5182a8adca9aeb40f047c7767413b9b1c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339509"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973680"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -61,11 +61,13 @@ IoT Edge-enhet:
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
+   Det kan ta några minuter att skapa och starta den nya virtuella datorn. 
+
    När du skapar en ny virtuell dator noterar du **publicIpAddress**, som anges som en del av utdata från kommandot för att skapa. Du använder den här offentliga IP-adressen för att ansluta till den virtuella datorn senare i snabbstarten.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta snabbstarten genom att skapa din IoT-hubb med Azure CLI.
+Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
 ![Diagram – Skapa en IoT-hubb i molnet](./media/quickstart-linux/create-iot-hub.png)
 
@@ -102,7 +104,9 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Kopiera anslutningssträngen och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt. 
+3. Kopiera anslutningssträngen från JSON-utdata och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt.
+
+   ![Hämta anslutningssträngen från CLI-utdata](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
 
@@ -115,7 +119,7 @@ Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den
 
 ### <a name="connect-to-your-iot-edge-device"></a>Ansluta till din IoT Edge-enhet
 
-Alla steg i det här avsnittet sker på din IoT Edge-enhet. Om du använder din egen dator som IoT Edge-enhet kan du hoppa över den här delen. Om du använder en virtuell dator eller sekundär maskinvara bör du ansluta till den datorn nu. 
+Alla steg i det här avsnittet sker på din IoT Edge-enhet. Om du använder din egen dator som IoT Edge-enhet så kan du fortsätta till nästa avsnitt. Om du använder en virtuell dator eller sekundär maskinvara bör du ansluta till den datorn nu. 
 
 Om du har skapat en virtuell Azure-dator för den här snabbstarten hämtar du den offentliga IP-adress som var utdata för kommandot för att skapa. Du hittar även den offentliga IP-adressen på den virtuella datorns översiktssida i Azure-portalen. Använd följande kommando för att ansluta till din virtuella dator. Ersätt **{publicIpAddress}** med adressen för din dator. 
 
@@ -194,12 +198,12 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo systemctl restart iotedge
    ```
 
->[!TIP]
->Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du loggar ut från datorn och sedan loggar in igen för första gången efter installationen av IoT Edge-körningen, så uppdateras dina behörigheter automatiskt. Tills dess kan du använda **sudo** framför kommandona. 
-
 ### <a name="view-the-iot-edge-runtime-status"></a>Visa status för IoT Edge-körningen
 
 Kontrollera att körningen har installerats och konfigurerats korrekt.
+
+>[!TIP]
+>Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du loggar ut från datorn och sedan loggar in igen för första gången efter installationen av IoT Edge-körningen, så uppdateras dina behörigheter automatiskt. Tills dess kan du använda **sudo** framför kommandona. 
 
 1. Kontrollera att Edge-säkerhetsdaemon körs som en systemtjänst.
 
@@ -244,15 +248,18 @@ I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edg
 
    ![Visa tre moduler på enheten](./media/quickstart-linux/iotedge-list-2.png)
 
-Visa meddelanden som skickas från modulen tempSensor:
+Visa de meddelanden som skickas från temperatursensor-modulen:
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![Visa data från modulen](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge-kommandon är skiftlägeskänsliga när det gäller modulnamnen.
 
-Temperatursensormodulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
+   ![Visa data från modulen](./media/quickstart-linux/iotedge-logs.png)
+
+Temperatursensor-modulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är  **använder transport Mqtt_Tcp_Only**. Försök stoppa modulen och låta Edge-agenten starta om den. Du kan stoppa den med kommandot `sudo docker stop SimulatedTemperatureSensor`.
 
 Du kan även se när meddelandena tas emot av din IoT-hubb med hjälp av [Azure IoT Hub-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit-tillägget). 
 
@@ -286,10 +293,10 @@ När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de 
    sudo docker ps -a
    ```
 
-Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra namnet på containern tempSensor om du kallade den för något annat. 
+Ta bort de containrar som skapades på enheten av IoT Edge-körningen. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

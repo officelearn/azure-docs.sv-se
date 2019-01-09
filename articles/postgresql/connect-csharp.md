@@ -1,24 +1,21 @@
 ---
 title: Ansluta till Azure Database for PostgreSQL från C#
 description: I den här snabbstarten finns ett kodexempel i C# (.NET) som du kan använda för att ansluta till och fråga efter data från Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 34c9825347ffe9246f6d5d0b500e8b592b8421ee
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d30963d5430db9ce5f734981c6a9c74276a15299
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987706"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537417"
 ---
-# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda .NET (C#) för att ansluta och fråga efter data
+# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Använd .NET (C#) för att ansluta och fråga data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om C# och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616155"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754126"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med Resource Manager-mallar
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudier: Skapa flera resursinstanser med Resource Manager-mallar
 
 Lär dig hur du upprepar en Azure Resource Manager-mall för att distribuera flera instanser av en Azure-resurs. I den här självstudien ändrar du en mall för att skapa tre lagringskontoinstanser.
+
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Öppna en snabbstartsmall
@@ -120,14 +122,14 @@ Mer information finns i avsnittet [Distribuera mallen](./resource-manager-quicks
 
 Om du vill visa alla tre lagringskonton utelämnar du parametern --name:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -149,7 +151,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudierna lärde du dig att skapa flera instanser av ett lagringskonto. Hittills har du skapat ett lagringskonto eller flera instanser av ett lagringskonto. I nästa självstudie utvecklar du en mall med flera resurser och flera resurstyper. Några av resurserna har beroende resurser.
+I de här självstudierna lärde du dig att skapa flera instanser av ett lagringskonto. I nästa självstudie lär du dig hur du flyttar en resurs från en resursgrupp till en annan resursgrupp.
 
 > [!div class="nextstepaction"]
-> [Skapa beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Flytta resurser](./resource-manager-tutorial-move-resources.md)

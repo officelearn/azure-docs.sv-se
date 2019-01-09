@@ -1,31 +1,28 @@
 ---
-title: 'Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI'
+title: 'Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure CLI'
 description: I den här självstudien visar vi hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-server med Azure CLI.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982349"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547328"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Självstudie: Utforma Azure Database for PostgreSQL med Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 
@@ -195,9 +192,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 Följande parametrar behövs för kommandot `az postgres server restore`:
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
+| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
 | namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
@@ -214,8 +211,8 @@ I den här självstudien lärde du dig att använda Azure CLI (kommandoradsgrän
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Nu ska du lära dig hur du använder Azure Portal för att utföra liknande aktiviteter. Gå till följande självstudie: [Utforma din första Azure Database for PostgreSQL med Azure Portal](tutorial-design-database-using-azure-portal.md)
+Gå igenom följande självstudie och lär dig hur du använder Azure-portalen till att utföra liknande aktiviteter: [Skapa din första Azure Database for PostgreSQL med Azure-portalen](tutorial-design-database-using-azure-portal.md)

@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 514915d68ef79c3f6db2ff1da2b5ea6e348de150
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251512"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633818"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Självstudier: Skapa en Node.js- och MongoDB-webbapp i Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudier: Skapa en Node.js- och MongoDB-app i Azure
 
 > [!NOTE]
-> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-webbapp i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
+> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-app i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Med Azure Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visas hur du skapar en Node.js-webbapp i Azure och ansluter den till en MongoDB-databas. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i [Azure App Service](app-service-web-overview.md). För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
+Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. I den här självstudien visas hur du skapar en Node.js-app i App Service och ansluter den till en MongoDB-databas. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i [Azure App Service](overview.md). För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -119,7 +119,7 @@ Välj **Administratör > Hantera artiklar** för att lägga till några artiklar
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen. 
 
 > [!NOTE]
-> [Node.js-snabbstarten](app-service-web-get-started-nodejs.md) nämner behovet av en web.config i rotappkatalogen. I de här självstudierna skapas web.config-filen automatiskt av App Service när du distribuerar dina filer med [lokal Git-distribution](app-service-deploy-local-git.md), istället för distribution via .zip-fil. 
+> [Node.js-snabbstarten](app-service-web-get-started-nodejs.md) nämner behovet av en web.config i rotappkatalogen. I de här självstudierna skapas web.config-filen automatiskt av App Service när du distribuerar dina filer med [lokal Git-distribution](deploy-local-git.md), istället för distribution via .zip-fil. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -268,11 +268,11 @@ I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azu
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
-Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför Git-lagringsplatsen. Så för Azure-webbappen använder du appinställningar för att definiera MongoDB-anslutningssträngen.
+Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför Git-lagringsplatsen. Så för Azure-appen använder du appinställningar för att definiera MongoDB-anslutningssträngen.
 
 Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. 
 
-I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-webbappen. Ersätt platshållarna *\<app_name>*, *\<cosmosdb_name>* och *\<primary_master_key>*.
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt platshållarna *\<app_name>*, *\<cosmosdb_name>* och *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -318,11 +318,11 @@ Du kanske märker att distributionsprocessen kör [Gulp](https://gulpjs.com/) ef
 - _.deployment_ – Den här filen skickar ett meddelande till App Service om att köra `bash deploy.sh` som anpassat distributionsskript.
 - _deploy.sh_ – Det anpassade distributionsskriptet. Om du granskar filen ser du att den kör `gulp prod` efter `npm install` och `bower install`. 
 
-Du kan använda den här metoden för att lägga till steg i din Git-baserade distributionen. När som helst när du startar om Azure-webbappen kör inte App Service om dessa automatiserade uppgifter.
+Du kan använda den här metoden för att lägga till steg i din Git-baserade distributionen. När som helst när du startar om Azure-appen kör inte App Service om dessa automatiserade uppgifter.
 
-### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen 
+### <a name="browse-to-the-azure-app"></a>Bläddra till Azure-appen 
 
-Bläddra till den distribuerade webbappen via webbläsaren. 
+Bläddra till den distribuerade appen i webbläsaren. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
@@ -464,7 +464,7 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-När `git push` har slutförts kan du gå till Azure-webbappen och prova att använda de nya funktionerna.
+När `git push` har slutförts kan du gå till Azure-appen och prova att använda de nya funktionerna.
 
 ![Modell- och databasändringar som är publicerade i Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
@@ -480,19 +480,19 @@ Starta loggströmningen genom att använda kommandot [`az webapp log tail`](/cli
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Uppdatera Azure-webbappen i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Nu ser du konsolloggarna som skickas till terminalen.
+Uppdatera Azure-appen i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Nu ser du konsolloggarna som skickas till terminalen.
 
 Stoppa loggströmningen när som helst genom att skriva `Ctrl+C`. 
 
-## <a name="manage-your-azure-web-app"></a>Hantera din Azure-webbapp
+## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
 
-Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
+![Portalnavigering till Azure-app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-Som standard visar portalen dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
+Portalen visar som standard dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
 ![App Service-sidan på Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -511,7 +511,7 @@ Vad du lärt dig:
 > * strömma loggar från Azure till terminalen
 > * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
 
 > [!div class="nextstepaction"] 
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md)

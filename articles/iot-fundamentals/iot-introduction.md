@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582436"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792534"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
@@ -26,7 +26,7 @@ De viktigaste delarna av en IoT-lösning är följande: enheter, serverdelstjän
 
 ### <a name="iot-devices"></a>IoT-enheter
 
-Enheter som vanligtvis består av ett kretskort med anslutna sensorer som ansluter till internet. Många enheter kommunicerar via en Wi-Fi-krets. Här följer några exempel på IoT-enheter:
+Enheter består vanligtvis av ett kretskort med anslutna sensorer som ansluter till Internet. Många enheter kommunicerar via en Wi-Fi-krets. Här följer några exempel på IoT-enheter:
 
 * trycksensorer på en fjärransluten oljepump
 * temperatur- och fuktighetssensorer i en luftkonditioneringsenhet
@@ -103,19 +103,19 @@ Företagets implementering av den här IoT-lösningen gjorde att de kunde kontro
 
 Det finns flera IoT-relaterade tjänster i Azure och det kan vara förvirrande att ta reda på vilken du vill använda. Vissa, till exempel IoT Central och IoT-lösningsacceleratorer, ger mallar för att hjälpa dig att skapa en egen lösning och snabbt komma igång. Du kan också helt utveckla dina egna lösningar med hjälp av andra tjänster som är tillgängliga – det beror helt på hur mycket hjälp och hur stor kontroll du vill ha. Här följer en lista över tjänsterna som är tillgängliga, samt vad du kan använda dem för.
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md): Detta är en SaaS-lösning som hjälper dig att ansluta, övervaka och hantera dina ioT-enheter. Om du vill starta väljer du en mall för din typ av enhet och skapar och testar ett grundläggande IoT Central-program som kommer att användas av operatörer av enheten. Med programmet IoT Central kommer också att kunna övervaka enheterna och etablera nya enheter. Den här tjänsten är för enkla IoT-lösningar som inte kräver mycket tjänstanpassning. 
+1. [**IoT Central**](../iot-central/overview-iot-central.md): Det här är en SaaS-lösning som hjälper dig att ansluta, övervaka och hantera dina ioT-enheter. Om du vill starta väljer du en mall för din typ av enhet och skapar och testar ett grundläggande IoT Central-program som kommer att användas av operatörer av enheten. Med programmet IoT Central kommer också att kunna övervaka enheterna och etablera nya enheter. Den här tjänsten är för enkla IoT-lösningar som inte kräver mycket tjänstanpassning. 
 
-2. [**IoT-lösningsacceleratorer**](/azure/iot-suite): Det här är en samling av PaaS-lösningar som du kan använda för att påskynda utvecklingen av din IoT-lösning. Du börjar med en angiven IoT-lösning och sedan anpassar du lösningen efter dina behov. Du behöver Java- eller .NET-kunskaper för att anpassa serverdelen och kunskaper i JavaScript för att anpassa visualiseringen. 
+2. [**IoT-lösningsacceleratorer**](/azure/iot-suite): Det här är en samling av PaaS-lösningar som du kan använda för att påskynda utvecklingen av en IoT-lösning. Du börjar med en angiven IoT-lösning och sedan anpassar du lösningen efter dina behov. Du behöver Java- eller .NET-kunskaper för att anpassa serverdelen och kunskaper i JavaScript för att anpassa visualiseringen. 
 
-3. [**IoT Hub**](/azure/iot-hub/): Med den här tjänsten kan du ansluta från dina enheter till en IoT-hubb och övervaka och styra flera miljarder IoT-enheter. Detta är särskilt användbart om du behöver dubbelriktad kommunikation mellan dina IoT-enheter och serverdelen. Det här är den underliggande tjänsten för IoT Central och IoT-lösningsacceleratorer. 
+3. [**IoT Hub**](/azure/iot-hub/): Den här tjänsten låter dig ansluta från dina enheter till en IoT-hubb och övervaka och styra flera miljarder IoT-enheter. Detta är särskilt användbart om du behöver dubbelriktad kommunikation mellan dina IoT-enheter och serverdelen. Det här är den underliggande tjänsten för IoT Central och IoT-lösningsacceleratorer. 
 
 4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): Det här är en hjälptjänst för IoT Hub som du kan använda för att etablera enheter till din IoT-hubb på ett säkert sätt. Med den här tjänsten kan du enkelt etablera miljontals enheter snabbt, i stället för att etablera dem en i taget. 
 
 5. [**IoT Edge**](/azure/iot-edge/): Den här tjänsten bygger på IoT Hub. Den kan användas för att analysera data på IoT-enheter i stället för i molnet. Färre meddelanden måste skickas till molnet eftersom delar av din arbetsbelastning flyttas till Edge. 
 
-6. [**Azure Digital Twins**](../digital-twins/index.yml): Med den här tjänsten kan du skapa omfattande modeller av den fysiska miljön. Du kan modellera relationer och interaktioner mellan människor, utrymmen och enheter. Du kan till exempel förutsäga underhållsbehov för en fabrik, analysera i realtidsenergikrav för ett elnät eller optimera användningen av tillgängligt utrymme för ett kontor.
+6. [**Azure Digital Twins**](../digital-twins/index.yml): Den här tjänsten låter dig skapa omfattande modeller av den fysiska miljön. Du kan modellera relationer och interaktioner mellan människor, utrymmen och enheter. Du kan till exempel förutsäga underhållsbehov för en fabrik, analysera i realtidsenergikrav för ett elnät eller optimera användningen av tillgängligt utrymme för ett kontor.
 
-7. [**Time Series Insights**](/azure/time-series-insights): Med den här tjänsten kan du lagra, visualisera fråga stora mängder time series-data som genererats av IoT-enheter. Du kan använda den här tjänsten med IoT Hub. 
+7. [**Time Series Insights**](/azure/time-series-insights): Den här tjänsten låter dig lagra, visualisera och fråga stora mängder tidsseriedata som genererats av IoT-enheter. Du kan använda den här tjänsten med IoT Hub. 
 
 8. [**Azure Maps**](/azure/azure-maps): Den här tjänsten tillhandahåller geografisk information till webbprogram och mobilappar. Det finns en fullständig uppsättning av REST API:er samt en webbaserad JavaScript-kontroll som kan användas för att skapa flexibla program som fungerar på datorer eller mobila appar för Windows- och Apple-enheter.
 

@@ -1,24 +1,21 @@
 ---
 title: Snabbstart – Skapa en Azure Database for PostgreSQL med hjälp av Azure CLI
 description: Snabbstartsguide för att skapa och hantera Azure Database for PostgreSQL-server med Azure CLI (kommandoradsgränssnittet).
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: fa7fca18d52d4853bd31f0bddc3a3cd6ec930664
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ddecd640c8b005588e8aa552957ee455cad7ad74
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961042"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547074"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snabbstart: Skapa en Azure Database for PostgreSQL med hjälp av Azure CLI
+# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snabbstart: Skapa en Azure Database för PostgreSQL med hjälp av Azure-CLI:n
 Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du skapar en Azure Database för PostgreSQL-server i en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med hjälp av Azure-CLI:n.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -55,13 +52,13 @@ namn | mydemoserver | Välj ett unikt namn för Azure Database för PostgreSQL-s
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
 sku-name | GP_Gen4_2 | Namnet på SKU:n. Följer konventionen {prisnivå}_{beräkningsgenerering}_{vCores} i snabbformat. Se under tabellen för mer information om parametern sku-name.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35. 
-geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Enabled, Disabled.
+geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Aktiverad, inaktiverad.
 location | westus | Azure-platsen för servern.
-ssl-enforcement | Enabled | Om ssl ska aktiveras eller inte för den här servern. Tillåtna värden: Enabled, Disabled.
+ssl-enforcement | Enabled | Om ssl ska aktiveras eller inte för den här servern. Tillåtna värden: Aktiverad, inaktiverad.
 storage-size | 51200 | Serverns lagringskapacitet (enheten är megabyte). En giltig storage-size är minst 5 120 MB och ökar i steg om 1 024 MB. Se dokumentet med [prisnivåer](./concepts-pricing-tiers.md) för mer information om storleksgränser för lagring. 
 version | 9.6 | Huvudversion för PostgreSQL.
 admin-user | myadmin | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-admin-password | *säkert lösenord* | Lösenordet för administratörsanvändaren. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
+admin-password | *säkert lösenord* | Lösenordet för administratörsanvändaren. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror och icke-alfanumeriska tecken.
 
 
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:

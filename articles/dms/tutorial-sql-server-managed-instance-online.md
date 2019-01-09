@@ -5,24 +5,21 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956711"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718188"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till Azure SQL Database Managed Instance online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance.md) med minimal avbrottstid. Information om ytterligare metoder som kan kräva manuella insatser finns i artikeln om [migrering av SQL Server-instans till hanterad Azure SQL Database-instans](../sql-database/sql-database-managed-instance-migrate.md).
-
->[!IMPORTANT]
->Onlinebaserade migreringsprojekt från SQL Server till hanterad Azure SQL Database-instans är förhandsversioner och omfattas av de [kompletterande användningsvillkoren för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I den här självstudiekursen migrerar du databasen **Adventureworks2012** från en lokal instans av SQL Server till hanterad Azure SQL Database-instans med minimal avbrottstid genom att använda Azure Database Migration Service.
 
@@ -34,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Flytta över migreringen när du är klar.
 
 > [!NOTE]
-> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att skapa en instans baserad på prisnivån Premium (förhandsversion).
+> Användning av Azure Database Migration Service för att utföra en onlinemigrering kräver att en instans skapas baserat på prisnivån Premium.
 
 > [!IMPORTANT]
 > För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
@@ -95,10 +92,10 @@ För att slutföra den här kursen behöver du:
 
     Mer information finns i artikeln om [nätverkstopologier för migreringar av hanterade Azure SQL DB-instanser med Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
-6. Välj en SKU från prisnivån ”Affärskritisk (förhandsversion)”.
+6. Välj en SKU på Premium-prisnivån.
 
     > [!NOTE]
-    > Online-migreringar stöds endast när du använder nivån ”Affärskritisk (förhandsversion)”. 
+    > Onlinemigreringar stöds bara när du använder Premium-nivån. 
    
     Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing).
    
@@ -118,7 +115,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
  
 3. Välj + **Nytt migreringsprojekt**.
 
-4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet, I textrutan **Typ av källserver** väljer du **SQL Server**, i textrutan **Målservertyp** väljer du **Hanterad Azure SQL Database-instans** och sedan för **Välj typ av aktivitet** väljer du **Online-datamigrering (förhandsversion)**.
+4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet. I textrutan **Typ av källserver** väljer du **SQL Server**, i textrutan **Målservertyp** väljer du **Hanterad Azure SQL Database-instans** och sedan för **Välj typ av aktivitet** väljer du **Online-datamigrering**.
 
    ![Skapa DMS-projekt](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 

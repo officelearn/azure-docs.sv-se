@@ -1,7 +1,7 @@
 ---
 title: Granska slutpunktsyttranden
 titleSuffix: Azure Cognitive Services
-description: Förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS.
+description: Förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080460"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755129"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>Självstudie 1: Åtgärda osäkra förutsägelser
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudier: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
 
 Den här granskningsprocessen är ett annat sätt för LUIS för att lära sig din appdomän. LUIS valde yttrandena som visas i granskningslistan. Följande gäller för listan:
@@ -33,7 +33,7 @@ Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrand
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp
+> * Importera exempelappen
 > * Granska slutpunktsyttranden
 > * Uppdatera fraslistan
 > * Träna appen
@@ -42,19 +42,19 @@ Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrand
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
+## <a name="import-example-app"></a>Importera exempelappen
 
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+Använd följande steg:
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
 2. Importera JSON-koden till en ny app.
 
 3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `review`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
-    Om du använder den här självstudien som en ny, importerad app måste du även träna, publicera och sedan lägga till yttrandena till slutpunkten med ett [skript](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) eller från slutpunkten i en webbläsare. De yttranden som ska läggas till är:
+    Om du använder den här självstudien som en ny, importerad app måste du även träna, publicera och sedan lägga till yttrandena till slutpunkten med ett [skript](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) eller från slutpunkten i en webbläsare. De yttranden som ska läggas till är:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

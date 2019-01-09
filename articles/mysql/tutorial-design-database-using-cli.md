@@ -1,24 +1,21 @@
 ---
-title: 'Självstudie: Utforma Azure Database for MySQL med Azure CLI'
+title: 'Självstudier: Utforma en Azure Database for MySQL med hjälp av Azure CLI'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MySQL-server och en databas med Azure CLI från kommandoraden.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966987"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545798"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudier: Utforma en Azure Database for MySQL med hjälp av Azure CLI
 
 Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som är baserad på databasmotorn MySQL Community Edition. I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 
@@ -27,7 +24,7 @@ Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som �
 > * Konfigurera serverbrandväggen
 > * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 
@@ -176,18 +173,18 @@ Anta att du har tagit bort den här tabellen av misstag. Det här är något som
 Du behöver följande information vid återställningen:
 
 - Återställningspunkt: Välj en tidpunkt innan servern ändrades. Måste vara senare än eller lika med källdatabasens äldsta säkerhetskopiering.
-- Målserver: Ange ett nytt servernamn som du vill återställa till.
-- Källserver: Ange namnet på den server du vill återställa från.
-- Plats: Du kan inte välja region, som standard är det samma som källservern.
+- Målserver: Ange ett nytt servernamn som du vill återställa till
+- Källserver: Ange namnet på den server som du vill återställa från
+- Plats: Du kan inte välja region; som standard är det samma som källservern
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
 ```
 
 Följande parametrar behövs för kommandot `az mysql server restore`:
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
+| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
 | namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
@@ -203,7 +200,7 @@ I den här självstudien fick du lärda dig att:
 > * Konfigurera serverbrandväggen
 > * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 

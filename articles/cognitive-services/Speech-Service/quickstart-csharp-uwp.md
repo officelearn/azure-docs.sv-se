@@ -11,75 +11,34 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2d51bd910b86c81304fb228d35079fca166b1eb7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104637"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719889"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln ska du skapa ett C#-baserat UWP-program (Universal Windows Platform) med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från enhetens mikrofon. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
+I den här artikeln ska du utveckla ett C#-baserat UWP-program (Universal Windows Platform, Windows-version 1709 eller senare) med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Programmet transkriberar tal till text i realtid från enhetens mikrofon. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech-tjänsten kostnadsfritt](get-started.md).
+För den här snabbstarten krävs:
+
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Starta Visual Studio 2017.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-1. Kontrollera att arbetsbelastningen **Universal Windows Platform-utveckling** är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
-
-    ![Skärmbild av Visual Studio-installationsprogrammet med fliken Arbetsbelastningar markerad](media/sdk/vs-enable-uwp-workload.png)
-
-    Annars markerar du rutan bredvid **.NET cross-platform development** (Plattformsoberoende .NET-utveckling) och väljer **Ändra** i det nedre högra hörnet av dialogrutan. Installationen av den nya funktionen tar en stund.
-
-1. Skapa en tom Visual C#-baserad Universal Windows-app. Börja med att välja **Arkiv** > **Nytt** > **Projekt** på menyn. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C#** > **Windows Universal** i den vänstra rutan. Välj sedan **Tom app (Universal Windows)**. För projektnamnet anger du *helloworld*.
-
-    ![Skärmbild av dialogrutan Nytt projekt](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
-
-1. Speed SDK kräver att ditt program skapas för Windows 10 Fall Creators Update eller senare. I fönstret **New Universal Windows Platform Project** (Nytt Universal Windows Platform-projekt) som visas väljer du **Windows 10 Fall Creators Update (10.0; Build 16299)** som **minimiversion**. I rutan **Målversion** väljer du den här eller en senare version och klickar sedan på **OK**.
-
-    ![Skärmbild av fönstret New Universal Windows Platform Project (Nytt Universal Windows Platform-projekt)](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
-
-1. Om du använder 64-bitars Windows kan du byta utvecklingsplattform till `x64` med hjälp av den nedrullningsbara menyn i Visual Studio-verktygsfältet. (64-bitars Windows kan köra 32-bitarsprogram, så du kan lämna inställningen som `x86` om du föredrar det.)
-
-   ![Skärmbild av Visual Studio-verktygsfältet med x64 markerat](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
-
-   > [!NOTE]
-   > Speech SDK stöder endast Intel-kompatibla processorer. ARM stöds inte för närvarande.
-
-1. Installera och referera till [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget). Högerklicka på lösningen i Solution Explorer och välj sedan **Hantera NuGet-paket för lösningen**.
-
-    ![Skärmbild av Solution Explorer, med alternativet Hantera NuGet-paket för lösningen markerat](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
-
-1. I det övre högra hörnet väljer du **nuget.org** i fältet **Package Source** (Paketkälla). Sök efter `Microsoft.CognitiveServices.Speech`-paketet och installera det i **helloworld**-projektet.
-
-    ![Skärmbild av dialogrutan Hantera paket för lösningen](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "Installera NuGet-paket")
-
-1. Acceptera licensvillkoren som visas för att påbörja installationen av NuGet-paketet.
-
-    ![Skärmbild av dialogrutan för att acceptera licensvillkoren](media/sdk/qs-csharp-uwp-06-nuget-license.png "Acceptera licensen")
-
-1. Följande utdatarad visas i Package Manager-konsolen.
-
-   ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
-   ```
-
-1. Eftersom programmet använder mikrofonen för talindata lägger du till funktionen **Mikrofon** i projektet. I Solution Explorer dubbelklickar du på **Package.appxmanifest** för att redigera programmanifestet. Sedan växlar du till fliken **Funktioner**, markerar kryssrutan för funktionen **Mikrofon** och sparar dina ändringar.
-
-   ![Skärmbild av programmanifestet i Visual Studio med Funktioner och Mikrofon markerat](media/sdk/qs-csharp-uwp-07-capabilities.png)
-
-
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Programmets användargränssnitt definieras med hjälp av XAML. Öppna `MainPage.xaml` i Solution Explorer. I designerns XAML-vy infogar du följande XAML-kodavsnitt i Grid-taggen (mellan `<Grid>` och `</Grid>`).
 
@@ -113,13 +72,10 @@ Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den
 
     ![Skärmbild av användargränssnittet för taligenkänning](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i mappen `quickstart/csharp-uwp`.
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Identifiera avsikter i tal med hjälp av Speech SDK för C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se även
 

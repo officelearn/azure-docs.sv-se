@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93185483a2c5a1ddb308cc2fc9fd918c539b5e3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105537"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602337"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
@@ -46,5 +46,5 @@ Använd Jenkins-plugin-programmet för att distribuera dina program till Azure s
 
  Plugin-program är tillgängliga för distribution till följande tjänster och miljöer:
 
-- [Azure Web App on Linux](/azure/app-service/containers/app-service-linux-intro). Gå [självstudiekursen](java-deploy-webapp-tutorial.md) för att komma igång.
-- [Azure Web App](/azure/app-service/app-service-web-overview). Läs [instruktionsartikeln](deploy-Jenkins-app-service-plugin.md) för att komma igång.
+- [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro). Gå [självstudiekursen](java-deploy-webapp-tutorial.md) för att komma igång.
+- [Azure App Service](/azure/app-service/overview). Läs [instruktionsartikeln](deploy-Jenkins-app-service-plugin.md) för att komma igång.

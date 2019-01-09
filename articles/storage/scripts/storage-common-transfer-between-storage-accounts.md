@@ -13,20 +13,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253269"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635433"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migrera blobar över lagringskonton med hjälp av AzCopy på Windows
 
 Det här exemplet kopierar alla blob-objekt från ett lagringskonto som användaren tillhandahåller till ett mållagringskonto som användaren tillhandahåller. 
 
-Detta görs genom att använda `Get-AzureStorageContainer`-kommandot, som visar alla containrar i ett lagringskonto. Exemplet skickar sedan AzCopy-kommandon som kopierar varje container från källans lagringskonto till målets lagringskonto. Om något fel uppstår försöker exemplet igen $retryTimes (standard är 3 och kan ändras med `-RetryTimes`-parametern). Om ett fel uppstår vid varje nytt försök kan användaren köra skriptet igen genom att ange exemplet med den container som senast kunde kopieras med hjälp av `-LastSuccessContainerName`-parametern. Exemplet fortsätter sedan kopiera containrar från den punkten.
+Detta görs genom att använda `Get-AzStorageContainer`-kommandot, som visar alla containrar i ett lagringskonto. Exemplet skickar sedan AzCopy-kommandon som kopierar varje container från källans lagringskonto till målets lagringskonto. Om något fel uppstår försöker exemplet igen $retryTimes (standard är 3 och kan ändras med `-RetryTimes`-parametern). Om ett fel uppstår vid varje nytt försök kan användaren köra skriptet igen genom att ange exemplet med den container som senast kunde kopieras med hjälp av `-LastSuccessContainerName`-parametern. Exemplet fortsätter sedan kopiera containrar från den punkten.
 
-Det här exemplet kräver Azure PowerShell Storage-modul version **4.0.2** eller senare. Du kan kontrollera den installerade versionen med hjälp av `Get-Module -ListAvailable Azure.storage`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+Det här exemplet kräver Azure PowerShell Storage-modul version **0.7** eller senare. Du kan kontrollera den installerade versionen med hjälp av `Get-Module -ListAvailable Az.storage`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,8 +68,8 @@ Det här skriptet använder följande kommandon för att kopiera data från ett 
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Returnerar de containrar som är kopplade till det här lagringskontot. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Skapar en Azure Storage-kontext. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | Returnerar de containrar som är kopplade till det här lagringskontot. |
+| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Skapar en Azure Storage-kontext. |
 
 ## <a name="next-steps"></a>Nästa steg
 

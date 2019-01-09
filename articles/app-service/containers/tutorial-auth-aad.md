@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409426"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715247"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service i Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Vi använder en ASP.NET Core-app med Angular.js-klientdel, men det är bara ett exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Vi använder en ASP.NET Core-app med Angular.js-klientdel, men det är bara ett exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
 
 I självstudiekursen använder vi exempelappen och visar hur du skyddar en självständig app (i [Aktivera autentisering och auktorisering för serverdelsapp](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -86,7 +86,7 @@ I det här steget distribuerar du projektet till två App Service-appar. Den ena
 
 ### <a name="create-azure-resources"></a>Skapa Azure-resurser
 
-Kör följande kommandon i Cloud Shell för att skapa två webbappar. Ersätt _&lt;front\_end\_app\_name>_ (namnet på klientdelsappen) och _&lt;back\_end\_app\_name>_ (namnet på serverdelsappen) med två globalt unika appnamn (giltiga tecken är `a-z`, `0-9` och `-`). Mer information om varje kommando finns i [Skapa en .NET Core-webbapp i App Service på Linux](quickstart-dotnetcore.md).
+Kör följande kommandon i Cloud Shell för att skapa två App Service-appar. Ersätt _&lt;front\_end\_app\_name>_ (namnet på klientdelsappen) och _&lt;back\_end\_app\_name>_ (namnet på serverdelsappen) med två globalt unika appnamn (giltiga tecken är `a-z`, `0-9` och `-`). Mer information om varje kommando finns i [Skapa en .NET Core-app i App Service på Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Skicka till Azure från Git
 
-I det lokala terminalfönstret kör du följande Git-kommandon för att distribuera till serverdelsappen. Ersätt _&lt;deploymentLocalGitUrl-of-back-end-app>_ med webbadressen för den fjärranslutna Git som du sparade från [Skapa Azure-resurser](#create-azure-resources). När du blir ombedd av Git Credential Manager att ange autentiseringsuppgifter ska du se till att du anger [dina distributionsuppgifter](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) och inte de uppgifter som du använder till att logga in på Azure-portalen.
+I det lokala terminalfönstret kör du följande Git-kommandon för att distribuera till serverdelsappen. Ersätt _&lt;deploymentLocalGitUrl-of-back-end-app>_ med webbadressen för den fjärranslutna Git som du sparade från [Skapa Azure-resurser](#create-azure-resources). När du blir ombedd av Git Credential Manager att ange autentiseringsuppgifter ska du se till att du anger [dina distributionsuppgifter](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) och inte de uppgifter som du använder till att logga in på Azure-portalen.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Bläddra till Azure-webbapparna
+### <a name="browse-to-the-azure-apps"></a>Bläddra till Azure-apparna
 
 Navigera till följande URL:er i en webbläsare och se hur de två apparna fungerar.
 
@@ -242,7 +242,7 @@ Du använder Azure Active Directory som identitetsleverantör. Mer information f
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Aktivera autentisering och auktorisering för serverdelsapp
 
-På [Azure-portalen](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka på den vänstra menyn: **Resursgrupper** > **myAuthResourceGroup** > _\<namn\_på\_serverdels\_app>_.
+På [Azure-portalen](https://portal.azure.com) öppnar du hanteringssidan för serverdelsappen genom att klicka via vänster meny: **Resursgrupper** > **myAuthResourceGroup** > _\<namn\_på\_serverdels\_app>_.
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -453,7 +453,7 @@ Vad du lärt dig:
 > * Använda åtkomsttoken från serverkod
 > * Använd åtkomsttoken från klientkod (webbläsare)
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

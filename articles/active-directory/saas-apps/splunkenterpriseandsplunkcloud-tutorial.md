@@ -1,228 +1,192 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Splunk Enterprise och Splunk Cloud | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Splunk Enterprise och Splunk molnet.
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Splunk Enterprise och Splunk Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b3e2b4a9-749c-4895-813d-db46f8dfdbf8
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2017
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: b1eb8f198b0d9e25a6514e19794c9b1d54a4cd3e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 15596c79859b4af08f3b1992a6aa072f5f86b48f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436091"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974938"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Självstudier: Azure Active Directory-integrering med Splunk Enterprise och Splunk molnet
+# <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Självstudier: Azure Active Directory-integrering med Splunk Enterprise och Splunk Cloud
 
-I den här självstudien får du lära dig hur du integrerar Splunk Enterprise och Splunk molnet med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig hur du integrerar Splunk Enterprise och Splunk Cloud med Azure Active Directory (Azure AD).
+Genom att integrera Splunk Enterprise och Splunk Cloud med Azure AD får du följande fördelar:
 
-Integrera Splunk Enterprise och Splunk molnet med Azure AD ger dig följande fördelar:
+* I Azure AD kan du styra vem som har åtkomst till Splunk Enterprise och Splunk Cloud.
+* Du kan göra så att dina användare automatiskt loggas in på Splunk Enterprise och Splunk Cloud (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Splunk Enterprise och Splunk molnet
-- Du kan aktivera användarna att automatiskt få loggat in på Splunk Enterprise och Splunk molnet (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Splunk Enterprise och Splunk Cloud behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Splunk Enterprise och Splunk molnet, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Splunk Enterprise och Splunk molnet enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Enkel inloggning aktiverat för Splunk Enterprise- och Splunk Cloud-prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Splunk Enterprise och Splunk molnet från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-splunk-enterprise-and-splunk-cloud-from-the-gallery"></a>Att lägga till Splunk Enterprise och Splunk molnet från galleriet
-Om du vill konfigurera integreringen av Splunk Enterprise och Splunk moln till Azure AD, som du behöver lägga till Splunk Enterprise och Splunk molnet från galleriet i din lista över hanterade SaaS-appar.
+* Splunk Enterprise och Splunk Cloud stöder **SP**-initierad SSO
 
-**Om du vill lägga till Splunk Enterprise och Splunk molnet från galleriet, utför du följande steg:**
+## <a name="adding-splunk-enterprise-and-splunk-cloud-from-the-gallery"></a>Lägga till Splunk Enterprise och Splunk Cloud från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av Splunk Enterprise och Splunk Cloud till Azure AD behöver du lägga till Splunk Enterprise och Splunk Cloud från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Om du vill lägga till Splunk Enterprise och Splunk Cloud från galleriet utför du följande steg:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **Splunk Enterprise och Splunk molnet**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **Splunk Enterprise och Splunk molnet**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_addfromgallery.png)
+4. I sökrutan skriver du **Splunk Enterprise och Splunk Cloud**, väljer **Splunk Enterprise och Splunk Cloud** i resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Splunk Enterprise och Splunk molnet baserat på en testanvändare som kallas ”Britta Simon”.
+     ![Splunk Enterprise och Splunk Cloud i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i Splunk Enterprise och Splunk molnet är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Splunk Enterprise och Splunk molnet upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I Splunk Enterprise och Splunk molnet, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Splunk Enterprise och Splunk Cloud baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Splunk Enterprise och Splunk Cloud upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Splunk Enterprise och Splunk molnet, måste du utföra följande byggblock:
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Splunk Enterprise och Splunk Cloud:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Splunk Enterprise och Splunk molnet](#creating-a-splunk-enterprise-and-splunk-cloud-test-user)**  – du har en motsvarighet för Britta Simon i Splunk Enterprise och Splunk molnet som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Splunk Enterprise och Splunk Cloud](#configure-splunk-enterprise-and-splunk-cloud-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Splunk Enterprise- och Splunk Cloud-testanvändare](#create-splunk-enterprise-and-splunk-cloud-test-user)** – för att ha en motsvarighet till Britta Simon i Splunk Enterprise och Splunk Cloud som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program med Splunk Enterprise och Splunk molnet.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Splunk Enterprise och Splunk molnet:**
+Om du vill konfigurera Azure AD enkel inloggning med Splunk Enterprise och Splunk Cloud utför du följande steg:
 
-1. I Azure-portalen på den **Splunk Enterprise och Splunk molnet** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)på programintegreringssidan för **Splunk Enterprise och Splunk Cloud** markerar du **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Splunk Enterprise och Splunk molnet domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<splunkserverUrl>/en-US/app/launcher/home`
-    
-    b. I den **identifierare** textrutan anger du URL för din Splunk-Server.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<splunkserver>/saml/acs`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Här föreslår vi att du för att använda det unika värdet av strängen i identifierare. Kontakta [Splunk Enterprise och Splunk Cloud klienten supportteam](https://www.splunk.com/content/splunkcom/en_us/about-us/contact.html#tabs/customer-support) att hämta dessa värden. 
+    ![Information om enkel inloggning för URL:er för Splunk Enterprise och Splunk Cloud](common/sp-identifier-reply.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<splunkserverUrl>/en-US/app/launcher/home`
 
-    ![Konfigurera enkel inloggning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_certificate.png) 
+    b. I rutan **Identifierare** skriver du en URL med följande mönster: `<splunkserverUrl>`
 
-1. Klicka på **spara** knappen.
+    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<splunkserver>/saml/acs`
 
-    ![Konfigurera enkel inloggning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [supportteamet för Splunk Enterprise och Splunk Cloud ](https://www.splunk.com/about-us/contact.html#tabs/customer-support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Att konfigurera enkel inloggning på **Splunk Enterprise och Splunk molnet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Splunk Enterprise och Splunk molnet supportteam](https://www.splunk.com/content/splunkcom/en_us/about-us/contact.html#tabs/customer-support).
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="configure-splunk-enterprise-and-splunk-cloud-single-sign-on"></a>Konfigurera enkel inloggning för Splunk Enterprise och Splunk Cloud
 
-![Skapa en Azure AD-användare][100]
+Om du vill konfigurera enkel inloggning på **Splunk Enterprise och Splunk Cloud**-sidan måste du skicka den hämtade **Federation Metadata-XML:en** och lämpliga kopierade URL:er från Azure-portalen till [Splunk Enterprise- och Splunk Cloud-supportteamet](https://www.splunk.com/about-us/contact.html#tabs/customer-support). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Skapa en Azure AD-användare för testning](./media/splunkenterpriseandsplunkcloud-tutorial/create_aaduser_01.png) 
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/splunkenterpriseandsplunkcloud-tutorial/create_aaduser_02.png) 
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/splunkenterpriseandsplunkcloud-tutorial/create_aaduser_03.png) 
+2. Välj **Ny användare** överst på skärmen.
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/splunkenterpriseandsplunkcloud-tutorial/create_aaduser_04.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+3. Genomför följande steg i Användaregenskaper.
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-splunk-enterprise-and-splunk-cloud-test-user"></a>Skapa en testanvändare Splunk Enterprise och Splunk molnet
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Splunk Enterprise och Splunk molnet. Arbeta med [Splunk Enterprise och Splunk molnet supportteam](https://www.splunk.com/content/splunkcom/en_us/about-us/contact.html#tabs/customer-support) att lägga till användare i Splunk Enterprise och Splunk Cloud-plattformen.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Splunk Enterprise och Splunk Cloud.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Splunk Enterprise och Splunk molnet.
+1. I Azure-portalen väljer du **Företagsprogram** följt av **Alla program** och sedan **Splunk Enterprise och Splunk Cloud**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon Splunk Enterprise och Splunk molnet, utför du följande steg:**
+2. I listan med program skriver du och väljer **Splunk Enterprise och Splunk Cloud**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken Splunk Enterprise och Splunk Cloud i listan med program](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **Splunk Enterprise och Splunk molnet**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Skapa testanvändare för Splunk Enterprise och Splunk Cloud
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapar du en användare som heter Britta Simon i Splunk Enterprise och Splunk Cloud. Arbeta med [Splunk Enterprise- och Splunk Cloud-supportteamet](https://www.splunk.com/about-us/contact.html#tabs/customer-support) för att lägga till användare i Splunk Enterprise och Splunk Cloud-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du din Azure AD-SSOonfiguration med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Splunk Enterprise och Splunk molnet panelen i åtkomstpanelen, du bör få automatiskt loggat in på programmets Splunk Enterprise och Splunk molnet.
+När du klickar på panelen Splunk Enterprise och Splunk Cloud i åtkomstpanelen bör du loggas in automatiskt till Splunk Enterprise och Splunk Cloud som du ställer in enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_01.png
-[2]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_02.png
-[3]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_03.png
-[4]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_04.png
-
-[100]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_100.png
-
-[200]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_200.png
-[201]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_201.png
-[202]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_202.png
-[203]: ./media/splunkenterpriseandsplunkcloud-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

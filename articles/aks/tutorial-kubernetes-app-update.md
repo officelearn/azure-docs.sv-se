@@ -3,22 +3,21 @@ title: Självstudie om Kubernetes i Azure – Uppdatera ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du uppdaterar en befintlig programdistribution till AKS med en ny version av programkoden.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2dd52fec112b879e072d3ac5598dd7978e68cbc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ed4a65e9e4e579277866bdafda67eb577a76bbfe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918843"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714822"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudier: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
-När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
+När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. En uppdatering mellanlagras så att bara en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
 
 I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Lär dig att:
 
@@ -30,21 +29,21 @@ I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempela
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry (ACR) och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret.
+I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry och du skapade ett AKS-kluster. Appen distribuerades sedan till AKS-klustret.
 
-En programlagringsplats klonades också som inkluderar programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Om du inte har slutfört dessa steg och vill hänga med återgår du till [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
+En programlagringsplats klonades också som inkluderar programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och har ändrat kataloger i den klonade katalogen. Om du inte har slutfört dessa steg och vill följa med börjar du med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien måste du köra Azure CLI version 2.0.44 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="update-an-application"></a>Uppdatera ett program
 
-Vi gör en ändring i exempelprogrammet och uppdaterar sedan den version som redan har distribuerats till ditt AKS-kluster. Exempelprogrammets källkod finns i katalogen *azure-vote*. Öppna filen *config_file.cfg* med en textredigerare, till exempel `vi`:
+Vi gör en ändring i exempelprogrammet och uppdaterar sedan den version som redan har distribuerats till ditt AKS-kluster. Se till att befinna dig i den klonade *azure-voting-app-redis*-katalogen. Exempelprogrammets källkod finns sedan inuti katalogen *azure-vote*. Öppna filen *config_file.cfg* med en textredigerare, till exempel `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Ändra värdena för *VOTE1VALUE* och *VOTE2VALUE* till olika färger. I följande exempel visas de uppdaterade färgvärdena:
+Ändra värdena för *VOTE1VALUE* och *VOTE2VALUE* till olika värden, till exempel färger. I följande exempel visas de uppdaterade värdena:
 
 ```
 # UI Configurations
@@ -54,7 +53,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Spara och stäng filen.
+Spara och stäng filen. I `vi` använder du `:wq`.
 
 ## <a name="update-the-container-image"></a>Uppdatera containeravbildningen
 
@@ -70,7 +69,7 @@ För att kontrollera att den uppdaterade containeravbildningen visar dina ändri
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-De uppdaterade färgvärdena som anges i filen *config_file.cfg* visas i det program som körs.
+De uppdaterade värdena som anges i filen *config_file.cfg* visas i appen som körs.
 
 ## <a name="tag-and-push-the-image"></a>Tagga och överföra avbildningen
 
@@ -144,13 +143,13 @@ Om du vill visa det uppdaterade programmet hämtar du först den externa IP-adre
 kubectl get service azure-vote-front
 ```
 
-Nu öppnar du en lokal webbläsare till IP-adressen.
+Öppna nu en lokal webbläsare på IP-adressen för din tjänst:
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du uppdaterat ett program och distribuerat uppdateringen till ett Kubernetes-kluster. Du har lärt dig att:
+I den här självstudien har du uppdaterat ett program och distribuerat uppdateringen till ditt AKS-kluster. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Uppdatera klientdelens programkod

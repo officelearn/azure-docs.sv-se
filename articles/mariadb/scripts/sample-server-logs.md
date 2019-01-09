@@ -1,21 +1,19 @@
 ---
 title: Azure CLI-skript – Ladda ned serverloggar i Azure Database for MariaDB
 description: Det här Azure CLI-exempelskriptet visar hur du aktiverar och laddar ned serverloggarna för en Azure Database for MariaDB-server.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: cda2f1f02bf48c261da2fdda53c1c145154fe3ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585270"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548100"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Aktivera och ladda ned serverns långsamma frågeloggar för en Azure Database for MariaDB-server med hjälp av Azure CLI
 Det här CLI-exempelskriptet aktiverar och laddar ned de långsamma frågeloggarna för en enskild Azure Database for MariaDB-server.
@@ -47,4 +45,4 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).
-- Prova fler skript: [Azure CLI-exempel för Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Prova ytterligare skript: [Azure CLI-exempel för Azure Database for MariaDB](../sample-scripts-azure-cli.md)

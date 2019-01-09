@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight '
+title: 'Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight '
 description: Lär dig mer om att läsa in data och köra interaktiva frågor på Spark-kluster i Azure HDInsight.
 services: azure-hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495781"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652340"
 ---
-# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
+# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
 I den här självstudien lär du dig hur du skapar en dataram från en csv-fil och kör interaktiva Spark SQL-frågor mot ett [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight. I Spark är en dataram en distribuerad datasamling som har ordnats i namngivna kolumner. Begreppsmässigt motsvarar dataramen en tabell i en relationsdatabas eller en dataram i R/Python.
  
@@ -58,7 +58,7 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
 
 

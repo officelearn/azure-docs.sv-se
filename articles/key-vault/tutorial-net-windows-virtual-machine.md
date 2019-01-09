@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använda Azure Key Vault med virtuell Azure Windows-dator i .NET | Microsoft Docs
+title: Självstudie – Använda Azure Key Vault med virtuell Azure Windows-dator i .NET– Azure Key Vault | Microsoft Docs
 description: 'Självstudie: Konfigurera ett ASP.NET Core-program att läsa en hemlighet från Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711335"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998769"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Självstudie: Använda Azure Key Vault med virtuell Azure Windows-dator i .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Självstudier: Så här använder du Azure Key Vault med en virtuell Azure Windows-dator i .NET
 
 Azure Key Vault hjälper dig att skydda hemligheter, till exempel API-nycklar, databasanslutningssträngar som behövs för att komma åt dina program, tjänster samt IT-resurser.
 
-I den här självstudien följer du de steg som behövs för att få ett konsolprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Den här självstudien baseras på [Azure Web Apps](../app-service/app-service-web-overview.md). I följande avsnitt lär du dig att:
+I den här självstudien följer du de steg som behövs för att få ett konsolprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. I följande avsnitt lär du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
@@ -34,7 +34,7 @@ I den här självstudien följer du de steg som behövs för att få ett konsolp
 > * Bevilja de behörigheter som krävs för att konsolprogrammet ska kunna läsa data från nyckelvalvet.
 > * Hämta hemligheter från Key Vault
 
-Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen](key-vault-whatis.md#basic-concepts).
+Innan du fortsätter så rekommenderar vi att du läser [grundläggande koncept](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * Alla plattformar:
@@ -45,6 +45,7 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 I den här självstudien användas hanterad tjänstidentitet
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Vad är hanterad tjänstidentitet (MSI) och hur fungerar det?
+
 Innan vi går vidare tar vi en titt på MSI. Azure Key Vault kan lagra autentiseringsuppgifter på ett säkert sätt så att de inte ingår i din kod, men för att hämta dem behöver du autentisera till Azure Key Vault. För att autentisera till Key Vault behöver du autentiseringsuppgifter! Det är ett klassiskt bootstrap-problem. Via Azure och Azure AD tillhandahåller MSI en ”bootstrap-identitet” som gör det mycket enklare att komma igång.
 
 Så här fungerar det. När du aktiverar MSI för en Azure-tjänst, till exempel virtuella datorer, App Service eller Functions, skapar Azure ett [tjänsthuvudnamn](key-vault-whatis.md#basic-concepts) för tjänstens instans i Azure Active Directory, och matar in autentiseringsuppgifterna för tjänsthuvudnamnet till tjänstens instans. 
@@ -54,7 +55,7 @@ Så här fungerar det. När du aktiverar MSI för en Azure-tjänst, till exempel
 Koden anropar sedan en lokal metadatatjänst som är tillgänglig på Azure-resursen för att hämta en åtkomsttoken.
 Koden använder den åtkomsttoken som den får från den lokala MSI_ENDPOINT för att autentisera till en Azure Key Vault-tjänst. 
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Om du vill logga in i Azure med hjälp av Azure CLI anger du:
 
@@ -80,7 +81,7 @@ Den resursgrupp du nyss skapade används i hela den här artikeln.
 
 Nu ska du skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg. Ange följande information:
 
-* Nyckelvalvsnamn: namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
+* Key Vault-namn: Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
 * Namn på resursgrupp.
 * Plats: **USA, västra**.
 
@@ -131,7 +132,7 @@ Nu kan du ge ovanstående identitetsbehörighet till Key Vault genom att köra f
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Logga in på den virtuella datorn
+## <a name="sign-in-to-the-virtual-machine"></a>Logga in på den virtuella datorn
 
 Du kan följa den här [självstudien](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
 
@@ -161,8 +162,9 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Ändra sedan klassfilen så att de innehåller koden nedan. Det är en tvåstegsprocess. 
-1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn som i sin tur hämtar en token från Azure Active Directory
+Ändra sedan klassfilen så att de innehåller koden nedan. Det är en tvåstegsprocess.
+
+1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn, som i sin tur hämtar en token från Azure Active Directory
 2. Skicka token till Key Vault och hämta din hemlighet 
 
 ```
@@ -211,7 +213,7 @@ using Newtonsoft.Json.Linq;
 ```
 
 
-Koden ovan visar hur du utför åtgärder med Azure Key Vault på en virtuell Azure Linux-dator. 
+Koden ovan visar hur du utför åtgärder med Azure Key Vault på en virtuell Azure Windows-dator. 
 
 
 

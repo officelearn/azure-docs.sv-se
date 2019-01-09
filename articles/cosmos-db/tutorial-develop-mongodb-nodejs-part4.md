@@ -1,5 +1,5 @@
 ---
-title: Node.Js, Angular-app med hjälp av MongoB API (del 4)
+title: Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa ett Cosmos-konto
 titleSuffix: Azure Cosmos DB
 description: Del 4 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: d6119186bd8ffbda4fa3bb2c432dd58d851992ea
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d85183f0104d9066f93adc73c09c76406128700d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136230"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787808"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 4: Skapa ett Azure Cosmos DB-konto
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa ett Cosmos-konto
 
-Den här självstudiekursen i flera delar demonstrerar hur du skapar en ny [MongoDB API](mongodb-introduction.md)-app skriven i Node.js med Express, Angular och din Azure Cosmos DB-databas.
+Den här självstudien i flera delar visar hur du skapar en ny app skriven i Node.js med Express och Angular och sedan ansluter den till ditt [Cosmos-konto konfigurerat med Cosmos DB:s API för MongoDB](mongodb-introduction.md).
 
 Del 4 av självstudiekursen bygger vidare på [del 3](tutorial-develop-mongodb-nodejs-part3.md) och består av följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa en Azure-resursgrupp med hjälp av Azure CLI
-> * Skapa ett Azure Cosmos DB-konto med hjälp av Azure CLI
+> * Skapa ett Cosmos-konto med hjälp av Azure CLI
 
 ## <a name="video-walkthrough"></a>Videogenomgång
 

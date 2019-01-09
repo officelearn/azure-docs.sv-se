@@ -9,11 +9,11 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: cb3270078c1a79285e672909dc29c258b7b13960
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e8b8d86c6040a268b9fc6fe2edae3107313f93ac
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52881939"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584708"
 ---
-Lär dig hur du kör notebook-filer genom att följa artikeln om att [använda Jupyter-notebooks för att utforska den här tjänsten](../articles/machine-learning/service/samples-notebooks.md).
+Lär dig hur du kör notebook-filer genom att följa artikeln [Använda Jupyter-notebooks för att utforska Azure Machine Learning-tjänsten](../articles/machine-learning/service/samples-notebooks.md).

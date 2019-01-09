@@ -1,21 +1,21 @@
 ---
-title: Kopiera data till Microsoft Azure Data Box | Microsoft Docs
-description: Lär dig hur du kopierar data till Azure Data Box
+title: Kopiera data till Microsoft Azure Data Box via SMB | Microsoft Docs
+description: Lär dig hur du kopierar data till Azure Data Box via SMB
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 12/19/2018
 ms.author: alkohli
-ms.openlocfilehash: b59830677ac8c07c6b7adbab24c82ca25d71f5a0
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6349ced07385ede42b21c9a8401dd3e0a23bcfbe
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093467"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790308"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box"></a>Självstudie: Kopiera data till Azure Data Box 
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudier: Kopiera data till Azure Data Box via SMB
 
 I den här självstudiekursen beskrivs hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet och sedan förbereder för att skicka Data Box.
 
@@ -34,28 +34,25 @@ Innan du börjar ska du kontrollera att:
 2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
 3. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
-    - Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har minst en 10 GbE anslutning. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas med kopieringshastigheten påverkas. 
+    - Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men kopieringshastigheten påverkas. 
 
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
 
 Utifrån det lagringskontot som väljs skapar Data Box upp till:
 - Tre resurser för varje associerat lagringskonto för GPv1 och GPv2.
-- En resurs för premium- eller bloblagringskonto. 
+- En resurs för premium- eller bloblagringskonto.
 
 Under blockblob- och sidblobresurser är entiteter på första nivån containrar och entiteter på andra nivån är blobar. Under resurser för Azure Files är entiteter på första nivån resurser och entiteter på andra nivån är filer.
 
-Se följande exempel. 
+I följande tabell visas UNC-sökvägen till filresurser på din Data Box och Azure Storage-sökvägens URL som data har överförts till. URL:en till den sista Azure Storage-sökvägen kan härledas från sökvägen till UNC-resursen.
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| Azure Block blobs | <li>UNC-sökväg till resurser: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure-sidblobar  | <li>UNC-sökväg till resurser: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC-sökväg till resurser: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-- Lagringskonto: *Mystoracct*
-- Resurs för blockblob: *Mystoracct_BlockBlob/my-container/blob*
-- Resurs för sidblob: *Mystoracct_PageBlob/my-container/blob*
-- Resurs för fil: *Mystoracct_AzFile/my-share*
-
-Beroende på om din Data Box är ansluten till en Windows Server-värddator eller till en Linux-värd kan stegen för att ansluta och kopiera skilja sig.
-
-### <a name="connect-via-smb"></a>Ansluta via SSH 
-
-Om du använder en Windows Server-värddator utför du stegen nedan för att ansluta till Data Box.
+Om du använder en Windows Server-värddator följer du stegen nedan för att ansluta till Data Box.
 
 1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Klicka på **Hämta autentiseringsuppgifter** för att få autentiseringsuppgifter för de resurser som är associerade med ditt lagringskonto. 
 
@@ -65,16 +62,16 @@ Om du använder en Windows Server-värddator utför du stegen nedan för att ans
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Använd de resurser som är associerade med ditt lagringskonto (Mystoracct i följande exempel). Få åtkomst till resurserna via sökvägen `\\<IP of the device>\ShareName`. Beroende på ditt dataformat ansluter du till resurserna (använd resursnamnet) på följande adress: 
-    - *\\<IP address of the device>\Mystoracct_Blob*
-    - *\\<IP address of the device>\Mystoracct_Page*
-    - *\\<IP address of the device>\Mystoracct_AzFile*
-    
-    Om du vill ansluta till resurserna via värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
+3. För att komma åt resurser som är associerade med ditt lagringskonto (*devicemanagertest1* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Ange lösenordet för resursen när du tillfrågas. Följande exempel visar hur du ansluter till en resurs via kommandot ovan.
+    Beroende på ditt dataformat är resursssökvägarna följande:
+    - Azure-blockblob – `\\10.126.76.172\devicemanagertest1_BlockBlob`
+    - Azure-sidblob – `\\10.126.76.172\devicemanagertest1_PageBlob`
+    - Azure Files – `\\10.126.76.172\devicemanagertest1_AzFile`
+    
+4. Ange lösenordet för resursen när du tillfrågas. Följande exempel visar hur du ansluter till en resurs via kommandot ovan.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
@@ -82,53 +79,29 @@ Om du använder en Windows Server-värddator utför du stegen nedan för att ans
     The command completed successfully.
     ```
 
-4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Klicka på **OK**. Utforskaren öppnas. Du bör nu kunna se resurserna som mappar.
+4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att klicka på **OK**.
     
     ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5.  **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Ibland kan mapparna visas med ett grått kors. Korset anger inte ett feltillstånd. Mapparna flaggas av programmet för att spåra statusen.
+    Du bör nu se resurserna som mappar.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
-
-### <a name="connect-via-nfs"></a>Ansluta via NFS 
-
-Om du använder en Linux-värddator utför du stegen nedan för att konfigurera Data Box att tillåta åtkomst till NFS-klienter.
-
-1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. I det lokala webbgränssnittet går du till sidan **Anslut och kopiera**. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**. 
-
-    ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data/nfs-client-access.png)
-
-2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
-
-    ![Konfigurera NFS-klientåtkomst 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
-
-2. Kontrollera att Linux-värddatorn har en NFS-klient av en [version som stöds](data-box-system-requirements.md) installerad. Använd den specifika versionen för din Linux-distribution. 
-
-3. När NFS-klienten har installerats använder du följande kommando för att montera NFS-resursen på Data Box-enheten:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-    I följande exempel visas hur du ansluter via NFS till en Data Box-resurs. Data Box-enhetens IP-adress är `10.161.23.130`, resursen `Mystoracct_Blob` är monterad på ubuntuVM, och monteringspunkten är `/home/databoxubuntuhost/databox`.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
+    **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *$root*-mappen i lagringskontot.
+    
+    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 
-När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Tänk över följande innan du kopierar data:
+När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
 - Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
--  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md). 
+-  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md).
 - Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 - Vi rekommenderar att du inte använda både SMB och NFS samtidigt eller kopierar samma data till samma mål i slutet på Azure. I sådana fall kan slutresultatet inte fastställas.
+- Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *$root*-mappen i lagringskontot.
 
-### <a name="copy-data-via-smb"></a>Kopiera data via SMB
-
-När du har anslutit till SMB-resursen kan du initiera en datakopiering. 
-
-Du kan använda valfritt SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy, för att kopiera data. Flera kopieringsjobb kan initieras med hjälp av Robocopy. Ange följande kommando:
+När du har anslutit till SMB-resursen kan du påbörja en datakopiering. Du kan använda valfritt SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy, för att kopiera data. Flera kopieringsjobb kan initieras med hjälp av Robocopy. Ange följande kommando:
     
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
+    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
  Attributen beskrivs i följande tabell.
     
@@ -223,80 +196,11 @@ För att säkerställa dataintegriteten beräknas kontrollsumman infogat när da
     
    ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### <a name="copy-data-via-nfs"></a>Kopiera data via NFS
-
-Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  
-
-Kommandot `cp` är ett av de bästa alternativen för att kopiera en katalog. Mer information om användningen finns på [cp man-sidorna](http://man7.org/linux/man-pages/man1/cp.1.html).
-
-Om du använder rsync-alternativet för en flertrådig kopia följer du dessa riktlinjer:
-
- - Installera **CIFS Utils**- eller **NFS Utils**-paketet, beroende på vilket filsystem din Linux-klient använder.
-
-    `sudo apt-get install cifs-utils`
-
-    `sudo apt-get install nfs-utils`
-
- -  Installera **Rsync** och **Parallel** (varierar beroende på distribuerad Linux-version).
-
-    `sudo apt-get install rsync`
-   
-    `sudo apt-get install parallel` 
-
- - Skapa en monteringspunkt.
-
-    `sudo mkdir /mnt/databox`
-
- - Montera volymen.
-
-    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
-
- - Spegla mappkatalogstrukturen.  
-
-    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
-
- - Kopiera filerna. 
-
-    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
-
-     där j anger antal parallelliseringar, X = antal parallella kopior
-
-     Vi rekommenderar att du börjar med 16 parallella kopior och öka antalet trådar beroende på tillgängliga resurser.
 
 ## <a name="prepare-to-ship"></a>Förbereda för att skicka
 
-Det sista steget är att förbereda enheten för att skickas. I det här steget frånkopplas alla enhetsresurser. Det går inte att komma åt resurserna när du börjar förbereda enheten för att skickas.
-1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser**. 
-   
-    ![Förbered för att skicka 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
-2. Som standard beräknas kontrollsummor infogat under leveransförberedelserna. Beräkningen av kontrollsumma kan ta lite tid beroende på storleken på data. Klicka på **Starta förberedelser**.
-    1. Enhetsresurserna kopplas från och enheten låses när vi förbereder för att skicka.
-        
-        ![Förbered för att skicka 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. Enhetsstatusen uppdateras till *Klar för leverans* när enhetsförberedelserna är klara. 
-        
-        ![Förbered för att skicka 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
-
-    3. Ladda ned listan över filer (manifest) som kopierades i den här processen. Du kan senare använda den här listan för att verifiera filerna som har laddats upp till Azure.
-        
-        ![Förbered för att skicka 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
-
-3. Stäng av enheten. Gå till sidan **Stäng av eller starta om** och klicka på **Stäng av**. När du uppmanas att bekräfta klickar du på **OK** för att fortsätta.
-4. Ta bort kablarna. Nästa steg är att skicka enheten till Microsoft.
-
- 
-<!--## Appendix - robocopy parameters
-
-This section describes the robocopy parameters used when copying the data to optimize the performance.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -307,7 +211,7 @@ I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 > * Kopiera data till Data Box
 > * Förbereda för att skicka Data Box
 
-Gå vidare till nästa självstudiekurs och lär dig hur du konfigurerar och kopierar data på din Data Box.
+Gå vidare till nästa självstudie och lär dig hur du skickar din Data Box tillbaka till Microsoft.
 
 > [!div class="nextstepaction"]
 > [Skicka din Azure Data Box till Microsoft](./data-box-deploy-picked-up.md)

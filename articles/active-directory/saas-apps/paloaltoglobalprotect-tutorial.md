@@ -1,268 +1,247 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Palo Alto Networks - GlobalProtect | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto Networks - GlobalProtect.
+title: 'Självstudier: Azure Active Directory-integrering med Palo Alto Networks – GlobalProtect | Microsoft Docs'
+description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto Networks – GlobalProtect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 03bef6f2-3ea2-4eaa-a828-79c5f1346ce5
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: d3fdf52d07faa4242a0267ebc929946bbc95418a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 16bcd61d226fe97e9f3e4eb5c40f2fdf6c304a12
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427626"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808289"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Självstudier: Azure Active Directory-integration med Palo Alto Networks - GlobalProtect
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks – GlobalProtect
 
-I den här självstudien får du lära dig hur du integrerar Palo Alto Networks - GlobalProtect med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Palo Alto Networks – GlobalProtect med Azure Active Directory (Azure AD).
+Integrera Palo Alto Networks – GlobalProtect med Azure AD ger dig följande fördelar:
 
-Integrera Palo Alto Networks - GlobalProtect med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure AD vem som har åtkomst till Palo Alto Networks – GlobalProtect.
+* Du kan göra så att dina användare automatiskt loggas in på Palo Alto Networks – GlobalProtect (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Palo Alto Networks - GlobalProtect.
-- Du kan aktivera användarna att automatiskt få loggat in på Palo Alto Networks - GlobalProtect (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Palo Alto Networks – GlobalProtect, behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Palo Alto Networks - GlobalProtect, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Palo Alto Networks - GlobalProtect enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Palo Alto Networks – GlobalProtect enkel inloggningaktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Palo Alto Networks - GlobalProtect från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-palo-alto-networks---globalprotect-from-the-gallery"></a>Att lägga till Palo Alto Networks - GlobalProtect från galleriet
-Om du vill konfigurera integreringen av Palo Alto Networks - GlobalProtect till Azure AD som du behöver lägga till Palo Alto Networks - GlobalProtect från galleriet i din lista över hanterade SaaS-appar.
+* Palo Alto Networks – GlobalProtect stöder **SP**-initierad enkel inloggning
+* Palo Alto Networks – GlobalProtect stöder **just-in-time**-användaretablering
 
-**Utför följande steg för att lägga till Palo Alto Networks - GlobalProtect från galleriet:**
+## <a name="adding-palo-alto-networks---globalprotect-from-the-gallery"></a>Lägga till Palo Alto Networks – GlobalProtect från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integrering av Palo Alto Networks – GlobalProtect till Azure AD så behöver du lägga till Palo Alto Networks – GlobalProtect från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Palo Alto Networks – GlobalProtect från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **Palo Alto Networks - GlobalProtect**väljer **Palo Alto Networks - GlobalProtect** resultatet panelen klickar **Lägg till** för att lägga till programmet .
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Palo Alto Networks - GlobalProtect i resultatlistan](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Palo Alto Networks - GlobalProtect baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du **Palo Alto Networks – GlobalProtect**, väljer **Palo Alto Networks – GlobalProtect** från resultatpanelen och klickar därefter på **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Palo Alto Networks - GlobalProtect är till en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren i Palo Alto Networks - GlobalProtect måste upprättas.
+     ![Palo Alto Networks – GlobalProtect i resultatlistan](common/search-new-app.png)
 
-I Palo Alto Networks - GlobalProtect, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Palo Alto Networks - GlobalProtect, måste du slutföra följande byggblock:
+I det här avsnittet så konfigurerar och testar du enkel inloggning i Azure AD med Palo Alto Networks – GlobalProtect baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Palo Alto Networks – GlobalProtect upprättas.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en Palo Alto Networks - GlobalProtect testanvändare](#create-a-palo-alto-networks---globalprotect-test-user)**  – du har en motsvarighet för Britta Simon i Palo Alto Networks - GlobalProtect som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Palo Alto Networks – GlobalProtect så måste du slutföra följande byggblock:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning med Palo Alto Networks – GlobalProtect](#configure-palo-alto-networks---globalprotect-single-sign-on)** – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Palo Alto Networks – GlobalProtect-testanvändare](#create-palo-alto-networks---globalprotect-test-user)** – du har en motpart för Britta Simon i Palo Alto Networks – GlobalProtect som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din Palo Alto Networks - GlobalProtect program.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-**Om du vill konfigurera Azure AD utför enkel inloggning med Palo Alto Networks - GlobalProtect, du följande steg:**
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. I Azure-portalen på den **Palo Alto Networks - GlobalProtect** program integration-sidan klickar du på **enkel inloggning**.
+Om du vill konfigurera enkel inloggning i Azure AD med Palo Alto Networks – GlobalProtect så behöver du utföra följande steg:
 
-    ![Konfigurera enkel inloggning för länken][4]
+1. I [Azure-portalen](https://portal.azure.com/) på programintegreringssidan för **Palo Alto Networks – GlobalProtect** så markerar du **enkel inloggning**.
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_samlbase.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **Palo Alto Networks - GlobalProtect domän och URL: er** avsnittet, utför följande steg:
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Palo Alto Networks - GlobalProtect domän och URL: er enkel inloggning för information](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_url.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<Customer Firewall URL>`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<Customer Firewall URL>/SAML20/SP`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Palo Alto Networks - GlobalProtect klienten supportteamet](https://support.paloaltonetworks.com/support) att hämta dessa värden. 
- 
-1. Palo Alto Networks - GlobalProtect program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
-    
-    ![Konfigurera enkel inloggning](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_attribute.png)
-    
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-    
-    | Attributnamn | Attributvärde |
-    | --- | --- |    
-    | användarnamn | User.userPrincipalName |
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    ![Enkel inloggning i Palo Alto Networks – GlobalProtect information om domän och URL:er](common/sp-identifier.png)
 
-    ![Konfigurera enkel inloggning](./media/paloaltoglobalprotect-tutorial/tutorial_attribute_04.png)
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<Customer Firewall URL>`
 
-    ![Konfigurera enkel inloggning](./media/paloaltoglobalprotect-tutorial/tutorial_attribute_05.png)
-    
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden. Vi har mappat värdet med user.userprincipalname som exempel men du kan mappa med din lämpligt värde. 
-    
-    d. Klicka på **Ok**
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<Customer Firewall URL>/SAML20/SP`
 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Palo Alto Networks – GlobalProtect-klientens supportteam](https://support.paloaltonetworks.com/support) för att få de värdena. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+5. Palo Alto Networks – GlobalProtect-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![Länk för hämtning av certifikat](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_certificate.png) 
+    ![image](common/edit-attribute.png)
 
-1. Klicka på **spara** knappen.
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/paloaltoglobalprotect-tutorial/tutorial_general_400.png)
+    | Namn | Källattribut|
+    | ------|--------- |
+    | användarnamn  | user.userprincipalname  |
+    | | |
 
-1. Öppna Admin-Gränssnittet Palo Alto Networks-brandväggen som en administratör i ett annat webbläsarfönster.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-1. Klicka på **enhet**.
+    ![image](common/new-save-attribute.png)
 
-    ![Konfigurera Palo Alto enkel inloggning](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![image](common/new-attribute-details.png)
 
-1. Välj **SAML-identitetsprovider** i det vänstra navigeringsfönstret och klickar på ”Importera” om du vill importera metadatafilen.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    ![Konfigurera Palo Alto enkel inloggning](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin2.png)
+    c. Lämna **Namnrymd** tom.
 
-1. Utför följande åtgärder i fönstret Import
+    d. Välj Källa som **Attribut**.
 
-    ![Konfigurera Palo Alto enkel inloggning](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    a. I den **profilnamn** textrutan, ange ett namn t.ex Azure AD GlobalProtect.
-    
-    b. I **identitet providern Metadata**, klickar du på **Bläddra** och välj metadata.xml-fil som du har hämtat från Azure-portalen
-    
+    f. Klicka på **Ok**
+
+    g. Klicka på **Spara**.
+
+7. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+8. I avsnittet **Konfigurera Palo Alto Networks – GlobalProtect** kopierar du lämpliga URL:er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-palo-alto-networks---globalprotect-single-sign-on"></a>Konfigurera enkel inloggning med Palo Alto Networks – GlobalProtect
+
+1. Öppna admingränssnittet för Palo Alto Networks-brandväggen som en administratör i ett annat webbläsarfönster.
+
+2. Klicka på **enhet**.
+
+    ![Konfigurera enkel inloggning med Palo Alto](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
+
+3. Välj **SAML-identitetsprovider** från det vänstra navigeringsfönstret och klicka på Importera om du vill importera metadatafilen.
+
+    ![Konfigurera enkel inloggning med Palo Alto](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin2.png)
+
+4. Utför följande åtgärder i Importera-fönstret
+
+    ![Konfigurera enkel inloggning med Palo Alto](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
+
+    a. I textrutan **Profilnamn** anger du ett namn t.ex Azure AD GlobalProtect.
+
+    b. I **Metadata för identitetsprovider** klickar du på **Bläddra** och väljer metadata XML-filen som du hämtade från Azure Portal
+
     c. Klicka på **OK**
-
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/paloaltoglobalprotect-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/paloaltoglobalprotect-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/paloaltoglobalprotect-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/paloaltoglobalprotect-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-palo-alto-networks---globalprotect-test-user"></a>Skapa en Palo Alto Networks - GlobalProtect testanvändare
 
-Palo Alto Networks - GlobalProtect som stöder Just-in-time användaretablering så att en användare skapas automatiskt i systemet efter en lyckad autentisering om den inte redan finns. Du behöver inte göra någonting här. 
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge åtkomst till Palo Alto Networks – GlobalProtect.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Palo Alto Networks - GlobalProtect.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Palo Alto Networks – GlobalProtect**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon Palo Alto Networks - GlobalProtect, utför du följande steg:**
+2. I programlistan skriver du in och väljer **Palo Alto Networks – GlobalProtect**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Palo Alto Networks – GlobalProtect-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **Palo Alto Networks - GlobalProtect**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Palo Alto nätverk - GlobalProtect länk i listan med program](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-palo-alto-networks---globalprotect-test-user"></a>Skapa Palo Alto Networks – GlobalProtect-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapas en användare med namnet Britta Simon i Palo Alto Networks – GlobalProtect. Palo Alto Networks – GlobalProtect stöder just-in-time-användaretablering som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns en användare i Palo Alto Networks – GlobalProtect så skapas en ny efter autentisering.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Palo Alto Networks - GlobalProtect panel i åtkomstpanelen, du bör få automatiskt loggat in på ditt Palo Alto Networks - GlobalProtect program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Palo Alto Networks – GlobalProtect-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Palo Alto Networks – GlobalProtect för vilken du ställt in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_01.png
-[2]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_02.png
-[3]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_03.png
-[4]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_04.png
-
-[100]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_100.png
-
-[200]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_200.png
-[201]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_201.png
-[202]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_202.png
-[203]: ./media/paloaltoglobalprotect-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

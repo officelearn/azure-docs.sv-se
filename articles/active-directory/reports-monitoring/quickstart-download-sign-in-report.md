@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621437"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653296"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en inloggningsrapport med Azure-portalen
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Snabbstart: Hämta en inloggningsrapport med Azure-portalen
 
 I den här snabbstarten får du lära dig hur du hämtar inloggningsloggarna för din klient för de senaste 24 timmarna.
 
@@ -31,7 +31,7 @@ I den här snabbstarten får du lära dig hur du hämtar inloggningsloggarna fö
 
 Du behöver:
 
-* En Azure Active Directory-klient, med en premiumlicens för att visa inloggningsrapporten. 
+* En Azure Active Directory-klient, med en premiumlicens för att visa inloggningsrapporten. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
 * En användare som har rollen **säkerhetsadministratör,**,  **säkerhetsläsare**, **rapportläsare** eller **global administratör** för klienten. Dessutom kan alla användare i klienten kan komma åt sina egna inloggningsloggar.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Snabbstart: Ladda ned en inloggningsrapport

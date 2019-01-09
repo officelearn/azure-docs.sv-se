@@ -1,5 +1,5 @@
 ---
-title: Skapa en Ruby-webbapp med Postgres på Linux – Azure App Service | Microsoft Docs
+title: Skapa en Ruby-app med Postgres på Linux – Azure App Service | Microsoft Docs
 description: Lär dig hur du får igång en Ruby-app som fungerar i Azure med anslutning till en PostgreSQL-databas i Azure.
 services: app-service\web
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271036"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713887"
 ---
-# <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-webbapp i Azure App Service i Linux
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-app i Azure App Service på Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en Ruby-webbapp och ansluter den till en PostgreSQL-databas. När du är klar har du en [Ruby on Rails](https://rubyonrails.org/)-app som körs i App Service på Linux.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en Ruby-app och ansluter den till en PostgreSQL-databas. När du är klar har du en [Ruby on Rails](https://rubyonrails.org/)-app som körs i App Service på Linux.
 
 ![Ruby on Rails-appen körs i Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -162,7 +162,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> Du kan begränsa brandväggsregeln ännu mer genom att [endast använda de utgående IP-adresser som används av din app](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Du kan begränsa brandväggsregeln ännu mer genom att [endast använda de utgående IP-adresser som används av din app](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Anslut till Postgres produktionsserver lokalt
@@ -357,7 +357,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen
+### <a name="browse-to-the-azure-app"></a>Bläddra till Azure-appen
 
 Bläddra till `http://<app_name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
@@ -462,7 +462,7 @@ I terminalen kör du Rails-databasmigreringar för produktionsmiljön för att g
 rake db:migrate RAILS_ENV=production
 ```
 
-Spara alla ändringar på Git och skicka sedan kodändringarna till Azure.
+Genomför alla ändringar på Git och skicka sedan kodändringarna till Azure.
 
 ```bash
 git add .
@@ -470,21 +470,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-När `git push` har slutförts kan du gå till Azure-webbappen och prova de nya funktionerna.
+När `git push` har slutförts kan du gå till Azure-appen och prova de nya funktionerna.
 
 ![Modell- och databasändringar som är publicerade i Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 Om du har lagt till några uppgifter finns de kvar i databasen. Uppdateringar i dataschemat påverkar inte befintliga data.
 
-## <a name="manage-the-azure-web-app"></a>Hantera Azure-webbappen
+## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
-Gå till [Azure Portal](https://portal.azure.com) för att hantera den webbapp som du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) för att hantera den app som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/tutorial-php-mysql-app/access-portal.png)
+![Portalnavigering till Azure-app](./media/tutorial-php-mysql-app/access-portal.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
+Nu visas sidan Översikt för din app. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
 
 Menyn till vänster innehåller sidor för att konfigurera appen.
 
@@ -506,7 +506,7 @@ I den här självstudiekursen lärde du dig att:
 > * strömma diagnostikloggar från Azure
 > * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](../app-service-web-tutorial-custom-domain.md)

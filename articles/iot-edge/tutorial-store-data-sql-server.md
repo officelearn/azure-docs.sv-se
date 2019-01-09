@@ -9,12 +9,12 @@ ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a78c4d64761b5eecc5b7ebf8aa0223b862935575
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163420"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728201"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -324,7 +324,7 @@ När du instruerar Visual Studio Code att skapa din lösning hämtar den först 
 
 Du kan ange moduler på en enhet via IoT Hub, men du kan också komma åt din IoT Hub och enheter via Visual Studio Code. I det här avsnittet kan du konfigurera åtkomst till din IoT Hub och sedan använda VS Code för att distribuera din lösning till IoT Edge-enheten. 
 
-1. I kommandopaletten för VS Code väljer du **Azure IoT Hub: Välj IoT Hub**.
+1. I kommandopaletten för VS Code väljer du **Azure IoT Hub: Select IoT Hub** (Välj IoT-hubb).
 
 2. Följ anvisningarna för att logga in på ditt Azure-konto. 
 

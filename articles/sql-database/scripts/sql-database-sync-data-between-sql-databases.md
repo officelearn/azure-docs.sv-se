@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 11347203b4d21bc046b97c1fb1ddc8348f5046af
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4d343520ebfb7820cf1de769233e262f89862f14
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684934"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754245"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Använda PowerShell för att synkronisera mellan flera SQL-databaser
  
@@ -29,6 +29,9 @@ Det här PowerShell-exemplet konfigurerar Data Sync för att synkronisera mellan
 Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerShell-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -130,6 +133,7 @@ $Credential = $Host.ui.PromptForCredential("Need credential",
               "")
 
 # Add a new sync member
+# You can add members from other subscriptions, you don't need to specify Subscription Id for the member
 Write-Host "Adding member"$SyncMemberName" to the sync group"
 New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -ServerName $ServerName `
@@ -365,7 +369,7 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](../sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](../sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](../sql-database-data-sync-agent.md)

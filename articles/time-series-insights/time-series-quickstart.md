@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Azure Time Series Insights-utforskaren | Microsoft Docs
+title: 'Snabbstart: Azure Time Series Insights-utforskaren | Microsoft Docs'
 description: Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i webbläsaren för att visualisera stora IoT-datavolymer. Titta på huvudfunktionerna i en demomiljö.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 11/15/2017
-ms.openlocfilehash: 6b2a21cf50c03c8e44794540074dabf90049bc7c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 32ed0ec178f7a0064fae88357011197e71604885
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275524"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555548"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
 Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i en gratis demonstrationsmiljö. Du lär dig hur du kan använda webbläsaren för att visualisera stora volymer med IoT-data, och du får se huvudfunktionerna i Time Series Insights-utforskaren. 

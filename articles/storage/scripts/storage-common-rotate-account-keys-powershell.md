@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell skriptexempel - åtkomstnyckeln för lagringskontot rotera | Microsoft Docs
-description: Skapa ett Azure Storage-konto och sedan hämta och rotera en av dess åtkomstnycklarna för kontot.
+title: Exempel på Azure PowerShell-skript – Rotera åtkomstnyckel för lagringskonto | Microsoft Docs
+description: Skapa ett Azure Storage-konto och hämta och rotera sedan en av kontoåtkomstnycklarna.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: a7aaacf316799540a6a72b699ba8ea8bb389c8a8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 026c399af70a0c97446fba28b5dd7ca1ed82b89c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25984176"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635501"
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Skapa ett lagringskonto och rotera åtkomstnycklar sitt konto
+# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Skapa ett lagringskonto och rotera kontoåtkomstnycklarna
 
-Det här skriptet skapar ett Azure Storage-konto, visas det nya lagringskontot primärnyckeln och sedan förnyar (roterar) nyckeln.
+Det här skriptet skapar ett Azure Storage-konto, visar de primära åtkomstnycklarna för det nya lagringskontot och förnyar (roterar) sedan nycklarna.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -36,26 +36,26 @@ Det här skriptet skapar ett Azure Storage-konto, visas det nya lagringskontot p
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, storage-konto och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, lagringskontot och alla relaterade resurser.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name rotatekeystestrg
+Remove-AzResourceGroup -Name rotatekeystestrg
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa storage-konto och hämta och rotera en av dess åtkomstnycklar. Varje objekt i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon för att skapa lagringskontot och hämta och rotera en av dess åtkomstnycklar. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | Hämtar alla platser och vilka resursproviders för varje plats. |
-| [Ny AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar ett Azure-resursgrupp. |
-| [Ny AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Skapar ett lagringskonto. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Hämtar åtkomstnycklarna för ett Azure Storage-konto. |
-| [Ny AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | Återskapar snabbtangent för ett Azure Storage-konto. |
+| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Hämta alla platser och de resursprovidrar som stöds för varje plats. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp. |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Skapar ett lagringskonto. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Hämtar åtkomstnycklarna för Azure Storage-kontot. |
+| [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | Återskapar en åtkomstnyckel för ett Azure Storage-konto. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare lagringsutrymme PowerShell-skript-exempel finns i [PowerShell-exempel för Azure Blob storage](../blobs/storage-samples-blobs-powershell.md).
+Ytterligare PowerShell-skriptexempel för lagring finns i [PowerShell-exempel för Azure Blob Storage](../blobs/storage-samples-blobs-powershell.md).

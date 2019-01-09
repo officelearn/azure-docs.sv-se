@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 2979cdd0184e287ba83ae8a254722b64decce83d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 1876a74ff1631ee8a383ebe954df9756f7ef89f1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413701"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811451"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -34,7 +34,7 @@ ms.locfileid: "53413701"
 
 Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med Azure Cosmos DB-emulatorn kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
 
-För närvarande stöder datautforskaren i emulatorn endast fullständigt SQL API-samlingar och MongoDB-samlingar. Containrar för Table, Graph och Cassandra stöds ännu inte helt.
+Datautforskaren i emulatorn stöder för närvarande endast fullständigt klienter för SQL API och API för Azure Cosmos DB för MongoDB. Klienter för API:er för Table, Graph och Cassandra stöds ännu inte fullständigt.
 
 Den här artikeln beskriver följande uppgifter:
 
@@ -57,7 +57,7 @@ Azure Cosmos DB-emulatorn erbjuder mycket tillförlitlig emulering av Azure Cosm
 ## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten
 Eftersom Azure Cosmos DB-emulatorn tillhandahåller en emulerad miljö som körs på en lokal utvecklararbetsstation finns det några skillnader mellan emulatorn och ett Azure Cosmos DB-konto i molnet:
 
-* För närvarande stöder datautforskaren i emulatorn endast SQL API-samlingar och MongoDB-samlingar. API:er för Table, Graph och Cassandra stöds ännu inte.
+* Datautforskaren i emulatorn stöder för närvarande klienter för SQL API och API för Azure Cosmos DB för MongoDB. Klienter för API:er för Table, Graph och Cassandra stöds ännu inte.
 * Azure Cosmos DB-emulatorn stöder endast ett enda fast konto och en välkänd huvudnyckel. Nyckelomgenerering fungerar inte i Azure Cosmos DB-emulatorn.
 * Azure Cosmos DB-emulatorn är inte en skalbar tjänst och stöder inte ett stort antal samlingar.
 * Azure Cosmos DB-emulatorn kan inte simulera olika [Azure Cosmos DB-konsekvensnivåer](consistency-levels.md).
@@ -125,14 +125,14 @@ Du kan köra emulatorn på ett lokalt nätverk. För att aktivera nätverksåtko
 För att aktivera nätverksåtkomst för första gången ska användaren stänga emulatorn och ta bort emulatorns datakatalog (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Utveckla med emulatorn
-När du kör Azure Cosmos DB-emulatorn på datorn kan du använda valfri [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) som stöds eller [REST API för Azure Cosmos DB](/rest/api/cosmos-db/) till att interagera med emulatorn. Azure Cosmos DB-emulatorn innehåller även en inbyggda Datautforskare som du kan använda till att skapa samlingar för API:er för SQL och MongoDB, och visa och redigera dokument utan att skriva någon kod.
+När du kör Azure Cosmos DB-emulatorn på datorn kan du använda valfri [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) som stöds eller [REST API för Azure Cosmos DB](/rest/api/cosmos-db/) till att interagera med emulatorn. Azure Cosmos DB-emulatorn innehåller även en inbyggda Datautforskare som du kan använda till att skapa samlingar för API:er för SQL API eller Cosmos DB för Mongo DB API:et, och visa och redigera dokument utan att skriva någon kod.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Om du använder [Azure Cosmos DB-protokollstöd för MongoDB](mongodb-introduction.md) använder du följande anslutningssträng:
+Om du använder [Azure Cosmos DB-trådprotokollstöd för MongoDB](mongodb-introduction.md) använder du följande anslutningssträng:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
@@ -151,7 +151,7 @@ För att hämta ett certifikat som ska användas med språk och körningar som i
 
 ![SSL-certifikat för den lokala Azure DB Cosmos DB-emulatorn](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-Följ instruktionerna i avsnittet [om att lägga till ett certifikat i Java CA-certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. När certifikatet har importerats till certifikatarkivet kan Java- och MongoDB-program ansluta till Azure Cosmos DB-emulatorn.
+Följ instruktionerna i avsnittet [om att lägga till ett certifikat i Java CA-certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. När certifikatet har importerats till certifikatarkivet kan klienter för SQL och API för Azure Cosmos DB för MongoDB ansluta till Azure Cosmos DB-emulatorn.
 
 SSL-verifieringen inaktiveras när du ansluter till emulatorn från Python- och Node.js-SDK:er.
 

@@ -1,5 +1,6 @@
 ---
-title: Jämför olika maskininlärningprodukter hos Microsoft
+title: Jämför produktalternativ för maskininlärning
+titleSuffix: Microsoft
 description: Jämför olika produkter från Microsoft för att bygga, distribuera och hantera dina maskininlärningsmodeller. Bestäm vilka produkter du ska välja för din lösning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274136"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557894"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
 
@@ -37,7 +38,7 @@ Microsoft har olika produktalternativ för att bygga, distribuera och hantera di
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning-tjänst
 
-[Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md) är en fullständigt hanterad molntjänst som används till att träna, distribuera och hantera ML-modeller i skala. Den stöder tekniker för öppen källkod, vilket innebär att du kan använda tiotusentals Python-paket med öppen källkod som exempelvis TensorFlow, PyTorch och scikit-learn. Det finns även omfattande verktyg såsom [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) och tillägget [Azure Machine Learning for Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), som gör det enkelt att utforska och omvandla data, och sedan träna och distribuera modeller. Azure Machine Learning-tjänsten innehåller funktioner som automatiserar modellgenerering och finjustering med enkelhet, effektivitet och precision.
+[Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md) är en fullständigt hanterad molntjänst som används till att träna, distribuera och hantera ML-modeller i skala. Den stöder tekniker för öppen källkod, vilket innebär att du kan använda tiotusentals Python-paket med öppen källkod som exempelvis TensorFlow, PyTorch och scikit-learn. Det finns även omfattande verktyg såsom [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) och tillägget [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai), som gör det enkelt att utforska och omvandla data, och sedan träna och distribuera modeller. Azure Machine Learning-tjänsten innehåller funktioner som automatiserar modellgenerering och finjustering med enkelhet, effektivitet och precision.
 
 Använd Azure Machine Learning-tjänsten till att träna, distribuera och hantera ML-modeller med hjälp av Python och CLI i molnskala.
 

@@ -1,32 +1,34 @@
 ---
-title: Självstudie om indexering, frågor och filtrering i Azure Portal – Azure Search
-description: I den här självstudien använder du Azure Portal och fördefinierade exempeldata för att generera ett index i Azure Search. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat.
+title: Snabbsjälvstudie för indexering och fråga med Azure-portalen – Azure Search
+description: I den här Snabbsjälvstudien använder du Azure Portal och inbyggda exempeldata för att generera ett index i Azure Search. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314031"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001795"
 ---
-# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Självstudie: Använda inbyggda portalverktyg för Azure Search-indexering och frågor
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
 
-Om du vill få en snabb genomgång av Azure Search-begrepp kan du använda de inbyggda verktygen som finns på Azure Search-servicesidan på Azure-portalen. De här verktygen tillhandahåller inte alla funktioner i .NET- och REST API:erna. Men guiden och redigeringsprogrammen erbjuder en kodfri introduktion till Azure Search, så att du kan skriva intressanta frågor mot en exempeldatamängd direkt.
+Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyggda verktygen i Azure-portalen. Guider och redigeringsverktyg erbjuder inte fullständig paritet med .NET och REST API:er, men du kan snabbt komma igång med en kodfri introduktion och skriva intressanta frågor mot exempeldata på bara några minuter.
 
 > [!div class="checklist"]
-> * Börja med offentliga exempeldata och generera ett Azure Search-index automatiskt med hjälp av guiden **Importera data**.
-> * Visa indexschema och attribut för valfritt index som har publicerats i Azure Search.
-> * Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**.  
+> * Börja med en kostnadsfri offentlig uppsättning exempeldata i Azure
+> * Kör guiden **Importera data** i Azure Search för att läsa in data och skapa ett index
+> * Övervaka förloppet för indexeringen i portalen
+> * Visa ett befintligt index och alternativ för att ändra det
+> * Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**
 
-Om verktygen är för begränsade kan du prova en [kodbaserad introduktion till Azure Search-programmering i .NET](search-howto-dotnet-sdk.md) eller [webbtestningsverktyg för att göra REST API-anrop](search-fiddler.md).
+Om verktygen är för begränsade kan du prova en [kodbaserad introduktion till Azure Search-programmering i .NET](search-howto-dotnet-sdk.md) eller använda [Postman eller Fiddler för att uföra REST API-anrop](search-fiddler.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -44,82 +46,95 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är begränsad till tre index, tre datakällor och tre indexerare. Kontrollera att du har plats för extra objekt innan du börjar. Med den här guiden kan du skapa ett objekt av varje sort.
 
-> [!TIP]
-> Panelerna på instrumentpanelen med tjänster visar hur många index, indexerare och datakällor du redan har. Panelen Indexerare visar lyckade och misslyckade operationer. Klicka på panelen för att visa antalet indexerare.
->
-> ![Paneler för indexerare och datakällor][1]
->
+Avsnitten i tjänstinstrumentpanelen visar hur många index, indexerare och datakällor som du redan har. 
+
+![Listor med index, indexerare och datakällor][media/search-get-started-portal/tiles-indexers-datasources2.png]
 
 ## <a name="create-index"></a> Skapa ett index och läsa in data
 
 Sökfrågor itererar över ett [*index*](search-what-is-an-index.md) som innehåller sökbara data, metadata och ytterligare konstruktioner som optimerar vissa sökbeteenden.
 
-För den här självstudien använder vi en inbyggd exampeldatamängd som kan crawlas med en [*indexerare*](search-indexer-overview.md) via guiden **Importera data**. En indexerare är en källspecifik crawler som kan läsa metadata och innehåll från Azure-datakällor som stöds. De här indexerarna finns i portalen via guiden **Importera data**. Senare kan du programmässigt skapa och hantera indexerare som oberoende resurser.
+För den här självstudien använder vi en inbyggd exampeldatamängd som kan crawlas med en [*indexerare*](search-indexer-overview.md) via guiden **Importera data**. En indexerare är en källspecifik crawler som kan läsa metadata och innehåll från Azure-datakällor som stöds. Normalt sett används indexerare programmässigt, men i portalen så kan du komma åt dem via guiden **Importera data**. 
 
-### <a name="step-1-start-the-import-data-wizard"></a>Steg 1: Starta guiden Importera data
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Steg 1 – starta guiden Importera data och skapa en datakälla
 
-1. Från instrumentpanelen för Azure Search-tjänsten klickar du på **Importera data** i kommandofältet för att starta guiden. Den här guiden hjälper dig att skapa och fylla i ett sökindex.
+1. Från instrumentpanelen för Azure Search-tjänsten klickar du på **Importera data** i kommandofältet för att skapa och fylla i sökindexet.
 
-    ![Kommandot Importera data][2]
+   ![Kommandot Importera data](media/search-get-started-portal/import-data-cmd2.png)
 
-2. I guiden klickar du på **Anslut till dina data** > **Exempel** > **realestate-us-sample**. Den här datakällan är förkonfigurerad med namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
+2. I guiden klickar du på **Anslut till dina data** > **Exempel** > **realestate-us-sample**. Den här datakällan är inbyggd. Om du skapar din egen datakälla så behöver du ange ett namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
 
-    ![Välj exempeldatauppsättning][9]
+   ![Välj exempeldatauppsättning](media/search-get-started-portal/import-datasource-sample2.png)
 
-3. Klicka på **OK** att använda den.
+3. Fortsätt till nästa sida.
 
-### <a name="skip-cognitive-skills"></a>Hoppa över steget Kognitiva kunskaper
+   ![Knappen Nästa sida för kognitiv sökning](media/search-get-started-portal/next-button-add-cog-search.png)
 
-**Importera data** ger ett valfritt steg för kognitiva kunskaper som gör att du kan lägga till anpassade AI-algoritmer till indexeringen. Hoppa över det här steget för tillfället och gå vidare till **Anpassa målindex**.
+### <a name="step-2---skip-cognitive-skills"></a>Steg 2 – Hoppa över Kognitiva kunskaper
+
+Guiden stöder skapandet av en [pipeline för kognitiva kunskaper](cognitive-search-concept-intro.md) för att införliva Cognitive Services AI-algoritmer i indexering. 
+
+Vi hoppar över det här steget för tillfället och går direkt till **Anpassa målindex**.
+
+   ![Hoppa över steget Kognitiva kunskaper](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
 > Du kan prova den nya förhandsgranskningsfunktionen för kognitiv sökning i Azure Search från [snabbstarten](cognitive-search-quickstart-blob.md) eller [självstudien för kognitiv sökning](cognitive-search-tutorial-blob.md).
 
-   ![Hoppa över steget Kognitiva kunskaper][11]
+### <a name="step-3---configure-index"></a>Steg 3 – Konfigurera index
 
-### <a name="step-2-define-the-index"></a>Steg 2: Definiera indexet
-
-Vanligtvis är skapas index manuellt med hjälp av kod. För den här självstudien kan guiden skapa ett index för alla datakällor som den kan crawla. Ett index kräver minst ett namn och en samling fält. Ett av fälten ska vara markerat som dokumentnyckeln som fungerar som en unik identifierare för dokumentet.
+Skapandet av index är vanligtvis en kodbaserad övning som slutförs innan du läser in data. Som den här guiden visar kan dock guiden skapa ett grundläggande index för valfri datakälla som den kan crawla. Ett index kräver minst ett namn och en samling fält. Ett av fälten ska vara markerat som dokumentnyckeln som fungerar som en unik identifierare för dokumentet. Dessutom kan du ange språkanalyserare eller föreslagare om du vill fylla i automatiskt eller föreslå frågor.
 
 Fälten har datatyper och attribut. Kryssrutorna högst upp är *indexattribut* som styr hur fältet används.
 
 * **Hämtningsbar** innebär att det visas i listor med sökresultat. Du kan markera enskilda fält som ska utelämnas från sökresultat genom att avmarkera den här kryssrutan, till exempel om fält endast används i filteruttryck.
-* **Filtrerbar**, **Sorterbar** och **Fasettbar** avgör om ett fält kan användas i ett filter, en sortering eller en struktur för aspektbaserad navigering.
+* **Nyckel** är den unika dokumentdentifieraren. Den är alltid en sträng och den är obligatorisk.
+* **Filtrerbar**, **Sorterbar** och **Fasetterbar** avgör om fält användas i ett filter, en sortering eller en fasetterad navigeringsstruktur.
 * **Sökbar** innebär att ett fält ingår i fulltextsökning. Strängarna är sökbara. Numeriska fält och fält för booleska värden är ofta markerade som icke sökbara.
+
+Lagringskraven varierar inte till följd av ditt val. Om du till exempel anger attributet **Hämtningsbar** på flera fält så ökar inte lagringskraven.
 
 Som standard söker guiden igenom datakällan för att hitta unika identifierare som utgör själva grunden för sökordsfältet. Strängarna får attributen hämtningsbara och sökbara. Heltal får attributen hämtningsbara, filtrerbara, sorterbara och fasettbara.
 
-  ![Genererade realestate-index][3]
+1. Acceptera alla standardvärden.
 
-Klicka på **OK** för att skapa indexet.
+  ![Genererade realestate-index](media/search-get-started-portal/realestateindex2.png)
 
-### <a name="step-3-define-the-indexer"></a>Steg 3: Definiera indexeraren
+2. Fortsätt till nästa sida.
+
+  ![Nästa sida skapa indexeraren](media/search-get-started-portal/next-button-create-indexer.png)
+
+### <a name="step-4---configure-indexer"></a>Steg 4 – Konfigurera indexeraren
 
 Klicka på **Indexnamn** > **Namn** i guiden **Importera data** och skriv in ett namn på indexeraren.
 
-Det här objektet definierar en körbar process. Du kan lägga till det i ett återkommande schema, men för stunden ska du använda standardalternativet och köra indexeraren en gång direkt när du klickar på **OK**.  
+Det här objektet definierar en körbar process. Du kan lägga till det i ett återkommande schema, men för tillfället använder du standardalternativet för att köra indexeraren en gång direkt.
 
-  ![realestate indexer][8]
+Klicka på **Skicka** för att skapa och köra indexeraren samtidigt.
 
-### <a name="check-progress"></a>Kontrollera förloppet
+  ![realestate indexer](media/search-get-started-portal/realestate-indexer2.png)
 
-Övervaka dataimporten genom att gå tillbaka till instrumentpanelen för tjänsten, rulla nedåt och dubbelklicka på panelen **Indexerare** för att öppna listan med indexerare. Du bör då se den nyskapade indexeraren i listan med statusen ”pågående” eller ”lyckades”, tillsammans med antalet dokument som indexerats.
+## <a name="monitor-progress"></a>Övervaka förloppet
 
-   ![Meddelande om pågående indexeringsaktiviteter][4]
+Guiden ska ta dig till listan med indexerare där du kan övervaka förloppet. För självnavigering går du till översiktssidan och klickar på **Indexerare**.
 
-### <a name="step-4-view-the-index"></a>Steg 4: Visa indexet
+Det kan ta några minuter för portalen att uppdatera sidan men du borde se den nyligen skapade indexeraren i listan med status Pågående eller Lyckades, tillsammans med antalet dokument som indexerats.
 
-På panelerna på instrumentpanelen för tjänsten kan du visa både sammanfattningsinformation om de olika objekten i en resurs samt detaljerad information. Panelen **Index** visar en lista över befintliga index, inklusive indexet *realestate-us-sample* som du skapade i föregående steg.
+   ![Meddelande om pågående indexeringsaktiviteter](media/search-get-started-portal/indexers-inprogress2.png)
 
-Klicka på indexet *realestate-us-sample* för att visa portalalternativen för dess definition. Med alternativet **Lägg till/redigera fält** kan du skapa och lägga till attribut till nya fält. Eftersom de befintliga fälten har en fysisk representation i Azure Search kan de inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden skapar du ett nytt fält i stället och tar bort det ursprungliga fältet.
+## <a name="view-the-index"></a>Visa indexet
 
-   ![exempel på indexdefinition][10]
+Panelen **Index** visar en lista över befintliga index, inklusive indexet *realestate-us-sample* som du just skapade i guiden.
+
+Från den här listan kan du se indexschemat och du kan också lägga till nya fält, men du kan inte ändra befintliga fält. Eftersom de befintliga fälten har en fysisk representation i Azure Search kan de inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden så skapar du ett nytt index och tar bort det ursprungliga.
+
+   ![exempel på indexdefinition](media/search-get-started-portal/sample-index-def.png)
 
 Andra konstruktioner, t.ex. bedömningsprofiler och CORS-alternativ, kan läggas till när som helst.
 
-Ägna några minuter åt att gå igenom definitionsalternativen för index så att du förstår vad du kan och inte kan redigera när du utformar ett index. Nedtonade alternativ indikerar att ett värde inte kan ändras eller tas bort. På samma sätt kan du hoppa över kryssrutorna Analyzer och Förslagsställare för tillfället.
+Ägna några minuter åt att gå igenom definitionsalternativen för index så att du förstår vad du kan och inte kan redigera när du utformar ett index. Nedtonade alternativ indikerar att ett värde inte kan ändras eller tas bort. 
 
-## <a name="query-index"></a> Skicka frågor mot indexet
+## <a name="query-index"></a> Fråga med Sökutforskaren
 
 Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av den inbyggda frågesidan [**Sökutforskaren**](search-explorer.md). Den innehåller en sökruta så att du kan testa godtyckliga frågesträngar.
 
@@ -129,29 +144,33 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
 1. Klicka på **Sökutforskaren** i kommandofältet.
 
-   ![Kommandot Sökutforskaren][5]
+   ![Kommandot Sökutforskaren](media/search-get-started-portal/search-explorer-cmd2.png)
 
 2. Klicka på **Ändra index** i kommandofältet för att byta till *realestate-us-sample*. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Använd den allmänt tillgängliga versionen (2017-11-11) för frågorna nedan.
 
-   ![Index- och API-kommandon][6]
+   ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
 3. Skriv in frågesträngarna nedan i sökfältet och klicka på **Sök**.
 
     > [!NOTE]
-    > **Sökutforskaren** kan endast hantera [REST API-förfrågningar](https://docs.microsoft.com/rest/api/searchservice/search-documents). Den accepterar syntax från både [enkel frågeparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig frågeparser (Lucene)](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) samt alla tillgängliga sökparametrar i [dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+    > **Sökutforskaren** kan endast hantera [REST API-begäranden](https://docs.microsoft.com/rest/api/searchservice/search-documents). Den accepterar syntax från både [enkel frågeparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig frågeparser (Lucene)](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) samt alla tillgängliga sökparametrar i [dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     >
+
+## <a name="example-queries"></a>Exempelfrågor
+
+Du kan ange termer och fraser på ett liknande sätt som du gör i en Bing- eller Google-sökning eller fullständigt angivna frågeuttryck. Resultat returneras som utförliga JSON-dokument.
 
 ### <a name="simple-query-with-top-n-results"></a>Exempelfråga med de N främsta resultaten
 
-#### <a name="example-string-searchseattle"></a>Exempel (sträng): `search=seattle`
+#### <a name="example-string-query-searchseattle"></a>Exempel (strängfråga): `search=seattle`
 
 * Parametern **search** används för att ange en nyckelordssökning för fulltextsökning, som i det här fallet returnerar poster från King County i delstaten Washington som innehåller *Seattle* i sökbara fält i dokumentet.
 
 * **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Detta är avsiktligt eftersom det är viktigt för utvecklingssyften att kunna se hela dokumentet, särskilt under testning. För en bättre användarupplevelse måste du skriva kod som [hanterar sökresultaten](search-pagination-page-layout.md) så att viktiga element framhävs.
 
-* Dokument består av alla fält som är markerade som ”hämtningsbara” i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-us-sample* på ikonen **Index**.
+* Dokument består av alla fält som är markerade som ”hämtningsbara” i indexet. Visa indexattribut i portalen genom att klicka på *realestate-us-sample* på **Index**-listan.
 
-#### <a name="example-parameterized-searchseattlecounttruetop100"></a>Exempel (parameteriserat): `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>Exempel (parameteriserad fråga): `search=seattle&$count=true&$top=100`
 
 * Symbolen **&** används för att lägga till sökparametrar, som kan anges i valfri ordning.
 
@@ -231,35 +250,22 @@ Geospatial sökning kan vara användbart om sökprogrammet har en funktion av ty
 
 ## <a name="takeaways"></a>Lärdomar
 
-Den här självstudien ger en snabb introduktion till användning av Azure Search från Azure-portalen.
+Den här självstudien ger en snabb introduktion till Azure Search med Azure-portalen.
 
 Du lärde dig hur du skapar ett sökindex med hjälp av guiden **Importera data**. Du lärde dig om [indexerare](search-indexer-overview.md), som är den drivande kraften bakom guiden, samt om det grundläggande arbetsflödet vid indexgenerering, inklusive vilka [ändringar du kan göra i ett publicerat index](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 Med hjälp av **Sökutforskaren** i Azure-portalen lärde du dig grundläggande frågesyntax genom praktiska exempel som demonstrerade viktiga funktioner som filter, markering av träffar, fuzzy-sökning och geo-sökning.
 
-Du lärde dig även hur du använder panelerna i instrumentpanelen i portalen för sökindex, indexerare och datakällor. När du får nya datakällor i framtiden kan du använda portalen för att snabbt kontrollera deras definitioner eller fältsamlingar utan större ansträngningar.
+Du har också läst hur du hittar index, indexerare och datakällor i portalen. När du får nya datakällor i framtiden kan du använda portalen för att snabbt kontrollera deras definitioner eller fältsamlingar utan större ansträngningar.
 
 ## <a name="clean-up"></a>Rensa
 
-Om den här självstudien var första gången du använde Azure Search-tjänsten kan du ta bort den resursgrupp som innehåller Azure Search-tjänsten. Om inte så letar du fram den rätta resursgruppens namn i listan över tjänster och tar bort den lämpligaste.
+Om den här självstudien var den första gången du använde Azure Search-tjänsten så kan du ta bort resursgruppen med Azure Search-tjänsten. Om inte så letar du fram den rätta resursgruppens namn i listan över tjänster och tar bort den lämpligaste.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan utforska mer av Azure Search med hjälp av programmässiga verktyg:
 
-* [Skapa ett index med hjälp av .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Skapa ett index med hjälp av REST-API:er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* Med hjälp av [webbtestningsverktyg som Postman eller Fiddler för att anropa Azure Search REST-API:er](search-fiddler.md)
-
-<!--Image references-->
-[1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
-[2]: ./media/search-get-started-portal/import-data-cmd2.png
-[3]: ./media/search-get-started-portal/realestateindex2.png
-[4]: ./media/search-get-started-portal/indexers-inprogress2.png
-[5]: ./media/search-get-started-portal/search-explorer-cmd2.png
-[6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
-[7]: ./media/search-get-started-portal/search-explorer-query2.png
-[8]: ./media/search-get-started-portal/realestate-indexer2.png
-[9]: ./media/search-get-started-portal/import-datasource-sample2.png
-[10]: ./media/search-get-started-portal/sample-index-def.png
-[11]: ./media/search-get-started-portal/skip-cog-skill-step.png
+* [Skapa ett index med .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Skapa ett index med REST API:er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Skapa ett index med Postman eller Fiddler och Azure Search REST API:er](search-fiddler.md)

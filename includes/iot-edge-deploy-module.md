@@ -5,31 +5,35 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 12/7/2018
+ms.date: 12/31/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 1a750a97cdc940c0f0a3d7e33d6be0d33f811425
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dd4873017105db190f9a468ec1f1f77f4e8c9c0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53108030"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53977154"
 ---
-En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera moduler till IoT Edge-enheter från molnet. En IoT Edge-modul är ett körbart paket som implementeras som en container. I det här avsnittet ska vi distribuera en färdig modul från avsnittet [IoT Edge-moduler i Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Den här modulen genererar telemetri för den simulerade enheten.
+En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera moduler till IoT Edge-enheter från molnet. En IoT Edge-modul är ett körbart paket som implementeras som en container. I det här avsnittet distribuerar vi en färdig modul från avsnittet [IoT Edge-moduler i Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Den här modulen genererar simulerad telemetri för IoT Edge-enheten.
 
-1. På Azure-portalen anger du `Simulated Temperature Sensor` i sökningen öppnar Marketplace-resultatet.
+1. På [Azure-portalen](https://portal.azure.com) anger du **Simulerad temperatursensor** i sökningen och öppnar Marketplace-resultatet.
 
    ![Simulerad temperatursensor i sökning på Azure-portalen](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. I fältet **Prenumeration** väljer du prenumerationen med IoT-hubben som du använder, om den inte redan är vald.
+2. Välj vilken IoT Edge-enhet som ska ta emot modulen. Under **Målenheter för IoT Edge-enheter** anger du följande information:
 
-3. I fältet **IoT Hub** väljer du namnet på IoT-hubben som du använder, om det inte redan är valt.
+   1. **Prenumeration**: Välj den prenumeration som innehåller IoT-hubben som du använder.
 
-4. Klicka på **Hitta enhet**, välj din IoT Edge-enhet (med namnet `myEdgeDevice`) och välj sedan **Skapa**.
+   2. **IoT Hub**: Välj namnet på IoT-hubben som du använder.
 
-5. I steget **Lägg till moduler** i guiden klickar du på modulen **SimulatedTemperatureSensor** för att verifiera dess konfigurationsinställningar, klickar på **Spara** och väljer **Nästa**.
+   3. **IoT Edge-enhetsnamn**: Om du tidigare i snabbstarten använde det föreslagna enhetsnamnet anger du **myEdgeDevice**. Eller välj **Hitta enhet** för att välja från en lista över enheter i IoT-hubben. 
+   
+   4. Välj **Skapa**.
 
-6. I steget **Ange rutter** i guiden ska du verifiera att vägarna är rätt konfigurerade med standardvägen som skickar alla meddelanden från alla moduler till IoT Hub.(`$upstream`). Om du inte har det lägger du till följande kod och väljer sedan **Nästa**.
+3. När du har valt en IoT Edge-modul från Azure Marketplace, samt valt den IoT Edge-enhet som ska ta emot modulen, kommer du till en trestegsguide som hjälper dig att definiera exakt hur modulen ska distribueras. I steget **Lägg till moduler** i guiden ska du observera att modulen **SimulatedTemperatureSensor** är automatiskt ifylld. I självstudierna använder du den här sidan för att lägga till ytterligare moduler i distributionen. I den här snabbstarten distribuerar du den här modulen enbart. Välj **Nästa** för att fortsätta till nästa steg i guiden.
+
+4. I steget **Ange vägar** i guiden definierar du hur meddelanden skickas mellan moduler och IoT Hub. I snabbstarten vill du att alla meddelanden från alla moduler går till IoT Hub (`$upstream`). Om det inte fyllts i automatiskt lägger du till följande kod och väljer **Nästa**:
 
    ```json
     {
@@ -39,10 +43,12 @@ En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribue
     }
    ```
 
-7. I steget **Granska distribution** i guiden väljer du **Skicka**.
+5. I steget **Granska distribution** i guiden kan du förhandsgranska JSON-filen som definierar alla moduler som distribueras till din IoT Edge-enhet. Observera att modulen **SimulatedTemperatureSensor** innefattas samt två ytterligare systemmoduler som kallas **edgeAgent** och **edgeHub**. Välj **Skicka** när du är klar med granskningen.
 
-8. Återgå till informationssidan om enheten och välj **Uppdatera**. Förutom edgeAgent-modulen som skapades när du startade tjänsten för första gången ska du även se en annan körningsmodul med namnet **edgeHub** och modulen **SimulatedTemperatureSensor**.
+   När du skickar en ny distribution till en IoT Edge-enhet distribueras ingenting till enheten. I stället frågar enheten regelbundet IoT Hub efter nya instruktioner. När den ser den nya distributionsinformationen använder enheten den för att hämta modulbilder från molnet och börjar köra modulerna lokalt. Den här processen kan ta ett par minuter. 
 
-   Det kan ta några minuter för de nya modulerna att visas. IoT Edge-enheten måste hämta sin nya distributionsinformation från molnet, starta containrarna och rapportera sin nya status tillbaka till IoT Hub. 
+6. När du har skickat modulens distributionsinformation tar guiden dig tillbaka till sidan **IoT Edge** i din IoT-hubb. Välj din enhet från listan över IoT Edge-enheter för att se dess information. 
 
-   ![Visa SimulatedTemperatureSensor i listan över distribuerade moduler](./media/iot-edge-deploy-module/deployed-modules-marketplace-temp.png)
+7. På sidan med enhetsinformation rullar du ned till avsnittet **Moduler**. Tre moduler bör visas: $edgeAgent, $edgeHub och SimulatedTemperatureSensor. Om en eller fler av modulerna visas i distributionen men inte rapporteras av enheten innebär det att din IoT Edge-enhet fortfarande håller på att starta dem. Vänta en stund och välj sedan **Uppdatera** överst på sidan. 
+
+   ![Visa SimulatedTemperatureSensor i listan över distribuerade moduler](./media/iot-edge-deploy-module/deployed-modules-marketplace.png)

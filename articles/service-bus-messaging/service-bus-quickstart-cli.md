@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634820"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998684"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Snabbstart: Skicka och ta emot meddelanden med Azure CLI och Java
 
@@ -66,7 +66,7 @@ Efter att det sista kommandot körts, kopierar och klistrar du in anslutningsstr
 
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
 
-Efter att du skapat namnområdet och kön och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+Efter att du skapat namnområdet och kön och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 1. Se till att Cloud Shell är öppet och visar Bash-prompten.
 
@@ -108,7 +108,7 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
-Det här avsnittet innehåller mer information om nyckelavsnitt av exempelkoden. Du kan bläddra koden som finns i GitHub-lagret [här](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+Det här avsnittet innehåller mer information om nyckelavsnitt av exempelkoden. Du kan bläddra koden som finns i GitHub-lagret [här](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 

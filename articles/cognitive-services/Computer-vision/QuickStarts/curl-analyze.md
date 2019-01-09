@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Analysera en fjärrbild – REST, cURL – Visuellt innehåll'
+title: 'Snabbstart: Analysera en fjärrbild – REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten analyserar du en fjärrbild med hjälp av API:et för visuellt innehåll med cURL.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 04ad5ff2e148a5f5469cd13ce6106e6466d645b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 18e7c084686099611db0c3042e66181df19d6186
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344038"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581546"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST API:et och cURL i Visuellt innehåll
 

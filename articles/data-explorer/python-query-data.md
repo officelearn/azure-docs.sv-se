@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Fråga efter data med hjälp av Python-biblioteket i Azure Data Explorer'
+title: 'Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer'
 description: I den här snabbstarten får du lära dig hur du frågar efter data i Azure Data Explorer med hjälp av Python.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 14049df1116205ec5e95b052049f53738dcf50b4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863422"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715128"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Fråga efter data med hjälp av Python-biblioteket i Azure Data Explorer
+# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. I den här snabbstarten ansluter du till en tabell i det *hjälpkluster* som vi har skapat som stöd för kursen. Sedan frågar du en tabell i klustret och returnerar resultatet.
 
@@ -66,7 +66,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-Nu kan du skapa anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett programcertifikat, en programnyckel och användare och lösenord för AAD.
+Nu kan du skapa anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett [AAD-programcertifikat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [en AAD-programnyckel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) och [användare och lösenord för AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
@@ -75,7 +75,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Ansluta till Azure Data Explorer och köra en fråga
 
-Kör en fråga mot klustret och lagra utdata i en dataram. När den här koden körs returneras ett meddelande som ser ut ungefär så här: *Om du vill logga in öppnar du en webbläsare och går till sidan https://microsoft.com/devicelogin och anger koden F3W4VWZDM för att autentisera*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock.
+Kör en fråga mot klustret och lagra utdata i en dataram. När den här koden körs returneras ett meddelande som liknar följande: *För att logga in använder du en webbläsare för att öppna sidan https://microsoft.com/devicelogin och anger sedan koden F3W4VWZDM för att autentisera dig*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock.
 
 ```python
 KUSTO_CLIENT  = KustoClient(KCSB)
@@ -98,4 +98,4 @@ Du bör se de tio främsta resultaten från tabellen StormEvents.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)
+> [Snabbstart: Mata in data med hjälp av Python-biblioteket](python-ingest-data.md) i Azure Data Explorer

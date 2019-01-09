@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094414"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753123"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera sammanhangsbaserade mönster
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudier: Extrahera sammanhangsbaserade mönster med hjälp av roller
 
 I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster behövs färre exempelyttranden för avsikten.
+
+
+**I den här självstudiekursen får du lära du dig att:**
+
+> [!div class="checklist"]
+> * Importera exempelappen
+> * Skapa nya entiteter
+> * Skapa ny avsikt
+> * Träna
+> * Publicera
+> * Hämta avsikter och entiteter från en slutpunkt
+> * Skapa mönster med roller
+> * Skapa en fraslista över städer
+> * Hämta avsikter och entiteter från en slutpunkt
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Med roller i mönster
 
 Syftet med roller är att extrahera kontextrelaterade entiteter i ett yttrande. I yttrandet `Move new employee Robert Williams from Sacramento and San Francisco`, är ursprungsstadens och destinationsstadens värden relaterade till varandra och använder vanliga språk för att ange varje plats. 
 
@@ -37,27 +55,12 @@ Eftersom exempelyttrandet `Move new employee Robert Williams from Sacramento and
 
 Om du har problem med enkel entitetsidentifiering eftersom det är ett namn, till exempel på en stad, kan du överväga att lägga till en fraslista med liknande värden. Detta gör det enklare att identifiera namnet på staden eftersom LUIS får ytterligare en signal om den typen av ord eller fraser. Fraslistor hjälper endast mönstret genom att hjälpa till med entitetsidentifieringen, vilket är nödvändigt för att mönstret ska matcha. 
 
-**I den här självstudiekursen får du lära du dig att:**
-
-> [!div class="checklist"]
-> * Använda en befintlig självstudieapp
-> * Skapa nya entiteter
-> * Skapa ny avsikt
-> * Träna
-> * Publicera
-> * Hämta avsikter och entiteter från en slutpunkt
-> * Skapa mönster med roller
-> * Skapa en fraslista över städer
-> * Hämta avsikter och entiteter från en slutpunkt
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Använda en befintlig app
+## <a name="import-example-app"></a>Importera exempelappen
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+Använd följande steg:
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importera JSON-koden till en ny app.
 

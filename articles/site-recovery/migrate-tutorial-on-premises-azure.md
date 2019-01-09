@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du migrerar lokala datorer till Azu
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836992"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789254"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -119,7 +119,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
 
 
 > [!WARNING]
-> **Avbryt inte en pågående redundansväxling**: Replikeringen av den virtuella datorn stoppas innan redundansen startas. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
+> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 

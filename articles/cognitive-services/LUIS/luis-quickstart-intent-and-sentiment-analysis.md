@@ -1,7 +1,7 @@
 ---
-title: Sentimentanalys
+title: Attitydanalys
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden. Sentimenten bestäms utifrån hela yttrandet.
+description: I den här självstudien skapar du en app som visar hur det går till att hämta positiva, negativa och neutrala attityder från yttranden. Attityderna bestäms utifrån hela yttrandet.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,56 +9,64 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ee50907d7965a66d09dc57113e87edecb1932083
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098951"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754296"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Självstudie 9:  Extrahera sentiment från ett helt yttrande
-I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden. Sentimenten bestäms utifrån hela yttrandet.
+# <a name="tutorial--get-sentiment-of-utterance"></a>Självstudier:  Hämta attityder för yttranden
 
-Sentimentanalys är förmågan att avgöra om en användares yttrande är positivt, negativt eller neutralt. 
-
-Följande yttranden visar exempel på sentiment:
-
-|Sentiment|Poäng|Yttrande|
-|:--|:--|:--|
-|positivt|0,91 |John W. Smith gjorde ett riktigt bra jobb med presentationen i Paris.|
-|positivt|0,84 |jill-jones@mycompany.com gjorde ett fantastiskt jobb med säljpresentationen till Parker.|
-
-Sentimentanalys är en publiceringsinställning som tillämpas på alla yttranden. Du behöver inte hitta orden som beskriver sentiment i yttrandet och märka dem eftersom attitydanalysen omfattar hela yttrandet. 
-
-Eftersom det är en publiceringsinställning ser du den inte på sidor för avsikter eller entiteter. Du kan se den i fönstret med [interaktiva test](luis-interactive-test.md#view-sentiment-results) och när du testar vid slutpunktens webbadress. 
+I den här självstudien skapar du en app som visar hur det går till att fastställa positiva, negativa och neutrala attityder från yttranden. Attityderna bestäms utifrån hela yttrandet.
 
 **I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp 
-> * Lägga till sentimentanalys som en publiceringsinställning
-> * Träna
-> * Publicera
-> * Extrahera sentiment från yttranden vid en slutpunkt
+> * Skapa en ny app
+> * Lägga till attitydanalys som en publiceringsinställning
+> * Träna appen
+> * Publicera app
+> * Extrahera attityder från yttranden vid en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
+## <a name="sentiment-analysis-is-a-publish-setting"></a>Attitydanalys är en publiceringsinställning
 
-Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+Följande yttranden visar exempel på attityder:
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+|Attityd|Poäng|Yttrande|
+|:--|:--|:--|
+|positivt|0,91 |John W. Smith gjorde ett riktigt bra jobb med presentationen i Paris.|
+|positivt|0,84 |Seattle-teknikerna gjorde ett fantastiskt jobb på Parker-säljpresentationen.|
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
+Attitydanalys är en publiceringsinställning som tillämpas på alla yttranden. Du behöver inte hitta de ord som indikerar attityden i yttrandet och märka dem. 
 
-2. Importera JSON-koden till en ny app.
+Eftersom det är en publiceringsinställning ser du den inte på sidor för avsikter eller entiteter. Du kan se den i fönstret med [interaktiva test](luis-interactive-test.md#view-sentiment-results) och när du testar vid slutpunktens webbadress. 
 
-3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `sentiment`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
-## <a name="employeefeedback-intent"></a>Avsikter i EmployeeFeedback 
+## <a name="create-a-new-app"></a>Skapa en ny app
+
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="add-personname-prebuilt-entity"></a>Lägg till den fördefinierade entiteten PersonName 
+
+
+1. Välj **Entities** (Entiteter) på den vänstra navigeringsmenyn.
+
+1. Välj knappen för att **lägga till en fördefinierad entitet**.
+
+1. Välj följande entitet från listan över fördefinierade entiteter och välj sedan **Klart**:
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+
+    ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+
+## <a name="create-an-intent-to-determine-employee-feedback"></a>Skapa en avsikt för att fastställa feedback om medarbetare
+
 Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor inom företaget. 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
@@ -71,122 +79,66 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 4. Lägg till flera yttranden som beskriver att en medarbetare gjort något bra eller att något behöver förbättras:
 
-    Kom ihåg att medarbetare i den här appen Human Resources (Personalfrågor) definieras i listentiteten `Employee` med namn, e-postadress, telefonanknytning, mobilnummer och amerikanskt socialförsäkringsnummer. 
-
     |Yttranden|
     |--|
-    |425-555-1212 gjorde ett bra jobb med att välkomna tillbaka en medarbetare som haft mammaledigt.|
-    |234-56-7891 tröstade en medarbetare i sorg.|
-    |jill-jones@mycompany.com hade inte alla fakturorna som krävdes för pappersarbetet.|
-    |john.w.smith@mycompany.com lämnade in de obligatoriska formulären en månad för sent, och utan signaturer.|
-    |x23456 kom inte till det viktiga externa marknadsföringsmötet.|
-    |x12345 missade mötet för juni-genomgången.|
-    |Jill Jones gjorde ett fantastiskt jobb med säljpresentationen på Harvard.|
-    |John W. Smith gjorde ett riktigt bra jobb med presentationen på Stanford.|
+    |John Smith gjorde ett bra jobb med att välkomna tillbaka en medarbetare som haft mammaledigt|
+    |Jill Jones tröstade en medarbetare i sorg.|
+    |Bob Barnes hade inte alla fakturorna som krävdes för pappersarbetet.|
+    |Todd Thomas lämnade in de obligatoriska formulären en månad för sent, och utan signaturer|
+    |Katherine Kelly kom inte till det viktiga externa marknadsföringsmötet.|
+    |Denise Dillard missade mötet för junigenomgången.|
+    |Mark Mathews gjorde ett fantastiskt jobb med säljpresentationen på Harvard|
+    |Walter Williams gjorde ett riktigt bra jobb med presentationen på Stanford|
 
     [ ![Skärmbild på LUIS-appen med exempelyttranden i avsikten EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train"></a>Träna
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempel på yttranden i avsikten Ingen 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att ändringar av avsikten kan testas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera sentimentanalys
+## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera attitydanalys
+
 1. Välj **Hantera** i det övre högra navigeringsfältet och välj sedan **Publiceringsinställningar** i den vänstra menyn.
 
-2. Ändra reglaget **Attitydanalys** för att aktivera den här inställningen. 
+1. Ändra reglaget **Attitydanalys** för att aktivera den här inställningen. 
 
     ![Aktivera Attitydanalys som en publiceringsinställning](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-## <a name="publish"></a>Publicera
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras på den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-sentiment-of-utterance-from-endpoint"></a>Extrahera sentiment från yttranden vid en slutpunkt
+## <a name="get-the-sentiment-of-an-utterance-from-the-endpoint"></a>Hämta attityden för ett yttrandet från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med sentimentanalysen extraherad.
+1. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med attitydanalysen extraherad.
     
     ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {
         "intent": "EmployeeFeedback",
-        "score": 0.4983256
+        "score": 0.9616192
       },
       "intents": [
         {
           "intent": "EmployeeFeedback",
-          "score": 0.4983256
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.06617523
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.04631853
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0103248553
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.007531875
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00344597152
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00337914471
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.0026357458
+          "score": 0.9616192
         },
         {
           "intent": "None",
-          "score": 0.00214573368
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00157622492
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 7.379545E-05
+          "score": 0.09347677
         }
       ],
       "entities": [
         {
           "entity": "jill jones",
-          "type": "Employee",
-          "startIndex": 0,
-          "endIndex": 9,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
-        },
-        {
-          "entity": "media team",
-          "type": "builtin.keyPhrase",
-          "startIndex": 25,
-          "endIndex": 34
-        },
-        {
-          "entity": "public portal",
-          "type": "builtin.keyPhrase",
-          "startIndex": 43,
-          "endIndex": 55
-        },
-        {
-          "entity": "jill jones",
-          "type": "builtin.keyPhrase",
+          "type": "builtin.personName",
           "startIndex": 0,
           "endIndex": 9
         }
@@ -198,14 +150,22 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
     }
     ```
 
-    sentimentAnalysis är positiv med ett poängresultat på 0,86. 
+    sentimentAnalysis är positiv med ett poängresultat på 86 %. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Relaterad information
+
+* Attitydanalys tillhandahålls av Cognitive Service [Textanalys](../Text-Analytics/index.yml). Funktionen är begränsad till [språk som stöds](luis-language-support.md##languages-supported) av Textanalys.
+* [Så här tränar du](luis-how-to-train.md)
+* [Så här publicerar du](luis-how-to-publish-app.md)
+* [Så här testar du i LUIS-portalen](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lägger du till sentimentanalys som en publiceringsinställning för att extrahera sentimentvärden från ett helt uttryck.
+I den här självstudien lägger du till attitydanalys som en publiceringsinställning för att extrahera attitydvärden från ett helt uttryck.
 
 > [!div class="nextstepaction"] 
 > [Granska slutpunktsyttranden i HR-appen](luis-tutorial-review-endpoint-utterances.md) 

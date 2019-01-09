@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera tryckt text (OCR) REST, Ruby – Visuellt innehåll'
+title: 'Snabbstart: Extrahera tryckt text – REST, Java'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av API för visuellt innehåll med Ruby.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 0fdeee5964c2fe7eccafe61f8d2d17548d4492f2
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 32855d9c5b39d99034fee3b923ba7b28a472d346
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339839"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582124"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-ruby-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST-API och Ruby i visuellt innehåll
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-ruby-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST-API och Ruby i Visuellt innehåll
 
-I den här snabbstarten ska du extrahera tryckt text med optisk teckenläsning (OCR), från en bild med hjälp av REST API för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 

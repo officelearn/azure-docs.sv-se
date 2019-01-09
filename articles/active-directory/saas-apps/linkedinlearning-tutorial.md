@@ -5,270 +5,242 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: MT
+ms.openlocfilehash: e8d829c4990aa798ce77ecc9caae51ace4c53023
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379271"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Självstudier: Azure Active Directory-integrering med LinkedIn Learning
 
-I den här självstudien får lära du att integrera LinkedIn Learning med Azure Active Directory (AD Azure).
+I den här självstudien får lära du att integrera LinkedIn Learning med Azure Active Directory (Azure AD).
+Att integrera LinkedIn Learning med Azure AD ger dig följande fördelar:
 
-Integrera LinkedIn Learning med Azure AD ger dig följande fördelar:
+* Du kan via Azure AD styra vem som har åtkomst till LinkedIn Learning.
+* Du kan göra så att dina användare automatiskt loggas in på LinkedIn Learning (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till LinkedIn Learning
-- Du kan aktivera användarna att automatiskt få loggat in på LinkedIn Learning (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med LinkedIn Learning behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med LinkedIn Learning, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En LinkedIn Learning enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* LinkedIn Learning-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till LinkedIn Learning från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-linkedin-learning-from-the-gallery"></a>Att lägga till LinkedIn Learning från galleriet
-För att konfigurera integrering av LinkedIn Learning i Azure AD, som du behöver lägga till LinkedIn Learning från galleriet i din lista över hanterade SaaS-appar.
+* LinkedIn Learning stöder **SP- och IDP**-initierad enkel inloggning
+* LinkedIn Learning stöder **just-in-time**-användaretablering
 
-**Utför följande steg för att lägga till LinkedIn Learning från galleriet:**
+## <a name="adding-linkedin-learning-from-the-gallery"></a>Lägga till LinkedIn Learning från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+När du ska konfigurera integrering av LinkedIn Learning i Azure AD måste du lägga till LinkedIn Learning från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Lägg till LinkedIn Learning från galleriet på följande sätt:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
-    
-1. Klicka på **Lägg till** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **LinkedIn Learning**. I resultatrutan, klickar du på **LinkedIn Learning** att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_000.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med LinkedIn Learning baserat på en testanvändare som kallas ”Britta Simon”.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i LinkedIn Learning är en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i LinkedIn Learning upprättas.
+4. Skriv **LinkedIn Learning** i sökrutan, välj **LinkedIn Learning** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i LinkedIn Learning.
+     ![LinkedIn Learning i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med LinkedIn Learning, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare LinkedIn Learning](#creating-a-linkedin-learning-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet får du konfigurera och testa Azure AD enkel inloggning med LinkedIn Learning baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation etableras mellan en Azure AD-användare och den relaterade användaren i LinkedIn Learning.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Om du vill konfigurera och testa Azure AD enkel inloggning med LinkedIn Learning måste du slutföra följande byggblock:
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt LinkedIn Learning-program.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för LinkedIn Learning](#configure-linkedin-learning-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa LinkedIn Learning-testanvändare](#create-linkedin-learning-test-user)**  – för att ha en motpart till Britta Simon i LinkedIn Learning som är länkad till användarens Azure AD-representation.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med LinkedIn Learning:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **LinkedIn Learning** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning][4]
+Konfigurera Azure AD enkel inloggning med LinkedIn Learning genom att utföra följande steg:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial-linkedin_01.png)
+1. Välj **Enkel inloggning** på programintegreringssidan för **LinkedIn Learning** i [Azure Portal](https://portal.azure.com/).
 
-1. I ett annat webbläsarfönster inloggning till din LinkedIn Learning-klient som administratör.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I **Kontocenter**, klickar du på **globala inställningar** under **inställningar**. Markera också **inlärning – standard** från den nedrullningsbara listan.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **entitets-Id** och **Assertion konsument Service (ACS)-Url**
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På Azure-portalen under **LinkedIn Learning domän och URL: er**, utför följande steg om du vill konfigurera enkel inloggning i **IdP-initierad** läge
+4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
+    ![Information om LinkedIn Learning-domän och URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. I den **identifierare** textrutan anger du den **entitets-ID** kopieras från LinkedIn-portalen 
+    a. Ange det **entitets-ID** som kopierats från LinkedIn-portalen i textrutan **Identifierare**. 
 
-    b. I den **svars-URL** textrutan anger du den **Assertion konsument Service (ACS) Url** kopieras från LinkedIn-portalen
+    b. Ange den **ACS-URL** som kopierats från LinkedIn-portalen i textrutan **Svars-URL**.
 
-1. Om du vill konfigurera enkel inloggning i **SP-initierat**, klicka sedan på Visa avancerade URL alternativet med inställningen i konfigurationsavsnittet anger du inloggnings-URL: en.  Att skapa din inloggnings-URL: en kopia i **Assertion konsument Service (ACS) Url** och Ersätt /saml/ med/inloggning /.   När du som har gjorts, ska inloggnings-URL: en ha följande mönster:
+    c. Om du vill konfigurera programmet i **SP-initierat** läge klickar du sedan på alternativet **Ange ytterligare URL:er** i avsnittet för den **Grundläggande SAML-konfiguration** där du ska ange din inloggnings-URL. Skapa din inloggnings-URL genom att kopiera **ACS-URL:en** och ersätta /saml/ med /login/. När du har gjort det ska inloggnings-URL:en ha följande mönster:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
+    ![Information om LinkedIn Learning-domän och URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga värden. Du uppdaterar de här värdena med den faktiska identifieraren och svars-URL:en, vilket förklaras senare i kursavsnittet **Konfigurera enkel inloggning för LinkedIn Learning**.
+
+5. LinkedIn Learning-programmet förväntar sig SAML-intyget i ett visst format, vilket innebär att du måste lägga till anpassade attributmappningar i din SAML-tokenattributskonfiguration. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men LinkedIn Learning förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration. 
+
+    ![image](common/edit-attribute.png)
+
+6. Konfigurera SAML-tokenattributet så som visas på bilden ovan genom att redigera anspråken med hjälp av **redigeringsikonen** eller lägga till anspråken med hjälp av **Lägg till nytt anspråk** i avsnittet **Användaranspråk** i dialogrutan **Användarattribut** och utför sedan följande steg:
     
-1. Programmets LinkedIn Learning förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men LinkedIn Learning förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller Använd rätt attribut-värde baserat på konfigurationen för din organisation. 
+    | Namn | Källattribut |
+    | ---------------| --------------- |
+    | e-post  | user.mail  |
+    | avdelning  | user.department  |
+    | firstname  | user.givenname  |
+    | lastname  | user.surname  |
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/updateusermail.png)
-    
-1. I **användarattribut** klickar du på **visa och redigera alla andra användarattribut** och ange attribut. Användaren behöver för att lägga till fyra anspråk med namnet **e-post**, **avdelning**, **firstname**, och **lastname** och värdet är mappas med **user.mail**, **user.department**, **user.givenname**, och **user.surname** respektive
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    | Attributnamn | Attributvärde |
-    | --- | --- |
-    | e-post| User.Mail |    
-    | Avdelning| User.Department |
-    | Förnamn| User.givenName |
-    | Efternamn| User.surname |
-    
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/userattribute.png)
-    
-    a. Klicka på **lägga till attributet** att öppna dialogrutan attribut.
+    ![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/tutorial_attribute_04.png)
+    ![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/tutorial_attribute_05.png)
-    
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
-    
-    d. Klicka på **Ok**
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-1. Utför följande steg på den **namn** attributet -
+    c. Lämna **Namnrymd** tom.
 
-    a. Klicka på attribut så öppnas den **redigera attributet** fönster.
+    d. Välj Källa som **Attribut**.
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/url_update.png)
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    b. Ta bort URL-värdet från den **namnområde**.
-    
-    c. Klicka på **Ok** att spara inställningen.
+    f. Klicka på **Ok**
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
+    g. Klicka på **Spara**.
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-1. Klicka på **Spara**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_general_400.png)
+### <a name="configure-linkedin-learning-single-sign-on"></a>Konfigurera enkel inloggning för LinkedIn Learning
 
-1. Gå till **LinkedIn administratörsinställningar** avsnittet. Ladda upp XML-filen du laddade ned från Azure-portalen genom att klicka på alternativet ladda upp XML-fil.
+1. Logga in till din LinkedIn Learning-klient som administratör i ett annat webbläsarfönster.
+
+2. Klicka på **Globala inställningar** under **Inställningar** i **Kontocenter**. Markera dessutom **Inlärning – standard** i den nedrullningsbara listan.
+
+    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+
+3. Klicka på  **ELLER klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **entitets-Id** och **ACS-URL** och klistra in dem i avsnittet  **Grundläggande SAML-konfiguration** i Azure Portal.
+
+    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+
+4. Gå till avsnittet **LinkedIn-administratörsinställningar**. Överför den XML-fil du laddade ned från Azure Portal genom att klicka på alternativet **Ladda upp XML-fil**.
 
     ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
-1. Klicka på **på** att aktivera enkel inloggning. SSO status ändras från **inte ansluten** till **ansluten**
+5. Aktivera enkel inloggning genom att klicka på **På**. SSO-statusen ändras från **Inte ansluten** till **Ansluten**
 
     ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-![Skapa en Azure AD-användare][100]
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/create_aaduser_01.png) 
+2. Välj **Ny användare** överst på skärmen.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/create_aaduser_02.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/create_aaduser_03.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="creating-a-linkedin-learning-test-user"></a>Skapa en testanvändare LinkedIn Learning
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-LinkedIn Learning programmet stöder bara i tid användaretablering och -autentiserade användare skapas automatiskt i programmet. På administratören sidan Inställningar på LinkedIn Learning portal andra växeln **automatiskt tilldela licenser** till aktiva Just-in-time-etablering och detta kommer också tilldela en licens till användaren.
+I det här avsnittet ska göra det möjligt för Britta Simon att använda Azure enkel inloggning genom att ge åtkomst till Zscaler Internet Access Administrator.
 
-   ![Skapa en Azure AD-användare för testning](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
+1. Välj **Företagsprogram**, **Alla program** och sedan **LinkedIn Learning** i Azure Portal.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LinkedIn Learning.
+2. Skriv och välj **LinkedIn Learning** i programlistan.
 
-![Tilldela användare][200] 
+    ![LinkedIn Learning länken i listan med program](common/all-applications.png)
 
-**Om du vill tilldela LinkedIn Learning Britta Simon utför du följande steg:**
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Tilldela användare][201]
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I listan med program väljer **LinkedIn Learning**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][202]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+### <a name="create-linkedin-learning-test-user"></a>Skapa en testanvändare för LinkedIn Learning
 
-    ![Tilldela användare][203]
+LinkedIn Learning-programmet stöder just-in-time-användaretablering och efter autentiseringen skapas användare automatiskt i programmet. På LinkedIn Learning-portalens sida för administratörsinställningar ändrar du växeln **Tilldela licenser automatiskt** till aktiv just-in-time-etablering, varvid använderen även tilldelas en licens.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+   ![Skapa en testanvändare för Azure AD](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen LinkedIn Learning i åtkomstpanelen, bör du få sidan Azure inloggning och på efter lyckad inloggning, bör du få ditt LinkedIn Learning-program.
+När du klickar på LinkedIn Learning i åtkomstpanelen bör du bli automatiskt inloggad på den LinkedIn Learning som du konfigurerade enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/linkedinlearning-tutorial/tutorial_general_01.png
-[2]: ./media/linkedinlearning-tutorial/tutorial_general_02.png
-[3]: ./media/linkedinlearning-tutorial/tutorial_general_03.png
-[4]: ./media/linkedinlearning-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/linkedinlearning-tutorial/tutorial_general_100.png
-
-[200]: ./media/linkedinlearning-tutorial/tutorial_general_200.png
-[201]: ./media/linkedinlearning-tutorial/tutorial_general_201.png
-[202]: ./media/linkedinlearning-tutorial/tutorial_general_202.png
-[203]: ./media/linkedinlearning-tutorial/tutorial_general_203.png

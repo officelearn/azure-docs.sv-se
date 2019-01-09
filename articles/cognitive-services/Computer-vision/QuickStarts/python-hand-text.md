@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera handskriven text – REST, Python – Visuellt innehåll'
+title: 'Snabbstart: Extrahera handskriven text – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera handskriven text från en bild med hjälp av API för visuellt innehåll med Python.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 83c8bb76d6bc646de6811c68076ed7a9dfb85669
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 38e0b243b79975fa0cf6b5bb9a8a64c144289b15
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853480"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582889"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Extrahera handskriven text med hjälp av REST-API och Python i Visuellt innehåll
 

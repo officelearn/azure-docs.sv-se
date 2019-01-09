@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680607"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555973"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testa Terraform-moduler i Azure med hjälp av Terratest
 
@@ -93,9 +93,9 @@ output "homepage_url" {
 ```
 
 Den huvudsakliga logiken i modulen etablerar fyra resurser:
-- **resursgrupp**: namnet på resursgruppen är de `website_name`-indata som läggs till av `-staging-rg`.
-- **lagringskonto**: namnet på lagringskontot är de `website_name`-indata som läggs till av `data001`. För att följa namnbegränsningar för lagringskontot tar modulen bort alla specialtecken och använder gemener i hela lagringskontonamnet.
-- **container med fast namn**: containern heter `wwwroot` och skapas i lagringskontot.
+- **resursgrupp**: Namnet på resursgruppen är de `website_name`-indata som läggs till av `-staging-rg`.
+- **lagringskonto**: Namnet på lagringskontot är de `website_name`-indata som läggs till av `data001`. För att följa namnbegränsningar för lagringskontot tar modulen bort alla specialtecken och använder gemener i hela lagringskontonamnet.
+- **container med fast namn**: Containern heter `wwwroot` och skapas i lagringskontot.
 - **enskild HTML-fil**: HTML-filen läses in från `html_path`-indata och laddas upp till `wwwroot/index.html`.
 
 Logiken för den statiska webbplatsens modul implementeras i `./main.tf`:
@@ -298,7 +298,7 @@ Vi tar och börjar med exemplen. En ny exempelmapp med namnet `hello-world/` ska
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -419,7 +419,7 @@ Det enda som krävs av mage är en `magefile.go` i projektets rotkatalog (marker
 Här är ett exempel på `./magefile.go`. I det här byggskriptet, som skrivits i Go, implementerar vi fem byggsteg:
 - `Clean`: Steget tar bort alla genererade och tillfälliga filer som genereras under testkörningar.
 - `Format`: Steget kör `terraform fmt` och `go fmt` för att formatera din kodbas.
-- `Unit`: Steget kör alla enhetstester (med hjälp av funktionsnamnskonventionen `TestUT_*`) under mappen `./test/`.
+- `Unit`: Steget kör alla enhetstester (med hjälp av funktionsnamnskonventionen `TestUT_*`) i mappen `./test/`.
 - `Integration`: Steget liknar `Unit`, men i stället för enhetstester kör det integreringstester (`TestIT_*`).
 - `Full`: Steget kör `Clean`, `Format`, `Unit` och `Integration` i följd.
 
@@ -504,7 +504,7 @@ Du kan använda följande kommandon för att köra en fullständig testsvit. Kod
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```

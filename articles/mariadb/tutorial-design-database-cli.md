@@ -1,24 +1,21 @@
 ---
-title: 'Självstudie: Utforma en Azure Database for MariaDB med Azure CLI'
+title: 'Självstudier: Utforma en Azure Database for MariaDB med hjälp av Azure CLI'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MariaDB-server och en databas med Azure CLI från kommandoraden.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516353"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541199"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudie: Utforma en Azure Database for MariaDB med Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudier: Utforma en Azure Database for MariaDB med hjälp av Azure CLI
 
 Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som är baserad på databasmotorn MariaDB Community Edition. I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 
@@ -176,9 +173,9 @@ Anta att du har tagit bort den här tabellen av misstag. Det här är något som
 Du behöver följande information vid återställningen:
 
 - Återställningspunkt: Välj en tidpunkt innan servern ändrades. Måste vara senare än eller lika med källdatabasens äldsta säkerhetskopiering.
-- Målserver: Ange ett nytt servernamn som du vill återställa till.
-- Källserver: Ange namnet på den server du vill återställa från.
-- Plats: Du kan inte välja region, som standard är det samma som källservern.
+- Målserver: Ange ett nytt servernamn som du vill återställa till
+- Källserver: Ange namnet på den server som du vill återställa från
+- Plats: Du kan inte välja region; som standard är det samma som källservern
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

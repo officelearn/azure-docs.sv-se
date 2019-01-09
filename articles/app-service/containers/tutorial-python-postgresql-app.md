@@ -1,5 +1,5 @@
 ---
-title: Skapa en Python-webbapp med PostgreSQL på Linux – Azure App Service | Microsoft Docs
+title: Skapa en Python-app med PostgreSQL på Linux – Azure App Service | Microsoft Docs
 description: Lär dig hur du kör en datadriven Python-app i Azure med anslutning till en PostgreSQL-databas.
 services: app-service\web
 documentationcenter: python
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337998"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975397"
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Skapa en Python- och PostgreSQL-webbapp i Azure App Service
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Skapa en Python- och PostgreSQL-app i Azure App Service
 
-Med [App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien beskriver hur du skapar en datadriven Python-webbapp med PostgreSQL som serverdel för databasen. När du är klar har du ett Django-program som körs i App Service i Linux.
+Med [App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien beskriver hur du skapar en datadriven Python-app med hjälp av PostgreSQL som serverdel för databasen. När du är klar har du ett Django-program som körs i App Service i Linux.
 
 ![Python Django-app i App Service i Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -203,9 +203,9 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!NOTE]
-> Den här inställningen tillåter nätverksanslutningar från alla IP-adresser i Azure-nätverket. För användning i produktion kan du försöka konfigurera de mest restriktiva brandväggsreglerna [med hjälp av endast de utgående IP-adresserna som din app använder](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Den här inställningen tillåter nätverksanslutningar från alla IP-adresser i Azure-nätverket. För användning i produktion kan du försöka konfigurera de mest restriktiva brandväggsreglerna [med hjälp av endast de utgående IP-adresserna som din app använder](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your_ip_address>* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
+I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your_ip_address>* med [din lokala IPv4 IP-adress](http://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -371,9 +371,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 App Service-distributionsservern ser _requirements.txt_ i lagringsplatsens rot och kör Python-pakethantering automatiskt efter `git push`.
 
-### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen
+### <a name="browse-to-the-azure-app"></a>Bläddra till Azure-appen
 
-Bläddra till den distribuerade webbappen. Den tar lite tid att starta eftersom containern måste laddas ned och köras när appen begärs för första gången. Om sidan uppnår sin tidsgräns eller visar ett felmeddelande, kan du vänta några minuter och sedan uppdatera sidan.
+Bläddra till den distribuerade appen. Den tar lite tid att starta eftersom containern måste laddas ned och köras när appen begärs för första gången. Om sidan uppnår sin tidsgräns eller visar ett felmeddelande, kan du vänta några minuter och sedan uppdatera sidan.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -403,15 +403,15 @@ När containerloggning har aktiverats kör du följande kommando för att visa l
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="manage-your-web-app-in-the-azure-portal"></a>Hantera webbappen i Azure-portalen
+## <a name="manage-your-app-in-the-azure-portal"></a>Hantera appen i Azure-portalen
 
-Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app som du skapade.
 
-Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
 
-![Navigera till webbappen på Azure Portal](./media/tutorial-python-postgresql-app/app-resource.png)
+![Portalnavigering till Azure-app](./media/tutorial-python-postgresql-app/app-resource.png)
 
-Som standard visar portalen dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
+Portalen visar som standard sidan **Översikt** för appen. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
 ![App Service-sidan på Azure Portal](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,10 +428,10 @@ I den här självstudiekursen lärde du dig att:
 > * Visa diagnostikloggar
 > * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
+Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera inbyggd Python-avbildning och felsöka](how-to-configure-python.md)

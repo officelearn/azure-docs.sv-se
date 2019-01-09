@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en visuell sökfråga, Python – Visuell sökning i Bing'
+title: 'Snabbstart: Hämta information om bilder med hjälp av REST API:et för visuell sökning i Bing och Python'
 titleSuffix: Azure Cognitive Services
-description: Visar hur du laddar upp en bild till API för visuell sökning i Bing och får tillbaka information om bilden.
+description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3930de4d8d1f50c0ba6908ea642fc152c29b7371
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52440949"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744810"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Snabbstart: Din första fråga i Visuell sökning i Bing i Python
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Snabbstart: Din första fråga i Visuell sökning i Bing med Python
 
-API för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [Vad är API för visuell sökning i Bing?](../overview.md) Den här artikeln visar hur du laddar upp en bild. Att ladda upp en bild kan vara användbart i mobila scenarier, där du kan ta en bild av ett välkänt landmärke och få tillbaka information om det. Informationen kan exempelvis vara fakta om landmärket. 
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för visuell sökning i Bing och visa sökresultaten. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Om du laddar upp en lokal bild måste du inkludera de formulärdata som visas nedan i brödtexten i POST. Formulärdatan måste innehålla huvudet för innehållsdispositionen. Parametern `name` måste anges till ”image” och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är binärt för bilden. Den maximala bildstorlek som du kan ladda upp är 1 MB. 
+När du laddar upp den lokala bilden måste POST-formulärdata innehålla huvudet för innehållsdisposition. Parametern `name` måste anges till ”image” och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är binärt för bilden. Den maximala bildstorlek som du kan ladda upp är 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -32,85 +32,67 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Artikeln innehåller ett enkelt konsolprogram som skickar en begäran till API för visuell sökning i Bing och visar JSON-sökresultatet. Det här programmet är skrivet i Python, men API:et är en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
-
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Python 3](https://www.python.org/) för att köra koden.
-
-För den här snabbstarten behöver du starta en prenumeration på S9-prisnivån enligt [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
-
-Så här startar du en prenumeration på Azure-portalen:
-1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  
-2. Under Marketplace i den nedrullningsbara listan väljer du `Bing Search v7`.
-3. Ange `Name` för den nya resursen.
-4. Välj `Pay-As-You-Go`-prenumeration.
-5. Välj prisnivån `S9`.
-6. Starta prenumerationen genom att klicka på `Enable`.
-
-## <a name="running-the-walkthrough"></a>Köra genomgången
-
-Följ dessa steg om du vill köra programmet:
-
-1. Skapa ett nytt Python-projekt i valfri IDE eller redigeringsprogram.
-2. Skapa en fil med namnet visualsearch.py och lägg till den kod som visas i den här snabbstarten.
-3. Ersätt värdet `SUBSCRIPTION_KEY` med din prenumerationsnyckel.
-3. Ersätt värdet `imagePath` med sökvägen till den bild som ska laddas upp.
-4. Kör programmet.
+* [Python 3.x](https://www.python.org/)
 
 
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Nedan visas hur du skickar meddelandet med hjälp av multipart-formulärdata i Python.
+## <a name="initialize-the-application"></a>Initiera programmet
 
-```python
-"""Bing Visual Search upload image example"""
+1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och lägg till följande importinstruktion.
 
-# Download and install Python at https://www.python.org/
-# Run the following in a command console window
-# pip3 install requests
+    ```python
+    import requests, json
+    ```
 
-import requests, json
+2. Skapa variabler för din prenumerationsnyckel, slutpunkt och sökvägen till den bild som du ska ladda upp.
 
+    ```python
 
-BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    SUBSCRIPTION_KEY = 'your-subscription-key'
+    imagePath = 'your-image-path'
+    ```
 
-SUBSCRIPTION_KEY = '<yoursubscriptionkeygoeshere>'
+3. Skapa ett ordlisteobjekt för att lagra huvudinformation för dina begäranden. Bind din prenumerationsnyckel till strängen `Ocp-Apim-Subscription-Key` enligt det som visas nedan.
 
-HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```python
+    HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```
 
-imagePath = '<pathtoyourimagetouploadgoeshere>'
+4. Skapa en till ordlista som ska innehålla bilden, som öppnas och laddas upp när du skickar begäran. 
 
-file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```python
+    file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```
 
-def main():
-    
+## <a name="parse-the-json-response"></a>Tolka JSON-svaret
+
+1. Skapa en metod som kallas `print_json()` för att ta emot API-svaret och skriva ut JSON.
+
+    ```python
+    def print_json(obj):
+        """Print the object as json"""
+        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+    ```
+
+## <a name="send-the-request"></a>Skicka begäran
+
+1. Använd `requests.post()` för att skicka en begäran till API:et för webbsökning i Bing. Inkludera strängen för din slutpunkt, huvud och filinformation. Skriva ut `response.json()` med `print_json()`
+
+    ```python
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
         print_json(response.json())
-
+    
     except Exception as ex:
         raise ex
-
-
-def print_json(obj):
-    """Print the object as json"""
-    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-
-
-
-# Main execution
-if __name__ == '__main__':
-    main()
-```
-
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få insikter om en bild med hjälp av en insiktstoken](../use-insights-token.md)  
-[Självstudie om bilduppladdning i Visuell sökning i Bing](../tutorial-visual-search-image-upload.md)
-[Självstudie om ensidesapplikationer i Visuell sökning i Bing](../tutorial-bing-visual-search-single-page-app.md)  
-[Översikt för Visuell sökning i Bing](../overview.md)  
-[Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Skaffa en åtkomstnyckel för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referens till API för visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc)
+> [!div class="nextstepaction"]
+> [Skapa en webbapp för anpassad sökning](../tutorial-bing-visual-search-single-page-app.md)

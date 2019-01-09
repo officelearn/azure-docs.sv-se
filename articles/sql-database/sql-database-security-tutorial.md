@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409776"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558642"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Självstudie: Skydda en enkel databas i Azure SQL Database
 
@@ -136,6 +136,9 @@ Etablera en Azure Active Directory-administratör för din Azure SQL-server i Az
     ![choose-ad](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. På sidan **SQL Server** väljer du **Active Directory-administratör**, och på sidan **Active Directory-administratör** väljer du **Konfigurera administratör**. ![Välj Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > Du måste vara ”Företagsadministratör” eller ”Global administratör” för att utföra den här uppgiften.
 
 3. på sidan **Lägg till administratör** söker du efter en användare, väljer den användare eller den grupp som ska vara administratör och väljer sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i avsnittet om **Azure AD-funktioner och begränsningar** i artikeln om att [använda Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.
     ![välja admin](./media/sql-database-aad-authentication/select-admin.png)  

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa ett Scala Maven-program för Spark i Azure HDInsight med hjälp av IntelliJ'
+title: 'Självstudier: Skapa ett Scala Maven-program för Spark i Azure HDInsight med hjälp av IntelliJ'
 description: Skapa ett Spark-program som skrivits i Scala med Apache Maven som build-system och en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499312"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604073"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
 I den här självstudien lär du dig att skapa ett [Apache Spark](https://spark.apache.org/)-program som skrivits i [Scala](https://www.scala-lang.org/) med hjälp av [Apache Maven](https://maven.apache.org/) med IntelliJ IDEA. Artikeln använder Apache Maven som build-system och startar med en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.  Att skapa ett Scala-program i IntelliJ IDEA innefattar följande steg:
 
@@ -26,7 +26,7 @@ I den här självstudien lär du dig att skapa ett [Apache Spark](https://spark.
 * Generera en jar-fil som kan skickas till HDInsight Spark-kluster.
 * Kör programmet på ett Spark-kluster med Livy.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight tillhandahåller även ett plugin-verktyg i IntelliJ IDEA som underlättar processen med att skapa och skicka program till ett HDInsight Spark-kluster i Linux. Mer information finns i [Använda HDInsight-verktygsplugin för IntelliJ IDEA till att skapa och skicka Apache Spark-program](apache-spark-intellij-tool-plugin.md).
 > 
 

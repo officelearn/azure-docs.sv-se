@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164440"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608655"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Självstudier: Skapa en kunskapsbas och besvara sedan fråga via QnA Maker-portalen
 
@@ -83,9 +83,9 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
 
 1. Välj den sista sidan med frågor och svar längst ned i tabellen. På sidan visas frågor och svar från kommunikationspersonligheten. 
 
-1. Välj kugghjulsikonen från verktygsfältet ovanför listan med frågor och svar. Detta visar filter för varje fråga och svar. Kommunikationsfrågor har redan filtret **editorial: chit-chat** (redaktionellt: kommunikation) inställt. Det här filtret returneras till klientprogrammet tillsammans med det valda svaret. Klientprogrammet, till exempel en chattrobot, kan använda det här filtret för att fastställa ytterligare bearbetning eller interaktioner med användaren.
+1. Välj metadataikonen från verktygsfältet ovanför listan med frågor och svar. Detta visar metadatataggar för varje fråga och svar. Kommunikationsfrågor har redan metadata **editorial: chit-chat** (redaktionellt: kommunikation) angett. Dessa metadata returneras till klientprogrammet tillsammans med det valda svaret. Klientprogrammet, till exempel en chattrobot, kan använda dessa filtrerade metadata för att fastställa ytterligare bearbetning eller interaktioner med användaren.
 
-    ![Vyfilter](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Visa metadatataggar](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Välj alternativet för att **spara och träna** på den övre menyraden.
 
@@ -171,7 +171,7 @@ När kunskapsbasen har publicerats visas slutpunkten
    
     ```
 
-    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returnerade alla relaterade frågor samt metadata-egenskapen som innehåller information om kommunikationsfiltret.  
+    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returnerade även alla relaterade frågor samt den metadata-egenskap som innehåller information om metadatataggen för kommunikation.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Använda curl för att fråga efter standardsvar
 

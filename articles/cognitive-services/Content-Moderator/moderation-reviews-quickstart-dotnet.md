@@ -10,27 +10,27 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226593"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538879"
 ---
 # <a name="quickstart-create-reviews-using-net"></a>Snabbstart: Skapa granskningar med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) för att:
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig bland annat att:
  
 - Skapa en uppsättning granskningar för mänskliga moderatorer
 - Hämta status för befintliga granskningar för mänskliga moderatorer
 
-I allmänhet går innehåll igenom viss automatiserad moderering innan de schemaläggs för mänsklig granskning. Den här artikeln beskriver bara hur du skapar granskningen för mänsklig moderering. Ett mer fullständigt scenario finns i självstudierna [Innehållsmoderering på Facebook](facebook-post-moderation.md) och [Katalogmoderering för eCommerce](ecommerce-retail-catalog-moderation.md).
+I allmänhet går innehåll igenom viss automatiserad moderering innan de schemaläggs för mänsklig granskning. Den här artikeln beskriver bara hur du skapar granskningen för mänsklig moderering. Ett mer fullständigt scenario finns i självstudierna [Innehållsmoderering på Facebook](facebook-post-moderation.md) och [Moderera produktbilder för e-handel](ecommerce-retail-catalog-moderation.md).
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
 ## <a name="sign-up-for-content-moderator"></a>Registrera dig för Content Moderator
 
-Innan du kan använda Content Moderator-tjänster via REST-API:et eller SDK:t behöver du en prenumerationsnyckel.
+Innan du kan använda Content Moderator-tjänster via REST-API:n eller SDK:n behöver du en prenumerationsnyckel.
 Information om hur du hämtar nyckeln finns i [snabbstarten](quick-start.md).
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskningsverktyget om du inte har gjort det i föregående steg
@@ -47,7 +47,7 @@ Om du använder den nyckeln för den kostnadsfria utvärderingsversionen som gen
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägg till ett nytt **konsolappsprojekt (.NET Framework)** i lösningen.
+1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
 
    I exempelkoden ger du projektet namnet **CreateReviews**.
 

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444792"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720739"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudier: Övervaka och diagnostisera en ASP.NET Core-app i Service Fabric med Application hjälp av Insights
 
 Den här självstudien är del fem i en serie. Den går igenom stegen för att konfigurera övervakning och diagnostik för ett ASP.NET Core-program som körs på ett Service Fabric-kluster med Application Insights. Vi samlar in telemetri från program som utvecklats i den första delen av självstudien [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -191,11 +191,11 @@ Du kan också klicka på den vänstra menyn på översiktssidan för att visa *p
 
 ![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-Med programkartan blir det enklare att förstå programtopologin, särskilt när du börjar att lägga till flera olika tjänster som samverkar. Den ger dig även grundläggande data på begäran och kan hjälpa dig att felsöka misslyckade begäranden för att förstå vad som blev fel. Mer information om hur du använder programkartan finns i [Programkarta i Application Insights](../application-insights/app-insights-app-map.md).
+Med programkartan blir det enklare att förstå programtopologin, särskilt när du börjar att lägga till flera olika tjänster som samverkar. Den ger dig även grundläggande data på begäran och kan hjälpa dig att felsöka misslyckade begäranden för att förstå vad som blev fel. Mer information om hur du använder programkartan finns i [Programkarta i Application Insights](../azure-monitor/app/app-map.md).
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>Lägga till anpassad instrumentation i ditt program
 
-Även om Application Insights innehåller en mängd telemetri direkt, kanske du vill lägga till ytterligare anpassad instrumentation. Detta kan baseras på dina verksamhetsbehov eller förbättra diagnostiken om något fel uppstår i ditt program. Application Insights innehåller en API som matar in anpassade händelser och mått. Du kan läsa mer om den [här](../application-insights/app-insights-api-custom-events-metrics.md).
+Även om Application Insights innehåller en mängd telemetri direkt, kanske du vill lägga till ytterligare anpassad instrumentation. Detta kan baseras på dina verksamhetsbehov eller förbättra diagnostiken om något fel uppstår i ditt program. Application Insights innehåller en API som matar in anpassade händelser och mått. Du kan läsa mer om den [här](../azure-monitor/app/api-custom-events-metrics.md).
 
 Låt oss lägga till vissa anpassade händelser i *VoteDataController.cs* (under *VotingData* > *Kontrollanter*) för att kunna spåra när röster läggs till och tas bort från underliggande *votesDictionary*.
 

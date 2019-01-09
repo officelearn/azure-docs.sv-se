@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 8106c68397dea8d52c6d2daa2d09dfbc72c2a4c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995067"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716505"
 ---
-# <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Självstudie: Lägga till en anpassad domän i din Front Door
+# <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Självstudier: Lägg till en anpassad domän i din Front Door
 I den här självstudien får du lära dig hur du lägger till en anpassad domän i Front Door. När du använder Azure Front Door-tjänsten för programleverans behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din slutanvändarbegäran. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte.
 
 När du har skapat en Front Door ingår standardklientdelsvärden, som är en underdomän till `azurefd.net`, i URL:en för att leverera Front Door-innehåll från serverdelen som standard (till exempel https:\//contoso.azurefd.net/activeusers.htm). Av bekvämlighetsskäl tillhandahåller Azure Front Door möjligheten att associera en anpassad domän med standardvärden. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för ett Front Door-ägt domännamn (till exempel https:\//www.contoso.com/photo.png). 
@@ -34,9 +34,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
+Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [ Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 
-Om du inte redan har en anpassad domän måste du först köpa en sådan av en domänleverantör. Se exempelvis [Köpa ett anpassat domännamn](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
+Om du inte redan har en anpassad domän måste du först köpa en sådan av en domänleverantör. Se exempelvis [Köpa ett anpassat domännamn](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
 Om du använder Azure som värd för dina [DNS-domäner](https://docs.microsoft.com/azure/dns/dns-overview) måste du delegera domänleverantörens DNS till en Azure DNS. Mer information finns i [Delegera en domän till Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Om du i stället använder en domänleverantör för att hantera din DNS-domän fortsätter du till [Skapa en CNAME DNS-post](#create-a-cname-dns-record).
 
@@ -68,7 +68,7 @@ Så här skapar du en CNAME-post med underdomänen afdverify:
 
     - Källa: Ange ditt anpassade domännamn, inklusive underdomänen afdverify, i följande format: afdverify._&lt;anpassat domännamn&gt;_. Till exempel: afdverify.www.contoso.com.
 
-    - Typ: Ange *CNAME*.
+    - Ange: Ange *CNAME*.
 
     - Mål: Ange standardklientdelsvärden för Front Door, inklusive underdomänen afdverify, i följande format: afdverify._&lt;slutpunktsnamn&gt;_.azurefd.net. Till exempel: afdverify.contoso.azurefd.net.
 
@@ -86,13 +86,13 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
 5. Fyll i följande fält för CNAME-posten:
 
-    - Type (Typ): Använd det förvalda värdet *CNAME*.
+    - Ange: Låt *CNAME* vara markerat.
 
     - Värd: Ange underdomänen för den anpassade domän som du vill använda, inklusive underdomännamnet afdverify. Till exempel: afdverify.www.
 
-    - Pekar till: Ange värdnamnet för standardklientdelsvärden för Front Door, inklusive underdomänsnamnet afdverify. Till exempel: afdverify.contoso.azurefd.net. 
+    - Pekar mot: Ange värdnamnet för standardklientdelsvärden för Front Door, inklusive underdomänsnamnet afdverify. Till exempel: afdverify.contoso.azurefd.net. 
 
-    - TTL: Använd det förvalda värdet *1 Hour (1 Timme)*.
+    - TTL: Låt *1 timme* vara markerat.
 
 6. Välj **Spara**.
  
@@ -143,9 +143,9 @@ Skapa en CNAME-post för den anpassade domänen:
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azurefd.net |
 
-    - Källa: Ange ett anpassat domännamn (till exempel www.contoso.com).
+    - Källa: Ange ditt anpassade domännamn (till exempel www.contoso.com).
 
-    - Typ: Ange *CNAME*.
+    - Ange: Ange *CNAME*.
 
     - Mål: Ange standardklientdelsvärden för din Front Door. Följande format måste användas:_&lt;värdnamn&gt;_.azurefd.net. Till exempel: contoso.azurefd.net.
 
@@ -167,13 +167,13 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
 5. Fyll i fälten för CNAME-posten:
 
-    - Type (Typ): Använd det förvalda värdet *CNAME*.
+    - Ange: Låt *CNAME* vara markerat.
 
-    - Host (Värd): Ange underdomänen för den anpassade domänen. Till exempel: www eller profil.
+    - Värd: Ange underdomänen för den anpassade domän som du vill använda. Till exempel: www eller profil.
 
-    - Pekar på: Ange standardvärdnamnet för din Front Door. Till exempel: contoso.azurefd.net. 
+    - Pekar mot: Ange standardvärdnamnet för din Front Door. Till exempel: contoso.azurefd.net. 
 
-    - TTL: Använd det förvalda värdet *1 Hour (1 Timme)*.
+    - TTL: Låt *1 timme* vara markerat.
 
 6. Välj **Spara**.
  

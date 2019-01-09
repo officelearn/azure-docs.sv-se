@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427530"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791327"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudie: Kabelansluta och ansluta till Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudier: Kabelansluta och ansluta till Azure Data Box
 
 I den här självstudien beskrivs hur du kabelansluter, ansluter och slår på Azure Data Box-enheten.
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien Beställa Azure Data Box](data-box-deploy-ordered.md).
+1. Du har slutfört självstudien [: Beställ Azure Data Box](data-box-deploy-ordered.md).
 2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. 
     - Det finns en adressetikett i den genomskinliga fickan som är fäst under den befintliga etiketten på enheten. Spara etiketten – du behöver den till returleveransen.
     - Vissa regioner i Europa kan få enheten inpackad i en låda. Se till att packa upp enheten och spara lådan för returförsändelse.
@@ -69,7 +69,7 @@ Kabelanslut enheten med hjälp av följande steg.
 Konfigurera din enhet med hjälp av följande steg via det lokala webbgränssnittet och portalens användargränssnitt.
 
 1. Konfigurera Ethernet-nätverkskortet på den bärbara dator du använder för att ansluta till enheten med den statiska IP-adressen 192.168.100.5 och undernätet 255.255.255.0. 
-2. Anslut till MGMT-porten på enheten och öppna dess lokala webbgränssnitt på https://192.168.100.10. Det kan ta upp till 5 minuter efter att du slagit på enheten.
+2. Anslut till MGMT-porten på enheten och öppna dess lokala webbgränssnitt på https\://192.168.100.10. Det kan ta upp till 5 minuter efter att du slagit på enheten.
 3. Klicka på **Details** (Information) och klicka sedan på **Go on to the webpage** (Fortsätt till webbsidan).
 
    ![Ansluta till det lokala webbgränssnittet](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

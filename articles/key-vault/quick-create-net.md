@@ -1,22 +1,22 @@
 ---
-title: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en nodwebbapp | Microsoft Docs'
-description: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .net-webbapp'
+title: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en nodwebbapp – Azure Key Vault | Microsoft Docs'
+description: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686678"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002611"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .net-webbapp
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
 I den här snabbstarten följer du de steg som behövs för att få ett Azure-webbprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
 
@@ -77,7 +77,7 @@ Den resursgrupp du nyss skapade används i hela den här artikeln.
 
 Nu ska du skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg. Ange följande information:
 
-* Nyckelvalvsnamn: namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
+* Key Vault-namn: Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
 * Namn på resursgrupp.
 * Plats: **USA, östra**.
 

@@ -1,6 +1,6 @@
 ---
-title: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark| Microsoft Docs
-description: Lär dig hur du kör Spark-frågor i ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
+title: 'Självstudier: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark| Microsoft Docs'
+description: I den här självstudien lär du dig att köra Spark-frågor i ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
 services: storage
 author: dineshmurthy
 ms.component: data-lake-storage-gen2
@@ -8,56 +8,62 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: dineshm
-ms.openlocfilehash: 88a05eb8fa59740012ca6c7a8d8508d565854dc7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974164"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548994"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudie: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
+# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
 
-I den här självstudien får du lära dig hur du kör Spark-frågor i ett Azure Databricks-kluster för att fråga efter data i ett Azure-lagringskonto med förhandsversionen av Azure Data Lake Storage Gen2 aktiverad.
+Den här självstudien visar hur du ansluter ditt Azure Databricks-kluster till data som lagras i ett Azure-lagringskonto som har Azure Data Lake Storage Gen2 (förhandsversion) aktiverat. Med den här anslutningen kan du internt köra frågor och analyser från klustret på dina data.
+
+I den här kursen ska du:
 
 > [!div class="checklist"]
 > * Skapa ett Databricks-kluster
 > * Mata in ostrukturerade data i ett lagringskonto
 > * Köra analyser på dina data i Blob Storage
 
-## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här självstudien visar hur du använder och frågar efter flyginformation som är tillgänglig från [USA:s transportdepartement](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time). Ladda ned minst två års flyginformation (markera alla fält) och spara resultatet på din dator. Se till att anteckna filnamnet och sökvägen för din nedladdning. Du behöver den informationen i ett senare steg.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-> [!NOTE]
-> Klicka på kryssrutan **Prezipped file** (Förkomprimerad fil) för att markera alla datafält. Nedladdningen är många GB, men den här mängden data krävs för att kunna göra analyser.
+Den här självstudien visar hur du använder och frågar efter flyginformation som är tillgänglig från [USA:s transportdepartement](https://transtats.bts.gov/DL_SelectFields.asp). 
 
-## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Skapa ett Azure Storage-konto med analysfunktioner
+1. Markera kryssrutan **Prezipped file** (Förkomprimerad fil) för att markera alla datafält.
+2. Välj **Ladda ned** och spara resultatet på datorn.
+3. Anteckna filnamnet och sökvägen för nedladdningen. Du behöver den informationen i ett senare steg.
 
-Börja med att skapa ett nytt [lagringskonto med analysfunktioner](data-lake-storage-quickstart-create-account.md) och ge det unikt namn. Gå sedan till lagringskontot för att hämta konfigurationsinställningar.
+För att slutföra den här självstudien behöver du ett lagringskonto med analysfunktioner. Vi rekommenderar att du slutför [snabbstarten](data-lake-storage-quickstart-create-account.md) om ämnet för att skapa ett. När du har skapat det går du till lagringskontot för att hämta konfigurationsinställningar.
 
-1. Under **Inställningar** klickar du på **Åtkomstnycklar**.
-2. Klicka på **Kopiera** bredvid **key1** för att kopiera nyckelvärdet.
+1. Under **Inställningar** väljer du **Åtkomstnycklar**.
+2. Välj knappen **Kopiera** intill **key1** för att kopiera nyckelvärdet.
 
 Både kontonamnet och nyckeln behövs i senare steg i den här självstudien. Öppna ett textredigeringsprogram och spara kontonamnet och nyckeln för framtida bruk.
 
 ## <a name="create-a-databricks-cluster"></a>Skapa ett Databricks-kluster
 
-Nästa steg är att skapa ett [Databricks-kluster](https://docs.azuredatabricks.net/) för att skapa en dataarbetsyta.
+Nästa steg är att skapa ett Databricks-kluster för att skapa en dataarbetsyta.
 
-1. Skapa en [Databricks-tjänst](https://ms.portal.azure.com/#create/Microsoft.Databricks) och ge den namnet **myFlightDataService** (se till att markera kryssrutan *Fäst på instrumentpanelen* när du skapar tjänsten).
-2. Klicka på **Launch Workspace** (Starta arbetsyta) för att öppna arbetsytan i ett nytt webbläsarfönster.
-3. Klicka på **Clusters** (Kluster) i det vänstra navigeringsfältet.
-4. Klicka på **Create Cluster** (Skapa kluster).
-5. Ange **myFlightDataCluster** i fältet *Klusternamn*.
-6. Välj **Standard_D8s_v3** i fältet *Worker Type* (Typ av arbetare).
-7. Ändra värdet för **Min Workers** (Minsta antal arbetare) till *4*.
-8. Klicka på **Create Cluster** (Skapa kluster) längst upp på sidan (den här processen kan ta upp till fem minuter att slutföra).
-9. När processen är klar väljer du **Azure Databricks** längst upp till vänster i navigeringsfältet.
-10. Välj **Notebook** (Anteckningsbok) under avsnittet **New** (Ny) på den nedre halvan av sidan.
-11. Ange namnet på ditt val i fältet **Name** (Namn) och välj **Python** som språk.
-12. Alla andra fält kan lämnas med standardvärdena.
-13. Välj **Skapa**.
-14. Klistra in följande kod i cellen **Cmd 1**. Kom ihåg att ersätta platshållarna inom hakparentes i exemplet med dina egna värden:
+1. På [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs**.
+2. Ange **Azure Databricks** i sökfältet.
+3. Välj **Skapa** på Azure Databricks-bladet.
+4. Ge Databricks-tjänsten namnet **myFlightDataService** (se till att markera kryssrutan *Fäst på instrumentpanelen* när du skapar tjänsten).
+5. Välj **Launch Workspace** (Starta arbetsyta) för att öppna arbetsytan i ett nytt webbläsarfönster.
+6. Välj **Kluster** i det vänstra navigeringsfältet.
+7. Välj **Skapa kluster**.
+8. Ange **myFlightDataCluster** i fältet **Klusternamn**.
+9. Välj **Standard_D8s_v3** i fältet **Worker Type** (Typ av arbetare).
+10. Ändra värdet för **Min Workers** (Minsta antal arbetare) till **4**.
+11. Välj **Skapa kluster** överst på sidan. (Den här processen kan ta upp till 5 minuter att slutföra.)
+12. När processen är klar väljer du **Azure Databricks** längst upp till vänster i navigeringsfältet.
+13. Välj **Notebook** (Anteckningsbok) under avsnittet **New** (Ny) på den nedre halvan av sidan.
+14. Ange valfritt namn i fältet **Name** (Namn) och välj **Python** som språk.
+15. Alla andra fält kan lämnas med standardvärdena.
+16. Välj **Skapa**.
+17. Klistra in följande kod i cellen **Cmd 1**. Ersätt de platshållare som visas inom hakparentes i exemplet med dina egna värden:
 
     ```scala
     %python%
@@ -72,13 +78,13 @@ Nästa steg är att skapa ett [Databricks-kluster](https://docs.azuredatabricks.
         mount_point = "/mnt/flightdata",
         extra_configs = configs)
     ```
-15. Kör kodcellen genom att trycka på **SKIFT + RETUR**.
+18. Kör kodcellen genom att trycka på **SKIFT + RETUR**.
 
 ## <a name="ingest-data"></a>Mata in data
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
 
-Sedan använder du AzCopy för att kopiera data från *.csv*-filen till Azure Storage. Öppna kommandotolken och ange följande kommandon. Se till att ersätta platshållarna `<DOWNLOAD_FILE_PATH>` och `<ACCOUNT_KEY>` med motsvarande värden som du sparade i ett tidigare steg.
+Sedan använder du AzCopy för att kopiera data från *.csv*-filen till Azure Storage. Öppna kommandotolken och ange följande kommandon. Se till att ersätta platshållarna `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` och `<ACCOUNT_KEY>` med motsvarande värden som du sparade i ett tidigare steg.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -95,7 +101,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 3. Ange **CSV2Parquet** i fältet **Name** (Namn).
 4. Alla andra fält kan lämnas med standardvärdena.
 5. Välj **Skapa**.
-6. Klistra in följande kod i cellen **Cmd 1** (den här koden sparas automatiskt i redigeraren).
+6. Klistra in följande kod i cellen **Cmd 1**. (Den här koden sparas automatiskt i redigeraren.)
 
     ```python
     # Use the previously established DBFS mount point to read the data
@@ -106,11 +112,11 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
     print("Done")
     ```
 
-## <a name="explore-data-using-hadoop-distributed-file-system"></a>Utforska data med HDFS (Hadoop Distributed File System)
+## <a name="explore-data"></a>Utforska data
 
-Gå tillbaka till Databricks-arbetsytan och klicka på ikonen **Recent** (Senaste) i navigeringsfältet.
+Gå tillbaka till Databricks-arbetsytan och välj ikonen **Recent** (Senaste) i navigeringsfältet.
 
-1. Klicka på anteckningsboken **Flight Data Analytics**.
+1. Välj anteckningsboken **Flight Data Analytics**.
 2. Tryck på **Ctrl + Alt + N** för att skapa en ny cell.
 
 Ange vart och ett av följande kodblock i **Cmd 1** och tryck på **Cmd + Retur** för att köra Python-skriptet.
@@ -137,7 +143,7 @@ Med dessa kodexempel har du utforskat den hierarkiska strukturen för HDFS med h
 
 Därefter kan du börja fråga efter de data du har laddat upp till ditt lagringskonto. Ange vart och ett av följande kodblock i **Cmd 1** och tryck på **Cmd + Retur** för att köra Python-skriptet.
 
-### <a name="simple-queries"></a>Exempelfrågor
+### <a name="run-simple-queries"></a>Köra exempelfrågor
 
 Kör följande skript om du vill skapa dataramar för dina datakällor:
 
@@ -198,7 +204,8 @@ print('Airports in Texas: ', out.show(100))
 out1 = spark.sql("SELECT distinct(Carrier) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
-### <a name="complex-queries"></a>Komplexa frågor
+
+### <a name="run-complex-queries"></a>Köra komplexa frågor
 
 Du kan köra följande komplexa frågor genom att köra ett segment i taget i anteckningsboken och se resultatet.
 
@@ -241,6 +248,12 @@ output.show(10, False)
 display(output)
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort resursgruppen och alla relaterade resurser när de inte längre behövs. Det gör du genom att välja resursgruppen för lagringskontot och sedan **Ta bort**.
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
+[!div class="nextstepaction"] 
+> [Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
+

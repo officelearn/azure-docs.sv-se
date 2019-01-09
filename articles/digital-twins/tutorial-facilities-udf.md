@@ -1,20 +1,21 @@
 ---
-title: Övervaka ett utrymme med Azure Digital Twins | Microsoft Docs
+title: 'Självstudier: Övervaka ett utrymme med Azure Digital Twins | Microsoft Docs'
 description: Lär dig mer om att etablera rumsliga resurser och övervaka arbetsvillkor med Azure Digital Twins med hjälp av stegen i den här självstudien.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584204"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556109"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudie: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudier: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
 
 Den här kursen visar hur du använder Azure Digital Twins för att övervaka dina utrymmen för önskad temperatur och komfort. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
 
@@ -203,9 +204,9 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
 
 1. Öppna filen **appSettings.json** i redigeringsprogrammet och redigera följande värden:
 
-   a. **DeviceConnectionString**: tilldela värdet för `ConnectionString` i utdatafönstret i föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
+   a. **DeviceConnectionString**: Tilldela värdet för `ConnectionString` i utdatafönstret från föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
 
-   b. **HardwareId** inom matrisen **Sensorer**: Eftersom du simulerar händelser från sensorer som etablerats på din Azure Digital Twins-instans bör maskinvaru-ID och namnen på sensorerna i den här filen matcha med `sensors`-noden i filen provisionSample.yaml.
+   b. **HardwareId** i matrisen **Sensors** (Sensorer): Eftersom du simulerar händelser från sensorer som etablerats på din Azure Digital Twins-instans bör maskinvaru-ID och namnen på sensorerna i den här filen matcha `sensors`-noden i filen provisionSample.yaml.
 
       Lägg till en ny post för temperatursensorn. Noden **Sensors** (Sensorer) i appSettings.json bör se ut så här:
 
@@ -264,7 +265,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 Nu när du har etablerat dina utrymmen och skapat ett ramverk för att utlösa anpassade meddelanden kan du gå till någon av följande självstudier:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
+> [Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins -utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)

@@ -1,22 +1,19 @@
 ---
 title: Azure CLI-skript – Ladda ned serverloggar i Azure Database for MySQL
 description: Det här Azure CLI-exempelskriptet visar hur du aktiverar och hämtar serverloggarna för en Azure Database for MySQL-server.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: a48685269c0a8a9effde0ecebfab54c1228509cd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cb28d22dbd1fb7fcefbc16d01f55f4785a5932d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581025"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544508"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Aktivera och ladda ned serverns långsamma frågeloggar för en Azure Database for MySQL-server med Azure CLI
 Det här CLI-exempelskriptet aktiverar och laddar ned de långsamma frågeloggarna för en enda Azure Database for MySQL-server.
@@ -48,4 +45,4 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).
-- Prova fler skript: [Azure CLI-exempel för Azure Database for MySQL](../sample-scripts-azure-cli.md)
+- Prova ytterligare skript: [Azure CLI-exempel för Azure Database for MySQL](../sample-scripts-azure-cli.md)

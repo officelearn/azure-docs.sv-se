@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: b75d84fefa9c45711003731666ecb21336057cc2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6b2ab1ba89fbc2b271ede177a906a1919c14023d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018822"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557673"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Snabbstart: Använda Azure Cache for Redis med en .NET-app
 
@@ -129,7 +129,7 @@ I *Program.cs*, lägg till följande medlemmar i klass `Program` för ditt konso
 ```
 
 
-Den här metoden för att dela en `ConnectionMultiplexer`-instans i ditt program använder en statisk egenskap som returnerar en ansluten instans. Koden ger ett trådsäkert sätt att endast initiera en enda ansluten `ConnectionMultiplexer`-instans. `abortConnect` är inställt på falskt, vilket innebär att anropet lyckas även om en anslutning till Azure Cache for Redis inte etableras. En viktig egenskap i `ConnectionMultiplexer` är att anslutningen till cachen återställs automatiskt när nätverksproblemet eller andra fel har åtgärdats.
+Den här metoden för att dela en `ConnectionMultiplexer`-instans i ditt program använder en statisk egenskap som returnerar en ansluten instans. Koden ger ett trådsäkert sätt att endast initiera en enda ansluten `ConnectionMultiplexer`-instans. `abortConnect` är inställt på falskt, vilket innebär att anropet lyckas även om en anslutning till Azure Cache for Redis inte har etablerats. En viktig egenskap i `ConnectionMultiplexer` är att anslutningen till cachen återställs automatiskt när nätverksproblemet eller andra fel har åtgärdats.
 
 Värdet för appinställningen *CacheConnection* används för att referera till cache-anslutningssträngen från Azure-portalen som lösenordsparameter.
 
@@ -160,7 +160,7 @@ Lägg till följande kod för procedur `Main` för klass `Program` för ditt kon
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -201,7 +201,7 @@ Install-Package Newtonsoft.Json
 
 Lägg till följande `using`-instruktion högst upp i *Program.cs*:
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 
@@ -273,6 +273,6 @@ Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 I den här snabbstarten du har lärt dig hur du använder Azure Cache for Redis från ett .NET-program. Fortsätta till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
 
 > [!div class="nextstepaction"]
-> [Skapa ett ASP.NET-webbprogram som använder Azure Cache for Redis.](./cache-web-app-howto.md)
+> [Skapa en ASP.NET-webbapp som använder en Azure Cache for Redis.](./cache-web-app-howto.md)
 
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/31/2018
 ms.author: tamram
 ms.custom: seodec18
-ms.openlocfilehash: d007f7f1aeee2b4397e5b9e68c0e48108772fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: eb472465c0d35150f2a13563058905751219411d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110431"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976468"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -78,7 +78,7 @@ Nu skapar du en Hello World-webbplats med Visual Studio Code och distribuerar de
     ```
 
 1. Skapa standardfelfilen och ge den namnet *404.html*.
-1. Öppna *error.html* i redigeringsprogrammet, klistra in följande text i filen och spara den:
+1. Öppna *404.html* i redigeringsprogrammet, klistra in följande text i filen och spara den:
 
     ```
     <h1>404</h1>

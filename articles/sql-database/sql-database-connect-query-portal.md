@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091398"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651955"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabbstart: Använda SQL-frågeredigeraren på Azure-portalen för att ansluta och fråga efter data
 
-SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. Den här snabbstarten visar hur du ansluter till en SQL-databas med frågeredigeraren och kör Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
+SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. I den här snabbstarten kommer du att använda frågeredigeraren för att ansluta till en SQL-databas och sedan köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -92,9 +92,9 @@ Genom att konfigurera en Active Directory-administratör (AD) kan du använda en
 
 ## <a name="insert-data"></a>Infoga data
 
-Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
+Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
 
-1. Ersätt den föregående frågan med denna.
+1. Ersätt den tidigare frågan med denna.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -117,14 +117,14 @@ Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
    ```
 
 
-2. Välj **Kör** för att infoga en ny rad i Product-tabellen. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
+2. Välj **Kör** för att infoga en ny rad i tabellen `Product`. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
 
 
 ## <a name="update-data"></a>Uppdatera data
 
-Använd följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-instruktion för att ändra din nya produkt.
+Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-instruktion för att ändra din nya produkt.
 
-1. Ersätt den föregående frågan med denna.
+1. Ersätt den tidigare frågan med denna.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -132,11 +132,11 @@ Använd följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att uppdatera den angivna raden i Product-tabellen. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
+2. Välj **Kör** för att uppdatera den angivna raden i tabellen `Product`. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
 
 ## <a name="delete-data"></a>Ta bort data
 
-Använd följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-instruktion för att ta bort den nya produkten.
+Kör följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-instruktion för att ta bort den nya produkten.
 
 1. Ersätt den föregående frågan med denna:
 
@@ -145,7 +145,7 @@ Använd följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att ta bort den angivna raden i Product-tabellen. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
+2. Välj **Kör** för att ta bort den angivna raden i tabellen `Product`. I fönstret **Meddelande** visas **Frågan slutförd: Berörda rader: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Överväganden för frågeredigeraren
@@ -156,7 +156,7 @@ Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
 * Om du trycker på F5 uppdateras frågeredigerarens sida och frågan som bearbetas går förlorad.
 
-* Frågeredigeraren stöder inte anslutning till huvuddatabasen.
+* Frågeredigeraren stöder inte anslutning till databasen `master`.
 
 * Det finns en 5 minuters timeout för frågekörning.
 

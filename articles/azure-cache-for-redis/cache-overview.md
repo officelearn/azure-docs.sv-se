@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018959"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971332"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Vad är Azure Cache for Redis?
 
-Azure Cache for Redis är baserad på populära [Azure Cache for Redis](https://redis.io/) med öppen källkod. Den används vanligtvis som en cache för att förbättra prestanda och skalbarhet i system som är starkt beroende av backend-datalager. Prestanda förbättras genom att data som används ofta tillfälligt kopieras till snabb lagring som finns nära programmet. Med [Azure Cache for Redis](https://redis.io/) finns den här snabba lagringen i Azure Cache for Redis-minnet, i stället för att den ska läsas in från en disk av en databas.
+Azure Cache for Redis är baserat på den populära programvaran [Redis](https://redis.io/). Den används vanligtvis som en cache för att förbättra prestanda och skalbarhet i system som är starkt beroende av backend-datalager. Prestanda förbättras genom att data som används ofta tillfälligt kopieras till snabb lagring som finns nära programmet. Med [Azure Cache for Redis](https://redis.io/) finns den här snabba lagringen i Azure Cache for Redis-minnet, i stället för att den ska läsas in från en disk av en databas.
 
 Azure Cache for Redis kan också användas som ett minnesinternt datastrukturarkiv, en distribuerad icke-relationell databas och en asynkron meddelandekö. Genom att utnyttja Redis-motorns korta svarstider och höga dataflöde förbättras programprestanda.
 

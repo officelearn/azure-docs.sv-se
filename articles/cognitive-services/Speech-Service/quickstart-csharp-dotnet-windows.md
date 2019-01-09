@@ -8,29 +8,27 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f5b33f0710070ff71ab52a1798773fe97965ef34
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074903"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719072"
 ---
-# <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Snabbstart: Identifiera och transkribera tal med hjälp av Speech SDK och .NET Framework (Windows)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av .NET-ramverket för Windows och Speech SDK. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
-
-Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Microsoft Speech aktiverat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra det här projektet behöver du:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* En prenumerationsnyckel för Speech Service
+* En prenumerationsnyckel för Speech Service. [Skaffa en utan kostnad](get-started.md).
 * Åtkomst till datorns mikrofon
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
@@ -63,16 +61,12 @@ För att slutföra det här projektet behöver du:
 
     ![Skärmbild av konsolens utdata efter lyckad taligenkänning](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Konsolens utdata efter lyckad taligenkänning")
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Koden är tillgänglig i mappen `quickstart/csharp-dotnet-windows`.
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Identifiera avsikter i tal med hjälp av Speech SDK för C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se även
 
-- [Översätta tal](how-to-translate-speech-csharp.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

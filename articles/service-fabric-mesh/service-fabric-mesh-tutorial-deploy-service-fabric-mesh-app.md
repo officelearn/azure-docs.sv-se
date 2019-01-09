@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963329"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788639"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Självstudie: Distribuera ett Service Fabric Mesh-program
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Självstudier: Distribuera ett Service Fabric Mesh-program
 
 Den här självstudien är del tre i en serie. Här får du se hur du publicerar ett Azure Service Fabric Mesh-webbprogram direkt från Visual Studio.
 
@@ -113,10 +113,10 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 Nu har programmet distribuerats. Du kan kontrollera statusen med kommandot `app show`. 
 
-Programnamnet för exempelprogrammet är `ServiceMeshApp`. Samla in information om programmet med följande kommando:
+Programnamnet för exempelprogrammet är `todolistapp`. Samla in information om programmet med följande kommando:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Se alla program som för närvarande distribueras till din prenumeration

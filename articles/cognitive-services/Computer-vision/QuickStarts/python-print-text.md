@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera tryckt text (OCR) REST, Python – Visuellt innehåll'
+title: 'Snabbstart: Extrahera tryckt text – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av API för visuellt innehåll med Python.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 8a435df6c30f625752339bfdf89884ce4a77ddde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 4c89ab58e214080855d9ce707ab60a8462ae930c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853803"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583535"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST-API och Python i visuellt innehåll
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST-API:et och Python i Visuellt innehåll
 
-I den här snabbstarten ska du extrahera tryckt text med optisk teckenläsning (OCR), från en bild med hjälp av REST API för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 

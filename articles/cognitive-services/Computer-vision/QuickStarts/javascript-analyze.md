@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Analysera en fjärrbild REST, JavaScript – Visuellt innehåll'
+title: 'Snabbstart: Analysera en fjärrbild – REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten får du analysera en bild med hjälp av API för visuellt innehåll med JavaScript.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: acfaed619aa8d6e90060b31023e0ae0f33709d73
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 573e65f8f1a6e092da6d46d6a98fb89b1a476179
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853038"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581138"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och JavaScript i Visuellt innehåll
 
-I den här snabbstarten ska du analysera en fjärrbild för att extrahera visuella funktioner med hjälp av REST-API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
+I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711165"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754823"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
@@ -51,14 +51,14 @@ Det här kommandot klonar lagret till den lokala git-mappen. När du vill öppna
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 Den här lösningen kräver att ditt lagringskontonamn och nyckel är säkert lagrade i miljövariabler som ligger lokalt på datorn som kör exemplet. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -148,7 +148,7 @@ handleErrors(err)
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
-Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du kan därefter ladda upp filen till den angivna sökvägen med någon av REST API:erna: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du kan sedan ladda upp filen till angiven sökväg med hjälp av ett av REST API:erna: Ladda upp (PutBlob) StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 SDK:erna erbjuder även [högnivå-API:er](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) som är skapade ovanpå lågnivå-REST API:erna. Som ett exempel på detta använder funktionen ***UploadFileToBlockBlob*** StageBlock (PutBlock)-åtgärder för att ladda upp en fil i segment för att optimera dataflödet samtidigt. Om filen är mindre än 256 MB använder den Upload (PutBlob) i stället för att slutföra överföringen i en enda transaktion.
 

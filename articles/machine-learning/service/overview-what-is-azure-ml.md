@@ -11,20 +11,20 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a9e91a2c11dbef3b3d9b887bfd6bb4b3372f3523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3d9517bfc03a4d5696a2a97bd41f391e904e4dc8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408620"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580595"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
-Azure Machine Learning-tjänsten är en molntjänst som du kan använda för att träna, distribuera, automatisera och hantera maskininlärningsmodeller i den omfattande skala som molnet ger.
+Azure Machine Learning-tjänsten är en molntjänst som du använder för att träna, distribuera, automatisera och hantera maskininlärningsmodeller i den omfattande skala som molnet ger.
 
 ## <a name="what-is-machine-learning"></a>Vad är maskininlärning?
 
-Maskininlärning är en datavetenskapsteknik som gör att datorer kan använda befintliga data för att göra prognoser om framtida beteenden, resultat och trender. Med maskininlärning kan datorer lära sig utan att vara explicit programmerade.
+Maskininlärning är en datavetenskapsteknik som gör att datorer kan använda befintliga data för att göra prognoser om framtida beteenden, resultat och trender. Genom att använda maskininlärning kan datorer lära sig utan att vara explicit programmerade.
 
 Prognoser eller förutsägelser från maskininlärning kan göra appar och enheter smartare. När du handlar på nätet kan maskininlärning till exempel användas för att rekommendera andra produkter som du kanske gillar baserat på vad du har köpt. När ditt kreditkort dras används maskininlärning för att jämföra transaktionen med en transaktionsdatabas, vilket gör det lättare att upptäcka bedrägerier. När din robotdammsugare dammsuger ett rum tar den hjälp av maskininlärning för att avgöra om jobbet är klart.
 
@@ -32,15 +32,16 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 
 Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att utveckla, träna, testa, distribuera, hantera och spåra maskininlärningsmodeller.
 
-[ ![Arbetsflöde i tjänsten Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[ ![Arbetsflöde i tjänsten Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Tjänsten Azure Machine Learning stöder tekniker för öppen källkod, vilket betyder att du kan använda tiotusentals Python-paket med öppen källkod med maskininlärningskomponenter som TensorFlow och scikit-learn.
-Stöd för avancerade verktyg såsom [Jupyter-notebooks](http://jupyter.org) eller tillägget [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) gör det enkelt att interaktivt utforska data, transformera dem och sedan utveckla och testa modeller.
+Azure Machine Learning-tjänsten har fullständigt stöd för tekniker med öppen källkod. Du kan därför använda tiotusentals Python-paket som är baserade på öppen källkod med komponenter för maskininlärning. Exempel är TensorFlow och scikit-learn.
+Stöd för omfattande verktyg gör det enkelt att interaktivt utforska data, transformera dem och sedan utveckla och testa modeller. Exempel är [Jupyter-anteckningsböcker](http://jupyter.org) eller tillägget [Azure Machine Learning för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
 Tjänsten Azure Machine Learning innehåller även funktioner som [automatiserar modellgenereringen och modeljusteringen](tutorial-auto-train-models.md) så att du enkelt och effektivt kan skapa modeller med hög precision.
 
-Med tjänsten Azure Machine Learning kan du börja träna på den lokala datorn och sedan skala ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare med hela styrkan från molnet.
+Genom att använda tjänsten Azure Machine Learning kan du börja träna på den lokala datorn och sedan skala ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
 
-När du har rätt modell kan du enkelt distribuera den i en container, till exempel Docker. Det innebär att det är enkelt att distribuera till Azure Container Instances eller Azure Kubernetes Service. Du kan också använda containern i dina egna distributioner, antingen lokalt eller i molnet. Mer information finns i dokumentet [Hur och var man distribuerar](how-to-deploy-and-where.md).
+När du har rätt modell kan du enkelt distribuera den i en container, till exempel Docker. Det är därför enkelt att distribuera till Azure Container Instances eller Azure Kubernetes Service. Du kan också använda containern i dina egna distributioner, antingen lokalt eller i molnet. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
+
 Du kan hantera de distribuerade modellerna och spåra flera körningar när du experimenterar för att hitta den bästa lösningen.
 När modellen har distribuerats kan den returnera förutsägelser i [realtid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
 
@@ -49,10 +50,10 @@ Och med avancerade [maskininlärningspipelines](concept-ml-pipelines.md) kan du 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Vad kan jag göra med tjänsten Azure Machine Learning?
 
 Azure Machine Learning-tjänsten kan träna och justera en modell automatiskt.
-Ett exempel finns i [Självstudier: Träna automatiskt en klassificeringsmodell med Azure Automated Machine Learning](tutorial-auto-train-models.md).
+Ett exempel finns i [Träna en regressionsmodell med automatiserad maskininlärning](tutorial-auto-train-models.md).
 
-Du kan använda Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod och skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på en arbetsyta i Azure Machine Learning-tjänsten.
-Du kan välja bland många maskininlärningskomponenter som är tillgängliga i Python-paket med öppen källkod, till exempel följande:
+Genom att använda Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod kan du skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på Azure Machine Learning-tjänstens arbetsyta.
+Du kan välja bland många maskininlärningskomponenter som är tillgängliga i Python-paket med öppen källkod, såsom följande exempel:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
@@ -60,14 +61,14 @@ Du kan välja bland många maskininlärningskomponenter som är tillgängliga i 
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-När du har en modell kan du bara använda den för att skapa en container (till exempel Docker) som kan distribueras lokalt för testning. När testningen är klar kan modellen distribueras som en produktionswebbtjänst i antingen Azure Container Instances eller Azure Kubernetes Service. Mer information finns i dokumentet [Hur och var man distribuerar](how-to-deploy-and-where.md).
+När du har en modell kan du bara använda den för att skapa en container, till exempel Docker, som kan distribueras lokalt för testning. När testningen är klar kan du distribuera modellen som en produktionswebbtjänst i antingen Azure Container Instances eller Azure Kubernetes Service. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
 
 Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) eller [Azure-portalen](https://portal.azure.com/).
 Du kan utvärdera modellmått, träna om och distribuera om nya versioner av modellen samtidigt som du spårar modellens experiment.
 
-Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps) nedan.
+Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps).
 
-## <a name="how-is-azure-machine-learning-service-different-from-studio"></a>Hur skiljer sig tjänsten Azure Machine Learning från Studio?
+## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Hur skiljer sig tjänsten Azure Machine Learning från Machine Learning Studio?
 
 Azure Machine Learning Studio är en gemensam, visuell ”dra och släpp”-arbetsyta där du kan skapa, testa och distribuera maskininlärningslösningar utan att behöva skriva kod. Den använder fördefinierade och förkonfigurerade maskininlärningsalgoritmer och datahanteringsmoduler.
 
@@ -88,7 +89,7 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 - Skapa en arbetsyta för maskininlärningstjänsten för att komma igång [med hjälp av Azure-portalen](quickstart-get-started.md) eller [i Python](quickstart-create-workspace-with-python.md).
 
-- Följ den fullständiga självstudien, [Träna och distribuera en bildklassificeringsmodell med Azure Machine Learning](tutorial-train-models-with-aml.md).
+- Följ den fullständiga självstudien, [Träna en bildklassificeringsmodell med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
 - [Använd Azure Machine Learning för att automatiskt skapa och justera en modell](tutorial-auto-train-models.md).
 
@@ -98,7 +99,7 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 - Läs den ingående artikeln om [arkitekturen och begrepp för Azure Machine Learning-tjänsten](concept-azure-machine-learning-architecture.md).
 
-- Mer information om andra maskininlärningsprodukter från Microsoft finns i artikeln om [andra maskininlärningsprodukter från Microsoft](./overview-more-machine-learning.md).
+- Mer information finns i [andra produkter för maskininlärning från Microsoft](./overview-more-machine-learning.md).
 
 
 <!-- 

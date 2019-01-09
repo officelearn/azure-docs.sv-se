@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 70c24b8aef1672696c0e7d7289e23b98b6b49dfe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341447"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630592"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53341447"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core-webbapp i App Service på Linux](./containers/quickstart-dotnetcore.md). 
 >
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar din första ASP.NET Core-webbapp till Azure Web Apps. När du är klar har du en resursgrupp som består av en App Service-plan och en Azure-webbapp med en distribuerad webbapp.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabbstarten visar hur du distribuerar din första ASP.NET Core-webbapp till Azure App Service. När du är klar har du en resursgrupp som består av en App Service-plan och en App Service-app med en distribuerad webbapp.
 
 ![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -147,13 +147,13 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 ![Uppdaterad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
-## <a name="manage-the-azure-web-app"></a>Hantera Azure-webbappen
+## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
 
 Klicka på **App Services** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-dotnet/access-portal.png)
+![Portalnavigering till Azure-app](./media/app-service-web-get-started-dotnet/access-portal.png)
 
 Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 

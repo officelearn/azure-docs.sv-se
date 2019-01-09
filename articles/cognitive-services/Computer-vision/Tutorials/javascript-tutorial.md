@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: API för visuellt innehåll med JavaScript'
+title: 'Självstudier: Utföra åtgärder för avbildning – JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Utforska en grundläggande JavaScript-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341318"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581383"
 ---
-# <a name="tutorial-computer-vision-api-javascript"></a>Självstudie: API för visuellt innehåll med JavaScript
+# <a name="tutorial-computer-vision-api-javascript"></a>Självstudier: API för visuellt innehåll med JavaScript
 
 Den här självstudien visar funktionerna i Azure Cognitive Services REST API för visuellt innehåll.
 
@@ -494,7 +495,7 @@ Optisk teckenigenkänning (OCR)-funktionen för visuellt innehåll analyserar en
 
 Utför följande steg för att slutföra OCR-funktionen i självstudien:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR steg 1: Lägg till händelsehanterarkoden för formulär-knappen
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR steg 1: Lägga till händelsehanterarkoden för formulär-knappen
 
 Öppna filen **ocr.html** i en textredigerare och leta upp funktionen **ocrButtonClick** i slutet av filen.
 

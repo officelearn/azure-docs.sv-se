@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319361"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537587"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
@@ -55,7 +55,7 @@ Om du vill distribuera till Web App for Containers installerar du Docker på Jen
 Du behöver ett Azure-tjänsthuvudnamn för att kunna distribuera till Azure. 
 
 
-1. Skapa en Azure-tjänsthuvudnamn med [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) eller [Azure-portalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. Skapa ett Azure-tjänsthuvudnamn med hjälp av [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) eller [Azure-portalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. På Jenkins-instrumentpanelen väljer du **Autentiseringsuppgifter** > **System**. Välj sedan **Globala autentiseringsuppgifter (obegränsade)**.
 3. Lägg till ett tjänsthuvudnamn för Microsoft Azure genom att välja **Lägg till autentiseringsuppgifter**. Ange värden i fälten **Prenumerations-ID**, **Klient-ID**, **Klienthemlighet** och **OAuth 2.0 Token Endpoint**. Ange fältet **ID** till **mySp**. Vi använder detta ID i efterföljande steg i den här artikeln.
 
@@ -64,9 +64,9 @@ Du behöver ett Azure-tjänsthuvudnamn för att kunna distribuera till Azure.
 
 För att distribuera projektet till Web Apps kan du ladda upp dina byggartefakter genom filuppladdning. Azure App Service har stöd för flera olika distributionsalternativ. Jenkins-pluginprogrammet för Azure App Service gör det enkelt för dig och hämtar distributionsalternativ baserat på filtypen. 
 
-* För Java EE-program används [WAR-distribution](/azure/app-service/app-service-deploy-zip#deploy-war-file).
-* För Java SE-program används [ZIP-distribution](/azure/app-service/app-service-deploy-zip#deploy-zip-file).
-* För övriga språk används [Git-distribution](/azure/app-service/app-service-deploy-local-git).
+* För Java EE-program används [WAR-distribution](/azure/app-service/deploy-zip#deploy-war-file).
+* För Java SE-program används [ZIP-distribution](/azure/app-service/deploy-zip#deploy-zip-file).
+* För övriga språk används [Git-distribution](/azure/app-service/deploy-local-git).
 
 Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och en webbapp för att köra Java-appen.
 
@@ -100,7 +100,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
 4. Lägg till en efterkompileringsåtgärd genom att välja **Publicera en Azure Web App**.
 5. Ange **mySp** som Azure-tjänstens huvudnamn. Detta huvudnamn lagrades som [Azure-autentiseringsuppgifter](#service-principal) i ett tidigare steg.
 6. I avsnittet **Appkonfiguration** väljer du resursgruppen och webbappen i din prenumeration. Plugin-programmet Jenkins känner automatiskt av om webbappen är baserad på Windows eller Linux. För en Windows-webbapp visas alternativet **Publicera filer**.
-7. Fyll i de filer som du vill distribuera. Ange till exempel WAR-paketet om du använder Java. Använd de valfria parametrarna för **källkatalog** och **målkatalog** för att ange käll- och målmappar för filuppladdning. Java-webbappen i Azure körs på en Tomcat-server. För Java laddar du därför upp ditt WAR-paket till webbappens mapp. För det här exemplet anger du värdet för **Källkatalog** till **target** (mål) och värdet för **Målkatalog** till **webapps**.
+7. Fyll i de filer som du vill distribuera. Ange till exempel WAR-paketet om du använder Java. Använd de valfria parametrarna för **källkatalog** och **målkatalog** för att ange käll- och målmappar för filuppladdning. Java-webbappen i Azure körs på en Tomcat-server. För Java laddar du därför upp WAR-paketet till mappen webbapps. För det här exemplet anger du värdet för **Källkatalog** till **target** (mål) och värdet för **Målkatalog** till **webapps**.
 8. Om du vill distribuera till en annan plats än produktion kan du också ange namnet för **Slot** (fack).
 9. Spara projektet och kompilera det. Din webbapp distribueras till Azure när kompileringen är klar.
 
@@ -131,7 +131,7 @@ Plugin-programmet Jenkins i Azure App Service är klart för pipeline. Du kan re
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Konfigurera Jenkins för distribution av Web App för Containers
 
-Web Apps på Linux har stöd för distributioner med Docker. För att kunna distribuera webbappen med Docker måste du ange en Dockerfile som paketerar webbappen med en tjänst-CLR till en Docker-avbildning. Plugin-programmet Jenkins skapar sedan avbildningen, skickar den till ett Docker-register och distribuerar avbildningen till webbappen.
+Web Apps på Linux har stöd för distributioner med Docker. För att kunna distribuera webbappen med hjälp av Docker behöver du ange en Dockerfile som paketerar webbappen med en tjänstkörning till en Docker-avbildning. Plugin-programmet Jenkins skapar sedan avbildningen, skickar den till ett Docker-register och distribuerar avbildningen till webbappen.
 
 Web Apps på Linux kan också användas med traditionella distributionsmetoder som Git och filuppladdning, men endast för inbyggda språk (.NET Core, Node.js, PHP och Ruby). För andra språk än dessa måste du paketera programkoden och tjänst-CLR:en tillsammans i en Docker-avbildning och använda Docker för distributionen.
 
@@ -161,7 +161,7 @@ För värdet **URL för Docker-register** anger du webbadressen i formatet https
     az acr credential show -n <yourRegistry>
     ```
 
-10. Docker-avbildningens namn och taggvärde på fliken **Avancerat** är valfria. Som standard hämtas värdet för avbildningens namn från det avbildningsnamn som du konfigurerade i Azure-portalen i inställningen för **Docker Container**. Taggen genereras från $BUILD_NUMBER.
+10. Docker-avbildningens namn och taggvärde på fliken **Avancerat** är valfria. Som standard hämtas värdet för avbildningens namn från det avbildningsnamn som du konfigurerade i Azure-portalen i inställningen för **Docker Container**. Taggen genereras från $BUILD_NUMBER.
     > [!NOTE]
     > Du måste ange avbildningens namn i Azure-portalen eller ange ett värde för **Docker-avbildning** på fliken **Avancerat**. I det här exemplet ställer du in värdet **Docker-avbildning** till &lt;ditt_Register>.azurecr.io/calculator och lämnar värdet **Docker Image Tab** (Docker-avbildningstagg) tomt.
 

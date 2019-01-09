@@ -1,197 +1,198 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Box | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/09/2018
+ms.topic: tutorial
+ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 535f59b1b0dc56b183c8a019d101b4fd4f1bfad6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: MT
+ms.openlocfilehash: 188405d110b164d2c83a2a25d0c8705cba04a9e3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116133"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810873"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-box"></a>Självstudier: Azure Active Directory-integrering med
+# <a name="tutorial-azure-active-directory-integration-with-box"></a>Självstudier: Azure Active Directory-integrering med Box
 
-Lär dig hur du integrerar Box med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Box med Azure Active Directory (AD Azure).
+Genom att integrera Box med Azure AD får du följande fördelar:
 
-Integrera Box med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Box.
+* Du kan göra så att dina användare automatiskt loggas in på Box (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Box.
-- Du kan aktivera användarna att automatiskt få loggat in till Box (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med Box:
 
-Om du vill konfigurera Azure AD-integrering med, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En ruta enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Box-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Box från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-box-from-the-gallery"></a>Att lägga till Box från galleriet
-För att konfigurera integrering av rutan i Azure AD, som du behöver lägga till Box från galleriet i din lista över hanterade SaaS-appar.
+* Box har stöd för **SP**-initierad enkel inloggning
+* Box stöder **just-in-time**-användaretablering
+* Box stöder [automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) 
+
+## <a name="adding-box-from-the-gallery"></a>Lägga till Box från galleriet
+
+För att konfigurera integrering av Box i Azure AD behöver du lägga till Box från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Box från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![image](./media/box-tutorial/selectazuread.png)
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![image](./media/box-tutorial/a_select_app.png)
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![image](./media/box-tutorial/a_new_app.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-4. I sökrutan skriver **Box**väljer **Box** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-     ![image](./media/box-tutorial/tutorial_Box_addfromgallery.png)
+4. I sökrutan skriver du **Box**, väljer **Box** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+     ![Box i resultatlistan](common/search-new-app.png)
 
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med rutan utifrån en testanvändare som kallas ”Britta Simon”.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Box till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Box baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Box upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med, måste du utföra följande byggblock:
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Box:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare i rutan](#create-a-box-test-user)**  – du har en motsvarighet för Britta Simon i rutan som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Box](#configure-box-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Box-testanvändare](#create-box-test-user)** – för att ha en motsvarighet till Britta Simon i Box som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Box-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Box:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Box** application integration markerar **enkel inloggning**.
+1. På [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Box** och väljer **Enkel inloggning**.
 
-    ![image](./media/box-tutorial/b1_b2_select_sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![image](./media/box-tutorial/b1_b2_saml_sso.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![image](./media/box-tutorial/b1-domains_and_urlsedit.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I den **inloggnings-URL** text skriver en URL med hjälp av följande mönster: `https://<SUBDOMAIN>.account.box.com`
+    ![Box-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    b. I den **identifierare** textrutan anger du ett URL:`box.net`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL enligt följande mönster: `https://<SUBDOMAIN>.account.box.com`
 
-    ![image](./media/box-tutorial/tutorial_box_url.png)
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `box.net`
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [Box supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) att hämta värdet.
- 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **Federation Metadata-XML**  och spara den på din dator.
+    > [!NOTE]
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Box-klienten](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![image](./media/box-tutorial/tutorial_Box_certificate.png)
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-6. Om du vill konfigurera enkel inloggning för ditt program, följer du anvisningarna i [Konfigurera enkel inloggning på din egen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown). 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
->[!NOTE]
->Om det inte går att konfigurera inställningar för enkel inloggning för ditt Box-konto, måste du skicka den hämtade **XML-Metadata för Federation** till [Box supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+### <a name="configure-box-single-sign-on"></a>Konfigurera enkel inloggning för Box
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+Om du vill konfigurera enkel inloggning för ditt program följer du proceduren i avsnittet om att [konfigurera enkel inloggning på egen hand](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+> [!NOTE]
+> Om du inte kan konfigurera inställningarna för enkel inloggning för ditt Box-konto behöver du skicka den nedladdade **Federation Metadata-XML** till [supportteamet för Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![image](./media/box-tutorial/d_users_and_groups.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-2. Välj **ny användare** överst på skärmen.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![image](./media/box-tutorial/d_adduser.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![image](./media/box-tutorial/d_userproperties.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
- 
-### <a name="create-a-box-test-user"></a>Skapa en testanvändare i Box
+    d. Klicka på **Skapa**.
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Box. Box har stöd för just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att ansluta Box om det inte finns ännu.
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Box supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Box.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Box.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Box**.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![image](./media/box-tutorial/d_all_applications.png)
+2. I listan över program skriver och väljer du **Box**.
 
-2. I listan med program väljer **Box**.
+    ![Box-länken i programlistan](common/all-applications.png)
 
-    ![image](./media/box-tutorial/tutorial_Box_app.png)
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-3. I menyn till vänster väljer **användare och grupper**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![image](./media/box-tutorial/d_leftpaneusers.png)
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-4. Välj den **Lägg till** knappen och välj **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![image](./media/box-tutorial/d_assign_user.png)
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+### <a name="create-box-test-user"></a>Skapa Box-testanvändare
 
-När du väljer den **Box** panelen i åtkomstpanelen, komma på inloggningssidan för att logga in i ditt Box-program.
+I det här avsnittet skapas en användare som heter Britta Simon i Box. Box stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Box skapas en ny efter autentisering.
+
+> [!NOTE]
+> Om du behöver skapa en användare manuellt kontaktar du [supportteamet för Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på Box-panelen i åtkomstpanelen bör du automatiskt loggas in på Box som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera användaretablering](box-userprovisioning-tutorial.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

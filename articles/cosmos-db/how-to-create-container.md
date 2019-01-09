@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 66fdb1313177b6f6a285f7d1b1b02dadac9472cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088195"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810448"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Skapa en container i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ## <a name="create-a-container-using-azure-portal"></a>Skapa en container med hjälp av Azure-portalen
 
-### <a id="portal-sql"></a>SQL (Core) API
+### <a id="portal-sql"></a>SQL-API
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ![SQL API skapar en samling](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb">MongoDB-API</a>
+### <a id="portal-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -51,7 +51,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
    * Ange ett dataflöde, till exempel 1 000 RU.
    * Välj **OK**.
 
-![MongoDB-API skapar en samling](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![API för Azure Cosmos DB för MongoDB skapar en mängd](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>API för Cassandra
 
@@ -109,7 +109,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ## <a name="create-a-container-using-azure-cli"></a>Skapa en container med hjälp av Azure CLI
 
-### <a id="cli-sql"></a>SQL (Core) API
+### <a id="cli-sql"></a>SQL-API
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -123,7 +123,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>MongoDB API
+### <a id="cli-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -191,7 +191,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb">MongoDB-API</a>
+### <a id="dotnet-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -199,7 +199,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB har inget koncept för begäransenheter. Använd Azure-portalen eller SQL API för att skapa en ny samling med dataflöde, som visas i föregående exempel.
+MongoDB-kabelprotokollet har inget koncept för begäransenheter. Skapa en ny samling med dataflöde genom att använda Azure Portal eller SQL-API så som visas i föregående exempel.
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra
 

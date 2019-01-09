@@ -8,19 +8,19 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423617"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754228"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av .NET API:et
 
-Använd Azure Batch till att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i Azure. I den här självstudien går vi igenom ett C#-exempel på att köra en parallell arbetsbelastning med Batch. Du lär dig ett vanligt arbetsflöde för Batch-program och hur du interagerar programmatiskt med Batch- och Storage-resurser. Lär dig att:
+Använd Azure Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i Azure. I den här självstudien går vi igenom ett C#-exempel på att köra en parallell arbetsbelastning med Batch. Du lär dig ett vanligt arbetsflöde för Batch-program och hur du interagerar programmatiskt med Batch- och Storage-resurser. Lär dig att:
 
 > [!div class="checklist"]
 > * lägga till ett programpaket i Batch-kontot
@@ -175,8 +175,8 @@ Sedan laddas filerna upp till containern för indata från den lokala mappen `In
 
 Två metoder i `Program.cs` hanterar uppladdningen av filerna:
 
-* `UploadResourceFilesToContainerAsync`: returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
-* `UploadResourceFileToContainerAsync`: laddar upp varje fil som en blob till containern för indata. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den.
+* `UploadResourceFilesToContainerAsync`: Returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
+* `UploadResourceFileToContainerAsync`: Laddar upp varje fil som en blob till indatacontainern. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -248,11 +248,14 @@ await job.CommitAsync();
 
 I exemplet skapas uppgifterna i jobbet med ett anrop till metoden `AddTasksAsync`, som skapar en lista med [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask)-objekt. Varje `CloudTask` kör ffmpeg för bearbetning av ett `ResourceFile`-indataobjekt med egenskapen [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). ffmpeg installerades tidigare på varje nod när poolen skapades. Här kör kommandoraden ffmpeg för att konvertera varje MP4-indatafil (video) till en MP3-fil (ljud).
 
-I exemplet skapas ett [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles).
+I exemplet skapas ett [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles). Tidigare i kodexemplet hämtades en signatur-URL för delad åtkomst (`outputContainerSasUrl`) för att ge skrivåtkomst till utdatacontainern. Observera de villkor som angetts på objektet `outputFile`. En utdatafil från en uppgift laddas upp till containern först när uppgiften har slutförts (`OutputFileUploadCondition.TaskSuccess`). Ytterligare information om implementering finns i det fullständiga [kodexemplet](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) på GitHub.
 
 Sedan lägger exemplet till uppgifter i jobbet med metoden [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), som placerar dem i kö för att köras på beräkningsnoderna.
 
 ```csharp
+ // Create a collection to hold the tasks added to the job.
+List<CloudTask> tasks = new List<CloudTask>();
+
 for (int i = 0; i < inputFiles.Count; i++)
 {
     string taskId = String.Format("Task{0}", i);
@@ -265,7 +268,7 @@ for (int i = 0; i < inputFiles.Count; i++)
         ".mp3");
     string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
-    // Create a cloud task (with the task ID and command line) 
+    // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
 

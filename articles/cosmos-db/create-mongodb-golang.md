@@ -1,22 +1,22 @@
 ---
-title: 'Azure Cosmos DB: Skapa en MongoDB-API-webbapp med Golang och Azure Portal'
-description: Anger ett Golang-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB
+title: Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Golang SDK
+description: Presenterar ett Golang-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: quickstart
-ms.date: 07/21/2017
-ms.author: sclyon
-ms.custom: mvc
-ms.openlocfilehash: a05ca8602ad3b5ea3135ad2ce915bdc38359bfd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/26/2018
+ms.author: rimman
+ms.custom: quickstart
+ms.openlocfilehash: 7fb1e547f58f2297378b0c95cdea67182a416e04
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089568"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791616"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en MongoDB-API-webbapp med Golang och Azure Portal
+# <a name="build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Golang SDK
 
 > [!div class="op_single_selector"]
 > * [NET](create-mongodb-dotnet.md)
@@ -27,11 +27,11 @@ ms.locfileid: "53089568"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
-Den här snabbstarten visar hur du använder en befintlig MongoDB-app som skrivits i [Golang](https://golang.org/) och ansluter den till din Microsoft Azure Cosmos DB-databas, som stöder MongoDB-klientanslutningar genom att använda [MongoDB API](mongodb-introduction.md).
+Den här snabbstarten visar hur du använder en befintlig MongoDB-app som skrivits i [Golang](https://golang.org/) och ansluter den till din Cosmos-databas med hjälp av Azure Cosmos DB:s API för MongoDB.
 
-Med andra ord vet ditt Golang-program bara att det ansluter till en databas som använder MongoDB-API:er. Det är transparent för programmet att data lagras i Azure Cosmos DB.
+Med andra ord vet ditt Golang-program bara att det ansluter med hjälp av en MongoDB-klient. Det är tydligt för programmet att data lagras i en Cosmos-databas.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -93,14 +93,14 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Följande kodfragment är alla hämtade från filen main.go.
 
-### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Ansluta Go-appen till Azure Cosmos DB
+### <a name="connecting-the-go-app-to-cosmos-db"></a>Ansluta Go-appen till Cosmos DB
 
-Azure Cosmos DB stöder SSL-aktiverad MongoDB. Om du vill ansluta till en SSL-aktiverad MongoDB måste du definiera funktionen **DialServer** i [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) och utföra anslutningen med funktionen [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial).
+Azure Cosmos DB:s API för MongoDB stöder den SSL-aktiverade inloggningen. Om du vill ansluta måste du definiera funktionen **DialServer** i [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) och utföra anslutningen med funktionen [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial).
 
-Följande Golang-kodfragment ansluter Go-appen till Azure Cosmos DB MongoDB-API:t. Klassen *DialInfo* innehåller alternativ för att upprätta en session med ett MongoDB-kluster.
+Följande Golang-kodfragment ansluter Go-appen till Azure Cosmos DB:s API för MongoDB. Klassen *DialInfo* innehåller alternativ för att upprätta en session.
 
 ```go
-// DialInfo holds options for establishing a session with a MongoDB cluster.
+// DialInfo holds options for establishing a session.
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
@@ -113,11 +113,11 @@ dialInfo := &mgo.DialInfo{
 }
 
 // Create a session which maintains a pool of socket connections
-// to our Azure Cosmos DB MongoDB database.
+// to Cosmos database (using Azure Cosmos DB's API for MongoDB).
 session, err := mgo.DialWithInfo(dialInfo)
 
 if err != nil {
-    fmt.Printf("Can't connect to mongo, go error %v\n", err)
+    fmt.Printf("Can't connect, go error %v\n", err)
     os.Exit(1)
 }
 
@@ -172,7 +172,7 @@ if err != nil {
 
 ### <a name="query-or-read-a-document"></a>Fråga eller läsa ett dokument
 
-Azure Cosmos DB stöder komplexa frågor mot JSON-dokument som lagras i varje samling. Följande exempelkod visar en fråga som du kan köra mot dokumenten i samlingen.
+Cosmos DB stöder komplexa frågor mot data som lagras i varje samling. Följande exempelkod visar en fråga som du kan köra mot dokumenten i samlingen.
 
 ```go
 // Get a Document from the collection
@@ -202,7 +202,7 @@ if err != nil {
 
 ### <a name="delete-a-document"></a>Ta bort ett dokument
 
-Azure Cosmos DB har stöd för borttagning av JSON-dokument.
+Cosmos DB stöder borttagning av dokument.
 
 ```go
 // Delete a document
@@ -216,9 +216,9 @@ if err != nil {
     
 ## <a name="run-the-app"></a>Kör appen
 
-1. I Goglang ser du till att din GOPATH (finns under **File** (Arkiv), **Settings** (Inställningar), **Go**, **GOPATH**) innehåller den plats där gopkg har installerats. Platsen är USERPROFILE\go som standard. 
+1. I Golang ser du till att din GOPATH (finns under **File** (Arkiv), **Settings** (Inställningar), **Go**, **GOPATH**) innehåller den plats där gopkg har installerats. Platsen är USERPROFILE\go som standard. 
 2. Kommentera ut de rader som tar bort dokumentet (rad 103-107), så att du kan se dokumentet när appen har körts.
-3. Klicka på **Run** (Kör) i Goglang och sedan på **Run 'Build main.go and run'** (Bygg och kör main.go).
+3. Klicka på **Run** (Kör) i Golang och sedan på **Run 'Build main.go and run'** (Bygg och kör main.go).
 
     Appen avslutas och en beskrivning av dokumentet som skapats i [Skapa ett dokument](#create-document) visas.
     
@@ -228,7 +228,7 @@ if err != nil {
     Process finished with exit code 0
     ```
 
-    ![Utdata för appen i Goglang](./media/create-mongodb-golang/goglang-cosmos-db.png)
+    ![Utdata för appen i Golang](./media/create-mongodb-golang/goglang-cosmos-db.png)
     
 ## <a name="review-your-document-in-data-explorer"></a>Granska dokumentet i Datautforskaren
 
@@ -250,7 +250,7 @@ Gå tillbaka till Azure Portal för att visa dokumentet i Datautforskaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto och kör en Golang-app via API:t för MongoDB. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
+I den här snabbstarten har du lärt dig hur du skapar ett Cosmos-konto och kör en Golang-app. Du kan nu importera ytterligare data till din Cosmos-databas. 
 
 > [!div class="nextstepaction"]
-> [Importera data till Azure Cosmos DB för användning med MongoDB-API:t](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)

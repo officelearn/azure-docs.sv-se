@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: bd72aad51d2649ba6f110ab07b3f85d58da2a09d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6086c3d3bc025feaf9da2d4c26d7f008b304b57
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867043"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788131"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Skapa en MongoDB-app med React och Azure Cosmos DB  
 
-Den här videobaserade självstudiekursen i flera dela demonstrerar hur du skapar en hero-spårningsapp med en React-klient. Appen använder Node och Express för servern, ansluter till Azure Cosmos DB med [MongoDB-API:et](mongodb-introduction.md) och ansluter sedan React-klienten till serverdelen av appen. I den här självstudiekursen lär du dig också hur du skalar Azure Cosmos DB på Azure-portalen genom att bara peka och klicka samt hur du distribuerar appen till Internet så att alla kan spåra sina heroes-favoritkomponenter. 
+Den här videobaserade självstudiekursen i flera dela demonstrerar hur du skapar en hero-spårningsapp med en React-klient. Appen använder Node och Express för servern, ansluter till Cosmos-databasen konfigurerad med [Azure Cosmos DB:s API för MongoDB](mongodb-introduction.md) och ansluter sedan React-klientdelen till appens serverdel. I den här självstudien lär du dig även hur du skalar Cosmos DB på Azure-portalen genom att peka och klicka samt hur du distribuerar appen till Internet så att alla kan spåra sina heroes-favoritkomponenter. 
 
-Eftersom [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stöder MongoDB-klientanslutningar kan du använda Azure Cosmos DB i stället för MongoDB, men använda samma kod som du använder för MongoDB-appar, men med ytterligare fördelar som enkel molndistribution, skalning och blixtsnabba läsningar och skrivningar.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stöder kompatibilitet för trådprotokoll med MongoDB, vilket gör att klienter kan använda Azure Cosmos DB i stället för MongoDB.  
 
 Den här självstudiekursen i flera delar består av följande uppgifter:
 

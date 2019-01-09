@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299211"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971690"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till en SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -217,7 +217,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
     ![Fliken Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### <a name="confugure-mapping"></a>Konfigurera mappning
+### <a name="configure-mapping"></a>Konfigurera mappning
 
 Gå till fliken **Mappning** längst ned i fönstret **Egenskaper** och välj **Importera scheman**. Lägg märke till att den första och andra kolumnen i källfilen är mappade till **FirstName** och **LastName** i SQL-databasen.
 

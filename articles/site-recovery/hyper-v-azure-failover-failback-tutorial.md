@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833473"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794217"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Redundans och återställning vid fel för virtuella Hyper-V-datorer som replikeras till Azure
 
@@ -40,7 +40,7 @@ Kontrollera att det inte finns några ögonblicksbilder på den virtuella datorn
 Redundansväxling och återställning efter fel har tre stadier:
 
 1. **Redundansväxling till Azure**: Redundansväxling av virtuella Hyper-V-datorer från den lokala platsen till Azure.
-2. **Återställning efter fel till lokal plats**: Redundansväxling av virtuella Azure-datorer till den lokala platsen när den lokala platsen är tillgänglig. Data börjar synkroniseras från Azure till den lokala platsen och när det slutförts blir alla virtuella datorer lokala.  
+2. **Redundansväxling till lokal plats**: Redundansväxling av virtuella Azure-datorer till den lokala platsen när den lokala platsen är tillgänglig. Data börjar synkroniseras från Azure till den lokala platsen och när det slutförts blir alla virtuella datorer lokala.  
 3. **Omvänd replikering av lokala virtuella datorer**: Efter återställning till lokal plats kan du utföra en omvänd replikering av lokala virtuella datorer för att börja replikera dem till Azure.
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
@@ -65,7 +65,7 @@ I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
 4. När du har verifierat redundansväxlingen väljer du **Genomför**. Detta raderar alla tillgängliga återställningspunkter.
 
 > [!WARNING]
-> **Avbryt inte en pågående redundans**: Om du avbryter en pågående redundansväxling så stoppas den, men den virtuella datorn kommer inte att replikera igen.
+> **Avbryt inte en redundansväxling som pågår**: Om du avbryter en pågående redundansväxling stoppas den, men den virtuella datorn kommer inte att replikeras igen.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Återställ virtuella Azure-datorer till lokala platser och utför omvänd replikering av lokala virtuella datorn
 

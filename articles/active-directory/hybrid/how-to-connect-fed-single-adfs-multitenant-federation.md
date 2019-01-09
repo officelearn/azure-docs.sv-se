@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 951b47c7193b2b405def9831e94c5e29faff3119
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412443"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791124"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federera flera instanser av Azure AD med en enda instans av AD FS
 
@@ -45,15 +45,15 @@ För att AD FS i contoso.com ska kunna autentisera användare i fabrikam.com kr�
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Steg 2: Ändra federationsinställningarna för contoso.com 
  
-Standardutfärdaren för en enskild domän som federeras till AD FS är "http://ADFSServiceFQDN/adfs/services/trust", t.ex. `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory kräver en unik utfärdare för varje federerad domän. Eftersom samma AD FS ska federera två domäner måste utfärdarens värde ändras så att det är unikt för varje domän som AD FS federerar med Azure Active Directory. 
+Standardutfärdaren för en enskild domän som federeras till AD FS är ”http\://ADFSServiceFQDN/adfs/services/trust”, till exempel `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory kräver en unik utfärdare för varje federerad domän. Eftersom samma AD FS ska federera två domäner måste utfärdarens värde ändras så att det är unikt för varje domän som AD FS federerar med Azure Active Directory. 
  
 Öppna Azure AD PowerShell på AD FS-servern (se till att MSOnline-modulen är installerad) och utför följande steg:
  
 Anslut till den Azure Active Directory som innehåller domänen contoso.com Connect-MsolService Uppdatera federationsinställningarna för contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
-Utfärdaren i inställningen för domänfederation ändras till http://contoso.com/adfs/services/trust och en anspråksregel för utfärdande läggs till så att den förlitande Azure AD-parten kan utfärda rätt issuerId-värde baserat på UPN-suffixet.
+Utfärdaren i inställningen för domänfederation ändras till ”http\://contoso.com/adfs/services/trust” och en anspråksregel för utfärdande läggs till så att den förlitande Azure AD-parten kan utfärda rätt issuerId-värde baserat på UPN-suffixet.
  
-## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Step 3: Federera fabrikam.com med AD FS
+## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Steg 3: Federera fabrikam.com med AD FS
  
 Gör följande i Azure AD PowerShell-sessionen: Anslut till Azure Active Directory som innehåller domänen fabrikam.com
 

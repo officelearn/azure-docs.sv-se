@@ -1,23 +1,20 @@
 ---
-title: 'Självstudie: Utforma Azure Database for PostgreSQL med Azure Portal'
+title: 'Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure-portalen'
 description: I den här självstudien visar vi hur du utformar din första Azure Database for PostgreSQL med Azure-portalen.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406390"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536533"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Självstudie: Utforma Azure Database for PostgreSQL med Azure Portal
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure-portalen
 
 Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. I Azure-portalen kan du enkelt hantera servern och utforma en databas.
 
@@ -27,7 +24,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 
@@ -51,7 +48,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     ![Skapa en server](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
     - Servernamn: **mydemoserver** (namnet på en server mappar till DNS-namnet och behöver därför vara globalt unikt) 
-    - Prenumeration: Om du har flera prenumerationer, väljer du lämplig prenumeration där resursen ska finnas eller debiteras till.
+    - Prenumeration: Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras.
     - Resursgrupp: **myresourcegroup**
     - Valfritt inloggningsnamn och lösenord för serveradministratören
     - Plats
@@ -197,7 +194,7 @@ Anta att du har tagit bort den här tabellen av misstag. Det är inte så enkelt
 
    - **Återställningspunkt**: Välj en tidpunkt innan servern ändrades
    - **Målserver**: Ange ett nytt servernamn som du vill återställa till
-   - **Plats**: Du kan inte välja region, som standard är det samma som källservern
+   - **Plats**: Du kan inte välja region; som standard är det samma som källservern
    - **Prisnivå**: Du kan inte ändra det här värdet när du återställer en server. Det är samma som källservern. 
 3.  Klicka på **OK** om du vill [återställa servern till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. Om du återställer en server till en annan tidpunkt skapas en dubblett av den ursprungliga servern vid den tidpunkt du angav, förutsatt att den infaller inom kvarhållningsperioden för din [prisnivå](./concepts-pricing-tiers.md).
 
@@ -208,8 +205,8 @@ I den här självstudien har du lärt dig hur du använder Azure-portalen och an
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Nu ska du lära dig hur du använder Azure CLI till liknande aktiviteter. Gå till följande självstudie: [Utforma din första Azure Database for PostgreSQL med Azure CLI](tutorial-design-database-using-azure-cli.md)
+Gå igenom följande självstudie och lär dig hur du använder Azure CLI till att utföra liknande aktiviteter: [Utforma din första Azure Database for PostgreSQL med hjälp av Azure CLI](tutorial-design-database-using-azure-cli.md)

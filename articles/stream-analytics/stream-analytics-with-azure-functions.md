@@ -2,8 +2,7 @@
 title: 'Självstudier: Kör Azure Functions med Azure Stream Analytics-jobb | Microsoft Docs'
 description: I den här självstudien får du lära dig att konfigurera Azure Functions som kanalmottagare för Stream Analytics-jobb.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164168"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993016"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -152,7 +151,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Öppna ditt Stream Analytics-jobb på Azure-portalen.  
 
-2. Bläddra till din funktion och välj **Översikt** > **Utdata** > **Lägg till**. Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Den nya utdataadaptern för Functions är tillgänglig med följande egenskaper:  
+2. Bläddra till din funktion och välj **Översikt** > **Utdata** > **Lägg till**. Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Utdataadaptern för Functions har följande egenskaper:  
 
    |**Egenskapsnamn**|**Beskrivning**|
    |---|---|
@@ -160,7 +159,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
    |Importalternativ| Du kan använda funktionen från den aktuella prenumerationen eller ange inställningarna manuellt om funktionen finns i en annan prenumeration. |
    |Funktionsapp| Namnet på din Functions-app. |
    |Funktion| Namnet på funktionen i din Functions-app (namnet på din run.csx-funktion).|
-   |Max batchstorlek|Anger den maximala storleken för varje utdatabatch som skickas till din funktion. Som standard är värdet är inställt på 256 kB.|
+   |Max batchstorlek|Anger den maximala storleken i byte för varje utdatabatch som skickas till din funktion. Som standard är värdet är inställt på 262 144 byte (256 kB).|
    |Max batchantal|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
    |Nyckel|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
 

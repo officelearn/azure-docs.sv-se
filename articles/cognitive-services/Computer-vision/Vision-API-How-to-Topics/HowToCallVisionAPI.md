@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Anropa API:et för visuellt innehåll'
+title: 'Exempel: Anropa API för att analysera bild – visuellt innehåll'
 titlesuffix: Azure Cognitive Services
 description: Lär dig att anropa API för viuellt innehåll genom att använda REST i Azure Cognitive Services.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981753"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581716"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Exempel: Så här anropar du API:et för visuellt innehåll
+# <a name="example-how-to-call-the-computer-vision-api"></a>Exempel: Så här anropar du API för visuellt innehåll
 
 Den här guiden visar hur du anropar ett API för visuellt innehåll med hjälp av REST. Exemplen är skrivna i C# med hjälp av klientbiblioteket för API för visuellt innehåll, samt HTTP POST-/GET-anrop. Vi fokuserar på:
 
@@ -28,8 +29,8 @@ Den här guiden visar hur du anropar ett API för visuellt innehåll med hjälp 
 Bild-URL eller sökvägen till en lokalt lagrad bild.
   * Indatametoder som stöds: Binära rawbildfiler i form av ett program-/oktettflöde eller bild-URL
   * Bildformat som stöds: JPEG, PNG, GIF, BMP
-  * Bildfilstorlek: mindre än 4 MB
-  * Bilddimension: större än 50 x 50 bildpunkter
+  * Storlek på bildfil: Mindre än 4 MB
+  * Bilddimensioner: Större än 50 x 50 bildpunkter
   
 Följande funktioner demonstreras i nedanstående exempel:
 
@@ -39,9 +40,9 @@ Följande funktioner demonstreras i nedanstående exempel:
 Funktionerna kan fördelas mellan:
 
   * **Alternativ ett:** Databasomfattande analys – analysera endast en viss modell
-  * **Alternativ två:** utökad analys – analysera för att tillhandahålla ytterligare detaljer med [86 kategoriers taxonomi](../Category-Taxonomy.md)
+  * **Alternativ två:** Utökad analys – analysera för att tillhandahålla ytterligare detaljer med [86 kategoriers taxonomi](../Category-Taxonomy.md)
   
-### <a name="Step1">Steg 1: Auktorisera API-anrop</a> 
+### <a name="Step1">Steg 1: Auktorisera API-anropet</a> 
 Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln måste antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud. 
 
 Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -109,7 +110,7 @@ För det här alternativet är alla andra frågeparametrar (visualFeatures, info
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Alternativ två:** utökad analys – analysera för att tillhandahålla ytterligare detaljer med [86 kategoriers taxonomi](../Category-Taxonomy.md)
+**Alternativ två:** Utökad analys – analysera för att tillhandahålla ytterligare detaljer med [86 kategoriers taxonomi](../Category-Taxonomy.md)
 
 För program där du vill få allmän bildanalys utöver information från en eller flera domänspecifika modeller utökar vi v1-API:et med modellens frågeparameter.
 ```
@@ -179,7 +180,7 @@ Utdatan r en matris med taggar som i följande exempel:
   }
 ```
 
-**Alternativ två:** utökad analys – analysera för att tillhandahålla ytterligare detaljer med 86 kategoriers taxonomi
+**Alternativ två:** Utökad analys – analysera för att tillhandahålla ytterligare detaljer med 86 kategoriers taxonomi
 
 För domänspecifika modeller med alternativ två (utökad analys) utökas den returnerade kategoritypen. Ett exempel visas nedan:
 ```

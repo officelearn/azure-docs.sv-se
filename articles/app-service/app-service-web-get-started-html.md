@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253593"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634243"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure Web Apps. Du måste slutföra denna snabbstart i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure App Service. Du måste slutföra denna snabbstart i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Startsida för exempelapp](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -84,7 +84,7 @@ Kommandot `az webapp up` utför följande åtgärder:
 
 - Skapa ett program med det givna namnet.
 
-- [Zip-distribuera](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
+- [Zip-distribuera](https://docs.microsoft.com/azure/app-service/deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
 
 Det kan ett par minuter att köra kommandot. Medan det körs visas information liknande den i följande exempel:
 
@@ -106,7 +106,7 @@ Anteckna `resourceGroup`-värdet. Du behöver den för avsnittet [rensa resurser
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
-Gå till Azure-webbappens URL i en webbläsare: `http://<app_name>.azurewebsites.net`.
+Gå till appens URL i en webbläsare: `http://<app_name>.azurewebsites.net`.
 
 Sidan körs som en Azure App Service-webbapp.
 
@@ -132,13 +132,13 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelstartsida för app](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+I den vänstra menyn klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-html/portal1.png)
+![Portalnavigering till Azure-app](./media/app-service-web-get-started-html/portal1.png)
 
 Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 

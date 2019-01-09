@@ -1,5 +1,5 @@
 ---
-title: Skapa en Python-webbapp i Linux – Azure App Service | Microsoft Docs
+title: Skapa en Python-app i Linux – Azure App Service | Microsoft Docs
 description: Distribuera din Hello World-app skriven i Python med Azure App Service i Linux på bara några minuter.
 services: app-service\web
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261858"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633155"
 ---
-# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-webbapp i Azure App Service i Linux (förhandsversion)
+# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
 Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar en Python-app ovanpå den inbyggda Python-avbildningen (förhandsversion) i App Service i Linux med hjälp av [Azure-CLI:t](/cli/azure/install-azure-cli).
 
@@ -85,17 +85,17 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-Gå till webbplatsen för att se din nya webbapp med den inbyggda avbildningen. Ersätt _&lt;app name>_ med namnet på din webbapp.
+Gå till webbplatsen för att se din nya app med inbyggd avbildning. Ersätt _&lt;<app_name>_ med namnet på din app.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Så här bör din nya webbapp se ut:
+Så här bör din nya app se ut:
 
-![Sida för tom webbapp](media/quickstart-php/app-service-web-service-created.png)
+![Tom appsida](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +129,7 @@ Bläddra till den distribuerade appen via webbläsaren.
 http://<app_name>.azurewebsites.net
 ```
 
-Python-exempelkoden körs i en webbapp med en inbyggd avbildning.
+Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -154,15 +154,15 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/quickstart-python/app-service-list.png)
+![Portalnavigering till Azure-app](./media/quickstart-python/app-service-list.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-sidan på Azure Portal](media/quickstart-python/app-service-detail.png)
 

@@ -1,20 +1,21 @@
 ---
-title: Analysera händelser från Azure Digital Twins-konfigurationen | Microsoft Docs
+title: 'Självstudier: Analysera händelser från Azure Digital Twins-konfigurationen | Microsoft Docs'
 description: Lär dig mer om att visualisera och analysera händelser från dina Azure Digital Twins-utrymmen, med Azure Time Series Insights, med hjälp av stegen i den här självstudien.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582028"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554528"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights
+# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights
 
 När du har distribuerat din instans av Azure Digital Twins, etablerat din utrymmen och implementerat en anpassad funktion för att övervaka specifika villkor kan du sedan visualisera händelser och data från din utrymmen för att leta efter trender och avvikelser. 
 

@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 9cb3cb16e0eba30f98767efd0d1c0d9123304c27
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 5cdadd93273b6010200b7211b75ca86dfa126b9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395014"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604833"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
-Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals förintegrerade program. Vissa av de program som din organisation använder finns förmodligen i galleriet. I den här snabbstarten använder du Azure Portal för att lägga till ett galleriprogram i din Azure Active Directory-klientorganisation (Azure AD). 
- 
+Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals förintegrerade program. Vissa av de program som din organisation använder finns förmodligen i galleriet. I den här snabbstarten använder du Azure Portal för att lägga till ett galleriprogram i din Azure Active Directory-klientorganisation (Azure AD).
+
 När ett program har lagts till Azure AD-klienten kan du:
 
 - Hantera användaråtkomst till programmet med en princip för villkorsstyrd åtkomst.
@@ -41,13 +41,13 @@ För testning av stegen i den här självstudien rekommenderar vi att du använd
 
 Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
-1. I [Azure-portalen](https://portal.azure.com) går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**. 
+1. I [Azure-portalen](https://portal.azure.com) går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**.
 
-2. På bladet **Azure Active Directory** klickar du på **Företagsprogram**. 
+2. På bladet **Azure Active Directory** klickar du på **Företagsprogram**.
 
     ![Öppna företagsprogram](media/add-application-portal/open-enterprise-apps.png)
 
-3. Bladet **Alla program** öppnas och visar ett slumpmässigt urval av programmen i din Azure AD-klientorganisation. 
+3. Bladet **Alla program** öppnas och visar ett slumpmässigt urval av programmen i din Azure AD-klientorganisation.
 
     ![Bladet Alla program](media/add-application-portal/applications-blade.png)
 
@@ -56,13 +56,13 @@ Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
     ![Nytt program](media/add-application-portal/new-application.png)
 
-5. Om du vill se en lista över program i galleriet är det enklast att använda **kategorierna** eftersom ikonerna under **Aktuella program** är ett slumpmässigt urval av galleriprogram. 
+5. Om du vill se en lista över program i galleriet är det enklast att använda **kategorierna** eftersom ikonerna under **Aktuella program** är ett slumpmässigt urval av galleriprogram.
 
     ![Sök efter namn eller kategori](media/add-application-portal/categories.png)
 
     Om du vill se fler program kan du klicka på **Visa mer**. Vi rekommenderar inte att du söker på det här sättet eftersom det finns tusentals program i galleriet.
 
-6. För att söka efter ett program går du till **Lägg till från galleriet** och anger namnet på det program som du vill lägga till. Välj programmet från resultaten och klicka på **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter GitHub.com.
+6. För att söka efter ett program går du till **Lägg till från galleriet** och anger namnet på det program som du vill lägga till. Välj programmet från resultaten och klicka på **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter github.com.
 
     ![Lägga till ett program](media/add-application-portal/add-an-application.png)
 
@@ -70,23 +70,23 @@ Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
 8. När du är klar med ändringarna av egenskaperna klickar du på **Lägg till**.
 
-9. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation. 
+9. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
 
     ![Kom igång-meny](media/add-application-portal/get-started.png)
 
-Du har lagt till ditt program. Passa på att ta en paus.  Nästa avsnitt visar hur du ändrar logotypen och redigerar andra egenskaper för programmet.
+Du har lagt till ditt program. Passa på att ta en paus. Nästa avsnitt visar hur du ändrar logotypen och redigerar andra egenskaper för programmet.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Hitta ditt Azure AD-klientorganisationsprogram
 
 Vi förutsätter att du behövde gå iväg en stund och nu har kommit tillbaka för att konfigurera programmet. Det första du behöver göra är att hitta ditt program.
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**. 
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**.
 
-2. På bladet Azure Active Directory klickar du på **Företagsprogram**. 
+2. På bladet Azure Active Directory klickar du på **Företagsprogram**.
 
 3. På den nedrullningsbara menyn **Programtyp** väljer du **Alla program** och klickar på **Applicera**. Mer information om visningsalternativ finns på sidan om att [visa klientorganisationsprogram](view-applications-portal.md).
 
-4. Du kan nu se en lista över alla program i Azure AD-klientorganisationen.  Listan är ett slumpmässigt urval. Om du vill se fler program klickar du på **Visa mer** en eller flera gånger. 
+4. Du kan nu se en lista över alla program i Azure AD-klientorganisationen. Listan är ett slumpmässigt urval. Om du vill se fler program klickar du på **Visa mer** en eller flera gånger.
 
 5. För att snabbt hitta ett program i klientorganisationen anger du namnet på programmet i sökrutan och klickar på **Applicera**. Det här exemplet hittar det GitHub-test-program som vi lade till tidigare.
 
@@ -104,41 +104,41 @@ Så här redigerar du programegenskaperna
 
     ![Redigera egenskapsbladet](media/add-application-portal/edit-properties.png)
 
-3. Läs igenom alternativen för inloggning. **Aktiverad för användare att logga in**, **Användartilldelning krävs** och **Synlig för användare** kombineras för att bestämma huruvida användare som är tilldelade eller inte tilldelade till programmet kan logga in.  De bestämmer även om användaren kan se programmet i åtkomstpanelen. 
+3. Läs igenom alternativen för inloggning. **Aktiverad för användare att logga in**, **Användartilldelning krävs** och **Synlig för användare** kombineras för att bestämma huruvida användare som är tilldelade eller inte tilldelade till programmet kan logga in. De bestämmer även om användaren kan se programmet i åtkomstpanelen.
 
     - **Aktiverad för användare att logga in** bestämmer huruvida användare som är tilldelade till programmet kan logga in.
     - **Användartilldelning krävs** bestämmer huruvida användare som inte har tilldelats programmet kan logga in.
-    - **Synlig för användaren** bestämmer huruvida användare som är tilldelade till en app kan se den i åtkomstpanelen och O365-appfönstret. 
+    - **Synlig för användaren** bestämmer huruvida användare som är tilldelade till en app kan se den i åtkomstpanelen och O365-appfönstret.
 
-4. Använd följande tabeller för att få hjälp med att välja de alternativ som är bäst för dina behov. 
+4. Använd följande tabeller för att få hjälp med att välja de alternativ som är bäst för dina behov.
 
-     - Beteende för **tilldelade** användare:
+    - Beteende för **tilldelade** användare:
 
-       | Egenskapsinställningar för program | | | Upplevelse för tilldelad användare | |
-       |---|---|---|---|---|
-       | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
-       | ja | ja | ja | ja | ja  |
-       | ja | ja | nej  | ja | nej   |
-       | ja | nej  | ja | ja | ja  |
-       | ja | nej  | nej  | ja | nej   |
-       | nej  | ja | ja | nej  | nej   |
-       | nej  | ja | nej  | nej  | nej   |
-       | nej  | nej  | ja | nej  | nej   |
-       | nej  | nej  | nej  | nej  | nej   |
+        | Egenskapsinställningar för program | | | Upplevelse för tilldelad användare | |
+        |---|---|---|---|---|
+        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
+        | ja | ja | ja | ja | ja  |
+        | ja | ja | nej  | ja | nej   |
+        | ja | nej  | ja | ja | ja  |
+        | ja | nej  | nej  | ja | nej   |
+        | nej  | ja | ja | nej  | nej   |
+        | nej  | ja | nej  | nej  | nej   |
+        | nej  | nej  | ja | nej  | nej   |
+        | nej  | nej  | nej  | nej  | nej   |
 
-     - Beteende för **ej tilldelade** användare:
-  
-       | Egenskapsinställningar för program | | | Upplevelse för ej tilldelade användare | |
-       |---|---|---|---|---|
-       | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
-       | ja | ja | ja | nej  | nej   |
-       | ja | ja | nej  | nej  | nej   |
-       | ja | nej  | ja | ja | nej   |
-       | ja | nej  | nej  | ja | nej   |
-       | nej  | ja | ja | nej  | nej   |
-       | nej  | ja | nej  | nej  | nej   |
-       | nej  | nej  | ja | nej  | nej   |
-       | nej  | nej  | nej  | nej  | nej   |
+    - Beteende för **ej tilldelade** användare:
+
+        | Egenskapsinställningar för program | | | Upplevelse för ej tilldelade användare | |
+        |---|---|---|---|---|
+        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
+        | ja | ja | ja | nej  | nej   |
+        | ja | ja | nej  | nej  | nej   |
+        | ja | nej  | ja | ja | nej   |
+        | ja | nej  | nej  | ja | nej   |
+        | nej  | ja | ja | nej  | nej   |
+        | nej  | ja | nej  | nej  | nej   |
+        | nej  | nej  | ja | nej  | nej   |
+        | nej  | nej  | nej  | nej  | nej   |
 
     *Kan användaren se programmet i åtkomstpanelen och Office 365-appfönstret?
 
@@ -157,9 +157,9 @@ Så här använder du en anpassad logotyp:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du lägger till ett galleriprogram i din Azure AD-klientorganisation. Du har lärt dig hur du redigerar egenskaperna för ett program. 
+I den här snabbstarten har du lärt dig hur du lägger till ett galleriprogram i din Azure AD-klientorganisation. Du har lärt dig hur du redigerar egenskaperna för ett program.
 
-Nu är du redo att konfigurera programmet för enkel inloggning. 
+Nu är du redo att konfigurera programmet för enkel inloggning.
 
 > [!div class="nextstepaction"]
 > [Konfigurera enkel inloggning](configure-single-sign-on-portal.md)

@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075530"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754415"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie 3: Lägg till vanliga yttrandeformat
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Självstudier: Lägga till format för mallyttrande med vanliga mönster
 
 I den här kursen använder du mönster för att förbättra avsikts- och entitetsförutsägelser och samtidigt ge färre exempelyttranden. Mönstret tillhandahålls via ett exempel på mallyttrande, som innehåller syntax för att identifiera entiteter och ignorerbar text. Ett mönster är en kombination av uttrycksmatchning och maskininlärning.  Exemplet på mallyttrande, tillsammans med avsiktsyttranden, ger LUIS en bättre förståelse för vilka yttranden som passar avsikten. 
 
 **I den här självstudiekursen får du lära du dig att:**
 
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp 
+> * Importera en exempelapp 
 > * Skapa avsikt
 > * Träna
 > * Publicera
@@ -37,13 +37,13 @@ I den här kursen använder du mönster för att förbättra avsikts- och entite
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
+## <a name="import-example-app"></a>Importera en exempelapp
 
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+Använd följande steg:
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Importera JSON-koden till en ny app.
 

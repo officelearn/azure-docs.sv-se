@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087923"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715145"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Snabbstart: Taligenkänning i JavaScript i en webbläsare med hjälp av Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig hur du skapar en webbplats med hjälp av JavaScript-bindningen i Cognitive Services Speech SDK för att transkribera tal till text.
-Appen baseras på Microsoft Cognitive Services Speech SDK ([ladda ned version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+Appen baseras på Microsoft Cognitive Services Speech SDK ([Ladda ned version 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,8 +40,8 @@ Skapa en ny, tom mapp. Om du vill värdbasera exemplet på en webbserver ser du 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Ladda ned Speech SDK som ett [.zip-paket](https://aka.ms/csspeech/jsbrowserpackage) och packa upp det i den nya mappen. Detta bör resultera i att två filer packas upp, dvs. `microsoft.cognitiveservices.speech.sdk.bundle.js` och `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-Den senare filen är valfri och används för felsökning i SDK-kod, om det behövs.
+Ladda ned Speech SDK som ett [.zip-paket](https://aka.ms/csspeech/jsbrowserpackage) och packa upp det i den nya mappen. Detta resulterar i två filer packas upp, `microsoft.cognitiveservices.speech.sdk.bundle.js` och `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Den senare filen är valfri och är användbar för felsökning i SDK-koden.
 
 ## <a name="create-an-indexhtml-page"></a>Skapa en index.html-sida
 
@@ -103,10 +103,7 @@ Starta appen genom att dubbelklicka på index.html-filen eller öppna index.html
 
 Du kan starta appen genom att öppna valfri webbläsare och leda den till den offentliga URL där mappen finns, ange din [region](regions.md) och utlösa en igenkänning med mikrofonen. Om det har konfigurerats hämtas en token från tokenkällan.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i mappen `quickstart/js-browser`.
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hämta våra exempel](speech-sdk.md#get-the-samples)
+> [Utforska JavaScript-exempel på GitHub](https://aka.ms/csspeech/samples)

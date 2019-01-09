@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/28/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613400"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969343"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Självstudie: Strömma live med Media Services v3 med API:er
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Självstudier: Strömma live med Media Services v3 med hjälp av API:er
 
 I Azure Media Services ansvarar [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) för bearbetning av liveströmmat innehåll. En LiveEvent tillhandahåller en slutpunkt (infognings-URL) som du sedan vidarebefordrar till en livekodare. LiveEvent tar emot live indataströmmar från livekodaren och gör den tillgänglig för strömning via en eller flera [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Kanalen tillhandahåller också en slutpunkt för förhandsvisning (förhandsvisnings-URL) som du använder för att förhandsgranska och validera din ström inför vidare behandling och leverans. Den här självstudien visar hur du använder .NET Core för att skapa en **genomströmnings**typ av en livehändelse. 
 
@@ -89,7 +89,7 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 
 ### <a name="create-a-live-event"></a>Skapa en livehändelse
 
-Det här avsnittet visar hur du skapar en **pass-through**-typ av LiveEvent (LiveEventEncodingType inställd på None). Om du vill skapa en LiveEvent som är aktiverad för livekodning, ställer du in värdet LiveEventEncodingType till Basic. 
+Det här avsnittet visar hur du skapar en **pass-through**-typ av LiveEvent (LiveEventEncodingType inställd på None). Om du vill skapa en LiveEvent som är aktiverad för livekodning anger du värdet LiveEventEncodingType till Standard. 
 
 Vissa andra saker som du kan ange när du skapar en livehändelsen är:
 
@@ -107,7 +107,7 @@ När du skapar händelsen, kan du ange att den ska startas automatiskt.
 
 ### <a name="get-ingest-urls"></a>Hämta infognings-URL:er
 
-När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
+När LiveEvent har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

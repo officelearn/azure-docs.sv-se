@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Analysera en fjärrbild – REST, Node.js – Visuellt innehåll'
+title: 'Snabbstart: Analysera en fjärrbild – REST, Node.js'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten analyserar du en bild med hjälp av API:et för visuellt innehåll med Node.js.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 22497d07133a9ab717d319524c3e2825c832ddaa
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 58f25d4ac37498c56728b5526ead3ae97b9843d8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342594"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583350"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST API:et med Node.js i Visuellt innehåll
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et med Node.js i Visuellt innehåll
 
 I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 

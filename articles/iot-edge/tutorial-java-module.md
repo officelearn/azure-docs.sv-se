@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 53be0f36e79d5691d8531c46bf7f554c53f641ee
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342841"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557874"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en IoT Edge-modul i Java och distribuera till den simulerade enheten
 
@@ -36,8 +36,8 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md).
-* Java-moduler för IoT Edge har inte stöd för Windows-enheter.
+* Du kan konfigurera en IoT Edge-enhet genom att följa stegen i snabbstarterna för [Linux](quickstart-linux.md) eller [Windows](quickstart.md).
+* För IoT Edge på Windows-enheter har version 1.0.5 inte stöd för Java-moduler. Mer information finns i [viktig information om 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Stegvisa instruktioner för hur du installerar en specifik version finns i avsnittet om att [uppdatera IoT Edge-säkerhetsdaemon och -körning](how-to-update-iot-edge.md).
 
 Molnresurser:
 
@@ -70,7 +70,7 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
    | ----- | ----- |
    | Registernamn | Ange ett unikt namn. |
    | Prenumeration | Välj en prenumeration i listrutan. |
-   | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
+   | Resursgrupp | För enklare hantering använder du samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
    | Plats | Välj en plats i närheten av dig. |
    | Administratörsanvändare | Ändra värdet till **Aktivera**. |
    | SKU | Välj **Grundläggande**. | 
@@ -82,7 +82,7 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
 7. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kan använda dessa värden senare i självstudien för att ge åtkomst till containerregistret. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT Edge-modulen
-I följande steg skapas ett IoT Edge-modulprojekt baserat på mallpaketet Maven för Azure IoT Edge och Java-SDK:et för Azure IoT-enheter med hjälp av Visual Studio Code och Azure IoT Edge-tillägget.
+Följande steg skapar ett IoT Edge-modulprojekt som baseras på Maven-mallpaketet i Azure IoT Edge och Java-SDK:n för Azure IoT-enheter. Du skapar projektet med hjälp av Visual Studio Code och Azure IoT Edge-tillägget.
 
 ### <a name="create-a-new-solution"></a>Skapa en ny lösning
 
@@ -136,7 +136,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. Lägg till följande definition i klassen **App**. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT-hubben. 
+5. Lägg till följande definition i klassen **App**. Den här variabeln anger ett tröskelvärde för temperatur. Den uppmätta datortemperaturen rapporteras inte till IoT Hub förrän den överskridet det här värdet. 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -175,7 +175,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
         }
     ```
 
-8. Lägg till följande två statiska inre klasser i klassen **App**. De här klasserna tar emot uppdateringar av önskade egenskaper från modultvillingen och uppdaterar variabeln **tempThreshold** som ska matchas. Alla moduler har en egen modultvilling, vilket innebär att du kan konfigurera den kod som körs i en modul direkt från molnet.
+8. Lägg till följande två statiska inre klasser i klassen **App**. De här klasserna uppdatera variabeln tempThreshold när modultvillingens önskade egenskap ändras. Alla moduler har en egen modultvilling, vilket innebär att du kan konfigurera den kod som körs i en modul direkt från molnet.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -240,9 +240,9 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **JavaModule** för att filtrera ut meddelanden om att temperaturen för den rapporterade datorn ligger under det godkända tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
+I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **JavaModule** för att filtrera ut meddelanden om att temperaturen för den rapporterade datorn ligger under den godkända gränsen. Nu skapar du lösningen som en containeravbildning och push-överför den till ditt containerregister. 
 
-1. Logga in på Docker genom att ange följande kommando i den integrerade Visual Studio Code-terminalen: Sedan kan du skicka modulavbildningen till ditt Azure-containerregister.
+1. Logga in på Docker genom att ange följande kommando i Visual Studio Code-terminalen. Sedan kan du skicka modulavbildningen till ditt Azure-containerregister.
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -261,7 +261,7 @@ I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enhe
 
 1. I kommandopaletten i VS Code kör du kommandot **Azure: Sign in** (Logga in) och följer anvisningarna för att logga in på ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
 
-2. I kommandopaletten i VS Code kör du **Azure IoT Hub: Select IoT Hub** (Välj IoT-hubb). 
+2. I kommandopaletten i VS Code kör du **Azure IoT Hub: Välj IoT-hubb**. 
 
 3. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
 
@@ -281,7 +281,7 @@ När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Ed
 
 Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs. 
 
-Med hjälp av kommandot `iotedge list` på själva IoT Edge-enheten kan du se statusen för dina distributionsmoduler. Du bör se fyra moduler: de modulerna för IoT Edge-körning, tempSensor och den anpassade modul du skapade i den här självstudien. Det kan ta några minuter för alla moduler att starta, så kör kommandot igen om du till en början inte ser alla. 
+På IoT Edge-enheten kan du visa statusen för dina distributionsmoduler med hjälp av kommandot `iotedge list`. Du bör se fyra moduler: de modulerna för IoT Edge-körning, tempSensor och den anpassade modul du skapade i den här självstudien. Det kan ta några minuter för alla moduler att starta, så kör kommandot igen om du till en början inte ser alla. 
 
 Du kan visa de meddelanden som genereras av alla moduler med hjälp av kommandot `iotedge logs <module name>`. 
 

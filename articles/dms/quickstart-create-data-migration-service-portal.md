@@ -5,18 +5,18 @@ services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958023"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711830"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Snabbstart: Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen
 I den här snabbstarten använder du Azure-portalen för att skapa en instans av Azure Database Migration Service.  När du har skapat tjänsten kan du använda den för att migrera data från en lokal SQL Server till en Azure SQL-databas.
@@ -56,7 +56,7 @@ Registrera resursprovidern Microsoft.DataMigration innan du skapar din första i
 
         Mer information om hur du skapar ett virtuellt nätverk på Azure Portal finns i artikeln [Skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/vnet).
 
-    - Välj Basic: 1 virtuell kärna för **Prisnivå**.
+    - Välj Grundläggande: 1 virtuell kärna för **prisnivån**.
 
         ![Skapa migreringstjänsten](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

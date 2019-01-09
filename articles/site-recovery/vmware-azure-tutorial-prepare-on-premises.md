@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846648"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970822"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
@@ -67,8 +67,8 @@ Förbered kontot enligt följande:
 
 Förbereda en domän eller ett lokalt konto med behörighet för att installera på den virtuella datorn.
 
-- **Virtuella Windows-datorer**: Om du vill installera på virtuella Windows-datorer och inte använder ett domänkonto, inaktiverar du åtkomstkontroll för fjärranvändare på den lokala datorn. Du gör det genom att gå till registret > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** och lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet 1.
-- **Virtuella Linux-datorer**: För att installera på virtuella Linux-datorer, förbereder du ett rotkonto på Linux-källservern.
+- **Virtuella Windows-datorer**: Om du vill installera på virtuella Windows-datorer och du inte använder ett domänkonto så inaktiverar du kontroll av åtkomst för fjärranvändare på den lokala datorn. Du gör det genom att gå till registret > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** och lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet 1.
+- **Virtuella Linux-datorer**: Om du ska installera på virtuella Linux-datorer förbereder du ett rotkonto på Linux-källservern.
 
 
 ## <a name="check-vmware-requirements"></a>Kontrollera VMware-kraven
@@ -80,6 +80,7 @@ Kontrollera att VMware-servrar och virtuella datorer uppfyller kraven.
 3. Kontrollera stödet för lokalt [nätverk](vmware-physical-azure-support-matrix.md#network) och [lagring](vmware-physical-azure-support-matrix.md#storage). 
 4. Kontrollera vad som stöds när det gäller [Azure-nätverk](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagring](vmware-physical-azure-support-matrix.md#azure-storage) och [compute](vmware-physical-azure-support-matrix.md#azure-compute) efter redundansväxling.
 5. Dina lokala virtuella datorer som du replikerar till Azure måste uppfylla [kraven för virtuella Azure-datorer](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. I virtuella Linux-datorer så ska enhetsnamn eller monteringspunktsnamn vara unika. Kontrollera att inga två enheter/monteringspunkter har skiftlägeskänsliga namn. Det är till exempel inte tillåtet att namnge två enheter från samma virtuella dator som *enhet1* och *Enhet1*.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa ett Spark-maskininlärningsprogram i Azure HDInsight'
+title: 'Självstudier: Skapa ett Spark-maskininlärningsprogram i Azure HDInsight'
 description: Stegvisa anvisningar om att skapa Apache Spark machine learning-program i HDInsight Spark-kluster med Jupyter Notebook.
 services: hdinsight
 ms.service: hdinsight
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580578"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608519"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Självstudie: Skapa ett Apache Spark-maskininlärningsprogram i HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Självstudier: Skapa ett Apache Spark-maskininlärningsprogram i HDInsight 
 
 I den här självstudien lär du dig att använda [Jupyter Notebook](https://jupyter.org/) för att skapa ett [Apache Spark](https://spark.apache.org/)-maskininlärningsprogram för Azure HDInsight. 
 
@@ -97,7 +97,7 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Mer information om pipeline och hur det fungerar finns i <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a> (Spark machine learning-pipeline).
+    Mer information om pipeline och hur det fungerar finns i avsnittet om <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark-maskininlärnings-pipeline</a>.
 
 5. Anpassa pipelinen till utbildningsdokumentet.
    
@@ -184,7 +184,7 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
 10. Stäng anteckningsboken för att frigöra resurser. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Åtgärden stänger anteckningsboken.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Använda Anaconda scikit-bibliotek för Spark machine learning
-Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller också **scikit-learn**-bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogram direkt från en Jupyter Notebook. För exempel på hur du använder scikit-learn-biblioteket, se [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller också **scikit-learn**-bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogram direkt från en Jupyter Notebook. För exempel på hur du använder scikit-learn-biblioteket, se [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

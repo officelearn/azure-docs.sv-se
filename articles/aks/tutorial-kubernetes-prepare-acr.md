@@ -3,22 +3,21 @@ title: Självstudiekurs om Kubernetes i Azure – Skapa ett containerregister
 description: I den här självstudien om Azure Kubernetes Service (AKS) ska du skapa en Azure Container Registry-instans och ladda upp en containeravbildning för exempelprogrammet.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 51cfc62adaf9d9c780888477aa6eab2a812fe98c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920643"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718041"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
 
-Azure Container Registry (ACR) är ett Azure-baserat privat register för Docker-containeravbildningar. Med ett privat containerregister kan du skapa och distribuera dina program och anpassad kod på ett säkert sätt. I den här självstudien, del två av sju, ska du distribuera en ACR-instans och skicka en containeravbildning till den. Lär dig att:
+Azure Container Registry (ACR) är ett privat register för containeravbildningar. Med ett privat containerregister kan du skapa och distribuera dina program och anpassad kod på ett säkert sätt. I den här självstudien, del två av sju, ska du distribuera en ACR-instans och skicka en containeravbildning till den. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en ACR-instans (Azure Container Registry)
@@ -26,13 +25,13 @@ Azure Container Registry (ACR) är ett Azure-baserat privat register för Docker
 > * ladda upp avbildningen till ACR.
 > * Visa avbildningar i registret
 
-I efterföljande självstudier integrerar du den här ACR-instansen med ett Kubernetes-kluster i AKS och distribuerar ett program från avbildningen.
+I ytterligare självstudier integrerar du den här ACR-instansen med ett Kubernetes-kluster i AKS och distribuerar ett program från avbildningen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 I [föregående självstudie][aks-tutorial-prepare-app] skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien måste du köra Azure CLI version 2.0.44 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+För den här självstudien behöver du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
@@ -44,7 +43,7 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följan
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en Azure Container Registry-instans med kommandot [az acr create][az-acr-create] och ange ett registernamn. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I resten av den här självstudien används `<acrName>` som platshållare för namnet på containerregistret. Den *grundläggande* SKU:n är en kostnadsoptimerad startpunkt för utvecklingsändamål som ger en bra balans mellan lagring och dataflöde.
+Skapa en Azure Container Registry-instans med kommandot [az acr create][az-acr-create] och ange ett registernamn. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I resten av den här självstudien används `<acrName>` som platshållare för namnet på containerregistret. Ange ditt eget unika registernamn. Den *grundläggande* SKU:n är en kostnadsoptimerad startpunkt för utvecklingsändamål som ger en bra balans mellan lagring och dataflöde.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -101,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Push-överför avbildningar till registret
 
-Nu kan du skicka *azure-vote-front*-avbildningen till ACR-instansen. Använd [docker push][docker-push] och tillhandahåll din egen *acrLoginServer*-adress för avbildningsnamnet på följande sätt:
+När avbildningen har skapats och taggats push-överför du avbildningen *azure-vote-front* till ACR-instansen. Använd [docker push][docker-push] och tillhandahåll din egen *acrLoginServer*-adress för avbildningsnamnet på följande sätt:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1

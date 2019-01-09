@@ -4,17 +4,17 @@ description: I den här snabbstarten får du lära dig att skapa en IoT Edge-enh
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 941d5d8f356fbd1477b4559f1475511165c01341
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340104"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972098"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsversion
 
@@ -59,18 +59,15 @@ Molnresurser:
 IoT Edge-enhet:
 
 * En Windows-dator eller en virtuell dator som fungerar som din IoT Edge-enhet. Använd en version av Windows som stöds:
-  * Windows 10 eller senare
-  * Windows Server 2016 eller senare
-* Om det är en Windows-dator kontrollerar du att den uppfyller [systemkraven](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) för Hyper-V.
-* Om det är en virtuell dator aktiverar du [kapslad virtualisering](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) och allokerar minst 2 GB minne.
-* Installera [Docker för Windows](https://docs.docker.com/docker-for-windows/install/) och kontrollera att den körs.
-
-> [!TIP]
-> Det finns ett alternativ under Docker-installationen för att använda Windows-containrar eller Linux-containrar. Den här snabbstarten beskriver hur du konfigurerar IoT Edge-körningen för användning med Linux-containrar.
+  * Windows 10 eller IoT Core med uppdateringen från oktober 2018 (version 17763)
+  * Windows Server 2019
+* Aktivera virtualisering så att enheten kan vara värd för containers
+   * Om det är en Windows-dator kan du aktivera container-funktionen. I startfältet går du till **Aktivera Windows-funktioner till på eller av** och markera kryssrutan bredvid **Containers**.
+   * Om det är en virtuell dator aktiverar du [kapslad virtualisering](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) och allokerar minst 2 GB minne.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta snabbstarten genom att skapa din IoT-hubb med Azure CLI.
+Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
 ![Diagram – Skapa en IoT-hubb i molnet](./media/quickstart/create-iot-hub.png)
 
@@ -107,7 +104,9 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Kopiera anslutningssträngen och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt.
+3. Kopiera anslutningssträngen från JSON-utdata och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt.
+
+   ![Hämta anslutningssträngen från CLI-utdata](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
 
@@ -116,13 +115,15 @@ Installera Azure IoT Edge-körningen på IoT Edge-enheten och konfigurera den me
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub.
 
+Installationsskriptet innehåller också en container-motor som kallas Moby som hanterar containeravbildningar på din IoT Edge-enhet. 
+
 Under körningsinstallationen tillfrågas du om en enhetsanslutningssträng. Använd den sträng som du hämtade från Azure CLI. Den här strängen associerar den fysiska enheten med IoT Edge-enhetsidentiteten i Azure.
 
-Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-containrar. Om du vill använda Windows-containrar, se informationen i avsnittet om att [installera Azure IoT Edge-körning i Windows för användning med Windows-containrar](how-to-install-iot-edge-windows-with-windows.md).
+Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Windows-containrar. Om du vill använda Linux-containrar, se [installera Azure IoT Edge-körningen på Windows](how-to-install-iot-edge-windows-with-linux.md) för krav och anvisningar för installation.
 
 ### <a name="connect-to-your-iot-edge-device"></a>Ansluta till din IoT Edge-enhet
 
-Alla steg i det här avsnittet sker på din IoT Edge-enhet. Om du använder din egen dator som IoT Edge-enhet kan du hoppa över den här delen. Om du använder en virtuell dator eller sekundär maskinvara bör du ansluta till den datorn nu. 
+Alla steg i det här avsnittet sker på din IoT Edge-enhet. Om du använder en virtuell dator eller sekundär maskinvara bör du ansluta till denna dator nu via SSH eller fjärrskrivbord. Om du använder din egen dator som IoT Edge-enhet kan du fortsätta till nästa avsnitt. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>Ladda ned och installera IoT Edge-tjänsten
 
@@ -134,7 +135,7 @@ Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använ
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. När du tillfrågas om en **DeviceConnectionString** (enhetsanslutningssträng) anger den sträng som du kopierade i föregående avsnitt. Använd inte citattecknen runt anslutningssträngen.
@@ -191,13 +192,16 @@ iotedge list
 
    ![Visa tre moduler på enheten](./media/quickstart/iotedge-list-2.png)
 
-Visa meddelanden som skickas från modulen tempSensor till molnet.
+Visa meddelanden som skickas från modulen temperatursensor till molnet.
 
 ```powershell
-iotedge logs tempSensor -f
+iotedge logs SimulatedTemperatureSensor -f
 ```
 
-  ![Visa data från modulen](./media/quickstart/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge-kommandon är skiftlägeskänsliga när det gäller modulnamnen.
+
+   ![Visa data från modulen](./media/quickstart/iotedge-logs.png)
 
 Du kan även se när meddelandena tas emot av din IoT-hubb med hjälp av [Azure IoT Hub-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit-tillägget). 
 
@@ -217,39 +221,30 @@ Ta bort gruppen **IoTEdgeResources**.
 
 ### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
 
-Om du planerar att använda IoT Edge-enheten för framtida testning men vill stoppa tempSensor-modulen från att skicka data till IoT-hubben använder du följande kommando för att stoppa IoT Edge-tjänsten.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-Du kan starta om tjänsten när du är redo att börja testa igen
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
 
-Ta bort IoT Edge-körningen.
+Ta bort IoT Edge-körningen. Om du tänker installera om IoT Edge, hoppar du över parametrarna `-DeleteConfig` och `-DeleteMobyDataRoot` så att du kan installera om med samma konfiguration som du precis har konfigurerat.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
 
    ```powershell
-   docker ps -a
+   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
    ```
 
-Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra namnet på containern tempSensor om du kallade den för något annat.
+   >[!TIP]
+   >Flaggan **-H** (värd) i docker-kommandon pekar på moby-motorn som installerades tillsammans med IoT Edge-körningen. Om du använder både docker och moby på samma dator, tillåter värdflaggan att du anger vilken motor du använder för ett givet kommando. Om du endast vill använda moby kan du ange miljövariabeln **DOCKER_HOST** till att peka på npipe:////./pipe/iotedge_moby_engine.
+
+Ta bort de containrar som skapades på enheten av IoT Edge-körningen. 
 
    ```powershell
-   docker rm -f tempSensor
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
    ```
    
 ## <a name="next-steps"></a>Nästa steg

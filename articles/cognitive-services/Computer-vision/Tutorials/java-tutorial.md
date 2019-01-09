@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: API för visuellt innehåll med Java'
+title: 'Självstudier: Utföra åtgärder för avbildning – Java'
 titlesuffix: Azure Cognitive Services
 description: Utforska en grundläggande Java Swing-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
@@ -9,15 +9,16 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340264"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584555"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Självstudie: API för visuellt innehåll med Java
+# <a name="tutorial-computer-vision-api-java"></a>Självstudier: API för visuellt innehåll – Java
 
 Den här självstudien visar funktionerna i Azure Cognitive Services REST API för visuellt innehåll.
 

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986125"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630707"
 ---
-# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudie: Utöka Windows-filservrar med Azure File Sync
+# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudier: Utöka Windows-filservrar med Azure File Sync
 I den här självstudien visar vi dig de grundläggande stegen för att utöka lagringskapaciteten för Windows Server med hjälp av Azure File Sync. Vi använder en virtuell Azure-dator på Windows Server i den här kursen men du skulle normalt utföra den här processen för dina lokala servrar. Om du är redo att distribuera Azure File Sync i din egen miljö använder du istället artikeln [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md).
 
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Det finns några saker du behöver konfigurera för den här självstudiekursen 
 
 På en lokal dator skapar du en mapp med namnet *FilesToSync* och lägger till en textfil med namnet *mytestdoc.txt*. Du laddar upp den filen på filresursen senare i den här kursen.
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -163,14 +163,14 @@ På den virtuella **Windows Server 2016 Datacenter**-datorn öppnas **Serverhant
 
 1. Stäng **Utforskaren** och **Serverhanteraren**.
 
-### <a name="download-the-azurerm-powershell-module"></a>Ladda ned AzureRM PowerShell-modulen
-På den virtuella **Windows Server 2016 Datacenter**-datorn installerar du sedan **AzureRM PowerShell-modulen** på servern.
+### <a name="download-the-azure-powershell-module"></a>Ladda ned Azure PowerShell-modulen
+På den virtuella **Windows Server 2016 Datacenter**-datorn installerar du sedan **Azure PowerShell-modulen** på servern.
 
 1. På den virtuella datorn öppnar du ett PowerShell-fönster med förhöjd behörighet
 1. Kör följande kommando:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ På den virtuella **Windows Server 2016 Datacenter**-datorn installerar du sedan
 
 1. Svara `Yes` eller `Yes to All` för att fortsätta med installationen.
 
-Modulen `AzureRM` är en sammanslagen modul för Azure PowerShell-cmdletar. När du installerar den laddar den ned alla tillgängliga Azure Resource Manager-moduler och gör dess cmdletar tillgängliga för användning.
+Modulen `Az` är en sammanslagen modul för Azure PowerShell-cmdletar. När du installerar den laddar den ned alla tillgängliga Azure Resource Manager-moduler och gör dess cmdletar tillgängliga för användning.
 
 Nu har du slutfört konfigurationen av din miljö för självstudien och är redo att börja distribuera **tjänsten för synkronisering av lagring**.
 
@@ -237,7 +237,7 @@ Du har distribuerat Azure-synkroniseringstjänsten och installerat agenten på d
 ## <a name="register-windows-server"></a>Registrera Windows Server
 När du registrerar Windows Server med en tjänst för synkronisering av lagring etableras en förtroenderelation mellan din server (eller ditt kluster) och tjänsten för synkronisering av lagring. En server kan bara registreras på en tjänst för synkronisering av lagring och kan synkronisera med andra servrar och Azure-filresurser som associeras med samma tjänst för synkronisering av lagring.
 
-Användargränssnittet för serverregistrering bör öppnas automatiskt när du har installerat **Azure File Sync-agenten**. Om det inte gör det kan du öppna det från dess filplats: C:\Program\Azure\StorageSyncAgent\ServerRegistration.exe.
+Användargränssnittet för serverregistrering bör öppnas automatiskt när du har installerat **Azure File Sync-agenten**. Om det inte öppna kan du öppna det manuellt från dess filplats: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. När användargränssnittet för serverregistrering öppnas i den virtuella datorn klickar du på **OK**.
 1. Klicka på **Logga in** för att börja.

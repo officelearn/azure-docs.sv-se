@@ -2,25 +2,19 @@
 title: Global distribution av Azure Cosmos DB
 description: Lär dig att replikera data globalt med Azure Cosmos-DB i Azure Portal
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747567"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796121"
 ---
-Du kan lära dig mer om global distribution av Azure Cosmos DB i följande video, där programchefen för Azure Cosmos DB, Andrew Liu, går igenom funktionerna för global distribution.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-Mer information om hur global databasreplikering fungerar i Azure Cosmos DB finns i [Distribuera data globalt med Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
-
 ## <a id="addregion"></a>Lägg till globala databasregioner med Azure Portal
 Azure Cosmos DB är tillgängligt i alla [Azure-regioner][azureregions] över hela världen. När du har valt standardkonsekvensnivå för ditt databaskonto, så kan du associera en eller flera regioner (beroende på ditt val av standardkonsekvensnivå och globala distributionsbehov).
 
@@ -41,7 +35,7 @@ Det finns två vanliga scenarier när det gäller att konfigurera två eller fle
 
 När det gäller att leverera låg latens till slutanvändare bör du distribuera både programmet och Azure Cosmos DB i de regioner som motsvarar de platser där programmets användare finns.
 
-När det gäller affärskontinuitet och haveriberedskap bör du lägga till regioner utifrån de regionpar som beskrivs i artikeln [Affärskontinuitet och haveriberedskap (BCDR): parade Azure-regioner][bcdr].
+När det gäller affärskontinuitet och haveriberedskap bör du lägga till regioner utifrån de regionpar som beskrivs i artikeln [Affärskontinuitet och haveriberedskap (BCDR): Azurel-länkade regioner][bcdr].
 
 <!--
 

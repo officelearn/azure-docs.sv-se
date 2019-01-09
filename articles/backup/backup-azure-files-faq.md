@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874578"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793520"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -39,31 +39,34 @@ Ja. Men du måste [stoppa skyddet](backup-azure-files.md#stop-protecting-an-azur
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>I vilka geografiska områden kan jag säkerhetskopiera Azure-filresurser? <br/>
 Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsversion och är endast tillgängligt på följande platser: 
--   Östra Australien (AE) 
+- Östra Australien (AE) 
 - Australien, sydöstra (ASE) 
 - Brasilien, södra (BRS)
 - Kanada, centrala (CNC)
--   Kanada, östra (CE)
--   USA, centrala (CUS)
--   Asien, östra (EA)
--   USA, östra (EUS)
--   USA, östra 2 (EUS2)
+- Kanada, östra (CE)
+- USA, centrala (CUS)
+- Asien, östra (EA)
+- USA, östra (EUS)
+- USA, östra 2 (EUS2)
 - Japan, östra (JPE)
 - Japan, västra (JPW)
--   Indien, centrala (INC) 
+- Indien, centrala (INC) 
 - Indien, södra (INS)
 - Sydkorea, centrala (KRC)
 - Sydkorea, södra (KRS)
--   USA, norra centrala (NCUS) 
--   Europa, norra (NE) 
--   USA, södra centrala (SCUS) 
--   Asien, sydöstra (SEA)
--   Storbritannien, södra (UKS) 
--   Storbritannien, västra (UKW) 
--   Europa, västra (WE) 
--   USA, västra (WUS)
--   USA, västra centrala (WCUS)
--   USA, västra 2 (WUS 2)
+- USA, norra centrala (NCUS) 
+- Europa, norra (NE) 
+- USA, södra centrala (SCUS) 
+- Asien, sydöstra (SEA)
+- Storbritannien, södra (UKS) 
+- Storbritannien, västra (UKW) 
+- Europa, västra (WE) 
+- USA, västra (WUS)
+- USA, västra centrala (WCUS)
+- USA, västra 2 (WUS 2)
+- US Gov, Arizona (UGA)
+- US Gov, Texas (UGT)
+- US Gov, Virginia (UGV)
 
 Skriv till [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) om du behöver använda den i ett visst område som inte anges ovan.
 

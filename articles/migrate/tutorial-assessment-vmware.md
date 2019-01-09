@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257819"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976842"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -58,8 +58,9 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 **Geografi** | **Lagringsplats**
 --- | ---
-USA | USA, västra centrala eller USA, östra
 Azure Government | Virginia (USA-förvaltad region)
+Europa | Europa, norra eller Europa, västra
+USA | USA, östra eller USA, västra centrala
 
 ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -253,7 +254,7 @@ Uppskattade månatliga kostnader för beräkning och lagring sammanställs för 
 
 #### <a name="confidence-rating"></a>Säkerhetsomdöme
 
-Varje prestandabaserade utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate. Säkerhetsomdömet är inte tillämpligt på lokala utvärderingar.
+Varje prestandabaserade utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate. Säkerhetsomdömet är inte tillämpligt på lokala utvärderingar ”i befintligt skick”.
 
 För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 

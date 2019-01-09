@@ -1,19 +1,20 @@
 ---
-title: Azure Batch API:er och verktyg för utvecklare | Microsoft Docs
+title: API:er och verktyg för utvecklare – Azure Batch | Microsoft Docs
 description: Läs mer om API:er och verktyg som är tillgängliga för utveckling av lösningar med Azure Batch-tjänsten.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 06/18/2018
-ms.author: danlep
-ms.openlocfilehash: c6715242ab1a2fd60f876ee97558715ed54c5e18
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 7335a5c61b46fab2da4054fdc0b8c9bbe05a148a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239618"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537485"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Översikt över Batch-API:er och verktyg
 
@@ -59,16 +60,16 @@ Azure Resource Manager-API:erna för Batch ger programmatisk åtkomst till Batch
 
 Dessa kommandoradsverktyg innehåller samma funktioner som Batch-tjänsten och API:erna för Batch Management: 
 
-* [PowerShell-cmdlets för Batch ][batch_ps]: Du kan använda Azure Batch-cmdlets i [Azure PowerShell](/powershell/azure/overview)-modulen om du vill hantera Batch-resurser med PowerShell.
+* [PowerShell-cmdlets för Batch][batch_ps]: Du kan använda Azure Batch-cmdlets i [Azure PowerShell](/powershell/azure/overview)-modulen om du vill hantera Batch-resurser med PowerShell.
 * [Azure CLI](/cli/azure): Azure CLI är en plattformsoberoende verktygsuppsättning som tillhandahåller shell-kommandon för att interagera med många Azure-tjänster, inklusive Batch-tjänsten och Batchhanteringstjänsten. Mer information om hur du använder Azure CLI med Batch finns i [Hantera Batch-resurser med Azure CLI](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Andra verktyg för programutveckling
 
 Här är några fler användbara verktyg för att skapa och felsöka Batch-program och tjänster:
 
-* [Azure Portal][portal]: Du kan skapa, övervaka och ta bort Batch-pooler, jobb och uppgifter i Azure Portal. Du kan visa statusinformation för dessa och andra resurser när du kör dina jobb, och även ladda ned filer från beräkningsnoderna i dina pooler. Du kan till exempel ladda ned en misslyckad uppgifts `stderr.txt` vid felsökning. Du kan också hämta fjärrskrivbordsfiler (RDP) som du kan använda för att logga in till beräkningsnoder.
-* [Azure Batch Explorer][batch_labs]: Batch Explorer (hette förut BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows.
-* [Microsoft Azure Storage Explorer][storage_explorer]: Även om det strikt sett inte är ett Azure Batch-verktyg är Storage Explorer ett annat värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
+* [Azure-portalen][portal]: Du kan skapa, övervaka och ta bort Batch-pooler, jobb och uppgifter i Azure-portalen. Du kan visa statusinformation för dessa och andra resurser när du kör dina jobb, och även ladda ned filer från beräkningsnoderna i dina pooler. Du kan till exempel ladda ned en misslyckad uppgifts `stderr.txt` vid felsökning. Du kan också hämta fjärrskrivbordsfiler (RDP) som du kan använda för att logga in till beräkningsnoder.
+* [Azure Batch Explorer][batch_labs]: Batch Explorer (som förut hette BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows.
+* [Microsoft Azure Storage Explorer][storage_explorer]: Även om Storage Explorer strikt sett inte är ett Azure Batch-verktyg så är det ytterligare ett värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -85,8 +86,8 @@ Här är några fler användbara verktyg för att skapa och felsöka Batch-progr
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch
 [api_java_mgmt]: /java/api/overview/azure/batch/managementapi
-[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_java_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
+[api_java_mgmt_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
@@ -109,5 +110,5 @@ Här är några fler användbara verktyg för att skapa och felsöka Batch-progr
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [batch_labs]: https://azure.github.io/BatchExplorer/
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [portal]: https://portal.azure.com

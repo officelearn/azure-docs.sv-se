@@ -1,22 +1,20 @@
 ---
-title: 'Självstudie: skapa en Azure Database for MariaDB med Azure-portalen'
+title: 'Självstudier: Utforma en Azure Database for MariaDB med hjälp av Azure-portalen'
 description: I den här självstudien beskrivs hur du skapar och hanterar en Azure Database for MariaDB-server och -databas med Azure-portalen.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322064"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538114"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudie: skapa en Azure Database for MariaDB-databas med Azure-portalen
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudier: Skapa en Azure Database for MariaDB-databas med hjälp av Azure-portalen
 
 Azure Database for MariaDB är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Med Azure-portalen kan du enkelt hantera servern och utforma en databas.
 
@@ -27,7 +25,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Konfigurera serverbrandväggen
 > * Använda kommandoradsverktyget mysql till att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 
@@ -56,7 +54,7 @@ Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [b
     Resursgrupp | **myresourcegroup** | Ange ett nytt resursgruppsnamn eller välj en befintlig resursgrupp.
     Välj källa | **Tom** | Välj **Tom** om du vill skapa en ny server. (Välj **Säkerhetskopiering** om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for MariaDB-server).
     inloggning för serveradministratör | **myadmin** | Ett inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-    Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: Engelska versala bokstäver, engelska gemena bokstäver, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Bekräfta lösenord | *ditt val*| Bekräfta administratörslösenordet.
     Plats | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *den senaste versionen*| Välj den senaste versionen (om du inte har särskilda krav på att använda en annan version).
@@ -171,7 +169,7 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
    
    ![Återställningsformulär](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Återställningspunkt**: Välj en tidpunkt du vill återställa till, inom den tidsperiod som visas. Var noga med att konvertera din lokala tidszon till UTC.
+   - **Återställningspunkt**: Välj en tidpunkt som du vill återställa till i den tidsperiod som visas. Var noga med att konvertera din lokala tidszon till UTC.
    - **Återställ till ny server**: Ange ett nytt servernamn som du vill återställa till.
    - **Plats**: Regionen är samma som källservern och kan inte ändras.
    - **Prisnivå**: Prisnivån är samma som källservern och kan inte ändras.
@@ -186,7 +184,7 @@ I den här kursen har du använt Azure Portal till följande:
 > * Konfigurera serverbrandväggen
 > * Använda kommandoradsverktyget mysql till att skapa en databas
 > * Läsa in exempeldata
-> * Frågedata
+> * Söka i data
 > * Uppdatera data
 > * Återställa data
 

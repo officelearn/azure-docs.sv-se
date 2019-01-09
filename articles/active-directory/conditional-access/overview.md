@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 06866b1a0b986190ab6770e5484fb7d950d10b26
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408284"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753922"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Vad är villkorsstyrd åtkomst i Azure Active Directory?
 
 Säkerhet är en mycket viktig fråga för organisationer som använder molnet. En viktig aspekt av molnsäkerhet är identitet och åtkomst när det gäller att hantera dina molnresurser. I en mobil- och molnorienterad värld kan användare komma åt organisationens resurser med hjälp av en mängd olika enheter och appar från var som helst. Därför räcker det inte att bara fokusera på vem som kan komma åt en resurs. För att uppnå rätt balans mellan säkerhet och produktivitet måste du även beakta hur åtkomsten till en resurs går till när du fattar ett beslut om åtkomstkontroll. Med villkorsstyrd åtkomst för Azure Active Directory (Azure AD) kan du hantera det här kravet. Villkorsstyrd åtkomst är en funktion i Azure Active Directory. Med villkorsstyrd åtkomst kan du implementera automatiserade beslut för åtkomstkontroll om åtkomst till dina molnappar, baserat på villkor. 
 
-Principer för villkorlig åtkomst tillämpas när den första faktorautentiseringen har slutförts. Villkorlig åtkomst är alltså inte avsedd att vara en mekanism för att till exempel räkna och mäta överbelastningsattacker (DoS).  
+Principer för villkorlig åtkomst tillämpas efter det att den första faktorautentiseringen har slutförts. Därför är inte villkorlig åtkomst avsedd som första åtgärd vid exempelvis DoS-attacker (överbelastningsattacker), men kan använda signaler från dessa händelser (t.ex. risknivån för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.  
 
 ![Kontroll](./media/overview/81.png)
 

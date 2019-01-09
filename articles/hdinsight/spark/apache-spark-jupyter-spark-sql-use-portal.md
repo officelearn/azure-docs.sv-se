@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av Azure Portal'
+title: 'Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med hjälp av Azure Portal'
 description: Snabbstarten visar hur du använder Azure Portal för att skapa ett Apache Spark-kluster i Azure HDInsight och köra ett Spark SQL.
 services: hdinsight
 author: hrasheed-msft
@@ -9,26 +9,26 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 370503cc463fd3683f47fe0b573ad83daa0b9d14
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584561"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791877"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med hjälp av Azure-portalen
-Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med hjälp av Azure Portal
+Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Apache Spark på HDInsight finns i [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md).
 
-I den här snabbstarten använder du Azure Portal för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+I den här snabbstarten använder du Azure Portal för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring. Mer information om hur du kan använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Fakturering för HDInsight-kluster sker proportionerligt per minut, oavsett om du använder dem eller inte. Se till att du tar bort dina kluster när du är klar med dem. Mer information finns i avsnittet [Rensa resurser](#clean-up-resources) i den här artikeln.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Skapa ett HDInsight Spark-kluster
 
-1. Välj **Skapa en resurs** > **Data + analys** > **HDInsight** i Azure Portal. 
+1. Välj **Skapa en resurs** > **Analys** > **HDInsight** i Azure Portal. 
 
     ![HDInsight i Azure Portal](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight i Azure Portal")
 2. Under **Grunder**, ange följande värden:
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
     |---------|---------|
     |**Klusternamn**     | Namnge ett HDInsight Spark-kluster. Klusternamnet som används för den här snabbstarten är **myspark20180403**.|
     |**Prenumeration**     | I listrutan, Välj en Azure-prenumeration som används för det här klustret. Prenumerationen som används för den här snabbstarten är **&lt;Azure-prenumeration**. |
-    |**Typ av kluster**| Utöka objektet och välj sedan **Spark** som klustertyp och ange Spark-klusterversionen. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Slect HDInsight clsuter type" /> |
+    |**Typ av kluster**| Utöka objektet och välj sedan **Spark** som klustertyp och ange Spark-klusterversionen. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Select HDInsight cluster type" /> |
     |**Användarnamn för klusterinloggning**| Ange användarnamnet för kluster-inloggningen.  Standardnamnet är *admin*. Du kan använda det här kontot för att logga in i Jupyter Notebook senare i snabbstarten. |
     |**Lösenord för klusterinloggning**| Ange lösenordet för klusterinloggningen: |
     |**Secure Shell (SSH)-användarnamn**| Ange SSH-användarnamnet. SSH-användarnamnet som användes för den här snabbstarten är **sshuser**. Som standard delar här kontot samma lösenord som kontot *användarnamn för klusterinloggning*. |
@@ -53,7 +53,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
     ![Skapa lagringskonfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Skapa lagringskonfigurationer för Spark-kluster i HDInsight")
 
-    > [!NOTE] 
+    > [!NOTE]  
     > På skärmbilden, visas **Välj befintlig**. Länken växlar mellan **Skapa nytt** och **Välj befintlig**.
 
     **Standardbehållaren** har ett standardnamn.  Du kan ändra namnet om du vill.
@@ -63,7 +63,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 3. På **Sammanfattning** väljer du **Skapa**. Det tar cirka 20 minuter att skapa klustret. Klustret måste skapas innan du kan fortsätta till nästa session.
 
-Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på att du inte har rätt behörighet för att göra det. Mer information finns i [åtkomstkravkontrollen](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på att du inte har rätt behörighet för att göra det. Mer information finns i [åtkomstkravkontrollen](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
 

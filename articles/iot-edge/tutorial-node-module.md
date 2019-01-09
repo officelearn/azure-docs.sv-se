@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 76bc59b41bf35f6427b1dcb273f3f50c5e70b748
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344065"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557111"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
@@ -36,6 +36,7 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 En Azure IoT Edge-enhet:
 
 * Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Om du kör IoT Edge på Windows har IoT Edge version 1.0.5 inte stöd för Node.js-moduler. Mer information finns i [viktig information om 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Stegvisa instruktioner för hur du installerar en specifik version finns i avsnittet om att [uppdatera IoT Edge-säkerhetsdaemon och -körning](how-to-update-iot-edge.md).
 
 Molnresurser:
 
@@ -221,9 +222,9 @@ Den fullständiga adressen med tagg för containeravbildningen i `docker build`-
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 
-I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enheten distribuerade du en modul med hjälp av Azure Portal. Du kan även distribuera moduler med Azure IoT Hub Toolkit-tillägget (tidigare Azure IoT Toolkit-tillägget) för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enheten distribuerade du en modul med hjälp av Azure Portal. Du kan även distribuera moduler med hjälp av Azure IoT Hub Toolkit-tillägget (tidigare Azure IoT Toolkit-tillägget) för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-1. I kommandopaletten i VS Code kör du **Azure IoT Hub: Välj IoT Hub**. 
+1. I kommandopaletten i VS Code kör du **Azure IoT Hub: Välj IoT-hubb**. 
 
 2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
 

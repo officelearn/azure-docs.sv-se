@@ -1,22 +1,19 @@
 ---
 title: Azure CLI-skript – Skala Azure Database for PostgreSQL
 description: Azure CLI-skriptexempel – Skala Azure Database for PostgreSQL-servern till en annan prestandanivå när du har kört frågor mot måtten.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 2602165a6fb5aea85383d4e435479f0bf0f7e48c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 37b7364d48508ad557e6118487c0cb88f9df8e4f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582121"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548769"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Övervaka och skala en enskild PostgreSQL-server med Azure CLI
 Det här CLI-exempelskriptet skalar en enda Azure Database for PostgreSQL-servern till en annan prestandanivå när du har kört frågor mot måtten. 
@@ -46,4 +43,4 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure)
 - Prova ytterligare skript: [Azure CLI-exempel för Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
-- Läs mer information om skalning: [Tjänstnivåer](../concepts-service-tiers.md) och [Beräkningsenheter och lagringsenheter](../concepts-compute-unit-and-storage.md)
+- Läs mer om skalning: [Tjänstnivåer](../concepts-service-tiers.md) samt [beräkningsenheter och lagringsenheter](../concepts-compute-unit-and-storage.md)

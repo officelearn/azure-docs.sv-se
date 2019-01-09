@@ -1,5 +1,5 @@
 ---
-title: Skapa en .NET Core-webbapp i Linux – Azure App Service | Microsoft Docs
+title: Skapa en .NET Core-app i Linux – Azure App Service | Microsoft Docs
 description: Distribuera din första Hello World-app med .NET Core i App Service på Linux på bara några minuter.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
@@ -16,20 +16,20 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251801"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633939"
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Skapa en .NET Core-webbapp i App Service på Linux
+# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Skapa en .NET Core-app i App Service på Linux
 
 > [!NOTE]
-> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en ASP.NET Core-webbapp i Azure](../app-service-web-get-started-dotnet.md).
+> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en ASP.NET Core-app i Azure](../app-service-web-get-started-dotnet.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till webbappen.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar appen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till appen.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -53,7 +53,7 @@ md hellodotnetcore
 cd hellodotnetcore
 ```
 
-Skapa en ny .NET Core-webbapp.
+Skapa en ny .NET Core-app.
 
 ```bash
 dotnet new web
@@ -95,15 +95,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Bläddra till webbappen som precis skapades. Ersätt _&lt;app name>_ med namnet på din webbapp.
+Bläddra till appen som precis skapades. Ersätt _&lt;app name>_ med namnet på din app.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-Så här bör din nya webbapp se ut:
+Så här bör din nya app se ut:
 
-![Sida för tom webbapp](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![Tom appsida](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -144,7 +144,7 @@ Bläddra till den distribuerade appen via webbläsaren.
 http://<app_name>.azurewebsites.net
 ```
 
-Exempelkoden för .NET Core körs i en webbapp med en inbyggd avbildning.
+.NET Core-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -169,15 +169,15 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/quickstart-dotnetcore/portal-app-service-list.png)
+![Portalnavigering till Azure-app](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
+Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 
 ![App Service-sidan på Azure Portal](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -188,4 +188,4 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en .NET Core- och SQL Database-webbapp i Azure App Service på Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Skapa en .NET Core- och SQL Database-app i Azure App Service i Linux](tutorial-dotnetcore-sqldb-app.md)

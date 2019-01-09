@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en miniatyrbild – REST, Go – Visuellt innehåll'
+title: 'Snabbstart: Skapa en miniatyrbild – REST, Go'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och Go.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: a1a1daebaba7b5592a94bc90811a9ac272ec7971
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9abd34266c5ee109d836484a9e7eb9d95c082296
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969557"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580917"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:et och Go i Visuellt innehåll
 

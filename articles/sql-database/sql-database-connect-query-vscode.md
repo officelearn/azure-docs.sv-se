@@ -4,7 +4,7 @@ description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av 
 keywords: ansluta till sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098992"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652123"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använd Visual Studio Code för att ansluta till och söka i en Azure SQL-databas
 
-[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Den stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan kör Transact-SQL-uttryck för att söka efter, infoga, uppdatera och ta bort data.
+[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Den stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. I den här snabbstarten får du använda Visual Studio Code för att ansluta till en Azure SQL-databas och därefter köra Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -66,7 +66,7 @@ Ställ in språkläget på **SQL** i Visual Studio Code för att aktivera mssql-
 
 1. Öppna ett Visual Studio Code-fönster. 
 
-2. Tryck på **CTRL**+**N**. En ny oformaterad textfil öppnas. 
+2. Tryck på **Ctrl**+**N**. En ny oformaterad textfil öppnas. 
 
 3. Välj **Oformaterad text** nere till höger i statusfältet.
 
@@ -82,11 +82,11 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
 1. I Visual Studio Code trycker du på **Ctrl+Shift+P** (eller **F1**) för att öppna kommandopaletten.
 
-2. Välj **MS SQL: Anslut** och tryck på **Retur**.
+2. Välj **MS SQL:Anslut** och välj **Retur**.
 
 3. Välj **Skapa anslutningsprofil**.
 
-4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett ett värde trycker du på **Retur** för att fortsätta. 
+4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett varje värde så väljer du **Retur** för att fortsätta. 
 
    | Egenskap       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
 ## <a name="query-data"></a>Söka i data
 
-Använd följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-instruktion för att fråga efter de 20 främsta produkterna per kategori.
+Kör följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-instruktion för att fråga efter de 20 främsta produkterna per kategori.
 
 1. Klistra in följande SQL-fråga i redigeringsfönstret.
 
@@ -113,13 +113,13 @@ Använd följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Tryck på **Ctrl**+**Shift**+**E** att köra frågan och visa resultat från tabellerna `Product` och `ProductCategory`.
+2. Tryck på **Ctrl**+**Skift**+**E** för att köra frågan och visa resultat från tabellerna `Product` och `ProductCategory`.
 
     ![Fråga för att hämta data från 2 tabeller](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Infoga data
 
-Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
+Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -147,7 +147,7 @@ Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
 ## <a name="update-data"></a>Uppdatera data
 
-Använd följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-instruktion för att uppdatera den tillagda produkten.
+Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-instruktion för att uppdatera den tillagda produkten.
 
 1. Ersätt den föregående frågan med denna:
 
@@ -161,7 +161,7 @@ Använd följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
 
 ## <a name="delete-data"></a>Ta bort data
 
-Använd följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL-instruktion för att ta bort den nya produkten.
+Kör följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL-instruktion för att ta bort den nya produkten.
 
 1. Ersätt den föregående frågan med denna:
 

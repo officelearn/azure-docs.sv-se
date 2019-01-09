@@ -1,23 +1,20 @@
 ---
 title: Ansluta till Azure Database for MySQL från PHP
 description: I den här snabbstarten finns ett kodexempel i PHP som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7fa9272a8609d933a3f12abb0f33e78c4bdc1b12
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984816"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608774"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL: Använd PHP för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i PHP och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -26,7 +23,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>Installera PHP
-Installera PHP på din server, eller skapa en Azure-[webbapp](../app-service/app-service-web-overview.md) som innehåller PHP.
+Installera PHP på din server, eller skapa en Azure-[webbapp](../app-service/overview.md) som innehåller PHP.
 
 ### <a name="macos"></a>MacOS
 - Hämta [PHP 7.1.4](https://secure.php.net/downloads.php).

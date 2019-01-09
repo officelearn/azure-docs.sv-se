@@ -1,22 +1,19 @@
 ---
 title: 'Azure CLI-skript: Återställa en Azure Database for MySQL-server'
 description: Det här Azure CLI-exempelskriptet visar hur du återställer en Azure Database for MySQL-server och dess databaser till en tidigare tidpunkt.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 9017732eb880ff88b041073ca9cb7aca97f9b693
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7bc4b1533da272bed9b7b7b8a0abe9b509e02386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581042"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545118"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Återställa en Azure Database for MySQL-server med Azure CLI
 Det här CLI-exempelskriptet återställer en enda Azure Database for MySQL-server till en tidigare tidpunkt.
@@ -45,4 +42,4 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).
-- Prova fler skript: [Azure CLI-exempel för Azure Database for MySQL](../sample-scripts-azure-cli.md)
+- Prova ytterligare skript: [Azure CLI-exempel för Azure Database for MySQL](../sample-scripts-azure-cli.md)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679179"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714761"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -105,6 +105,14 @@ Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill
 Application Gateway har inbyggt stöd för WebSocket- och HTTP/2-protokoll. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Stöd för HTTP-2 kan aktiveras med hjälp av Azure PowerShell.
 
 WebSocket- och HTTP/2-protokollen aktiverar full duplex-kommunikation mellan en server och en klient över en tidskrävande TCP-anslutning. Det här tillåter en mer interaktiv kommunikation mellan webbservern och klienten, som kan vara dubbelriktad utan att behöva avsökning som krävs i HTTP-baserade implementeringar. Dessa protokoll har låg omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden/svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Dessa protokoll är utformade att fungera via de traditionella HTTP-portarna 80 och 443.
+
+## <a name="rewrite-http-headers-public-preview"></a>Skriva om HTTP-huvuden (offentlig förhandsversion)
+
+Med HTTP-huvuden kan klienten och servern skicka ytterligare information med begäran eller svaret. Genom att skriva om dessa HTTP-huvuden kan du åstadkomma flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade rubrikfält som HSTS/X-XSS skydd eller ta bort svarshuvudfält som kan visa känslig information som backend-serverns namn. 
+
+Application Gateway stöder nu möjligheten att skriva om rubrikerna för inkommande HTTP-begäran samt utgående HTTP-svar. Du kommer att kunna lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar när begäran-/svarspaketen flyttas mellan klientens och serverdelens pooler. Du kan skriva om både standardmässiga huvudfält (definieras i [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) och ej standardmässiga huvudfält.  
+
+Läs mer om den här offentliga förhandsgranskningsfunktionen i [Skriva om HTTP-huvuden](rewrite-http-headers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

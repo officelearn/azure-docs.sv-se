@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315962"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976774"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka-kluster på HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
 
 Apache Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Apache Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den här snabbstarten har du direkt åtkomst till klustret med SSH. Om du vill ansluta andra tjänster, nätverk eller virtuella datorer till Apache Kafka måste du först skapa ett virtuellt nätverk och sedan skapa resurser i nätverket.
 >
 > Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
@@ -40,7 +40,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 
     * [Installera Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributioner som är tillgängliga via Microsoft Store tillhandahåller `ssh`-kommandot.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Stegen i det här dokumentet förutsätter att du använder någon av de SSH-klienter som nämns ovan. Om du använder en annan SSH-klient och stöter på problem så sök efter en lösning i SSH-klientens dokumentation.
     >
     > Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -49,7 +49,13 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 
 Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
-1. Från [Azure-portalen](https://portal.azure.com) väljer du **+ Skapa en resurs**, **Data och analys** och sedan **HDInsight**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+
+1. Välj **+ Skapa en resurs** från menyn till vänster.
+
+1. Under **Azure Marketplace** väljer du **Analys**.
+
+1. Under **Aktuella** väljer du **HDInsight**.
    
     ![Skapa ett HDInsight-kluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -85,7 +91,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     | Resursgrupp | Resursgruppen som klustret ska skapas i. |
     | Plats | Azure-region som klustret ska skapas i. |
 
-    > [!TIP]
+    > [!TIP]  
     > Varje Azure-region (plats) har _feldomäner_. En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-datacenter. Varje feldomän delar en gemensam strömkälla och nätverksbrytare. De virtuella datorer och hanterade diskar som implementerar noderna i ett HDInsight-kluster är fördelade mellan dessa feldomäner. Den här arkitekturen begränsar de potentiella problemen vid fysiska maskinvarufel.
     >
     > För hög datatillgänglighet, välj en plats (region) som innehåller __tre feldomäner__. Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
@@ -108,10 +114,10 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
 8. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta med standardinställningarna.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > För att kunna garantera tillgängligheten för Apache Kafka på HDInsight, måste __antalet arbetsnoder__ anges till 3 eller fler. Standardvärdet är 4.
     
-    > [!TIP]
+    > [!TIP]  
     > Antalet **diskar per arbetsnod** konfigurerar hur skalbart Apache Kafka i HDInsight är. Apache Kafka på HDInsight använder de virtuella datorernas lokala diskar i klustret för att lagra data. Apache Kafka är I/O-tungt, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och mer lagringsutrymme per nod. Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetsnoderna (Apache Kafka-broker) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard.
 
    ![Ange storleken på Apache Kafka-klustret](./media/apache-kafka-get-started/kafka-cluster-size.png)
@@ -127,7 +133,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-1. Anslut till Apache Kafka-klustrets primära huvudnod med följande kommando. Ersätt `sshuser` med SSH-användarnamnet. Ersätt `mykafka` med namnet på Apache Kafka-klustret
+1. Anslut till Apache Kafka-klustrets primära huvudnod med följande kommando. Ersätt `sshuser` med SSH-användarnamnet. Ersätt `mykafka` med namnet på Apache Kafka-klustret.
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -148,7 +154,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.

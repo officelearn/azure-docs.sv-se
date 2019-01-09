@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602963"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969190"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importera en logikapp som ett API
 
@@ -33,8 +33,8 @@ I den här artikeln kan du se hur du:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-+ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
-+ Kontrollera att det finns en logikapp i din prenumeration. Mer information finns i [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
+* Kontrollera att det finns en logikapp i din prenumeration som gör en HTTP-slutpunkt tillgänglig. Mer information finns i avsnittet om att [utlösa arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ I den här artikeln kan du se hur du:
 2. Välj **Logikapp** från listan **Lägg till ett nytt API**.
 
     ![Logikapp](./media/import-logic-app-as-api/logic-app-api.png)
-3. Tryck på **Bläddra** för att se listan över logikappar i din prenumeration.
+3. Tryck på **Bläddra** för att se listan över anropningsbara logikappar i din prenumeration.
 4. Välj appen. APIM hittar den swagger som är associerad med den valda appen, hämtar den och importerar den. 
 5. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.
 6. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den *obegränsade* produkten.  Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.

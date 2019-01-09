@@ -1,9 +1,9 @@
 ---
-title: Översikt över Azure Batch för utvecklare | Microsoft Docs
+title: Översikt för utvecklare – Azure Batch | Microsoft Docs
 description: Lär dig mer om funktionerna i Batch-tjänsten och dess API:er ur ett utvecklingsperspektiv.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 08/22/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735587"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754075"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -248,7 +248,7 @@ En aktivitet är en beräkningsenhet som associeras med ett jobb. Den körs på 
 
 När du skapar en aktivitet kan du ange:
 
-* Uppgiftens **kommandoraden**. Det här är kommandoraden som kör ditt program eller skript på beräkningsnoden.
+* Uppgiftens **kommandorad**. Det här är kommandoraden som kör ditt program eller skript på beräkningsnoden.
 
     Det är viktigt att notera att kommandoraden egentligen inte körs under ett gränssnitt. Därför har den inte inbyggt stöd för shell-funktioner som tillägg i [miljövariabler](#environment-settings-for-tasks) (till exempel `PATH`). Om du vill dra nytta av den här typen av funktioner måste du anropa gränssnittet på kommandoraden, till exempel genom att starta `cmd.exe` på Windows-noder eller `/bin/sh` på Linux:
 
@@ -264,7 +264,7 @@ När du skapar en aktivitet kan du ange:
 * En **containeravbildning** refererar till Docker Hub eller ett privat register och andra inställningar som behövs för att skapa en Docker-container där uppgifter kan köras på noden. Den här informationen behöver du bara ange om poolen har skapats med en containerkonfiguration.
 
 > [!NOTE]
-> Maximal livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
+> Maximal livstid för en uppgift, från den tidpunkt då den läggs till i jobbet tills den slutförs, är 180 dagar. Slutförda uppgifter bevaras i 7 dagar. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 
 Utöver de aktiviteter som du definierar för att utföra beräkningen på en nod tillhandahålls även följande särskilda aktiviteter av Batch-tjänsten:
 
@@ -314,8 +314,8 @@ En Job Manager-aktivitet startar innan alla andra aktiviteter. Den tillhandahål
 ### <a name="job-preparation-and-release-tasks"></a>Jobbförberedelse- och jobbpubliceringsaktiviteter
 Batch innehåller jobbförberedelseaktiviteter för konfiguration av jobb före körningen. Jobbpubliceringsaktiviteter är avsedda för underhåll och rensning när jobbet har körts.
 
-* **Jobbförberedelseaktivitet**: En jobbförberedelseaktivitet körs på alla beräkningsnoder som schemalagts att köra aktiviteter, innan andra jobbaktiviteter körs. Du kan till exempel använda en jobbförberedelseaktivitet för att kopiera data som delas av alla aktiviteter, men som är unika för jobbet.
-* **Jobbpubliceringsaktivitet**: När ett jobb har slutförts körs en jobbpubliceringsaktivitet på alla noder i poolen som har kört minst en aktivitet. Du kan till exempel använda en jobbpubliceringsaktivitet om du vill ta bort data som kopieras av jobbförberedelseaktiviteten, eller för att komprimera och ladda upp loggar med diagnostikdata.
+* **Jobbförberedelseuppgift**: En jobbförberedelseuppgift körs på alla beräkningsnoder som schemalagts att köra aktiviteter, innan andra jobbuppgifter körs. Du kan till exempel använda en jobbförberedelseaktivitet för att kopiera data som delas av alla aktiviteter, men som är unika för jobbet.
+* **Jobbpubliceringsuppgift**: När ett jobb har slutförts körs en jobbpubliceringsuppgift på alla noder i poolen som har kört minst en uppgift. Du kan till exempel använda en jobbpubliceringsaktivitet om du vill ta bort data som kopieras av jobbförberedelseaktiviteten, eller för att komprimera och ladda upp loggar med diagnostikdata.
 
 Du kan ange en kommandorad som ska köras när aktiviteten anropas både med jobbförberedelse- och jobbpubliceringsaktiviteter. De stöder funktioner som filhämtning, upphöjd körning, anpassade miljövariabler, högsta körningstid, antal omförsök och kvarhållningstid för filer.
 
@@ -355,13 +355,13 @@ Rotkatalogen innehåller följande katalogstruktur:
 
 ![Katalogstrukturen på beräkningsnoder][1]
 
-* **shared**: Den här katalogen ger läs-/skrivbehörighet till *alla* aktiviteter som körs på en nod. Alla aktiviteter som körs på noden kan skapa, läsa, uppdatera och ta bort filer i den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_SHARED_DIR`-miljövariabeln.
-* **startup**: Den här katalogen används av en startaktivitet som dess arbetskatalog. Alla filer som laddas ned till noden av startaktiviteten lagras här. Startaktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_STARTUP_DIR`-miljövariabeln.
-* **Aktiviteter**: En katalog skapas för varje aktivitet som körs på noden. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_TASK_DIR`-miljövariabeln.
+* **delad**: Den här katalogen ger läs-/skrivbehörighet till *alla* uppgifter som körs på en nod. Alla aktiviteter som körs på noden kan skapa, läsa, uppdatera och ta bort filer i den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_SHARED_DIR`-miljövariabeln.
+* **startup**: Den här katalogen används av en startuppgift som dess arbetskatalog. Alla filer som laddas ned till noden av startaktiviteten lagras här. Startaktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_STARTUP_DIR`-miljövariabeln.
+* **Uppgifter**: En katalog skapas för varje uppgift som körs på noden. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_TASK_DIR`-miljövariabeln.
 
     I varje aktivitetskatalog skapar Batch-tjänsten en arbetskatalog (`wd`) vars unika sökväg anges av `AZ_BATCH_TASK_WORKING_DIR`-miljövariabeln. Den här katalogen ger läs-/skrivbehörighet till aktiviteten. Aktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Den här katalogen lagras baserat på *RetentionTime*-begränsningen som angetts för aktiviteten.
 
-    `stdout.txt`och `stderr.txt`: Dessa filer skrivs till aktivitetsmappen när aktiviteten körs.
+    `stdout.txt` och `stderr.txt`: Dessa filer skrivs till uppgiftsmappen när uppgiften körs.
 
 > [!IMPORTANT]
 > När en nod tas bort från poolen tas *alla* filer som lagras på noden bort.
@@ -508,7 +508,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 * Lär dig hur du utvecklar ett enkelt Batch-aktiverat program med hjälp av [Batch .NET-klientbiblioteket](quick-run-dotnet.md) eller [Python](quick-run-python.md). I de här snabbstarterna beskriver vi ett exempelprogram som använder Batch-tjänsten för att köra en arbetsbelastning på flera beräkningsnoder och förklarar hur du använder Azure Storage för mellanlagring och hämtning av filer i arbetsbelastningar.
 * Hämta och installera [Batch Explorer][batch_labs] och använd verktyget i arbetet med att utveckla Batch-lösningar. Använd Batch Explorer för att skapa, felsöka och övervaka Azure Batch-program. 
-* Läs mer i olika community-resurser som [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [repon för Batch-communityn](https://github.com/Azure/Batch) och [Azure Batch-forumet][batch_forum] på MSDN. 
+* Läs mer i olika community-resurser som [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [repon för Batch-communityn](https://github.com/Azure/Batch) och [Azure Batch-forumet][batch_forum] på MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

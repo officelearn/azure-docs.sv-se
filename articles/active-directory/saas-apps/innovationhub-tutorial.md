@@ -1,244 +1,224 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Innovation Hub | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Innovation Hub.
+title: 'Självstudier: Azure Active Directory-integrering med Innoverse | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Innoverse.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 12/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 6486c43ed9eaf1e829598cfc9177a96e0bed9fe1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437557"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794081"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-innovation-hub"></a>Självstudier: Azure Active Directory-integrering med Innovation Hub
+# <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Självstudier: Azure Active Directory-integrering med Innoverse
 
-I den här självstudien får du lära dig hur du integrerar Innovation Hub med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Innoverse med Azure Active Directory (AD Azure).
+Genom att integrera Innoverse med Azure AD får du följande fördelar:
 
-Integrera Innovation Hub med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Innoverse.
+* Du kan göra så att dina användare automatiskt loggas in på Innoverse (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Innovation Hub.
-- Du kan aktivera användarna att automatiskt få loggat in på Innovation Hub (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med Innoverse:
 
-Om du vill konfigurera Azure AD-integrering med Innovation Hub, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Innovation Hub enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Innoverse-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Innovation Hub från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-innovation-hub-from-the-gallery"></a>Att lägga till Innovation Hub från galleriet
-För att konfigurera integrering av Innovation Hub i Azure AD, som du behöver lägga till Innovation Hub från galleriet i din lista över hanterade SaaS-appar.
+* Innoverse har stöd för **SP- och IDP**-initierad enkel inloggning
+* Innoverse stöder **just-in-time**-användaretablering
 
-**Utför följande steg för att lägga till Innovation Hub från galleriet:**
+## <a name="adding-innoverse-from-the-gallery"></a>Lägga till Innoverse från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av Innoverse med Azure AD behöver du lägga till Innoverse från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Innoverse från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
+    ![Azure Active Directory-knappen](common/select_azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise_applications.png)
+
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+
+    ![Knappen Nytt program](common/add_new_app.png)
+
+4. I sökrutan skriver du **Innoverse**, väljer **Innoverse** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+
+     ![Innoverse i resultatlistan](common/search_new_app.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Innoverse baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Innoverse upprättas.
+
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Innoverse:
+
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Innoverse](#configure-innoverse-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Skapa Innoverse-testanvändare](#create-innoverse-test-user)** – för att ha en motsvarighet till Britta Simon i Innoverse som är länkad till en Azure AD-representation av användaren.
+5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Innoverse:
+
+1. På [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Innoverse** och väljer **Enkel inloggning**.
+
+    ![Konfigurera länk för enkel inloggning](common/select_sso.png)
+
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+
+    ![Välja läge för enkel inloggning](common/select_saml_option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit_urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Innoverse-domän och information om URL:er för enkel inloggning](common/idp_intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<domainname>.innover.se`
+
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<domainname>.innover.se/auth/saml2/login`
+
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+
+    ![Innoverse-domän och information om URL:er för enkel inloggning](common/metadata_upload_additional_signon.png)
+
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<domainname>.innover.se/auth/saml2/login`
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program][3]
-
-1. I sökrutan skriver **Innovation Hub**väljer **Innovation Hub** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-    ![Innovation hubben i listan med resultat](./media/innovationhub-tutorial/tutorial_innovationhub_addfromgallery.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Innovation hubb baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i Innovation Hub är en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Innovation Hub upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Innovation Hub, måste du utföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Innovation Hub](#create-an-innovation-hub-test-user)**  – du har en motsvarighet för Britta Simon i Innovation Hub som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
-
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Innovation Hub.
-
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Innovation Hub:**
-
-1. I Azure-portalen på den **Innovation Hub** program integration-sidan klickar du på **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning för länken][4]
-
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/innovationhub-tutorial/tutorial_innovationhub_samlbase.png)
-
-1. På den **Innovation Hub domän och URL: er** avsnittet, utför följande steg:
-
-    ![Innovation Hub domän och URL: er med enkel inloggning för information](./media/innovationhub-tutorial/tutorial_innovationhub_url.png)
-
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<domainname>.innohb.com/auth/saml2/login`
-
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<domainname>.innohb.com`
-
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Innovation Hub Client supportteamet](mailto:support@readify.net) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för Innoverse-klienten ](mailto:support@readify.net) för att hämta de här värdena. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Innovation Hub program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+6. Innoverse-programmet förväntar sig SAML-intyget i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![Konfigurera enkel inloggning](./media/innovationhub-tutorial/attribute.png)
+    ![image](./media/innovationhub-tutorial/tutorial-innovationhub-attribute.png)
 
-1. Klicka på **visa och redigera alla andra användarattribut** kryssrutan i den **användarattribut** avsnitt för att expandera attribut. Utför följande steg på varje visas attribut-
+7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
-    | Attributnamn | Attributvärde | Namespace värde|
-    | ---------------| --------------- |----------------|
-    | DisplayName | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | | |
+    | Namn | Källattribut| Namnrymd |
+    | ---------------| --------- | ----------------|
+    | displayname (visningsnamn) | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![Konfigurera enkel inloggning](./media/innovationhub-tutorial/tutorial_attribute_04.png)
+    ![image](common/new_save_attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/innovationhub-tutorial/tutorial_attribute_05.png)
+    ![image](common/new_attribute_details.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. Ange **Namnrymd**.
 
-    d. Från den **Namespace värdet** anger namnområdesvärdet som visas för den raden.
+    d. Välj Källa som **Attribut**.
 
-    e. Klicka på **OK**.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+    f. Klicka på **Ok**
 
-    ![Länk för hämtning av certifikat](./media/innovationhub-tutorial/tutorial_innovationhub_certificate.png)
+    g. Klicka på **Spara**.
 
-1. Klicka på **spara** knappen.
+8. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på ikonen **kopiera** för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/innovationhub-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/copy_metadataurl.png)
 
-1. Att konfigurera enkel inloggning på **Innovation Hub** sida, som du behöver skicka den kopierade **Url för Federation Metadata** till [Innovation Hub supportteamet](mailto:support@readify.net). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+### <a name="configure-innoverse-single-sign-on"></a>Konfigurera enkel inloggning för Innoverse
+
+För att konfigurera enkel inloggning på **Innoverse**-sidan behöver du skicka den kopierade **Federation Metadata-URL:en** till [Innoverse-supportteamet](mailto:support@readify.net). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/innovationhub-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new_user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/innovationhub-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user_properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
 
-    ![Knappen Lägg till](./media/innovationhub-tutorial/create_aaduser_03.png)
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/innovationhub-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-innovation-hub-test-user"></a>Skapa en testanvändare Innovation Hub
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Innovation Hub. Innovation Hub stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Innovation Hub om den inte finns.
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Innovation Hub supportteamet](mailto:support@readify.net).
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Innoverse.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Innovation Hub.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Innoverse**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise_applications.png)
 
-**Om du vill tilldela Britta Simon Innovation Hub, utför du följande steg:**
+2. I listan över program skriver och väljer du **Innoverse**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Innoverse-länken i programlistan](common/all_applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **Innovation Hub**.
+    ![Länken ”Användare och grupper”](common/users_groups_blade.png)
 
-    ![Innovation Hub-länk i listan med program](./media/innovationhub-tutorial/tutorial_innovationhub_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add_assign_user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-innoverse-test-user"></a>Skapa Innoverse-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet skapas en användare som heter Britta Simon i Innoverse. Innoverse stöder **just-in-time-etablering**, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Innoverse skapas en ny när du försöker komma åt Innoverse.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Innovation Hub i åtkomstpanelen du bör få automatiskt loggat in på ditt Innovation Hub-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Innoverse-panelen i åtkomstpanelen bör du automatiskt loggas in på Innoverse som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-<!--Image references-->
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[1]: ./media/innovationhub-tutorial/tutorial_general_01.png
-[2]: ./media/innovationhub-tutorial/tutorial_general_02.png
-[3]: ./media/innovationhub-tutorial/tutorial_general_03.png
-[4]: ./media/innovationhub-tutorial/tutorial_general_04.png
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[100]: ./media/innovationhub-tutorial/tutorial_general_100.png
-
-[200]: ./media/innovationhub-tutorial/tutorial_general_200.png
-[201]: ./media/innovationhub-tutorial/tutorial_general_201.png
-[202]: ./media/innovationhub-tutorial/tutorial_general_202.png
-[203]: ./media/innovationhub-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

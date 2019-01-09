@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259077"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718544"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
-Med [App Service ](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](app-service-managed-service-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien kommer du att lägga till en hanterad identitet i den ASP.NET-exempelapp du skapade i [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
+Med [App Service ](overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](overview-managed-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien kommer du att lägga till en hanterad identitet i den ASP.NET-exempelapp du skapade i [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
 
 > [!NOTE]
 > Det här scenariot stöds för närvarande av .NET Framework 4.6 och senare men inte av [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) stöder det här scenariot men ingår ännu inte i standardavbildningarna i App Service. 
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Den här konstruktorn konfigurerar ett anpassat SqlConnection-objekt så att en åtkomsttoken för Azure SQL Database från App Service används. Med denna åtkomsttoken autentiseras App Service-appen hos Azure SQL Database med den hanterade identiteten. Mer information finns i [Hämta token för Azure-resurser](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). Med instruktionen `if` kan du fortsätta att testa appen lokalt med LocalDB.
+Den här konstruktorn konfigurerar ett anpassat SqlConnection-objekt så att en åtkomsttoken för Azure SQL Database från App Service används. Med denna åtkomsttoken autentiseras App Service-appen hos Azure SQL Database med den hanterade identiteten. Mer information finns i [Hämta token för Azure-resurser](overview-managed-identity.md#obtaining-tokens-for-azure-resources). Med instruktionen `if` kan du fortsätta att testa appen lokalt med LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` stöds för närvarande bara i .NET Framework 4.6 och senare samt [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), inte i [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
@@ -147,7 +147,7 @@ I **Solution Explorer**: Högerklicka på projektet **DotNetAppSqlDb** och välj
 
 Klicka på **Publicera** på publiceringssidan. När du ser din att göra-lista på den nya webbsidan ansluter din app till databasen med hjälp av den hanterade identiteten.
 
-![Azure-webbapp efter Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Azure-app efter Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Du ska nu kunna redigera att göra-listan som innan.
 
@@ -211,4 +211,4 @@ Vad du lärt dig:
 Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md)

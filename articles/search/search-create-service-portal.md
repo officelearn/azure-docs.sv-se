@@ -6,19 +6,23 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315993"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002645"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
-Se hur du skapar eller etablerar en Azure Search-tjänst i portalen. 
+Azure Search är en fristående-resurs som används för att lägga till en sökfunktion i anpassade appar. Även om Azure Search enkelt integreras med många andra Azure-tjänster kan du också använda det separat, med appar som finns på nätverksservrar eller med programvara som körs på andra molnplattformar. 
+
+I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure Portal](https://portal.azure.com/). 
+
+![Azure Search-resurs i portalen](media/search-create-service-portal/azure-search-resource-label.png)
 
 Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Om du behöver hjälp att komma igång går du till bakgrundsinformationen i [Hantera Azure Search med PowerShell](search-manage-powershell.md).
 
@@ -31,13 +35,15 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 ## <a name="find-azure-search"></a>Hitta Azure Search
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
-3. Välj **Webb** > **Azure Search**.
+3. Använd sökfältet för att hitta ”Azure Search” eller gå till resursen via **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Namnge tjänsten och URL-slutpunkten
 
-Ett tjänstnamn är en del av URL-slutpunkten mot vilken API-anrop utfärdas: `https://your-service-name.search.windows.net`. Ange tjänstnamnet i fältet **URL**. 
+Ett tjänstnamn är en del av URL-slutpunkten mot vilken API-anrop utfärdas: `https://your-service-name.search.windows.net`. Ange tjänstnamnet i fältet **URL**.
+
+Till exempel, om du vill att slutpunkten ska vara `https://my-app-name-01.search.windows.net`, anger du `my-app-name-01`.
 
 Kraven för tjänstnamn:
    * Det måste vara unikt inom namnområdet search.windows.net
@@ -51,6 +57,8 @@ Om du har mer än en prenumeration väljer du en som även har data- eller filla
 
 ## <a name="select-a-resource-group"></a>Välj en resursgrupp
 En resursgrupp är en samling Azure-tjänster och Azure-resurser som används tillsammans. Om du till exempel använder Azure Search för att indexera en SQL-databas måste båda tjänsterna tillhöra samma resursgrupp.
+
+Om du inte kombinerar resurser i en grupp eller om befintliga resursgrupper är fyllda med resurser som används i orelaterade lösningar, ska du skapa en ny resursgrupp enbart för din Azure Search-resurs.
 
 > [!TIP]
 > Om du tar bort en resursgrupp tar du också bort tjänsterna i gruppen. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört. 
@@ -109,7 +117,7 @@ En stor majoritet av kunderna använder bara en tjänst som etablerats på en ni
 Det behövs ingen andra tjänst för hög tillgänglighet. Hög tillgänglighet för frågor uppnås när du använder minst 2 repliker i samma tjänst. Replikuppdateringar är sekventiella, vilket innebär att minst en fungerar när en ny tjänstuppdatering görs. Mer information om drifttid finns i [Serviceavtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Nästa steg
-När du har etablerat en Azure Search-tjänst är du redo att [definiera ett index](search-what-is-an-index.md) så att du kan ladda upp och söka i dina data. 
+Du kan fortsätta i portalen för att skapa ditt första index när du har etablerat en Azure Search-tjänst.
 
 > [!div class="nextstepaction"]
-> [Hur du använder Azure Search i .NET](search-howto-dotnet-sdk.md)
+> [Självstudier: Importera data, indexera och köra frågor i portalen](search-get-started-portal.md)

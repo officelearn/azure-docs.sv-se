@@ -1,23 +1,20 @@
 ---
 title: Snabbstart – Skapa en Azure Database for PostgreSQL-server med Azure Portal
 description: Snabbstartsguide för att skapa och hantera Azure-databas för PostgreSQL-server med användargränssnittet för Azure-portalen.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 9aa4bdf438637572c7e78a2d4a39f6bcebd7b254
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959043"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540495"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Database for PostgreSQL-server i Azure Portal
+# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL i Azure-portalen
 
 Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database for PostgreSQL-server med hjälp av Azure Portal på ungefär fem minuter.
 
@@ -48,7 +45,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
     inloggning för serveradministratör |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** eller **public**. Det får inte börja med **pg_**.
-    Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0 till och med 9) och icke-alfanumeriska tecken (!, $, #, % osv.).
+    Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Plats|Den region som är närmast dina användare| Den plats som är närmast dina användare.
     Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
     Prisnivå | **Generell användning**, **Gen 4**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
@@ -143,7 +140,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
     > [!TIP]
     > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+    > ”psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL-anslutning krävs. Specify SSL options and retry.
     > 
     > Lös felet genom att se till att serverkonfigurationen matchar stegen i avsnittet ”Konfigurera en brandväggsregel på servernivå” i artikeln.
 

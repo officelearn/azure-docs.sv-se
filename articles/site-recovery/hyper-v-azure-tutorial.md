@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839916"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810703"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -81,8 +81,24 @@ Kör installationsfilen för providern (AzureSiteRecoveryProvider.exe) på varje
 5. I **Proxyinställningar** väljer du **Anslut direkt till Azure Site Recovery utan proxyserver**.
 6. När servern har registrerats i valvet klickar du på **Slutför** i **Registrering**.
 
-Metadata från Hyper-V-servern hämtas av Azure Site Recovery och servern visas i **Site Recovery-infrastruktur** > **Hyper-V-värdar**. Processen kan ta upp till 30 minuter.
+Metadata från Hyper-V-servern hämtas av Azure Site Recovery och servern visas i **Site Recovery-infrastruktur** > **Hyper-V-värdar**. Processen kan ta upp till 30 minuter.        
 
+Om du använder en Hyper-V-core-server kan du följa nedanstående steg när du har laddat ned autentiseringsuppgifterna för providern och valvet enligt beskrivningen [här](#set-up-the-source-environment)
+
+1. Extrahera filerna från AzureSiteRecoveryProvider.exe genom att köra
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    Detta gör så att filerna extraheras till den lokala katalogen.
+ 
+2.  Kör ``.\setupdr.exe /i ``
+
+    Resultatet loggas till %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  Registrera servern med hjälp av kommandot:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 

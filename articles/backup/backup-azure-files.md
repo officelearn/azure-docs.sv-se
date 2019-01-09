@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972141"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793594"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -34,7 +34,7 @@ Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den fi
 Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-konton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
 - Du kan inte skydda Azure-filresurser i lagringskonton med RA-GRS-replikering\* [geo-redundant lagring med läsbehörighet](../storage/common/storage-redundancy-grs.md).
 - Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
-- Det finns ingen tillgänglig PowerShell eller CLI som skyddar Azure Files med Azure Backup.
+- Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
 - Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
 - Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.

@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252617"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653908"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-webbapp i App Service i Linux
+# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med [Maven-plugin-program för Azure Web Apps (förhandsversion)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) för att distribuera en webbarkivfil (WAR) för Java-webbapp.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med [Maven-plugin-program för Azure Web Apps (förhandsversion)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) för att distribuera en webbarkivfil (WAR) för Java.
 
 ![Exempelapp som körs i Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ## <a name="create-a-java-app"></a>Skapa en Java-app
 
-Kör följande Maven-kommando i Cloud Shell-prompten för att skapa en ny webbapp med namnet `helloworld`:
+Kör följande Maven-kommando i Cloud Shell-prompten för att skapa en ny app med namnet `helloworld`:
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -62,12 +62,12 @@ Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.
         <version>1.4.0</version>
         <configuration>
    
-            <!-- Web App information -->
+            <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
-            <!-- Java Runtime Stack for Web App on Linux-->
+            <!-- Java Runtime Stack for App on Linux-->
             <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
    
         </configuration>
@@ -84,9 +84,9 @@ Uppdatera följande platshållare i konfigurationen av plugin-program:
 
 | Platshållare | Beskrivning |
 | ----------- | ----------- |
-| `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din webbapp. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med ett unikt nytt resursgruppnamn, till exempel *TestResources*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
-| `WEBAPP_NAME` | Appnamnet är en del av värdnamnet för webbappen när den distribueras till Azure (WEBAPP_NAME.azurewebsites.net). Uppdatera det här värdet med ett unikt namn för den nya Azure-webbappen, som blir värd för din Java-app, till exempel *contoso*. |
-| `REGION` | En Azure-region där webbappen hanteras, till exempel `westus2`. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |
+| `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din app. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med ett unikt nytt resursgruppnamn, till exempel *TestResources*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
+| `WEBAPP_NAME` | Appnamnet är en del av värdnamnet för appen när den distribueras till Azure (WEBAPP_NAME.azurewebsites.net). Uppdatera det här värdet med ett unikt namn för den nya App Service-appen, som blir värd för din Java-app, till exempel *contoso*. |
+| `REGION` | En Azure-region där appen hanteras, till exempel `westus2`. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Distribuera appen
 
@@ -108,7 +108,7 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du Maven för att skapa en Java-webbapp, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Mer information om hur du hanterar Java-program i App Service för Linux finns i nedanstående självstudier och instruktionsartiklar.
+I den här snabbstarten använde du Maven för att skapa en Java-app, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Mer information om hur du hanterar Java-program i App Service för Linux finns i nedanstående självstudier och instruktionsartiklar.
 
 - [Självstudie: Distribuera en Java-företagsapp med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 - [Konfigurera en Tomcat-datakälla](app-service-linux-java.md#connecting-to-data-sources)

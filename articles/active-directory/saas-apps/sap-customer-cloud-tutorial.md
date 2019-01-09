@@ -1,285 +1,263 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med SAP-moln för kund | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP-moln för kunden.
+title: 'Självstudier: Azure Active Directory-integrering med SAP Cloud for Customer | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Cloud for Customer.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 90154dab-eba2-4563-bcf0-f2acc797ea97
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/14/2017
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 59bbcbf9aaef17394151e7db1471b63b87a46288
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 6f2fb29e705edde24d6f54faafd17b580ae131b5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445725"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809870"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Självstudier: Azure Active Directory-integration med SAP-moln för kund
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Självstudier: Azure Active Directory-integrering med SAP Cloud for Customer
 
-Lär dig hur du integrerar SAP-moln för kunder med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien får du lära dig hur du integrerar SAP Cloud for Customer med Azure Active Directory (Azure AD).
+När du integrerar SAP Cloud for Customer med Azure AD innebär det följande fördelar:
 
-Integrera SAP-moln för kunder med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till SAP Cloud for Customer i Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på SAP Cloud for Customer (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till SAP-moln för kund
-- Du kan aktivera användarna att automatiskt få loggat in på SAP-moln för kund (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med SAP Cloud for Customer behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med SAP-moln för kunden, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- Ett SAP-moln för kunden enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här: [– prova](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Enkel inloggning aktiverad för SAP Cloud for Customer
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SAP-moln för kund från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Att lägga till SAP-moln för kund från galleriet
-Om du vill konfigurera integreringen av SAP-moln för kunden i Azure AD, som du behöver lägga till SAP-moln för kund från galleriet i din lista över hanterade SaaS-appar.
+* SAP Cloud for Customer stöder **SP**-initierad enkel inloggning
 
-**Om du vill lägga till SAP-moln för kund från galleriet, utför du följande steg:**
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Lägga till SAP Cloud for Customer från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av SAP Cloud for Customer i Azure AD måste du lägga till SAP Cloud for Customer från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Lägg till SAP Cloud for Customer från galleriet genom att göra följande:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **SAP-moln för kund**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **SAP-moln för kund**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_addfromgallery.png)
+4. Skriv **SAP Cloud for Customer** i sökrutan, välj **SAP Cloud for Customer** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAP-moln för kund baserat på en testanvändare som kallas ”Britta Simon”.
+     ![SAP Cloud for Customer i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i SAP-moln för kund är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i SAP-moln för kund upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I SAP-moln för kunden, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med SAP Cloud for Customer baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SAP Cloud for Customer upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SAP-moln för kunden, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med SAP Cloud for Customer måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa ett SAP-moln för kunden testanvändare](#creating-a-sap-cloud-for-customer-test-user)**  – du har en motsvarighet för Britta Simon i SAP-moln för kund som är kopplad till Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för SAP Cloud for Customer](#configure-sap-cloud-for-customer-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa en testanvändare för SAP Cloud for Customer](#create-sap-cloud-for-customer-test-user)**  – så att du får en motsvarighet till Britta Simon i SAP Cloud for Customer som är länkad till användarens Azure AD-representation.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din SAP-moln för kundprogram.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Om du vill konfigurera Azure AD enkel inloggning med SAP-moln för kunden, utför du följande steg:**
+Konfigurera enkel inloggning i Azure AD med SAP Cloud for Customer genom att göra följande:
 
-1. I Azure-portalen på den **SAP-moln för kund** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på programintegreringssidan för **SAP Cloud for Customer** i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **SAP Cloud kunden domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server name>.crm.ondemand.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<server name>.crm.ondemand.com`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [SAP-moln för kunden klienten supportteamet](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) att hämta dessa värden. 
+    ![Information om SAP Cloud for Customer-domän och URL:er för enkel inloggning](common/sp-identifier.png)
 
-1. På den **användarattribut** avsnittet, utför följande steg:
+    a. Skriv en URL i textrutan **Inloggnings-URL** enligt följande mönster: `https://<server name>.crm.ondemand.com`
 
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_attribute.png)
+    b. Skriv en URL i textrutan **Identifierare (entitets-ID)** enligt följande mönster: `https://<server name>.crm.ondemand.com`
 
-    a. I **användaridentifierare** väljer den **ExtractMailPrefix()** funktion.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Skaffa dess värden genom att kontakta [supportteamet för SAP Cloud for Customer-klienten](https://www.sap.com/about/agreements.sap-cloud-services-customers.html). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    b. Från den **e** väljer du det användarattribut som du vill använda för din implementering.
-    Till exempel om du vill använda EmployeeID som unikt användar-ID och du har lagrat attributvärdet i ExtensionAttribute2, välj sedan user.extensionattribute2.  
+5. Programmet SAP Cloud for Customer förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    ![image](common/edit-attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_certificate.png) 
+6. Gör följande i avsnittet **Användarattribut** i dialogrutan **Användarattribut och anspråk**:
 
-1. Klicka på **spara** knappen.
+    a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
 
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_general_400.png)
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
-1. På den **SAP-moln för konfiguration av Customer** klickar du på **konfigurera SAP-moln för kund** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_configure.png) 
+    b. Välj **Transformering** som **källa**.
 
-1. Utför följande steg för att få SSO konfigurerats:
+    c. Välj **ExtractMailPrefix()** i listan **Transformering**.
+
+    d. Välj det användarattribut som du vill använda för din implementering i listan **Parameter 1**.
+    Om du t.ex. vill använda EmployeeID som unikt användar-ID och du har lagrat attributvärdet i ExtensionAttribute2 väljer du sedan user.extensionattribute2.
+
+    e. Klicka på **Spara**.
+
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+8. Kopiera URL:er som passar dina behov i avsnittet **Konfigurera SAP Cloud for Customer**.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-sap-cloud-for-customer-single-sign-on"></a>Konfigurera enkel inloggning för SAP Cloud for Customer
    
-    a. Logga in på SAP-moln för kundportalen med administratörsbehörighet.
+1. Logga in på SAP Cloud for Customer-portalen med administratörsbehörighet.
    
-    b. Navigera till den **program och vanliga Användarhanteringsuppgift** och klicka på den **identitetsprovider** fliken.
+2. Navigera till **Gemensam uppgift för program- och användarhantering** och klicka på fliken **Identitetsprovider**.
    
-    c. Klicka på **nya identitetsprovider** och välj metadata-XML-fil som du har hämtat från Azure-portalen. Genom att importera metadata, överför systemet automatiskt de nödvändiga Signaturcertifikat och krypteringscertifikat.
+3. Klicka på **Ny identitetsprovider** och välj den metadata-XML-fil som du laddade ned från Azure Portal. Genom att importera metadata överför systemet automatiskt de nödvändiga signatur- och krypteringscertifikaten.
    
     ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
-    d. Azure Active Directory kräver URL för Konsumenttjänst för försäkran-element i SAML-begäran, så Välj den **inkluderar Assertion URL för Konsumenttjänst** kryssrutan.
+4. Azure Active Directory kräver elementets URL för konsumenttjänst för försäkran i SAML-begäran. Markera därför kryssrutan **Inkludera URL för konsumenttjänst för försäkran**.
    
-    e. Klicka på **aktivera enkel inloggning**.
+5. Klicka på **Aktivera enkel inloggning**.
    
-    f. Spara ändringarna.
+6. Spara ändringarna.
    
-    g. Klicka på den **Mina System** fliken.
+7. Klicka på fliken **Mina System**.
    
     ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
-    h. I **Azure AD URL: en inloggning** textrutan klistra in **SAML inloggnings-tjänst-URL för enkel** som du har kopierat från Azure-portalen.
+8. Klistra in den **inloggnings-URL** som du kopierade från Azure Portal i textrutan **Inloggnings-URL för Azure AD**.
    
     ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-    i. Ange om medarbetaren kan manuellt välja mellan att logga in med användar-ID och lösenord eller SSO genom att välja den **manuell identitet providern val av**.
+9. Ange om medarbetaren kan manuellt välja mellan att logga in med användar-ID och lösenord eller SSO genom att välja den **manuell identitet providern val av**.
    
-    j. I den **SSO URL** avsnittet, ange den URL som ska användas av dina anställda för att logga in på systemet. 
-    I den **URL: en som skickas till anställda** lista, kan du välja mellan följande alternativ:
+10. Ange den URL som ska användas av dina anställda för att logga in i systemet i avsnittet **SSO-URL**. 
+    Välj bland följande alternativ i listan **URL som skickats till anställd**:
    
-    **Icke-SSO-URL**
+    **Inte URL för enkel inloggning**
    
-    Systemet skickar bara normala URL: en till medarbetaren. Medarbetaren kan inte logga in med enkel inloggning, och måste använda lösenord eller certifikat i stället.
+    Systemet skickar bara den vanliga system-URL:en till den anställde. Den anställde kan inte logga in med enkel inloggning, utan måste använda lösenord eller certifikat i stället.
    
     **URL FÖR ENKEL INLOGGNING** 
    
-    Systemet skickar endast URL för enkel inloggning till medarbetaren. Medarbetaren kan logga in med enkel inloggning. Begäran om autentisering dirigeras via IDP: N.
+    Systemet skickar bara den vanliga system-URL:en till den anställde. Den anställde kan logga in med enkel inloggning. Begäran om autentisering dirigeras via IDP:n.
    
     **Automatiskt val**
    
-    Om enkel inloggning inte är aktiv, skickar systemet normala URL: en till medarbetaren. Om enkel inloggning är aktiv, kontrollerar systemet om medarbetaren har ett lösenord. Om det finns ett lösenord skickas både SSO Webbadressen och Webbadressen för icke-enkel inloggning till medarbetaren. Om anställda har inget lösenord, skickas bara URL för enkel inloggning till medarbetaren.
+    Om enkel inloggning inte ar aktivt skickar systemet bara den vanliga system-URL:en till den anställde. Om enkel inloggning är aktivt kontrollerar systemet om den anställde har ett lösenord. Om ett lösenord är tillgängligt skickas både URL:en för enkel inloggning och URL:en för inloggning utan enkel inloggning till den anställde. Om den anställde inte har något lösenord skickas bara URL:en för enkel inloggning till den anställde.
    
-    k. Spara ändringarna.
+11. Spara ändringarna.
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/sap-customer-cloud-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/sap-customer-cloud-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/sap-customer-cloud-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/sap-customer-cloud-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Skapa ett SAP-moln för kunden testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i SAP-moln för kunden. Kontakta [SAP-moln för kundsupporten](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) att lägga till användare i SAP-moln för kund-plattformen. 
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet får du aktivera Britta Simon till att använda enkel inloggning i Azure genom att bevilja henne åtkomst till SAP Cloud for Customer.
+
+1. Välj **Företagsprogram**, sedan **Alla program** och därefter **SAP Cloud for Customer** i Azure Portal.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. Skriv och välj **SAP Cloud for Customer** i listan över program.
+
+    ![SAP Cloud for Customer-länken i listan över program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-sap-cloud-for-customer-test-user"></a>Skapa en testanvändare för SAP Cloud for Customer
+
+I det här avsnittet får du skapa en användare som kallas Britta Simon i SAP Cloud for Customer. Lägg till användare på SAP Cloud for Customer-plattformen i samarbete med  [supportteamet för SAP Cloud for Customer](https://www.sap.com/about/agreements.sap-cloud-services-customers.html). Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 > [!NOTE]
-> Kontrollera att NameID-värdet måste matcha med användarnamnfältet i SAP-moln för kund-plattformen.
+> Kontrollera att NameID-värdet överensstämmer med fältet för användarnamn på SAP Cloud for Customer-plattformen.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SAP-moln för kunden.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon SAP-moln för kunden, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **SAP-moln för kund**.
-
-    ![Konfigurera enkel inloggning](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på SAP-moln för kund-panel i åtkomstpanelen du bör få automatiskt loggat in på ditt SAP-moln för kund-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på SAP Cloud for Customer-panelen i åtkomstpanelen bör du automatiskt loggas in på SAP Cloud for Customer som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/sap-customer-cloud-tutorial/tutorial_general_01.png
-[2]: ./media/sap-customer-cloud-tutorial/tutorial_general_02.png
-[3]: ./media/sap-customer-cloud-tutorial/tutorial_general_03.png
-[4]: ./media/sap-customer-cloud-tutorial/tutorial_general_04.png
-
-[100]: ./media/sap-customer-cloud-tutorial/tutorial_general_100.png
-
-[200]: ./media/sap-customer-cloud-tutorial/tutorial_general_200.png
-[201]: ./media/sap-customer-cloud-tutorial/tutorial_general_201.png
-[202]: ./media/sap-customer-cloud-tutorial/tutorial_general_202.png
-[203]: ./media/sap-customer-cloud-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

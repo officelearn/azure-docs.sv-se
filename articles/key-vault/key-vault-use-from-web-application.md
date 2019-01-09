@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Använda Azure Key Vault från en webbapp | Microsoft Docs'
+title: Använda Azure Key Vault från en webbappssjälvstudie – Azure Key Vault | Microsoft Docs
 description: Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp.
 services: key-vault
 author: barclayn
@@ -9,16 +9,16 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079471"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999313"
 ---
-# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Självstudie: Använda Azure Key Vault från en webbapp
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Självstudier: Använda Azure Key Vault från ett webbprogram
 
 Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp i Azure. Du får gå igenom processen att bedöma en hemlighet från Azure Key Vault och använda den i en webbapp. Processen utvecklas sedan och du får använda ett certifikat i stället för en klienthemlighet. Den här självstudien är avsedd för webbutvecklare med grundläggande kunskaper om att skapa webbappar i Azure.
 
@@ -40,9 +40,9 @@ När du ska gå igenom den här självstudien behöver du följande:
 * ett klient-ID och en klienthemlighet för en webbapp som är registrerad i Azure Active Directory och som har åtkomst till ditt nyckelvalv
 * en webbapp. I den här självstudien visas stegen för en ASP.NET MVC-app som är distribuerad i Azure som en webbapp.
 
-Utför stegen i [Kom igång med Azure Key Vault](key-vault-get-started.md) där du hämtar URI:n till en hemlighet, ett klient-ID, en klienthemlighet och sedan registrerar appen. Webbappen måste komma åt valvet och måste därför vara registrerad i Azure Active Directory. Den måste dessutom ha åtkomstbehörigheter till nyckelvalvet. I annat fall går du tillbaka till Registrera ett program i självstudien Kom igång och upprepar de här stegen. Mer information om att skapa webbappar i Azure finns i [Översikt över webbappar](../app-service/app-service-web-overview.md).
+Utför stegen i [Kom igång med Azure Key Vault](key-vault-get-started.md) där du hämtar URI:n till en hemlighet, ett klient-ID, en klienthemlighet och sedan registrerar appen. Webbappen måste komma åt valvet och måste därför vara registrerad i Azure Active Directory. Den måste dessutom ha åtkomstbehörigheter till nyckelvalvet. I annat fall går du tillbaka till Registrera ett program i självstudien Kom igång och upprepar de här stegen. Mer information om att skapa webbappar i Azure finns i [Översikt över webbappar](../app-service/overview.md).
 
-I det här exemplet måste du etablera Azure Active Directory-identiteter manuellt. Men du bör använda [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i stället som automatiskt etablerar Azure AD-identiteter. Mer information finns i [exemplet på GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade självstudien [App Service och Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Du kan också ta en titt på den Key Vault-specifika [självstudien Konfigurera ett Azure-webbprogram för att läsa en hemlighet från Key Vault](tutorial-web-application-keyvault.md).
+I det här exemplet måste du etablera Azure Active Directory-identiteter manuellt. Men du bör använda [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i stället som automatiskt etablerar Azure AD-identiteter. Mer information finns i [exemplet på GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade självstudien [App Service och Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity). Du kan också ta en titt på den Key Vault-specifika [självstudien Konfigurera ett Azure-webbprogram för att läsa en hemlighet från Key Vault](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Lägga till NuGet-paket
 
@@ -71,8 +71,6 @@ Du måste lägga till tre appinställningar i filen web.config. Vi kommer att h�
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Lägga till en metod för att få en åtkomsttoken
 
@@ -159,7 +157,7 @@ Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw
 Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
-Anteckna slutdatumet och lösenordet för .pfx-filen (i det här exemplet är det den 15 maj 2019 och MyPassword). Du behöver dem i skriptet nedan. 
+Anteckna slutdatumet och lösenordet för .pfx-filen (i det här exemplet: Den 15 maj 2019 och mittlösenord). Du behöver dem i skriptet nedan. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associera certifikatet med en Azure AD-app
 
 Nu när du har ett certifikat kan du behöva associera det med en Azure AD-app. Du kan skapa den här associationen via PowerShell. Kör följande kommandon för att associera certifikatet med Azure AD-appen:
@@ -188,11 +186,11 @@ När du har kört kommandona kan du se appen i Azure AD. När du söker bland de
 
 Nu ska vi lägga till kod i webbappen så att den kan komma åt certifikatet och använda det för autentisering. 
 
-Först har vi kod för åtkomst till certifikatet. Lägg märke till att StoreLocation är CurrentUser i stället för LocalMachine. Dessutom anger vi ”false” för metoden Find eftersom vi använder ett testcertifikat.
+Först har vi kod för åtkomst till certifikatet. Lagringsplatsen är CurrentUser i stället för LocalMachine. Dessutom anger vi ”false” för metoden Find eftersom vi använder ett testcertifikat.
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

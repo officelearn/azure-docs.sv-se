@@ -1,20 +1,21 @@
 ---
-title: Registrera händelser från ett Azure Digital Twins-utrymme | Microsoft Docs
+title: 'Självstudier: Registrera händelser från ett Azure Digital Twins-utrymme | Microsoft Docs'
 description: Lär dig hur du tar emot meddelanden från dina utrymmet genom att integrera Azure Digital Twins med Logic Apps med hjälp av stegen i den här självstudien.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583269"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556024"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
 När du har distribuerat din Azure Digital Twins-instans, etablerat dina utrymmen och implementerat anpassade funktioner för att övervaka specifika villkor kan du meddela din kontorsadministratör via e-post när de övervakade villkoren är uppfyllda. 
 
@@ -174,7 +175,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    c. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten **Digital Twins notification for poor air quality in space** (Digital Twins-meddelande för dålig luftkvalitet i utrymmet). Välj sedan **TopologyObjectId** på listan **Dynamiskt innehåll** för **Parsa JSON**.
 
-   d. I **Brödtext** i samma fönster anger du text som liknar detta: **Dålig luftkvalitet har identifierats i ett rum och temperatur behöver justeras**. Du kan utveckla detta med element från listan **Dynamiskt innehåll**.
+   d. Under **Brödtext** i samma fönster anger du text som liknar detta: **Dålig luftkvalitet har identifierats i ett rum, och temperaturen behöver justeras**. Du kan utveckla detta med element från listan **Dynamiskt innehåll**.
 
    ![Logic Apps-val för ”Skicka ett e-postmeddelande”](./media/tutorial-facilities-events/logic-app-send-email.png)
 
@@ -205,7 +206,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 
 Du kan gå till nästa självstudie och lära dig att visualisera dina sensordata, analysera trender och upptäcka avvikelser: 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
 
 Du kan även lära dig mer om diagram för spatial intelligens och objektmodeller i Azure Digital Twins: 
 > [!div class="nextstepaction"]

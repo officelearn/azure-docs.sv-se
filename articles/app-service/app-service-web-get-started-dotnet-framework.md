@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f32ed74086b26f91f3ab24cd619bb117d497012
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251274"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635280"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till Azure Web Apps. När du är klar har du en resursgrupp som består av en App Service-plan och en Azure-webbapp med en distribuerad webbapp.
+Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet.  Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till Azure App Service. När du är klar så har du en resursgrupp som består av en App Service-plan och en App Service-app med en distribuerad webbapp.
 
 ![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
@@ -144,13 +144,13 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 ![Uppdaterad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
-## <a name="manage-the-azure-web-app"></a>Hantera Azure-webbappen
+## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
 
-Klicka på **App Services** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och välj sedan namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
+![Portalnavigering till Azure-app](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
 
 Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 

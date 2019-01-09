@@ -1,312 +1,282 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med AirWatch | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med AirWatch | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AirWatch.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/20/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: bf95b949d6fee4057f67d1e44ded36f363aa5e2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 83a3a6fee7446766973cc8fdca1129cdc2ff80d0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848926"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974462"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Självstudier: Azure Active Directory-integration med AirWatch
+# <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Självstudier: Azure Active Directory-integrering med AirWatch
 
-I den här självstudien får du lära dig hur du integrerar AirWatch med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera AirWatch med Azure Active Directory (AD Azure).
+Genom att integrera AirWatch med Azure AD får du följande fördelar:
 
-Integrera AirWatch med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till AirWatch.
+* Du kan göra så att dina användare automatiskt loggas in på AirWatch (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till AirWatch
-- Du kan aktivera användarna att automatiskt få loggat in på AirWatch (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med AirWatch:
 
-Om du vill konfigurera Azure AD-integrering med AirWatch, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En AirWatch enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* AirWatch-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till AirWatch från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-airwatch-from-the-gallery"></a>Att lägga till AirWatch från galleriet
-För att konfigurera integrering av AirWatch i Azure AD, som du behöver lägga till AirWatch från galleriet i din lista över hanterade SaaS-appar.
+* AirWatch har stöd för **SP**-initierad enkel inloggning
+
+## <a name="adding-airwatch-from-the-gallery"></a>Lägga till AirWatch från galleriet
+
+För att konfigurera integrering av AirWatch i Azure AD behöver du lägga till AirWatch från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till AirWatch från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Program][2]
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-4. I sökrutan skriver **AirWatch**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/airwatch-tutorial/tutorial_airwatch_search.png)
+4. I sökrutan skriver du **AirWatch**, väljer **AirWatch** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-5. I resultatpanelen väljer **AirWatch**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![AirWatch i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med AirWatch baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med AirWatch baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i AirWatch upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i AirWatch är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i AirWatch upprättas.
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för AirWatch:
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i AirWatch.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för AirWatch](#configure-airwatch-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Skapa AirWatch-testanvändare](#create-airwatch-test-user)** – för att ha en motsvarighet till Britta Simon i AirWatch som är länkad till en Azure AD-representation av användaren.
+5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med AirWatch, måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare AirWatch](#creating-a-airwatch-test-user)**  – du har en motsvarighet för Britta Simon i AirWatch som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för AirWatch:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt AirWatch program.
+1. På [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **AirWatch** och väljer **Enkel inloggning**.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med AirWatch:**
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **AirWatch** program integration-sidan klickar du på **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/airwatch-tutorial/tutorial_airwatch_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **AirWatch domän och URL: er** avsnittet, utför följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/airwatch-tutorial/tutorial_airwatch_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+    ![AirWatch-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    b. I den **identifierare** textrutan skriver värde som `AirWatch`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL enligt följande mönster: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [AirWatch klienten supportteamet](https://www.air-watch.com/company/contact-us/) att hämta det här värdet. 
- 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
+    b. I textrutan **Identifierare (entitets-ID)** anger du värdet som: `AirWatch`
 
-    ![Konfigurera enkel inloggning](./media/airwatch-tutorial/tutorial_airwatch_certificate.png) 
+    > [!NOTE]
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för AirWatch-klienten](https://www.air-watch.com/company/contact-us/) för att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På den **AirWatch Configuration** klickar du på **konfigurera AirWatch** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning](./media/airwatch-tutorial/tutorial_airwatch_configure.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Klicka på **spara** knappen.
+6. I avsnittet **Konfigurera AirWatch** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/airwatch-tutorial/tutorial_general_400.png)
-<CS>
-7. I ett annat webbläsarfönster logga du in på webbplatsen AirWatch företag som administratör.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-8. I det vänstra navigeringsfönstret klickar du på **konton**, och klicka sedan på **administratörer**.
-   
-   ![Administratörer](./media/airwatch-tutorial/ic791920.png "administratörer")
+    a. Inloggnings-URL
 
-9. Expandera den **inställningar** menyn och klicka sedan på **katalogtjänster**.
-   
-   ![Inställningar för](./media/airwatch-tutorial/ic791921.png "inställningar")
+    b. Azure AD-identifierare
 
-10. Klicka på den **användaren** fliken den **Bas-DN** textrutan skriver du domännamnet på din och klicka sedan på **spara**.
-   
-   ![Användaren](./media/airwatch-tutorial/ic791922.png "användare")
+    c. Utloggnings-URL
 
-11. Klicka på den **Server** fliken.
-   
+### <a name="configure-airwatch-single-sign-on"></a>Konfigurera enkel inloggning för AirWatch
+
+1. I ett annat webbläsarfönster loggar du in på din AirWatch-företagsplats som administratör.
+
+2. I det vänstra navigeringsfönstret klickar du på **Konton** och sedan på **Administratörer**.
+
+   ![Administratörer](./media/airwatch-tutorial/ic791920.png "Administratörer")
+
+3. Expandera menyn **Inställningar** och klicka sedan på **Katalogtjänster**.
+
+   ![Inställningar](./media/airwatch-tutorial/ic791921.png "Inställningar")
+
+4. Klicka på fliken **Användare**. I textrutan **Grundläggande unikt namn** skriver du ditt domännamn och klickar sedan på **Spara**.
+
+   ![Användare](./media/airwatch-tutorial/ic791922.png "Användare")
+
+5. Klicka på fliken **Server**.
+
    ![Server](./media/airwatch-tutorial/ic791923.png "Server")
 
-12. Utför följande steg:
-    
-    ![Ladda upp](./media/airwatch-tutorial/ic791924.png "ladda upp")   
-    
-    a. Som **katalogtyp**väljer **ingen**.
+6. Utför följande steg:
 
-    b. Välj **använder SAML för autentisering**.
+    ![Ladda upp](./media/airwatch-tutorial/ic791924.png "Ladda upp")   
 
-    c. Om du vill överföra det nedladdade certifikatet klickar du på **överför**.
+    a. För **Katalogtyp** väljer du **Ingen**.
 
-13. I den **begära** avsnittet, utför följande steg:
-    
-    ![Begär](./media/airwatch-tutorial/ic791925.png "för begäran")  
+    b. Välj **Use SAML For Authentication** (Använd SAML för autentisering).
 
-    a. Som **begära bindning typ**väljer **POST**.
+    c. För att ladda upp det nedladdade certifikatet klickar du på **Ladda upp**.
 
-    b. I Azure-portalen på den **Konfigurera enkel inloggning på Airwatch** dialogrutan sida, kopiera den **SAML enkel inloggning för tjänst-URL** värdet och klistra in den i den **identitet providern enkel inloggning URL: en** textrutan.
+7. I avsnittet **Begäran** utför du följande steg:
 
-    c. Som **NameID-Format**väljer **e-postadress**.
+    ![Begäran](./media/airwatch-tutorial/ic791925.png "Begäran")  
+
+    a. För **Request Binding Type** (Begär bindningstyp) väljer du **POST**.
+
+    b. På Azure-portalen gå du till dialogsidan **Configure single sign-on at Airwatch** (Konfigurera enkel inloggning på Airwatch), kopierar värdet för **Inloggnings-URL** och klistrar in det i textrutan **Identity Provider Single Sign On URL** (URL för enkel inloggning med identitetsprovider).
+
+    c. För **NameID-format** väljer du **E-postadress**.
 
     d. Klicka på **Spara**.
 
-14. Klicka på den **användaren** fliken igen.
-    
-    ![Användaren](./media/airwatch-tutorial/ic791926.png "användare")
+8. Klicka på fliken **Användare** igen.
 
-15. I den **attributet** avsnittet, utför följande steg:
-    
-    ![Attributet](./media/airwatch-tutorial/ic791927.png "attribut")
+    ![Användare](./media/airwatch-tutorial/ic791926.png "Användare")
 
-    a. I den **objektidentifierare** textrutan typ **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+9. I avsnittet **Attribut** utför du följande steg:
 
-    b. I den **användarnamn** textrutan typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    ![Attribut](./media/airwatch-tutorial/ic791927.png "Attribut")
 
-    c. I den **visningsnamn** textrutan typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    a. I textrutan **Object Identifier** (Objektidentifierare) skriver du `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    d. I den **Förnamn** textrutan typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    b. I textrutan **Användarnamn** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. I den **efternamn** textrutan typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    c. I textrutan **Visningsnamn** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    f. I den **e-post** textrutan typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. I textrutan **Förnamn** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+
+    e. I textrutan **Efternamn** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+
+    f. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. Klicka på **Spara**.
 
-<CE>
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/airwatch-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/airwatch-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/airwatch-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/airwatch-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** för Britta Simon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-airwatch-test-user"></a>Skapa en AirWatch testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på AirWatch, måste de vara etablerade i att AirWatch.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-* När AirWatch, etablering är en manuell aktivitet.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till AirWatch.
 
-**Utför följande steg för att etablera ett användarkonto:**
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **AirWatch**.
 
-1. Logga in på din **AirWatch** företagets plats som administratör.
-2. I navigeringsfönstret till vänster klickar du på **konton**, och klicka sedan på **användare**.
-   
-   ![Användare](./media/airwatch-tutorial/ic791929.png "användare")
-3. I den **användare** -menyn klickar du på **listvyn**, och klicka sedan på **Lägg till \> Lägg till användare**.
-   
-   ![Lägg till användare](./media/airwatch-tutorial/ic791930.png "lägga till användare")
-4. På den **Lägg till / redigera användare** dialogrutan utför följande steg:
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-   ![Lägg till användare](./media/airwatch-tutorial/ic791931.png "lägga till användare")   
-   1. Skriv den **användarnamn**, **lösenord**, **Bekräfta lösenord**, **Förnamn**, **efternamn**,  **E-postadress** för ett giltigt Azure Active Directory-konto som du vill etablera till relaterade textrutor.
-   2. Klicka på **Spara**.
+2. I programlistan väljer du **AirWatch**.
 
->[!NOTE]
->Du kan använda alla andra AirWatch användare konto verktyg för att skapa eller API: er som tillhandahålls av AirWatch att etablera AAD-användarkonton.
->  
+    ![AirWatch-länken i programlistan](common/all-applications.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till AirWatch.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-![Tilldela användare][200] 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-**Om du vill tilldela Britta Simon AirWatch, utför du följande steg:**
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][201] 
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-2. I listan med program väljer **AirWatch**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Konfigurera enkel inloggning](./media/airwatch-tutorial/tutorial_airwatch_app.png) 
+### <a name="create-airwatch-test-user"></a>Skapa AirWatch-testanvändare
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+För att Azure AD-användare ska kunna logga in på AirWatch måste de etableras till AirWatch. För AirWatch är etablering en manuell uppgift.
 
-    ![Tilldela användare][202] 
+**Utför följande steg för att konfigurera användarförsörjning:**
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Logga in på din **AirWatch**-företagsplats som administratör.
 
-    ![Tilldela användare][203]
+2. I navigeringsfönstret på den vänstra sidan klickar du på **Konton** och sedan på **Användare**.
+  
+   ![Användare](./media/airwatch-tutorial/ic791929.png "Användare")
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+3. På menyn **Användare** klickar du på **Listvy** och sedan på **Lägg till \> Lägg till användare**.
+  
+   ![Lägg till användare](./media/airwatch-tutorial/ic791930.png "Lägg till användare")
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+4. I dialogrutan **Add / Edit User** (Lägg till/redigera användare) utför du följande steg:
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+   ![Lägg till användare](./media/airwatch-tutorial/ic791931.png "Lägg till användare")
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+   a. Skriv **Användarnamn**, **Lösenord**, **Bekräfta lösenord**, **Förnamn**, **Efternamn** samt **E-postadress** för ett giltigt Azure Active Directory-konto som du vill etablera i de relaterade textrutorna.
 
-Öppna panelen om du vill testa dina inställningar för enkel inloggning. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+   b. Klicka på **Spara**.
 
+> [!NOTE]
+> Du kan använda andra verktyg eller API:er för att skapa AirWatch-användarkonton som tillhandahålls av AirWatch för att etablera AAD-användarkonton.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
+
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på AirWatch-panelen i åtkomstpanelen bör du automatiskt loggas in på AirWatch som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/airwatch-tutorial/tutorial_general_01.png
-[2]: ./media/airwatch-tutorial/tutorial_general_02.png
-[3]: ./media/airwatch-tutorial/tutorial_general_03.png
-[4]: ./media/airwatch-tutorial/tutorial_general_04.png
-
-[100]: ./media/airwatch-tutorial/tutorial_general_100.png
-
-[200]: ./media/airwatch-tutorial/tutorial_general_200.png
-[201]: ./media/airwatch-tutorial/tutorial_general_201.png
-[202]: ./media/airwatch-tutorial/tutorial_general_202.png
-[203]: ./media/airwatch-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

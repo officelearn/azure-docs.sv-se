@@ -1,24 +1,21 @@
 ---
 title: Ansluta till Azure Database for MySQL med Ruby
 description: I den här snabbstarten finns ett kodexempel i Ruby som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: cfaf6cc5b93ee80017a8fe5634c7afa7b9ce0ccf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2a5b05985494602e73fa949033958f4a974602b0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986811"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542551"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Ruby för att ansluta och fråga efter data
+# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database for MySQL: Använda Ruby för att ansluta och skicka frågor till data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program och en [mysql2](https://rubygems.org/gems/mysql2)-gem från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Ruby och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

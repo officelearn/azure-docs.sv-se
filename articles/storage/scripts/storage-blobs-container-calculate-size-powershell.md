@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-skript Sample - beräkna blob-behållaren storlek | Microsoft Docs
-description: Beräkna storleken på en behållare i Azure Blob storage addera storleken på var och en av dess blobbar.
+title: Exempel på Azure PowerShell-skript – Beräkna storlek på blob-container | Microsoft Docs
+description: Beräkna storleken på en container i Azure Blob-lagring genom att addera storleken på dess blobar.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,23 +15,23 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b41366b89a0598d52ae973e2a6d27e60ed548765
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24814583"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634464"
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en behållare för Blob storage
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en container för Blob-lagring
 
-Det här skriptet beräknar storleken på en behållare i Azure Blob storage addera storleken på blobbar i behållaren.
+Det här skriptet beräknar storleken på en container i Azure Blob-lagring genom att addera storleken på blobarna i containern.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Det här PowerShell-skriptet ger en uppskattad storlek för behållaren och ska inte användas för fakturering beräkningar. Ett skript som beräknar behållarens storlek för fakturering, se [beräkna storleken på en behållare för Blob storage för fakturering](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
+> Det här PowerShell-skriptet ger en uppskattad storlek för containern och ska inte användas för faktureringsberäkningar. Information om ett skript som beräknar containerstorlek för faktureringsändamål finns i [Beräkna storleken på en Blob Storage-container för faktureringsändamål](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -39,25 +39,25 @@ Det här skriptet beräknar storleken på en behållare i Azure Blob storage add
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, behållaren och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, containern och alla relaterade resurser.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name bloblisttestrg
+Remove-AzResourceGroup -Name bloblisttestrg
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att beräkna storleken på Blob storage-behållare. Varje objekt i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon för att beräkna storleken på Blob-lagringscontainern. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Hämtar ett angivna Storage-konto eller alla lagringskonton i en resursgrupp eller prenumerationen. |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Visar en lista över blobbar i en behållare. ||
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Hämtar ett angivet lagringskonto eller alla lagringskonton i en resursgrupp eller i prenumerationen. |
+| [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) | Visar en lista över blobar i en container. ||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett skript som beräknar behållarens storlek för fakturering, se [beräkna storleken på en behållare för Blob storage för fakturering](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
+Information om ett skript som beräknar containerstorlek för faktureringsändamål finns i [Beräkna storleken på en Blob Storage-container för faktureringsändamål](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare lagringsutrymme PowerShell-skript-exempel finns i [PowerShell-exempel för Azure Storage](../blobs/storage-samples-blobs-powershell.md).
+Ytterligare PowerShell-skriptexempel för lagring finns i [PowerShell-exempel för Azure Storage](../blobs/storage-samples-blobs-powershell.md).

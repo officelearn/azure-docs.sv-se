@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162639"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714588"
 ---
-# <a name="integrate-speech-service"></a>Integrera Speech-tjänsten
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrera Speech-tjänsten med din Language Understanding-app
 Med [Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran för att ta emot ljud och returnera LUIS JSON-förutsägelseobjekt. I den här artikeln laddar du ned och använder ett C#-projekt i Visual Studio för att tala in ett yttrande i en mikrofon och ta emot LUIS-förutsägelseinformation. Projektet använder Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-paketet, som redan ingår som referens. 
 
 För den här artikeln behöver du ett kostnadsfritt [LUIS][LUIS]-webbplatskonto för att importera programmet.
@@ -27,7 +27,7 @@ För den här artikeln behöver du ett kostnadsfritt [LUIS][LUIS]-webbplatskonto
 I Azure-portalen [skapar](luis-how-to-azure-subscription.md#create-luis-endpoint-key) du en **Language Understanding**-nyckel (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importera LUIS-appen Human Resources
-Avsikterna och yttrandena för den här artikeln kommer från LUIS-appen Human Resources, som är tillgänglig från GitHub-lagringsplatsen [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Ladda ned filen [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), spara den med `.json`-tillägget och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
+Avsikterna och yttrandena för den här artikeln kommer från LUIS-appen Human Resources, som är tillgänglig från GitHub-lagringsplatsen [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Ladda ned filen [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), spara den med `.json`-tillägget och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
 
 Den här appen har avsikter, entiteter och yttranden som rör Human Resources-domänen. Här är några exempelyttranden:
 
@@ -62,7 +62,7 @@ När du har importerat appen väljer du **Entiteter** och sedan **Lägg till fö
 Den här artikeln använder ljudenheten på datorn. Det kan vara ett headset med mikrofon eller en inbyggd ljudenhet. Kontrollera nivåerna för inkommande ljud för att se om du bör tala högre än vanligt för att ditt tak ska identifieras av enheten. 
 
 ## <a name="download-the-luis-sample-project"></a>Ladda ned LUIS-exempelprojektet
- Klona eller ladda ned lagringsplatsen [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Öppna [Tal till avsikt-projektet](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) med Visual Studio och återställ NuGet-paketen. VS-lösningsfilen är .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Klona eller ladda ned lagringsplatsen [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Öppna [Tal till avsikt-projektet](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) med Visual Studio och återställ NuGet-paketen. VS-lösningsfilen är documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 Speech SDK ingår redan som referens. 
 
@@ -93,7 +93,7 @@ Speech SDK returnerar hela LUIS-svaret.
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort LUIS-appen Human Resources när den inte längre behövs. För att göra det markerar du appen, går till det kontextuella verktygsfältet ovanför listan och väljer **Ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
-Kom ihåg att ta bort katalogen LUIS-Samples när du är klar med exempelkoden.
+Kom ihåg att ta bort katalogen när du är klar med exempelkoden.
 
 ## <a name="next-steps"></a>Nästa steg
 

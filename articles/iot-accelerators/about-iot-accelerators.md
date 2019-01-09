@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Azure IoT-lösningsacceleratorer | Microsoft Docs
+title: Introduktion till IoT-lösningsacceleratorer – Azure | Microsoft Docs
 description: Läs mer om Azure IoT-lösningsacceleratorer. IoT-lösningsacceleratorer är kompletta, heltäckande, distributionsklara IoT-lösningar.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824548"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607211"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
@@ -34,7 +34,7 @@ Det finns för närvarande fyra lösningsacceleratorer för dig att distribuera:
 
 ### <a name="remote-monitoring"></a>Fjärrövervakning
 
-Använd lösningsacceleratorn till att samla in telemetri från fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
+Använd [Lösningsacceleratorn för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md) för att samla in telemetri från fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
 
 Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
 
@@ -42,7 +42,7 @@ Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetr
 
 ### <a name="connected-factory"></a>Ansluten fabrik
 
-Använd den här lösningsacceleratorn till att samla in telemetri från industriella tillgångar med ett [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-gränssnitt och kontrollera dem. Industriella tillgångar kan omfatta sammansättnings- och teststationer vid monteringsbandet på en fabrik.
+Använd den [Fabriksanslutna lösningsacceleratorn](iot-accelerators-connected-factory-sample-walkthrough.md) för att samla in telemetri från industriella tillgångar med ett [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-gränssnitt och kontrollera dem. Industriella tillgångar kan omfatta sammansättnings- och teststationer vid monteringsbandet på en fabrik.
 
 Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och hantera dina industrienheter:
 
@@ -50,7 +50,7 @@ Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och ha
 
 ### <a name="predictive-maintenance"></a>Förutsägande underhåll
 
-Använd den här lösningsacceleratorn till att förutsäga när en det förväntas bli fel på enhet så att du kan utföra underhåll innan enheten kraschar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
+Använd [Lösningsacceleratorn för förutsägande underhåll](iot-accelerators-predictive-walkthrough.md) för att förutsäga när en det förväntas bli fel på enheten så att du kan utföra underhåll innan enheten kraschar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
 
 Du kan använda instrumentpanelen för förutsägande underhåll för att visa analyser för förutsägande underhåll:
 
@@ -58,7 +58,7 @@ Du kan använda instrumentpanelen för förutsägande underhåll för att visa a
 
 ### <a name="device-simulation"></a>Enhetssimulering
 
-Använd den här lösningsacceleratorn till att köra simulerade enheter som genererar realistisk telemetri. Du kan använda den här lösningsacceleratorn till att testa beteendet för andra lösningsacceleratorer eller till att testa dina egna anpassade IoT-lösningar.
+Använd [Lösningsacceleratorn för enhetssimulering](iot-accelerators-device-simulation-overview.md) för att köra simulerade enheter som genererar realistisk telemetri. Du kan använda den här lösningsacceleratorn till att testa beteendet för andra lösningsacceleratorer eller till att testa dina egna anpassade IoT-lösningar.
 
 Du kan använda webbappen för enhetssimulering för att konfigurera och köra simuleringar:
 
@@ -85,7 +85,7 @@ De ursprungliga lösningsacceleratorerna skrevs med .NET med hjälp av en MVC-ar
 | Ansluten fabrik      | MVC           | [NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Enhetssimulering      | Mikrotjänster | [NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
+Läs mer om arkitektur för mikrotjänster i [Introduktion till Azure IoT-referensarkitektur](iot-accelerators-architecture-overview.md).
 
 ## <a name="deployment-options"></a>Distributionsalternativ
 
@@ -94,7 +94,7 @@ Du kan distribuera lösningsacceleratorerna från webbplatsen för [Microsoft Az
 Du kan distribuera lösningsacceleratorn för fjärrövervakning i följande konfigurationer:
 
 * **Standard:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-containrar som värdar för enskilda mikrotjänster.
-* **Basic:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
+* **Grundläggande:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
 * **Lokal:** Distribution på lokala datorer för testning och utveckling. Den här metoden distribuerar mikrotjänsterna till en lokal Docker-container och ansluter till IoT Hub-, Azure Cosmos DB- och Azure Storage-tjänster i molnet.
 
 Kostnaden för att köra en lösningsaccelerator är den sammanlagda [kostnaden för att köra de underliggande Azure-tjänsterna](https://azure.microsoft.com/pricing). Du ser information om Azure-tjänster som används när du väljer dina distributionsalternativ.

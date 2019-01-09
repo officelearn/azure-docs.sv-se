@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887516"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787638"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudie: felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudier: Felsöka ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
 
 Den här självstudien är del två i en serie och visar hur du skapar och felsöker ett Azure Service Fabric Mesh-program på ditt lokala utvecklingskluster.
 
@@ -93,8 +93,8 @@ Om det uppstår kompileringsfel i **service.yaml** kontrollerar du att blanksteg
 ### <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
 
 När du felsöker ett Service Fabric Mesh-program i Visual Studio använder du ett lokalt utvecklingskluster för Service Fabric. Om du vill se hur att göra-objekt hämtas från serversidetjänsten felsöker du i OnGet()-metoden.
-1. I projektet **WebFrontEnd** öppnar du **Pages** (sidor)  > **Index.cshtml** > **Index.cshtml.cs** och ställer in en brytpunkt i metoden **Get** (linje 17).
-2. I projektet **ToDoService** öppnar du **TodoController.cs** och ställer in en brytpunkt i metoden **OnGet** (linje 15).
+1. I projektet **WebFrontEnd** öppnar du **Pages** (sidor)  > **Index.cshtml** > **Index.cshtml.cs** och ställer in en brytpunkt i metoden **OnGet** (rad 17).
+2. I projektet **ToDoService** öppnar du **TodoController.cs** och ställer in en brytpunkt i metoden **Get** (rad 15).
 3. Gå tillbaka till webbläsaren och uppdatera sidan. Du kommer till brytpunkten i webbklientdelens `OnGet()`-metod. Du kan granska variabeln `backendUrl` för att se hur miljövariablerna som du definierade i **service.yaml**-filen kombineras i den webbadress som användes för att kontakta serversidetjänsten.
 4. Stega över (F10) `client.GetAsync(backendUrl).GetAwaiter().GetResult())`-anropet. Du kommer till kontrollantens `Get()`-brytpunkt. I den här metoden kan du se hur listan över att göra-objekt hämtas från listan i minnet.
 5. När du är klar kan du stoppa felsökningen av projektet i Visual Studio genom att trycka på **Skift + F5**.

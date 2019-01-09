@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/28/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c920782810cc8b7b302799a5bab53a737b11c0a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853450"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727616"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
@@ -38,19 +38,19 @@ Den här snabbstarten kräver [.NET Core 2.1](https://www.microsoft.com/net/down
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="docs" class="sxs-lookup"]
+>
 > Det finns två alternativ för att starta snabbstartsprogrammet:
 > * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till [Azure-portalen – Programregistrering (förhandsversion)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Gå till [Azure-portalen – Programregistrering (förhandsversion)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
->
 
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
@@ -67,7 +67,9 @@ Den här snabbstarten kräver [.NET Core 2.1](https://www.microsoft.com/net/down
 > 1. Under noden **Användare** väljer du **User.Read.All** och väljer sedan **Lägg till behörigheter**
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
+> ### <a name="download-and-configure-your-quickstart-app"></a>Hämta och konfigurera din app för Snabbstart
+> 
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
 > För att kodexemplet för den här snabbstarten ska fungera måste du skapa en klienthemlighet och lägga till Graph-API:ts programbehörighet **User.Read.All**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
@@ -99,6 +101,7 @@ Den här snabbstarten kräver [.NET Core 2.1](https://www.microsoft.com/net/down
     >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
 
+    > [!div renderon="docs"]
     > > [!TIP]
     > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
     
@@ -130,9 +133,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
 
 > [!NOTE]
-> Du kan se felmeddelandet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
+> Du kan se felet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
 
-#### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
+#### <a name="step-5-run-the-application"></a>Steg 5: Köra programmet
 
 Om du använder Visual Studio trycker du på **F5** för att köra appen. Annars kör du appen via kommandotolken eller konsolen:
 

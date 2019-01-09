@@ -1,24 +1,21 @@
 ---
 title: Ansluta till Azure Database for PostgreSQL med Java
 description: I den här snabbstarten finns ett kodexempel i Java som du kan använda för att ansluta till och fråga efter data från Azure Database för PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 5c55adec1471b28880f7a24a736cf25df2c8bd3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c8216c67a912beb9a735c3757520684cc837e989
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29686851"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544659"
 ---
-# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Java för att ansluta och fråga efter data
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Använda Java för att ansluta och skicka frågor till data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Java och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

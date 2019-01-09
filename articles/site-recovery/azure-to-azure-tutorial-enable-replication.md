@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0aa7b7f3558bab7f3553527e03c44d71dd5a87ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833150"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794438"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -138,24 +138,24 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 3. Anpassa målinställningar enligt följande:
 
-    - **Målprenumeration**: Målprenumerationen som används för haveriberedskap. Som standard är målprenumerationen samma som källprenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
-    - **Målplats**: den målregion som används för haveriberedskap. Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
-    - **Målresursgrupp**: den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling. Som standard skapar Site Recovery en ny resursgrupp i målregionen med suffixet ”asr”. resursgruppens plats i målresursgruppen kan vara valfri region förutom den region där dina virtuella källdatorer finns.
-    - **Virtuellt målnätverk**: nätverket i målregionen som innehåller virtuella Azure-datorer efter redundansväxling.
+    - **Målprenumeration**: Den målprenumeration som används för haveriberedskap. Som standard är målprenumerationen samma som källprenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
+    - **Målplats**: Den målregion som används för haveriberedskap. Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
+    - **Målresursgrupp**: Den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling. Som standard skapar Site Recovery en ny resursgrupp i målregionen med suffixet ”asr”. resursgruppens plats i målresursgruppen kan vara valfri region förutom den region där dina virtuella källdatorer finns.
+    - **Virtuellt målnätverk**: Nätverket i den målregion där virtuella Azure-datorer finns efter redundansväxling.
       Som standard skapar Site Recovery ett nytt virtuellt nätverk (och undernät) i målregionen med suffixet ”asr”.
     - **Cachelagringskonton**: Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.
       >[!NOTE]
       >Om du använder cachelagringskonto med brandvägg aktiverat kontrollerar du att ”Tillåt betrodda Microsoft-tjänster” är på. [Läs mer.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Mållagringskonton (om den virtuella måldatorn inte använder hanterade diskar)**: Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.
+    - **Mållagringskonton (om den virtuella källdatorn inte använder hanterade diskar)**: Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.
       >[!NOTE]
       >Om du använder käll- eller mållagringskonto med brandvägg aktiverat kontrollerar du att ”Tillåt betrodda Microsoft-tjänster” är på. [Läs mer.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Hanterade replikeringsdiskar (om den virtuella måldatorn använder hanterade diskar)**: Som standard skapar Site Recovery hanterade replikeringsdiskar i målregionen, som speglar den virtuella källdatorns hanterade diskar med samma lagringstyp (standard eller premium) som den virtuella källdatorns hanterade disk.
-    - **Tillgänglighetsuppsättningar för mål**: som standard skapar Azure Site Recovery en ny tillgänglighetsuppsättning i målregionen med namn som har suffixet ”asr” för de virtuella datorer som ingår i en tillgänglighetsuppsättning i källregionen. Om den tillgänglighetsuppsättning som skapades av Azure Site Recovery redan finns återanvänds den.
-    - **Tillgänglighetszoner för mål**: som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner. 
+    - **Hanterade replikeringsdiskar (om den virtuella källdatorn använder hanterade diskar)**: Som standard skapar Site Recovery hanterade replikeringsdiskar i målregionen, som speglar den virtuella källdatorns hanterade diskar med samma lagringstyp (standard eller premium) som den virtuella källdatorns hanterade disk.
+    - **Tillgänglighetsuppsättningar för mål**: Som standard skapar Azure Site Recovery en ny tillgänglighetsuppsättning i målregionen med namn som har suffixet ”asr” för de virtuella datorer som ingår i en tillgänglighetsuppsättning i källregionen. Om den tillgänglighetsuppsättning som skapades av Azure Site Recovery redan finns återanvänds den.
+    - **Tillgänglighetszoner för mål**: Som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner. 
 
     Om målregionen inte har stöd för tillgänglighetszoner konfigureras de virtuella måldatorerna som enskilda instanser som standard. Om det behövs kan du konfigurera sådana virtuella datorer att bli en del av tillgänglighetsuppsättningarna i målregionen genom att klicka på ”Anpassa”.
 
@@ -166,9 +166,9 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 4. Om du vill anpassa inställningarna för replikeringsprincip klickar du på **Anpassa** intill **Replikeringsprincip** och ändrar följande inställningar efter behov:
 
     - **Namn på replikeringsprincip**: Principnamn.
-    - **Kvarhållning av återställningspunkt**: Som standard behåller Site Recovery återställningspunkter under 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar.
-    - **Appkompatibel ögonblicksbildsfrekvens**: Som standard tar Site Recovery en appkompatibel ögonblicksbild var fjärde timme. Du kan ställa in ett värde mellan 1 och 12 timmar. En appkompatibel ögonblicksbild är en ögonblicksbild av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att programmen i den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.
-    - **Replikeringsgrupp**: Om programmet kräver konsekvens för flera virtuella datorer mellan VM kan du skapa en replikeringsgrupp för dessa virtuella datorer. Som standard är valda virtuella datorer inte en del av någon replikeringsgrupp.
+    - **Kvarhållning av återställningspunkt**: Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar.
+    - **Appkonsekvent ögonblicksbildsfrekvens**: Som standard tar Site Recovery en appkompatibel ögonblicksbild var 4:e timme. Du kan ställa in ett värde mellan 1 och 12 timmar. En appkompatibel ögonblicksbild är en ögonblicksbild av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att programmen i den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.
+    - **Replikeringsgrupp**: Om programmet kräver konsekvens för flera virtuella datorer mellan virtuella datorer kan du skapa en replikeringsgrupp för dessa virtuella datorer. Som standard är valda virtuella datorer inte en del av någon replikeringsgrupp.
 
 5. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. för att göra virtuella datorer till en del av en replikeringsgrupp. Klicka sedan på **OK**.
 
@@ -180,8 +180,8 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 Om den virtuella källdatorn har Azure-diskkryptering (ADE) aktiverad visas krypteringsinställningar:
 
 1. Granska krypteringsinställningarna.
-    - **Diskkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns diskkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
-    - **Nyckelkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns nyckelkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
+    - **Nyckelvalv för diskkryptering**: Som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns diskkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
+    - **Nyckelvalv för nyckelkryptering**: Som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns nyckelkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
 
 2. Klicka på **Anpassa** för att välja anpassade nyckelvalv.
 

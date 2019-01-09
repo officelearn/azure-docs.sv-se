@@ -3,22 +3,21 @@ title: Självstudie om Kubernetes i Azure – Distribuera ett kluster
 description: I den här självstudien om Azure Kubernetes Service (AKS) ska du skapa ett AKS-kluster och använda kubectl för att ansluta till Kubernetes-huvudnoden.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 80b011f9df389098095f58c02008da891b2aa8a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920378"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720670"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudie: Distribuera ett Azure Kubernetes Service-kluster (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudier: Distribuera ett AKS-kluster (Azure Kubernetes Service)
 
-Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Med AKS kan du snabbt etablera ett produktionsklart Kubernetes-kluster. I del tre av sju i den här självstudien distribuerar vi ett Kubernetes-kluster i AKS. Lär dig att:
+Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Med AKS kan du snabbt skapa ett produktionsklart Kubernetes-kluster. I del tre av sju i den här självstudien distribuerar vi ett Kubernetes-kluster i AKS. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett tjänsthuvudnamn för resursinteraktioner
@@ -26,19 +25,19 @@ Kubernetes tillhandahåller en distribuerad plattform för containerbaserade pro
 > * Installera Kubernetes CLI (kubectl)
 > * Konfigurera kubectl för anslutning till ditt AKS-kluster
 
-I senare självstudier distribueras Azure-appen Vote till klustret. Sedan skalas och uppdateras den.
+I ytterligare självstudier distribueras Azure-appen Vote till klustret. Sedan skalas och uppdateras den.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
+I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har utfört de här stegen och vill följa med så kan du börja med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien måste du köra Azure CLI version 2.0.44 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+För den här självstudien behöver du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
 Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Du kan skapa ett huvudnamn för tjänsten automatiskt via Azure CLI eller portalen, eller så kan du skapa ett i förväg och tilldela ytterligare behörigheter. I den här självstudien skapar du ett huvudnamn för tjänsten, beviljar åtkomst till ACR-instansen (Azure Container Registry) du skapade i föregående självstudie och skapar sedan ett AKS-kluster.
 
-Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas.
+Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas. Som standard är tjänstens huvudnamn giltigt i ett år.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -76,7 +75,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role Reader
 
 ## <a name="create-a-kubernetes-cluster"></a>Skapa ett Kubernetes-kluster
 
-AKS-kluster kan använda rollbaserad Kubernetes-åtkomstkontroll (RBAC). Med dessa kontroller kan du definiera åtkomst till resurser baserat på roller som är tilldelade till användare. Du kan kombinera behörigheter om en användare har tilldelats flera roller, och behörigheter kan begränsas till en enda namnrymd eller tillämpas på hela klustret. Rollbaserad Kubernetes-åtkomstkontroll är för närvarande tillgängligt som en förhandsversion för AKS-kluster. Som standard aktiverar Azure CLI automatiskt RBAC när du skapar ett AKS-kluster.
+AKS-kluster kan använda rollbaserad Kubernetes-åtkomstkontroll (RBAC). Med dessa kontroller kan du definiera åtkomst till resurser baserat på roller som är tilldelade till användare. Du kan kombinera behörigheter om en användare har tilldelats flera roller, och behörigheter kan begränsas till en enda namnrymd eller tillämpas på hela klustret. Som standard aktiverar Azure CLI automatiskt RBAC när du skapar ett AKS-kluster.
 
 Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resursgruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr]. Ange dina värden för `<appId>` och `<password>` från föregående steg där du skapade tjänstens huvudnamn.
 
@@ -104,7 +103,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Ansluta till klustret med kubectl
 
-Du konfigurerar `kubectl` för anslutning till Kubernetes-klustret med kommandot [az aks get-credentials][]. I följande exempel hämtas autentiseringsuppgifterna för AKS-klustret med namn *myAKSCluster* i *myResourceGroup*:
+För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][]. I följande exempel hämtas autentiseringsuppgifterna för AKS-klustret med namn *myAKSCluster* i *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -115,8 +114,8 @@ Kontrollera anslutningen till klustret med kommandot [kubectl get nodes][kubectl
 ```
 $ kubectl get nodes
 
-NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
+NAME                       STATUS   ROLES   AGE     VERSION
+aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 ```
 
 ## <a name="next-steps"></a>Nästa steg

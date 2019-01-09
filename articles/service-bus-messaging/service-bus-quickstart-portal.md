@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259385"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002679"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Snabbstart: Skicka och ta emot meddelanden med Azure-portalen och .NET
 
@@ -59,7 +59,7 @@ Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig re
 1.  Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
 2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
-4. I fönstret **Princip: RootManageSharedAccessKey**, klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats. 
+4. I **principen: I fönstret RootManageSharedAccessKey** klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats. 
 
     ![connection-string][connection-string]
 5. Upprepa föregående steg, kopiera och klistra in värdet för **Primärnyckeln** till en tillfällig plats för senare användning.
@@ -77,7 +77,7 @@ Du skapar en Service Bus-kö genom att ange namnområdet som du vill skapa det u
 
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
 
-Efter att namnområdet och kön har etablerats och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
+Efter att namnområdet och kön har etablerats och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 Om du vill köra koden gör du följande:
 

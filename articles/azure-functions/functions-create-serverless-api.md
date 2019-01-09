@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989914"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001472"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Skapa ett API utan server med Azure Functions
 
@@ -46,7 +46,7 @@ Som standard konfigureras din HTTP-utlösta funktion för att godkänna alla HTT
     | Tillåtna HTTP-metoder | Valda metoder | Avgör vilka HTTP-metoder som kan användas för att anropa den här funktionen |
     | Valda HTTP-metoder | HÄMTA | Tillåter endast de valda HTTP-metoderna att användas för att anropa den här funktionen |
     | Flödesmall | /hello | Avgör vilket flöde som används för att anropa den här funktionen |
-    | Auktorisationsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan API-nyckel |
+    | Auktorisationsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan en API-nyckel |
 
     > [!NOTE] 
     > Observera att du har inte tog med bassökvägsprefixet `/api` i flödesmallen, eftersom det styrs av en global inställning.
@@ -71,7 +71,7 @@ I nästa avsnitt använder du ditt API via en proxy. Med Azure Functions Proxies
 
 En proxy kan peka på en HTTP-resurs, till exempel:
 - Azure Functions 
-- API-appar i [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+- API-appar i [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)
 - Docker-container i [App Service i Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Övriga värdbaserade API:er
 
@@ -104,7 +104,7 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
     | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
     | Namn | HelloProxy | Ett eget namn som endast används för hantering |
-    | Flödesmall | /api/hello | Avgör vilket flöde som används för att anropa den här proxyn |
+    | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |
     | Webbadress för serverdel | https://%HELLO_HOST%/api/hello | Anger den slutpunkt som begäran ska nå via proxy |
     
 1. Observera att Proxyservrar inte ger rotsökvägsprefixet `/api`, och detta måste ingå i flödesmallen.
@@ -112,9 +112,9 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
 1. Klicka på **Skapa**.
 1. Du kan testa din nya proxy genom att kopiera Proxywebbadressen och testa den i webbläsaren eller med den HTTP-klient du föredrar.
     1. För en anonym funktion använder du:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. För en funktion med auktorisering använder du:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Skapa ett fingerat API
 
@@ -132,7 +132,7 @@ Om du har följt anvisningarna hittills bör din proxies.json-fil se ut så här
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ Härnäst lägger du till ditt fingerade API. Ersätt din proxies.json-fil med f
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

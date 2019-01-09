@@ -1,5 +1,5 @@
 ---
-title: Skapa en Node.js-webbapp i Linux – Azure App Service | Microsoft Docs
+title: Skapa en Node.js-app i Linux – Azure App Service | Microsoft Docs
 description: Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter.
 services: app-service\web
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253598"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631540"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service i Linux
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-app i Azure App Service på Linux
 
 > [!NOTE]
-> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js-webbapp i Azure](../app-service-web-get-started-nodejs.md).
+> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js-app i Azure](../app-service-web-get-started-nodejs.md).
 >
 
 Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar ett Node.js-program till App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
@@ -136,17 +136,17 @@ Kommandot `az webapp up` utför följande åtgärder:
 
 - Skapa ett program med det givna namnet.
 
-- [Zip-distribuera](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) filer från den aktuella arbetskatalogen till webbprogrammet.
+- [Zip-distribuera](https://docs.microsoft.com/azure/app-service/deploy-zip) filer från den aktuella arbetskatalogen till appen.
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
-Bläddra till den distribuerade appen via webbläsaren. Ersätt <app name> med namnet på ditt webbprogram.
+Bläddra till den distribuerade appen via webbläsaren. Ersätt <app_name> med namnet på din app.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js-exempelkoden körs i en webbapp med inbyggd avbildning.
+Node.js-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +166,7 @@ response.end("Hello Azure!");
 
 Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara och `^X` för att avsluta.
 
-Distribuera nu om programmet. Ersätt `<app_name>` med ditt webbprogram.
+Distribuera nu om programmet. Ersätt `<app_name>` med din app.
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +176,15 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
 
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
+I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Navigera till webbappen på Azure Portal](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Portalnavigering till Azure-app](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du slutföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Nu visas översiktssidan för din app. Här kan du slutföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-sidan på Azure Portal](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Skapa en Xamarin.Forms-app med .NET och MongoDB-API:et'
-description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB MongoDB-API:t
+title: Skapa en Xamarin.Forms-app med .NET och Azure Cosmos DB:s API för MongoDB
+description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor till Azure Cosmos DB:s API för MongoDB
 services: cosmos-db
 author: codemillmatt
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 456d35666e1475379b7ec90e8683ed47a1946f67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089266"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808969"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snabbstart: Skapa en Xamarin.Forms-app med MongoDB-API:et med .NET och Azure Portal
+# <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Snabbstart: Skapa en Xamarin.Forms-app med .NET och Azure Cosmos DB:s API för MongoDB
 
 > [!div class="op_single_selector"]
 > * [NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53089266"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
-Den här snabbstarten visar hur du skapar ett Microsoft Azure Cosmos DB [MongoDB API](mongodb-introduction.md)-konto, en dokumentdatabas och en samling med hjälp av Azure-portalen. Du skapar sedan en att göra-app medXamarin.Forms med hjälp av [MongoDB .NET-drivrutinen](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+I den här snabbstarten visas hur du kan skapa ett [Cosmos-konto som konfigurerats med Azure Cosmos DB:s API för MongoDB](mongodb-introduction.md), en dokumentdatabas och en samling med hjälp av Azure Portal. Du skapar sedan en att göra-app medXamarin.Forms med hjälp av [MongoDB .NET-drivrutinen](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Nödvändiga förutsättningar för att köra exempelappen
 
@@ -52,7 +52,7 @@ Exemplet som beskrivs i den här artikeln är kompatibelt med MongoDB.Driver ver
 
 ## <a name="clone-the-sample-app"></a>Klona exempelappen
 
-Hämta först MongoDB-API-exempelappen från GitHub. Den implementerar en att göra-app med MongoDB:s dokumentlagringsmodell.
+Ladda först ned eller klona exempelappen från GitHub. Den implementerar en att göra-app med MongoDB:s dokumentlagringsmodell.
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
@@ -126,7 +126,7 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
     }
     ```
 
-* Skapa en uppgift och infogar den i MongoDB-samlingen.
+* Skapa en uppgift och infoga den i samlingen.
     ```cs
     public async Task CreateTask(MyTask task)
     {
@@ -134,7 +134,7 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
     }
     ```
 
-* Uppdatera en uppgift i en MongoDB-samling.
+* Uppdatera en uppgift i en samling.
     ```cs
     public async Task UpdateTask(MyTask task)
     {
@@ -142,7 +142,7 @@ Följande kodfragment är alla hämtade från klassen `MongoService`, som finns 
     }
     ```
 
-* Ta bort en uppgift från en MongoDB-samling.
+* Ta bort en uppgift från en samling.
     ```cs
     public async Task DeleteTask(MyTask task)
     {
@@ -194,4 +194,4 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto och kör en Xamarin.Forms-app via API:t för MongoDB. Du kan nu importera ytterligare data till ditt Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera data till Azure Cosmos DB för användning med MongoDB-API:t](mongodb-migrate.md)
+> [Importera data till Azure Cosmos DB konfigurerat med Azure Cosmos DB:s API för MongoDB](mongodb-migrate.md)

@@ -4,7 +4,7 @@ description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av 
 keywords: anslut till sql database, sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098965"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745082"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
-Du kan använda [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) till att hantera all SQL-infrastruktur, från SQL Server till SQL Database för Microsoft Windows. I den här snabbstarten ser du hur du använder SSMS för att ansluta till en Azure SQL-databas. Därefter kan du köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data. 
+I den här snabbstarten får du använda [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) för att ansluta till en Azure SQL-databas. Därefter kör du Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Du kan använda SSMS för att hantera all SQL-infrastruktur, från SQL Server till SQL Database för Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -75,11 +75,11 @@ Anslut till din Azure SQL Database-server i SMSS.
 
 ## <a name="query-data"></a>Söka i data
 
-Använd följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-kod till att fråga efter de 20 främsta produkterna per kategori.
+Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-koden för att fråga efter de 20 viktigaste produkterna efter kategori.
 
-1. I Object Explorer högerklickar du på **mySampleDatabase**. Välj sedan **Ny fråga**. Ett tomt frågefönster öppnas som är anslutet till databasen.
+1. I Object Explorer högerklickar du på **mySampleDatabase**. Välj sedan **Ny fråga**. Ett nytt frågefönster öppnas som är anslutet till din databas.
 
-1. Klistra in den här SQL-frågan i frågefönstret.
+2. Klistra in den här SQL-frågan i frågefönstret.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -90,11 +90,11 @@ Använd följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 3. I verktygsfältet väljer du **Kör** för att hämta data från tabellerna `Product` och `ProductCategory`.
 
-    ![fråga för att hämta data från 2 tabeller](./media/sql-database-connect-query-ssms/query2.png)
+    ![fråga för att hämta data från två tabeller](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Infoga data
 
-Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-kod till att skapa en ny produkt i tabellen `SalesLT.Product`.
+Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-koden för att skapa en ny produkt i tabellen `SalesLT.Product`.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -117,7 +117,7 @@ Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
            ,GETDATE() );
    ```
 
-2. Välj **Kör** för att infoga en ny rad i produkttabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
+2. Välj **Kör** för att infoga en ny rad i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
 
 ## <a name="view-the-result"></a>Visa resultatet
 
@@ -134,7 +134,7 @@ Använd följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,11 +144,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att uppdatera den angivna raden i produkttabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
+2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
 
 ## <a name="delete-data"></a>Ta bort data
 
-Använd följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-kod till att ta bort den nya produkt som du tidigare lade till.
+Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-koden för att ta bort din nya produkt.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -157,7 +157,7 @@ Använd följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att ta bort den angivna raden i produkttabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
+2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)**.
 
 ## <a name="next-steps"></a>Nästa steg
 

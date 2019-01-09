@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003460"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722285"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
 
@@ -60,7 +60,7 @@ Utför följande uppgifter för att skapa ett nytt Azure Cloud Service-projekt m
 
     Cmdleten skapar följande filer:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** och **ServiceDefinition.csdef**: Azure-specifika filer som krävs för publicering av programmet. Mer information finns i [Översikt över att skapa en värdbaserad tjänst för Azure].
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** och **ServiceDefinition.csdef**: Azure-specifika filer som krävs för att du ska kunna publicera ditt program. Mer information finns i [Översikt över att skapa en värdbaserad tjänst för Azure].
    * **deploymentSettings.json**: Lagrar lokala inställningar som används av Azure PowerShell-cmdletarna för distribution.
 4. Ange följande kommando för att lägga till en ny webbroll:
 
@@ -164,7 +164,7 @@ Mer information finns i [Node.js Developer Center].
 
 <!-- URL List -->
 
-[Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines]: ../app-service/choose-web-site-cloud-service-vm.md
+[Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines]: ../app-service/overview-compare.md
 [använda en förenklad webbapp]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK för .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

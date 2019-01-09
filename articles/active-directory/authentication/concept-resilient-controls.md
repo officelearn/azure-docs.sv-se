@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746264"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101929"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -230,7 +230,7 @@ Du måste återställa de ändringar du gjort som en del av aktiverad nödplan n
 Om din organisation använder äldre principer för MFA för per användare, kan du överväga följande alternativ:
 
 1. Om du har den utgående IP-adressen för företagets nätverk, kan du lägga till dem som betrodda IP-adresser att aktivera autentisering endast till företagets nätverk.
- 2. Om du inte har med lagret för utgående IP-adresser, eller du krävs för att aktivera åtkomst i och utanför företagets nätverk, kan du lägga till hela IPv4-adressutrymmet som tillförlitliga IP-adresser i CIDR-notation (till exempel 192.168.1.1/24).
+ 2. Om du inte har med lagret för utgående IP-adresser, eller du krävs för att aktivera åtkomst i och utanför företagets nätverk, kan du lägga till hela IPv4-adressutrymmet som tillförlitliga IP-adresser genom att ange 0.0.0.0/1 och 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Om du bredda de betrodda IP-adresserna för att låsa upp åtkomst genereras inte riskhändelser som är associerade med IP-adresser (till exempel omöjlig resa eller okända platser).

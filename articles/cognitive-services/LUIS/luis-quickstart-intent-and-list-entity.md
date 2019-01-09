@@ -9,34 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf4fd5d2a3a9bb06882dcd1b4674ccdf8ad894ee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096697"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971417"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>Självstudie 4: Extrahera exakta textmatchningar
-I den här självstudien får du lära dig hur du hämtar data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan innehålla en lista med synonymer. I Human Resources-appen kan medarbetare identifieras med flera olika uppgifter, som namn, e-post, telefonnummer och skatte-id. 
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Självstudier: Hämta exakta textmatchade data från ett uttryck
 
-Human Resources-appen måste fastställa vilken medarbetare som flyttar från en byggnad till en annan. I ett yttrande om en medarbetarflytt fastställer LUIS avsikten och extraherar medarbetaren så att klientappen kan skapa en standardorder om att flytta medarbetaren.
-
-I den här appen används en listentitet till att extrahera medarbetaren. Medarbetaren kan identifieras med hjälp av namn, anknytning, mobiltelefonnummer, e-postadress eller amerikanskt socialförsäkringsnummer. 
-
-En listentitet är ett bra alternativ för den här typen av data när:
-
-* Datavärdena är en känd uppsättning.
-* Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
-* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. 
+I den här självstudien får du lära dig hur du hämtar entitetsdata som matchar en fördefinierad lista med objekt. 
 
 **I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använda en befintlig självstudieapp
-> * Lägga till avsikten MoveEmployee
+> * Skapa app
+> * Lägga till avsikt
 > * Lägg till listentitet 
 > * Träna 
 > * Publicera
@@ -44,25 +35,31 @@ En listentitet är ett bra alternativ för den här typen av data när:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda en befintlig app
-Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+## <a name="what-is-a-list-entity"></a>Vad är en listentitet?
 
-Om du inte har appen HumanResources från föregående självstudie gör du så här:
+En listentitet är en exakt textmatchning av orden i ett uttryck. 
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
+Varje objekt i listan kan innehålla en lista med synonymer. För personalappen kan en företagsavdelning identifieras genom olika typer av viktig information, t.ex. ett officiellt namn, en vanlig förkortning eller en faktureringskod. 
 
-2. Importera JSON-koden till en ny app.
+Personalappen måste fastställa vilken avdelning en medarbetare överförs till. 
 
-3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `list`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
+En listentitet är ett bra alternativ för den här typen av data när:
 
+* Datavärdena är en känd uppsättning.
+* Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
+* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Ordstamsigenkänning, plural och andra variationer kan inte lösas enbart med en listentitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax. 
 
-## <a name="moveemployee-intent"></a>Avsikten MoveEmployee
+## <a name="create-a-new-app"></a>Skapa en ny app
+
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="create-an-intent-to-transfer-employees-to-a-different-department"></a>Skapa en avsikt att överföra anställda till en annan avdelning
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Create new intent** (Skapa ny avsikt). 
 
-3. Ange `MoveEmployee` i popup-dialogrutan och välj sedan **Done** (Klar). 
+3. Ange `TransferEmployeeToDepartment` i popup-dialogrutan och välj sedan **Done** (Klar). 
 
     ![Skärmbild på dialogrutan Create new intent (Skapa ny avsikt)](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
@@ -70,205 +67,122 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
     |Exempel på yttranden|
     |--|
-    |flytta John W. Smith från B-1234 till H-4452|
-    |flytta john.w.smith@mycompany.com från kontoret b-1234 till kontoret h-4452|
-    |flytta x12345 till h-1234 imorgon|
-    |placera 425-555-1212 i HH-2345|
-    |flytta 123-45-6789 från A-4321 till J-23456|
-    |flytta Jill Jones från D-2345 till J-23456|
-    |flytta jill-jones@mycompany.com till M-12345|
-    |x23456 till M-12345|
-    |425-555-0000 till h-4452|
-    |234-56-7891 till hh-2345|
+    |Flytta John W. Smith till ekonomiavdelningen|
+    |överför Jill Jones till utvecklingsavdelningen|
+    |Avd 1234 har en ny medlem med namnet Bill Bradstreet|
+    |Placera John Jackson på teknikavdelningen |
+    |flytta Debra Doughtery till innesäljaravdelningen|
+    |flytta Jill Jones till IT|
+    |Flytta Alice Anderson till DevOps|
+    |Carl Chamerlin till ekonomi|
+    |Steve Standish till 1234|
+    |Tanner Thompson till 3456|
 
-    [ ![Skärmbild på sidan Intent (Avsikt) med nya yttranden markerade](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    Kom ihåg att number och datetimeV2 lades till i en tidigare självstudie och automatiskt märks ut när de identifieras i yttranden.
+    [![Skärmbild av avsikten med exempelyttranden](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Skärmbild av avsikten med exempelyttranden")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="employee-list-entity"></a>Listentitet för medarbetare
-Avsikten **MoveEmployee** innehåller nu exempelyttranden, och LUIS behöver förstå vad en medarbetare är. 
+## <a name="department-list-entity"></a>Entitet i avdelningslista
 
-Det primära, _kanoniska_ namnet för varje objekt är medarbetarens anställningsnummer. Här är några exempel på synonymer för den här domänen: 
+Nu när **TransferEmployeeToDepartment**-avsikten innehåller exempelyttranden måste LUIS förstå vad en avdelning är. 
 
-|Synonymsyfte|Synonymvärde|
+Det primära, _kanoniska_ namnet för varje objekt är avdelningsnamnet. Några exempel på synonymer till respektive kanoniskt namn: 
+
+|Kanoniskt namn|Synonymer|
 |--|--|
-|Namn|John W. Smith|
-|E-postadress|john.w.smith@mycompany.com|
-|Telefonanknytning|x12345|
-|Personligt mobilnummer|425-555-1212|
-|Amerikanskt socialförsäkringsnummer|123-45-6789|
-
+|Redovisning|redov<br>redovisn<br>3456|
+|Utvecklingsåtgärder|DevOps<br>4949|
+|Teknik|eng<br>teknik<br>4567|
+|Ekonomi|ek<br>2020|
+|Informationsteknik|IT<br>2323|
+|Innesäljare|isälj<br>insälj<br>1414|
+|Forskning och utveckling|FoU<br>1234|
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
-2. Välj **Create new entity** (Skapa ny entitet).
+1. Välj **Create new entity** (Skapa ny entitet).
 
-3. I dialogrutan för entiteter anger du `Employee` som entitetsnamn och **List** (Lista) som entitetstyp. Välj **Done** (Klar).  
+1. I dialogrutan för entiteter anger du `Department` som entitetsnamn och **List** (Lista) som entitetstyp. Välj **Done** (Klar).  
 
-    [![Skärmbild av att skapa en ny popup-dialogruta för en entitet](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Skärmbild av att skapa en ny popup-dialogruta för en entitet")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Skärmbild av att skapa en ny popup-dialogruta för en entitet](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Skärmbild av att skapa en ny popup-dialogruta för en entitet")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
-4. På entitetssidan för medarbetare anger du `Employee-24612` som det nya värdet.
+1. Ange `Accounting` som det nya värdet på avdelningsentitetssidan.
 
     [![Skärmbild av att ange värde](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Skärmbild av att ange värde")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-5. Lägg till följande värden för synonymer:
-
-    |Synonymsyfte|Synonymvärde|
-    |--|--|
-    |Namn|John W. Smith|
-    |E-postadress|john.w.smith@mycompany.com|
-    |Telefonanknytning|x12345|
-    |Personligt mobilnummer|425-555-1212|
-    |Amerikanskt socialförsäkringsnummer|123-45-6789|
+1. När det gäller synonymer lägger du till synonymerna från föregående tabell.
 
     [![Skärmbild av att ange synonymer](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Skärmbild av att ange synonymer")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
-6. Ange `Employee-45612` som nytt värde.
+1. Fortsätt att lägga till alla kanoniska namn och deras synonymer. 
 
-7. Lägg till följande värden för synonymer:
+## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen 
 
-    |Synonymsyfte|Synonymvärde|
-    |--|--|
-    |Namn|Jill Jones|
-    |E-postadress|jill-jones@mycompany.com|
-    |Telefonanknytning|x23456|
-    |Personligt mobilnummer|425-555-0000|
-    |Amerikanskt socialförsäkringsnummer|234-56-7891|
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train"></a>Träna
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicera
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras på den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Hämta avsikts- och entitetsförutsägelser från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Gå till slutet av URL:en i adressen och ange `shift 123-45-6789 from Z-1242 to T-54672`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med `Employee` extraherad.
+1. Gå till slutet av URL:en i adressen och ange `shift Joe Smith to IT`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `TransferEmployeeToDepartment` med `Department` extraherad.
 
   ```json
-  {
-    "query": "shift 123-45-6789 from Z-1242 to T-54672",
-    "topScoringIntent": {
-      "intent": "MoveEmployee",
-      "score": 0.9882801
-    },
-    "intents": [
-      {
-        "intent": "MoveEmployee",
-        "score": 0.9882801
+    {
+      "query": "shift Joe Smith to IT",
+      "topScoringIntent": {
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9775754
       },
-      {
-        "intent": "FindForm",
-        "score": 0.016044287
-      },
-      {
-        "intent": "GetJobInformation",
-        "score": 0.007611245
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.007063288
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00684710965
-      },
-      {
-        "intent": "None",
-        "score": 0.00304174074
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.002981
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 0.00212222221
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.00191026414
-      },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0007461446
-      }
-    ],
-    "entities": [
-      {
-        "entity": "123 - 45 - 6789",
-        "type": "Employee",
-        "startIndex": 6,
-        "endIndex": 16,
-        "resolution": {
-          "values": [
-            "Employee-24612"
-          ]
+      "intents": [
+        {
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9775754
+        },
+        {
+          "intent": "None",
+          "score": 0.0154493852
         }
-      },
-      {
-        "entity": "123",
-        "type": "builtin.number",
-        "startIndex": 6,
-        "endIndex": 8,
-        "resolution": {
-          "value": "123"
+      ],
+      "entities": [
+        {
+          "entity": "it",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 20,
+          "resolution": {
+            "values": [
+              "Information Technology"
+            ]
+          }
         }
-      },
-      {
-        "entity": "45",
-        "type": "builtin.number",
-        "startIndex": 10,
-        "endIndex": 11,
-        "resolution": {
-          "value": "45"
-        }
-      },
-      {
-        "entity": "6789",
-        "type": "builtin.number",
-        "startIndex": 13,
-        "endIndex": 16,
-        "resolution": {
-          "value": "6789"
-        }
-      },
-      {
-        "entity": "-1242",
-        "type": "builtin.number",
-        "startIndex": 24,
-        "endIndex": 28,
-        "resolution": {
-          "value": "-1242"
-        }
-      },
-      {
-        "entity": "-54672",
-        "type": "builtin.number",
-        "startIndex": 34,
-        "endIndex": 39,
-        "resolution": {
-          "value": "-54672"
-        }
-      }
-    ]
-  }
+      ]
+    }
   ```
-
-  Medarbetaren hittades och returnerades som typen `Employee` med lösningsvärdet `Employee-24612`.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>Relaterad information
+
+* Konceptuell information om [listentitet](luis-concept-entity-types.md#list-entity)
+* [Så här tränar du](luis-how-to-train.md)
+* [Så här publicerar du](luis-how-to-publish-app.md)
+* [Så här testar du i LUIS-portalen](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du skapat en ny avsikt, lagt till exempelyttranden och sedan skapat en listentitet för att extrahera exakta textmatchningar från yttranden. När appen har tränats upp och publicerats identifierade en fråga till slutpunkten aktuell avsikt och extraherade data returnerades.
+
+Fortsätt med den här appen och [lägg till en sammansatt entitet](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
 > [Lägg till en hierarkisk enhet i appen](luis-quickstart-intent-and-hier-entity.md)

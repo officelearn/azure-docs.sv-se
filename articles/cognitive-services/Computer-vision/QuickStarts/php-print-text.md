@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera tryckt text (OCR) – REST, PHP – Visuellt innehåll'
+title: 'Snabbstart: Extrahera tryckt text – REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten extraherar du tryckt text från en bild med hjälp av API:et för visuellt innehåll med PHP.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 10be09c4d18cc7bc395937e1a175a5bfcd1e5d7e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 2707134c3fb451f4386748f691086eeb617d3ebe
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340247"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581393"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST API:et och PHP i Visuellt innehåll
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST API och PHP i Visuellt innehåll
 
 I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
@@ -33,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Installera PHP5-paketet [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2).
+1. Installera PHP5-paketet [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2).
    1. Öppna ett kommandotolksfönster som administratör.
    1. Kör följande kommando:
 

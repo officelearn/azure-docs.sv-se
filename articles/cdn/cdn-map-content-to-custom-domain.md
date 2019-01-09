@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 67621cb95cbf5072ab7b72770f43c0b68785c78e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b9bcba78600e90c28f95c4ea842bf4b25b1c0da7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092108"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722796"
 ---
-# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
+# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudier: Lägga till en anpassad domän i din Azure CDN-slutpunkt
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
 
 När du har skapat en CDN-slutpunkt i din profil inkluderas slutpunktsnamnet (det vill säga en underdomän till azureedge.net) i URL för leverans av CDN-innehåll som standard (till exempel https:\//contoso.azureedge.net/photo.png). Med Azure CDN kan du associera en anpassad domän med en CDN-slutpunkt. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för slutpunktsnamnet (till exempel https:\//www.contoso.com/photo.png). 
@@ -36,9 +36,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
+Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [ Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
-Om du inte redan har en anpassad domän måste du först köpa en sådan av en domänleverantör. Se exempelvis [Köpa ett anpassat domännamn](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
+Om du inte redan har en anpassad domän måste du först köpa en sådan av en domänleverantör. Se exempelvis [Köpa ett anpassat domännamn](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
 Om du använder Azure som värd för dina [DNS-domäner](https://docs.microsoft.com/azure/dns/dns-overview) måste du delegera domänleverantörens DNS till en Azure DNS. Mer information finns i [Delegera en domän till Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Om du i stället använder en domänleverantör för att hantera din DNS-domän fortsätter du till [Skapa en CNAME DNS-post](#create-a-cname-dns-record).
 
@@ -70,9 +70,9 @@ Skapa en CNAME-post med underdomänen cdnverify:
 
     - Källa: Ange ditt anpassade domännamn, inklusive underdomänen cdnverify i följande format: cdnverify._&lt;anpassat domännamn&gt;. Till exempel cdnverify.www.contoso.com.
 
-    - Typ: Ange *CNAME*.
+    - Ange: Ange *CNAME*.
 
-    - Mål: Ange CDN-slutpunktsnamnet, inklusive underdomänen cdnverify i följande format: cdnverify._&lt;slutpunktsnamn&gt;_.azureedge.net. Till exempel cdnverify.contoso.azureedge.net.
+    - Mål: Ange ditt CDN-slutpunktsnamn, inklusive underdomänen cdnverify i följande format: cdnverify._&lt;slutpunktsnamn&gt;_.azureedge.net. Till exempel cdnverify.contoso.azureedge.net.
 
 4. Spara ändringarna.
 
@@ -90,13 +90,13 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
     ![CNAME entry (CNAME-post)](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
-    - Type (Typ): Använd det förvalda värdet *CNAME*.
+    - Ange: Lämna *CNAME* markerat.
 
-    - Host (Värd): Ange underdomänen för din anpassade domän, inklusive underdomännamnet cdnverify. Till exempel cdnverify.www.
+    - Värd: Ange underdomänen för din anpassade domän, inklusive underdomännamnet cdnverify. Till exempel cdnverify.www.
 
-    - Points to (Pekar på): Ange värdnamnet för CDN-slutpunkten, inklusive underdomännamnet cdnverify. Till exempel cdnverify.contoso.azureedge.net. 
+    - Pekar mot: Ange värdnamnet för din CDN-slutpunkt, inklusive underdomännamnet cdnverify. Till exempel cdnverify.contoso.azureedge.net. 
 
-    - TTL: Använd det förvalda värdet *1 Hour (1 Timme)*.
+    - TTL: Lämna *1 timme* markerat.
 
 6. Välj **Spara**.
  
@@ -162,11 +162,11 @@ Skapa en CNAME-post för den anpassade domänen:
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azureedge.net |
 
-    - Källa: Ange ett anpassat domännamn (till exempel www.contoso.com).
+    - Källa: Ange ditt anpassade domännamn (till exempel www.contoso.com).
 
-    - Typ: Ange *CNAME*.
+    - Ange: Ange *CNAME*.
 
-    - Mål: Ange CDN-slutpunktens värdnamn. Det måste vara i följande format:_&lt;slutpunktsnamnet&gt;_.azureedge.net. Till exempel contoso.azureedge.net.
+    - Mål: Ange din CDN-slutpunkts värdnamn. Det måste vara i följande format:_&lt;slutpunktsnamnet&gt;_.azureedge.net. Till exempel contoso.azureedge.net.
 
 4. Spara ändringarna.
 
@@ -188,13 +188,13 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
     ![CNAME entry (CNAME-post)](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
-    - Type (Typ): Använd det förvalda värdet *CNAME*.
+    - Ange: Lämna *CNAME* markerat.
 
-    - Host (Värd): Ange underdomänen för den anpassade domänen. Till exempel www eller cdn.
+    - Värd: Ange underdomänen för den anpassade domän som du vill använda. Till exempel www eller cdn.
 
-    - Points to (Pekar på): Ange värdnamnet för CDN-slutpunkten. Till exempel contoso.azureedge.net. 
+    - Pekar mot: Ange värdnamnet för din CDN-slutpunkt. Till exempel contoso.azureedge.net. 
 
-    - TTL: Använd det förvalda värdet *1 Hour (1 Timme)*.
+    - TTL: Lämna *1 timme* markerat.
 
 6. Välj **Spara**.
  
@@ -230,6 +230,6 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar HTTPS på en anpassad Azure CDN-domän.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md)
+> [Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md)
 
 

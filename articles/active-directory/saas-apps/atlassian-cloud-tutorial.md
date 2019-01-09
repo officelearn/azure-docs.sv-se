@@ -1,282 +1,277 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Atlassians moln | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Atlassians molnet.
+title: 'Självstudier: Azure Active Directory-integrering med Atlassian Cloud | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Atlassian Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: tutorial
+ms.date: 12/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 68613b8613a2e5a9139b83eb23e66884659efc47
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: MT
+ms.openlocfilehash: 517c92336b8c5c6827717d4c2287c41eaaa14b55
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114942"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810547"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Självstudier: Azure Active Directory-integration med Atlassians molnet
+# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Självstudier: Azure Active Directory-integrering med Atlassian Cloud
 
-I den här självstudien får du lära dig hur du integrerar Atlassians molnet med Azure Active Directory (AD Azure).
+I den här självstudiekursen lär du dig hur du integrerar Atlassian Cloud med Azure Active Directory (Azure AD).
+När du integrerar Atlassian Cloud med Azure AD innebär det följande fördelar:
 
-Integrera Atlassians molnet med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure AD vilka som har åtkomst till Atlassian Cloud.
+* Du kan göra så att dina användare automatiskt loggas in på Atlassian Cloud (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Atlassians moln.
-- Du kan ge användarna vara inloggad automatiskt (enkel inloggning) till Atlassians moln med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats, Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Mer information om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att kunna konfigurera Azure AD-integrering med Atlassian Cloud behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Atlassians molnet, behöver du följande objekt:
-
-- En Azure AD-prenumeration.
-- Om du vill aktivera Security Assertion Markup Language (SAML) enkel inloggning för Atlassians molnprodukter, måste du konfigurera Atlassians åtkomst. Läs mer om [Atlassians åtkomst]( https://www.atlassian.com/enterprise/cloud/identity-manager).
-
-> [!NOTE]
-> När du testar stegen i den här självstudien, rekommenderar vi att du inte använder en produktionsmiljö.
-
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Atlassian Cloud-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
-Det scenario som beskrivs i kursen består av två viktigaste byggstenarna:
 
-* Att lägga till Atlassians molnet från galleriet
-* Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-atlassian-cloud-from-the-gallery"></a>Lägg till Atlassians molnet från galleriet
-Om du vill konfigurera integreringen av Atlassians molnet med Azure AD, lägga till Atlassians molnet från galleriet i listan över hanterade SaaS-appar genom att göra följande:
+* Atlassian Cloud stöder **SP- och IDP**-initierad enkel inloggning
 
-1. I den [Azure-portalen](https://portal.azure.com), i rutan till vänster väljer du den **Azure Active Directory** knappen.
+## <a name="adding-atlassian-cloud-from-the-gallery"></a>Lägga till Atlassian Cloud från galleriet
 
-    ![Azure Active Directory-knappen][1]
+Om du vill konfigurera integreringen av Atlassian Cloud i Azure AD måste du lägga till Atlassian Cloud från galleriet till din lista över hanterade SaaS-appar.
 
-2. Välj **företagsprogram** > **alla program**.
+**Lägg till Atlassian Cloud från galleriet genom att göra följande:**
 
-    ![Fönstret för Enterprise-program][2]
-    
-3. Om du vill lägga till ett program, Välj **nytt program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![”Det nya programmet” knappen][3]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-4. I sökrutan skriver **Atlassians molnet**, i resultatlistan väljer **Atlassians molnet**, och välj sedan **Lägg till**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Atlassians molnet i resultatlistan](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_addfromgallery.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Atlassians molnet, baserat på en användare med namnet *Britta Simon*.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD identifiera Atlassians molnanvändnings och dess motsvarighet i Azure AD. Med andra ord måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Atlassians molnet.
+4. Skriv **Atlassian Cloud** i sökrutan, välj **Atlassian Cloud** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
 
-För att upprätta länken relationen, tilldela som molnet Atlassians *användarnamn* samma värde som tilldelas till Azure AD *användarnamn*.
+     ![Atlassian Cloud i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Atlassians moln, måste du slutföra byggblocken i följande avsnitt.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med Atlassian Cloud baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Atlassian Cloud upprättas.
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Atlassians molnprogram.
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Atlassian Cloud måste du slutföra följande byggblock:
 
-Om du vill konfigurera Azure AD enkel inloggning med Atlassians molnet, gör du följande:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Atlassian Cloud](#configure-atlassian-cloud-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa en testanvändare för Atlassian Cloud](#create-atlassian-cloud-test-user)**  – så att du får en motsvarighet till Britta Simon i Atlassian Cloud som är länkad till användarens Azure AD-representation.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. I Azure-portalen i den **Atlassians molnet** application integration väljer **enkel inloggning**.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-    ![Konfigurera enkel inloggning för länken][4]
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-2. I den **enkel inloggning** fönstret i den **läge för enkel inloggning** väljer **SAML-baserad inloggning**.
+Konfigurera enkel inloggning i Azure AD med Atlassian Cloud genom att göra följande:
 
-    ![Fönstret för enkel inloggning](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
+1. Välj **Enkel inloggning** på programintegreringssidan för **Atlassian Cloud** i [Azure Portal](https://portal.azure.com/).
 
-3. Konfigurera programmet i **IDP-initierad** läge under **Atlassians molnet domän och URL: er**, gör du följande:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Atlassians molnet domän och URL: er med enkel inloggning för information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
-    
-    a. I den **identifierare** skriver du en URL med följande mönster: `https://auth.atlassian.com/saml/<unique ID>`.
-    
-    b. I den **svars-URL** skriver du en URL med följande mönster: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    c. Kontrollera **visa avancerade URL-inställningar**.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    d. I den **Vidarebefordransstatus** skriver du en URL med följande mönster: `https://<instancename>.atlassian.net`.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+
+    ![Information om [Programnamn]-domän och URL:er med enkel inloggning](common/idp-relay.png)
+
+    a. Skriv en URL med följande mönster i textrutan **Identifierare**: `https://auth.atlassian.com/saml/<unique ID>`
+
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`
+
+    c. Klicka på **Ange ytterligare URL:er**.
+
+    d. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus**: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > Föregående värden är inte verkliga. Uppdatera dessa värden med det faktiska ID: t och svars-URL. Du får dessa verkliga värden från skärmen Atlassians Cloud SAML-konfiguration som beskrivs senare i självstudien.
+    > Föregående värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL:en. Du får dessa verkliga värden från Atlassians Cloud SAML-konfigurationsskärmen som beskrivs senare i självstudien.
 
-4. För att konfigurera programmet i SP-initierat läge, Välj den **visa avancerade URL-inställningar** och klicka sedan på **inloggnings-URL** skriver du en URL med följande mönster: `https://<instancename>.atlassian.net`.
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Atlassians molnet domän och URL: er med enkel inloggning för information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
+    ![Information om [Programnamn]-domän och URL:er med enkel inloggning](common/both-signonurl.png)
+
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > Föregående inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med det faktiska URL: en för inloggning. Kontakta [Atlassians Cloud klienten supportteamet](https://support.atlassian.com/) att hämta det här värdet.
+    > Föregående inloggnings-URL-värde är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta det här värdet genom att kontakta [supportteamet för Atlassians Cloud-klienten](https://support.atlassian.com/).
 
-5. Under **SAML-signeringscertifikat**väljer **Certificate(Base64)**, och sedan spara certifikatfilen på datorn.
+6. Ditt Atlassian Cloud-program förväntar sig att hitta SAML-intygen i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen.
 
-    ![Länk för hämtning av certifikat](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png)
+    Värdet för **Användaridentifierare** mappas till user.userprincipalname. Ändra det här värdet så att det mappas till user.mail. Du kan också välja ett annat lämpligt värde enligt din organisations inställningar, men i de flesta fall bör e-post fungera. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-6. Ditt Atlassians molnprogram förväntar sig att hitta SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-Tokenattribut konfigurationen. 
+    ![image](common/edit-attribute.png)
 
-    Som standard den **användaridentifierare** värdet mappas till user.userprincipalname. Ändra det här värdet ska mappas till user.mail. Du kan också välja ett annat lämpligt värde enligt din organisations inställningar, men i de flesta fall kan e-post ska fungera.
+7. Gör följande i avsnittet **Användaranspråk** i dialogrutan **Användarattribut**:
 
-    ![Länk för hämtning av certifikat](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_attribute.png)
+    a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
 
-7. Välj **Spara**.
+    ![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
 
-    ![Den Konfigurera enkel inloggning spara knappen](./media/atlassian-cloud-tutorial/tutorial_general_400.png)
+    ![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
 
-8. Öppna den **konfigurera inloggning** fönstret i den **Atlassians Molnkonfigurationen** väljer **konfigurera Atlassians molnet**.
+    b. Välj **user.mail** i listan **Källattribut**.
 
-9. I den **Snabbreferens** avsnittet, kopiera den **SAML entitets-ID** och **SAML enkel inloggning för tjänst-URL**.
+    c. Klicka på **Spara**.
 
-    ![Atlassians molnkonfigurationen](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
+8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-10. För att få SSO konfigurerats för ditt program kan du logga in på Atlassians-portalen med administratörsbehörighet.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-11. Du behöver verifiera din domän innan du fortsätter att konfigurera enkel inloggning. Mer information finns i [Atlassians domänverifiering](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) dokumentet.
+9. I avsnittet **Konfigurera Atlassian Cloud** kopierar du lämpliga URL:er enligt dina behov.
 
-12. I den vänstra rutan väljer **SAML enkel inloggning**. Om du inte redan gjort det, kan du prenumerera till Atlassians Identity Manager.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-atlassian-cloud-single-sign-on"></a>Konfigurera enkel inloggning för Atlassian Cloud
+
+1. Om du vill konfigurera SSO för ditt program kan du logga in på Atlassian-portalen med administratörsbehörighet.
+
+2. Du måste verifiera din domän innan du fortsätter med att konfigurera enkel inloggning. Mer information finns i dokumentet [Atlassian-domänverifiering](https://confluence.atlassian.com/cloud/domain-verification-873871234.html).
+
+3. Välj **Enkel SAML-inloggning** i den vänstra rutan. Prenumerera på Atlassian Identity Manager om du inte redan gör det.
 
     ![Konfigurera enkel inloggning](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-13. I den **lägga till SAML-konfiguration** fönstret gör du följande:
+4. Gör följande i fönstret **Lägg till SAML-konfiguration**:
 
     ![Konfigurera enkel inloggning](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. I den **identitetsprovider entitets-ID** rutan, klistra in SAML entitets-ID som du kopierade från Azure-portalen.
+    a. Klistra in det SAML-entitets-ID som du kopierade från Azure Portal i rutan **Entitets-ID för identitetsprovider**.
 
-    b. I den **identitetsprovider SSO URL** rutan, klistra in Webbadressen för SAML enkel inloggning som du kopierade från Azure-portalen.
+    b. Klistra in den SAML-URL för enkel inloggning som du kopierade från Azure Portal i rutan **URL för enkel inloggning för identitetsprovider**.
 
-    c. Öppna det nedladdade certifikatet från Azure-portalen i en txt-fil, Kopiera värdet (utan den *börjar certifikat* och *End Certificate* rader), och klistra in den i den **offentliga X509 certifikatet** box.
-    
-    d. Välj **spara konfigurationen**.
-     
-14. Uppdatera Azure AD-inställningarna för att säkerställa att du har ställt in rätt URL: er, genom att göra följande:
+    c. Öppna det nedladdade certifikatet från Azure Portal i en txt-fil, kopiera värdet (utan raderna *Starta certifikat* och *Avsluta certifikat*) och klistra in det i rutan **Offentligt X509-certifikat**.
+
+    d. Klicka på **Spara konfiguration**.
+
+5. Säkerställ att du har konfigurerat rätt URL:er genom att uppdatera Azure AD-inställningarna på följande sätt:
 
     ![Konfigurera enkel inloggning](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. I fönstret SAML kopiera den **SP identitets-ID** och sedan i Azure-portalen under Atlassians molnet **domän och URL: er**, klistra in den i den **identifierare** box.
-    
-    b. I fönstret SAML kopiera den **SP URL för Konsumenttjänst för försäkran** och sedan i Azure-portalen under Atlassians molnet **domän och URL: er**, klistra in den i den **svars-URL** box. Inloggnings-URL: en är klient-URL för din Atlassians moln.
+    a. Kopiera **SP-identitets-ID:t** i SAML-fönstret och klistra sedan in det i rutan **Identifierare** under **Domän och URL:er** för Atlassian Cloud i Azure Portal.
+
+    b. Kopiera **URL för SP-konsumenttjänst för försäkran** i SAML-fönstret och klistra sedan in det i rutan **Svars-URL** under **Domän och URL:er** för Atlassian Cloud i Azure Portal. Inloggnings-URL:en är klient-URL:en för ditt Atlassian-moln.
 
     > [!NOTE]
-    > Om du inte har en befintlig kund, när du har uppdaterat den **SP identitets-ID** och **SP URL för Konsumenttjänst för försäkran** värden i Azure portal, markera **Ja, uppdatera konfigurationen**. Om du är en ny kund kan du hoppa över det här steget.
-    
-15. I Azure-portalen väljer du **spara**.
-
-    ![Konfigurera enkel inloggning](./media/atlassian-cloud-tutorial/tutorial_general_400.png)
+    > Välj **Ja, uppdatera konfigurationen**, om du är en befintlig kund, när du har uppdaterat värdena för **SP-identitets-ID** och **URL för SP-konsumenttjänst för försäkran** i Azure Portal. Om du är en ny kund kan du hoppa över det här steget.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom att göra följande:
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. I Azure-portalen, i rutan till vänster väljer du den **Azure Active Directory** knappen.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Azure Active Directory-knappen](./media/atlassian-cloud-tutorial/create_aaduser_01.png)
+2. Välj **Ny användare** överst på skärmen.
 
-2. Om du vill visa en lista över användare, Välj **användare och grupper** > **alla användare**.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/atlassian-cloud-tutorial/create_aaduser_02.png)
+3. Genomför följande steg i Användaregenskaper.
 
-3. I den **alla användare** väljer **Lägg till**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![Knappen Lägg till](./media/atlassian-cloud-tutorial/create_aaduser_03.png)
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-4. I den **användaren** fönstret gör du följande:
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    ![Fönstret användare](./media/atlassian-cloud-tutorial/create_aaduser_04.png)
+    d. Klicka på **Skapa**.
 
-    a. I den **namn** skriver **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+I det här avsnittet får du aktivera Britta Simon till att använda enkel inloggning i Azure genom att bevilja henne åtkomst till Atlassian Cloud.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Atlassian Cloud**.
 
-    d. Välj **Skapa**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-### <a name="create-an-atlassian-cloud-test-user"></a>Skapa en testanvändare Atlassians molnet
+2. Skriv och välj **Atlassian Cloud** i programlistan.
 
-Om du vill aktivera Azure AD-användare att logga in på molnet Atlassians etablera användarkonton manuellt i Atlassians molnet genom att göra följande:
+    ![Atlassian Cloud-länken i programlistan](common/all-applications.png)
 
-1. I den **Administration** väljer **användare**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken Atlassians Molnanvändare](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. Om du vill skapa en användare i Atlassians molnet, Välj **inbjudan användaren**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Skapa en Atlassians Cloud-användare](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png)
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-3. I den **e-postadress** rutan, ange användarens e-postadress och tilldela sedan programmet åtkomst.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Skapa en Atlassians Cloud-användare](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-4. Om du vill skicka ett e-postinbjudan till användaren, Välj **bjuda in användare**. En e-postinbjudan skickas till användaren och efter att acceptera inbjudan, användaren är aktiv i systemet.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
->[!NOTE]
->Du kan också bulk-skapa användare genom att välja den **Bulk skapa** knappen i den **användare** avsnittet.
+### <a name="create-atlassian-cloud-test-user"></a>Skapa testanvändare för Atlassian Cloud
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+Om du vill aktivera Azure AD-användare så att de kan logga in på Atlassian Cloud måste du etablera användarkontona manuellt i Atlassian Cloud genom att göra följande:
 
-I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Atlassians moln. Du gör detta genom att göra följande:
+1. Välj **Användare** på **Administration**-panelen.
 
-![Tilldela rollen][200]
+    ![Atlassian Cloud-användarlänken](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png)
 
-1. I Azure-portalen öppnar du den **program** visa, gå till vyn directory och välj sedan **företagsprogram** > **alla program**.
+2. Välj **Bjud in användare** om du vill skapa en användare i Atlassian Cloud.
 
-    ![Tilldela användare][201]
+    ![Skapa en Atlassian Cloud-användare](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png)
 
-2. I den **program** väljer **Atlassians molnet**.
+3. Ange användarens e-postadress i rutan **E-postadress** och tilldela sedan programmet åtkomst.
 
-    ![Länken Atlassians molnet i listan med program](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
+    ![Skapa en Atlassian Cloud-användare](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
 
-3. I den vänstra rutan väljer **användare och grupper**.
+4. Välj **Bjud in användare** om du vill skicka en e-postinbjudan till användaren. En e-postinbjudan skickas till användaren och efter det att användaren har accepterat inbjudan aktiveras hen i systemet.
 
-    ![Länken ”användare och grupper”][202]
+> [!NOTE]
+> Du kan också skapa flera användare genom att använda knappen **Skapa flera** i avsnittet **Användare**.
 
-4. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-5. I den **användare och grupper** fönstret i den **användare** väljer **Britta Simon**.
-
-6. I den **användare och grupper** väljer **Välj**.
-
-7. I den **Lägg till tilldelning** väljer **tilldela**.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du väljer den **Atlassians molnet** panelen i åtkomstpanelen, du bör vara inloggad automatiskt till ditt Atlassians molnprogram.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Atlassian Cloud-panelen i åtkomstpanelen bör du automatiskt loggas in till Atlassian Cloud som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/atlassian-cloud-tutorial/tutorial_general_01.png
-[2]: ./media/atlassian-cloud-tutorial/tutorial_general_02.png
-[3]: ./media/atlassian-cloud-tutorial/tutorial_general_03.png
-[4]: ./media/atlassian-cloud-tutorial/tutorial_general_04.png
-
-[100]: ./media/atlassian-cloud-tutorial/tutorial_general_100.png
-
-[200]: ./media/atlassian-cloud-tutorial/tutorial_general_200.png
-[201]: ./media/atlassian-cloud-tutorial/tutorial_general_201.png
-[202]: ./media/atlassian-cloud-tutorial/tutorial_general_202.png
-[203]: ./media/atlassian-cloud-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+   

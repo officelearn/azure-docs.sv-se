@@ -1,290 +1,280 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med absorbera LMS | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och absorbera LMS.
+title: 'Självstudier: Azure Active Directory-integrering med Absorb LMS | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Absorb LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/15/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 066ae92056e4b80b6627b371d6ebeb3235b2781d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: f7f96b4357e7db61d3b5d30b93eff8960e515c2d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043786"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971298"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Självstudier: Azure Active Directory-integration med absorbera LMS
+# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Självstudier: Azure Active Directory-integrering med Absorb LMS
 
-Lär dig hur du integrerar absorbera LMS med Azure Active Directory (AD Azure) i den här självstudien.
+Lär dig hur du integrerar Absorb LMS med Azure Active Directory (Azure AD) i den här självstudien.
+Att integrera Absorb LMS med Azure Active Directory ger dig följande fördelar:
 
-Integrera absorbera LMS med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure Active Directory vem som har åtkomst till Absorb LMS.
+* Du kan göra så att dina användare automatiskt loggas in på Absorb LMS (enkel inloggning) med sina Azure Active Directory-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till absorbera LMS.
-- Du kan aktivera användarna att logga in automatiskt till absorbera LMS (via enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats, Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure Active Directory-integrering med Absorb LMS, behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med absorbera LMS, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- Ett LMS-absorbera enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Vi rekommenderar att du inte använder en produktionsmiljö för den här självstudien.
-
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Prenumeration med aktiverad enkel inloggning med Absorb LMS
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-* Att lägga till absorbera LMS från galleriet
-* Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-absorb-lms-from-the-gallery"></a>Lägg till absorbera LMS från galleriet
-Lägg till absorbera LMS från galleriet i din lista över hanterade SaaS-appar för att konfigurera integrering av absorbera LMS i Azure AD.
+* Absorb LMS stöder **IDP**-initierad enkel inloggning
 
-Om du vill lägga till absorbera LMS från galleriet, gör du följande:
+## <a name="adding-absorb-lms-from-the-gallery"></a>Att lägga till Absorb LMS från galleriet
 
-1. I den [Azure-portalen](https://portal.azure.com), i rutan till vänster väljer du den **Azure Active Directory** ikon. 
+För att konfigurera integrering av Absorb LMS i Azure Active Directory, behöver du lägga till Absorb LMS från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Absorb LMS från galleriet:**
 
-2. Gå till **företagsprogram** > **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Fönstret för Enterprise-program][2]
-    
-3. Om du vill lägga till ett program, Välj den **nytt program** knappen.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-4. I sökrutan skriver **absorbera LMS**väljer **absorbera LMS** i resultera panelen och välj sedan den **Lägg till** knappen.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Absorbera LMS i resultatlistan](./media/absorblms-tutorial/tutorial_absorblms_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med absorbera LMS-baserat på en testanvändare kallas Britta Simon.
+4. I sökrutan skriver du **Absorb LMS** och väljer **Absorb LMS** från resultatpanelen och klickar sedan på knappen**Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad absorbera LMS motsvarighet användaren är i Azure AD. Med andra ord måste du upprätta en länk förhållandet mellan en användare i Azure AD och motsvarande användaren i absorbera LMS.
+     ![Absorb LMS i resultatlistan](common/search-new-app.png)
 
-Du skapar den här länken relation genom att tilldela den *användarnamn* värdet i Azure AD som den *användarnamn* värdet i absorbera LMS.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med absorbera LMS, slutför du byggblocken i nästa fem avsnitt.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure Active Directory med Absorb LMS baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure Active Directory-användare och den relaterade användaren i Absorb LMS upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Om du vill konfigurera och testa enkel inloggning med Azure AD med Absorb LMS, måste du slutföra följande byggblock:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt absorbera LMS-program.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning med Absorb LMS](#configure-absorb-lms-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Absorb LMS-testanvändare](#create-absorb-lms-test-user)** – för att ha en motsvarighet till Britta Simon i Absorb LMS som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera Azure AD enkel inloggning med absorbera LMS, gör du följande:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **absorbera LMS** application integration markerar **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med Absorb LMS:
 
-2. I den **enkel inloggning** i dialogrutan den **läge** väljer **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/absorblms-tutorial/tutorial_absorblms_samlbase.png)
+1. I [Azure Portal](https://portal.azure.com/), på sidan för **Absorb LMS**-programintegrering, väljer du **Enkel inloggning**.
 
-3. I den **absorbera LMS-domän och URL: er** avsnittet, gör du följande:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Absorbera LMS-domän och URL: er enkel inloggning för information](./media/absorblms-tutorial/tutorial_absorblms_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **identifierare** skriver en URL som använder följande syntax: `https://<subdomain>.myabsorb.com/Account/SAML`.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    b. I den **svars-URL** skriver en URL som använder följande syntax: `https://<subdomain>.myabsorb.com/Account/SAML`.
-     
-    > [!NOTE] 
-    > Dessa URL: er är inte det verkliga värdet. Uppdatera dem med de faktiska identifierare och svars-URL. För att få dessa värden kan kontakta den [absorbera LMS klienten supportteamet](https://www.absorblms.com/support). 
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-4. I den **SAML-signeringscertifikat** avsnittet i den **hämta** kolumnen, markerar **XML-Metadata för**, och spara sedan metadatafilen till datorn.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Certifikat för tokensignering länken](./media/absorblms-tutorial/tutorial_absorblms_certificate.png) 
+4. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-5. Välj **Spara**.
+    ![Information om enkel inloggning med Absorb LMS-domän och URL:er](common/idp-intiated.png)
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/absorblms-tutorial/tutorial_general_400.png)
-    
-6. I den **absorbera LMS Configuration** väljer **konfigurera absorbera LMS** att öppna **konfigurera inloggning** fönstret och sedan kopiera den **URL för utloggning** i den **Snabbreferens avsnittet.**
+    Om du använder **Absorb 5 – UI** använder du följande konfiguration:
 
-    ![Fönstret absorbera LMS-konfiguration](./media/absorblms-tutorial/tutorial_absorblms_configure.png) 
+    a. Skriv en URL med följande mönster i textrutan **Identifierare**: `https://company.myabsorb.com/account/saml`
 
-7. I ett nytt webbläsarfönster, loggar du in företagets platsen absorbera LMS som administratör.
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://company.myabsorb.com/account/saml`
 
-8. Välj den **konto** knappen längst upp till höger. 
+    Om du använder **Absorb 5 – New Learner Experience** använder du följande konfiguration:
 
-    ![Knappen konto](./media/absorblms-tutorial/1.png)
+    a. Skriv en URL med följande mönster i textrutan **Identifierare**: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-9. I rutan väljer **portalinställningar**.
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-    ![Länken inställningar](./media/absorblms-tutorial/2.png)
-    
-10. Välj fliken **Användare**.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Supportteamet för Absorb LMS](https://support.absorblms.com/hc/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Fliken användare](./media/absorblms-tutorial/3.png)
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-11. Gör följande på sidan konfiguration för enkel inloggning:
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Sidan konfiguration för enkel inloggning](./media/absorblms-tutorial/4.png)
+6. I avsnittet **Konfigurera Absorb LMS** kopierar du lämpliga URL:er enligt dina behov.
 
-    a. I den **läge** väljer **identitet providern initierade**.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    b. I anteckningar, öppnar du det certifikat som du laddade ned från Azure-portalen. Ta bort den **---BEGIN CERTIFICATE---** och **---END CERTIFICATE---** taggar. I den **nyckel** rutan, klistra in det återstående innehållet.
-    
-    c. I den **Id-egenskapen** väljer du det attribut som du har konfigurerat som användar-ID i Azure AD. Till exempel om *userPrincipalName* väljs i Azure AD, Välj **användarnamn**.
+    a. Inloggnings-URL
 
-    d. I den **inloggnings-URL** rutan, klistra in den **URL för användaråtkomst** från programmets **egenskaper** i Azure-portalen.
+    b. Azure AD-identifierare
 
-    e. I den **URL för utloggning**, klistra in den **URL: en för utloggning** värde som du kopierade från den **konfigurera inloggning** fönstret i Azure-portalen.
+    c. Utloggnings-URL
 
-12. Visa/dölj **endast tillåta SSO-inloggning** till **på**.
+### <a name="configure-absorb-lms-single-sign-on"></a>Konfigurera Absorb LMS-enkel inloggning
 
-    ![Endast tillåta SSO-inloggning växlingsknappen](./media/absorblms-tutorial/5.png)
+1. I ett nytt webbläsarfönster, loggar du in på din Absorb LMS-företagsplats som administratör.
 
-13. Välj **spara.**
+2. Välj knappen **Konto** längst upp till höger.
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com) medan du installerar appen. När du har lagt till appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och komma åt den inbäddade dokumentation genom den **Configuration** avsnittet längst ned. Mer information finns i [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+    ![Knappen Konto](./media/absorblms-tutorial/1.png)
+
+3. I rutan Konto väljer du **Portalinställningar**.
+
+    ![Exportera länken Portalinställningar](./media/absorblms-tutorial/2.png)
+
+4. Välj fliken **Hantera inställningar för enkel inloggning**.
+
+    ![Fliken Användare](./media/absorblms-tutorial/managesso.png)
+
+5. På sidan **Hantera inställningar för enkel inloggning** gör du följande:
+
+    ![Konfigurationssidan för enkel inloggning](./media/absorblms-tutorial/settings.png)
+
+    a. I textrutan **Namn** anger du namnet till Azure AD Marketplace SSO.
+
+    b. Välj **SAML** som en **Metod**.
+
+    c. I anteckningar, öppnar du det certifikat som du laddade ned från Azure Portal. Ta bort taggarna **---BEGIN CERTIFICATE---** och **---END CERTIFICATE---**. I rutan **Nyckel** klistrar du in det återstående innehållet.
+
+    d. I rutan **Läge** väljer du **Identitetsprovidern initierad**.
+
+    e. I rutan **Id-egenskap** väljer du det attribut som du har konfigurerat som användaridentifierare i Azure AD. Till exempel om *userPrincipalName* väljs i Azure AD, väljer du **Användarnamn**.
+
+    f. Välj **Sha256** som en **Signaturtyp**.
+
+    g. I rutan **inloggnings-URL** klistrar du in **URL för användaråtkomst** från programmets sida **Egenskaper** i Azure Portal.
+
+    h. I **URL för utloggning**, klistrar du in det värde för **URL:en för utloggning** som du kopierade från fönstret **Konfigurera inloggning** i Azure Portal.
+
+    i. Växla **Omdirigera automatiskt** till **På**.
+
+6. Välj **Spara.**
+
+    ![Växla Endast tillåta SSO-inloggning](./media/absorblms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du testanvändare Britta Simon i Azure-portalen.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-Om du vill skapa en testanvändare i Azure AD, gör du följande:
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/absorblms-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, Välj **användare och grupper** > **alla användare**.
-    
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/absorblms-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Längst ned i dialogrutan Välj **Lägg till**.
- 
-    ![Knappen Lägg till](./media/absorblms-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. I den **användaren** dialogrutan Gör följande:
- 
-    ![Dialogrutan användare](./media/absorblms-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** skriver **BrittaSimon**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    b. I den **användarnamn** textrutan skriver du e-postadressen för Britta Simon.
+    d. Klicka på **Skapa**.
 
-    c. Välj den **visa lösenord** kryssrutan och anteckna värdet i den **lösenord** box.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-    d. Välj **Skapa**.
+I det här avsnittet kommer du att göra det möjligt för Britta Simon att använda Azure-enkel inloggning genom att ge åtkomst till Absorb LMS.
 
-### <a name="create-an-absorb-lms-test-user"></a>Skapa ett LMS-absorbera testanvändare
+1. I Azure Portal väljer du **Företagsprogram**, **Alla program** och sedan **Absorb LMS**.
 
-För Azure AD-användare att logga in på absorbera LMS, måste de konfigureras i absorbera LMS.  
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-För absorbera LMS-installationen är en manuell aktivitet.
+2. I listan över program skriver och väljer du **Absorb LMS**.
 
-Om du vill konfigurera ett användarkonto, gör du följande:
+    ![Absorb LMS-länken i listan med program](common/all-applications.png)
 
-1. Logga in på platsen absorbera LMS företagets som administratör.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I den vänstra rutan väljer **användare**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Länken absorbera LMS-användare](./media/absorblms-tutorial/absorblms_users.png)
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I den **användare** väljer **användare**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken användare](./media/absorblms-tutorial/absorblms_userssub.png)
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. I den **Lägg till ny** listrutan, väljer **användaren**.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Lägg till ny nedrullningsbar listruta](./media/absorblms-tutorial/absorblms_createuser.png)
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På den **Lägg till användare** gör följande:
+### <a name="create-absorb-lms-test-user"></a>Skapa Absorb LMS-testanvändare
+
+För att Azure AD-användare ska kunna logga in på Absorb LMS, måste de konfigureras i Absorb LMS. När det gäller Absorb LMS är etablering en manuell aktivitet.
+
+**Utför följande steg för att konfigurera användarförsörjning:**
+
+1. Logga in på din Absorb LMS-företagsplats som administratör.
+
+2. I fönstret **Användare** väljer du **Användare**.
+
+    ![Länken Användare](./media/absorblms-tutorial/absorblms_userssub.png)
+
+3. Välj fliken **Användare**.
+
+    ![Listrutan Lägg till ny](./media/absorblms-tutorial/absorblms_createuser.png)
+
+4. På sidan **Lägg till användare** gör du följande:
 
     ![Sidan Lägg till användare](./media/absorblms-tutorial/user.png)
 
-    a. I den **Förnamn** skriver förnamn, till exempel **Britta**.
+    a. I rutan **Förnamn** skriver du in förnamn, till exempel **Britta**.
 
-    b. I den **efternamn** skriver efternamn, till exempel **Simon**.
-    
-    c. I den **användarnamn** skriver ett fullständigt namn, till exempel **Britta Simon**.
+    b. I rutan **Efternamn** skriver du in efternamn, till exempel **Simon**.
 
-    d. I den **lösenord** skriver Britta Simon lösenord.
+    c. I rutan **Användarnamn** skriver du in hela namnet, till exempel **Britta Simon**.
 
-    e. I den **Bekräfta lösenord** rutan, ange lösenordet på nytt.
-    
-    f. Ange den **är aktiv** växla till **Active**.  
+    d. I rutan **Lösenord** skriver du in lösenordet.
 
-6. Välj **spara.**
- 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    e. I rutan **Bekräfta lösenord** skriver du in lösenordet igen.
 
-I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till absorbera LMS.
+    f. Ange växlingsknappen **Är aktiv** till **Aktiv**.
 
-![Tilldela rollen][200]
+5. Välj **Spara.**
 
-Om du vill tilldela användaren Britta Simon absorbera LMS, gör du följande:
+    ![Växla Endast tillåta SSO-inloggning](./media/absorblms-tutorial/save.png)
 
-1. Öppna vyn program i Azure-portalen, gå till vyn directory och därefter **företagsprogram** > **alla program**.
+    > [!NOTE]
+    > Som standard är användarförsörjning inte aktiverat i enkel inloggning. Om kunden vill aktivera den här funktionen, behöver hen konfigurera den enligt [denna](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) dokumentation. Tänk på att användarförsörjning bara är tillgänglig på **Absorb 5 – New Learner Experience** med ACS URL-`https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-    ![Länken ”alla program”][201] 
-
-2. I den **program** väljer **absorbera LMS**.
-
-    ![Absorbera LMS-länk i listan med program](./media/absorblms-tutorial/tutorial_absorblms_app.png) 
-
-3. I den vänstra rutan väljer **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202] 
-
-4. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-5. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**.
-
-6. I den **användare och grupper** dialogrutan den **Välj** knappen.
-
-7. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-I åtkomstpanelen, att välja den **absorbera LMS** panel loggar du in automatiskt till ditt absorbera LMS-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på Absorb LMS-panelen i åtkomstpanelen bör du automatiskt loggas in på Absorb LMS som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/absorblms-tutorial/tutorial_general_01.png
-[2]: ./media/absorblms-tutorial/tutorial_general_02.png
-[3]: ./media/absorblms-tutorial/tutorial_general_03.png
-[4]: ./media/absorblms-tutorial/tutorial_general_04.png
-
-[100]: ./media/absorblms-tutorial/tutorial_general_100.png
-
-[200]: ./media/absorblms-tutorial/tutorial_general_200.png
-[201]: ./media/absorblms-tutorial/tutorial_general_201.png
-[202]: ./media/absorblms-tutorial/tutorial_general_202.png
-[203]: ./media/absorblms-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -11,27 +11,27 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312178"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579659"
 ---
-# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Självstudie:  Distribuera en bildklassificeringsmodell i Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
 Självstudien är **del två i en självstudieserie i två delar**. I den [föregående självstudien](tutorial-train-models-with-aml.md) tränade du maskininlärningsmodeller och registrerade sedan en modell på din arbetsyta i molnet.  
 
-Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning, som innehåller både bedömningslogiken och själva modellen. 
+Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning. Den kapslar in bedömningslogiken och själva modellen. 
 
-I den här delen av självstudien använder du Azure Machine Learning-tjänsten för att:
+I den här delen av självstudien använder du Azure Machine Learning Service för följande uppgifter:
 
 > [!div class="checklist"]
-> * Konfigurera din testmiljö
-> * Hämta modellen från din arbetsyta
-> * Testa modellen lokalt
-> * Distribuera modellen till Container Instances
-> * Testa den distribuerade modellen
+> * Konfigurera din testmiljö.
+> * Hämta modellen från din arbetsyta.
+> * Testa modellen lokalt.
+> * Distribuera modellen till Container Instances.
+> * Testa den distribuerade modellen.
 
 Container Instances är inte idealiskt för produktionsdistributioner, men det är utmärkt vid testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
 
@@ -46,7 +46,7 @@ Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.c
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Slutför modellträningen i följande anteckningsboken: [Självstudie nr 1: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).  
+Gör modellträningen i följande anteckningsbok: [Självstudie (del 1): Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön
@@ -55,7 +55,7 @@ Börja med att konfigurera en testmiljö.
 
 ### <a name="import-packages"></a>Importera paket
 
-Importera de Python-paket som behövs i självstudien.
+Importera de Python-paket som behövs för den här självstudien:
 
 ```python
 %matplotlib inline
@@ -72,7 +72,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="retrieve-the-model"></a>Hämta modellen
 
-Du registrerade en modell på din arbetsyta i föregående självstudie. Nu kan läsa in arbetsytan och ladda ner modellen till din lokala katalog.
+Du registrerade en modell på din arbetsyta i föregående självstudie. Nu kan läsa in den här arbetsytan och hämta modellen till din lokala katalog:
 
 
 ```python
@@ -87,16 +87,16 @@ import os
 os.stat('./sklearn_mnist_model.pkl')
 ```
 
-## <a name="test-model-locally"></a>Testa modellen lokalt
+## <a name="test-the-model-locally"></a>Testa modellen lokalt
 
-Innan du distribuerar bör du kontrollera att din modell fungerar lokalt genom att:
-* Läsa in testdata
-* Förutsäga testdata
-* Undersöka felmatrisen
+Innan du distribuerar bör du kontrollera att din modell fungerar lokalt:
+* Läsa in testdata.
+* Förutsäga testdata.
+* Undersöka felmatrisen.
 
 ### <a name="load-test-data"></a>Läsa in testdata
 
-Läs in testdatan från katalogen **./data/** som skapades i träningssjälvstudien.
+Läs in testdata från katalogen **./data/** som skapades i träningssjälvstudien:
 
 ```python
 from utils import load_data
@@ -110,7 +110,7 @@ y_test = load_data('./data/test-labels.gz', True).reshape(-1)
 
 ### <a name="predict-test-data"></a>Förutsäga testdata
 
-Mata in testdatauppsättningen i modellen för att få förutsägelser.
+För att få förutsägelser så matar du in testdatauppsättningen i modellen:
 
 ```python
 import pickle
@@ -122,7 +122,7 @@ y_hat = clf.predict(X_test)
 
 ###  <a name="examine-the-confusion-matrix"></a>Undersöka felmatrisen
 
-Generera en felmatris om du vill se hur många exempel från testuppsättningen som har klassificerats på rätt sätt. Observera det felaktigt klassificerade värdet för de felaktiga förutsägelserna. 
+Generera en felmatris om du vill se hur många exempel från testuppsättningen som har klassificerats på rätt sätt. Observera det felklassificerade värdet för de felaktiga förutsägelserna: 
 
 ```python
 from sklearn.metrics import confusion_matrix
@@ -147,7 +147,7 @@ Utdatan visar felmatrisen:
     Overall accuracy: 0.9204
    
 
-Använd `matplotlib` till att visa felmatrisen som ett diagram. I det här diagrammet motsvarar X-axeln faktiska värden och Y-axeln visar de förväntade värdena. Färgen i varje rutnät representerar felfrekvensen. Ju ljusare färg, desto högre är felfrekvensen. Till exempel är många 5:or felaktigt klassificerade som 3:or. Därför visas ett ljust rutnät vid (5,3).
+Använd `matplotlib` till att visa felmatrisen som ett diagram. I det här diagrammet motsvarar X-axeln faktiska värden och Y-axeln visar de förväntade värdena. Färgen i varje rutnät visar felfrekvensen. Ju ljusare färg, desto högre är felfrekvensen. Till exempel är många 5:or felaktigt klassificerade som 3:or. Du ser ett ljust rutnät vid (5,3):
 
 ```python
 # normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
@@ -172,23 +172,23 @@ plt.show()
 
 ![Diagram som visar felmatris](./media/tutorial-deploy-models-with-aml/confusion.png)
 
-## <a name="deploy-as-web-service"></a>Distribuera som en webbtjänst
+## <a name="deploy-as-a-web-service"></a>Distribuera som en webbtjänst
 
-När du har testat modellen och är nöjd med resultatet distribuerar du modellen som en webbtjänst som hanteras i Container Instances. 
+När du har testat modellen och är nöjd med resultaten så distribuerar du modellen som en webbtjänst som hanteras i Container Instances. 
 
-Skapa rätt miljö för Container Instances genom att ange följande:
-* Ett bedömningsskript som visar hur man ska använda modellen
-* En miljöfil som visar vilka paket som måste installeras
-* En konfigurationsfil för att skapa containerinstansen
-* Modellen som du tränade tidigare
+Skapa rätt miljö för Container Instances genom att ange följande komponenter:
+* Ett bedömningsskript som visar hur man ska använda modellen.
+* En miljöfil som visar vilka paket som måste installeras.
+* En konfigurationsfil för att skapa containerinstansen.
+* Modellen som du tränade tidigare.
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Skapa ett bedömningsskript
 
-Skapa bedömningsskriptet, som kallas score.py. Webbtjänstanropet använder detta för att visa hur modellen används.
+Skapa bedömningsskriptet som kallas **score.py**. Webbtjänstanropet använder det här skriptet för att visa hur modellen används.
 
-Du måste inkludera två obligatoriska funktioner i bedömningsskriptet:
+Inkludera de här två obligatoriska funktionerna i bedömningsskriptet:
 * Funktionen `init()`, som vanligtvis läser in modellen i ett globalt objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
 
 * Funktionen `run(input_data)` använder modellen till att förutsäga ett värde som baseras på indatan. Indatan och utdatan i körningen använder vanligtvis JSON för serialisering och deserialisering, men andra format stöds också.
@@ -206,7 +206,7 @@ from azureml.core.model import Model
 
 def init():
     global model
-    # retreive the path to the model file using the model name
+    # retrieve the path to the model file using the model name
     model_path = Model.get_model_path('sklearn_mnist')
     model = joblib.load(model_path)
 
@@ -221,7 +221,7 @@ def run(raw_data):
 
 ### <a name="create-environment-file"></a>Skapa en miljöfil
 
-Därefter skapar du en miljöfil med namnet myenv.yml, som anger alla paketberoenden i skriptet. Filen används för att säkerställa att alla dessa beroenden är installerade i Docker-avbildningen. Modellen måste innehålla `scikit-learn` och `azureml-sdk`.
+Därefter skapar du en miljöfil med namnet **myenv.yml**, som anger alla skriptets paketberoenden. Filen används för att säkerställa att alla dessa beroenden är installerade i Docker-avbildningen. Modellen behöver `scikit-learn` och `azureml-sdk`:
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
@@ -232,16 +232,16 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 ```
-Granska `myenv.yml`-filens innehåll.
+Granska `myenv.yml`-filens innehåll:
 
 ```python
 with open("myenv.yml","r") as f:
     print(f.read())
 ```
 
-### <a name="create-configuration-file"></a>Skapa konfigurationsfilen
+### <a name="create-a-configuration-file"></a>Skapa en konfigurationsfil
 
-Skapa en konfigurationsfil för konfigurationen, och ange hur många processorer och gigabyte RAM som behövs till din Container Instances-container. Även om det beror på din modell, räcker standardvärdet 1 kärna och 1 GB RAM-minne oftast för de flesta modeller. Om du märker att du behöver fler senare måste du återskapa avbildningen och distribuera om tjänsten.
+Skapa en distributionskonfigurationsfil. Ange hur många processorer och gigabyte RAM som behövs till din Container Instances-container. Även om det beror på din modell så räcker standardvärdet på en kärna och 1 GB RAM-minne för många modeller. Om du behöver fler senare så måste du återskapa avbildningen och distribuera om tjänsten.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -253,15 +253,15 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
 ```
 
 ### <a name="deploy-in-container-instances"></a>Distribuera i Container Instances
-Uppskattad tidsåtgång: **cirka 7–8 minuter**
+Beräknad tid att slutföra distributionen är **ungefär sju till åtta minuter**.
 
 Konfigurera avbildningen och distribuera. Följande kod går igenom de här stegen:
 
-1. Skapa en avbildning med hjälp av:
-   * Bedömningsfilen (`score.py`).
-   * Miljöfilen (`myenv.yml`).
+1. Skapa en avbildning med de här filerna:
+   * Bedömningsfilen, `score.py`.
+   * Miljöfilen, `myenv.yml`.
    * Modellfilen.
-1. Registrera avbildningen på arbetsytan. 
+1. Registrera avbildningen under arbetsytan. 
 1. Skicka avbildningen till Container Instances-containern.
 1. Starta en container i Container Instances genom att använda avbildningen.
 1. Hämta webbtjänstens HTTP-slutpunkt.
@@ -286,25 +286,25 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Hämta bedömningswebbtjänstens HTTP-slutpunkt, som accepterar REST-klientanrop. Du kan dela den här slutpunkten med alla som vill testa webbtjänsten eller integrera den i ett program. 
+Hämta bedömningswebbtjänstens HTTP-slutpunkt, som accepterar REST-klientanrop. Du kan dela den här slutpunkten med alla som vill testa webbtjänsten eller integrera den i ett program: 
 
 ```python
 print(service.scoring_uri)
 ```
 
 
-## <a name="test-deployed-service"></a>Testa distribuerad tjänst
+## <a name="test-the-deployed-service"></a>Testa den distribuerade tjänsten
 
 Tidigare bedömde du alla testdata med den lokala versionen av modellen. Nu kan du testa den distribuerade modellen med ett slumpmässigt urval av 30 bilder från testdatan.  
 
 Följande kod går igenom de här stegen:
 1. Skicka data som en JSON-matris till den webbtjänst som hanteras i Container Instances. 
 
-1. Använd SDK:ernas `run`-API till att anropa tjänsten. Du kan även göra rå-anrop med valfritt HTTP-verktyg, till exempel curl.
+1. Använd SDK:ernas `run`-API till att anropa tjänsten. Du kan även göra råa-anrop med valfritt HTTP-verktyg, till exempel **curl**.
 
-1. Skriv ut de returnerade förutsägelserna och rita dem tillsammans med indatabilderna. Rött teckensnitt och en inverterad bild (vit på svart) används för att visa de felklassificerade exemplen. 
+1. Skriv ut de returnerade förutsägelserna och rita dem tillsammans med indatabilderna. Rött teckensnitt och en inverterad bild, vit på svart, används för att visa de felklassificerade exemplen. 
 
- Eftersom modellens precision är hög, kan du behöva köra följande kod ett par gånger innan du kan se ett felklassificerat exempel.
+Eftersom modellens precision är hög så kan du behöva köra följande kod ett par gånger innan du kan se ett felklassificerat exempel:
 
 ```python
 import json
@@ -339,9 +339,13 @@ for s in sample_indices:
 plt.show()
 ```
 
-Här är resultatet av ett slumpmässigt urval av testbilder: ![Illustration som visar resultat](./media/tutorial-deploy-models-with-aml/results.png)
+Det här resultatet är från ett slumpmässigt urval av testbilder:
 
-Du kan också skicka en rå HTTP-begäran för att testa webbtjänsten.
+![Illustration som visar resultat](./media/tutorial-deploy-models-with-aml/results.png)
+
+![Resultat](./media/tutorial-deploy-models-with-aml/results.png)
+
+Du kan också skicka en rå HTTP-begäran för att testa webbtjänsten:
 
 ```python
 import requests
@@ -378,6 +382,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Lär dig mer om alla [distributionsalternativ för Azure Machine Learning-tjänsten](how-to-deploy-and-where.md), inklusive ACI, Azure Kubernetes Service, FPGA och IoT Edge.
++ Läs mer om alla [distributionsalternativ för Azure Machine Learning Service](how-to-deploy-and-where.md). Alternativen inkluderar Azure Container Instances, Azure Kubernetes Service, FPGA och Azure IoT Edge.
 
-+ Se hur Azure Machine Learning-tjänsten automatiskt väljer och finjusterar den bästa algoritmen för din modell och sedan skapar modellen åt dig. Prova självstudien [Automatisk algoritmval](tutorial-auto-train-models.md). 
++ Se hur Azure Machine Learning Service automatiskt väljer och finjusterar den bästa algoritmen för din modell. Den skapar även den modellen åt dig. Prova självstudien [automatiskt algoritmval](tutorial-auto-train-models.md). 

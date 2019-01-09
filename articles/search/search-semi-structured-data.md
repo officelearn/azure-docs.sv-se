@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att söka i halvstrukturerade data i Azure-molnlagring – Azure Search
+title: Självstudie för att söka efter JSON i Azure Blob Storage – Azure Search
 description: I den här självstudien får du lära dig att söka i halvstrukturerade Azure-blobdata med Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313834"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632950"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Självstudie: Söka efter halvstrukturerade data i Azure-molnlagring
 
@@ -60,7 +60,7 @@ I mappen finns JSON-exempelfiler som ursprungligen var textfiler från [clinical
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](http://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Ladda upp exempeldata
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314881"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631506"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
@@ -74,12 +74,12 @@ När du har loggat in visas en instrumentpanel som ser ut som på bilden nedan. 
 
 ![Hanteringspanel][ManagementDashboard]
 
-Om du klickar på fliken **Tjänster** kan du konfigurera WAF för de tjänster som skyddas av brandväggen. Mer information om hur du konfigurerar Barracuda WAF finns i [Barracudas dokumentation](https://techlib.barracuda.com/waf/getstarted1). I följande exempel visas en Azure-webbapp som har konfigurerats med trafik via HTTP och HTTPS.
+Om du klickar på fliken **Tjänster** kan du konfigurera WAF för de tjänster som skyddas av brandväggen. Mer information om hur du konfigurerar Barracuda WAF finns i [Barracudas dokumentation](https://techlib.barracuda.com/waf/getstarted1). I följande exempel visas en Azure App Service-app som har konfigurerats med trafik via HTTP och HTTPS.
 
 ![Lägga till tjänster att hantera][ManagementAddServices]
 
 > [!NOTE]
-> Beroende på hur dina program har konfigurerats och vilka funktioner som används i din App Service-miljö behöver du vidarebefordra trafik för andra TCP-portar än 80 och 443, till exempel om du använder IP SSL för en webbapp. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
+> Beroende på hur dina program har konfigurerats och vilka funktioner som används i din Azure App Service-miljö behöver du vidarebefordra trafik för andra TCP-portar än 80 och 443, till exempel om du använder IP SSL för en App Service-app. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

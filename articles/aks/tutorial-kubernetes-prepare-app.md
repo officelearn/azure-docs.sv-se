@@ -3,20 +3,19 @@ title: Självstudie om Kubernetes i Azure – Förbereda ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du förbereder och skapar en app med flera containrar med Docker Compose som du sedan kan distribuera till AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297068"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724172"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudier: Förbered ett program för Azure Kubernetes Service (AKS)
 
 I den här självstudien, som är del ett av sju, förbereds ett program med flera behållare för användning i Kubernetes. Befintliga utvecklingsverktyg som till exempel Docker Compose används för att skapa och testa ett program lokalt. Lär dig att:
 
@@ -29,7 +28,7 @@ När det är klart körs följande program i din lokala utvecklingsmiljö:
 
 ![Bild av Kubernetes-kluster i Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-I efterföljande självstudier laddas containeravbildningen upp till ett Azure Container Registry och distribueras sedan till ett AKS-kluster.
+I ytterligare självstudier så överförs containeravbildningen till en Azure Container Registry och distribueras därefter till ett AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -49,7 +48,7 @@ Använd [git][] för att klona exempelprogrammet till utvecklingsmiljön:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Ändra katalogerna så att du arbetar från den klonade katalogen.
+Ändra till den klonade katalogen.
 
 ```console
 cd azure-voting-app-redis

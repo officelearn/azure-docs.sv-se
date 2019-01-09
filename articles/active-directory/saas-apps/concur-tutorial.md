@@ -1,237 +1,203 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Concur | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur.
+title: 'Självstudier: Azure Active Directory-katalogintegrering med Concur | Microsoft Docs'
+description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: tutorial
+ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: f26cd3df50d708e6dbc003e70462b70532947a00
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 928205627ee971958fd2d98ad2c3cb91d9b491cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445871"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808510"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Självstudier: Azure Active Directory-integration med Concur
+# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Självstudier: Azure Active Directory-katalogintegrering med Concur
 
-I den här självstudien får du lära dig hur du integrerar Concur med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Concur med Azure Active Directory (Azure AD).
+Om du integrerar Concur med Azure AD så får du följande fördelar:
 
-Integrera Concur med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure AD vem som har åtkomst till Concur.
+* Du kan låta dina användare automatiskt loggas in på Concur (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Concur
-- Du kan aktivera användarna att automatiskt få loggat in på Concur (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Concur så behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Concur, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Concur enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Concur-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Concur från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
->[!NOTE]
->Konfiguration av prenumerationen Concur för federerad enkel inloggning via SAML är en separat åtgärd måste du kontakta [Concurs klienten supportteamet](https://www.concur.co.in/contact) att utföra. 
+* Concur stöder **SP**-initierad enkel inloggning
+* Concur stöder **Just-in-time**-användaretablering
 
-## <a name="adding-concur-from-the-gallery"></a>Att lägga till Concur från galleriet
-För att konfigurera integrering av Concur i Azure AD, som du behöver lägga till Concur från galleriet i din lista över hanterade SaaS-appar.
+## <a name="adding-concur-from-the-gallery"></a>Lägga till Concur från galleriet
+
+För att konfigurera integrering av Concur i Azure AD så behöver du lägga till Concur från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Concur från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Concur**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/concur-tutorial/tutorial_concur_search.png)
+4. I sökrutan skriver du in **Concur** och väljer **Concur** från resultatpanelen, därefter klickar du på **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **Concur**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![Concur i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/concur-tutorial/tutorial_concur_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Concur baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Concur baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Concur upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Concur är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Concur upprättas.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Concur så måste du slutföra följande byggblock:
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Concur.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Concur](#configure-concur-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Concur-testanvändare](#create-concur-test-user)** – för att få en motpart för Britta Simon i Concur som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Concur, måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Concur](#creating-a-concur-test-user)**  – du har en motsvarighet för Britta Simon i Concur som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Concur:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Concur.
+1. I [Azure Portal](https://portal.azure.com/), på sidan för **Concur**-programintegrering, väljer du **Enkel inloggning**.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Concur:**
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **Concur** program integration-sidan klickar du på **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/concur-tutorial/tutorial_concur_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **Concurs domän och URL: er** avsnittet, utför följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/concur-tutorial/tutorial_concur_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I den **inloggnings-URL** textrutan skriver du värdet med följande mönster: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+    ![Enkel inloggningsinformation för Concur-domän och URL:er](common/sp-identifier.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<customer-domain>.concursolutions.com`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL enligt följande mönster: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta [Concurs klienten supportteamet](https://www.concur.co.in/contact) att hämta dessa värden. 
+    b. I textrutan **Identifierare (entitets-ID)** skriver du in en URL enligt följande mönster: `https://<customer-domain>.concursolutions.com`
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Concurs klientsupportteam](https://www.concur.co.in/contact) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/concur-tutorial/tutorial_concur_certificate.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-1. Klicka på **spara** knappen.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/concur-tutorial/tutorial_general_400.png)
-<CS>
+6. I avsnittet **Konfigurera Concur** kopierar du lämpliga URL:er enligt dina behov.
 
-1. Att konfigurera enkel inloggning på **Concur** sida, som du behöver skicka de hämtade **XML-Metadata för** till Concur support. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-  >[!NOTE]
-  >Konfiguration av prenumerationen Concur för federerad enkel inloggning via SAML är en separat åtgärd måste du kontakta [Concurs klienten supportteamet](https://www.concur.co.in/contact) att utföra. 
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-concur-single-sign-on"></a>Konfigurera enkel inloggning med Concur
+
+Om du vill konfigurera enkel inloggning på **Concur**-sidan så behöver du skicka den hämtade **Metadata-XML:en** och lämpliga kopierade URL:er från Azure-portalen till [Concur-supportteamet](https://www.concur.co.in/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+  > [!NOTE]
+  > Konfiguration för din Concur-prenumerationen för federerad enkel inloggning via SAML är en separat uppgift som du måste kontakta [Concur klientsupportteamet](https://www.concur.co.in/contact) för att utföra.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+
+2. Välj **Ny användare** överst på skärmen.
+
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-<CE>
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
-
-![Skapa en Azure AD-användare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
-
-    ![Skapa en Azure AD-användare för testning](./media/concur-tutorial/create_aaduser_01.png) 
-
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/concur-tutorial/create_aaduser_02.png) 
-
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/concur-tutorial/create_aaduser_03.png) 
-
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/concur-tutorial/create_aaduser_04.png) 
-
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-concur-test-user"></a>Skapa en Concur testanvändare
 
-Programmet har stöd för precis i tid användaretablering och -autentiserade användare skapas automatiskt i programmet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet låter du Britta Simon använda Azure enkel inloggning genom att ge åtkomst till Concur.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Concur.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och därefter **Concur**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon Concur, utför du följande steg:**
+2. I programlistan skriver och väljer du **Concur**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Concur-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **Concur**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/concur-tutorial/tutorial_concur_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-concur-test-user"></a>Skapa Concur-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapas en användare som heter Britta Simon i Concur. Concur stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Concur skapas en ny efter autentisering.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Concur i åtkomstpanelen, bör du få inloggningssidan i Concur program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Concur-panelen i åtkomstpanelen så bör du automatiskt loggas in på Concur som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](concur-provisioning-tutorial.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/concur-tutorial/tutorial_general_01.png
-[2]: ./media/concur-tutorial/tutorial_general_02.png
-[3]: ./media/concur-tutorial/tutorial_general_03.png
-[4]: ./media/concur-tutorial/tutorial_general_04.png
-
-[100]: ./media/concur-tutorial/tutorial_general_100.png
-
-[200]: ./media/concur-tutorial/tutorial_general_200.png
-[201]: ./media/concur-tutorial/tutorial_general_201.png
-[202]: ./media/concur-tutorial/tutorial_general_202.png
-[203]: ./media/concur-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

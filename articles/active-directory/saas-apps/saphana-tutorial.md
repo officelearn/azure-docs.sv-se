@@ -5,294 +5,271 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/27/2017
+ms.topic: tutorial
+ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e498b0ca4b9efe09c2fe2f2bfcdcb3cc68b9c2c4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 1de479d5486bae224185407dadda4474a4ed8f0c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430261"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808952"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Självstudier: Azure Active Directory-integrering med SAP HANA
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Självstudier: Azure Active Directory-katalogintegrering med SAP HANA
 
-I den här självstudien får du lära dig hur du integrerar SAP HANA med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar SAP HANA med Azure Active Directory (Azure AD).
+När du integrerar SAP HANA med Azure Active Directory innebär det följande fördelar:
 
-När du integrerar SAP HANA med Azure AD, får du följande förmåner:
+* Du kan styra vem som har åtkomst till SAP HANA i Azure Active Directory.
+* Du kan göra så att dina användare automatiskt loggas in på SAP HANA (enkel inloggning) med sina Azure Active Directory-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till SAP HANA.
-- Du kan aktivera användarna att automatiskt loggas i SAP HANA med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Mer information om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Om du vill konfigurera Azure AD-integrering med SAP HANA, behöver du följande objekt:
+Om du vill konfigurera Azure Active Directory-integrering med SAP HANA behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En SAP HANA-prenumeration som är enkel inloggning (SSO) aktiverat
-- En HANA-instans som körs på alla offentliga IaaS, lokala, virtuella Azure-datorer eller SAP stora instanser i Azure
-- XSA Administration webbgränssnitt, samt HANA Studio installerat på HANA-instans
+- En SAP HANA-prenumeration som är aktiverad med enkel inloggning (SSO)
+- En HANA-instans som körs på alla offentliga IaaS, lokala, virtuella Azure-datorer eller SAP på stora instanser i Azure
+- XSA Administration-webbgränssnittet, samt HANA Studio installerat på HANA-instansen
 
 > [!NOTE]
-> Vi rekommenderar inte att använda en produktionsmiljö av SAP HANA för att testa stegen i den här självstudien. Testa integrationen först i utvecklings- eller mellanlagringsmiljön för programmet och sedan använda produktionsmiljön.
+> Vi rekommenderar inte att använda en SAP HANA-produktionsmiljö för att testa stegen i den här självstudien. Testa integrationen först i utvecklings- eller mellanlagringsmiljön för programmet och använd sedan produktionsmiljön.
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö om det inte behövs.
-- [Hämta en månads kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) av Azure AD om du inte redan har en Azure AD-utvärderingsmiljö.
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* SAP HANA-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SAP HANA från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-sap-hana-from-the-gallery"></a>Lägg till SAP HANA från galleriet
-Lägga till SAP HANA från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av SAP HANA i Azure AD.
+* SAP HANA stöder **IDP**-initierad enkel inloggning
+* SAP HANA stöder **just-in-time**-användarförsörjning
 
-**Om du vill lägga till SAP HANA från galleriet, gör du följande:**
+## <a name="adding-sap-hana-from-the-gallery"></a>Att lägga till SAP HANA från galleriet
 
-1. I den [Azure-portalen](https://portal.azure.com), i rutan till vänster väljer du den **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av SAP HANA i Azure Active Directory måste du lägga till SAP HANA från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Lägg till SAP HANA från galleriet genom att göra följande:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Om du vill lägga till det nya programmet, Välj den **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **SAP HANA**. Välj sedan **SAP HANA** från panelen resultat. Välj slutligen den **Lägg till** för att lägga till programmet. 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Det nya programmet](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAP HANA baserat på en testanvändare som kallas ”Britta Simon”.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vilken användaren motsvarighet i SAP HANA som en användare i Azure AD. Med andra ord måste du skapa en länk mellan en Azure AD-användare och relaterade användaren i SAP HANA.
+4. Skriv **SAP HANA** i sökrutan, välj **SAP HANA** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
 
-I SAP HANA, ger den **användarnamn** värdet samma värde för den **användarnamn** i Azure AD. Det här steget upprättas länken mellan de två användarna.
+     ![SAP HANA i resultatlistan](common/search-new-app.png)
 
-Slutför följande byggblock för att konfigurera och testa Azure AD enkel inloggning med SAP HANA:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. [Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-1. [Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
-1. [Skapa en testanvändare för SAP HANA](#creating-a-sap-hana-test-user) har en motsvarighet för Britta Simon i SAP HANA som är länkad till en Azure AD-representation av användaren.
-1. [Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. [Testa enkel inloggning](#testing-single-sign-on) att kontrollera om konfigurationen fungerar.
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure Active Directory med SAP HANA baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure Active Directory-användare och den relaterade användaren i SAP HANA upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Om du vill konfigurera och testa enkel inloggning i Azure Active Directory med SAP HANA måste du slutföra följande byggblock:
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt SAP HANA-program.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för SAP HANA](#configure-sap-hana-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa en testanvändare för SAP HANA](#create-sap-hana-test-user)** – så att du får en motsvarighet till Britta Simon i SAP HANA som är länkad till användarens Azure Active Directory-representation.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Om du vill konfigurera Azure AD enkel inloggning med SAP HANA, gör du följande:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **SAP HANA** application integration markerar **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning][4]
+Konfigurera enkel inloggning i Azure Active Directory med SAP HANA genom att göra följande:
 
-1. I den **enkel inloggning** dialogrutan **SAML-baserad inloggning**väljer **läge**.
- 
-    ![Enkel inloggning för dialogrutan](./media/saphana-tutorial/tutorial_saphana_samlbase.png)
+1. Välj [Enkel inloggning](https://portal.azure.com/) på programintegreringssidan för **SAP HANA** i **Azure Portal**.
 
-1. I den **SAP HANA-domän och URL: er** avsnittet, gör följande:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Domän och URL: er med enkel inloggning för information](./media/saphana-tutorial/tutorial_saphana_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **identifierare** skriver du följande: `HA100` 
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    b. I den **svars-URL** skriver du en URL med följande mönster: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med det faktiska ID: T och svars-URL. Kontakta den [supportteamet för SAP HANA-klienten](https://cloudplatform.sap.com/contact.html) att hämta dessa värden. 
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I den **SAML-signeringscertifikat** väljer **XML-Metadata för**. Spara metadatafilen på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Länk för hämtning av certifikat](./media/saphana-tutorial/tutorial_saphana_certificate.png) 
+    ![Information om SAP HANA-domän och URL:er för enkel inloggning](common/idp-intiated.png)
 
-    >[!Note]
-    >Om certifikatet inte är aktiv, sedan aktivera den genom att välja den **gör nytt certifikat aktivt** kryssrutan i Azure AD. 
+    a. I textrutan **Identifierare** skriver du följande: `HA100`
 
-1. För SAP HANA-program som förväntar SAML-intyg i ett visst format. Följande skärmbild visar ett exempel på det här formatet. 
-
-    Här vi mappat den **användaridentifierare** med den **ExtractMailPrefix()** funktion av **user.mail**. Detta ger prefixvärdet av användarens e-post, som är unikt användar-ID. Detta användar-ID skickas till SAP HANA-program i varje lyckade svar.
-
-    ![Konfigurera enkel inloggning](./media/saphana-tutorial/attribute.png)
-
-1. I den **användarattribut** delen av den **enkel inloggning** dialogrutan rutan, gör följande:
-
-    a. I den **användaridentifierare** listrutan, väljer **ExtractMailPrefix**.
-    
-    b. I den **e** listrutan, väljer **user.mail**.
-
-1. Välj knappen **Spara**.
-
-    ![Konfigurera den enkel inloggning spara knappen](./media/saphana-tutorial/tutorial_general_400.png)
-    
-1. Om du vill konfigurera enkel inloggning på SAP HANA-sida, logga in på din **HANA XSA webbkonsolen** genom att gå till respektive HTTPS-slutpunkten.
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE]
-    > I standardkonfigurationen omdirigerar URL: en begäran till en inloggningsskärm, som kräver autentiseringsuppgifter för en autentiserad användare för SAP HANA-databas. Den användare som loggar in måste ha behörighet att utföra administrationsuppgifter i SAML.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Skaffa dess värden genom att kontakta [supportteamet för SAP HANA-klienten](https://cloudplatform.sap.com/contact.html). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Gå till i webbgränssnittet XSA **SAML-identitetsprovider**. Därifrån väljer den **+** knappen längst ned på skärmen för att visa den **lägga till information om identitet** fönstret. Gör sedan följande:
+5. SAP HANA-program som förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+
+    ![image](common/edit-attribute.png)
+
+6. Gör följande i avsnittet **Användarattribut** i dialogrutan **Användarattribut och anspråk**:
+ 
+    a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
+
+    ![image](./media/saphana-tutorial/tutorial_usermail.png)
+
+    ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
+
+    b. Välj **ExtractMailPrefix()** i listan **Transformering**.
+
+    c. Från listan **Parameter 1** väljer du **user.mail**.
+
+    d. Klicka på **Spara**.
+
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+### <a name="configure-sap-hana-single-sign-on"></a>Konfigurera enkel inloggning för SAP HANA
+
+1. Om du vill konfigurera enkel inloggning för SAP HANA, loggar du in på **HANA XSA-webbkonsolen** genom att gå till respektive HTTPS-slutpunkt.
+
+    > [!NOTE]
+    > I standardkonfigurationen omdirigerar URL:en begäran till en inloggningsskärm, som kräver autentiseringsuppgifter av en autentiserad SAP HANA-databasanvändare. Den användare som loggar in måste ha behörighet att utföra administrationsuppgifter i SAML.
+
+2. Gå till i XSA-webbgränssnittet **SAML-identitetsprovider**. Därifrån väljer du knappen **+** längst ned på skärmen för att visa fönstret **Lägg till information om identitetsprovider**. Utför sedan följande steg:
 
     ![Lägg till identitetsprovider](./media/saphana-tutorial/sap1.png)
 
-    a. I den **lägga till information om identitet** fönstret klistra in innehållet i den XML-Metadata (som du laddade ned från Azure portal) i den **Metadata** box.
+    a. I fönstret **Lägg till information om identitetsprovider** klistrar du in innehållet i Metadata XML (som du laddade ner från Azure Portal) i rutan **Metadata**.
 
-    ![Lägg till identitetsprovider-inställningar](./media/saphana-tutorial/sap2.png)
+    ![Lägg till identitetsproviderinställningar](./media/saphana-tutorial/sap2.png)
 
-    b. Om innehållet i XML-dokumentet är giltiga, parsning processen extraherar den information som krävs för den **ämne, entitets-ID och utfärdar** fält i den **allmänna data** Skrivbordsstorlek. Det också extraherar den information som krävs för URL-fält i den **mål** skärmen område, till exempel den **bas-URL och SingleSignOn URL: en (*)** fält.
+    b. Om innehållet i XML-dokumentet är giltigt, extraherar parsningsprocessen den information som krävs för fälten **Ämne, Entitets-ID och Utfärdare** till skärmområdet **Allmänna data**. Den extraherar också den information som krävs för URL-fälten i skärmområdet **Mål**, till exempel fälten **Bas-URL och SingleSignOn URL (*)**.
 
-    ![Lägg till identitetsprovider-inställningar](./media/saphana-tutorial/sap3.png)
+    ![Lägg till identitetsproviderinställningar](./media/saphana-tutorial/sap3.png)
 
-    c. I den **namn** för den **allmänna Data** Skrivbordsstorlek, ange ett namn för den nya SAML SSO-identitetsprovidern.
+    c. I rutan **Namn** i skärmområdet **Allmänna data** anger du ett namn för den nya SAML SSO-identitetsprovidern.
 
     > [!NOTE]
-    > Namnet på SAML IDP: N är obligatoriskt och måste vara unikt. Den visas i listan över tillgängliga SAML IDP: er som visas när du väljer SAML som autentiseringsmetod för SAP HANA XS programmen kan använda. Du kan exempelvis göra detta den **autentisering** skärmen område i administrationsverktyget för XS artefakten.
+    > Namnet på SAML IDP är obligatoriskt och måste vara unikt. Det visas i listan över tillgängliga SAML IDP:er som visas när du väljer SAML som autentiseringsmetod för SAP HANA XS-programmen som ska användas. Du kan exempelvis göra detta i skärmområdet **Autentisering** för XS-artefaktens administrationsverktyg.
 
-1. Välj **spara** att spara information om SAML-identitetsprovider och lägga till nya SAML IDP: N i listan över kända SAML IDP: er.
+3. Välj **Spara** för att spara information om SAML-identitetsprovidern och lägga till den nya SAML IDP i listan över kända SAML IDP:er.
 
     ![Knappen Spara](./media/saphana-tutorial/sap4.png)
 
-1. I HANA Studio system egenskaperna för den **Configuration** fliken, filterinställningar av **saml**. Justera sedan den **assertion_timeout** från **10sek** till **120 sek**.
+4. I HANA Studio i systemegenskaperna för fliken **Konfiguration**, filtrerar du inställningarna med **saml**. Justera sedan **assertion_timeout** från **10 sek** till **120 sek**.
 
-    ![assertion_timeout inställningen](./media/saphana-tutorial/sap7.png)
+    ![assertion_timeout-inställning](./media/saphana-tutorial/sap7.png)
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com) när du ställer in appen! När du lägger till den här appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och komma åt den inbäddade dokumentation genom den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen embedded-dokumentation i den [embedded-dokumentation för Azure AD](https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Om du vill skapa en testanvändare i Azure AD, gör du följande:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i rutan till vänster väljer du den **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/saphana-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
-    
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/saphana-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan **Lägg till** överst i dialogrutan.
- 
-    ![Knappen Lägg till](./media/saphana-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan rutan, gör följande:
- 
-    ![Dialogrutan användare](./media/saphana-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** skriver **BrittaSimon**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    b. I den **användarnamn** skriver den **e-postadress** av BrittaSimon.
+    d. Klicka på **Skapa**.
 
-    c. Välj **visa lösenord**, och sedan skriva ned lösenordet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-    d. Välj **Skapa**.
- 
-### <a name="create-a-sap-hana-test-user"></a>Skapa en testanvändare för SAP HANA
+I det här avsnittet får du aktivera Britta Simon till att använda enkel inloggning i Azure genom att bevilja henne åtkomst till SAP HANA.
 
-Om du vill aktivera Azure AD-användare att logga in till SAP HANA, måste du etablera dem i SAP HANA.
-SAP HANA stöder just-in-time-etablering, som är av aktiverat som standard.
+1. I Azure Portal väljer du **Företagsprogram**, **Alla program** och sedan **SAP HANA**.
 
-Om du vill skapa en användare manuellt gör du följande:
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan över program skriver och väljer du **SAP HANA**.
+
+    ![SAP HANA-länken i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-sap-hana-test-user"></a>Skapa testanvändare för SAP HANA
+
+Om du vill göra det möjligt för Azure Active Directory-användare att logga in till SAP HANA, måste du etablera dem i SAP HANA.
+SAP HANA har stöd för **just-in-time-etablering**, som är aktiverat som standard.
+
+Om du behöver skapa en användare manuellt så gör du följande:
 
 >[!NOTE]
->Du kan ändra extern autentisering som användaren använder. De kan autentisera med ett externt system, till exempel Kerberos. Detaljerad information om externa identiteter, kontakta din [domänadministratören](https://cloudplatform.sap.com/contact.html).
+>Du kan ändra den externa autentisering som användaren använder. De kan autentisera sig med ett externt system, till exempel Kerberos. Kontakta din [domänadministratör](https://cloudplatform.sap.com/contact.html) om du vill ha detaljerad information om externa identiteter.
 
-1. Öppna den [SAP HANA-Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) som administratör, och sedan aktivera DB-användaren för SAML SSO.
+1. Öppna [SAP HANA Studio](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-us) som administratör, och aktivera sedan DB-användaren för SAML SSO.
 
     ![Skapa användare](./media/saphana-tutorial/sap5.png)
 
-1. Markera kryssrutan osynliga till vänster om **SAML**, och välj sedan den **konfigurera** länk.
+2. Markera den osynliga kryssrutan till vänster om **SAML**, och välj sedan länken **Konfigurera**.
 
-1. Välj **Lägg till** att lägga till SAML-IDP: N.  Välj lämplig SAML IDP: N och välj sedan **OK**.
+3. Välj **Lägg till** för att lägga till SAML IDP.  Välj lämplig SAML IDP och välj sedan **OK**.
 
-1. Lägg till den **externa identitet** (i det här fallet BrittaSimon) eller välj **alla**. Välj sedan **OK**.
+4. Lägg till **Extern identitet** (i det här fallet BrittaSimon) eller välj **Alla**. Välj sedan **OK**.
 
     >[!Note]
-    >Om den **alla** inte är markerad och klicka sedan användarnamnet i HANA måste exakt matcha namnet på användaren i UPN-namnet innan domänsuffix. (Till exempel BrittaSimon@contoso.com blir BrittaSimon i HANA.)
+    >Om kryssrutan **Alla** inte är markerad måste användarnamnet i HANA exakt matcha namnet på användaren i UPN innan domänsuffixet. (Till exempel blir BrittaSimon@contoso.com BrittaSimon i HANA.)
 
-1. I testsyfte kan du tilldela alla **XS** roller för användaren.
+5. I testsyfte kan du tilldela alla **XS**-roller till användaren.
 
-    ![Tilldela roller](./media/saphana-tutorial/sap6.png)
+    ![Tilldelar roller](./media/saphana-tutorial/sap6.png)
 
     > [!TIP]
-    > Du bör ge behörigheter som är lämpliga för ditt användningsfall endast.
+    > Du bör ge behörigheter som är lämpliga för dina användningar endast.
 
-1. Spara användaren.
+6. Spara användaren.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till SAP HANA.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela rollen][200] 
-
-**Om du vill tilldela Britta Simon till SAP HANA, utför du följande steg:**
-
-1. Öppna program i Azure-portalen. Gå till vyn directory och gå till **företagsprogram**. Välj **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **SAP HANA**.
-
-    ![Tilldela användare](./media/saphana-tutorial/tutorial_saphana_app.png) 
-
-1. I menyn till vänster väljer **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202] 
-
-1. Välj den **Lägg till** knappen. I den **Lägg till tilldelning** dialogrutan **användare och grupper**.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** lista.
-
-1. Klicka på den **Välj** knappen i den **användare och grupper** dialogrutan.
-
-1. Välj den **tilldela** knappen i den **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du väljer panelen SAP HANA i åtkomstpanelen, bör du automatiskt loggas i SAP HANA-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på SAP HANA-panelen i åtkomstpanelen så bör du automatiskt loggas in på den SAP HANA som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/saphana-tutorial/tutorial_general_01.png
-[2]: ./media/saphana-tutorial/tutorial_general_02.png
-[3]: ./media/saphana-tutorial/tutorial_general_03.png
-[4]: ./media/saphana-tutorial/tutorial_general_04.png
-
-[100]: ./media/saphana-tutorial/tutorial_general_100.png
-
-[200]: ./media/saphana-tutorial/tutorial_general_200.png
-[201]: ./media/saphana-tutorial/tutorial_general_201.png
-[202]: ./media/saphana-tutorial/tutorial_general_202.png
-[203]: ./media/saphana-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

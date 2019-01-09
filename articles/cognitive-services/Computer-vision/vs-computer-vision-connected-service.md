@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Visuellt innehåll, C#'
+title: Ansluten tjänst för Visual Studio – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Anslut till API:et för visuellt innehåll via en ASP.NET Core-webbapp.
+description: Ansluta till API:et för visuellt innehåll från en ASP.NET Core-webbapp med Visual Studio Connected Service-funktionen.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.custom: seodec18
+ms.openlocfilehash: e9207fe19272dac23db165e160ce9f7a7e802c14
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077958"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579744"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 
@@ -37,15 +38,15 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 
-   ![Lägga till menyobjektet Ansluten tjänst](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Skärmbild av en snabbmeny för ett Visual Studio-projekt: Lägg till > Ansluten tjänst](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. På menyn med tillgängliga tjänster väljer du **Cognitive Services API för visuellt innehåll**.
 
-   ![Välja tjänst att ansluta till](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![menyn Anslutna tjänster, markera Analysera bilder med visuellt innehåll](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
 
-   ![Välj din prenumeration](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Ett Visual Studio-fönster för ”API för visuellt innehåll” med listrutan Prenumeration markerad](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Välj den prenumeration som du vill använda, välj ett namn för API:et för visuellt innehåll och välj sedan länken Redigera för att ändra det automatiskt genererade namnet. Välj sedan resursgrupp och prisnivå.
 
@@ -93,11 +94,11 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 
 1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [API för visuellt innehåll-sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av bilderna, spara den på den lokala hårddisken och högerklicka sedan på bildmappen i Solution Explorer och välj **Lägg till** > **Befintligt objekt** för att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
   
-   ![Bildmapp med bildfil](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![En skärmbild av Solution Explorer-vyn med en vald avbildningsfil](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Högerklicka på bildfilen, välj Egenskaper och välj sedan **Kopiera om nyare**. 
 
-   ![Kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Ett fönster för avbildningsegenskaper; Kopiera till utdatakatalog har ställts in på Kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Ersätt konfigurationsmetoden med följande kod för att komma åt API:et för visuellt innehåll och testa en bild.
 

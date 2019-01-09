@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878343"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631176"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -78,17 +78,17 @@ Följande tabell innehåller en matris med data och arbetsbelastningar som kan s
 | Virtuella IaaS-datorer i Azure (Linux) |som körs i Azure |[Azure Backup (VM-tillägg)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Linux-support
-I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.  
+I följande tabell visas de Azure Backup-komponenter som stöds för Linux.  
 
-| Komponent | Linux-stöd (Azure-godkänt) |
-| --- | --- |
-| Azure Backup-agent (MARS) |Nej (endast Windows-baserad agent) |
-| System Center DPM |<li> Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> <li> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare </br> </br>  *Filkonsekvent säkerhetskopiering är inte tillgängligt för Azure VM* <br/> |
-| Azure Backup Server |<li>Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> <li> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare </br></br> *Filkonsekvent säkerhetskopiering är inte tillgängligt för Azure VM*  |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Komponent** | **Linux (Azure-godkänt)**
+--- | --- 
+Azure Backup-agent (MARS) | Nej (endast Windows-baserad agent) 
+System Center DPM | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer
+Azure Backup Server | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer 
+Säkerhetskopiering av virtuella IaaS-datorer i Azure | Appkonsekvent säkerhetskopiering använder [ramverket för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/><br/> [Återställning på filnivå](backup-azure-restore-files-from-vm.md)<br/><br/> [Skapa en virtuell dator från en återställd disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Skapa en virtuell dator från en återställningspunkt](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
-Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../virtual-machines/windows/premium-storage.md).
+Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium Storage finns i artikeln [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Säkerhetskopiera virtuella datorer i Premium Storage
 När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild. Kontrollera att Premium Storage-kontot har tillräckligt med ledigt utrymme så att den tillfälliga mellanlagringsplatsen får plats. Mer information finns i artikeln om [Premium Storage-begränsningar](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../virtual-machines/windows/premium-storage.md#pricing-and-billing).

@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944587"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160071"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Överväganden för nätverk i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack-nätverk har många av funktionerna som tillhandahålls av Azure-nätverk. Det finns dock några huvudsakliga skillnader som du bör känna till innan du distribuerar ett Azure Stack-nätverk.
 
 Den här artikeln innehåller en översikt över unika överväganden för nätverk i Azure Stack och dess funktioner. Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
 
-## <a name="cheat-sheet-networking-differences"></a>Lathund: nätverk skillnader
+## <a name="cheat-sheet-networking-differences"></a>Lathund: Skillnader i nätverk
 
 | Tjänst | Funktion | Azure (global) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Den här artikeln innehåller en översikt över unika överväganden för nätv
 |  | Standard-Gateway plats | Azure stöder konfiguration av en standardplats för Tvingad tunneltrafik. | Stöds inte än. |
 |  | Ändra storlek på gateway | Azure har stöd för storleksändring gatewayen efter distributionen. | Nytt storlek inte stöds. |
 |  | Aktiv/aktiv-konfiguration | Stöds | Stöds inte än. |
-|  | IKE/IPSec-principer | Azure har stöd för anpassade IPSec-principkonfigurationer. | Stöds inte än. |
 |  | UsePolicyBasedTrafficSelectors | Azure stöder användningen av principbaserade trafikväljare med routningsbaserad gateway-anslutningar. | Stöds inte än. |
 | Lastbalanserare | SKU | Grundläggande och Standard belastningsutjämnare som stöds | Endast den grundläggande belastningsutjämnaren stöds.  SKU-egenskapen stöds inte. |
 |  | Zoner | Tillgänglighetszoner stöds. | Stöds inte än |
@@ -65,11 +64,9 @@ Den här artikeln innehåller en översikt över unika överväganden för nätv
 |  | Hämta effektiva ACL: er | Stöds | Stöds inte än. |
 |  | Aktivera Accelererat nätverk | Stöds | Stöds inte än. |
 |  | IP-vidarebefordran | Inaktiverad som standard.  Du kan aktivera. | Växla mellan den här inställningen stöds inte.  På som standard. |
-|  | Flera IP-konfigurationer per gränssnitt | Stöds | Stöds inte än. |
 |  | Programsäkerhetsgrupper | Stöds | Stöds inte än. |
 |  | Interna DNS-namnetikett | Stöds | Stöds inte än. |
 |  | Privata IP-adressversion | Både IPv6 och IPv4 stöds. | Endast IPv4 stöds. |
-|  | Primär IP-konfiguration | Stöds. Identifierar den primära IP-konfigurationen på gränssnittet. | Stöds inte än. |
 | Network Watcher | Network Watcher klientnätverket funktioner för övervakning | Stöds | Stöds inte än. |
 | CDN | Content Delivery Network-profiler | Stöds | Stöds inte än. |
 | Programgateway | Layer 7-belastningsutjämning | Stöds | Stöds inte än. |

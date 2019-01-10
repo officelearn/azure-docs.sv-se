@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: MT
+ms.openlocfilehash: 613423c02de7f1140674c28ee57bd471c3a52b96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044781"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158252"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -54,8 +54,8 @@ Utlösare har de här översta elementen, även om vissa är valfria:
 | <*Utlösarens namn*> | Sträng | Namnet på utlösaren | 
 | <*typ av utlösare*> | Sträng | Typ av utlösare, till exempel ”Http” eller ”ApiConnection” | 
 | <*Utlösarens indata*> | JSON-objekt | Indata som definierar utlösarens beteende | 
-| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
-| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
 *Valfritt*
@@ -133,10 +133,10 @@ Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Micro
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Sträng | Namnet på utlösaren | 
 | <*Anslutningens namn*> | Sträng | Namn för anslutningen till den hanterade API: N som används i arbetsflödet | 
-| <*metodtyp*> | Sträng | HTTP-metoden för att kommunicera med hanterade API: ”hämta”, ”PUT”, ”POST”, ”uppdatera”, ”ta bort” | 
+| <*metodtyp*> | Sträng | HTTP-metoden för att kommunicera med den hanterade API: N: ”HÄMTA”, ”PLACERA”, ”EFTER”, ”UPPDATERA”, ”TA BORT” | 
 | <*API-åtgärden*> | Sträng | API-åtgärden att anropa | 
-| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
-| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
 *Valfritt*
@@ -155,7 +155,7 @@ Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Micro
  
 | Element | Typ | Beskrivning |
 |---------|------|-------------| 
-| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| Rubriker | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Text från svaret | 
 | Statuskod | Integer | Statuskoden från svaret | 
 |||| 
@@ -304,10 +304,10 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*metodtyp*> | Sträng | HTTP-metod som ska användas för avsökning av den angivna slutpunkten: ”hämta”, ”PUT”, ”POST”, ”uppdatera”, ”ta bort” | 
-| <*slutpunkt-URL*> | Sträng | HTTP eller HTTPS-URL för slutpunkten för att göra en avsökning <p>Maximal strängens storlek: 2 KB | 
-| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
-| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
+| <*metodtyp*> | Sträng | HTTP-metod du använder för avsökning av den angivna slutpunkten: ”HÄMTA”, ”PLACERA”, ”EFTER”, ”UPPDATERA”, ”TA BORT” | 
+| <*slutpunkt-URL*> | Sträng | HTTP eller HTTPS-URL för slutpunkten för att göra en avsökning <p>Maximal strängstorlek: 2 KB | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
 *Valfritt*
@@ -328,7 +328,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 
 | Element | Typ | Beskrivning |
 |---------|------|-------------| 
-| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| Rubriker | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Text från svaret | 
 | Statuskod | Integer | Statuskoden från svaret | 
 |||| 
@@ -401,7 +401,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*metodtyp*> | Sträng | HTTP-metoden ska användas för prenumerationsbegäran: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*metodtyp*> | Sträng | HTTP-metoden ska användas för prenumerationsbegäran: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” | 
 | <*slutpunkt-prenumerera-URL*> | Sträng | Slutpunkts-URL att skicka prenumerationsbegäran | 
 |||| 
 
@@ -409,7 +409,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*metodtyp*> | Sträng | HTTP-metoden för begäran om annullering: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*metodtyp*> | Sträng | HTTP-metoden för begäran om annullering: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” | 
 | <*slutpunkt-avbryta prenumerationen-URL*> | Sträng | Slutpunkts-URL att skicka begäran om annullering | 
 | <*brödtext i e-*> | Sträng | Alla meddelanden som innehåll när du vill skicka i prenumeration eller avbryta begäran | 
 | <*metod för autentisering*> | JSON-objekt | Metoden begäran används för autentisering. Mer information finns i [utgående autentisering i Scheduler](../scheduler/scheduler-outbound-authentication.md). |
@@ -423,7 +423,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 
 | Element | Typ | Beskrivning |
 |---------|------|-------------| 
-| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| Rubriker | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Text från svaret | 
 | Statuskod | Integer | Statuskoden från svaret | 
 |||| 
@@ -495,19 +495,19 @@ Den här utlösaren körs baserat på angivna upprepningsschemat och ger ett enk
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
-| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
 *Valfritt*
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Sträng | Datum och tid i följande format: <p>ÅÅÅÅ-MM-ddTHH om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-: ssZ om du inte anger en tidszon <p>Till exempel om du vill 18 September 2017 kl 2:00, sedan ange ”2017-09-18T14:00:00” och ange en tidszon, till exempel ”Pacific Standard Time”, eller ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** starttiden måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>Starttiden är den första förekomsten för enkla scheman och för komplexa scheman inte utlösaren utlöses alla snabbare än starttiden. Läs mer om startdatum och tider, [skapa och schemalägga aktiviteter som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Sträng | Datum och tid i följande format: <p>ÅÅÅÅ-MM-ddTHH om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-: ssZ om du inte anger en tidszon <p>Till exempel om du vill 18 September 2017 kl 2:00, sedan ange ”2017-09-18T14:00:00” och ange en tidszon, till exempel ”Pacific Standard Time”, eller ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs!** Starttiden måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>Starttiden är den första förekomsten för enkla scheman och för komplexa scheman inte utlösaren utlöses alla snabbare än starttiden. Läs mer om startdatum och tider, [skapa och schemalägga aktiviteter som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
 | <*tidszon*> | Sträng | Gäller endast när du anger en starttid eftersom den här utlösaren inte acceptera [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Ange den tidszon som du vill använda. | 
 | <*ett-eller-fler-timma-märken*> | Heltal eller heltalsmatris | Om du anger ”Day” eller ”Week” för `frequency`, kan du ange en eller flera heltal mellan 0 och 23, avgränsade med kommatecken, som timmar på dagen när du vill köra arbetsflödet. <p>Exempel: Om du anger ”10”, ”12” och ”14”, får du 10 AM, 12 PM och 14: 00 som timme markerar. | 
 | <*ett-eller-fler-minut-märken*> | Heltal eller heltalsmatris | Om du anger ”Day” eller ”Week” för `frequency`, kan du ange en eller flera heltal mellan 0 och 59, avgränsade med kommatecken, minuter på den timma som när du vill köra arbetsflödet. <p>Exempelvis kan du ange ”30” som minut mark och använder exemplet ovan för timmar på dagen, får du 10:30 AM, 12:30:00 och 14:30:00. | 
-| weekDays | Sträng eller strängmatris | Om du anger ”Week” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”Sunday” | 
+| weekDays | Sträng eller strängmatris | Om du anger ”Week” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”Måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”Sunday” | 
 | <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
 | <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
 | <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
@@ -612,7 +612,7 @@ För att anropa den här utlösaren, måste du använda den `listCallbackUrl` AP
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*metodtyp*> | Sträng | Den metod som inkommande begäranden måste använda för att anropa logikappen: ”hämta”, ”PUT”, ”POST”, ”uppdatera”, ”ta bort” |
+| <*metodtyp*> | Sträng | Den metod som inkommande begäranden måste använda för att anropa logikappen: ”HÄMTA”, ”PLACERA”, ”EFTER”, ”UPPDATERA”, ”TA BORT” |
 | <*relativ--för-godkänt – sökvägsparameter*> | Sträng | Den relativa sökvägen för den parameter som kan acceptera din slutpunkts-URL | 
 | <*obligatoriska egenskaper*> | Matris | En eller flera egenskaper som kräver värden | 
 | <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
@@ -892,7 +892,7 @@ Den här åtgärden skickar en HTTP-begäran till en [Microsoft-hanterade API: e
 |-------|------|-------------| 
 | <*Åtgärdens namn*> | Sträng | Namnet på den åtgärd som tillhandahålls av anslutningen | 
 | <*API-namn*> | Sträng | Namnet på Microsoft-hanterade API: et som används för anslutningen | 
-| <*metodtyp*> | Sträng | HTTP-metoden för att anropa API: et: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*metodtyp*> | Sträng | HTTP-metoden för att anropa API: et: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” | 
 | <*API-åtgärden*> | Sträng | API-åtgärden att anropa | 
 |||| 
 
@@ -971,7 +971,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*Åtgärdens namn*> | Sträng | Namnet på den åtgärd som tillhandahålls av anslutningen | 
-| <*metodtyp*> | Sträng | HTTP-metoden ska användas för prenumerera eller prenumerationen på en slutpunkt: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*metodtyp*> | Sträng | HTTP-metoden ska användas för prenumerera eller prenumerationen på en slutpunkt: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” | 
 | <*API-prenumerera-URL*> | Sträng | URI: N ska användas för att prenumerera på API: et | 
 |||| 
 
@@ -1072,7 +1072,7 @@ Den här åtgärden anropar en tidigare skapad [Azure-funktion](../azure-functio
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------|  
 | <*Azure-funktion-ID*> | Sträng | Resurs-ID för Azure-funktion som du vill anropa. Här är formatet för det här värdet:<p>”/subscriptions/ <*azure-prenumerations-ID*> /resourceGroups/ <*Azure-resursgrupp*> /providers/Microsoft.Web/sites/ <*Azure function-appens namn-*> /Functions/ <*azure funktionsnamn*> ” | 
-| <*metodtyp*> | Sträng | HTTP-metod som ska användas för att anropa funktionen: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” <p>Om inte anges är standardvärdet ”POST”-metoden. | 
+| <*metodtyp*> | Sträng | HTTP-metod du använder för att anropa funktionen: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” <p>Om inte anges är standardvärdet ”POST”-metoden. | 
 ||||
 
 *Valfritt*
@@ -1142,8 +1142,8 @@ Den här åtgärden skickar en begäran till den angivna slutpunkten och kontrol
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*metodtyp*> | Sträng | Metoden som ska användas för att skicka begäran: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
-| <*HTTP-eller-HTTPS-slutpunkt-URL*> | Sträng | HTTP eller HTTPS-slutpunkt att anropa. Maximal strängens storlek: 2 KB | 
+| <*metodtyp*> | Sträng | Metoden som ska användas för att skicka begäran: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” | 
+| <*HTTP-eller-HTTPS-slutpunkt-URL*> | Sträng | HTTP eller HTTPS-slutpunkt att anropa. Maximal strängstorlek: 2 KB | 
 |||| 
 
 *Valfritt*
@@ -1238,7 +1238,7 @@ Den här åtgärden skapar användarvänliga fält eller *token* från egenskape
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*JSON-källa*> | JSON-objekt | JSON-innehåll som du vill parsa | 
-| <*JSON-schema*> | JSON-objekt | JSON-schema som beskriver den underliggande JSON-innehåll som åtgärden använder för parsning av källan JSON-innehåll. <p>**Tips**: I Logic Apps Designer går du kan antingen ange schemat eller ange en exempelnyttolast så att åtgärden kan generera schemat. | 
+| <*JSON-schema*> | JSON-objekt | JSON-schema som beskriver den underliggande JSON-innehåll som åtgärden använder för parsning av källan JSON-innehåll. <p>**Tips!** I Logic Apps Designer kan du ange schemat eller ange en exempelnyttolast så att åtgärden kan generera schemat. | 
 |||| 
 
 *Exempel*
@@ -1340,7 +1340,7 @@ Den här åtgärden skapar en matris från objekten i en annan matris baserat p�
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. |
-| <*villkor eller filter*> | Sträng | Villkor som används för att filtrera objekt i matrisen källa <p>**Obs**: Om inga värden uppfyller villkoren och sedan skapar en tom matris för åtgärden. |
+| <*villkor eller filter*> | Sträng | Villkor som används för att filtrera objekt i matrisen källa <p>**Obs!** Om inga värden uppfyller villkoret, skapar en tom matris med åtgärden. |
 |||| 
 
 *Exempel*
@@ -1455,7 +1455,7 @@ Den här åtgärden skapar en matris med JSON-objekt genom att transformera obje
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Kontrollera att du skriva ett uttryck med dubbla citattecken. <p>**Obs**: om källmatrisen är tom åtgärden skapar en tom matris. | 
+| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Kontrollera att du skriva ett uttryck med dubbla citattecken. <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom matris. | 
 | <*nyckel-name*> | Sträng | Egenskapsnamnet som tilldelats resultatet från <*uttryck*> <p>Om du vill lägga till en ny egenskap för alla objekt i matrisen utdata, ger en <*nyckelnamn*> för den egenskapen och en <*uttryck*> för egenskapens värde. <p>Ta bort en egenskap från alla objekt i matrisen genom att utelämna den <*nyckelnamn*> för den egenskapen. | 
 | <*uttryck*> | Sträng | Det uttryck som omvandlar objekt i matrisen källa och tilldelar resultat som ska <*-nyckelnamn*> | 
 |||| 
@@ -1554,7 +1554,7 @@ Den här åtgärden skapar en CSV- eller HTML-tabell från en matris. För matri
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | < CSV *eller* HTML >| Sträng | Formatet för den tabell som du vill skapa | 
-| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt för tabellen <p>**Obs**: om källmatrisen är tom åtgärden skapar en tom tabell. | 
+| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt för tabellen <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom tabell. | 
 |||| 
 
 *Valfritt*
@@ -1666,7 +1666,7 @@ Den här åtgärden stoppar körningen av arbetsflödesinstansen för logic app,
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Status*> | Sträng | Status för att returnera för körningen: ”misslyckades”, ”annullerad” eller ”Succeeded” |
+| <*status*> | Sträng | Status ska returneras för körningen: ”Misslyckades”, ”avbröt” eller ”lyckades” |
 |||| 
 
 *Valfritt*
@@ -1737,7 +1737,7 @@ Den här åtgärden pausar arbetsflödeskörning för det angivna intervallet, e
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*Antal enheter*> | Integer | För den **fördröjning** åtgärd, hur många enheter vänta | 
-| <*intervall*> | Sträng | För den **fördröjning** åtgärd, intervall vänta: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*intervall*> | Sträng | För den **fördröjning** åtgärd, intervall vänta: ”Andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
 | <*datum, tidsstämpel*> | Sträng | För den **fördröjning tills** åtgärd, datum och tid att återuppta körningen. Det här värdet måste använda den [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
@@ -2350,9 +2350,9 @@ Här är ett exempel som begränsar samtidiga körningar till 10 instanser:
 
 1. I utlösarens övre högra hörnet väljer du ellipserna (...)-knappen och väljer sedan **inställningar**.
 
-2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+2. Under **samtidighetskontroll**anger **gränsen** till **på**. 
 
-3. Dra den **grad av parallellitet** skjutreglaget till önskat värde. 
+3. Dra den **grad av parallellitet** skjutreglaget till önskat värde. Om du vill köra din logikapp sekventiellt dra skjutreglaget värdet till **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Här är ett exempel som begränsar samtidiga körningar till 10 iterationer:
 
 1. I den **för var och en** åtgärd i det övre högra hörnet, väljer du ellipserna (...)-knappen och välj sedan **inställningar**.
 
-2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+2. Under **samtidighetskontroll**anger **samtidighetskontroll** till **på**. 
 
-3. Dra den **grad av parallellitet** skjutreglaget till önskat värde. 
+3. Dra den **grad av parallellitet** skjutreglaget till önskat värde. Om du vill köra din logikapp sekventiellt dra skjutreglaget värdet till **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Ange den `operationOptions` egenskap `SingleInstance`:
 
 1. I utlösarens övre högra hörnet väljer du ellipserna (...)-knappen och väljer sedan **inställningar**.
 
-2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+2. Under **samtidighetskontroll**anger **gränsen** till **på**. 
 
 3. Dra den **grad av parallellitet** skjutreglaget för hur många `1`. 
 
@@ -2516,7 +2516,7 @@ Ange den `operationOptions` egenskap `Sequential`:
 
 1. I den **för var och en** åtgärdens övre högra hörnet väljer du ellipserna (...)-knappen och välj sedan **inställningar**.
 
-2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+2. Under **samtidighetskontroll**anger **samtidighetskontroll** till **på**. 
 
 3. Dra den **grad av parallellitet** skjutreglaget för hur många `1`. 
 
@@ -2644,7 +2644,7 @@ För den här autentiseringstypen din utlösare eller åtgärd definition kan in
 | **Hemlighet** | Ja, endast för ”hemligheten” autentiseringstyp | <*hemligheten för autentisering*> | Base64-kodad hemligheten som klienten använder för begär auktorisering |
 ||||| 
 
-Här är till exempel formatet för den `authentication` objekt när din utlösare eller åtgärd definition använder ”hemligheten” autentiseringstypen: Mer information om hur du skyddar parametrar finns i [skydda känslig information](#secure-info). 
+Här är till exempel formatet för den `authentication` objekt när din utlösare eller åtgärd definition använder ”hemligheten” autentiseringstyp: Mer information om hur du skyddar parametrar finns i [skydda känslig information](#secure-info). 
 
 ```javascript
 "authentication": {

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: e4d5004deeff43e83406ecb5d06b2857817531c6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074298"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159969"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -38,7 +38,7 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault-lo
 > [!NOTE]
 > Självstudiekursen innehåller inte instruktioner för hur du skapar nyckelvalv, nycklar eller hemligheter. Den här informationen finns i [Komma igång med Azure Key Vault](key-vault-get-started.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här självstudiekursen](key-vault-manage-with-cli2.md).
 >
-> För närvarande kan du inte konfigurera Azure Key Vault på Azure-portalen. I stället använder du dessa Azure PowerShell-instruktioner.
+> Den här artikeln innehåller instruktioner för Azure PowerShell för att uppdatera Diagnostisk loggning. Men den kan aktiveras med hjälp av Azure Monitor i Azure-portalen i den **diagnostikloggar** avsnittet. 
 >
 >
 

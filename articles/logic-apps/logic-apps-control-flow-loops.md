@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 728152c8f9e7d4cceb4b1c8165bbf087927f58e8
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063326"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159493"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
 
@@ -42,7 +42,7 @@ Följande är några saker när du använder slingor ”Foreach”:
 
 * I kapslade loopar körs iterationer alltid sekventiellt, inte parallellt. Om du vill köra åtgärder parallellt för objekt i en kapslad loop, skapa och [anropa en underordnad logikapp](../logic-apps/logic-apps-http-endpoint.md).
 
-* Om du vill ha förutsägbara resultat från åtgärder på variabler i slingor, körs dessa slingor sekventiellt.
+* Om du vill ha förutsägbara resultat från åtgärder på variabler under varje iteration av loopen, körs dessa slingor sekventiellt. Exempelvis returnera när samtidigt körs loopa upphör, öka, minska och lägga till i variabeln operations förutsägbara resultat. Dessa åtgärder kan dock under varje iteration som körs samtidigt loopen returnera oväntade resultat. 
 
 * Åtgärder i en ”Foreach” loopa används den [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 uttryck som refererar till och bearbeta varje objekt i matrisen. Om du anger data som inte är i en matris, misslyckas logikappens arbetsflöde. 
@@ -130,9 +130,9 @@ Som standard köras cykler i en ”Foreach”-loop parallellt. Ange om du vill k
 
    ![På ”Foreach”-loop, väljer du ”...” > ”Inställningar”](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Aktivera den **samtidighetskontroll** inställningen. Flytta den **grad av parallellitet** skjutreglaget till **1**, och välj **klar**.
+1. Under **samtidighetskontroll**, aktivera den **samtidighetskontroll** att ställa in **på**. Flytta den **grad av parallellitet** skjutreglaget till **1**, och välj **klar**.
 
-   ![Aktivera ”samtidighetskontroll”-inställning](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Aktivera samtidighetskontroll](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 Om du arbetar med din logikapp JSON-definition, kan du använda den `Sequential` alternativet genom att lägga till den `operationOptions` parameter, till exempel:
 

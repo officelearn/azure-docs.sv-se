@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c7eaecf74f56035c39267407e6a965c57897b1ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015448"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159034"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -85,10 +85,10 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Utlösaren samtidighet | 50 | Standardgränsen är 20. Den här gränsen beskriver det maximala antalet logic app-instanser som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra utlösaren samtidighet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Den maximala väntetiden körningar | 100 | Standardgränsen är 10. Den här gränsen beskriver det maximala antalet logic app-instanser som kan vänta med att köra när logikappen körs redan det högsta antalet samtidiga instanser. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 0 och 100 portintervallet [ändring väntar körningar begränsa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach-objekt | 100 000 | Den här gränsen beskriver det maximala antalet matrisobjekt som en ”för var och en”-loop kan bearbeta. <p><p>Du kan använda för att filtrera större matriser, den [frågeåtgärd](../connectors/connectors-native-query.md). | 
-| Foreach-samtidighet | 50 | Standardgränsen är 20. Den här gränsen beskriver det maximala antalet ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra ”för var och en” samtidighet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Utlösaren samtidighet | 50 genom att begränsa samtidighet | När du aktiverar samtidighetskontroll för en utlösare, är Standardgränsen 25. Den här gränsen beskriver det maximala antalet logic app-instanser som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra utlösaren samtidighetsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Den maximala väntetiden körningar | 100 genom att begränsa samtidighet | När du aktiverar samtidighetskontroll för en utlösare, är Standardgränsen 10. Den här gränsen beskriver det maximala antalet logic app-instanser som kan vänta med att köra när logikappen körs redan det högsta antalet samtidiga instanser. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 0 och 100 portintervallet [ändring väntar körningar begränsa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach-matrisobjekt | 100 000 | Den här gränsen beskriver det maximala antalet matrisobjekt som en ”för var och en”-loop kan bearbeta. <p><p>Du kan använda för att filtrera större matriser, den [frågeåtgärd](../connectors/connectors-native-query.md). | 
+| Foreach-samtidighet | 50 genom att begränsa samtidighet | När du aktiverar samtidighetskontroll för den här loopen är Standardgränsen 20. Den här gränsen beskriver det maximala antalet ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra ”för var och en” samtidighet gränsen](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn-objekt | 100 000 | | 
 | Until-iterationer | 5 000 | | 
 |||| 
@@ -119,9 +119,9 @@ Att gå över dessa gränser i normala bearbetningen eller köra belastningstest
 
 | Namn | Gräns | Anteckningar |
 |------|-------|-------|
-| FTP | 50 MB | Du kan undvika den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
-| SFTP | 50 MB | Du kan undvika den här gränsen genom att använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md) eller se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
-| SFTP-SSH | 1 GB | Du kan undvika den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
+| FTP | 50 MB | Om du vill överskrida den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
+| SFTP | 50 MB | Om du vill överskrida den här gränsen, använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md) eller se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
+| SFTP-SSH | 1 GB | Om du vill överskrida den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
 |||| 
 
 <a name="request-limits"></a>

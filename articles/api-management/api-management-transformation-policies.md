@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119381"
+ms.locfileid: "54159799"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -353,7 +353,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 ```
 
 ### <a name="using-liquid-templates-with-set-body"></a>Använd flytande mallar med Ställ in brödtext
-Den `set-body` principen kan konfigureras för att använda den [flytande](https://shopify.github.io/liquid/basics/introduction/) mall språk till transfom brödtexten i en begäran eller ett svar. Detta kan vara mycket effektivt om du behöver du helt Omforma formatet för meddelandet.
+Den `set-body` principen kan konfigureras för att använda den [flytande](https://shopify.github.io/liquid/basics/introduction/) mall språk att omvandla brödtexten i en begäran eller ett svar. Detta kan vara mycket effektivt om du behöver du helt Omforma formatet för meddelandet.
 
 > [!IMPORTANT]
 > Implementeringen av vätska som används i den `set-body` principen är konfigurerad för läget ”c”. Detta är särskilt viktigt när du gör sådant som filtrering. Till exempel med hjälp av ett filter måste du använda Pascal gemener och versaler och C# datum formatering t.ex.:

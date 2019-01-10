@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: iainfou
-ms.openlocfilehash: 4e3f2f33cfffeacbcbeccc4f17f55b7d0e1a985c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c4a79571d22276f4874d6b8bb5fda3d86ca5f929
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098203"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154988"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollanten för HTTPS och Använd dina egna TLS-certifikat på Azure Kubernetes Service (AKS)
 
@@ -179,7 +179,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 [...]
 ```
 
-Den *- v* parameter i vår `curl` kommando visar utförlig information, inklusive TLS-certifikatet som togs emot. Halvvägs via curl-utdata, du kan kontrollera att dina egna TLS-certifikat har använts. Den *-k* parametern fortsätter att läsa in sidan, även om vi använder ett självsignerat certifikat. I följande exempel visar att den *utfärdare: CN=demo.azure.com; O = aks-ingress-tls* certifikat har använts:
+Den *- v* parameter i vår `curl` kommando visar utförlig information, inklusive TLS-certifikatet som togs emot. Halvvägs via curl-utdata, du kan kontrollera att dina egna TLS-certifikat har använts. Den *-k* parametern fortsätter att läsa in sidan, även om vi använder ett självsignerat certifikat. I följande exempel visar att den *utfärdare: CN=demo.Azure.com; O = aks-ingress-tls* certifikat har använts:
 
 ```
 [...]
@@ -192,7 +192,7 @@ Den *- v* parameter i vår `curl` kommando visar utförlig information, inklusiv
 [...]
 ```
 
-Lägg nu till */hello-world-two* sökvägen till adressen, till exempel *https://demo.azure.com/hello-world-two*. Andra demoprogrammet med anpassade rubriken returneras enligt följande komprimerade exempel på utdata:
+Lägg nu till */hello-world-two* sökvägen till adressen, till exempel `https://demo.azure.com/hello-world-two`. Andra demoprogrammet med anpassade rubriken returneras enligt följande komprimerade exempel på utdata:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two

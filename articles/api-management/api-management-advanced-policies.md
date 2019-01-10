@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584884"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158439"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```
 
 #### <a name="example"></a>Exempel
- Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dataelement från svaret från serverdelstjänsten när du använder den `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 34:30. Starta vid 31:50 att se en översikt över [mörk Sky Prognostisera API](https://developer.forecast.io/) används för den här demon.
+ Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dataelement från svaret från serverdelstjänsten när du använder den `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: Fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 34:30. Starta vid 31:50 att se en översikt över [mörk Sky Prognostisera API](https://developer.forecast.io/) används för den här demon.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -449,7 +449,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  När bara den `interval` anges **fast** intervall för återförsök utförs.
 > När bara den `interval` och `delta` anges, en **linjär** intervall för återförsök algoritmen används, där väntetiden mellan försöken beräknas enligt följande formel - `interval + (count - 1)*delta`.
-> När den `interval`, `max-interval` och `delta` anges, **exponentiell** intervall för återförsök algoritmen används, där väntetiden mellan återförsöken ökar exponentiellt från värdet för `interval` till värdet `max-interval` enligt följande forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> När den `interval`, `max-interval` och `delta` anges, **exponentiell** intervall för återförsök algoritmen används, där väntetiden mellan återförsöken ökar exponentiellt från värdet för `interval` till värdet `max-interval` enligt följande formel - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Observera att användning av underordnade principbegränsningar ärvs av den här principen.
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.|Nej|Ny|
-|response-variable-name="string"|Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter en lyckad körning av principen och blir tillgänglig via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.|Ja|Gäller inte|
+|response-variable-name="string"|Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter en lyckad körning av principen och blir tillgängliga via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.|Ja|Gäller inte|
 |timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|
 |Ignorera fel|Om SANT och begäran resulterar i ett fel:<br /><br /> – Om svar-variabeln-name har angetts innehåller ett null-värde.<br />– Om variabeln svarsnamnet inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|false|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|

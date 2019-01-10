@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138593"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159174"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Den här artikeln beskriver skalbarhets- och prestandamål för Azure Files och Azure File Sync.
@@ -39,11 +39,11 @@ Med Azure File Sync försöker vi så mycket som möjligt att utforma för obegr
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure File Sync-prestandamått
-Eftersom Azure File Sync-agenten körs på en Windows Server-dator som ansluter till Azure-filresurser kan den effektiva synkroniseringsprestanda beror på ett antal faktorer i infrastrukturen för: Windows Server och den underliggande diskkonfigurationen nätverkets bandbredd mellan servern och Azure storage, filstorlek, totalt antal datauppsättningens storlek och aktiviteten för datauppsättningen. Eftersom Azure File Sync fungerar på filnivå, mäts bättre prestandaegenskaperna för en Azure File Sync-baserad lösning av antalet objekt (filer och kataloger) som bearbetas per sekund. 
+Eftersom Azure File Sync-agenten körs på en Windows Server-dator som ansluter till Azure-filresurser kan beror den effektiva synkroniseringsprestanda på ett antal faktorer i din infrastruktur: Windows Server och den underliggande diskkonfigurationen nätverksbandbredden mellan servern och Azure storage, file storlek, totalt antal datauppsättningens storlek och aktiviteten på datauppsättningen. Eftersom Azure File Sync fungerar på filnivå, mäts bättre prestandaegenskaperna för en Azure File Sync-baserad lösning av antalet objekt (filer och kataloger) som bearbetas per sekund. 
  
 För Azure File Sync är prestanda viktiga i två steg:
-1. **Den första etableringen enstaka**: för att optimera prestanda på den första etableringen, referera till [registrering med Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) för optimal distributionsinformationen.
-2. **Pågående synkronisering**: när data är inledningsvis dirigeras i Azure-filresurser, Azure File Sync håller flera slutpunkter synkroniserade.
+1. **Den första etableringen enstaka**: För att optimera prestanda på den första etableringen, referera till [registrering med Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) för optimal distributionsinformationen.
+2. **Pågående synkronisering**: När data är inledningsvis dirigeras i Azure-filresurser, behåller Azure File Sync flera slutpunkter synkroniserade.
 
 När du planerar distributionen för vart och ett av stegen, observeras nedan resultaten under intern testning av ett system med en konfiguration
 
@@ -59,9 +59,9 @@ När du planerar distributionen för vart och ett av stegen, observeras nedan re
 |-|-|
 | Antal objekt | 10 miljoner objekt | 
 | Datauppsättningens storlek| ~ 4 TiB |
-| Genomsnittlig filstorlek | ~ 500 KiB (största filen: 100 GiB) |
-| Ladda upp dataflöde | 15 objekt per sekund |
-| Namespace Download dataflöde * | 350 objekt per sekund |
+| Genomsnittlig filstorlek | ~ 500 KiB (största filen: 100 giB) |
+| Ladda upp dataflöde | 20 objekt per sekund |
+| Namespace Download dataflöde * | 400 objekt per sekund |
  
 * När en ny serverslutpunkt skapas, hämta någon av filinnehållet inte av Azure File Sync-agenten. Programmet först synkroniseras fullständig namnområdet och sedan utlösare bakgrund återkallande för att hämta filer, antingen i sin helhet eller, om molnnivå är aktiverat i molnet lagringsnivåer princip på server-slutpunkt.
 
@@ -70,8 +70,8 @@ När du planerar distributionen för vart och ett av stegen, observeras nedan re
 | Antal objekt som synkroniseras| 125,000 objekt (~ 1% omsättning) | 
 | Datauppsättningens storlek| 50 giB |
 | Genomsnittlig filstorlek | ~ 500 KiB |
-| Ladda upp dataflöde | 20 objekt per sekund |
-| Fullständig nedladdning dataflöde * | 30 objekt per sekund |
+| Ladda upp dataflöde | 30 objekt per sekund |
+| Fullständig nedladdning dataflöde * | 60 objekt per sekund |
  
 * Om molnet lagringsnivåer har aktiverats kan du förmodligen att Observera bättre prestanda som bara en del av filen som data hämtas. Azure File Sync hämtas bara de data för cachelagrade filer när de ändras på någon av slutpunkterna. Agenten för nivåindelade eller nyligen skapade filer, hämta inte fildata och synkroniserar i stället endast namnområdet som ska alla serverslutpunkter. Agenten stöder även partiella nedladdningar av nivåindelade filer som de används av användaren. 
  

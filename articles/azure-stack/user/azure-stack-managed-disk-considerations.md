@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050174"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159374"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: skillnader och överväganden
 
@@ -29,7 +29,7 @@ Den här artikeln sammanfattas de kända skillnaderna mellan [Azure Stack Manage
 Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att hantera den [lagringskonton](../azure-stack-manage-storage-accounts.md) som är associerade med de Virtuella diskarna.
 
 > [!Note]  
-> Hanterade diskar på Azure Stack är tillgänglig från 1808 har släppts.
+> Hanterade diskar på Azure Stack är tillgänglig från 1808 update. Det är aktiverat som standard när du skapar virtuella datorer med Azure Stack-portalen från 1811 update.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Lathund: Managed disk skillnader
@@ -67,7 +67,7 @@ Managed Disks för Azure Stack stöd för följande API-versioner:
 
 ## <a name="known-issues"></a>Kända problem
 
-Efter att ha tillämpat den [1811 uppdatera](../azure-stack-update-1811.md), följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
+Efter att de uppdateringar när 1808, kan det uppstå följande problem när du distribuerar virtuella datorer med hanterade diskar:
 
 - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
    1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1c2f7b46daf7b96d3a6f47dac647d5ed90461e8e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633018"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156263"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ När du har slutfört den här artikeln har du en anpassad princip för registre
 
 Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
-## <a name="page-ui-customization"></a>Anpassning av sid-UI
+## <a name="page-ui-customization"></a>Anpassning av sidgränssnittet
 
 Med hjälp av funktionen sida Användargränssnittet anpassning, kan du anpassa utseendet och känslan av en anpassad princip. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
 
@@ -121,7 +121,7 @@ Om du vill konfigurera anpassningar du kopiera den **ContentDefinition** och des
 3. Öppna tilläggsfilen. Till exempel *TrustFrameworkExtensions.xml*. Sök efter den **BuildingBlocks** element. Om elementet inte finns kan du lägga till den.
 4. Klistra in hela innehållet i den **ContentDefinitions** element som du kopierade som underordnad till den **BuildingBlocks** element. 
 5. Sök efter den **ContentDefinition** element som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
-6. Ändra värdet för **LoadUri** till Webbadressen för HTML-fil som du laddade upp till lagring. Till exempel https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
+6. Ändra värdet för **LoadUri** till Webbadressen för HTML-fil som du laddade upp till lagring. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
     
     En anpassad princip bör se ut så här:
 

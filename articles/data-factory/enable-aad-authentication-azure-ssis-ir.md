@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 ms.author: douglasl
-ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104343"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158269"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -187,6 +187,17 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
     ```
     
     Kommandot bör slutföras utan problem, bevilja den hanterade identitet för din ADF möjligheten att skapa en databas (SSISDB).
+
+8.  Om din SSISDB har skapats med SQL-autentisering och vill du istället för att använda Azure AD-autentisering för din Azure-SSIS IR kan komma åt det, högerklickar du på **SSISDB** databasen och välj **ny fråga**.
+
+9.  Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    Kommandot bör slutföras utan problem, bevilja den hanterade identitet för din ADF möjlighet att få åtkomst till SSISDB.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Etablera Azure-SSIS IR i Azure portal/ADF-app
 

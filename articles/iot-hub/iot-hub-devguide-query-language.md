@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747923"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157215"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 Tillåter vi inte koppling mellan enheter och devices.modules samlingar. Om du vill fråga modultvillingar mellan enheter, gör du det baserat på taggar. Den här frågan returnerar alla modultvillingar på alla enheter med statusen genomsökning:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 Den här frågan returnerar alla modultvillingar med statusen genomsökning, men bara om den angivna Undergrupp enheter:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C#-exempel
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM-satsen
 
-Den **från < from_specification >** satsen kan anta att bara två värden: **från enheter** att fråga enhetstvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
+Den **från < from_specification >** satsen kan anta att bara två värden: **FRÅN enheter** att fråga enhetstvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
 
 
 ## <a name="where-clause"></a>WHERE-satsen
@@ -448,7 +448,7 @@ Följande operatorer som stöds:
 | Familj | Operatorer |
 | --- | --- |
 | Aritmetiska |+, -, *, /, % |
-| Logiska |OCH, ELLER INTE |
+| Logiska |AND, OR, NOT (och, eller, inte) |
 | Jämförelse |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
@@ -462,12 +462,12 @@ Följande matematiska funktioner stöds i vägar villkor:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| ABS(x) | Returnerar det absoluta (positiva) värdet för det angivna numeriskt uttrycket. |
+| ABS(x) | Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket. |
 | EXP(x) | Returnerar exponentiell värdet för det angivna numeriska uttrycket (e ^ x). |
 | Power(x,y) | Returnerar värdet för det angivna uttrycket till angiven potens (x ^ y).|
 | Square(x) | Returnerar för det angivna numeriska värdet. |
-| CEILING(x) | Returnerar det minsta heltalsvärdet större än eller lika med det angivna numeriska uttrycket. |
-| FLOOR(x) | Returnerar det största heltalet mindre än eller lika med det angivna numeriska uttrycket. |
+| CEILING(x) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
+| FLOOR(x) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
 | Sign(x) | Returnerar positiv (+ 1), noll (0) eller minustecken (-1) i det angivna numeriska uttrycket.|
 | Rot(x) | Returnerar kvadratroten för det angivna numeriska värdet. |
 
@@ -478,7 +478,7 @@ I vägar villkor stöds följande typkontroll och omvandling funktioner:
 | AS_NUMBER | Konverterar den inmatade strängen till ett tal. `noop` Om indata är ett tal. `Undefined` om strängen inte representerar ett tal.|
 | IS_ARRAY | Returnerar ett booleskt värde som anger om vilken typ av det angivna uttrycket är en matris. |
 | IS_BOOL | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett booleskt värde. |
-| IS_DEFINED | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde. |
+| IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
 | IS_NULL | Returnerar ett booleskt värde som anger om vilken typ av det angivna uttrycket är null. |
 | IS_NUMBER | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett tal. |
 | IS_OBJECT | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett JSON-objekt. |
@@ -489,15 +489,15 @@ Följande sträng-funktioner stöds i vägar villkor:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| SAMMANFOGA (x, y,...) | Returnerar en sträng som är resultatet av att sammanfoga två eller flera strängvärden. |
+| SAMMANFOGA (x, y,...) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
 | LENGTH(x) | Returnerar antalet tecken i angivet stränguttryck.|
-| LOWER(x) | Returnerar ett stränguttryck när versal data har konverterats till gemener. |
-| UPPER(x) | Returnerar ett stränguttryck efter konvertera gemen data till versaler. |
+| LOWER(x) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
+| UPPER(x) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
 | DELSTRÄNGEN (sträng, start [, längd]) | Returnerar en del av ett stränguttryck med början vid den angivna nollbaserade teckenpositionen och fortsätter med den angivna längden eller i slutet av strängen. |
-| INDEX_OF (string, fragment) | Returnerar startpositionen för den första förekomsten av andra stränguttryck i första angivet stränguttryck eller -1 om strängen inte hittas.|
+| INDEX_OF (string, fragment) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas.|
 | STARTS_WITH (x, y) | Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra. |
 | ENDS_WITH (x, y) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
-| CONTAINS(x,y) | Returnerar ett booleskt värde som anger om först stränguttryck innehåller andra. |
+| CONTAINS(x,y) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
 
 ## <a name="next-steps"></a>Nästa steg
 

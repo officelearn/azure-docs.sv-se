@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: 974b45566255154bddc969b2a5ab3db0d2bf4f31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.openlocfilehash: 1b9821a0115aba96f4588049273bd7a157121ded
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019290"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156637"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
@@ -25,7 +25,7 @@ Azure Function-aktiviteten kan du köra [Azure Functions](../azure-functions/fun
 
 ## <a name="azure-function-linked-service"></a>Azure funktion länkad tjänst
 
-Returtypen för Azure-funktionen måste vara en giltig JObject. Allt annat misslyckas och genererar en allmän användarfel *fel anropande endpoint*.
+Returtypen för Azure-funktionen måste vara en giltig JObject. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) är *inte* en JObject.) Allt annat misslyckas och genererar en allmän användarfel *fel anropande endpoint*.
 
 | **Egenskap** | **Beskrivning** | **Krävs** |
 | --- | --- | --- |

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f18af40c67195ee2e1e74c04c0834eea06fb14d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1f5eb085239ac985aa3355b1e91dac9639827339
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191962"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155090"
 ---
 # <a name="contoso-migration-overview"></a>Contoso-migrering: Översikt
 
@@ -39,7 +39,7 @@ Strategier för migrering till molnet faller inom fyra olika kategorier: rehost,
 **Ange ny värd** | Kallas ofta en ”lift and shift”-migrering. Det här alternativet kräver inte ändringar i koden och vi du migrera dina befintliga appar till Azure snabbt. Varje app migreras som är att dra nytta av molnet, utan risk och kostnad som hör till ändringar i koden. | När du behöver snabbt flytta appar till molnet.<br/><br/> När du vill flytta en app utan att ändra den.<br/><br/> När dina appar har byggts så att de kan utnyttja [Azure IaaS](https://azure.microsoft.com/overview/what-is-iaas/) skalbarhet efter migreringen.<br/><br/> När appar är viktiga för din verksamhet, men du behöver inte omedelbart ändringar av funktionerna i appen.
 **Omstrukturera** | Kallas ofta ”ompaketering”, omstrukturering kräver minimala ändringar till appar, så att de kan ansluta till [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/), och använda molntjänster.<br/><br/> Exempelvis kan migrera du befintliga appar till Azure App Service eller Azure Kubernetes Service (AKS).<br/><br/> Eller så kan du omstrukturerar relationella och icke-relationsdatabaser till alternativ som Azure SQL Database Managed Instance, Azure Database for MySQL, Azure Database för PostgreSQL och Azure Cosmos DB. | Om din app kan enkelt paketerats om för att fungera i Azure.<br/><br/> Om du vill använda innovativa DevOps-metoder som tillhandahålls av Azure, eller du funderar DevOps och använder en behållarstrategi för arbetsbelastningar.<br/><br/> Du måste tänka portabilitet för dina befintliga kodbas och tillgängliga utvecklingskompetens för omstrukturering.
 **Omforma** | Ny arkitektur för migrering fokuserar på Ändra och utöka funktionalitet och kodbas att optimera app-arkitektur för skalbarhet i molnet.<br/><br/> Du kan till exempel dela upp en monolitisk App i en grupp av mikrotjänster och som fungerar tillsammans och skala enkelt.<br/><br/> Eller så kan du omforma relationsdata och icke-relationella databaser till en helt hanterad DBaaS lösningar, till exempel Azure SQL Database Managed Instance, Azure Database for MySQL, Azure Database för PostgreSQL och Azure Cosmos DB. | När dina appar behöver större revideringar för att lägga till nya funktioner eller ska fungera effektivt på en molnplattform.<br/><br/> När du vill använda befintliga investeringar i programmet uppfylla skalbarhetskraven, tillämpa innovativa Azure DevOps-metoder och minska användningen av virtuella datorer.
-**Återskapa** | Återskapa tar saker a steg ytterligare genom att bygga en app från grunden med hjälp av Azure-molntekniker.<br/><br/> Du kan till exempel skapa grönt fält appar med molnbaserade teknik som Azure Functions, Azure AI, Azure SQL Database Managed Instance och Azure Cosmos DB. | När du vill att snabb utveckling och befintliga appar har begränsad funktionalitet och livslängd.<br/><br/> När du är redo att påskynda företagets innovationer (inklusive DevOps-metoder som tillhandahålls av Azure) kan skapa nya program med molnbaserade teknik och dra nytta av förbättringarna av AI, Blockkedjor och IoT.
+**Återskapa** | Återskapa tar saker a steg ytterligare genom att bygga en app från grunden med hjälp av Azure-molntekniker.<br/><br/> Exempel: du kan bygga grönt fält appar med [molnbaserade](http://azure.com/cloudnative) tekniker som Azure Functions, Azure AI, Azure SQL Database Managed Instance och Azure Cosmos DB. | När du vill att snabb utveckling och befintliga appar har begränsad funktionalitet och livslängd.<br/><br/> När du är redo att påskynda företagets innovationer (inklusive DevOps-metoder som tillhandahålls av Azure) kan skapa nya program med molnbaserade teknik och dra nytta av förbättringarna av AI, Blockkedjor och IoT.
 
 ## <a name="migration-articles"></a>Artiklar om datamigrering
 

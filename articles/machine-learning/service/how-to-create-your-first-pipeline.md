@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c6472b824eefdd1954f3645c69090d1fb5455de
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: fb1ac992f174327d08a606549da7b2b094a7a88e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754466"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157997"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -26,8 +26,7 @@ Pipelines som du skapar är synliga för medlemmar i din Azure Machine Learning-
 
 Pipelines Använd remote beräkningsmål för beräkning och lagring av mellanliggande och slutlig data som är associerade med denna pipeline. Pipelines kan läsa och skrivdata till och från stöds [Azure Storage](https://docs.microsoft.com/azure/storage/) platser.
 
->[!Note]
->Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree).
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -101,35 +100,138 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-### <a name="set-up-compute"></a>Konfigurera beräkning
+## <a name="set-up-compute-target"></a>Konfigurera beräkningsmål
 
-I Azure Machine Learning termen *compute* (eller *beräkningsmålet*) refererar till datorer eller kluster som utför beräkningssteg i din pipeline för machine learning. Du kan till exempel skapa en Azure Machine Learning-beräkning för att köra dina steg.
+I Azure Machine Learning termen __compute__ (eller __beräkningsmålet__) refererar till datorer eller kluster som utför beräkningssteg i din pipeline för machine learning.   Se [beräkningsmål för modellträning](how-to-set-up-training-targets.md) för en fullständig lista över beräkningsmål och hur du skapar och bifogar dem i din arbetsyta.  Processen för att skapa och eller bifoga en beräkningsmål är detsamma oavsett om du tränar en modell eller kör en pipeline-steg. När du skapar och koppla din beräkningsmål, använda den `ComputeTarget` objekt i din [pipeline steg](#steps).
+
+Nedan följer exempel för att skapa och koppla beräkningsmål för:
+
+* Azure Machine Learning-beräkning
+* Azure Databricks 
+* Azure Data Lake Analytics
+
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
+
+Du kan skapa en Azure Machine Learning-beräkning för att köra dina steg.
+
+    ```python
+    compute_name = "aml-compute"
+     if compute_name in ws.compute_targets:
+        compute_target = ws.compute_targets[compute_name]
+        if compute_target and type(compute_target) is AmlCompute:
+            print('Found compute target: ' + compute_name)
+    else:
+        print('Creating a new compute target...')
+        provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                    min_nodes = 1, 
+                                                                    max_nodes = 4)
+         # create the compute target
+        compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+        
+        # Can poll for a minimum number of nodes and for a specific timeout. 
+        # If no min node count is provided it will use the scale settings for the cluster
+        compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+        
+         # For a more detailed view of current cluster status, use the 'status' property    
+        print(compute_target.status.serialize())
+    ```
+
+### <a id="databricks"></a>Azure Databricks
+
+Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Den kan användas som ett beräkningsmål med en Azure Machine Learning-pipeline.
+
+Skapa en Azure Databricks-arbetsyta innan du använder den. Om du vill skapa dessa resurs den [kör ett Spark-jobb på Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) dokumentet.
+
+Om du vill koppla Azure Databricks som beräkningsmål, ange följande information:
+
+* __Databricks beräkningsnamn__: Namnet som du vill tilldela till den här beräkningsresursen.
+* __Databricks Arbetsytenamn__: Namnet på Azure Databricks-arbetsytan.
+* __Databricks-åtkomsttoken__: Den åtkomst-token som används för att autentisera till Azure Databricks. Generera en åtkomsttoken genom att se den [autentisering](https://docs.azuredatabricks.net/api/latest/authentication.html) dokumentet.
+
+Följande kod visar hur du kopplar Azure Databricks som beräkningsmål med Azure Machine Learning-SDK:
 
 ```python
-compute_name = "aml-compute"
- if compute_name in ws.compute_targets:
-    compute_target = ws.compute_targets[compute_name]
-    if compute_target and type(compute_target) is AmlCompute:
-        print('Found compute target: ' + compute_name)
-else:
-    print('Creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                min_nodes = 1, 
-                                                                max_nodes = 4)
-     # create the compute target
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+import os
+from azureml.core.compute import ComputeTarget, DatabricksCompute
+from azureml.exceptions import ComputeTargetException
+
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
+    print('databricks_access_token {}'.format(databricks_access_token))
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
+         )
     
-    # Can poll for a minimum number of nodes and for a specific timeout. 
-    # If no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    databricks_compute.wait_for_completion(True)
+```
+### <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics är en analysplattform med stordata i Azure-molnet. Den kan användas som ett beräkningsmål med en Azure Machine Learning-pipeline.
+
+Skapa ett Azure Data Lake Analytics-konto innan du använder den. Om du vill skapa den här resursen, den [Kom igång med Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) dokumentet.
+
+Om du vill koppla Data Lake Analytics som beräkningsmål du använder Azure Machine Learning SDK och ange följande information:
+
+* __Beräkningsnamn__: Namnet som du vill tilldela till den här beräkningsresursen.
+* __Resursgrupp__: Den resursgrupp som innehåller Data Lake Analytics-kontot.
+* __Kontonamn__: Namnet på Data Lake Analytics-kontot.
+
+Följande kod visar hur du kopplar Data Lake Analytics som beräkningsmål:
+
+```python
+import os
+from azureml.core.compute import ComputeTarget, AdlaCompute
+from azureml.exceptions import ComputeTargetException
+
+
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
+         )
     
-     # For a more detailed view of current cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
+    adla_compute.wait_for_completion(True)
 ```
 
-## <a name="construct-your-pipeline-steps"></a>Skapa pipeline-steg
+> [!TIP]
+> Azure Machine Learning pipelines fungerar bara med data som lagras i datalagret standard för Data Lake Analytics-kontot. Om data som du vill arbeta med är i en icke-standard-store kan du använda en [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) att kopiera data innan utbildning.
 
-Nu är du redo att definiera en pipeline-steget. Det finns många inbyggda steg som är tillgängliga via Azure Machine Learning SDK. Den mest grundläggande av de här stegen är en `PythonScriptStep`, som kör ett Python-skript i en angiven beräkningsmål.
+## <a id="steps"></a>Skapa pipeline-steg
+
+När du skapar och kopplar ett beräkningsmål till din arbetsyta, är du redo att definiera en pipeline-steget. Det finns många inbyggda steg som är tillgängliga via Azure Machine Learning SDK. Den mest grundläggande av de här stegen är en [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), som kör ett Python-skript i en angiven beräkningsmål.
 
 ```python
 trainStep = PythonScriptStep(
@@ -155,13 +257,36 @@ compareModels = [trainStep, extractStep, compareStep]
 pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 ```
 
+I följande exempel används Azure Databricks-beräkningsmål som skapades tidigare: 
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# List of steps to run
+steps = [dbStep]
+
+# Build the pipeline
+pipeline1 = Pipeline(workspace=ws, steps=steps)
+```
+
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
 När du skickar pipelinen, Azure Machine Learning-tjänsten kontrollerar beroenden för varje steg och överför en ögonblicksbild av källkatalogen som du har angett. Om ingen källkatalog har angetts, laddas den aktuella lokala katalogen.
 
+
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
+pipeline_run.wait_for_completion()
 ```
 
 Första gången du kör en pipeline, Azure Machine Learning:

@@ -1,28 +1,31 @@
 ---
-title: Skapa aviseringar för SQL-databas med hjälp av Azure portal | Microsoft Docs
+title: Konfigurera aviseringar och meddelanden med hjälp av Azure portal | Microsoft Docs
 description: Använd Azure-portalen för att skapa SQL Database-aviseringar som kan utlösa aviseringar eller automation när angivna villkor är uppfyllda.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634617"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156910"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med hjälp av Azure portal
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med Azure portal
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar hur du ställer in Azure SQL Database och Data Warehouse aviseringar med Azure portal. Den här artikeln innehåller också Metodtips för att ställa in aviseringar perioder.    
+Den här artikeln visar hur du ställer in Azure SQL Database och Data Warehouse aviseringar med Azure portal. Aviseringar kan skicka ett e-postmeddelande eller anropa en webhook när vissa mått (till exempel databasens storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också Metodtips för att ställa in aviseringar perioder.    
+
+> [!IMPORTANT]
+> Den här funktionen är inte tillgänglig i hanterade instanser ännu. Alternativt kan du använda SQL Agent för att skicka e-postaviseringar för vissa mått baserat på [Dynamic Management Views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Du kan få en avisering baserat på övervakning mått för eller händelser på dina Azure-tjänster.
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162398"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156756"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory-integration med SAP NetWeaver
+# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory-integrering med SAP NetWeaver
 
 I den här självstudien får du lära dig hur du integrerar SAP NetWeaver med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera SAP NetWeaver med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till SAP NetWeaver.
 - Du kan aktivera användarna att automatiskt få loggat in på SAP NetWeaver (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -45,9 +45,9 @@ Om du vill konfigurera Azure AD-integrering med SAP NetWeaver, behöver du följ
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -72,7 +72,7 @@ För att konfigurera integrering av SAP NetWeaver i Azure AD, som du behöver l�
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -80,7 +80,7 @@ För att konfigurera integrering av SAP NetWeaver i Azure AD, som du behöver l�
 
     ![SAP NetWeaver i resultatlistan](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAP NetWeaver-baserade på en testanvändare som kallas ”Britta Simon”.
 
@@ -125,7 +125,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     c. Dubbelklicka på relevanta klienten att aktivera HTTP-security-sessionen.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
     d. Aktivera nedan SICF tjänster:
     ```
@@ -136,22 +136,22 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ```
 4. Gå till transaktionskod **SAML2** i företag klient av SAP-system [T01/122]. Ett användargränssnitt öppnas i en webbläsare. I det här exemplet antas vi 122 som SAP business-klient.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
 5. Ange ditt användarnamn och lösenord för att ange i användargränssnittet och klicka på **redigera**.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Ersätt **providernamn** från T01122 till **http://T01122** och klicka på **spara**.
+6. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **spara**.
 
     > [!NOTE]
     > Som standard providernamn medföljer som <sid> <client> formatet, men Azure AD förväntar sig namnet i formatet <protocol>://<name>rekommendationer att underhålla providernamn som https://<sid> <client> så att flera SAP NetWeaver ABAP motorer för att konfigurera i Azure AD.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
 7. **Generera Service Provider Metadata**: – när vi är klar med att konfigurera den **lokala leverantör** och **betrodda Providers** inställningar på användargränssnittet för SAML 2.0, nästa steg är att Generera tjänstleverantörens metadata-filen (som innehåller alla inställningar, när det gäller autentisering och andra konfigurationer i SAP). Vi behöver ladda upp den i Azure AD när den här filen har genererats.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
     a. Gå till **fliken lokala Provider**.
 
@@ -161,7 +161,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 8. I Azure-portalen på den **SAP NetWeaver** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 9. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
@@ -171,7 +171,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-11. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+11. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     a. Klicka på **ladda upp metadatafilen** att ladda upp den **tjänstleverantör metadatafil** som du fått tidigare.
 
@@ -185,13 +185,13 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![SAP NetWeaver domän och URL: er med enkel inloggning för information](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_url.png)
 
-    d. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<your company instance of SAP NetWeaver>`
+    d. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<your company instance of SAP NetWeaver>`
 
-12. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+12. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![Attributet avsnittet](./media/sapnetweaver-tutorial/edit_attribute.png)
 
-13. I den **användaranspråk** avsnittet på den **användarattribut** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+13. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
     a. Klicka på **redigera** ikonen för att öppna den **hantera användaranspråk** dialogrutan.
     
@@ -211,11 +211,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 14. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned **Federation Metadata XML** och spara för metadatafilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_certificate.png)
 
 15. På den **konfigurera SAP NetWeaver** avsnittet, kopiera den lämpliga URL enligt dina behov.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Microsoft Azure Active Directory-identifierare
 
@@ -305,9 +305,9 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Skapa en Azure AD-användare][100]
 
@@ -319,9 +319,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.

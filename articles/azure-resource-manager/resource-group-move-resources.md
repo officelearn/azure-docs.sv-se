@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7734ff6c5992ebb27ff63c0329afa03e5bf96a2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995090"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158864"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
-Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser. 
+Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser.
 
-Både källgruppen och målgruppen är låsta vid flytt. Skriva och ta bort blockeras på resursgrupper tills flyttningen är klar. Låset innebär att du kan inte lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna som är låsta. Om du flyttar en SQL Server och dess databas till en ny resursgrupp, inträffar ett program som använder databasen utan avbrott. Det kan fortfarande läsa och skriva till databasen.
+Både källgruppen och målgruppen är låsta vid flytt. Skriv- och borttagningsåtgärder blockeras för resursgrupperna tills flytten är klar. Låset innebär att du inte kan lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna är låsta. Om du till exempel flyttar en SQL Server och dess databas till en ny resursgrupp sker inga avbrott för programmet som använder databasen. Det kan fortfarande läsa och skriva till databasen.
 
 En resurs flyttas bara flyttar det till en ny resursgrupp. Flyttåtgärden kan inte ändra platsen för resursen. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
@@ -98,7 +98,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
-* Recovery Services-valv – du måste vara registrerade i en privat förhandsgranskning. Se [begränsningar för Recovery Services](#recovery-services-limitations).
+* Recovery Services-valv – du måste vara registrerade i en [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
@@ -135,7 +135,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Data Box
 * Dev blanksteg
 * Dynamics LCS
-* Express Route
+* ExpressRoute
 * Kubernetes Service
 * Lab Services – flytta till ny resursgrupp i samma prenumeration har aktiverats, men flytta över prenumerationer har inte aktiverats.
 * Managed Applications
@@ -305,9 +305,9 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
-Om du vill flytta ett Recovery Services-valv, måste du registrera i privat förhandsgranskning. Om du vill testa den genom att skriva till AskAzureBackupTeam@microsoft.com.
+Om du vill flytta ett Recovery Services-valv, måste du registrera i den [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
-För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer. 
+För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer.
 
 Om en virtuell dator inte flyttas med valvet, förblir aktuella återställningspunkterna för virtuell dator i valvet tills de upphör att gälla. Om den virtuella datorn flyttas med valvet eller inte, kan du återställa den virtuella datorn från historik för säkerhetskopiering i valvet.
 
@@ -330,9 +330,9 @@ Du kan flytta HDInsight-kluster till en ny prenumeration eller resursgrupp. Men 
 
 När du flyttar ett HDInsight-kluster till en ny prenumeration först flytta andra resurser (t.ex. storage-konto). Flytta sedan HDInsight-klustret ensamt.
 
-## <a name="checklist-before-moving-resources"></a>Checklistan innan du flyttar resurser
+## <a name="checklist-before-moving-resources"></a>Checklista för att flytta resurser
 
-Det finns några viktiga steg att göra innan du flyttar en resurs. Du kan undvika fel genom att verifiera dessa villkor.
+Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel genom att verifiera dessa villkor.
 
 1. Käll- och målprenumerationer måste finnas inom samma [Azure Active Directory-klient](../active-directory/develop/quickstart-create-new-tenant.md). Om du vill kontrollera att båda prenumerationerna har samma klient-ID, använder du Azure PowerShell eller Azure CLI.
 

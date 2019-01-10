@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c88ea7433232b62c006c908cd2768d318d36d43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 292f8ae1821cdcc4fd6274808b53454ec51eaea0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854056"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157411"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Förhämtning av Azure Service Bus-meddelanden
 
@@ -50,7 +50,7 @@ Om låset tyst går ut i bufferten prefetch meddelandet behandlas som avbrutet o
 
 Om du behöver en hög grad av tillförlitlighet för meddelandehantering och bearbetningen tar betydande arbete och tid, rekommenderas att du använder funktionen prefetch var eller inte alls.
 
-Om du behöver hög i hela och meddelandebehandling är ofta billiga, ger prefetch betydande prestandafördelarna.
+Om du behöver hög genomströmning och meddelandebehandling är ofta billiga, ger prefetch betydande prestandafördelarna.
 
 Antalet maximala prefetch och varaktighet för lås som konfigurerats på kö eller prenumeration måste balanseras så att timeout för lås överskrider minst meddelandet ackumulerade förväntade bearbetningstid för den maximala storleken på bufferten prefetch plus ett meddelande. På samma gång, timeout för lås bör inte vara så lång att meddelanden kan överskrida sin högsta [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) när de av misstag ignoreras därför kräver sina lås på att gå ut innan som once.
 

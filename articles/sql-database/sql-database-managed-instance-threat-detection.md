@@ -1,25 +1,25 @@
 ---
-title: Hotidentifiering – Azure SQL Database Managed Instance | Microsoft Docs
+title: Konfigurera identifiering av hot – Azure SQL Database Managed Instance | Microsoft Docs
 description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen i en hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: c59d0ea489343dbf748412910c4f759f601de0e2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042384"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158677"
 ---
-# <a name="azure-sql-database-managed-instance-threat-detection-preview"></a>Azure SQL Database Managed Instance Hotidentifiering (förhandsvisning)
+# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Konfigurera Hotidentifiering (förhandsversion) i Azure SQL Database Managed Instance
 
 Azure SQL [Hotidentifiering](sql-database-threat-detection-overview.md) för [SQL Database Managed Instance](sql-database-managed-instance-index.yml) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser. Hotidentifiering kan identifiera **potentiell SQL-inmatning**, **åtkomst från ovanlig plats eller data center**, **åtkomst från okänd huvudnamn eller potentiellt skadliga program**, och **Brute force SQL autentiseringsuppgifter** -finns mer information finns i [aviseringar om Hotidentifieringar](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 

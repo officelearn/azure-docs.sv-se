@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724886"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159255"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa meddelanden om hälsostatus för tjänsten med hjälp av Azure-portalen
 
@@ -49,12 +49,12 @@ category | Den här egenskapen är alltid **ServiceHealth**.
 resourceId | Resurs-ID för resursen som påverkas.
 Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standard.
 Properties.Communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
-Properties.incidentType | En av följande värden: **Åtgärd krävs**, **Information**, **Incident**, **Underhåll**, eller **Security**.
+Properties.incidentType | En av följande värden: **Åtgärd krävs**, **endast i informationssyfte**, **Incident**, **Underhåll**, eller **Security**.
 Properties.trackingId | Incidenten som den här händelsen är associerad. Används för att korrelera händelser relaterade till en incident.
 Properties.impactedServices | En kommenterad JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. Egenskapen innehåller en lista över tjänster, som har en **ServiceName**, och en lista över berörda regioner som har en **RegionName**.
 Properties.defaultLanguageTitle | Kommunikation på engelska.
 Properties.defaultLanguageContent | Kommunikation på engelska som oformaterad text eller HTML-kod.
-Properties.Stage | Möjliga värden för **Incident**, och **Security** är **aktiv,** **löst** eller **RCA**. För **åtgärd krävs** eller **Information** är det enda värdet **Active.** För **Underhåll** de är: **Aktiva**, **planerat**, **InProgress**, **har avbrutits**, **schemaläggas**, **löst**, eller **fullständig**.
+Properties.Stage | Möjliga värden för **Incident**, och **Security** är **aktiv,** **löst** eller **RCA**. För **åtgärd krävs** eller **information** är det enda värdet **Active.** För **Underhåll** de är: **Aktiva**, **planerat**, **InProgress**, **har avbrutits**, **schemaläggas**, **löst**, eller **fullständig**.
 Properties.communicationId | Kommunikation som är associerad till den här händelsen.
 
 ### <a name="details-on-service-health-level-information"></a>Information om service health nivåinformation
@@ -71,7 +71,7 @@ Properties.communicationId | Kommunikation som är associerad till den här hän
             <dd>standard planerat underhåll</dd>
         </dl>
     </li>
-    <li><b>Information</b> (properties.incidentType == Information) <dl>
+    <li><b>Information</b> (properties.incidentType == endast i informationssyfte) <dl>
             <dt>Informationsmeddelande</dt>
             <dd>Administratören kan krävas för att förhindra påverkan på befintliga tjänster</dd>
         </dl>

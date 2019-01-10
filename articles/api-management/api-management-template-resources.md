@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: cfbb04ea56eacfd859b6ce520da5396ad91d9abf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121302"
+ms.locfileid: "54158218"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-Mallresurser
 Azure API Management ger följande typer av resurser för användning i utvecklaren portal mallar.  
@@ -275,7 +275,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|KRÄVS. Typ av Utfärdad token.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|KRÄVS. Typ av Utfärdad token.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|KRÄVS. Resursägarens användarnamn.|  
-|OAuth2UnsupportedTokenType|Token typ '{0}' är inte tokentypen.|  
+|OAuth2UnsupportedTokenType|Token typ '{0}' stöds inte.|  
 |OAuth2InvalidState|Ogiltigt svar från auktoriseringsservern|  
 |OAuth2GrantType_AuthorizationCode|Auktoriseringskod|  
 |OAuth2GrantType_Implicit|Implicit|  
@@ -361,7 +361,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |WebProductsUsageLimitsHeader|Användningsgränser|  
 |WebProductsYouAreNotSubscribed|Du prenumererar på den här produkten.|  
 |WebProductsYouRequestedSubscription|Du har begärt en prenumeration på den här produkten.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|Du måste godkänna användningsvillkoren innan du kan fortsätta.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Du måste godkänna användningsvillkoren innan du kan fortsätta.|  
 |ButtonLabelAddSubscription|Lägg till en prenumeration|  
 |LinkLabelChangeSubscriptionName|ändra|  
 |ButtonLabelConfirm|Bekräfta|  
@@ -517,7 +517,7 @@ Azure API Management ger följande typer av resurser för användning i utveckla
 |WebDevelopersSecondaryKey|Sekundär nyckel|  
 |ButtonLabelShowKey|Visa|  
 |ButtonLabelRenewSubscription|Förnya|  
-|WebDevelopersSubscriptionReqested|Begärt {0}|  
+|WebDevelopersSubscriptionRequested|Begärt {0}|  
 |WebDevelopersSubscriptionRequestedState|Begärd|  
 |WebDevelopersSubscriptionTableNameHeader|Namn|  
 |WebDevelopersSubscriptionTableStateHeader|Status|  

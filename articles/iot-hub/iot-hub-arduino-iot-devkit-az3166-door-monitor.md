@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 501dc942fc41a4e06aa13fba2eb670f8bc0f8a21
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597828"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156246"
 ---
 # <a name="door-monitor"></a>Dörren Övervakare          
 
@@ -66,13 +66,13 @@ Du kan nu se SendGrid fyllt i registreringsformuläret.
 
 Har fyllt i registreringsformuläret:
 
-   * **Resursgrupp**: skapa en resursgrupp för att vara värd för SendGrid-tjänsten eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-portal.md).
+   * **Resursgrupp**: Skapa en resursgrupp för att vara värd för SendGrid-tjänsten eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-portal.md).
 
-   * **Namn på**: namnet på SendGrid-tjänsten. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
+   * **Namn**: Namnet på SendGrid-tjänsten. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 
-   * **Lösenord**: tjänsten kräver ett lösenord som inte ska användas för vad som helst i det här projektet.
+   * **Lösenord**: Tjänsten kräver ett lösenord som inte ska användas för vad som helst i det här projektet.
 
-   * **E-post**: The SendGrid-tjänsten ska skicka verifieringen till e-postadressen.
+   * **e-post**: SendGrid-tjänsten skickar verifiering till e-postadressen.
 
 Kontrollera den **fäst på instrumentpanelen** så att det här programmet blir lättare att hitta i framtiden och sedan klicka på **köp** skicka formuläret av inloggning.
  
@@ -106,13 +106,13 @@ Fyllt i registreringsformuläret visas.
 
 Fyll i fälten i fyllt i registreringsformuläret.
 
-   * **Resursgrupp**: skapa en resursgrupp för att vara värd för SendGrid-tjänsten eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-portal.md).
+   * **Resursgrupp**: Skapa en resursgrupp för att vara värd för SendGrid-tjänsten eller Använd en befintlig. Se [hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-portal.md).
 
-   * **Namnet på IOT Hub**: namn för din IoT-hubb. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
+   * **IOT-Hubbnamn**: Namn för din IoT-hubb. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 
    * **IOT Hub Sku**: F1 (begränsat till en per prenumeration) är kostnadsfri. Du kan se mer information om priser på den [prissättningssidan](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   * **Från e-post**: det här fältet ska vara samma e-postadress som du använde när du konfigurerar SendGrid-tjänsten.
+   * **Från e-post**: Fältet måste innehålla samma e-postadress som du använde när du konfigurerar SendGrid-tjänsten.
 
 Kontrollera den **fäst på instrumentpanelen** så att det här programmet blir lättare att hitta i framtiden och sedan klicka på **köp** när du är redo att fortsätta till nästa steg.
  
@@ -135,7 +135,7 @@ Expandera till vänster **ARDUINO exempel** bläddrar du till **exempel för MXC
 
 ![Mini-solution-exempel](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-Du kan också öppna exempelappen från kommandopaletten. Använd `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: exempel**.
+Du kan också öppna exempelappen från kommandopaletten. Använd `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: Exempel**.
 
 ### <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
@@ -162,7 +162,7 @@ Ladda sedan upp koden för enheten.
 
 #### <a name="macos"></a>macOS
 
-1. Placera DevKit i konfigurationsläge: Håll ned knappen A, och sedan push-meddelanden och versionen återställningsknappen. På skärmen visas ”Configuration”.
+1. Placera DevKit i konfigurationsläge: Håll ned knappen A, och sedan push- och släpp återställningsknappen. På skärmen visas ”Configuration”.
 
 2. Klicka på `Cmd+P` att köra `task device-upload`.
 
@@ -177,7 +177,7 @@ VS Code och sedan startar verifierar och laddar upp Arduino skiss till DevKit.
 DevKit startar om och börjat köra koden.
 
 > [!NOTE]
-> Ibland kan du få ett ”fel: AZ3166: Okänd paketet” felmeddelande. Det här felet uppstår när paketindexet tavla inte uppdateras korrekt. Lös felet genom att referera till den [utveckling delen av vanliga IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Ibland kan du få ett ”fel: AZ3166: Okänd package ”felmeddelande. Det här felet uppstår när paketindexet tavla inte uppdateras korrekt. Lös felet genom att referera till den [utveckling delen av vanliga IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Testa projektet
 
@@ -185,16 +185,16 @@ Programmet initierar först när DevKit är när det finns ett stabilt magnetisk
 
 Efter initieringen `Door closed` visas på skärmen. Om det finns en ändring i fältet magnetiska, tillståndet ändras till `Door opened`. Varje gång dörren tillståndsändringar, du får ett e-postmeddelande. (Dessa e-postmeddelanden kan ta upp till fem minuter som ska tas emot.)
 
-![Magneter nära sensorn: dörren stängd](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "magneter nära sensorn: dörren stängd")
+![Magneter nära sensorn: Luckan är stängd](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "magneter nära sensorn: Luckan är stängd")
 
-![Magneten flyttas från sensorn: dörren öppnas](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "magneten flyttas från sensorn: dörren öppnas")
+![Magneten flyttas från sensorn: Luckan är öppnad](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "magneten flyttas från sensorn: Dörren öppnas")
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 
 Om du får problem kan se den [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller Anslut via följande kanaler:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg
 

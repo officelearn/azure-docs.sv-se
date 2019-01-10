@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276374"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156688"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar
 
@@ -42,7 +42,7 @@ En exempelmall för Azure Resource Manager och dess associerade parametrar-fil f
 
 De flesta av parametrarna i den *azuredeploy.parameters.json* fil är gemensamma för att skapa både ILB ase, samt ase som är bunden till en offentlig VIP.  Listan nedan out-parametrar Observera särskilt, eller som är unika, när du skapar en ILB ASE:
 
-* *interalLoadBalancingMode*:  I de flesta fall uppsättningen binds detta till 3, vilket innebär att både HTTP/HTTPS-trafik på portarna 80/443 och kontrolldata/kanalen portar lyssnat på via FTP-tjänsten på ASE, till en ILB allokerad intern adress för virtuellt nätverk.  Om den här egenskapen anges i stället för 2, relaterade FTP-tjänsten för portar (både kontroll- och kanaler) kommer att bindas till ILB-adress, medan HTTP/HTTPS-trafik är kvar på den offentliga VIP.
+* *internalLoadBalancingMode*:  I de flesta fall uppsättningen binds detta till 3, vilket innebär att både HTTP/HTTPS-trafik på portarna 80/443 och kontrolldata/kanalen portar lyssnat på via FTP-tjänsten på ASE, till en ILB allokerad intern adress för virtuellt nätverk.  Om den här egenskapen anges i stället för 2, relaterade FTP-tjänsten för portar (både kontroll- och kanaler) kommer att bindas till ILB-adress, medan HTTP/HTTPS-trafik är kvar på den offentliga VIP.
 * *dnsSuffix*:  Den här parametern definierar standard-rotdomän som ska tilldelas till ASE.  I den offentliga variationen av Azure App Service standard rotdomänen för alla webbappar är *azurewebsites.net*.  Men eftersom en ILB ASE är interna för en kundens virtuella nätverk är det inte meningsfullt att använda tjänsten offentlig standard rotdomänen.  I stället bör en ILB ASE ha en standard-rotdomän som passar för användning i ett företags internt virtuellt nätverk.  Ett hypotetiskt Contoso Corporation kan till exempel använda en standard-rotdomänen för *intern contoso.com* för appar som är avsedda att vara bara matchas och tillgänglig i Contosos virtuellt nätverk. 
 * *ipSslAddressCount*:  Den här parametern är som standard automatiskt till ett värde av 0 i den *azuredeploy.json* filen eftersom ILB ase har endast en ILB-adress.  Det finns inga explicita IP SSL-adresser för en ILB ASE, och därför IP SSL-adresspool för en ILB ASE måste anges till noll, annars uppstår ett fel som etablering. 
 

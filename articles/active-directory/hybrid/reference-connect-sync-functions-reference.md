@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synkronisering: funktionsreferens | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Functions-referens | Microsoft Docs'
 description: Referens för uttryck för deklarativ etablering i Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425701"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157487"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: referens för funktioner
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
 I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
 Syntaxen för funktionerna uttrycks i följande format:  
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -393,8 +393,8 @@ Funktionen ConvertFromBase64 konverterar det angivna base64-kodad värdet till e
 `str ConvertFromBase64(str source)` -förutsätter Unicode för kodning  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* källa: Base64-kodad sträng  
-* Encoding: Unicode, ASCII, UTF8
+* Källa: Base64-kodad sträng  
+* Kodning: Unicode, ASCII, UTF8
 
 **Exempel**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -410,7 +410,7 @@ Funktionen ConvertFromUTF8Hex konverterar det angivna UTF8 Hex-kodade-värdet ti
 **Syntax:**  
 `str ConvertFromUTF8Hex(str source)`
 
-* källa: UTF8 2-bytes kodade förekomster av textsträngen
+* Källa: UTF8 2-bytes kodade förekomster av textsträngen
 
 **Anmärkning:**  
 Skillnaden mellan den här funktionen och ConvertFromBase64([],UTF8) i att resultatet är eget för attributet DN.  
@@ -485,7 +485,7 @@ Funktionen CStr konverteras till datatypen string.
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* värde: kan vara ett numeriskt värde, referensattribut eller booleskt värde.
+* Värde: Kan vara ett numeriskt värde, referensattribut eller booleskt värde.
 
 **Exempel:**  
 `CStr([dn])`  
@@ -499,7 +499,7 @@ Returnerar ett datum som innehåller ett datum som ett angivet tidsintervall har
 **Syntax:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* intervall: stränguttryck som är tidsintervallet som du vill lägga till. Strängen måste ha något av följande värden:
+* intervall: Stränguttryck som är tidsintervallet som du vill lägga till. Strängen måste ha något av följande värden:
   * åååå år
   * frågor och kvartal
   * miljoner månad
@@ -510,8 +510,8 @@ Returnerar ett datum som innehåller ett datum som ett angivet tidsintervall har
   * h timme
   * n minut
   * s andra
-* värde: hur många enheter som du vill lägga till. Det kan vara positivt (för att hämta framtida datum) eller negativt (för att hämta tidigare datum).
-* datum: datum/tid som representerar som intervallet ska läggas till.
+* Värde: Antal enheter som du vill lägga till. Det kan vara positivt (för att hämta framtida datum) eller negativt (för att hämta tidigare datum).
+* datum: Datum/tid som representerar som intervallet ska läggas till.
 
 **Exempel:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -600,7 +600,7 @@ Funktionen FormatDateTime används för att formatera ett datetime-värde till e
 * format: en sträng som representerar format för att konvertera till.
 
 **Anmärkning:**  
-De möjliga värdena för formatet finns här: [användardefinierade datum/tid-format (Format-funktionen)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+De möjliga värdena för formatet finns här: [Anpassat datum och tid-format för funktionen FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exempel:**  
 
@@ -627,8 +627,8 @@ Funktionen returnerar ett av en uppsättning möjliga värden baserat på ett an
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 * villkor: ett värde eller uttryck som kan utvärderas till true eller false.
-* värdeomsant: om villkoret utvärderas till true, värdet som returneras.
-* värdeomfalskt: om villkoret utvärderas till false, värdet som returneras.
+* värdeomsant: Om villkoret utvärderas till SANT, det returnerade värdet.
+* värdeomfalskt: Om villkoret utvärderas till false, värdet som returneras.
 
 **Exempel:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -852,8 +852,8 @@ Join-funktionen tar en sträng med flera värden och returnerar en enstaka strä
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attributet: flervärdesattribut som innehåller strängar som ska anslutas.
-* avgränsare: alla strängar som används för att avgränsa delsträngar i den returnerade strängen. Om detta utelämnas blir blanksteg (””) används. Om avgränsare är en tom sträng (””) eller något, alla objekt i listan är sammanfogat med utan avgränsare.
+* attribut: Flervärdesattribut som innehåller strängar som ska anslutas.
+* avgränsare: Valfri sträng, som används för att avgränsa delsträngar i den returnerade strängen. Om detta utelämnas blir blanksteg (””) används. Om avgränsare är en tom sträng (””) eller något, alla objekt i listan är sammanfogat med utan avgränsare.
 
 **Kommentarer**  
 Det finns paritet mellan funktionerna koppling och dela. Join-funktionen tar en matris med strängar och kopplar ihop dem med hjälp av en avgränsare sträng för att returnera en sträng. Funktionen Split tar en sträng och skiljer den på avgränsare att returnera en matris med strängar. En viktig skillnad är dock att Join kan konkatenera strängar med valfri avgränsare sträng, dela kan endast separata strängar med avgränsaren ett enskilt tecken.
@@ -982,8 +982,8 @@ De PadLeft funktionen vänster-Pad en sträng till en angiven längd med en angi
 `str PadLeft(str string, num length, str padCharacter)`
 
 * sträng: strängen utfyllnad.
-* längden: ett heltal som representerar den önskade längden på strängen.
-* padCharacter: en sträng som består av ett enskilt tecken som används som pad tecken
+* längd: Ett heltal som representerar den önskade längden på strängen.
+* padCharacter: En sträng som består av ett enskilt tecken som används som pad tecken
 
 **Anmärkning:**
 
@@ -1007,8 +1007,8 @@ De PadRight funktionen höger-Pad en sträng till en angiven längd med en angiv
 `str PadRight(str string, num length, str padCharacter)`
 
 * sträng: strängen utfyllnad.
-* längden: ett heltal som representerar den önskade längden på strängen.
-* padCharacter: en sträng som består av ett enskilt tecken som används som pad tecken
+* längd: Ett heltal som representerar den önskade längden på strängen.
+* padCharacter: En sträng som består av ett enskilt tecken som används som pad tecken
 
 **Anmärkning:**
 
@@ -1077,8 +1077,8 @@ Ersätt funktionen ersätter alla förekomster av en textsträng till en annan s
 **Syntax:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* sträng: Ersätt värden i en sträng.
-* OldValue: Strängen att söka efter och ersätta.
+* sträng: En sträng att ersätta värdena i.
+* OldValue: Sträng att söka efter och ersätta.
 * NewValue: Strängen som ska ersätta till.
 
 **Anmärkning:**  
@@ -1100,7 +1100,7 @@ Funktionen ReplaceChars ersätter alla förekomster av tecken i strängen Replac
 **Syntax:**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* sträng: en sträng som ska ersätta tecken i.
+* sträng: En sträng som ska ersätta tecken i.
 * ReplacePattern: en sträng som innehåller en ordlista med tecken som ska ersättas.
 
 Formatet är {källa1}: {target1}, {källa2}: {target2}, {källan}, {targetN} där källan är tecknet för att hitta och rikta in strängen som ska ersättas med.
@@ -1172,7 +1172,7 @@ Processen för alla värden i en med flera värden attribut (eller resultatet av
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* objekt: representerar ett element i attributet med flera värden
+* objekt: Representerar ett element i attributet med flera värden
 * attributet: attributet med flera värden
 * uttryck: ett uttryck som returnerar en uppsättning värden
 * villkor: alla funktioner som kan bearbeta ett objekt i attributet
@@ -1222,8 +1222,8 @@ Funktionen växeln används för att returnera ett enstaka värde baserat på ut
 **Syntax:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* uttryck: Variant-uttryck som du vill utvärdera.
-* värde: värde som ska returneras om motsvarande uttrycket är sant.
+* uttryck: Varianten uttryck som du vill utvärdera.
+* Värde: Värde som ska returneras om motsvarande uttrycket är sant.
 
 **Anmärkning:**  
 Argumentlistan växel funktionen består av par med uttryck och värden. Uttryck som utvärderas från vänster till höger och returneras värdet som är associerade med det första uttrycket ska utvärderas till SANT. Om delarna inte korrekt tillsammans ger inträffar ett fel.
@@ -1279,7 +1279,7 @@ Returnerar en delmängd av värden från ett med flera värden attribut (eller r
 **Syntax:**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* objekt: representerar ett element i attributet med flera värden
+* objekt: Representerar ett element i attributet med flera värden
 * attributet: attributet med flera värden
 * villkor: ett uttryck som kan utvärderas till true eller false
 * uttryck: ett uttryck som returnerar en uppsättning värden
@@ -1295,9 +1295,9 @@ Med funktionen är ett sätt att förenkla ett komplext uttryck med hjälp av en
 
 **Syntax:**
 `With(var variable, exp subExpression, exp complexExpression)`  
-* variabel: representerar underuttryck.
+* variabel: Representerar underuttryck.
 * underuttryck: underuttryck som representeras av variabeln.
-* complexExpression: ett komplext uttryck.
+* complexExpression: Ett komplext uttryck.
 
 **Exempel:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
@@ -1335,5 +1335,5 @@ Returnerar ”har”
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Förstå uttryck för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

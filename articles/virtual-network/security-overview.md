@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: b6b3111928baf7fa52a5d87d818e15302b96e790
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025903"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159068"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -71,15 +71,18 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 * **MicrosoftContainerRegistry** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Microsoft Container Registry. Om du anger *MicrosoftContainerRegistry* som värde så tillåts eller nekas trafik till MicrosoftContainerRegistry. Om du bara vill ge åtkomst till MicrosoftContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: MicrosoftContainerRegistry.[regionsnamn]. 
 * **AzureContainerRegistry** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Container Registry. Om du anger *AzureContainerRegistry* som värde så tillåts eller nekas trafik till AzureContainerRegistry. Om du bara vill ge åtkomst till AzureContainerRegistry i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureContainerRegistry.[regionsnamn]. 
 * **AppService** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure AppService. Om du anger *AppService* som värde tillåts eller nekas trafik till AppService. Om du bara vill ge åtkomst till AppService i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AppService.[regionnamn]. 
-* **AppServiceManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure AppService Management. Om du anger *AppServiceManagement* för värdet så tillåts eller nekas trafik till AppServiceManagement. Om du bara vill ge åtkomst till AppServiceManagement i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AppServiceManagement.[regionnamn]. 
-* **ApiManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Api Management. Om du anger *ApiManagement* för värdet så tillåts eller nekas trafik till ApiManagement. Om du bara vill ge åtkomst till ApiManagement i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: ApiManagment.[ regionensnamn]. 
+* **AppServiceManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure AppService Management. Om du anger *AppServiceManagement* för värdet så tillåts eller nekas trafik till AppServiceManagement. 
+* **ApiManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Api Management. Om du anger *ApiManagement* för värdet så tillåts eller nekas trafik till ApiManagement.  
 * **AzureConnectors** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Connectors. Om du anger *AzureConnectors* som värde tillåts eller nekas trafik till AzureConnectors. Om du bara vill ge åtkomst till AzureConnectors i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: AzureConnectors.[ regionensnamn]. 
-* **GatewayManager** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger *GatewayManager* som värde så tillåts eller nekas trafik till GatwayManager. Om du bara vill ge åtkomst till GatewayManager i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: GatewayManager.[regionensnamn]. 
+* **GatewayManager** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger *GatewayManager* som värde så tillåts eller nekas trafik till GatwayManager.  
 * **AzureDataLake** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Data Lake. Om du anger *AzureDataLake* som värde tillåts eller nekas trafik till AzureDataLake. 
 * **AzureActiveDirectory** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Active Directory. Om du anger *AzureActiveDirectory* som värde tillåts eller nekas trafik till AzureActiveDirectory.  
+* **AzureMonitor** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureMonitor. Om du anger *AzureMonitor* för, trafik tillåts eller nekas till AzureMonitor. 
+* **Service fabric** (endast Resource Manager): Den här taggen anger adressprefix för Service fabric-tjänsten. Om du anger *ServiceFabric* för, trafik tillåts eller nekas åtkomst till Service fabric. 
+* **AzureMachineLearning** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureMachineLearning. Om du anger *AzureMachineLearning* för, trafik tillåts eller nekas till AzureMachineLearning. 
 
 > [!NOTE]
-> Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. Regionala tjänsttaggar stöds inte i nationella moln, utan endast i globalt format. Till exempel *Storage* och *Sql*.
+> Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 
 
 > [!NOTE]
 > Om du implementerar en [tjänstslutpunkt för ett virtuellt nätverk](virtual-network-service-endpoints-overview.md) för en viss tjänst, till exempel Azure Storage eller Azure SQL Database, lägger Azure till en [väg](virtual-networks-udr-overview.md#optional-default-routes) till ett undernät för virtuella nätverk för tjänsten. Vägens adressprefix är samma adressprefix, eller CIDR-intervall, som motsvarande tjänsttagg.

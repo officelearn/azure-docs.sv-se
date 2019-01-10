@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337928"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157084"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -92,11 +92,11 @@ I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. De grundlä
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: Appen åtkomst till Microsoft Graph
 
-Lär dig hur en webbapp begär åtkomst till Microsoft Graph i det här scenariot. Principen för villkorlig åtkomst kunde i det här fallet tilldelas SharePoint, Exchange eller någon annan tjänst som används som en arbetsbelastning via Microsoft Graph. I det här exemplet vi antar att det finns en princip för villkorlig åtkomst på Sharepoint Online.
+Lär dig hur en webbapp begär åtkomst till Microsoft Graph i det här scenariot. Principen för villkorlig åtkomst kunde i det här fallet tilldelas SharePoint, Exchange eller någon annan tjänst som används som en arbetsbelastning via Microsoft Graph. I det här exemplet vi antar att det finns en princip för villkorlig åtkomst på SharePoint Online.
 
 ![Appen åtkomst till Microsoft Graph flödesdiagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-Appen först begär tillstånd att Microsoft Graph som kräver åtkomst till en underordnad arbetsbelastning utan villkorlig åtkomst. Begäran lyckas utan att anropa eventuella principer och appen tar emot token för Microsoft Graph. Appen kan nu använda åtkomsttoken i en ägar-begäran för den slutpunkt som begärdes. Nu behöver appen åtkomst till en Sharepoint Online-slutpunkt för Microsoft Graph, till exempel: `https://graph.microsoft.com/v1.0/me/mySite`
+Appen först begär tillstånd att Microsoft Graph som kräver åtkomst till en underordnad arbetsbelastning utan villkorlig åtkomst. Begäran lyckas utan att anropa eventuella principer och appen tar emot token för Microsoft Graph. Appen kan nu använda åtkomsttoken i en ägar-begäran för den slutpunkt som begärdes. Nu behöver appen åtkomst till en SharePoint Online-slutpunkt för Microsoft Graph, till exempel: `https://graph.microsoft.com/v1.0/me/mySite`
 
 Appen har redan en giltig token för Microsoft Graph, så att den kan utföra den nya förfrågan utan en ny token utfärdas. Den här begäran misslyckas och en utmaning anspråk utfärdas från Microsoft Graph i form av ett HTTP 403 Åtkomst nekas med en ```WWW-Authenticate``` utmaning.
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-Utmaningen för anspråk som finns i den ```WWW-Authenticate``` rubriken, som kan parsas för att extrahera parametern anspråk för nästa begäran. När den läggs till i den nya förfrågan, Azure AD vet för att utvärdera principen för villkorlig åtkomst när du loggar in användaren och appen är nu kompatibel med principen för villkorlig åtkomst. Upprepa begäran till Sharepoint Online-slutpunkten lyckas.
+Utmaningen för anspråk som finns i den ```WWW-Authenticate``` rubriken, som kan parsas för att extrahera parametern anspråk för nästa begäran. När den läggs till i den nya förfrågan, Azure AD vet för att utvärdera principen för villkorlig åtkomst när du loggar in användaren och appen är nu kompatibel med principen för villkorlig åtkomst. Upprepa begäran till SharePoint Online-slutpunkten lyckas.
 
 Den ```WWW-Authenticate``` rubrik har en unik struktur och är inte enkelt att parsa för att extrahera värden. Här är en kort metod för att hjälpa.
 

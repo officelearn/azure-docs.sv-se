@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: fc74613e00adc459f7a7b0a16c6f773fe4bf601d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593663"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158490"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-server
 
@@ -48,7 +48,7 @@ Slutför den [Kom igång med](https://docs.microsoft.com/azure/iot-hub/iot-hub-a
 Expandera vänster **ARDUINO exempel** bläddrar du till **exempel för MXCHIP AZ3166 > MQTT**, och välj **MQTTClient**. Ett nytt VS Code-fönster öppnas med en projektmapp, till exempel i den.
 
 > [!NOTE]
-> Du kan också öppna exemplet från kommandopaletten. Använd `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: exempel**.
+> Du kan också öppna exemplet från kommandopaletten. Använd `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: Exempel**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Skapa och ladda upp Arduino skissen till DevKit
 
@@ -57,7 +57,7 @@ Typ `Ctrl+P` (Mac OS: `Cmd+P`) att köra `task device-upload`. När uppladdninge
 ![enhet-överföringen](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> Du kan få en ”fel: AZ3166: Okänd paketet” felmeddelande. Det här felet uppstår när paketindexet tavla inte uppdateras korrekt. Lös felet genom att referera till den [utveckling delen av vanliga IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Du kan få en ”fel: AZ3166: Okänd package ”felmeddelande. Det här felet uppstår när paketindexet tavla inte uppdateras korrekt. Lös felet genom att referera till den [utveckling delen av vanliga IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Testa projektet
 
@@ -78,7 +78,7 @@ Seriell övervakaren visar alla meddelanden som skickas av exemplet skissen. Ski
 Om du får problem kan se den [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller Anslut via följande kanaler:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Se också
 

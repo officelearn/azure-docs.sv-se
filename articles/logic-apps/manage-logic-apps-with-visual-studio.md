@@ -3,20 +3,20 @@ title: Hantera logic apps i Visual Studio – Azure Logic Apps | Microsoft Docs
 description: Hantera logic apps och andra Azure-tillgångar med Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445651"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158153"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera logic apps i Visual Studio
 
@@ -62,10 +62,10 @@ Du kan hitta alla logikappar som är associerade med din Azure-prenumeration och
 
 2. Baserat på om du vill söka av **resursgrupper** eller **resurstyper**, Följ dessa steg:
 
-   * **Resursgrupper**: din Azure-prenumeration, Cloud Explorer visar alla resursgrupper som är associerade med den aktuella prenumerationen. 
+   * **Resursgrupper**: Din Azure-prenumeration visar Cloud Explorer alla resursgrupper som är associerade med den aktuella prenumerationen. 
    Expandera resursgruppen som innehåller logikappen och välj sedan din logikapp.
 
-   * **Resurstyper**: din Azure-prenumeration, expandera **Logikappar**. När Cloud Explorer visar alla distribuerade logic-appar som är associerade med din prenumeration, väljer du din logikapp.
+   * **Resurstyper**: Din Azure-prenumeration, expandera **Logikappar**. När Cloud Explorer visar alla distribuerade logic-appar som är associerade med din prenumeration, väljer du din logikapp.
 
 <a name="open-designer"></a>
 
@@ -171,7 +171,14 @@ Om du vill ta bort din logikapp från Azure-portalen i Cloud Explorer, öppna sn
 ![Ta bort din logikapp](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
 > [!NOTE]
-> När du tar bort en logikapp kan instansieras inga nya körningar. Alla pågående och väntande körningar har avbrutits. Om du har tusentals körningar ta annullering betydande tid att slutföra. 
+> När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem. 
+
+## <a name="troubleshooting"></a>Felsökning
+
+Du kan inte få alternativet för att välja din Azure-prenumeration när du öppnar ditt logic app-projekt i Logic Apps Designer. I stället öppnas din logikapp med en Azure-prenumeration som inte är den som du vill använda. Detta inträffar eftersom när du har öppnat en logikapp JSON-fil, Visual Studio cachelagrar den första markerade prenumerationen för framtida användning. Lös problemet genom att prova något av följande:
+
+* Byt namn på den logikapp JSON-fil. Prenumerationen-cacheminnet är beroende av filnamnet. 
+* Ta bort tidigare valda prenumerationer för *alla* logic apps i din lösning, ta bort den *dolda* .vs mapp i katalogen för din lösning. Den här platsen lagrar din prenumerationsinformation. 
 
 ## <a name="next-steps"></a>Nästa steg
 

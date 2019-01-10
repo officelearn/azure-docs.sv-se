@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257613"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159460"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på några virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric-program i alla miljöer som innehåller en uppsättning sammankopplade Windows Server-datorer, oavsett om det är lokalt eller med någon annan molnleverantör. Service Fabric tillhandahåller ett konfigurationspaket för att skapa Service Fabric-kluster kallas det fristående paketet för Windows Server.
@@ -61,7 +61,7 @@ Flera exempelkonfigurationsfiler för kluster installeras med konfigurationspake
 
 Klustret skapas i den här artikeln är inte säkert.  Vem som helst kan ansluta anonymt och utföra hanteringsåtgärder, så produktionskluster bör alltid skyddas med X.509-certifikat eller Windows-säkerhet.  Säkerhetsfunktioner konfigureras bara när kluster skapas, och du kan inte aktivera någon säkerhet i efterhand. Uppdatera konfigurationsfilen aktivera [certifikat security](service-fabric-windows-cluster-x509-security.md) eller [Windows security](service-fabric-windows-cluster-windows-security.md). Mer information om klustersäkerheten med Service Fabric finns i avsnittet om hur du [skyddar ett kluster](service-fabric-cluster-security.md).
 
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Steg 1A: skapa ett oskyddat lokalt utvecklingskluster
+### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Steg 1A: Skapa ett oskyddat lokalt utvecklingskluster
 Service Fabric kan distribueras till ett kluster för utveckling av en dator med hjälp av den *ClusterConfig.Unsecure.DevCluster.json* -filen som ingår i [exempel](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 Packa upp det fristående paketet till din dator, kopiera exempel config-filen till den lokala datorn och kör sedan den *CreateServiceFabricCluster.ps1* skriptet via en administratör PowerShell-session från paketmappen fristående .
@@ -74,7 +74,7 @@ Se avsnittet Konfigurera miljön på [planera och förbereda distributionen av k
 
 Om du är klar körs utvecklingsscenarier, du kan ta bort Service Fabric-klustret från datorn genom att referera till stegen i avsnittet ”[ta bort ett kluster](#removecluster_anchor)”. 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>Steg 1B: skapa ett kluster med flera datorer
+### <a name="step-1b-create-a-multi-machine-cluster"></a>Steg 1B: Skapa ett kluster med flera datorer
 När du har gått igenom den planering och förberedelser som anges i [planera och förbereda distributionen av klustret](service-fabric-cluster-standalone-deployment-preparation.md), du är redo att skapa klustret produktion med hjälp av din konfigurationsfil för klustret.
 
 Klusteradministratören som distribuerar och konfigurerar klustret måste ha administratörsbehörighet på datorn. Du kan inte installera Service Fabric på en domänkontrollant.
@@ -104,7 +104,7 @@ Klusteradministratören som distribuerar och konfigurerar klustret måste ha adm
     Passed                     : True
     ```
 
-2. Skapa klustret: kör den *CreateServiceFabricCluster.ps1* skript för att distribuera Service Fabric-kluster i varje dator i konfigurationen. 
+2. Skapa klustret:  Kör den *CreateServiceFabricCluster.ps1* skript för att distribuera Service Fabric-kluster i varje dator i konfigurationen. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -114,7 +114,7 @@ Klusteradministratören som distribuerar och konfigurerar klustret måste ha adm
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Steg 1C: skapa ett offline (internet frånkopplad)-kluster
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Steg 1C: Skapa ett offline (internet frånkopplad)-kluster
 Service Fabric-körningspaketet laddas ned automatiskt när klustret skapas. När du distribuerar ett kluster till datorer som inte är anslutna till internet, kommer du behöva ladda ned Service Fabric-körningspaketet separat och ange sökvägen till den när klustret skapas.
 Runtime-paketet kan laddas ned separat, från en annan dator som är anslutna till internet, på [Hämta länk - Service Fabric-körningen – Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Kopiera runtime-paketet till platsen där du distribuerar offline klustret från och skapa klustret genom att köra `CreateServiceFabricCluster.ps1` med den `-FabricRuntimePackagePath` parametern ingår, som visas i det här exemplet: 
 
@@ -150,7 +150,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
 ```
 
-### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Steg 3: Visualisera klustret med Service Fabric explorer
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Steg 3: Visualisera klustret med hjälp av Service Fabric Explorer
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret, som du kommer åt med en webbläsare genom att gå till [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer).
 
 Instrumentpanelen för klustret innehåller en översikt över klustret, inklusive en sammanfattning av program- och nodhälsan. Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka program som har kod distribuerad på noden.

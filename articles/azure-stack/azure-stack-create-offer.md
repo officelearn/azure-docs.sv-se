@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077348"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159085"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Skapa ett erbjudande i Azure Stack
 
-[Erbjuder](azure-stack-key-features.md) är grupper med en eller flera planer som leverantörer presenterar för användare att köpa eller prenumerera på. Det här dokumentet visar hur du skapar ett erbjudande som innehåller den [plan som du skapade](azure-stack-create-plan.md). Det här erbjudandet ger prenumeranter möjligheten att konfigurera virtuella datorer.
+[Erbjuder](azure-stack-key-features.md) är grupper med en eller flera planer som leverantörer presenterar för användare som användarna kan köpa eller prenumerera på. Den här artikeln beskriver hur du skapar ett erbjudande som innehåller den [plan som du skapade](azure-stack-create-plan.md). Det här erbjudandet ger prenumeranter möjlighet att konfigurera virtuella datorer (VM).
 
-1. Logga in på portalen för Azure Stack-administratör (https://adminportal.local.azurestack.external) och välj **+ skapa en resurs** > **Klienterbjudanden och planer** > **erbjuder**.
+1. Logga in på den [Azure Stack-administratörsportalen](https://adminportal.local.azurestack.external) och välj **+ skapa en resurs**, sedan **Klienterbjudanden och planer**, och sedan **erbjuder**.
 
    ![Skapa ett erbjudande](media/azure-stack-create-offer/image01.png)
   
@@ -37,17 +37,17 @@ ms.locfileid: "49077348"
 
    ![Välj plan](media/azure-stack-create-offer/image02.png)
   
-4. Du kan ändra tillståndet när du har skapat erbjudandet. Erbjudanden måste göras *offentliga* för användare att få en fullständig vy när de prenumererar. Erbjudanden kan vara:
+4. Du kan ändra tillståndet när du har skapat erbjudandet. Erbjudanden måste göras **offentliga** för användare att få en fullständig vy när de prenumererar. Erbjudanden kan vara:
 
-   - **Offentliga**: synliga för användare.
-   - **Privata**: endast synliga för administratörer i molnet. Den här inställningen är användbar vid utformningen av planen eller erbjudandet, eller om molnadministratören vill [skapa varje prenumeration för användare](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Inaktiverad**: Stängda för nya prenumeranter. Molnadministratören kan använda inaktiverade för att förhindra framtida prenumerationer, men lämna befintliga prenumeranter påverkas inte.
+   - **Offentliga**: Synligt för användarna.
+   - **Privata**: Endast synliga för administratörer i molnet. Den här inställningen är användbar vid utformningen av planen eller erbjudandet, eller om molnadministratören vill [skapa varje prenumeration för användare](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Ur**: Stängda för nya prenumeranter. Molnadministratören inaktivera erbjudanden för att förhindra framtida prenumerationer, men lämna befintliga prenumeranter påverkas inte.
 
    > [!TIP]  
    > Ändringar i erbjudandet är inte omedelbart synliga för användaren. Om du vill se ändringarna måste behöva användare logga ut och logga in igen på användarportalen att se det nya erbjudandet.
 
-   Översikt för erbjudandet, Välj **tillstånd för hjälpmedel**. Välj stat som du vill använda (till exempel **offentliga**) och välj sedan **spara**.
- 
+   På sidan Översikt för erbjudandet **tillstånd för hjälpmedel**. Välj stat som du vill använda (till exempel **offentliga**), och välj sedan **spara**.
+
      ![Välj stat](media/azure-stack-create-offer/change-stage-1807.png)
 
      Alternativt kan du välja **ändra tillståndet** och välj sedan ett tillstånd.
@@ -55,7 +55,7 @@ ms.locfileid: "49077348"
     ![Välj tillstånd för hjälpmedel](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > Du kan också använda PowerShell för att skapa standarderbjudanden, planer och kvoter. Mer information finns i [Azure Stack PowerShell-modulen 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   > Du kan också använda PowerShell för att skapa standarderbjudanden, planer och kvoter. Mer information finns i [Azure Stack PowerShell-modulen 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Nästa steg
 

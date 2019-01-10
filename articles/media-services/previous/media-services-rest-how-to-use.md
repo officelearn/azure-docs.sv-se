@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako;johndeu
-ms.openlocfilehash: 38310ce64335e03c6728092bf1b8ce4752740a83
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233471"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159748"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API-översikt
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ Den **Media Services Operations REST** API används för att skapa jobb, tillgå
 
 Media Services tillhandahåller en REST-API som accepterar både JSON eller atom + pub XML-format. Media Services REST-API kräver specifika HTTP-huvuden som varje klient måste skicka när du ansluter till Media Services, samt en uppsättning valfria rubriker. I följande avsnitt beskrivs rubrikerna och HTTP-verb som du kan använda när du skapar förfrågningar och ta emot svar från Media Services.
 
-Autentisering till Media Serivces REST-API görs via Azure Active Directory-autentisering som beskrivs i artikeln [Använd Azure AD-autentisering för att få åtkomst till Azure Media Services-API med REST](media-services-rest-connect-with-aad.md)
+Autentisering till Media Services REST API görs via Azure Active Directory-autentisering som beskrivs i artikeln [Använd Azure AD-autentisering för att få åtkomst till Azure Media Services-API med REST](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Överväganden
 
@@ -58,9 +58,9 @@ Det finns en uppsättning nödvändiga rubriker som du måste inkludera i din be
 | Huvud | Typ | Värde |
 | --- | --- | --- |
 | Auktorisering |Ägar |Ägar är de enda godkända auktoriseringsmekanism. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
-| x-ms-version |decimaltal |2.17 (eller den senaste versionen)|
-| DataServiceVersion |decimaltal |3.0 |
-| MaxDataServiceVersion |decimaltal |3.0 |
+| x-ms-version |Decimal |2.17 (eller den senaste versionen)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Eftersom OData använder Media Services för att visa dess REST-API: er, ska sidhuvuden DataServiceVersion och MaxDataServiceVersion ingå i alla begäranden; men om de inte är förutsätter sedan för närvarande medietjänster DataServiceVersion värdet används är 3.0.
@@ -73,11 +73,11 @@ Följande är en uppsättning valfria rubriker:
 | --- | --- | --- |
 | Date |RFC 1123 datum |Tidsstämpel för begäran |
 | Godkänn |Innehållstyp |Den begärda innehållstypen för svar som följande:<p> -application/json; odata = verbose<p> -application/atom + xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob-fetch där ett lyckat svar innehåller blob-dataströmmen som skickas. |
-| Acceptera-kodning |Gzip, deflate |GZIP och DEFLATE kodning, när så är tillämpligt. Obs: För stora resurser Media Services kan ignorera den här rubriken och returnera okomprimerade data. |
+| Acceptera-kodning |Gzip, deflate |GZIP och DEFLATE kodning, när så är tillämpligt. Obs! Media Services kan ignorera den här rubriken och returnera okomprimerade data för stora resurser. |
 | Acceptera språk |”SV”, ”es” och så vidare. |Anger önskat språk för svaret. |
 | Acceptera teckenuppsättningen |Teckenuppsättningen typen like ”UTF-8” |Standardvärdet är UTF-8. |
 | HTTP-X-metod |HTTP-metod |Tillåter klienter eller brandväggar som inte har stöd för HTTP-metoder som PUT- eller DELETE för att använda dessa metoder, dirigering via en GET-anrop. |
-| Innehållstyp |Innehållstyp |Innehållstypen för begärandetexten i PUT eller POST-begäranden. |
+| Content-Type |Innehållstyp |Innehållstypen för begärandetexten i PUT eller POST-begäranden. |
 | Client-request-id |Sträng |En anropare definierat värde som identifierar den angivna förfrågan. Om det här värdet inkluderas i svarsmeddelandet som ett sätt att matcha begäran. <p><p>**Viktigt**<p>Värden ska vara begränsad till 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>HTTP-svarshuvuden stöds av Media Services
@@ -88,7 +88,7 @@ Följande är en uppsättning rubriker som kan returneras till dig beroende på 
 | id för förfrågan |Sträng |En unik identifierare för den aktuella åtgärden på tjänsten som genereras. |
 | Client-request-id |Sträng |En identifierare som angetts av anroparen i den ursprungliga begäran om sådan finns. |
 | Date |RFC 1123 datum |Datum och tid då begäran bearbetades. |
-| Innehållstyp |Varierar |Innehållstypen för svarstexten. |
+| Content-Type |Varierar |Innehållstypen för svarstexten. |
 | Content-Encoding |Varierar |Gzip eller deflate efter behov. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standard HTTP-verb som stöds av Media Services

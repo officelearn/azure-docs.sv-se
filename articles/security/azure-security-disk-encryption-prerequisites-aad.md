@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc66c3b17dbaf2d011bd0f4b6f355df3d1b50a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 071f07e9d485a5fab5f2ce3d23a383e974001143
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547770"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158031"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -80,11 +80,10 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 [Azure PowerShell](/powershell/azure/overview) tillhandahåller en uppsättning cmdletar som använder den [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md), eller så kan du installera den på den lokala datorn med hjälp av anvisningarna nedan för att använda den i PowerShell-sessioner. Om du redan har installerat lokalt kan du kontrollera att du använder den senaste versionen av Azure PowerShell SDK-version för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell version](https://github.com/Azure/azure-powershell/releases).
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt):  
-1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.      
-    - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/install-azurerm-ps). 
+1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.
+    - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Installera PowerShellGet, Azure PowerShell, och Läs in AzureRM-modulen. 
-    - [Installera och konfigurera Azure Powershell på macOS och Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Installera PowerShell Core, Azure PowerShell för .NET Core och läsa in modulen Az.
+
 2. Installera den [Azure Active Directory PowerShell-modulen](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

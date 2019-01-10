@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107590"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158660"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
@@ -86,7 +86,7 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
    
 2. I **aktiviteter** verktygslådan Expandera **Allmänt** -menyn och dra och släpp en **Web** aktiviteten till pipelinedesignytan. I **Allmänt** fliken ändra aktivitetsnamnet på i egenskapsfönstret aktivitet **startMyIR**. Växla till **inställningar** fliken och göra följande.
 
-    1. För **URL**, ange följande URL för REST-API som startar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Du kan alternativt kan du också kopiera och klistra in resurs-ID för din IR från den övervakning sidan på ADF användargränssnitt/app för att ersätta följande del av URL: en ovan: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
+    1. För **URL**, ange följande URL för REST-API som startar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` Du kan också kopiera och klistra in resurs-ID för din IR från den övervakning sidan på ADF användargränssnitt/app för att ersätta följande del av URL: en ovan: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ADF SSIS IR resurs-ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -99,7 +99,7 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
   
 3. Klona den första pipelinen för att skapa en andra profil, ändra aktivitetsnamnet på **stopMyIR** och ersätter följande egenskaper.
 
-    1. För **URL**, ange följande URL för REST-API som stoppar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
+    1. För **URL**, ange följande URL för REST-API som stoppar Azure-SSIS IR ersätta `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, och `{integrationRuntimeName}` med de faktiska värdena för din IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. För **brödtext**, ange `{"message":"Stop my IR"}`. 
 

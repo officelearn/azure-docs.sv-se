@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076516"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157317"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache och innehållsserver distribution på Azure Virtual Machines
 
@@ -331,7 +331,7 @@ Du hittar den uppdaterade listan med SAP MaxDB dokumentation i följande SAP-kom
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Riktlinjer för SAP MaxDB konfiguration för SAP-installationer i Azure virtuella datorer
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Lagringskonfiguration
-Metodtips för Azure storage för SAP MaxDB följer du allmänna rekommendationer som nämns i kapitlet [strukturen i en RDBMS distribution][dbms-guide-2].
+Metodtips för Azure storage för SAP MaxDB följer du allmänna rekommendationer som nämns i kapitlet [lagringsstrukturen för en virtuell dator för RDBMS distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Liksom andra databaser har SAP MaxDB också data och loggfiler. I SAP MaxDB terminologi är dock korrekt termen ”volym” (inte ”fil”). Det finns till exempel SAP MaxDB datavolymer och loggvolymerna. Blanda inte ihop dem med OS-diskvolymer. 
@@ -458,7 +458,7 @@ Här har du två alternativ:
 
 1. **Klienten är ett serverdelsystem SAP** om en serverdel SAP-system är konfigurerad för att komma åt SAP innehållsserver, det SAP-systemet är en klient. Eftersom både SAP-system och SAP Content Server distribueras i samma Azure-region, i samma Azure-datacentret, är de fysiskt nära varandra. Det är därför behöver du inte har en dedikerad SAP-cacheserver. SAP-UI-klienter (SAP-Gränssnittet eller web browser) direktåtkomst till SAP-system och SAP-system hämtar dokument från innehållsservern SAP.
 2. **Klienten är en lokal webbläsare** The SAP innehållsserver kan konfigureras för att användas direkt av webbläsaren. I det här fallet är en webbläsare som körs lokalt en klient för SAP-innehållsserver. Lokala datacenter och Azure-datacenter är placerade i olika fysiska platser (helst nära varandra). Ditt lokala datacenter är ansluten till Azure via Azure plats-till-plats-VPN eller ExpressRoute. Även om båda alternativen erbjuder säker anslutning för VPN-nätverk till Azure, erbjuder nätverk plats-till-plats-anslutning inte SLA för bandbredd och latens en nätverk mellan datacenter på plats och Azure-datacentret. För att påskynda åtkomst till dokument, kan du göra något av följande:
-   1. Installera SAP Cache Server lokalt, Stäng för att lokalt webbläsaren (alternativet på [detta] [ dbms-guide-900-sap-cache-server-on-premises] bild)
+   1. Installera SAP cacheserver lokalt, nära lokala webbläsarens (alternativ i bilden nedan)
    2. Konfigurera Azure ExpressRoute, som erbjuder en hög hastighet och låg latens dedikerad nätverksanslutning mellan lokala datacenter och Azure-datacenter.
 
 ![Alternativet för att installera SAP Cache Server lokalt](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993955"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157147"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program med Azure portal
 
@@ -119,7 +119,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 ### <a name="add-backend-servers"></a>Lägga till serverdelsservrar
 
 1. Klicka på **Alla resurser** och sedan på **myAppGateway**.
-2. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGateayBackendPool**.
+2. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGatewayBackendPool**.
 3. Klicka på **Lägg till mål** att lägga till varje virtuell dator som du skapade till serverdelspoolen.
 
     ![Lägga till serverdelsservrar](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)

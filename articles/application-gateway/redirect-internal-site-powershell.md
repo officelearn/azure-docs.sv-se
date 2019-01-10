@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 47780b9c1d6a83dfedb9607dee3ac4c89b443f93
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a47c355401b829bdacd145e0a82a2ec496212f12
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054836"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157793"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med intern omdirigering med Azure PowerShell
 
@@ -27,7 +27,7 @@ I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Lägg till lyssnare och omdirigering av regel
 > * Skapa en VM-skalningsuppsättning med backend-pool
 > * Skapa en CNAME-post i domänen
@@ -70,7 +70,7 @@ $pip = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
@@ -177,7 +177,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Du kan cconfigure omdirigering för lyssnaren med [Add-azurermapplicationgatewayredirectconfiguration har till](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
+Du kan konfigurera omdirigering för lyssnaren med [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -306,7 +306,7 @@ I den här artikeln har du lärt dig hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Lägg till lyssnare och omdirigering av regel
 > * Skapa en VM-skalningsuppsättning med backend-pooler
 > * Skapa en CNAME-post i domänen

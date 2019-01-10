@@ -3,8 +3,8 @@ title: Testa SAP NetWeaver på SUSE Linux-datorer för Microsoft Azure | Microso
 description: Testa SAP NetWeaver på Microsoft Azure virtuella SUSE Linux-datorer
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950054"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157232"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Köra SAP NetWeaver på virtuella SUSE Linux-datorer i Microsoft Azure
-Den här artikeln beskrivs olika saker att tänka på när du kör SAP NetWeaver på Microsoft Azure SUSE Linux-datorer (VM). Från och med den 19 maj 2016 stöds officiellt SAP NetWeaver på SUSE Linux virtuella datorer på Azure. All information om Linux-versioner, SAP kernel-versioner och andra krav finns i SAP anteckning 1928533 ”SAP-program i Azure: produkter som stöds och Azure VM-typer”.
-Ytterligare dokumentation om SAP på virtuella Linux-datorer finns här: [med SAP på Linux-datorer (VM)](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Den här artikeln beskrivs olika saker att tänka på när du kör SAP NetWeaver på Microsoft Azure SUSE Linux-datorer (VM). Från och med den 19 maj 2016 stöds officiellt SAP NetWeaver på SUSE Linux virtuella datorer på Azure. All information om Linux-versioner, SAP kernel-versioner och andra krav finns i SAP anteckning 1928533 ”SAP-program i Azure: Produkter som stöds och typer av Azure virtuella datorer ”.
+Ytterligare dokumentation om SAP på virtuella Linux-datorer finns här: [Använd SAP på Linux-datorer (VM)](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Följande information hjälper dig att undvika vissa fallgropar.
 
@@ -75,7 +76,7 @@ Agenten kallas WALinuxAgent är en del av SLES-avbildningar på Azure Marketplac
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## <a name="sap-enhanced-monitoring"></a>SAP ”utökad övervakning”
-SAP ”utökad övervakning” är en obligatorisk förutsättning för att köra SAP på Azure. Läs mer i SAP Observera 2191498 ”SAP på Linux med Azure: Enhanced Monitoring”.
+SAP ”utökad övervakning” är en obligatorisk förutsättning för att köra SAP på Azure. Kontrollera informationen i SAP Observera 2191498 ”SAP på Linux med Azure: Förbättrad övervakning ”.
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Koppla Azure-datadiskar till en virtuell Linux-dator
 Aldrig montera Azure datadiskar till en virtuell Linux-dator med hjälp av enhets-ID. Använd istället universell unik identifierare (UUID). Var försiktig när du använder grafiska verktyg för att montera en Azure-datadiskar, till exempel. Kontrollera posterna i/etc/fstab.
@@ -125,7 +126,7 @@ Mer information om Azure klassiskt CLI och Azure Resource Manager finns i [anvä
 För SAP-Azure officiell certifiering introducerades en ny mekanism för att beräkna SAP maskinvarunyckeln som används för SAP-licens. SAP-kernel var tvungen att anpassas till att kontrollera användning av den nya algoritmen. Tidigare SAP kernel-versioner för Linux innehöll inte ändringar i den här koden. Därför kan i vissa situationer (till exempel Azure VM storleksändring), ändras maskinvarunyckel SAP och SAP-licensen har inte längre vara giltiga. En lösning tillhandahålls med nyare SAP Linux-kernel.  Detaljerad SAP kernel korrigeringar dokumenteras i SAP-kommentar 1928533.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf paket / anpassade adm
-SUSE innehåller ett paket som heter ”sapconf” som hanterar en uppsättning SAP-specifika inställningar. Mer information om vad det här paketet gör och hur du installerar och använder den finns: [använda sapconf för att förbereda en SUSE Linux Enterprise Server för att köra SAP-system](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) och [vad är sapconf eller hur du förbereder en SUSE Linux Enterprise Server för att köra SAP-system? ](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
+SUSE innehåller ett paket som heter ”sapconf” som hanterar en uppsättning SAP-specifika inställningar. Mer information om vad det här paketet gör och hur du installerar och använder den finns:  [Använda sapconf för att förbereda en SUSE Linux Enterprise Server för att köra SAP-system](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) och [vad är sapconf eller hur du förbereder en SUSE Linux Enterprise Server för att köra SAP-system?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 Under tiden kan finns det ett nytt verktyg, som ersätter 'sapconf - justerad adm ”. En kan hitta mer information om det här verktyget efter två länkar:
 

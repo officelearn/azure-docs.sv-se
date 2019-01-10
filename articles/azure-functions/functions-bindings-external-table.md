@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997812"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156875"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Externa tabellbindning för Azure Functions (experimentell)
 
-Den här artikeln förklarar hur du arbetar med tabelldata på SaaS-leverantörer, till exempel Sharepoint och Dynamics i Azure Functions. Azure Functions stöder indata och utdata-bindningar för externa tabeller.
+Den här artikeln förklarar hur du arbetar med tabelldata på SaaS-leverantörer, till exempel SharePoint och Dynamics i Azure Functions. Azure Functions stöder indata och utdata-bindningar för externa tabeller.
 
 > [!IMPORTANT]
 > Extern tabell bindningen är experimentellt och aldrig kan nå allmänt tillgänglig (GA) status. Det ingår endast i Azure Functions 1.x och det finns inga planer på att lägga till den i Azure Functions 2.x. Överväg att använda för scenarier som kräver åtkomst till data i SaaS-leverantörer, [logikappar som anropar functions](functions-twitter-email.md).
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Google Sheets-datakälla
 
-Om du vill skapa en tabell som ska användas med det här exemplet i Google Docs, skapa ett kalkylblad med ett kalkylblad med namnet `Contact`. Anslutningen kan inte använda visningsnamnet kalkylblad. Internt namn (i fetstil) behov som ska användas som dataSetName, till exempel: `docs.google.com/spreadsheets/d/` **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** lägga till kolumnnamnen `Id`, `LastName`, `FirstName` till den första raden och sedan fylla i data på efterföljande rader.
+Om du vill skapa en tabell som ska användas med det här exemplet i Google Docs, skapa ett kalkylblad med ett kalkylblad med namnet `Contact`. Anslutningen kan inte använda visningsnamnet kalkylblad. Internt namn (i fetstil) måste användas som dataSetName, till exempel: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Lägg till kolumnnamnen `Id`, `LastName`, `FirstName` till den första raden och fyller sedan i data på efterföljande rader.
 
 ### <a name="salesforce"></a>Salesforce
 

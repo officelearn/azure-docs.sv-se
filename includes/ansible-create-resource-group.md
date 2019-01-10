@@ -1,25 +1,25 @@
 ---
-author: tomarcher
+author: tomarchermsft
 ms.service: ansible
 ms.topic: include
 ms.date: 08/09/2018
 ms.author: tarcher
-ms.openlocfilehash: fa1f7fe0b4b70aae4f9165197d5d1463df1f2e3b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fe995535cd42571ad96f192883e48f4b6ea1eb0e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40027092"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160411"
 ---
-1. I Cloud Shell skapar du en fil med namnet `rg.yml`.
+1. I Cloud Shell skapar du en fil som heter `rg.yml`.
 
     ```bash
     vi rg.yml
     ```
 
-1. Ange infogningsläge genom att välja den **jag** nyckel.
+1. Starta infogningsläget genom att trycka på tangenten **I**.
 
-1. Klistra in följande kod i redigeraren:
+1. Klistra in följande kod i redigeringsprogrammet:
 
    ```yaml
    ---
@@ -35,9 +35,9 @@ ms.locfileid: "40027092"
            var: rg
    ```
 
-1. Avsluta infogningsläge genom att välja den **Esc** nyckel.
+1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
 
-1. Spara filen och avsluta redigeraren vi genom att ange följande kommando:
+1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
 
     ```bash
     :wq

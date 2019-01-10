@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870461"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157470"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera SSL-princip versioner och -chifferpaket på Application Gateway
 
@@ -106,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Konfigurera en anpassad SSL-princip
 
-När du konfigurerar en anpassad SSL-princip kan du skicka följande parametrar: PolicyType, MinProtocolVersion, CipherSuite och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway. 
+När du konfigurerar en anpassad SSL-princip kan skicka du följande parametrar: PolicyType, MinProtocolVersion, CipherSuite och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway. 
 
 I följande exempel anger en anpassad princip för SSL på application gateway. Det anger den minsta Protokollversionen till `TLSv1_1` och möjliggör krypteringssviter som följande:
 
@@ -139,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Skapa en Programgateway med en fördefinierad SSL-princip
 
-När du konfigurerar en fördefinierade SSL-princip kan du skicka följande parametrar: PolicyType, PolicyName och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway.
+När du konfigurerar en fördefinierade SSL-princip kan skicka du följande parametrar: PolicyType, PolicyName och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway.
 
 I följande exempel skapas en ny Programgateway med en fördefinierad SSL-princip.
 
@@ -196,7 +196,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Uppdatera en befintlig Programgateway med en fördefinierad SSL-princip
 
-Om du vill ange en anpassad SSL-princip, skickar följande parametrar: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, och **ApplicationGateway**. Om du vill skapa en princip för fördefinierade SSL, skicka följande parametrar: **PolicyType**, **PolicyName**, och **ApplicationGateway**. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway.
+Ange följande parametrar om du vill ange en anpassad SSL-princip: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, och **ApplicationGateway**. Om du vill skapa en princip för fördefinierade SSL, skicka följande parametrar: **PolicyType**, **PolicyName**, och **ApplicationGateway**. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway.
 
 I följande exempel finns kodexempel för både Kundpolicy och fördefinierade princip. Ta bort kommentarerna principen som du vill använda.
 
@@ -207,7 +207,7 @@ $RG = "YourResourceGroupName"
 
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
-# Choose either custom policy or prefedined policy and uncomment the one you want to use.
+# Choose either custom policy or predefined policy and uncomment the one you want to use.
 
 # SSL Custom Policy
 # Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw

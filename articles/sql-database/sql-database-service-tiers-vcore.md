@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.date: 01/08/2019
+ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118208"
+ms.locfileid: "54156824"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
 
@@ -67,9 +67,28 @@ I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för 
 
 ![prissättning](./media/sql-database-service-tiers/pricing.png)
 
-Om du vill använda din befintliga lokala SQL Server-licenser betalar du bara baspris för de underliggande Azure-infrastrukturen (till exempel virtuella Azure-datorn där databasen körs) när SQL Server-databasen inte tas med motorn licens på fakturan. Du kan använda din lokala licens både för SQL Server och Azure SQL Database i en period. I annat fall inkluderas licenskostnaden för SQL Server-databasmotorn i priset för din databas eller en instans. Om du använder PowerShell eller Azure CLI för att skapa eller uppdatera din databas eller en instans, finns det två prisalternativ som du kan välja:
-- **BasePrice** innebär att du har en giltig SQL Server-licens som du vill använda som en del av [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/) och att du vill betala endast grundläggande infrastrukturkostnader.
-- **LicenseIncluded** innebär att du inte har en lokal SQL Server-licens eller du inte vill använda din lokala-licens för databasen eller hanterad instans. SQL Server-licens kan i så fall ska ingå i din faktura. 
+Med Azure Hybrid-förmånen kan du betalar bara för underliggande Azure-infrastrukturen med din befintliga SQL Server-licens för SQL database engine själva (**BasePrice**) eller betala för både den underliggande infrastrukturen och SQL Server-licens (**LicenseIncluded**). Du kan välja eller ändra licensieringsmodellen med Azure portal eller med någon av följande API: er.
+
+- Att ställa in eller uppdatera licenstypen med hjälp av PowerShell:
+
+  - [Ny AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Ny AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Att ställa in eller uppdatera licenstypen med Azure CLI:
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [Skapa AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [uppdatering av AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- Att ställa in eller uppdatera licenstypen med hjälp av REST-API:
+
+  - [Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Hanterade instanser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Hanterade instanser - uppdatering](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migrering från DTU-modellen till vCore-modellen
 

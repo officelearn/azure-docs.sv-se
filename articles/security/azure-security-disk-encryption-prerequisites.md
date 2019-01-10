@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57136ac267af078068f33df6ee85dfccd287606a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: efb8c885daf78ad279a229257492a34c6dbf1c6a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537706"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156518"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
 
@@ -67,12 +67,10 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt): 
 1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.      
-    - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/install-azurerm-ps). 
+    - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Installera PowerShellGet, Azure PowerShell, och Läs in AzureRM-modulen. 
-    - [Installera och konfigurera Azure Powershell på macOS och Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Installera PowerShell Core, Azure PowerShell för .NET Core och läsa in modulen Az.
 
-2. Kontrollera de installerade versionerna av AzureRM-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+2. Kontrollera de installerade versionerna av AzureRM-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
     -  AzureRM-modulversionen måste vara 6.0.0 eller senare.
     - Du bör använda den senaste versionen av AzureRM-modulen.
 

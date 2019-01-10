@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058469"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158932"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka efter en Tweet – hämta ett Twitter-meddelande med Azure Functions
 
@@ -52,7 +52,7 @@ Starta genom att öppna projektmappen.
 Expandera till vänster **ARDUINO exempel** bläddrar du till **exempel för MXCHIP AZ3166 > AzureIoT**, och välj **ShakeShake**. Ett nytt VS Code-fönster öppnas och visar projektmappen. Om du inte ser avsnittet MXCHIP AZ3166, kontrollera att enheten är ansluten och starta om Visual Studio Code.  
 den ![mini-solution-exempel](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Du kan också öppna exempelprojektet från kommandopaletten. Klicka på `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: exempel**.
+Du kan också öppna exempelprojektet från kommandopaletten. Klicka på `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: Exempel**.
 
 ## <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
@@ -118,7 +118,7 @@ Nu anslutningssträngen har angetts, den verifierar och laddar upp appen och sed
 
 2. DevKit startar om och börjat köra koden.
 
-Du kan få en ”fel: AZ3166: Okänd paketet” felmeddelande. Det här felet uppstår när den tavla paketindexet inte uppdateras korrekt. Lös problemet genom att kontrollera den [”okänt package” fel i IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+Du kan få en ”fel: AZ3166: Okänd package ”felmeddelande. Det här felet uppstår när den tavla paketindexet inte uppdateras korrekt. Lös problemet genom att kontrollera den [”okänt package” fel i IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Testa projektet
 
@@ -138,7 +138,7 @@ Efter initieringen av appen, klickar du på och utgåva knappen A sedan försikt
 
 ### <a name="processing"></a>Bearbetar ...
 
-![Bearbetning](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
+![Bearbetar](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
 
 ### <a name="press-b-to-read"></a>Tryck på B för att läsa...
 
@@ -157,7 +157,7 @@ Efter initieringen av appen, klickar du på och utgåva knappen A sedan försikt
 
 Arduino skissen skickar en händelse till Azure IoT Hub. Den här händelsen utlöses Azure Functions-app. Azure Functions-app innehåller logik för att ansluta till Twitter's API och hämta en tweet. Därefter omsluts tweet-text till en C2D (moln till enhet) meddelandet och skickar det tillbaka till enheten.
 
-## <a name="optional-use-your-own-twitter-bearer-token"></a>Valfritt: Använda en egen Twitter ägar-token
+## <a name="optional-use-your-own-twitter-bearer-token"></a>Valfritt: Använd din egen Twitter ägar-token
 
 Det här exempelprojektet använder en förkonfigurerad Twitter-ägartoken i testsyfte. Det finns dock en [hastighetsbegränsning](https://dev.twitter.com/rest/reference/get/search/tweets) för varje Twitter-konto. Följ dessa steg om du vill överväga att använda din egen token:
 
@@ -202,7 +202,7 @@ Eller när du kör koden, det finns vissa signaler som orsakar en omstart av app
 Om du har andra problem kan se den [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss via följande kanaler:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg
 

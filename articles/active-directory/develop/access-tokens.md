@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979241"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157776"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
@@ -38,7 +38,7 @@ Se följande avsnitt för att lära dig hur en resurs kan verifiera och använde
 
 ## <a name="sample-tokens"></a>Exempel-token
 
-V1.0 och v2.0 token likna mycket och innehåller många av samma anspråk. Ett exempel på var och en finns här.
+V1.0 och v2.0 token likna och innehåller många av samma anspråk. Ett exempel på var och en finns här.
 
 ### <a name="v10"></a>V1.0
 
@@ -73,17 +73,17 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 
 ### <a name="header-claims"></a>Huvud-anspråk
 
-|Begär | Format | Beskrivning |
+|Begäran | Format | Beskrivning |
 |--------|--------|-------------|
 | `typ` | Sträng - alltid ”JWT” | Anger att token är en JWT.|
 | `nonce` | Sträng | En unik identifierare som används för att skydda mot token repetitionsattacker. Resursen kan registrera det här värdet för att skydda mot repetitioner. |
 | `alg` | Sträng | Anger den algoritm som användes för att signera token, till exempel ”RS256” |
 | `kid` | Sträng | Anger certifikatets tumavtryck för den offentliga nyckeln som används för att registrera den här token. Släpps i både v1.0 och v2.0-åtkomsttoken. |
-| `x5t` | Sträng | Fungerar på samma sätt (i användning och värde) som `kid`. Det här är ett äldre anspråk som släpps endast i v1.0 åtkomsttoken för kompatibilitet. |
+| `x5t` | Sträng | Fungerar på samma sätt (i användning och värde) som `kid`. `x5t` genereras ett äldre anspråk endast i v1.0 åtkomsttoken för kompatibilitet. |
 
 ### <a name="payload-claims"></a>Nyttolasten anspråk
 
-| Begär | Format | Beskrivning |
+| Begäran | Format | Beskrivning |
 |-----|--------|-------------|
 | `aud` | Sträng, ett App-ID-URI | Identifierar den avsedda mottagaren av token. I åtkomst-token är målgruppen appens program-ID som tilldelats din app i Azure-portalen. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient där användaren autentiserades. Om Utfärdad token är en v2.0-token (se den `ver` anspråk), URI: N går ut om `/v2.0`. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda GUID-del av kravet för att minska antalet klienter som kan logga in på appen, om tillämpligt. |
@@ -118,10 +118,10 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 
 Följande anspråken kommer att inkluderas i v1.0 token om det är tillämpligt, men ingår inte i version 2.0-token som standard. Om du använder version 2.0 och du behöver någon av dessa anspråk kan begära dem med hjälp av [valfria anspråk](active-directory-optional-claims.md).
 
-| Begär | Format | Beskrivning |
+| Begäran | Format | Beskrivning |
 |-----|--------|-------------|
 | `ipaddr`| Sträng | IP-adressen den användare som autentiseras från. |
-| `onprem_sid`| Strängen i [SID-format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | I fall där användaren har en lokal autentisering ger det här anspråket sina SID. Detta kan användas för auktorisering i äldre program. |
+| `onprem_sid`| Strängen i [SID-format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | I fall där användaren har en lokal autentisering ger det här anspråket sina SID. Du kan använda `onprem_sid` för auktorisering i äldre program. |
 | `pwd_exp`| int, en UNIX-tidsstämpel | Anger när användarens lösenord upphör att gälla. |
 | `pwd_url`| Sträng | En URL där användare kan skickas för att återställa sina lösenord. |
 | `in_corp`|boolesk | Signaler om klienten inloggning från företagsnätverket. Om de inte är ingår inte anspråket. |
@@ -200,7 +200,7 @@ Ditt programs affärslogik bestämmer det här steget, vissa vanliga auktoriseri
 * Verifiera statusen för autentisering för den anropande klienten med hjälp av `appidacr` -det får inte vara 0 om offentliga klienter inte tillåts att anropa ditt API.
 * Kontrollera mot en lista över tidigare `nonce` utger sig för att verifiera token inte spelas.
 * Kontrollera att den `tid` matchar en klient som kan anropa ditt API.
-* Använd den `acr` anspråk som ska verifiera användaren har utfört MFA. Observera att detta ska tillämpas med hjälp av [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Använd den `acr` anspråk som ska verifiera användaren har utfört MFA. Detta ska tillämpas med hjälp av [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Om du har begärt den `roles` eller `groups` anspråk i åtkomsttoken, kontrollera att användaren är i gruppen får utföra den här åtgärden.
   * För token hämtas med hjälp av det implicita flödet, behöver du troligen fråga den [Microsoft Graph](https://developer.microsoft.com/graph/) för dessa data som det är ofta ryms inte i token. 
 
@@ -217,15 +217,15 @@ Uppdatera token kan vara ogiltig eller återkallas när som helst av olika skäl
 
 ### <a name="token-timeouts"></a>Token tidsgränser
 
-* MaxInactiveTime: Om uppdateringstoken inte har använts inom den tiden enligt MaxInactiveTime kan uppdatera Token inte längre giltig. 
-* MaxSessionAge: Om du har angett MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor till något annat än standard (tills-återkallas), sedan omautentisering måste utföras efter den i MaxAgeSession * tiden. 
+* MaxInactiveTime: Om uppdateringstoken inte har använts inom den tiden enligt MaxInactiveTime kan längre uppdatera Token inte giltig. 
+* MaxSessionAge: Om du har angett MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor till något annat än standard (tills-återkallas), sedan måste omautentisering utföras efter den i MaxAgeSession * tiden. 
 * Exempel:
   * Klienten har en MaxInactiveTime på fem dagar och användaren gick på semester för en vecka och så AAD har inte sett en ny token begäran från användaren i 7 dagar. Nästa gång användaren begär en ny token hittar de sina uppdatera Token har återkallats och de måste ange sina autentiseringsuppgifter igen.
   * Ett känsliga program har en MaxAgeSessionSingleFactor på 1 dag. Om en användare loggar in på måndag och tisdagen (efter 25 timmar har gått), uppmanas de att autentiseras på nytt.
 
 ### <a name="revocation"></a>Återkallade certifikat
 
-|   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-password baserat cookie | Icke-password baserat token | Konfidentiell klient-token| 
+|   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-den lösenordsbaserade cookie | Icke-den lösenordsbaserade token | Konfidentiell klient-token| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Lösenordet upphör att gälla | Förblir aktiv| Förblir aktiv | Förblir aktiv | Förblir aktiv | Förblir aktiv |
 | Lösenordet har ändrats av användaren | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |

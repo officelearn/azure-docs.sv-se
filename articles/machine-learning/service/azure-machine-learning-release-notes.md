@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a67a20beff306cd23b08e1d651ab5dc4c779fd2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: MT
+ms.openlocfilehash: a43481bf6d9c95efdb9c4bc38ed400c5fe782c17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742770"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157521"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -271,85 +271,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 
 En ny uppdaterad version av Azure Machine Learning: Läs mer om den här versionen: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Äldre kommentarer: September 2017 – Jun 2018
-### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
-
-Med den här versionen av Azure Machine Learning kan du:
-+ Funktionalisera bilder med en quantized version av ResNet-50, träna en klassificerare som baseras på dessa funktioner och [distribuerar den modellen till en FPGA på Azure](../service/how-to-deploy-fpga-web-service.md) för extremt låg latens inferensjobb.
-
-+ Snabbt bygga och driftsätta mycket exakta machine learning och modeller för djupinlärning med [anpassade Azure Machine Learning-paket](../desktop-workbench/reference-python-package-overview.md)
-
-### <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
-**Versionsnumret**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Många av följande uppdateringar görs som direkt resultat av din feedback. Nyårslöfte!
-
-**Viktiga nya funktioner och ändringar**
-
-- Stöd för att köra dina skript på fjärranslutna virtuella Ubuntu-datorer internt på din egen miljö förutom fjärransluten docker-baserad körning.
-- Den nya miljön upplevelsen i Workbench-appen kan du skapa beräkningsmål och kör konfigurationer förutom vår CLI-baserade erfarenhet.
-![Fliken miljöer](media/azure-machine-learning-release-notes/environment-page.png)
-- Anpassningsbara Körningshistorik rapporterar ![bild av ny köra rapporter om Enhetshistorik](media/azure-machine-learning-release-notes/new-run-history-reports.png)
-
-**Detaljerad uppdateringar**
-
-Följande är en lista med detaljerade uppdateringar under varje komponent i Azure Machine Learning i den här sprint.
-
-#### <a name="workbench-ui"></a>Workbench UI
-- Anpassningsbara rapporter med Körningshistorik
-  - Förbättrad diagramkonfigurationen för Körningshistorik rapporter
-    - Använda startpunkterna kan ändras
-    - Översta filter kan läggas till och ändras ![Lägg till filter](media/azure-machine-learning-release-notes/add-filters.jpg)
-    - Diagram och statistik kan läggs till eller ändras (och dra och släpp om).
-    ![Skapa nytt diagram](media/azure-machine-learning-release-notes/configure-charts.png)
-
-  - CRUD för Körningshistorik rapporter
-  - Flytta alla befintliga kör historik listvyn konfigurationsfilerna till rapporten på serversidan, som fungerar som pipelines på körs från de valda startpunkterna.
-
-- Fliken miljöer
-  - Enkelt lägga till nya och köra konfigurationsfiler i projektet ![mål för nya Compute](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - Hantera och uppdatera konfigurationsfilerna med hjälp av en enkel, formulärbaserad UX
-  - Knapp för ny för att förbereda dina miljöer för körning
-
-- Prestandaförbättringar i listan över filer i sidopanelen
-
-#### <a name="data-preparation"></a>Förberedelse av data 
-- Azure Machine Learning Workbench kan du nu för att kunna söka efter en kolumn med en känd kolumnnamn.
-
-
-#### <a name="experimentation"></a>Experimentering
-- Azure Machine Learning Workbench stöder nu köra dina skript internt på din egen python eller pyspark-miljö. För den här funktionen användaren skapar och hanterar sina egna miljö på Virtuellt fjärrdatorn, och använda Azure Machine Learning Workbench för att köra sina skript på målet. Se [konfigurerar Azure Machine Learning-experimentering](../desktop-workbench/experimentation-service-configuration.md) 
-
-#### <a name="model-management"></a>Modellhantering
-- Stöd för att anpassa de behållare som distribueras: gör det möjligt att anpassa behållaravbildningen genom att tillåta installation av externa bibliotek med apt-get etc. Det är inte längre begränsad till pip-installation-bibliotek. Se den [dokumentation](../desktop-workbench/model-management-custom-container.md) för mer information.
-  - Använd den `--docker-file myDockerStepsFilename` flaggan och filnamnet med manifest, bild eller tjänst skapas kommandon.
-  - Basavbildningen är Ubuntu och kan inte ändras.
-  - Exempel-kommando: 
-  
-    ```shell
-    $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
-    ```
-
-### <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Versionsnumret**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Här följer uppdateringar och förbättringar i den här sprint. Många av de här uppdateringarna görs direkt följd av feedback från användare. 
-
-### <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
-**Versionsnumret**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Den här versionen är den tredje uppdateringen av Azure Machine Learning. Den här uppdateringen innehåller förbättringar i workbench-appen och kommandoradsgränssnittet (CLI) backend-tjänster. Tack så mycket för att skicka leenden och frowns. Många av följande uppdateringar görs som direkt resultat av din feedback. 
-
-### <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
-**Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Vi har gjort förbättringar kring säkerhet, stabilitet och underhåll i workbench-appen och CLI lagret backend-tjänster i den här versionen. 
-
-### <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
-**Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Den här versionen är den första uppdateringen av Azure Machine Learning Workbench följa vår första offentlig förhandsversion på Microsoft Ignite 2017-konferensen. De viktigaste uppdateringarna i den här versionen är tillförlitlighet och stabiliserade korrigeringar. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs översikten för [Azure Machine Learning](../service/overview-what-is-azure-ml.md).
+Läs översikten för [Azure Machine Learning-tjänsten](../service/overview-what-is-azure-ml.md).

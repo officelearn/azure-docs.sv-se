@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997614"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159425"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Konfigurera en Programgateway med SSL-avslutning med Azure portal
 
@@ -148,7 +148,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 ### <a name="add-backend-servers"></a>Lägga till serverdelsservrar
 
 3. Klicka på **Alla resurser** och sedan på **myAppGateway**.
-4. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGateayBackendPool**.
+4. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGatewayBackendPool**.
 5. Klicka på **Lägg till mål** att lägga till varje virtuell dator som du skapade till serverdelspoolen.
 
     ![Lägga till serverdelsservrar](./media/create-ssl-portal/application-gateway-backend.png)

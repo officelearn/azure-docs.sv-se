@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077570"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159527"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Skapa en plan i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 [Planer](azure-stack-key-features.md) är grupperingar av en eller flera tjänster. Som en provider, kan du skapa planer för att erbjuda användarna. Användarna prenumererar i sin tur dina erbjudanden för att använda de planer och tjänster som ingår. Det här exemplet visar hur du skapar en plan som innehåller beräknings-, nätverks- och lagringsresurs-providers. Den här planen kan prenumeranter att etablera virtuella datorer.
 
-1. Logga in på portalen för Azure Stack-administratör (https://adminportal.local.azurestack.external).
+1. Logga in på den [Azure Stack-administratörsportalen](https://adminportal.local.azurestack.external).
 
-2. Skapa en plan och erbjudande som användare kan prenumerera på, välja **+ skapa en resurs** > **erbjuder + planer** > **Plan**.
+2. Skapa en plan och erbjudande som användare kan prenumerera på, välja **+ skapa en resurs**, sedan **erbjuder + planer**, sedan **Plan**.
   
    ![Välj en plan](media/azure-stack-create-plan/select-plan.png)
 
@@ -72,4 +72,4 @@ ms.locfileid: "49077570"
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett erbjudande](azure-stack-create-offer.md)
+* [Skapa ett erbjudande](azure-stack-create-offer.md)

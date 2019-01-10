@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 26b0bd3c6bec2427cd95deb05cc19c4dd3b22aa3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136255"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159544"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -66,13 +66,15 @@ Active Directory-konfigurationen varierar beroende på om programproxy-kopplinge
 1. En lista över förutsättningar för att arbeta med KCD över domäner finns i [Kerberos-begränsad delegering över domäner](https://technet.microsoft.com/library/hh831477.aspx).
 2. Använd den `principalsallowedtodelegateto` egenskapen Connector-server för att aktivera Application Proxy för att delegera för Connector-server. Programservern är `sharepointserviceaccount` och delegerat servern är `connectormachineaccount`. Använd den här koden för Windows 2012 R2, som exempel:
 
-        $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+```powershell
+$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
-        Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-        Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+```
 
-Sharepointserviceaccount kan vara datorkontot Service Pack eller ett tjänstkonto som Service Pack-programpoolen körs under.
+`sharepointserviceaccount` kan vara datorkontot Service Pack eller ett tjänstkonto som Service Pack-programpoolen körs under.
 
 ## <a name="configure-single-sign-on"></a>Konfigurera enkel inloggning 
 1. Publicera programmet enligt instruktionerna i [publicera program med Application Proxy](application-proxy-add-on-premises-application.md). Se till att välja **Azure Active Directory** som den **förautentisering metoden**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185434"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159663"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare 
 Med Azure Monitor för behållare kan använda du prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för dina Azure Kubernetes Service (AKS) kluster ur två perspektiv, direkt från ett AKS-kluster eller alla AKS-kluster i en prenumeration från Azure Övervaka. Visa Azure Container Instances (ACI) är också möjligt när du övervakar ett specifikt AKS-kluster.
@@ -98,6 +98,8 @@ Prestandadiagrammet visar fyra prestandamått:
 - **Antal noder**: Ett antal noder och status från Kubernetes. Status för noderna i klustret som representeras är *alla*, *redo*, och *inte klara* och kan filtreras individuellt eller kombineras i Väljaren ovanför diagrammet. 
 - **Antal för aktiviteter pod**: Antal poddar och status från Kubernetes. Statusen för poddarna representeras är *alla*, *väntande*, *kör*, och *okänd* och kan filtreras individuellt eller kombineras i den väljare ovanför diagrammet. 
 
+Du kan använda åt vänster och höger piltangenterna för att växla mellan varje datapunkt i diagrammet och upp/ned-nycklar för att gå igenom raderna: e percentilen.
+
 När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan.  Den visar egenskaperna för objekt som valts, inklusive etiketter som du definierar för att organisera Kubernetes-objekten. Klicka på den **>>** länkar i fönstret till view\hide fönstret.  
 
 ![Egenskapsrutan för exempel Kubernetes perspektiv](./media/container-insights-analyze/perspectives-preview-pane-01.png)
@@ -129,7 +131,7 @@ Som standard prestandadata baseras på de senaste sex timmarna, men du kan ändr
 
 ![: E percentilen val för filtrering av data](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-När du för muspekaren över stapeldiagrammet under den **Trend** kolumnen visar varje fältet CPU eller minne användning, beroende på vilken enskilt mått har valts, inom 15 minuter exemplet.  
+När du för muspekaren över stapeldiagrammet under den **Trend** kolumnen visar varje fältet CPU eller minne användning, beroende på vilken enskilt mått har valts, inom 15 minuter exemplet. När du har valt trenddiagram via ett tangentbord, kan du använda tangenterna Alt + Page Up eller Alt + PgDn för att gå igenom varje stapel individuellt och få samma information som du skulle göra förklaring.
 
 ![Trend liggande diagram hovra exempel](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 

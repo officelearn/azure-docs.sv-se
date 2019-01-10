@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968995"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160054"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
@@ -208,7 +208,7 @@ När du installerar de virtuella datorerna som kör SAP HANA, måste de virtuell
 
 Men för distributioner som är bestående, måste du skapa ett virtuellt datacenter nätverksarkitektur i Azure. Den här arkitekturen rekommenderar avgränsning av Azure VNet-Gateway som ansluter till lokala i ett separat virtuellt Azure-nätverk. Det här separata virtuella nätverket bör vara värd för all trafik som lämnar antingen till en lokal eller till internet. Den här metoden kan du distribuera programvara för granskning och loggning trafik som anger virtuellt datacenter i Azure i den här separata virtuella hubbnätverket. Du måste ett virtuellt nätverk som är värd för programvara och konfigurationer som är kopplat till in- och utgående trafik till din Azure-distribution.
 
-Artiklarna [Azure Virtual Datacenter: ett Nätverksperspektiv](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) och [Azure Virtual Datacenter och Företagskontrollplanen](https://docs.microsoft.com/azure/architecture/vdc/) ger mer information om virtuellt datacenter-metoden och relaterade Azure VNet-design.
+Artiklarna [Azure Virtual Datacenter: Ett Nätverksperspektiv](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) och [Azure Virtual Datacenter och Företagskontrollplanen](https://docs.microsoft.com/azure/architecture/vdc/) ger mer information om virtuellt datacenter-metoden och relaterade Azure-VNet-design.
 
 
 >[!NOTE]
@@ -403,8 +403,8 @@ Visa ytterligare information om Azure accelererat nätverk [här](https://docs.m
 
 Enligt DT 2.0 metodvägledning, bör disk-i/o-dataflöde vara minst 50 MB/sek per fysisk kärna. Titta på specifikationen för två Azure VM-typer som stöds för DT 2.0 en visas den maximala värdet för disken i/o-dataflödesgräns för den virtuella datorn:
 
-- E32sv3: 768 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 48 MB/sek per fysisk kärna
-- M64-32ms: 1000 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 62,5 MB/sek per fysisk kärna
+- E32sv3:   768 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 48 MB/sek per fysisk kärna
+- M64-32MS:  1 000 MB per sekund (icke cachelagrat) vilket innebär att ett förhållande på 62,5 MB/sek per fysisk kärna
 
 Det krävs för att lägga till flera Azure-diskar till den virtuella datorn 2.0 DT och skapa programvaru-raid (striping) på nivån för att uppnå maxgränsen för diskdataflöde per virtuell dator. En enskild Azure disk tillhandahålla inte dataflöde för att nå maxgränsen för virtuell dator i detta avseende. Azure Premium storage är obligatorisk för att köra DT 2.0. 
 

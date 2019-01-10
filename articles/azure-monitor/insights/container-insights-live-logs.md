@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: MT
+ms.openlocfilehash: 27368ec1f41553950ab1689f8b37c15d14d29808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189139"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156671"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Visa behållarens loggar realtid med Azure Monitor för behållare (förhandsgranskning)
 Den här funktionen, som finns för närvarande i förhandsversion, tillhandahåller en vy i realtid i Azure Kubernetes Service (AKS)-behållarloggarna (stdout/stderr) utan att behöva köra kubectl-kommandon. När du väljer det här alternativet kan nya rutan visas nedan datatabell för behållare prestanda på den **behållare** vy och visar live loggning som genererats av motorn för behållaren för bättre hjälp vid felsökning av problem i realtid.  
@@ -65,7 +65,7 @@ Om du har aktiverat Kubernetes RBAC-auktorisering kan behöver du tillämpa klus
 2. Skapa kluster regeln bindningen genom att köra följande kommando: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Konfigurera AKS med Azure Active Directory
-AKS kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. Om du konfigurerar detta för första gången, se [integrera Azure Active Directory med Azure Kubernetes Service](../../aks/aad-integration.md). Under stegen för att skapa den [klientprogram](../../aks/aad-integration.md#create-client-application) och ange den **omdirigerings-URI**, du måste lägga till en annan URI i listan med ** https://ininprodeusuxbase.microsoft.com/***.  
+AKS kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. Om du konfigurerar detta för första gången, se [integrera Azure Active Directory med Azure Kubernetes Service](../../aks/aad-integration.md). Under stegen för att skapa den [klientprogram](../../aks/aad-integration.md#create-client-application) och ange den **omdirigerings-URI**, du måste lägga till en annan URI i listan `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >Konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under första distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning på för ett AKS-kluster som redan har distribuerats.  

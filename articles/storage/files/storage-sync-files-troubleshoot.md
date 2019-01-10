@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055157"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157640"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -552,6 +552,16 @@ I fall där det finns många per fil synkroniseringsfel, synkroniseringssessione
 | **Reparation krävs** | Ja |
 
 Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
+
+<a id="-2134375817"></a>**Synkroniseringen misslyckades eftersom versionen av filter-drivrutinen inte är kompatibel med agentversionen**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimal)** | -2134375817 |
+| **Felsträng** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Reparation krävs** | Ja |
+
+Det här felet beror på att Molnlagringsnivå filter (StorageSync.sys) drivrutinsversionen lästs in inte är kompatibel med tjänsten Storage Sync-agenten (FileSyncSvc). Starta om servern för att slutföra installationen om Azure File Sync-agenten har uppgraderats. Om felet kvarstår kan du avinstallera agenten, starta om servern och installera om Azure File Sync-agenten.
 
 <a id="-2134376373"></a>**Tjänsten är inte tillgänglig för tillfället.**  
 | | |

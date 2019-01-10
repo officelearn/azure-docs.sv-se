@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190653"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157181"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -101,7 +101,7 @@ Den *skräppost* kolumnen lästes som ett heltal, men det är faktiskt en katego
 
     data$spam <- as.factor(data$spam)
 
-För att göra vissa utforskande analys använder den [ggplot2](http://ggplot2.org/) paketera ett populära graphing bibliotek för R som redan är installerad på den virtuella datorn. Observera att från sammanfattning av data som visas tidigare, att vi har sammanfattande statistik på frekvensen av tecknet utropstecken. Nu ska vi rita de frekvenserna med följande kommandon:
+För att göra vissa utforskande analys använder den [ggplot2](https://ggplot2.tidyverse.org/) paketera ett populära graphing bibliotek för R som redan är installerad på den virtuella datorn. Observera att från sammanfattning av data som visas tidigare, att vi har sammanfattande statistik på frekvensen av tecknet utropstecken. Nu ska vi rita de frekvenserna med följande kommandon:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

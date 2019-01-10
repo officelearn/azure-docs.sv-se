@@ -1,21 +1,19 @@
 ---
 title: Skapa en Xamarin.Forms-app med .NET och Azure Cosmos DB:s API för MongoDB
 description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor till Azure Cosmos DB:s API för MongoDB
-services: cosmos-db
 author: codemillmatt
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quickstart, xamarin
+ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 456d35666e1475379b7ec90e8683ed47a1946f67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 9236a340c05bc5e342b9fc2c377d6d8eacb94f7d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808969"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036447"
 ---
 # <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Snabbstart: Skapa en Xamarin.Forms-app med .NET och Azure Cosmos DB:s API för MongoDB
 

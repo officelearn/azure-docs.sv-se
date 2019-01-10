@@ -94,7 +94,7 @@
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
-## [StackOverflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
 

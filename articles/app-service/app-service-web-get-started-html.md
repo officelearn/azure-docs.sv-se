@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2a6378406272f502af107a151e69fe33954f7780
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634243"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187867"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
@@ -31,22 +31,6 @@ Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärd
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-web-app-extension-for-cloud-shell"></a>Installera webbprogramtillägget för Cloud Shell
-
-För att slutföra den här snabbstarten måste du lägga till [az-webbprogramtillägget](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Om tillägget redan är installerat måste du uppdatera det till den senaste versionen. Skriv `az extension update -n webapp` för att uppdatera webbprogramtillägget.
-
-Kör följande kommando om du vill installera webbprogramtillägget:
-
-```bash
-az extension add --name webapp
-```
-
-När du har installerat tillägget visar Cloud Shell information i följande exempel:
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -136,7 +120,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-I den vänstra menyn klickar du på **App Services** och därefter på namnet på din Azure-app.
+I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-get-started-html/portal1.png)
 

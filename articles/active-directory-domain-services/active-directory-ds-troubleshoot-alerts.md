@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036146"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159612"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsöka aviseringar
 Den här artikeln innehåller felsökningsguider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -114,7 +114,7 @@ I det virtuella nätverket, kan datorer gör förfrågningar till Azure-resurser
 4. Domänanslutning dina virtuella datorer till den nya domänen, så [den här guiden](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Säkerställ att aviseringen har lösts genom att kontrollera hälsan för domänen i två timmar.
 
-## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Azure-prenumerationen finns inte
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: För tillfället går det inte att nå din Azure-prenumeration
 
 **Varningsmeddelande:**
 
@@ -128,7 +128,7 @@ Azure AD Domain Services kräver en prenumeration på Funktion och kan inte flyt
 2. [Ta bort den Hantera domänen](active-directory-ds-disable-aadds.md) från din befintliga Azure AD-katalog.
 3. Följ den [komma igång](active-directory-ds-getting-started.md) guide för att återskapa en hanterad domän.
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Din Azure-prenumeration har inaktiverats
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Din Azure-prenumerationen har inaktiverats
 
 **Varningsmeddelande:**
 
@@ -140,7 +140,7 @@ Azure AD Domain Services kräver en prenumeration på Funktion och kan inte flyt
 1. [Förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. När prenumerationen förnyas, får Azure AD Domain Services ett meddelande från Azure för att återaktivera din hanterade domän.
 
-## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Prenumeration flyttats kataloger
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Prenumerationen flyttas kataloger
 
 **Varningsmeddelande:**
 
@@ -150,7 +150,7 @@ Azure AD Domain Services kräver en prenumeration på Funktion och kan inte flyt
 
 Du kan antingen flytta den prenumeration som är associerade med Azure AD Domain Services tillbaka till föregående katalogen eller du behöver [ta bort den Hantera domänen](active-directory-ds-disable-aadds.md) från den befintliga katalogen och återskapar den i den valda katalogen (med antingen en ny prenumeration eller ändra katalogen din Azure AD Domain Services-instans är i).
 
-## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Resurser för din hanterade domän kan inte hittas
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Det går inte att hitta några resurser för din hanterade domän
 
 **Varningsmeddelande:**
 
@@ -179,7 +179,7 @@ Azure AD Domain Services skapar specifika resurser när du distribuerar för att
 
 Det här felet är ett oåterkalleligt. För att lösa, måste du [ta bort den befintliga Hantera domänen](active-directory-ds-disable-aadds.md) och [återskapa din hanterade domän](active-directory-ds-getting-started.md)
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111: Tjänstens huvudnamn obehörig
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Tjänstens huvudnamn obehörig
 
 **Varningsmeddelande:**
 
@@ -193,7 +193,7 @@ Vår tjänsthuvudnamn behöver åtkomst för att kunna hantera och skapa resurse
 2. Granska åtkomsten som tjänstens huvudnamn med ID: T ```abba844e-bc0e-44b0-947a-dc74e5d09022``` och bevilja åtkomst som nekades vid ett tidigare tillfälle.
 
 
-## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Inte tillräckligt med IP-adressen i den hanterade domänen
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Det finns inte tillräckligt med IP-adresser i den hanterade domänen
 
 **Varningsmeddelande:**
 
@@ -214,7 +214,7 @@ Vår tjänsthuvudnamn behöver åtkomst för att kunna hantera och skapa resurse
 4. Domänanslutning dina virtuella datorer till den nya domänen, så [den här guiden](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Kontrollera hälsan för domänen i två timmar att kontrollera att du har slutfört stegen korrekt.
 
-## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Resurser är ett oåterkalleligt
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Resurserna är ett oåterkalleligt
 
 **Varningsmeddelande:**
 
@@ -258,7 +258,7 @@ Det här felet är ett oåterkalleligt. För att lösa, måste du [ta bort den b
 
 
 
-## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synkronisering har inte slutförts på ett tag
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synkroniseringen slutfördes inte på ett tag
 
 **Varningsmeddelande:**
 
@@ -272,7 +272,7 @@ Här följer några vanliga orsaker till varför synkronisering stoppar på hant
 - Nätverksanslutningen är blockerad på den hanterade domänen. Mer information om kontroll av nätverket för problem, Läs om hur du [felsöka Nätverkssäkerhetsgrupper](active-directory-ds-troubleshoot-nsg.md) och [krav för Azure AD Domain Services](active-directory-ds-networking.md).
 -  Lösenordssynkronisering har aldrig konfigurera eller har slutförts. Om du vill konfigurera Lösenordssynkronisering läsa [i den här artikeln](active-directory-ds-getting-started-password-sync.md).
 
-## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: En säkerhetskopiering inte har utförts på ett tag
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: En säkerhetskopia som inte har utförts på ett tag
 
 **Varningsmeddelande:**
 
@@ -283,7 +283,7 @@ Här följer några vanliga orsaker till varför synkronisering stoppar på hant
 [Kontrollera hälsan för domänen](active-directory-ds-check-health.md) för alla aviseringar som kan tyda på problem i konfigurationen för den hanterade domänen. Ibland kan problem med din konfiguration blockera Microsofts möjligheten att säkerhetskopiera din hanterade domän. Om du vill lösa alla aviseringar, vänta igen två timmar och kontrollera för att se om säkerhetskopieringen har slutförts.
 
 
-## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Inaktivering på grund av inaktiverad prenumeration
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Inaktiveringen på grund av inaktiverad prenumeration
 
 **Varningsmeddelande:**
 
@@ -296,7 +296,7 @@ Här följer några vanliga orsaker till varför synkronisering stoppar på hant
 
 Att återställa din tjänst, [förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) som är associerade med din hanterade domän.
 
-## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Inaktivering på grund av en ogiltig konfiguration
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Inaktiveringen på grund av en ogiltig konfiguration
 
 **Varningsmeddelande:**
 

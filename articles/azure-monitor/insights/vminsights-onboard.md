@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure Monitor för virtuella datorer Preview | Microsoft Docs
+title: Distribuera Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Den här artikeln beskriver hur du distribuerar och konfigurerar Azure Monitor för virtuella datorer så att du kan börja med att förstå hur det distribuerade programmet fungerar och vilka hälsoproblem har identifierats.
 services: azure-monitor
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3d408c2a2f9de69d8a12a394df68acff8f3d0bf7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121674"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190346"
 ---
-# <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuera Azure Monitor för förhandsgranskning av virtuella datorer
-Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer. Tjänsten övervakar operativsystemet hälsotillståndet för dina Azure-datorer (VM) och VM-skalningsuppsättningar och de virtuella datorerna i din miljö. Den här övervakning innefattar identifierings- och mappningen av programberoenden som kan finnas på dem.
+# <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuera Azure Monitor för virtuella datorer (förhandsversion)
+Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer. Tjänsten övervakar operativsystemet hälsotillståndet för dina Azure-datorer (VM) och VM-skalningsuppsättningar och de virtuella datorerna i din miljö. Den här övervakning innefattar identifierings- och mappningen av programberoenden som kan finnas på dem. 
 
 Du kan aktivera Azure Monitor för virtuella datorer med hjälp av något av följande metoder:
 

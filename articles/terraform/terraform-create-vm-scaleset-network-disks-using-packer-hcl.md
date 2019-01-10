@@ -4,30 +4,30 @@ description: Använd Terraform för att konfigurera och versionshantera en VM-sk
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, skalningsuppsättning, virtuell dator, nätverk, lagring, moduler, anpassade avbildningar, packer
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668639"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077512"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure från en anpassad Packer-avbildning
 
-I den här självstudien använder du [Terraform](https://www.terraform.io/) för att skapa och distribuera en [VM-skalningsuppsättning för Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) skapas med en anpassad avbildning som skapats med [Packer](https://www.packer.io/intro/index.html) med hanterade diskar med [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+I den här självstudien använder du [Terraform](https://www.terraform.io/) för att skapa och distribuera en [VM-skalningsuppsättning för Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) som skapats med en anpassad avbildning som genererats med hjälp av [Packer](https://www.packer.io/intro/index.html) med hanterade diskar, genom att använda [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera din Terraform-distribution
+> * konfigurera din Terraform-distribution
 > * Använda variabler och utdata för Terraform-distribution 
 > * Skapa och distribuera en nätverksinfrastruktur
 > * Skapa en anpassad avbildning av virtuell dator med Packer
-> * Skapa och distribuera en skalningsuppsättning med den anpassade avbildningen
+> * Skapa och distribuera en VM-skalningsuppsättning med den anpassade avbildningen
 > * Skapa och distribuera en jumpbox 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -460,7 +460,7 @@ Skriv `yes` när du ombes bekräfta borttagningen av resurserna. Destruktionspro
 I den här självstudien distribuerade du en VM-skalningsuppsättning och en jumpbox i Azure med Terraform. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Initiera Terraform-distribution
+> * initiera Terraform-distribution
 > * Använda variabler och utdata för Terraform-distribution 
 > * Skapa och distribuera en nätverksinfrastruktur
 > * Skapa en anpassad avbildning av virtuell dator med Packer

@@ -4,19 +4,20 @@ titleSuffix: Azure Cosmos DB
 description: I den här självstudien beskrivs hur du skapar en Node.js-app med hjälp av Angular och Express för att hantera data som lagras i Cosmos DB. I den här delen använder du Mongoose till att ansluta till Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
+ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 03b1f1d5fa1320f08059ed755f6f4f7d1c08d35e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b550107056ec22af3a18ce0396559ad4ef8d245b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793709"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034292"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
 
@@ -235,7 +236,7 @@ Kör sedan appen med hjälp av följande steg:
 
 1. Byt nu till webbläsaren. Öppna **Utvecklarverktyg** och fliken **Nätverk**. Gå till http://localhost:3000, där du ser vår app.
 
-    ![Nytt Azure Cosmos DB-konto i Azure Portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+    ![Nytt Azure Cosmos DB-konto på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
 Det finns ännu inga heroes-komponenter lagrade i appen. I nästa del av den här självstudien lägger vi till funktioner put, push och delete. Sedan kan vi lägga till, uppdatera och ta bort heroes-komponenter från användargränssnittet genom att använda Mongoose-anslutningar till vår Azure Cosmos DB-databas. 
 

@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579659"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107692"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
@@ -342,8 +342,6 @@ plt.show()
 Det här resultatet är från ett slumpmässigt urval av testbilder:
 
 ![Illustration som visar resultat](./media/tutorial-deploy-models-with-aml/results.png)
-
-![Resultat](./media/tutorial-deploy-models-with-aml/results.png)
 
 Du kan också skicka en rå HTTP-begäran för att testa webbtjänsten:
 

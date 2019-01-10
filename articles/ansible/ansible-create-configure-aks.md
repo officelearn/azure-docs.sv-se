@@ -3,17 +3,17 @@ title: Skapa och konfigurera Azure Kubernetes Service-kluster i Azure med Ansibl
 description: Lär dig hur du använder Ansible för att skapa och hantera ett Azure Kubernetes Service-kluster i Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257547"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050395"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Skapa och konfigurera Azure Kubernetes Service-kluster i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera Azure Kubernetes Service (AKS). Den här artikeln beskriver hur du använder Ansible för att skapa och konfigurera ett Azure Kubernetes Service-kluster.

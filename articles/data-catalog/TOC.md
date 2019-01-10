@@ -28,6 +28,7 @@
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Resource Manager-mall](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Sök i syntaxreferens](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Utvecklarkoncept](data-catalog-developer-concepts.md)
 

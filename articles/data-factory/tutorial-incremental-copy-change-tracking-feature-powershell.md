@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 11de58a64f956bd7dd1cc9c4ca8498de8c0b9d05
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963529"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023965"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -233,7 +232,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
 I det här steget länkar du Azure SQL-databasen till datafabriken.
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyMultiTableTutorial** med följande innehåll: Ersätt **&lt;server&gt;, &lt;database **, &lt;user id&gt; och &lt;password&gt;** med namnen för din Azure SQL-server, databas, ditt användar-ID och lösenord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyMultiTableTutorial** med följande innehåll: Ersätt server, database **, &lt;user id&gt; och &lt;password&gt;** med namnen för din Azure SQL-server, databas, ditt användar-ID och lösenord innan du sparar filen. 
 
     ```json
     {

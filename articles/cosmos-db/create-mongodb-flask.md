@@ -1,21 +1,19 @@
 ---
 title: Skapa en Flask-webbapp med Azure Cosmos DB:s API för MongoDB och Python SDK
 description: Presenterar ett Python Flask-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
-services: cosmos-db
 author: rimman
 ms.author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quickstart
+ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 78fa871deb36b9f3596632976ce5a17b2f4d71fa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 81ffd384602218aa3b08441ae9f6fe2262e7e542
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792257"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041432"
 ---
 # <a name="build-a-flask-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Skapa en Flask-app med Azure Cosmos DB:s API för MongoDB
 

@@ -3,17 +3,17 @@ title: Översikt över Jenkins och Azure
 description: Använd Azure som värd för en Jenkins-automationsserver för versions- och distributionshantering och använd Azures beräknings- och lagringsresurser för att utöka dina kontinuerliga pipelines för integration och distribution (CI/CD).
 ms.service: jenkins
 keywords: jenkins, azure, devops, översikt
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 93185483a2c5a1ddb308cc2fc9fd918c539b5e3d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f09e1711cbbbd8f05a982e620b1e09184320d13
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602337"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078974"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 

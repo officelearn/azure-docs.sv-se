@@ -3,19 +3,19 @@ title: 'Självstudie: Skapa ensidig webbapp – API för bildsökning i Bing'
 titleSuffix: Azure cognitive services
 description: Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7ab94c6d935222c65c1259f1ce3b01d10f78ec1
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253960"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062869"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudie: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -388,7 +388,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 
 I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando ett kommandofönster:
+Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
     npm install -g cors-proxy-server
 

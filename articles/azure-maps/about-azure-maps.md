@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165972"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104275"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
@@ -62,7 +62,7 @@ I söktjänsten finns dessutom avancerade funktioner som att söka längs en rut
 
 ### <a name="time-zone-service"></a>Tidszontjänst
 
-Med tidszontjänsten kan du skicka begäranden om aktuell, historisk och framtida tidszonsinformation med hjälp av antingen latitud- och longitudpar eller [IANA ID](http://www.iana.org/). Time Zone Service kan även användas för att konvertera Microsoft Windows tidszon-ID till IANA-tidszoner, hämta en tidszonsförskjutning mot UTC och hämta den aktuella tiden i respektive tidszon. Ett typiskt JSON-svar på en fråga till Time Zone Service ser ut så här:
+Med tidszontjänsten kan du skicka begäranden om aktuell, historisk och framtida tidszonsinformation med hjälp av antingen latitud- och longitudpar eller [IANA ID](https://www.iana.org/). Time Zone Service kan även användas för att konvertera Microsoft Windows tidszon-ID till IANA-tidszoner, hämta en tidszonsförskjutning mot UTC och hämta den aktuella tiden i respektive tidszon. Ett typiskt JSON-svar på en fråga till Time Zone Service ser ut så här:
 
 ```JSON
 {
@@ -109,7 +109,7 @@ Azure Maps har dessutom en praktisk [JavaScript-kartkontroll ](https://docs.micr
 
 ## <a name="usage"></a>Användning
 
-Du kommer åt karttjänsterna via [Azure-portalen](http://portal.azure.com) där du kan skapa ett Azure Maps-konto.
+Du kommer åt karttjänsterna via [Azure-portalen](https://portal.azure.com) där du kan skapa ett Azure Maps-konto.
 
 I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto har två nycklar som har genererats åt dig. Börja integrera de här platsfunktioner i ditt program genom att använda någon av dina nycklar och göra en begäran till Azure Maps-tjänsten.
 

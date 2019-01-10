@@ -3,17 +3,17 @@ title: Skala Jenkins-distributioner med Azure VM-agenter.
 description: Lägg till ytterligare kapacitet i dina Jenkins-pipelines med hjälp av virtuella Azure-datorer med Jenkins-plugin-programmet för Azure VM-agenter.
 ms.service: jenkins
 keywords: jenkins, azure, devops, virtuell dator, agenter
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106231"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074674"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Skala dina Jenkins-distributioner för att uppfylla behovet med Azure VM-agenter
 

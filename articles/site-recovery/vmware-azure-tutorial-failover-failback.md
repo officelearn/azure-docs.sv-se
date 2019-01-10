@@ -4,16 +4,17 @@ description: Lär dig hur du redundansväxlar virtuella VMware-datorer och fysis
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 517355a32fc7a549370aed2c7a8408c3a0887e13
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838029"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973185"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure
 
@@ -42,9 +43,9 @@ Detta är den femte självstudien i en serie. Självstudien förutsätter att du
 
 Redundans och återställning efter fel har fyra stadier:
 
-1. **Redundansväxla till Azure**: Redundansväxlar datorer från den lokala platsen till Azure.
-2. **Skydda virtuella Azure-datorer**: Skyddar virtuella Azure-datorer så att de börjar replikera tillbaka till de lokala virtuella VMware-datorerna. Den lokala virtuella datorn stängs av under återaktiveringen av skyddet. Detta hjälper att säkerställa datakonsekvens vid replikeringen.
-3. **Redundansväxla till lokal plats**: Kör en redundansväxling för att återställa från Azure.
+1. **Redundansväxla till Azure**: Redundansväxla datorer från den lokala platsen till Azure.
+2. **Återaktivera skydd av virtuella Azure-datorer**: Återaktiverar skydd av virtuella Azure-datorer så att de börjar replikera tillbaka till de lokala virtuella VMware-datorerna. Den lokala virtuella datorn stängs av under återaktiveringen av skyddet. Detta hjälper att säkerställa datakonsekvens vid replikeringen.
+3. **Redundansväxla till lokala**: Kör en redundansväxling för att återställa från Azure.
 4. **Återaktivera skyddet av lokala virtuella datorer**: När data har återställts återaktiveras skyddet av de lokala virtuella datorer som du återställde till, så att de börjar replikera till Azure.
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
@@ -68,7 +69,7 @@ Kontrollera VM-egenskaperna och se till att den virtuella datorn uppfyller [Azur
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
    - **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
    - **Senaste bearbetade**: Alternativet redundansväxlar den virtuella datorn till den senaste återställningspunkt som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
-   - **Senaste appkonsekventa**: Det här alternativet redundansväxlar den virtuella datorn till den senaste appkonsekventa återställningspunkten som bearbetats av Site Recovery.
+   - **Senaste appkonsekventa**: Alternativet redundansväxlar den virtuella datorn till den senaste appkonsekventa återställningspunkt som bearbetats av Site Recovery.
    - **Anpassad**: Ange en återställningspunkt.
 
 3. Välj **Stäng datorn innan du påbörjar redundans** om du vill stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
@@ -76,7 +77,7 @@ Kontrollera VM-egenskaperna och se till att den virtuella datorn uppfyller [Azur
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att **redundanstiden är längre** för virtuella VMWare-datorer som använder en mobilitetstjänst som är äldre än version 9.8, fysiska servrar, virtuella VMWare Linux-datorer, virtuella Hyper-V-datorer som skyddas som fysiska servrar, virtuella VMWare-datorer som inte har DHCP-tjänsten aktiverad och virtuella VMWare-datorer som inte har följande drivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> **Avbryt inte en pågående redundansväxling**: Innan redundansen startas så stoppas replikeringen av den virtuella datorn.
+> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen.
 > Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Ansluta till redundansväxlade virtuella datorer i Azure

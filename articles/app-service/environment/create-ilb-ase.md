@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344286"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629891"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -78,7 +78,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   Det finns en funktion som kallas anpassade domännamn och gör att du kan mappa ett befintligt DNS-namn till din webbapp. Du kan läsa mer om funktionen i dokumentet [Mappa ett befintligt DNS-namn till din webbapp][customdomain]. Det anpassade domännamnet används för appar och domännamnet som används av din ASE får inte överlappa. För en ILB ASE med domännamnet _contoso.com_ kan du inte använda anpassade domännamn för dina appar som:
+   Du kan [mappa ett befintligt DNS-namn till din app][customdomain]. Det anpassade domännamnet används för appar och domännamnet som används av din ASE får inte överlappa. För en ILB ASE med domännamnet _contoso.com_ kan du inte använda anpassade domännamn för dina appar som:
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
    Om du känner till dina appars anpassade domännamn väljer du en domän för den ILB ASE som inte står i konflikt med dessa anpassade domännamn. I det här exemplet kan du använda något som *contoso-internal.com* som ASE-domän eftersom det inte står i konflikt med anpassade domännamn som slutar med *.contoso.com*.
 
-1. Välj **OK** och sedan **Skapa**.
+8. Välj **OK** och sedan **Skapa**.
 
     ![ASE-generering][1]
 
@@ -160,23 +160,23 @@ Så här laddar du upp egna certifikat och testar åtkomst:
 
 1. Hämta ILB-adressen för din ASE. Välj **ASE** > **Egenskaper** > **Virtuell IP-adress**.
 
-1. Skapa en webbapp i din ASE när ASE har skapats.
+2. Skapa en app i din ASE när ASE har skapats.
 
-1. Skapa en virtuell dator om du inte redan har en i detta VNet.
+3. Skapa en virtuell dator om du inte redan har en i detta VNet.
 
     > [!NOTE] 
     > Försök inte att skapa den här virtuella datorn i samma undernät som ASE eftersom den kommer att misslyckas eller orsaka problem.
     >
 
-1. Ange DNS för din ASE-domän. Du kan använda jokertecken med din domän i din DNS. Gör några enkla test genom att redigera värdfilerna på din virtuella dator för att ställa in namnet på webbappen till VIP IP-adressen:
+4. Ange DNS för din ASE-domän. Du kan använda jokertecken med din domän i din DNS. Gör några enkla test genom att redigera värdfilerna på din virtuella dator för att ställa in namnet på appen till VIP IP-adressen:
 
-    a. Om din ASE har domännamnet _.ilbase.com_ och du skapar en webbapp med namnet _mytestapp_ hanteras den på _mytestapp.ilbase.com_. Sedan ställer du in _mytestapp.ilbase.com_ för att lösa ILB-adressen. (I Windows finns värdfilen på _C:\Windows\System32\drivers\etc\_.)
+    a. Om din ASE har domännamnet _.ilbase.com_ och du skapar en app med namnet _mytestapp_ så hanteras den på _mytestapp.ilbase.com_. Sedan ställer du in _mytestapp.ilbase.com_ för att lösa ILB-adressen. (I Windows finns värdfilen på _C:\Windows\System32\drivers\etc\_.)
 
     b. Om du vill test webbdistributionens publicering eller åtkomst till den avancerade konsolen skapar du en post för _mytestapp.scm.ilbase.com_.
 
-1. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. (Eller gå till ditt webbnamn i din domän.)
+5. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. (Eller gå till ditt din apps namn med din domän.)
 
-1. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
+6. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
 
     IP-adressen för din ILB anges under **IP-adresser**. Den här listan innehåller även IP-adresserna som används av externa virtuella IP-adresser (VIP) och för inkommande hanteringstrafik.
 
@@ -237,7 +237,7 @@ Om du vill veta mer om hur du konfigurerar din interna belastningsutjämnare i a
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

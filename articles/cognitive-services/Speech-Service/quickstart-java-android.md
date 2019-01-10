@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e77ee61e3d318b355b978ce21031f3f55a26feca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090116"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724631"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln lär du dig att skapa ett Java-program för Android med hjälp av Speech SDK för Cognitive Services för att transkribera tal till text.
-Programmet är baserat på Microsoft Cognitive Services Speech SDK Maven-paketet, version 1.1.0 och Android Studio 3.1.
+I den här artikeln lär du dig att utveckla ett Java-program för Android med hjälp av Speech SDK för Cognitive Services för att transkribera tal till text.
+Programmet är baserat på Microsoft Cognitive Services Speech SDK Maven-paketet, version 1.2.0 och Android Studio 3.1.
 Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer och Intel x86/x64-kompatibla processorer.
 
 > [!NOTE]
@@ -58,9 +58,9 @@ Det tar en stund för Android Studio att förbereda det nya projektet för Andro
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.1.0`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.2.0`.
 
-Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
+Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs.
 Den finns i ett Maven-centrallager på https://csspeechstorage.blob.core.windows.net/maven/.
 
 Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfönstret genom att välja **File** (Fil)  > **Project Structure** (Projektstruktur) på menyraden i Android Studio. I projektstrukturfönstret gör du följande ändringar:
@@ -73,7 +73,7 @@ Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfö
 
    ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`. Välj sedan **OK**.
+1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`. Välj sedan **OK**.
    Speech SDK:n ska läggas till i listan över beroenden nu enligt nedan:
 
    ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -86,7 +86,7 @@ Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfö
 
 ## <a name="create-user-interface"></a>Skapa användargränssnitt
 
-Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inledningsvis innehåller layouten en namnlist med programmets namn och en TextView med texten ”Hello World”!
+Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inledningsvis innehåller layouten en namnlist med programmets namn och en TextView med texten ”Hello World!”.
 
 * Klicka på elementet TextView. Ändra dess ID-attribut i det övre högra hörnet till `hello`.
 
@@ -98,7 +98,7 @@ Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layo
 
   ![Skärmbild trollstavsikonen](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här.
+Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 
 <table>
 <tr>
@@ -141,16 +141,12 @@ Tryck på knappen i programmet för att starta en taligenkänningssession. De n�
 
 ![Skärmbild av Android-programmet](media/sdk/qs-java-android-13-gui-on-device.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i mappen `quickstart/java-android`.
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Identifiera avsikter från tal med hjälp av Speech SDK för Java](how-to-recognize-intents-from-speech-java.md)
+> [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se även
 
-- [Översätta tal](how-to-translate-speech-csharp.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

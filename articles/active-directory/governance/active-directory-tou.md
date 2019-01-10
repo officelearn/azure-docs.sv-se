@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744113"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188442"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -263,7 +263,7 @@ Här är en lista över plattformar som stöds och programvara.
 > |  | iOS | Android | Windows 10 | Annat |
 > | --- | --- | --- | --- | --- |
 > | **Inbyggd app** | Ja | Ja | Ja |  |
-> | **Edge** | Ja | Ja | Ja |  |
+> | **Microsoft Edge** | Ja | Ja | Ja |  |
 > | **Internet Explorer** | Ja | Ja | Ja |  |
 > | **Chrome (med filtillägget)** | Ja | Ja | Ja |  |
 

@@ -1,28 +1,28 @@
 ---
-title: 'Azure Analysis Services självstudiekurs 7: Skapa KPI:er | Microsoft Docs'
+title: 'Azure Analysis Services självstudiekurs 7: Skapa KPI | Microsoft Docs'
 description: Beskriver hur du skapar KPI:er i Azure Analysis Services-självstudieprojektet.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426829"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186540"
 ---
 # <a name="create-key-performance-indicators"></a>Skapa KPI:er
 
 I den här lektionen skapar du KPI:er. KPI: er används för att mäta prestanda för ett värde som definieras av ett *basmått* mot ett *målvärde* som också definieras av ett mått eller ett absolut värde. I rapporteringsklienter kan KPI:er ge företagsanvändare ett snabbt och enkelt sätt att få en översikt över hur det går för verksamheten eller identifiera trender. Mer information finns i [KPI:er](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
-Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
-Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört den föregående lektionen: [Lektion 6: Skapa mått](../tutorials/aas-lesson-6-create-measures.md).   
+Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 6: Skapa mått](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Skapa KPI:er  
   

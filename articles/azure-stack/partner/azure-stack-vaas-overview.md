@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: dea93fefc69664e4830efdab2052d2e1ca0fd2fa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1e081eb98b1d9c076fd85c0b542d0bf4ae309935
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102490"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190416"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Vad är verifiering som en tjänst för Azure Stack?
 
@@ -61,9 +61,9 @@ Mer information finns i [ Snabbstart: Använda verifieringen som en tjänst-port
 
 | Valideringsarbetsflödet | Tester som krävs |
 |----|------------|
-| [Ny Solution-validering](azure-stack-vaas-validate-solution-new.md) | Simulering Molnteknik<br>Compute SDK operativa Suite<br>Disk identifiering Test<br>KeyVault-tillägget SDK operativa Suite<br>KeyVault SDK operativa Suite<br>Nätverket SDK operativa Suite<br>Storage-konto SDK operativa Suite<br> |
-| [Ny Solution-validering](azure-stack-vaas-validate-oem-package.md) | Verifiering av OEM-tillägg-paketet<br>Simulering Molnteknik |
-| [Månatliga verifiering av Update](azure-stack-vaas-validate-microsoft-updates.md) | Månatliga AzureStack Update-verifiering<br>Simulering Molnteknik<br> |
+| [Ny solution-validering](azure-stack-vaas-validate-solution-new.md) | Simulering Molnteknik<br>Compute SDK operativa Suite<br>Disk identifiering Test<br>KeyVault-tillägget SDK operativa Suite<br>KeyVault SDK operativa Suite<br>Nätverket SDK operativa Suite<br>Storage-konto SDK operativa Suite<br> |
+| [Verifiera för OEM-paketet](azure-stack-vaas-validate-oem-package.md) | Verifiering av OEM-tillägg-paketet<br>Simulering Molnteknik |
+| [Månatliga verifiering av update](azure-stack-vaas-validate-microsoft-updates.md) | Månatliga AzureStack Update-verifiering<br>Simulering Molnteknik<br> |
 
 ## <a name="next-steps"></a>Nästa steg
 

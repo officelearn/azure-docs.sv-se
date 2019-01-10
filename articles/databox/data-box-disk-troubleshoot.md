@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 83b3a271006df38744b9de49ed6350bea3aeef4d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159391"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191708"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Felsöka problem i Azure Data Box-Disk
 
@@ -86,7 +86,76 @@ Aktivitetsloggar bibehålls i 90 dagar. Du kan fråga efter alla datumintervall 
 |[Info] Målfilens eller katalogens namn överskrider NTFS-längdbegränsningen. |Det här meddelandet rapporteras när målfilen bytte namn på grund av en lång filsökväg.<br> Ändra dispositionsalternativet i `config.json`-filen för att styra det här beteendet.|
 |[Fel] Ett undantag uppstod: Felaktiga JSON-escape-sekvensen. |Det här meddelandet rapporteras när config.json har ett format som inte är giltigt. <br> Verifiera din `config.json` med hjälp av [JSONlint](https://jsonlint.com/) innan du sparar filen.|
 
+## <a name="deployment-issues-for-linux"></a>Distributionsproblem för Linux
 
+Det här avsnittet beskriver några av de viktigaste problemen inför under distributionen av Data Box-Disk när du använder en Linux-klient för kopiering av data.
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>Ärende: Disken är komma monterad som skrivskyddad
+ 
+**Orsak** 
+
+Detta kan bero på en felaktig filsystem. 
+
+- Ommontering en enhet som läst fungerar inte med Data Box-diskar. Det här scenariot stöds inte med enheter dekrypteras av dislocker. 
+- Ommontering utan skrivskydd fungerar inte. Du kanske har har monteras enheten med följande kommando: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Även om den ommontering lyckades, behålls inte data.
+
+**Lösning**
+
+Om du ser felet ovan kan prova du någon av följande lösningar:
+
+- Installera [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (tillgänglig i `ntfsprogs` paketet) och köra den mot den relevanta partitionen.
+
+- Om du har åtkomst till ett Windows-system
+
+    - Läs in enheten i Windows-system.
+    - Öppna en kommandotolk med administrativ behörighet. Kör `chkdsk` på volymen.
+    - På ett säkert sätt ta bort volymen och försök igen.
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Ärende: Fel med data som inte spara efter kopiering
+ 
+**Orsak** 
+
+Om du ser att enheten inte har data när den var demontera (även om data har kopierats till det), så är det möjligt att du monteras på en enhet som Läs-och när enheten har monterats som skrivskyddade.
+
+**Lösning**
+ 
+Om så är fallet, se lösningen på [enheter komma monterats som skrivskyddade](#issue-drive-getting-mounted-as-read-only).
+
+Om det inte är fallet, [hämta diagnostikloggar](#download-diagnostic-logs) från datorn och [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
+## <a name="deployment-issues-for-windows"></a>Problem med distribution för Windows
+
+Det här avsnittet beskrivs några av de viktigaste problemen inför under distributionen av Data Box-Disk när du använder en Linux-klient för kopiering av data
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Ärende: Det gick inte att låsa upp enheten från BitLocker
+ 
+**Orsak** 
+
+Du har använt lösenord i BitLocker-dialogrutan och försök att låsa upp disken via BitLocker låsa upp enheter dialogrutan. Detta kan inte fungera. 
+
+**Lösning**
+
+För att låsa upp Data Box-diskar, måste du använda verktyget Data Box Disk låsa upp och ange lösenord från Azure-portalen.
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Ärende: Det gick inte att låsa upp eller verifiera några volymer. Kontakta Microsoft-supporten.
+ 
+**Orsak** 
+
+Du kan se följande fel i felloggen och går inte att låsa upp eller verifiera några volymer.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+Detta anger att du förmodligen saknar rätt version av Windows PowerShell på Windows-klient.
+
+**Lösning**
+
+Du kan installera [Windows PowerShell-v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) och försök igen.
+ 
+Om du fortfarande inte kan låsa upp volymerna, [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

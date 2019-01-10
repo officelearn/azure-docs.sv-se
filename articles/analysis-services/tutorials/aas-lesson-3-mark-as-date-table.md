@@ -1,23 +1,23 @@
 ---
-title: 'Azure Analysis Services självstudiekurs 3: Markera som datumtabell | Microsoft Docs'
+title: 'Azure Analysis Services självstudiekurs 3: Markera som Datumtabell | Microsoft Docs'
 description: Beskriver hur du markerar en datumtabell i Azure Analysis Services-självstudiekursprojektet.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426030"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189005"
 ---
 # <a name="mark-as-date-table"></a>Markera som datumtabell
 
-I ”lektion 2: Hämta data” importerade du en dimensionstabell med namnet DimDate. I din modell heter den här tabellen DimDate, och den kan också kallas *datumtabell* eftersom den innehåller information om datum och tid.  
+I lektion 2: Hämta data, du har importerat en dimensionstabell med namnet DimDate. I din modell heter den här tabellen DimDate, och den kan också kallas *datumtabell* eftersom den innehåller information om datum och tid.  
   
 När du använder funktioner för DAX-tidsinformation, till exempel när du skapar mått senare, måste du ange egenskaper som innehåller en *datumtabell* och en unik *datumkolumn*-identifierare i tabellen.
   

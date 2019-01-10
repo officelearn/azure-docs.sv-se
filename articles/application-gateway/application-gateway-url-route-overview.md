@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118376"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188767"
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
@@ -65,7 +65,7 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 
 PathPattern är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter först? eller # och de tecknen tillåts inte här. I annat fall tillåts alla tecken som tillåts i en URL i PathPattern.
 
-De mönster som stöds beror på vilket om du distribuerar Application Gateway v1 eller v2:
+Mönster som stöds beror på om du distribuerar Application Gateway v1 eller v2:
 
 #### <a name="v1"></a>V1
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 8f88bf6b0de8296de14dccd51b38ee6ca480f059
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065094"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191827"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
@@ -21,16 +21,16 @@ Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScri
 Till skillnad från som är värd för statisk webbplats, dynamiska webbplatser som är beroende av serverkod är bäst hanteras med hjälp av [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
-När du aktiverar statisk webbplats som är värd för ditt storage-konto du väljer namnet på din standardfil och du kan också ange en sökväg till en custom 404-sida. När funktionen är aktiverad, en behållare med namnet *$web* skapas om den inte redan finns. 
+När du aktiverar statisk webbplats som är värd för ditt storage-konto du väljer namnet på din standardfil och du kan också ange en sökväg till en custom 404-sida. När funktionen är aktiverad, en behållare med namnet *$web* skapas om den inte redan finns.
 
 Filer i den *$web* behållare är:
 
 - hanteras via anonyma förfrågningar
 - endast tillgängligt via objektet läsåtgärder
 - skiftlägeskänsligt
-- tillgängliga till offentlig webbplats efter det här mönstret: 
+- tillgängliga till offentlig webbplats efter det här mönstret:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- tillgängliga via en slutpunkt för Blob-lagring som följer det här mönstret: 
+- tillgängliga via en slutpunkt för Blob-lagring som följer det här mönstret:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Du kan använda Blob storage-slutpunkt för att ladda upp filer. Exempelvis kan överföra filen till den här platsen:
@@ -100,7 +100,7 @@ az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEn
 Överföra objekt till den *$web* behållare från en källkatalog. Se till att korrekt escape-referensen till den *$web* behållare i kommandot. Till exempel om du använder Azure CLI från CloudShell i Azure-portalen kan undvika den *$web* behållare som visas:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d `$web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Distribution
@@ -120,7 +120,7 @@ Om du vill aktivera mått på sidorna statisk webbplats klickar du på **instäl
 
 Måttdata genereras av anslutning till olika mått API: er. Portalen visar endast API-medlemmar som används inom en angiven tidsperiod för att endast fokusera på medlemmar som returnerar data. För att kontrollera att du kan välja den nödvändiga API-medlemmen, är det första steget att expandera tidsperioden.
 
-Klicka på knappen tidsram och välj **senaste 24 timmarna** och klicka sedan på **tillämpa** 
+Klicka på knappen tidsram och välj **senaste 24 timmarna** och klicka sedan på **tillämpa**
 
 ![Azure Storage-mått serverstatiska webbplatser tidsintervall](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025393"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188502"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -76,17 +76,17 @@ En konfigurationsruta visas. Mer information om inställningarna se beskrivninga
 
 ![Konfigurera inställningar för kod lagringsplats för redigering av UX](media/author-visually/configure-repo-2.png)
 
-## <a name="use-a-different-azure-active-directory-tenant"></a>Använd en annan Azure Active Directory-klient
+### <a name="use-a-different-azure-active-directory-tenant"></a>Använd en annan Azure Active Directory-klient
 
 Du kan skapa en Azure-lagringsplatser Git-lagringsplats i en annan Azure Active Directory-klient. Ange en annan Azure AD-klient du måste ha administratörsbehörighet för den prenumeration som du använder.
 
-## <a name="use-your-personal-microsoft-account"></a>Använd ditt personliga Microsoft-konto
+### <a name="use-your-personal-microsoft-account"></a>Använd ditt personliga Microsoft-konto
 
 Om du vill använda ett personligt microsoftkonto för Git-integrering kan du länka din personliga Azure-lagringsplats till din organisations Active Directory.
 
 1. Lägg till ditt personliga Microsoft-konto till din organisations Active Directory som gäst. Mer information finns i [användare i Lägg till Azure Active Directory B2B-samarbetet i Azure-portalen](../active-directory/b2b/add-users-administrator.md).
 
-2. Logga in på Azure Portal med ditt personliga Microsoft-konto. Växla sedan till din organisations Active Directory.
+2. Logga in på Azure portal med ditt personliga Microsoft-konto. Växla sedan till din organisations Active Directory.
 
 3. Gå till avsnittet Azure DevOps, där du nu se ditt personliga lager. Välj lagringsplatsen och Anslut med Active Directory.
 
@@ -94,7 +94,7 @@ Efter de här konfigurationsstegen ditt personliga lager är tillgänglig när d
 
 Mer information om att ansluta Azure-databaser till din organisations Active Directory finns i [ansluta din Azure DevOps-organisation till Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## <a name="switch-to-a-different-git-repo"></a>Växla till en annan Git-lagringsplats
+### <a name="switch-to-a-different-git-repo"></a>Växla till en annan Git-lagringsplats
 
 Du växlar till en annan Git-lagringsplats genom att leta upp ikonen i det övre högra hörnet av sidan för Data Factory-översikt, enligt följande skärmbild. Om du inte ser ikonen, rensa webbläsarens lokala cacheminnet. Välj ikonen Ta bort kopplingen till den aktuella lagringsplatsen.
 
@@ -102,7 +102,7 @@ När du tar bort kopplingen till den aktuella lagringsplatsen kan konfigurera du
 
 ![Ta bort kopplingen till den aktuella Git-lagringsplatsen](media/author-visually/remove-repo.png)
 
-## <a name="use-version-control"></a>Använda versionskontroll
+### <a name="use-version-control"></a>Använda versionskontroll
 Versionskontrollsystem (även kallat _källkontroll_) möjligt för utvecklare att samarbeta med kod och spåra ändringar som görs i koden grundläggande. Källkontroll är ett viktigt verktyg för flera utvecklare projekt.
 
 Varje Azure-lagringsplatser Git-lagringsplats som är associerat med en data factory har en gren för samarbete. (`master` är samarbete standardgrenen). Användarna kan också skapa funktionen grenar genom att klicka på **+ ny gren** och göra utvecklingen i funktionen grenar.
@@ -113,7 +113,7 @@ När du är klar med utvecklingen nya funktioner i din gren med funktionen kan d
 
 ![Skapa en ny pullbegäran](media/author-visually/create-pull-request.png)
 
-## <a name="configure-publishing-settings"></a>Konfigurera inställningar för publicering
+### <a name="configure-publishing-settings"></a>Konfigurera inställningar för publicering
 
 Konfigurera grenen publicera – det vill säga grenen där sparas Resource Manager-mallar – Lägg till en `publish_config.json` filen till rotmappen i grenen samarbete. Data Factory läser den här filen, söker efter fältet `publishBranch`, och skapar en ny gren (om den inte redan finns) med det angivna värdet. Det sparar alla Resource Manager-mallar i den angivna platsen. Exempel:
 
@@ -131,13 +131,39 @@ När du anger en ny gren publicera Data Factory inte ta bort den tidigare public
 
 Data Factory läser bara den `publish_config.json` filen när den har lästs in fabriken. Om du redan har den fabriken som lästs in i portalen kan du uppdatera webbläsaren för att ändringarna ska börja gälla.
 
-## <a name="publish-code-changes"></a>Publicera ändringar i koden
+### <a name="publish-code-changes"></a>Publicera ändringar i koden
 När du har en sammanfogad ändringar i grenen samarbete (`master` är standard), Välj **publicera** manuellt publicera kodändringarna i huvudgrenen till Data Factory-tjänsten.
 
 ![Publicera ändringar i Data Factory-tjänsten](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > Huvudgrenen är inte representerar det distribueras i Data Factory-tjänsten. Huvudgrenen *måste* publiceras manuellt till Data Factory-tjänsten.
+
+### <a name="advantages-of-git-integration"></a>Fördelarna med Git-integrering
+
+-   **Källkontroll**. När dina data factory arbetsbelastningar blir viktigt, skulle du vill integrera din datafabrik med Git för att utnyttja flera källa kontroll fördelar som liknar följande:
+    -   Möjlighet att spåra/granska ändringar.
+    -   Möjlighet att återställa ändringar som introducerats buggar.
+-   **Partiell sparar**. Du kan sänka att i LIVE standardläge, du inte kan spara ändringarna som draft, eftersom du inte är redo, eller om du inte vill förlora ändringarna om din dator kraschar när du gör många ändringar i din datafabrik. Med Git-integrering kan du fortsätta spara dina ändringar stegvis och publicera fabriken endast när du är klar. Git fungerar som en fristående plats för ditt arbete, tills du har testat ändringarna tills du är nöjd.
+-   **Samarbete och kontroll**. Om du har flera teammedlemmar deltar till samma fabrik kan du låta dina gruppmedlemmar samarbeta med varandra via en granskningsprocess för kod. Du kan också ställa in din datafabrik så att inte alla deltagare till factory har behörighet att distribuera till fabriken. Gruppmedlemmar kan bara att kunna göra ändringar via Git, men endast vissa personer i teamet ska kunna ”publicera” ändringar i fabriken.
+-   **Visar differenser**. Git-läge, som du får se en bra diff för nyttolasten som handlar om att bli publicerad till fabriken. Den här diff visar alla resurser/entiteter som har ändrats/har lagts till/tagits bort sedan den senaste gången som du publicerat till din datafabrik. Baserat på den här diff, du kan antingen fortsätta ytterligare med publicering, eller gå tillbaka och kontrollera dina ändringar och sedan försöka igen senare.
+-   **Bättre CI/CD**. Om du använder Git-läge, kan du konfigurera din releasepipeline att aktiveras automatiskt så snart som det finns ändringar som görs i dev-factory. Du får också anpassa egenskaper i din datafabrik som är tillgängliga som parametrar i Resource Manager-mallen. Det kan vara praktiskt att hålla endast nödvändiga uppsättning egenskaper som parametrar och har allt annat hårda kodade.
+-   **Bättre prestanda**. En genomsnittlig datafabrik laddas 10 gånger snabbare Git-läge än i vanliga LIVE-läge, eftersom resurserna som laddas ned via Git.
+
+### <a name="best-practices-for-git-integration"></a>Metodtips för Git-integrering
+
+-   **Behörigheter**. Du vill förmodligen inte samtliga teammedlemmar kan tänkas ha behörighet att uppdatera.
+    -   Samtliga teammedlemmar bör ha läsbehörighet data factory.
+    -   Endast en uppsättning personer ska tillåtas att publicera till fabriken och för att de måste vara en del av rollen ”Data Factory-deltagare” på fabriken.
+    -   En av de bästa praxis för källkontrollen är också att inte tillåta direkt incheckningar till grenen samarbete. Det här kravet förhindrar buggar som varje incheckning går igenom processen för Pull-begäran.
+-   **Ändra läge**.
+    -    När du är i läget för Git rekommenderar vi inte du kan växla fram och tillbaka till LIVE-läge, främst eftersom alla ändringar som görs i LIVE-läge inte visas när du växlar tillbaka till Git. Försök att göra ändringar i Git-läge själva och publicera dem via Användargränssnittet.
+    -   På samma sätt, Använd inte några Data factory-cmdletar för powershell, eftersom de uppnå samma effekt genom att använda de angivna ändringarna direkt i live fabriken.
+-   **Använd lösenord från Azure Key Vault**.
+    -   Vi rekommenderar starkt att använda AzureKeyVault för att lagra alla anslutningssträngar eller lösenord till DataFactory länkade tjänster.
+    -   Vi lagrar inte några sådana hemliga i Git (av säkerhetsskäl) alla ändringar i länkade tjänster publiceras direkt till live fabriken. Den här omedelbar publicering är ibland inte önskvärt när ändringarna inte kan har tagit emot testas, som defeats syftet med Git.
+    -   Därför måste alla hemligheter hämtas från länkade tjänster som använder Azure Key Vault-baserade.
+    -   Några av fördelarna med att använda Key Vault är att det gör CICD enklare, genom att du kan ange dessa hemligheter under Resource Manager malldistributionen inte.
 
 ## <a name="author-with-github-integration"></a>Redigera med GitHub-integrering
 

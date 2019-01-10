@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194291"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191929"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -385,7 +385,7 @@ Mer information finns i [Azure AD-lösenordsåterställning från inloggningssk�
  
 ### <a name="certificate-expire-notification"></a>Certifikatet upphör att gälla meddelande
 
-**Typ:** Åtgärdat  
+**Typ:** Korrigerat  
 **Tjänstekategori:** Företagsappar  
 **Produkten kapacitet:** Enkel inloggning
  
@@ -438,7 +438,7 @@ Mer information finns i:
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** App Proxy  
-**Produkten kapacitet:** Access Control
+**Produkten kapacitet:** Åtkomstkontroll
  
 Stöd för programproxy-cmdletar är nu i Powershell GA-modulen! Detta kräver att du kan hålla dig uppdaterad på Powershell-moduler - om du blir mer än ett år efter, kan vissa cmdletar kan sluta fungera. 
 
@@ -857,7 +857,7 @@ Webbläsartillägget för Mina appar är nu tillgängligt via ett enkelt verktyg
 - Möjligheten att logga in direkt på lösenord SSO-baserade appar från appens på inloggningssidan
 - Starta en app som använder funktionen Snabbsökning
 - Genvägar till nyligen använda appar från tillägget
-- Tillägget är tillgängligt för Edge, Chrome och Firefox.
+- Tillägget är tillgängligt för Microsoft Edge, Chrome och Firefox.
  
 Mer information finns i [Mina appar skyddat Inloggningstillägg](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
@@ -1278,7 +1278,7 @@ På grund av de nya funktionerna rapporten API: er under/Reports slutpunkten dro
 
 ### <a name="automatic-sign-in-field-detection"></a>Automatisk inloggningsfält identifiering
 
-**Typ:** Åtgärdat   
+**Typ:** Korrigerat   
 **Tjänstekategori:** Mina appar  
 **Produkten kapacitet:** Enkel inloggning  
 

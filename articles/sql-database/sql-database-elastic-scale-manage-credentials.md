@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 87a46a0b6d5dda9f59e49a3b052dc7528df7410f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039970"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186631"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att få åtkomst till klientbiblioteket för elastiska databaser
 
@@ -31,7 +31,7 @@ Se även [hantera databaser och inloggningar i Azure SQL Database](sql-database-
 
 ## <a name="about-management-credentials"></a>Om autentiseringsuppgifter för hantering
 
-Autentiseringsuppgifter för hantering som används för att skapa en **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx))-objekt för program som manipulerar fragmentkartor. (Till exempel se [att lägga till en shard med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md)). Användaren av Elastiskt skalat klientbibliotek skapar SQL-användare och SQL-inloggningar och ser till var och en har beviljats Läs/Skriv-behörigheter på fragmentkartan kartan databasen och alla fragment databaser samt. Dessa autentiseringsuppgifter används för att underhålla globala fragmentkartan och lokala shard-kartor när ändringar i fragmentkartan utförs. Till exempel använda autentiseringsuppgifter för hantering för att skapa fragment manager Kartobjekt (med hjälp av **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)):
+Autentiseringsuppgifter för hantering som används för att skapa en **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager))-objekt för program som manipulerar fragmentkartor. (Till exempel se [att lägga till en shard med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md)). Användaren av Elastiskt skalat klientbibliotek skapar SQL-användare och SQL-inloggningar och ser till var och en har beviljats Läs/Skriv-behörigheter på fragmentkartan kartan databasen och alla fragment databaser samt. Dessa autentiseringsuppgifter används för att underhålla globala fragmentkartan och lokala shard-kartor när ändringar i fragmentkartan utförs. Till exempel använda autentiseringsuppgifter för hantering för att skapa fragment manager Kartobjekt (med hjälp av **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
 
 ```java
 // Obtain a shard map manager.
@@ -59,7 +59,7 @@ Observera användningen av den **smmReadOnlyConnectionString** så att användni
 
 ## <a name="connection-credentials"></a>Autentiseringsuppgifter för anslutning
 
-Ytterligare autentiseringsuppgifter behövs när du använder den **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) metoden för att få åtkomst till en shard som är associerade med en shardingnyckel. Dessa autentiseringsuppgifter måste du ange behörigheter för skrivskyddad åtkomst till lokala fragment kartan tabeller som finns på fragmentet. Detta behövs för att utföra anslutningsverifiering för databeroende routning på fragmentet. Det här kodfragmentet tillåter åtkomst till data i samband med databeroende routning:
+Ytterligare autentiseringsuppgifter behövs när du använder den **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) metoden för att få åtkomst till en shard som är associerade med en shardingnyckel. Dessa autentiseringsuppgifter måste du ange behörigheter för skrivskyddad åtkomst till lokala fragment kartan tabeller som finns på fragmentet. Detta behövs för att utföra anslutningsverifiering för databeroende routning på fragmentet. Det här kodfragmentet tillåter åtkomst till data i samband med databeroende routning:
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633716"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187548"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -22,11 +22,13 @@ Den här artikeln beskriver PowerShell-cmdletar som används för att utföra Az
 Server-hanteringsåtgärder som att skapa eller ta bort en server, pausa eller återuppta serveråtgärder eller ändra servicenivån (nivå) använda cmdlets för Azure Resource Manager (resurs) och Analysis Services (server)-cmdletar. Andra uppgifter för hantering av databaser som att lägga till eller ta bort rollmedlemmar, behandla eller partitionering används cmdletar som ingår i samma SqlServer-modulen som SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Behörigheter
-De flesta PowerShell uppgifter kräver att du har Admin-behörighet på Analysis Services-servern som du hanterar. Schemalagda aktiviteter för PowerShell är obevakad åtgärder. Principen till kontot eller tjänsten som kör scheduler måste ha administratörsrättigheter på Analysis Services-servern. 
+
+De flesta PowerShell uppgifter kräver att du har Admin-behörighet på Analysis Services-servern som du hanterar. Schemalagda aktiviteter för PowerShell är obevakad åtgärder. Kontot eller tjänstens huvudnamn som kör scheduler måste ha administratörsrättigheter på Analysis Services-servern. 
 
 För åtgärder med hjälp av AzureRm-cmdletar, ditt konto eller det konto som kör scheduler måste tillhöra rollen ägare för resursen i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Resurs-hanteringsåtgärder 
+
 Modul - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|Beskrivning| 

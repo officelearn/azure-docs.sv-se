@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
-ms.openlocfilehash: db33deaa9bb0bf9a4c3f766fbae883df4075c431
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 554fd9c32c9831d45a40c62a871e3a8d5f8d7cb9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323379"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191759"
 ---
-# <a name="azure-stack-customer-journey"></a>Azure Stack kunden resa
+# <a name="azure-stack-datacenter-integration"></a>Integrering med Azure Stack-datacenter
 
 Den här artikeln beskriver kundupplevelsen för slutpunkt till slutpunkt i Azure Stack, från att köpa en integrerad lösning genom att lokala distributionen av en leverantör av lösningar. Använd informationen för att underlätta din resa och för att skapa förväntningar på det du, som Azure Stack-kund kan förvänta dig när de integrerar Azure Stack i ditt datacenter.
 

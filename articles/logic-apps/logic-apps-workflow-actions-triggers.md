@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 613423c02de7f1140674c28ee57bd471c3a52b96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158252"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190859"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -2706,7 +2706,7 @@ I den `parameters` för sina logikapp-definitioner, definiera parametrar som du 
 },
 ```
 
-Om du skapar eller med hjälp av en Distributionsmall av Azure Resource Manager, du måste också innehålla en yttre `parameters` för din malldefinitionen. Mer information om hur du skyddar parametrar finns i [säker åtkomst till dina logikappar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
+Om du skapar eller med hjälp av en Distributionsmall av Azure Resource Manager, du måste också innehålla en yttre `parameters` för din malldefinitionen. Mer information om hur du skyddar parametrar finns i [säker åtkomst till dina logikappar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
 
 ## <a name="next-steps"></a>Nästa steg
 

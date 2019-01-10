@@ -6,19 +6,19 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853640"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188461"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins kontinuerlig integrering och distribution
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudier: Distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins kontinuerlig integrering och distribution
 
 Den här självstudien distribuerar en exempelapp från GitHub till en [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) kluster genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar din app genom att skicka incheckningar till GitHub, Jenkins automatiskt körs en ny version av behållare, push-meddelanden behållaravbildningar till Azure Container Registry (ACR) och kör din app i AKS. 
 
-I de här självstudierna ska du utföra dessa uppgifter:
+I den här självstudien får du utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Distribuera en exempelapp för Azure voting till ett AKS-kluster.
@@ -29,7 +29,7 @@ I de här självstudierna ska du utföra dessa uppgifter:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här kursen behöver du följande objekt:
+För att slutföra den här självstudien behöver du följande objekt:
 
 - Grundläggande förståelse för Kubernetes, Git, CI/CD och container-avbildningar
 
@@ -37,7 +37,7 @@ Den här kursen behöver du följande objekt:
 
 - En [Azure Container Registry (ACR) registret][acr-quickstart], namnet på ACR-inloggningsservern och AKS-kluster som har konfigurerats att [autentisera med ACR-registret][acr-authentication]
 
-- Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+- Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 - [Docker installerat] [ docker-install] i utvecklingssystemet
 
@@ -229,11 +229,6 @@ Startsidan för din Jenkins-portalen, väljer du **nytt objekt** på vänster si
 1. Ange *azure-vote* som jobbnamn. Välj **Freestyle-projekt**och välj sedan **OK**
 1. I avsnittet **Allmänt** väljer du **GitHub-projekt** och anger URL:en till din förgrenade lagringsplats, som *https://github.com/\<your-github-account\>/azure-voting-app-redis*
 1. I avsnittet **Källkodshantering** väljer du **Git** och anger *.git*-URL:en till din förgrenade lagringsplats, som *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
-    - Autentiseringsuppgifterna, klickar du på och **Lägg till** > **Jenkins**
-    - Under **typ**väljer **hemliga text** och ange din [personlig åtkomsttoken för GitHub] [ git-access-token] som hemligheten.
-    - Välj **Lägg till** när du är klar.
-
-    ![Autentiseringsuppgifter för GitHub](media/aks-jenkins/github-creds.png)
 
 1. Under den **Build-utlösare** väljer **GitHub hook trigger för GITscm-avsökning**
 1. Under **kompileringsmiljö**väljer **använda hemliga texter eller filer**

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c19b43f652b490ceb86606633f543f4e455b6116
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141483"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189311"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Designen av ett system för innehållsskydd med åtkomstkontroll med Azure Media Services
 
@@ -60,7 +60,7 @@ I följande tabell sammanfattas de interna plattform/internt app och webbläsare
 | **Klientplattform** | **Inbyggt DRM-stöd** | **Browser-appen** | **Strömningsformat** |
 | --- | --- | --- | --- |
 | **Smart TV, operatorn digitalboxar, OTT digitalboxar** |PlayReady främst och/eller Widevine och/eller andra |Linux, Opera, WebKit, andra |Olika format |
-| **Windows 10-enheter (Windows-dator, Windows-surfplattor, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universell Windows-plattform |STRECK (för HLS eller PlayReady stöds inte)<br/><br/>DASH, Smooth Streaming (HLS, PlayReady inte stöds) |
+| **Windows 10-enheter (Windows-dator, Windows-surfplattor, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Universell Windows-plattform |STRECK (för HLS eller PlayReady stöds inte)<br/><br/>DASH, Smooth Streaming (HLS, PlayReady inte stöds) |
 | **Android-enheter (telefon, surfplatta, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X-klienter och Apple TV** |FairPlay |Safari 8 +/ EME |HLS |
 
@@ -130,11 +130,11 @@ Varför är detta viktigt?
 
 Om du använder ett offentligt moln för licensleverans har permanent eller ickebeständig licenser en direkt inverkan på licenskostnaden för leverans. Följande två olika design-fall fungerar för att illustrera:
 
-* Månatlig prenumeration: använda en beständig licens och en 1-till-många innehåll nyckeln till tillgången mappning. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
+* Månatlig prenumeration: Använda en beständig licens och en 1-till-många innehåll nyckeln till tillgången mappning. Vi kan till exempel använda en enda innehållsnyckel för kryptering för alla barnens filmer. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = 1
 
-* Månatlig prenumeration: använda en ickebeständig licens och 1-till-1-mappning mellan innehållsnyckeln och tillgången. I det här fallet:
+* Månatlig prenumeration: Använd en ickebeständig licens och 1-till-1-mappning mellan innehållsnyckeln och tillgången. I det här fallet:
 
     Totalt antal licenser som krävs för alla barn filmer/enhet = [antal filmer sett] x [antalet sessioner]
 
@@ -256,7 +256,7 @@ Använd följande felsökningsinformation om du behöver hjälp med problem med 
 
 * Bevilja gruppmedlemskap anspråk privilegier. Kontrollera att följande finns i Azure AD program-manifestfilen: 
 
-    ”groupMembershipClaims”: ”alla” (standardvärdet är null)
+    ”groupMembershipClaims”: ”Alla” (standardvärdet är null)
 
 * Ange rätt TokenType när du skapar begränsning av krav.
 
@@ -335,7 +335,7 @@ För att registrera och konfigurera pekaren-app i Azure AD, gör du följande:
 
 2. Lägg till en ny nyckel för resursappen.
 
-3. Uppdatera manifestfilen app så att groupMembershipClaims-egenskap har värdet ”groupMembershipClaims”: ”alla”.
+3. Uppdatera manifestfilen app så att groupMembershipClaims-egenskap har värdet ”groupMembershipClaims”: ”Alla”.
 
 4. I Azure AD-app som pekar till webbappen player, i avsnittet **behörigheter för andra program**, Lägg till resurs-app som har lagts till i steg 1. Under **delegerad behörighet**väljer **åtkomst [resource_name]**. Det här alternativet ger web appen behörighet att skapa åtkomst-token som har åtkomst till resursappen. Gör detta för både lokala och distribuerade versionen av appen om du utvecklar med Visual Studio och Azure-webbappen.
 
@@ -367,8 +367,8 @@ När du använder en anpassad STS måste två ändras:
 
 Det finns två typer av säkerhetsnycklar:
 
-* Symmetrisk nyckel: samma nyckel används för att generera och verifiera en JWT.
-* Asymmetrisk nyckel: ett offentligt / privat nyckelpar i en X509 används certifikat med en privat nyckel för att kryptera/Generera en JWT och med den offentliga nyckeln för att verifiera token.
+* Symmetrisk nyckel: Samma nyckel används för att skapa och verifiera en JWT.
+* Asymmetrisk nyckel: Ett offentligt / privat nyckelpar i en X509 används certifikat med en privat nyckel för att kryptera/Generera en JWT och med den offentliga nyckeln för att verifiera token.
 
 > [!NOTE]
 > Om du använder .NET Framework / C# som din utvecklingsplattform, X509 certifikatet som används för en asymmetrisk säkerhetsnyckel måste ha en nyckellängd på minst 2 048. Det här är ett krav för System.IdentityModel.Tokens.X509AsymmetricSecurityKey i .NET Framework-klassen. Annars genereras följande undantag:
@@ -407,15 +407,15 @@ Du kan kontakta någon av författarna till ett konto eller har lagts till för 
 
 De följande skärmbilderna visar olika inloggningssidorna används av olika domänkonton:
 
-**Anpassad Azure AD-klient domänkonto**: den anpassade inloggningssidan av anpassade Azure AD-klient domän.
+**Anpassat Azure AD-klient domänkonto**: Den anpassade inloggningssidan av anpassade Azure AD-klient domän.
 
 ![Domänkonto för anpassat Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**Microsoft domänkonto med smartkort**: inloggningssidan genom Microsoft företagets IT med tvåfaktorsautentisering.
+**Microsoft domänkonto med smartkort**: Sidan logga in genom Microsoft företagets IT med tvåfaktorsautentisering.
 
 ![Domänkonto för anpassat Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft-konto**: inloggningssidan för Microsoft-konto för konsumenter.
+**Microsoft-konto**: På inloggningssidan för Microsoft-konto för konsumenter.
 
 ![Domänkonto för anpassat Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 

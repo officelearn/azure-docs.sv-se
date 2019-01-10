@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: willzhan;juliako
-ms.openlocfilehash: 84e2eb6a16ce9ee4889eacbf394754c5c2544f7a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9026cab0651cd5f8433f9a8a7db0366a6ab13464
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245315"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190263"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Hybridutformning av DRM-subsystem(s)
 
@@ -102,7 +102,7 @@ Baserat på förklaringar i föregående avsnitt, följande fem hybridscenarier 
 |AMS|Från tredje part|Utanför|Nej|Nej|Exempel 4|
 |Från tredje part|Från tredje part|AMS|Ja|Nej|    
 
-I exemplen fungerar PlayReady-skydd för både DASH och smooth streaming. Video adresserna nedan är smooth streaming URL: er. För att få de motsvarande DASH-URL: er kan bara lägga till ”(format = mpd-time-csf)”. Du kan använda den [azure media testa player](https://aka.ms/amtest) att testa i en webbläsare. Det kan du konfigurera vilka strömningsprotokoll som ska användas under vilken teknisk. Stöd för PlayReady via EME IE11 och MS Edge på Windows 10. Mer information finns i [information om testverktyget](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+I exemplen fungerar PlayReady-skydd för både DASH och smooth streaming. Video adresserna nedan är smooth streaming URL: er. För att få de motsvarande DASH-URL: er kan bara lägga till ”(format = mpd-time-csf)”. Du kan använda den [azure media testa player](https://aka.ms/amtest) att testa i en webbläsare. Det kan du konfigurera vilka strömningsprotokoll som ska användas under vilken teknisk. Stöd för PlayReady via EME IE11 och Microsoft Edge i Windows 10. Mer information finns i [information om testverktyget](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### <a name="sample-1"></a>Exempel 1
 

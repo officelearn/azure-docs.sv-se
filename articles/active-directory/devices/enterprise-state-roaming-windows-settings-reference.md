@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098233"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189294"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 Följande är en fullständig lista över alla inställningar som ska flyttade eller säkerhetskopierats i Windows 10. 
@@ -48,11 +48,11 @@ Följande inställningsgrupper med är tillgängliga för slutanvändarna att ak
 * Språkinställningar: stavning ordboken, systeminställningar för språk 
 * Hjälpmedel: Skärmläsaren, Skärmtangentbordet, Skärmförstoraren 
 * Andra inställningar för Windows: se information om Windows-inställningar
-* Edge-webbläsarinställningen: Microsoft Edge-Favoriter, läsning lista och andra inställningar
+* Inställningen för Microsoft Edge-webbläsaren: Microsoft Edge-Favoriter, läsning lista och andra inställningar
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-Edge webbläsare inställningen (Favoriter, läsa listan) Gruppsynkronisering kan aktiveras eller inaktiveras av slutanvändare via Microsoft Edge-webbläsaren menyalternativet för inställningar.
+Inställningen för Microsoft Edge-webbläsare (Favoriter, läsa listan) Gruppsynkronisering kan aktiveras eller inaktiveras av slutanvändare via Microsoft Edge-webbläsaren menyalternativet för inställningar.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -74,8 +74,8 @@ Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 | **AppData**: enskilda appar kan synkronisera data |synkronisering av säkerhetskopiering |synkronisering av säkerhetskopiering |Intern |
 | **Applista**: listan över installerade appar |X |säkerhetskopiering |Annat |
 | **Bluetooth**: alla Bluetooth-inställningar |X |X | |
-| **Kommandotolk**: kommandotolk ”inställningar” inställningar |Synkronisering |X |Intern |
-| **Autentiseringsuppgifter**: autentiseringsuppgifter för säker plats för autentiseringsuppgifter |Synkronisering |Synkronisering |lösenord |
+| **Kommandotolk**: Kommandot prompt ”standard”-inställningar |Synkronisering |X |Intern |
+| **autentiseringsuppgifter**: Säker plats för autentiseringsuppgifter |Synkronisering |Synkronisering |lösenord |
 | **Datum, tid och Region**: automatiska tiden (Internet tidssynkronisering) |Synkronisering |Synkronisering |language |
 | **Datum, tid och Region**: 24-timmarsformat |Synkronisering |X |language |
 | **Datum, tid och Region**: datum och tid |Synkronisering |X |language |
@@ -93,23 +93,23 @@ Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 | **Skrivbordsanpassning**: Aktivitetsfältet inställningar (position, Dölj automatiskt osv.) |Synkronisering |X |Tema |
 | **Skrivbordsanpassning**: starta skärmlayout |X |säkerhetskopiering | |
 | **Enheter**: delade skrivare som du har anslutit till |X |X |övrigt |
-| **Edge-webbläsaren**: läslista |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: Favoriter |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: de främsta platser <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: har angett URL: er <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: inställningar för Favoriter <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: Visa startknappen <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: blockera popup-fönster <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: Fråga mig vad som ska göras med varje version <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: erbjuder att spara lösenord <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: skicka do not track-begäranden <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: spara formulärposter <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: visa förslag för sökning och när jag skriver <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: inställningar för cookies <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: Låt platser spara skyddade media licenser på min enhet <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Edge-webbläsaren**: Skärmläsaren inställningen <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
-| **Högkontrast**: aktivera eller inaktivera |Synkronisering |X |hjälpmedel |
-| **Högkontrast**: Temainställningar |Synkronisering |X |hjälpmedel |
+| **Microsoft Edge-webbläsaren**: läslista |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: Favoriter |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: de främsta platser <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: har angett URL: er <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: inställningar för Favoriter <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: Visa startknappen <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: blockera popup-fönster <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: Fråga mig vad som ska göras med varje version <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: erbjuder att spara lösenord <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: skicka do not track-begäranden <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: spara formulärposter <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: visa förslag för sökning och när jag skriver <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: inställningar för cookies <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: Låt platser spara skyddade media licenser på min enhet <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Microsoft Edge-webbläsaren**: Skärmläsaren inställningen <sup> [[1]](#footnote-1)</sup> |Synkronisering |Synkronisering |Intern |
+| **Högkontrast**: Aktivera eller inaktivera |Synkronisering |X |hjälpmedel |
+| **Högkontrast**: Temainställningar för |Synkronisering |X |hjälpmedel |
 | **Internet Explorer**: öppna flikar (URL: en och rubrik) |Synkronisering |Synkronisering |Internet Explorer |
 | **Internet Explorer**: läslista |Synkronisering |Synkronisering |Internet Explorer |
 | **Internet Explorer**: har angett URL: er |Synkronisering |Synkronisering |Internet Explorer |
@@ -122,23 +122,23 @@ Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 | **Tangentbord**: aktivera sticky Ja (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
 | **Tangentbord**: aktivera filter-nycklar (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
 | **Tangentbord**: aktivera växla nycklar (inaktiverat som standard) |Synkronisering |X |hjälpmedel |
-| **Internet Explorer**: domän språk: kinesiska (CHS) QWERTY – aktivera lokal utbildning |Synkronisering |X |Språk |
-| **Språk**: CHS QWERTY - aktivera dynamisk kandidat rangordning |Synkronisering |X |Språk |
-| **Språk**: QWERTY CHS - char-set kinesiska (förenklad) |Synkronisering |X |Språk |
-| **Språk**: QWERTY CHS - char-set traditionell kinesiska |Synkronisering |X |Språk |
+| **Internet Explorer**: domän språk: Kinesiska (CHS) QWERTY – aktivera lokal utbildning |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY – aktivera dynamisk kandidat rangordning |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY - teckenuppsättningen kinesiska (förenklad) |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY - teckenuppsättningen traditionell kinesiska |Synkronisering |X |Språk |
 | **Språk**: CHS QWERTY - fuzzy pinyin |Synkronisering |säkerhetskopiering |Språk |
 | **Språk**: CHS QWERTY - fuzzy par |Synkronisering |säkerhetskopiering |Språk |
-| **Språk**: CHS QWERTY - fullständig pinyin |Synkronisering |X |Språk |
-| **Språk**: CHS QWERTY - dubbla pinyin |Synkronisering |X |Språk |
-| **Språk**: CHS QWERTY - läsning Autokorrigering |Synkronisering |X |Språk |
-| **Språk**: CHS QWERTY - C/E-växel nyckel, SKIFT |Synkronisering |X |Språk |
-| **Språk**: CHS QWERTY - C/E-växel nyckel, Ctrl |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY – fullständig pinyin |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY – dubbla pinyin |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY – läser Autokorrigering |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY – C/E-växel nyckel, SKIFT |Synkronisering |X |Språk |
+| **Språk**: CHS QWERTY – C/E växla nyckel, Ctrl |Synkronisering |X |Språk |
 | **Språk**: CHS WUBI - indata läge för enstaka tecken |Synkronisering |X |Språk |
-| **Språk**: CHS WUBI – visar de återstående kodning av kandidaten |Synkronisering |X |Språk |
-| **Språk**: CHS WUBI - Avge ljudsignal när 4-kodning är ogiltig |Synkronisering |X |Språk |
+| **Språk**: CHS WUBI – visa de återstående kodning av kandidaten |Synkronisering |X |Språk |
+| **Språk**: CHS WUBI - signal vid 4-kodning är ogiltig |Synkronisering |X |Språk |
 | **Språk**: CHT Bopomofo - inkludera CJK Ext-A |Synkronisering |X |Språk |
-| **Språk**: japanska IME - förutsägande skriva och anpassade ord |Synkronisering |Synkronisering |Språk |
-| **Språk**: koreanska (KOR) IME |X |X |Språk |
+| **Språk**: Japanska IME - förutsägande skriva och anpassade ord |Synkronisering |Synkronisering |Språk |
+| **Språk**: Koreanska (KOR) IME |X |X |Språk |
 | **Språk**: handskriftsigenkänning |X |X |Språk |
 | **Språk**: språk profil |Synkronisering |säkerhetskopiering |Språk |
 | **Språk**: Spell check - Autokorrigering och markera felstavningar |Synkronisering |säkerhetskopiering |Språk |

@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429727"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191844"
 ---
 # <a name="create-partitions"></a>Skapa partitioner
 
 Under den här lektionen skapar du partitioner för att dela upp tabellen FactInternetSales i mindre, logiska delar som kan bearbetas (uppdateras) oberoende av andra partitioner. Som standard har alla tabeller som du tar med i din modell en partition som innehåller alla kolumner och rader i tabellen. I tabellen FactInternetSales vill vi dela upp data efter år, en partition för var och en av tabellens fem år. Varje partition kan sedan bearbetas separat. Läs mer i [Partitioner](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular). 
   
-Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 9: Skapa hierarkier](../tutorials/aas-lesson-9-create-hierarchies.md).  
@@ -40,7 +40,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  I dialogrutan Filtrera rader i **Show rows where: OrderDate** (Visa rader där: OrderDate) lämnar du **is after or equal to** (infaller efter eller är lika med) som det är och anger **2010-1-1** i datafältet. Lämna operatorn **And** (Och) markerad och välj sedan **is before** (infaller innan). Ange sedan **2011-1-1** i datafältet och klicka på **OK**.
+6.  I dialogrutan Filtrera rader i **visa rader där: OrderDate**, lämna **infaller efter eller lika med**, och ange sedan följande i datumfältet **1/1/2010**. Lämna operatorn **And** (Och) markerad och välj sedan **is before** (infaller innan). Ange sedan **2011-1-1** i datafältet och klicka på **OK**.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     

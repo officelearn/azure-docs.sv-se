@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118310"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188904"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -278,7 +278,7 @@ Följ dessa steg om du vill köra kommandon manuellt:
    > [!IMPORTANT]  
    > Du måste använda AD FS MMC-snapin-modulen för att konfigurera auktoriseringsregler för utfärdande när du använder Windows Server 2012 eller 2012 R2 AD FS.
 
-4. När du använder Internet Explorer eller Edge-webbläsaren för att komma åt Azure Stack, måste du ignorera token-bindningar. Annars misslyckas försök logga in. Kör följande kommando på din AD FS-instans eller en medlem i gruppen:
+4. När du använder Internet Explorer eller Microsoft Edge-webbläsaren för att komma åt Azure Stack, måste du ignorera token-bindningar. Annars misslyckas försök logga in. Kör följande kommando på din AD FS-instans eller en medlem i gruppen:
 
    > [!note]  
    > Det här steget gäller inte när du använder Windows Server 2012 eller 2012 R2 AD FS. Det är säkert att hoppa över det här kommandot och fortsätta med integreringen.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: ac07a0aa9c324c7e44d68ea2674d0fa2af5dbba5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d2670d8f018fc26b7017fba40b5aff4310900dab
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357683"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188699"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Inte att logga in till åtkomstpanelens webbplats
 
@@ -64,7 +64,7 @@ För lösenordsbaserad SSO kan slutanvändarens webbläsare vara:
 
 -   Internet Explorer 8, 9, 10, 11 – på Windows 7 eller senare
 
--   Edge på Windows 10 Anniversary Edition eller senare 
+-   Microsoft Edge i Windows 10 Anniversary Edition eller senare 
 
 -   Chrome--På Windows 7 eller senare, och i Mac OS X eller senare
 

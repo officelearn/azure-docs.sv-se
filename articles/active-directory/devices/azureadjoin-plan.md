@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b891995fab9e7def4b9b72f8bd8630d6b7e11d27
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023870"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189521"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -167,7 +167,7 @@ I följande avsnitt listas överväganden för olika typer av program och resurs
 
 ### <a name="cloud-based-applications"></a>Molnbaserade program
 
-Om ett program har lagts till i appgalleriet för Azure AD, får användare enkel inloggning via Azure AD-anslutna enheter. Det krävs ingen ytterligare konfiguration. Användare få SSO på både, Edge- och Chrome webbläsare. För Chrome, måste du distribuera den [Windows 10-konton tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Om ett program har lagts till i appgalleriet för Azure AD, får användare enkel inloggning via Azure AD-anslutna enheter. Det krävs ingen ytterligare konfiguration. Användare får enkel inloggning på både, Microsoft Edge och Chrome webbläsare. För Chrome, måste du distribuera den [Windows 10-konton tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Alla Win32-program som:
 

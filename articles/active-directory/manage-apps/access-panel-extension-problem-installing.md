@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: aa0602ec0ecb97e9174fe6ef552b88fc30900d09
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 46f1d49e210a483b8e7645d7eba84ad21ed477da
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357483"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190533"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installera programåtkomstpanelens webbläsartillägg
 
@@ -36,7 +36,7 @@ Minimum åtkomstpanelen kräver en webbläsare som stöder JavaScript och har ak
 
 Du kan använda någon av följande webbläsare för lösenordsbaserad enkel inloggning:
 
-- **Edge**: på Windows 10 Anniversary Edition eller senare. 
+- **Microsoft Edge**: på Windows 10 Anniversary Edition eller senare. 
 - **Chrome**: på Windows 7 eller senare, och i Mac OS X eller senare.
 - **Firefox 26.0 eller senare**: på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
 
@@ -62,7 +62,7 @@ Om du vill installera programåtkomstpanelens webbläsartillägg, gör du följa
 Du kan också hämta tillägget för Chrome och Microsoft Edge direkt från följande platser:
 
 - [Chrome-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge-tillägget](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge-tillägget](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd den Mina appar skyddat Inloggningstillägg
 * Om du använder en Mina appar-URL än `https://myapps.microsoft.com`, konfigurera standard-URL genom att göra följande:
@@ -93,7 +93,7 @@ Du kan också hämta tillägget för Chrome och Microsoft Edge direkt från föl
     4. Nu kan du bläddra till interna företagets URL även under remote
 
 > [!NOTE]
-> Föregående alternativ är endast tillgängligt för Edge, Chrome och Firefox.
+> Föregående alternativ är endast tillgängligt för Microsoft Edge, Chrome och Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grupprincip för Internet Explorer
 
@@ -112,7 +112,7 @@ Steg för steg instruktioner om att konfigurera en Grupprincip och distribuera d
 Åtkomst till en diagnostikverktyget och information om hur du konfigurerar tillägget för Internet Explorer, se [Felsök access panel-tillägg för Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer är på begränsat stöd och inte längre ta emot nya programuppdateringar. Edge är den rekommendera webbläsaren.
+> Internet Explorer är på begränsat stöd och inte längre ta emot nya programuppdateringar. Microsoft Edge är den rekommendera webbläsaren.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Om föregående steg inte löser problemet
 

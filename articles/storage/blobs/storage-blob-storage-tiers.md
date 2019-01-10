@@ -5,17 +5,17 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014505"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191674"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och Arkivlagringsnivå
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring
 
 ## <a name="overview"></a>Översikt
 
@@ -62,8 +62,8 @@ Om du vill använda den här nivån, etablera ett nytt Block Blob storage-konto 
 I förhandsversionen Premium åtkomstnivå:
 
 - Är tillgängligt som lokalt redundant lagring (LRS)
-- Är endast tillgängligt i följande regioner: USA, Öst 2, centrala USA och västra USA
-- Stöder inte automatisk lagringsnivåer och hanteringen av datalivscykeln
+- Är bara tillgängligt i följande regioner: USA, Öst 2, centrala USA och västra USA
+- Stöder inte objekt på lagringsnivåer eller automatiserade lagringsnivåer med hanteringen av datalivscykeln
 
 Läs hur du registrera dig för förhandsversionen av Premium åtkomst nivå i [introduktion till Azure Premium-Bloblagring](https://aka.ms/premiumblob).
 
@@ -86,7 +86,8 @@ Lågfrekvent lagring har lägre kostnader för lagring och högre åtkomstkostna
 
 Arkivlagring har lägst lagringskostnad och högre kostnader för datahämtning jämfört med frekvent och lågfrekvent lagring. Den här nivån är avsedd för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar.
 
-Även om en blob finns i arkivlagring, den är offline och kan inte läsas (förutom metadata, som är online och tillgänglig), kopieras, skrivas över eller ändras. Inte heller kan du ta ögonblicksbilder av en blob i arkivlagring. Du kan emellertid använda befintliga åtgärder för att ta bort, lista, hämta blob-egenskaper/-metadata eller ändra nivå för din blob.
+När en blob finns i arkivlagring, blob-data är offline och inte kan läsas, kopieras, skrivas över eller ändrade. Inte heller kan du ta ögonblicksbilder av en blob i arkivlagring. Dock fortfarande blob-metadata är online och tillgänglig, där du kan visa blob och dess egenskaper. För blob-objekt i arkivet är de enda giltiga åtgärderna GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier och DeleteBlob. 
+
 
 Exempelscenarier för arkivlagringsnivå är:
 
@@ -110,20 +111,27 @@ Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob 
 > [!NOTE]
 > Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan även ändra nivå för en blockblob som har ögonblicksbilder.
 
-Data som lagras i Premium-åtkomstnivå kan inte nivåindelas för frekvent, lågfrekvent eller Arkiv med [ange Blobnivå](/rest/api/storageservices/set-blob-tier) eller med hjälp av Livscykelhantering för Azure Blob Storage. För att flytta data, måste du synkront kopiera blobar från Premium-åtkomst till frekvent med hjälp av den [placera Block från URL: en API](/rest/api/storageservices/put-block-from-url) eller en version av AzCopy som har stöd för detta API. Den *placera Block från URL: en* API synkront kopierar data på servern, vilket innebär att anropet har slutförts bara en gång alla data flyttas från den ursprungliga serverplatsen till målplatsen.
+> [!NOTE]
+> Data som lagras i åtkomstnivån Premium för närvarande kan inte nivåindelas för frekvent, lågfrekvent eller Arkiv med [ange Blobnivå](/rest/api/storageservices/set-blob-tier) eller med hjälp av Livscykelhantering för Azure Blob Storage. För att flytta data, måste du synkront kopiera blobar från Premium-åtkomst till frekvent med hjälp av den [placera Block från URL: en API](/rest/api/storageservices/put-block-from-url) eller en version av AzCopy som har stöd för detta API. Den *placera Block från URL: en* API synkront kopierar data på servern, vilket innebär att anropet har slutförts bara en gång alla data flyttas från den ursprungliga serverplatsen till målplatsen.
 
 ### <a name="blob-lifecycle-management"></a>Livscykelhantering för BLOB
 Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](storage-lifecycle-management-concepts.md) vill veta mer.  
 
 ### <a name="blob-level-tiering-billing"></a>Fakturering för blobnivåindelning
 
-När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, frekvent -> Arkiv eller lågfrekvent -> Arkiv) faktureras åtgärden som en skrivning till målnivån där Skrivåtgärden (per 10 000) och kostnaderna för dataskrivning (per GB) för målnivån tillämpas. Om en blob flyttas till en varmare nivå (Arkiv -> lågfrekvent, Arkiv -> frekvent eller lågfrekvent -> frekvent) faktureras åtgärden som en läsning från källnivån där Läsåtgärden (per 10 000) och kostnaderna för datahämtning (per GB) för källnivån tillämpas.
+När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, frekvent -> Arkiv eller lågfrekvent -> Arkiv) faktureras åtgärden som en skrivning till målnivån där Skrivåtgärden (per 10 000) och kostnaderna för dataskrivning (per GB) för målnivån tillämpas. När en blob flyttas till en varmare nivå (Arkiv -> lågfrekvent, Arkiv -> frekvent eller lågfrekvent -> frekvent) faktureras åtgärden som en läsning från källnivån där Läsåtgärden (per 10 000) och kostnaderna för datahämtning (per GB) för källnivån tillämpas.
+
+| | **Skriva kostnad** | **Läsa kostnad** 
+| ---- | ----- | ----- |
+| **SetBlobTier riktning** | Frekvent -> lågfrekvent, frekvent -> Arkiv, lågfrekvent -> Arkiv | Arkiv -> lågfrekvent, Arkiv -> frekvent, lågfrekvent -> frekvent
 
 Om du ändrar kontonivån från frekvent till lågfrekvent debiteras du för skrivåtgärder (per 10 000) för alla blobbar utan en angiven lagringsnivå i GPv2-konton. Det finns ingen kostnad för den här ändringen i Blob storage-konton. Du kommer att debiteras för både läsåtgärder (per 10 000) och datahämtning (per GB) om du växlar ditt Blob storage eller GPv2-konto från lågfrekvent till frekvent. Avgifter för tidig borttagning för alla blobbar som flyttas från lågfrekvent nivå eller arkivnivå nivå kan också tillkomma.
 
 ### <a name="cool-and-archive-early-deletion"></a>Tidig borttagning i lågfrekvent lagring och i arkivlagring
 
 Utöver de per GB per månad kan kostnader en blob flyttas till lågfrekvent lagring (endast GPv2-konton) är föremål för en tidig borttagningsperiod på 30 dagar och en blob flyttas till arkivlagring kan en tidig borttagningsperiod på 180 dagar. Den här kostnaden beräknas proportionellt. Exempel: om en blob flyttas till arkivet och sedan tas bort eller flyttas till frekvent nivå efter 45 dagar debiteras du en tidig borttagningsavgift som motsvarar 135 (180 minus 45) dagars blobben Arkiv.
+
+Du kan beräkna tidig borttagning med hjälp av blob-egenskapen **Skapandetid**, om det har ingen åtkomst nivåändringar. Annars kan du använda när åtkomstnivån senast ändrades till lågfrekvent eller Arkiv genom att visa blob-egenskapen: **åtkomst-nivå--tid för**. Mer information om blobegenskaper finns i [hämta Blobegenskaper](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparison-of-the-storage-tiers"></a>Jämförelse av lagringsnivåerna
 
@@ -140,7 +148,7 @@ Följande tabell visar en jämförelse av frekvent, lågfrekvent och Arkivlagrin
 | **Mål för skalbarhet och prestanda** | Samma som allmänna lagringskonton | Samma som allmänna lagringskonton | Samma som allmänna lagringskonton |
 
 > [!NOTE]
-> Blob Storage-konton har samma mål för prestanda och skalbarhet som allmänna lagringskonton. Mer information finns i [Skalbarhets- och prestandamål i Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blob Storage-konton har samma mål för prestanda och skalbarhet som allmänna lagringskonton. Mer information finns i [skalbarhet för lagring av Azure- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="quickstart-scenarios"></a>Snabbstartsscenarier
 
@@ -157,7 +165,7 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 3. Klicka på **Konfiguration** på bladet Inställningar för att visa och/eller ändra kontokonfigurationen.
 
-4. Välj rätt lagringsnivå för dina behov: Ange **Åtkomstnivå** till antingen **Cool** (lågfrekvent) eller **Hot** (frekvent).
+4. Välj rätt lagringsnivå för dina behov: Ange den **åtkomstnivå** antingen **lågfrekvent** eller **frekvent**.
 
 5. Klicka på Spara överst på bladet.
 
@@ -175,12 +183,12 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 Alla lagringskonton används en prissättningsmodell för blobblagring baserat på vilken nivå av varje blob. Tänk på följande för debitering:
 
-* **Lagringskostnader**: Utöver mängden data som lagras varierar lagringskostnaden beroende på lagringsnivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
-* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data i Coolbar och arkivlagringsnivån debiteras du en per-åtkomst gigabyte för läsningar.
-* **Transaktionskostnader**: Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
-* **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
-* **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
-* **Ändringar av lagringsnivån**: byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data i lagringskontot. Dock utgår byter lagringskontonivå från frekvent till lågfrekvent en avgift motsvarande Skrivningen av alla data till den lågfrekventa nivån (endast GPv2-konton).
+* **Lagringskostnader**: Utöver mängden data som lagras, kostnaden för att lagra data som varierar beroende på lagringsnivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
+* **Kostnader för dataåtkomst**: Öka kostnaderna för dataåtkomst när nivån blir mer lågfrekvent. För data i Coolbar och arkivlagringsnivån debiteras du en per-åtkomst gigabyte för läsningar.
+* **Transaktionskostnader**: Det finns en kostnad för alla nivåer per transaktion som ökar när nivån blir mer lågfrekvent.
+* **Dataöverföringskostnader för GEO-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
+* **Kostnaderna för utgående dataöverföring**: Utgående dataöverföringar (data som överförs från en Azure-region) debiteras för bandbreddsanvändning regelbundet per gigabyte, konsekvent med allmänna lagringskonton.
+* **Ändringar av lagringsnivån**: Om du byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data i lagringskontot. Dock utgår byter lagringskontonivå från frekvent till lågfrekvent en avgift motsvarande Skrivningen av alla data till den lågfrekventa nivån (endast GPv2-konton).
 
 > [!NOTE]
 > Mer information om priser för Blob storage-konton finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) sidan. Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).

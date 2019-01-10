@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 1a0bf0e6057f26fd8d38dadde5689e41b4f1e165
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017284"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191793"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -161,7 +161,7 @@ Det finns två sätt att hantera hemligheterna:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörigheter till Pipelines med Azure-agenten
-Azure Key Vault-uppgiften misslyckas för första gången med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörighet till Pipelines med Azure-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
+Azure Key Vault-aktiviteten misslyckas fIntegration Runtimest tid med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörighet till Pipelines med Azure-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
 
 ### <a name="update-active-triggers"></a>Uppdatera active utlösare
 Distributionen kan misslyckas om du försöker uppdatera active utlösare. För att uppdatera active utlösare, måste du manuellt stoppa dem och starta dem efter distributionen. Du kan lägga till en Azure Powershell-uppgift för detta ändamål som visas i följande exempel:
@@ -183,7 +183,7 @@ Distributionen kan misslyckas om du försöker uppdatera active utlösare. För 
 Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDataFactoryV2Trigger` funktionen) starta om utlösarna efter distributionen.
 
 > [!IMPORTANT]
-> Integration Runtime-typen i olika miljöer som i kontinuerlig integrering och distributionsscenarier, måste vara samma. Exempel: Om du har en *Egenvärdbaserade* Integration Runtime (IR) i utvecklingsmiljön, samma IR måste vara av typen *Egenvärdbaserade* i andra miljöer, till exempel testning och produktion också. På samma sätt, om du delar integreringskörningar i flera steg kan du behöva konfigurera IRs som *länkade Egenvärdbaserade* i alla miljöer som utveckling, testning och produktion.
+> Integration Runtime-typen i olika miljöer som i kontinuerlig integrering och distributionsscenarier, måste vara samma. Exempel: Om du har en *Egenvärdbaserade* Integration Runtime (IR) i utvecklingsmiljön, samma IR måste vara av typen *Egenvärdbaserade* i andra miljöer, till exempel testning och produktion också. På samma sätt, om du delar integreringskörningar i flera steg kan du behöva konfigurera Integreringskörningar som *länkade Egenvärdbaserade* i alla miljöer som utveckling, testning och produktion.
 
 ## <a name="sample-deployment-template"></a>Exempelmall för distribution
 
@@ -853,7 +853,7 @@ Du kan definiera anpassade parametrar för Resource Manager-mallen. Du behöver 
 
 Här följer några riktlinjer för att använda när du redigerar filen anpassade parametrar. Om du vill se exempel på den här syntaxen finns i följande avsnitt [anpassade parametrar exempelfilen](#sample).
 
-1. När du anger matris i definitionsfilen anger du att egenskapen matchande i mallen är en matris. Data Factory går igenom alla objekt i matrisen med definition som anges i det första objektet i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn på parametern för varje iteration.
+1. När du anger matris i definitionsfilen anger du att egenskapen matchande i mallen är en matris. Data Factory går igenom alla objekt i matrisen med definition som anges i fIntegration Runtimest objekt i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn på parametern för varje iteration.
 
     ```json
     ...
@@ -988,3 +988,23 @@ Länkade Resource Manager-mallar har vanligtvis en Huvudmall och en uppsättning
 Kom ihåg att lägga till Data Factory-skript i CI/CD-pipeline före och efter distributionen uppgiften.
 
 Om du inte har konfigurerat Git länkade mallar är tillgängliga via den **exportera ARM-mallen** gest.
+
+## <a name="best-practices-for-cicd"></a>Metodtips för CI/CD
+
+Om du använder Git-integrering med din data factory och du har en CI/CD-pipeline som flyttar dina ändringar från utveckling till testmiljön och sedan till produktion, rekommenderar vi följande metoder:
+
+-   **Git-integrering**. Du behöver bara konfigurera din data factory för utveckling med Git-integrering. Ändringar av Test- och produktionsmiljöer distribueras via CI/CD och de behöver inte ha Git-integrering.
+
+-   **Data Factory CI/CD skriptet**. Innan steget för Resource Manager-distribution i CI/CD måste du ta hand om saker som att stoppa utlösare och annan typ av factory rensning. Vi rekommenderar att du använder [det här skriptet](#sample-script-to-stop-and-restart-triggers-and-clean-up) som den tar hand om alla dessa saker. Kör skriptet en gång innan distributionen, och en gång efter, med korrekta flaggor.
+
+-   **Integreringskörningar och dela**. Integration Runtime är en av infrastrukturen komponenterna i din datafabrik som förändras mindre ofta och som liknar varandra för alla steg i din CI/CD. Därför kan Data Factory förväntar sig att du har samma namn och samma typ av Integreringskörningar i alla led i CI/CD. Om du vill dela Integreringskörningar i alla led - exempelvis den lokala Integration Runtime – är ett sätt att dela som som är värd för lokal IR Ternär fabrik, bara för som innehåller delade Integreringskörningar. Du kan sedan använda dem i Dev/Test/Prod som en länkad IR-typ.
+
+-   **Key Vault**. När du använder den rekommenderade Azure Key Vault baserat länkade tjänster, kan du dra dess fördelar en nivå ytterligare genom att potentiellt hålla separat nyckelvalv för Dev/Test/Prod. Du kan också konfigurera separata behörighetsnivåer för respektive scenario. Du kanske inte vill att gruppmedlemmarna har behörigheter till produktion hemligheter. Vi rekommenderar också att du kan hålla samma hemliga namn i alla faser. Om du behåller samma namn som du inte behöver ändra dina Resource Manager-mallar i CI/CD, eftersom det enda som behöver ändras är namn på key vault som är en av Resource Manager-mallens parametrar.
+
+## <a name="unsupported-features"></a>Funktioner som inte stöds
+
+-   Du kan inte publicera enskilda resurser, eftersom data factory-entiteter som är beroende av varandra. Till exempel utlösare är beroende av pipelines, pipelines beror på datauppsättningar och andra rörledningar osv. Det är svårt att spåra föränderliga beroenden. Om det var möjligt att välja resurserna du publicerar manuellt, skulle det vara möjligt att välja endast en delmängd av hela uppsättningen ändringar, vilket skulle leda till oväntade resultat för saker efter publicering.
+
+-   Du kan inte publicera från privata grenar.
+
+-   Du kan inte vara värd för projekt på Bitbucket.

@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971826"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187425"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
 
-HTTP-huvuden kan klienten och servern att skicka ytterligare information med begäran eller svaret. Skriva om dessa HTTP-huvuden hjälper till att du utföra flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade rubrik fält som HSTS / X XSS skydd eller ta bort svar huvudfält, som kan röja känslig information som backend-servernamn.
+Med HTTP-huvuden kan klienten och servern skicka ytterligare information med begäran eller svaret. Skriva om dessa HTTP-huvuden hjälper till att du utföra flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade rubrik fält som HSTS / X XSS skydd eller ta bort svar huvudfält, som kan röja känslig information som backend-servernamn.
 
-Application Gateway stöder nu möjligheten att skriva om rubrikerna för inkommande HTTP-begäranden samt de utgående HTTP-svar. Du kommer att kunna lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden medan begäran/svar-paketen flytta mellan klienten och backend-adresspooler. Du kan skriva om båda standard (definieras i [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) samt inte är standard huvudfält.
+Application Gateway stöder nu möjligheten att skriva om rubrikerna för inkommande HTTP-begäran samt utgående HTTP-svar. Du kommer att kunna lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden medan begäran/svar-paketen flytta mellan klienten och backend-adresspooler. Du kan skriva om båda standard som inte är standard huvudfält.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Du kan skriva om värdet i rubriker för att:
 
 - En kombination av ovanstående.
 
-Servervariabler som nämns ovan är de variabler som ger information om servern, anslutningen med klienten och den aktuella begäran på anslutningen. Den här funktionen stöder skriva om rubriker till följande servervariabler:
+## <a name="server-variables"></a>Servervariabler
+
+Servervariabler lagra användbar information på en webbserver. Dessa variabler innehåller information om servern, anslutningen med klienten och den aktuella begäran i anslutningen, till exempel klientens IP-adress eller web webbläsartyp. De ändras dynamiskt, t.ex. när en ny sida läses eller en form publiceras.  Med dessa variabler-användare kan ange begärandehuvuden samt svarshuvuden. 
+
+Den här funktionen stöder skriva om rubriker till följande servervariabler:
 
 | Stöds servervariabler | Beskrivning                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ Servervariabler som nämns ovan är de variabler som ger information om servern,
 | HTTP_STATUS                | Sessionsstatus, t.ex.: 200, 400, 403 osv.                       |
 | http_version               | begäran-protokollet, vanligtvis ”HTTP/1.0”, ”HTTP/1.1” eller ”HTTP/2.0” |
 | QUERY_STRING               | listan över variabeln / värde-par som följer den ””? i den begärda URL: en. |
-| received_byte              | begärandelängd (inklusive raden för kravet, rubrik och begärandetexten) |
+| received_bytes             | begärandelängd (inklusive raden för kravet, rubrik och begärandetexten) |
 | request_query              | argument i raden för kravet                                |
 | request_scheme             | begäran-schema, ”http” eller ”https”                            |
 | request_uri                | fullständiga ursprungliga begärande-URI (med argument)                   |

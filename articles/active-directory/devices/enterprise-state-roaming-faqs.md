@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247304"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189396"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 Den här artikeln får du svar på några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
@@ -31,13 +31,13 @@ Den här artikeln får du svar på några frågor som IT-administratörer kan ha
 
 * *Tema*, som innehåller funktioner, till exempel inställningar för fjärrskrivbord tema och Aktivitetsfältet.
 * *Internet Explorer-inställningarna*, inklusive nyligen öppnade flikar och Favoriter.
-* *Edge-webbläsarinställningar*, till exempel Favoriter och läsa listan.
+* *Inställningar för webbläsaren Microsoft Edge*, till exempel Favoriter och läsa listan.
 * *Lösenord*, inklusive Internet-lösenord och Wi-Fi-profiler.
 * *Språkinställningar*, som innehåller inställningar för tangentbordslayout, systemspråk, datum och tid och mycket mer.
 * *Enkel åtkomstfunktioner*, till exempel högkontrasttema, Skärmförstoraren och Skärmläsaren.
 * *Andra Windows-inställningar*, t.ex musinställningar.
 
-**Programdata**: universella Windows-appar kan skriva inställningsdata till en central mapp och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till enskilda apputvecklaren för att designa en app att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder centrala finns i den [API: et för appdata storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 appdata roaming utvecklarblogg](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Programdata**: Universella Windows-appar kan skriva inställningsdata till en central mapp och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till enskilda apputvecklaren för att designa en app att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder centrala finns i den [API: et för appdata storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 appdata roaming utvecklarblogg](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Vilket konto används för synkronisering av inställningar?
 I Windows 8.1 för synkronisering av alltid konsument Microsoft-konton. Företagsanvändare hade möjlighet att ansluta ett Microsoft-konto till deras Active Directory-domänkonto som ska få åtkomst till inställningar för synkronisering. I Windows 10 ansluten detta Microsoft-konto funktioner ersätts med ett konto för primär/sekundär ramverk.
@@ -63,7 +63,7 @@ Om du är ansluten till Active Directory-domän som kör Windows 8.1 med ett ans
 
 Om den lokala Active Directory-domän ansluter med Azure AD, försöker enheten synkronisera inställningar med hjälp av den anslutna Azure AD-konto. Om Azure AD-administratör inte har aktiverat för Enterprise State Roaming, dina anslutna slutar Azure AD-konto att synkronisera inställningar. Om du är en Windows 10-användare och du loggar in med en Azure AD-identitet, startar du synkronisera windows-inställningar som administratören gör det möjligt för synkronisering av inställningar via Azure AD.
 
-Om du har lagrat personliga data på enheten företagets bör du vara medveten om att Windows-operativsystem och program börjar synkroniseras till Azure AD. Detta har följande konsekvenser:
+Om du har lagrat personliga data på enheten företagets bör du vara medveten om att Windows-operativsystem och program börjar synkroniseras till Azure AD. Detta har följande inverkan:
 
 * Inställningarna för ditt personliga Microsoft-konto kommer avviker förutom de inställningarna för ditt arbete eller skola Azure AD-konton. Detta beror på att Microsoft-konto och Azure AD-inställningar synkroniseras nu använder separata konton.
 * Personliga data, till exempel Wi-Fi-lösenord, web-autentiseringsuppgifter och Favoriter i Internet Explorer som redan har synkroniserats via ett anslutna Microsoft-konto kommer att synkroniseras via Azure AD.

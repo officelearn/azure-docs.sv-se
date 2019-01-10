@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 21634c5eeacd9a52c6a970d24b0f8afa3a0d9345
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141636"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191640"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Programsidan visas inte korrekt för ett Application Proxy-program
 
@@ -28,7 +28,7 @@ Den här artikeln hjälper dig att felsöka problem med Azure Active Directory A
 ## <a name="overview"></a>Översikt
 När du publicerar en app med Application Proxy kan är bara sidor under rotcertifikatutfärdaren tillgängliga vid åtkomst till programmet. Om sidan inte visas korrekt, kan den interna rot-URL som används för programmet sakna vissa resurser för sidan. Lös, se till att du har publicerat *alla* resurser för sidan som en del av ditt program.
 
-Du kan kontrollera om resurser som saknas är problemet genom att öppna spårningsverktyget för nätverk (till exempel Fiddler eller F12 verktyg i Internet Explorer/Edge), läser in sidan och söker efter 404-fel. Värde som anger för närvarande inte går att hitta sidorna och att du behöver att publicera dem.
+Du kan kontrollera om resurser som saknas är problemet genom att öppna spårningsverktyget för nätverk (till exempel Fiddler eller F12 verktyg i Internet Explorer-/ Microsoft Edge), läser in sidan och söker efter 404-fel. Värde som anger för närvarande inte går att hitta sidorna och att du behöver att publicera dem.
 
 Anta att du har publicerat ett utgifter-program med den interna URL: en som ett exempel på det här fallet http://myapps/expenses, men appen använder formatmallen http://myapps/style.css. I det här fallet publiceras inte formatmallen i ditt program så att läsa in den utgifter app genererar ett 404-fel vid försök att läsa in style.css. I det här exemplet problemet är löst genom att publicera program med en intern Webbadress http://myapp/.
 

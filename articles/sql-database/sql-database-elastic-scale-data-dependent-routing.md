@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 6d0e87cd93d519c6f4f3766ca9f5b776912197aa
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052248"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191334"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Använda databeroende routning för att dirigera en fråga till lämplig databas
 
-**Databeroende routning** är möjligheten att använda data i en fråga för att dirigera begäran till en lämplig databas. Data beroende routning är ett grundläggande mönster när du arbetar med shardade databaser. Kontext för begäran kan också användas för att dirigera begäran, särskilt om nyckeln för horisontell partitionering inte är en del av frågan. Varje specifik fråga eller en transaktion i ett program med databeroende routning är begränsad till åtkomst till en databas per begäran. För Azure SQL Database elastiska verktyg, den här routning åstadkoms med den **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) klass.
+**Databeroende routning** är möjligheten att använda data i en fråga för att dirigera begäran till en lämplig databas. Data beroende routning är ett grundläggande mönster när du arbetar med shardade databaser. Kontext för begäran kan också användas för att dirigera begäran, särskilt om nyckeln för horisontell partitionering inte är en del av frågan. Varje specifik fråga eller en transaktion i ett program med databeroende routning är begränsad till åtkomst till en databas per begäran. För Azure SQL Database elastiska verktyg, den här routning åstadkoms med den **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) klass.
 
 Programmet behöver inte spåra olika anslutningssträngar eller DB-platser som är associerade med olika datasegment i shardade miljön. I stället den [Karthanteraren](sql-database-elastic-scale-shard-map-management.md) öppnas anslutningar till rätt databas vid behov, baserat på data i fragmentkartan och värdet för nyckeln för horisontell partitionering som är mål för programmets begäran. Nyckeln är vanligtvis den *customer_id*, *tenant_id*, *date_key*, eller vissa specifika identifierare som är en grundläggande parameter för databasbegäran.
 
@@ -36,7 +36,7 @@ Så här hämtar:
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Använd en ShardMapManager i ett databeroende routning program
 
-Program ska skapa en instans av den **ShardMapManager** med hjälp av factory-anrop under initieringen **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)). I det här exemplet både en **ShardMapManager** och en specifik **ShardMap** som den innehåller initieras. Det här exemplet visar GetSqlShardMapManager och GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) metoder.
+Program ska skapa en instans av den **ShardMapManager** med hjälp av factory-anrop under initieringen **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). I det här exemplet både en **ShardMapManager** och en specifik **ShardMap** som den innehåller initieras. Det här exemplet visar GetSqlShardMapManager och GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))) metoder.
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -54,7 +54,7 @@ Om ett program inte manipulera fragmentkartan själva, de autentiseringsuppgifte
 
 ## <a name="call-the-openconnectionforkey-method"></a>Anropa metoden OpenConnectionForKey
 
-Den **ShardMap.OpenConnectionForKey metoden** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) returnerar en anslutning som är redo för att utfärda kommandon till lämplig databas baserat på värdet för den **nyckel** parametern. Dela informationen cachelagras i programmet genom att den **ShardMapManager**, så att dessa begäranden inte normalt omfattar en databassökning mot den **globala Fragmentkartan** databas.
+Den **ShardMap.OpenConnectionForKey metoden** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) returnerar en anslutning som är redo för att utfärda kommandon till lämplig databas baserat på värdet för den **nyckel** parametern. Dela informationen cachelagras i programmet genom att den **ShardMapManager**, så att dessa begäranden inte normalt omfattar en databassökning mot den **globala Fragmentkartan** databas.
 
 ```Java
 // Syntax:
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * Den **nyckel** parametern används som en lookup-nyckel i fragmentkartan för att fastställa lämplig databas för begäran.
 * Den **connectionString** används för att skicka endast användaruppgifter för önskad anslutning. Inget databasnamn eller servernamn som ingår i den här *connectionString* eftersom metoden anger databasen och servern med den **ShardMap**.
-* Den **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)) ska vara inställd på **ConnectionOptions.Validate** om en miljö där shardkartor maj ändra och rader kan flyttas till andra databaser på grund av delad tunnel eller merge-åtgärder. Den här verifieringen inbegriper en kortfattad fråga till den lokala fragmentkartan på mål-databasen (inte till den globala fragmentkartan) innan anslutningen kan levereras till programmet.
+* Den **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) ska vara inställd på **ConnectionOptions.Validate** om en miljö där shardkartor maj ändra och rader kan flyttas till andra databaser på grund av delad tunnel eller merge-åtgärder. Den här verifieringen inbegriper en kortfattad fråga till den lokala fragmentkartan på mål-databasen (inte till den globala fragmentkartan) innan anslutningen kan levereras till programmet.
 
 Om verifieras mot lokala fragmentkartan (som anger att cachen är felaktig) misslyckas frågar Fragmentkartehanteraren globala fragmentkartan för att hämta nya rätt värde för sökningen, uppdatera cachen och hämta och returnera rätt databasanslutningen .
 
@@ -112,7 +112,7 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 
 Den **OpenConnectionForKey** metoden returnerar en ny redan öppen anslutning till rätt databas. Anslutningar som används i det här sättet kan fortfarande dra full nytta av anslutningspooler.
 
-Den **OpenConnectionForKeyAsync metoden** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)) är också tillgängligt om din tillämpning utför Använd asynkron programmering.
+Den **OpenConnectionForKeyAsync metoden** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)) är också tillgängligt om din tillämpning utför Använd asynkron programmering.
 
 ## <a name="integrating-with-transient-fault-handling"></a>Integrera med hantering av tillfälliga fel
 

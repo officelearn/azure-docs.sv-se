@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 27368ec1f41553950ab1689f8b37c15d14d29808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156671"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188002"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Visa behållarens loggar realtid med Azure Monitor för behållare (förhandsgranskning)
-Den här funktionen, som finns för närvarande i förhandsversion, tillhandahåller en vy i realtid i Azure Kubernetes Service (AKS)-behållarloggarna (stdout/stderr) utan att behöva köra kubectl-kommandon. När du väljer det här alternativet kan nya rutan visas nedan datatabell för behållare prestanda på den **behållare** vy och visar live loggning som genererats av motorn för behållaren för bättre hjälp vid felsökning av problem i realtid.  
+Den här funktionen, som finns för närvarande i förhandsversion, tillhandahåller en vy i realtid i Azure Kubernetes Service (AKS)-behållarloggarna (stdout/stderr) utan att behöva köra kubectl-kommandon. När du väljer det här alternativet kan nya rutan visas nedan datatabell för behållare prestanda på den **behållare** vy.  Den visar live loggning som genererats av motorn för behållaren för bättre hjälp vid felsökning av problem i realtid.  
 
 Live-loggar har stöd för tre olika metoder för att styra åtkomsten till loggarna:
 
@@ -31,7 +31,7 @@ Live-loggar har stöd för tre olika metoder för att styra åtkomsten till logg
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes-kluster utan aktiverad RBAC
  
-Du behöver inte följa dessa steg om du har ett Kubernetes-kluster som inte är konfigurerad med Kubernetes RBAC-auktorisering eller integrerat med Azure AD enkel inloggning. Eftersom Kubernetes auktorisering använder kube-api, skrivskyddad behörighet krävs.
+Du behöver inte följa dessa steg om du har ett Kubernetes-kluster som inte är konfigurerad med Kubernetes RBAC-auktorisering eller integrerat med Azure AD enkel inloggning. Eftersom Kubernetes auktorisering använder kube-api, krävs skrivskyddad behörighet.
 
 ## <a name="kubernetes-rbac-authorization"></a>Kubernetes RBAC-auktorisering
 Om du har aktiverat Kubernetes RBAC-auktorisering kan behöver du tillämpa kluster roll bindning. Följande exempel visar hur du konfigurerar kluster roll bindningen från den här mallen för konfiguration av yaml.   
@@ -39,27 +39,27 @@ Om du har aktiverat Kubernetes RBAC-auktorisering kan behöver du tillämpa klus
 1. Kopiera och klistra in yaml-fil och spara den som LogReaderRBAC.yaml.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. Skapa kluster regeln bindningen genom att köra följande kommando: `kubectl create -f LogReaderRBAC.yaml`. 

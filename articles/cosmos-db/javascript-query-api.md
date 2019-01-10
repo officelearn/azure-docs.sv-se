@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 42850cc5f8280b29811f9607557f38507262694a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034411"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191147"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Arbeta med JavaScript språkintegrerade frågorna-API med Azure Cosmos DB
 
@@ -64,7 +64,7 @@ I följande tabell visas olika SQL-frågor och motsvarande JavaScript-frågor. P
 
 Lär dig mer begrepp och how-to skriva och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB:
 
-- [Hur du skriver lagrade procedurer och utlösare med hjälp av Javascript fråge-API](how-to-write-javascript-query-api.md#)
+- [Hur du skriver lagrade procedurer och utlösare med hjälp av Javascript fråge-API](how-to-write-javascript-query-api.md)
 - [Arbeta med Azure Cosmos DB lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md)
 - [Hur du använder lagrade procedurer, utlösare, användardefinierade funktioner i Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript serversidan API-referens](https://azure.github.io/azure-cosmosdb-js-server)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426251"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191521"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – Självstudiekurs för Adventure Works
 
@@ -45,7 +45,7 @@ För att slutföra den här kursen behöver du:
 
 -   Ett [Azure SQL Server Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) med **AdventureWorksDW-exempeldatabasen** eller ett SQL Server Data Warehouse med [Adventure Works-exempeldatabasen](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
-    **Viktigt:** Om du installerar exempeldatabasen på ett lokalt SQL Server Data Warehouse och distribuerar din modell till en Azure Analysis Services-server så krävs en [lokal datagateway](../analysis-services-gateway.md).
+    **Viktigt!** Om du installerar exempeldatabasen till en lokal SQL Server Data Warehouse och distribuera din modell till en Azure Analysis Services-server, en [lokal datagateway](../analysis-services-gateway.md) krävs.
 
 -   Den senaste versionen av [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) för Visual Studio.
 
@@ -93,7 +93,7 @@ Du måste inte slutföra de här lektionerna för att slutföra självstudien, m
 
   
 ## <a name="next-steps"></a>Nästa steg  
-Gå till [Lektion 1: Skapa ett nytt projekt för tabellmodeller](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md) för att komma igång.  
+Kom igång genom att se [lektion 1: Skapa ett nytt projekt för Tabellmodeller](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

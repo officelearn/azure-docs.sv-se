@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: f9ad7fcf414e90acc40ee5cd42e322a3b9e47f17
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381284"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190751"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Generera en miniatyr sprite 
 
@@ -70,7 +70,7 @@ Här är ett exempel:
 
 1.  Det går inte att generera en sprite-avbildning med en enda rad med bilder (SpriteColumn = 1 resultat i en bild med en enda kolumn).
 2.  Dela upp sprite avbildning till mindre storlek JPEG-bilder stöds inte ännu. Därför måste du vara noggrann begränsar antalet miniatyrer och deras storlek, så att den resulterande stitched miniatyr Sprite är runt 8 M bildpunkter eller mindre.
-3.  Azure Media Player stöder spriter på webbläsare som Edge, Chrome och Firefox. Parsning av VTT stöds inte i IE 11.
+3.  Azure Media Player stöder spriter i Microsoft Edge, Chrome och Firefox webbläsare. Parsning av VTT stöds inte i IE 11.
 
 ## <a name="next-steps"></a>Nästa steg
 

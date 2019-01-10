@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 1b9821a0115aba96f4588049273bd7a157121ded
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156637"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188648"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
@@ -25,7 +25,7 @@ Azure Function-aktiviteten kan du köra [Azure Functions](../azure-functions/fun
 
 ## <a name="azure-function-linked-service"></a>Azure funktion länkad tjänst
 
-Returtypen för Azure-funktionen måste vara en giltig JObject. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) är *inte* en JObject.) Allt annat misslyckas och genererar en allmän användarfel *fel anropande endpoint*.
+Returtypen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) är *inte* en `JObject`.) Någon returtyp än `JObject` misslyckas och genererar en allmän användarfel *fel anropande endpoint*.
 
 | **Egenskap** | **Beskrivning** | **Krävs** |
 | --- | --- | --- |

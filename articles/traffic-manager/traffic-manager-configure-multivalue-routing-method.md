@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187376"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187713"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetoden för flera värden i Traffic Manager
 
@@ -47,9 +47,9 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj *myResourceGroupTM1*. |
     | Plats                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
-    
+   |        |           | 
   
-    ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
@@ -69,7 +69,7 @@ Lägg till två IP-adresser som externa slutpunkter till Flervärden är Traffic
 4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet *myEndpoint2*, för **fullständigt kvalificerade domännamnet (FQDN) eller IP-**, ange den offentliga IP-adressen för den andra slutpunkten.
 5.  När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
 
-    ![Lägga till en Traffic Manager-slutpunkt](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Lägga till en Traffic Manager-slutpunkt](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Nästa steg
 

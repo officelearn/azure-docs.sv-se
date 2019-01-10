@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427254"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188410"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -85,7 +85,7 @@ Ansluta till lokala datakällor från och Azure-AS-servern kräver en lokal gate
 
 ## <a name="specifying-a-different-provider"></a>Ange en annan leverantör
 
-Datamodeller i Azure Analysis Services kan kräva olika dataleverantörer när du ansluter till vissa datakällor. I vissa fall kan tabellmodeller som ansluter till datakällor med hjälp av inbyggda providers, till exempel SQL Server Native Client (SQLNCLI11) returnerar ett fel. Om du använder inbyggda providers än SQLOLEDB, kan du se felmeddelandet: **providern 'SQLNCLI11.1' inte är registrerad**. Eller, om du har en DirectQuery-modell ansluter till lokala datakällor och du använder inbyggda providers, kanske du ser felmeddelandet: **fel vid skapande av OLE DB rad set. Felaktig syntax nära 'LIMIT'**.
+Datamodeller i Azure Analysis Services kan kräva olika dataleverantörer när du ansluter till vissa datakällor. I vissa fall kan tabellmodeller som ansluter till datakällor med hjälp av inbyggda providers, till exempel SQL Server Native Client (SQLNCLI11) returnerar ett fel. Om du använder inbyggda providers än SQLOLEDB, kan det hända att felmeddelandet: **Providern 'SQLNCLI11.1' inte är registrerad**. Eller, om du har en DirectQuery-modell ansluter till lokala datakällor och du använder inbyggda providers, kanske du ser felmeddelandet: **Fel vid skapande av OLE DB-raden ange. Felaktig syntax nära 'LIMIT'**.
 
 När du migrerar en lokal SQL Server Analysis Services-tabellmodell till Azure Analysis Services, kan det vara nödvändigt att ändra providern.
 

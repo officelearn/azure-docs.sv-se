@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f1047d5ad17afbac55b5ea9215ce592d36918174
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042588"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188126"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om elastiska Databasverktyg
 
@@ -39,7 +39,7 @@ Använd inte autentiseringsuppgifter i form av ”användar-ID =username@servern
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Behöver skapa en Karthanteraren och fylla i shards varje gång börjar jag mina program
 
-Nej – skapandet av Fragmentkartehanteraren (till exempel [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)) är en engångsåtgärd.  Ditt program bör använda anropet [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) på starttiden för programmet.  Det bör bara ett sådant anrop per programdomän.
+Nej – skapandet av Fragmentkartehanteraren (till exempel [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) är en engångsåtgärd.  Ditt program bör använda anropet [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) på starttiden för programmet.  Det bör bara ett sådant anrop per programdomän.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Jag har frågor om hur du använder Verktyg för elastiska databaser, hur kan jag få dem besvarade
 

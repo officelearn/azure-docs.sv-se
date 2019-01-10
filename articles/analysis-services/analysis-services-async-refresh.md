@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958677"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189561"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
+
 Genom att använda valfritt programmeringsspråk som har stöd för REST-anrop kan utföra du asynkrona datauppdateringsåtgärder på din Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågeutskalning. 
 
 Datauppdateringsåtgärder kan ta lite tid beroende på ett antal faktorer, bland annat datavolym för optimering med partitioner etc. De här åtgärderna traditionellt har anropats med befintliga metoder, till exempel med hjälp av [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlet: ar, eller [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular-modell Scripting Language). Dessa metoder kräver dock ofta otillförlitliga, långvariga HTTP-anslutningar.
@@ -94,6 +95,7 @@ Brödtexten kan likna följande:
 ```
 
 ### <a name="parameters"></a>Parametrar
+
 Att ange parametrar är inte obligatoriskt. Standard tillämpas.
 
 |Namn  |Typ  |Beskrivning  |Standard  |
@@ -184,10 +186,10 @@ Använd GET-verbet skicka åtgärds-ID som en parameter för att kontrollera sta
 
 Värden för `syncstate`:
 
-- 0: replikera. Databasfilerna replikeras till en målmapp.
-- 1: återuppväcks. Databasen extraheras på skrivskyddade server-instanser.
-- 2: har slutförts. Synkroniseringsåtgärden har slutförts.
-- 3: misslyckades. Det gick inte att synkronisera.
+- 0: Replikerar. Databasfilerna replikeras till en målmapp.
+- 1: Återställning. Databasen extraheras på skrivskyddade server-instanser.
+- 2: Har slutförts. Synkroniseringsåtgärden har slutförts.
+- 3: Misslyckades. Det gick inte att synkronisera.
 - 4: Slutför. Synkroniseringsåtgärden slutfördes men utför Rensa.
 
 ## <a name="code-sample"></a>Kodexempel

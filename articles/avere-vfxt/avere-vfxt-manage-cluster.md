@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999065"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189617"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
 
@@ -63,11 +63,11 @@ Om du vill stänga av, starta om eller ta bort en nod, hitta noden i listan på 
 > [!NOTE] 
 > IP-adresser kan också flytta mellan klusternoderna när antalet aktiva noder ändras.
 
-Läs [kluster > noder FXT](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) i Avere kluster inställningar för mer information.
+Läs [kluster > noder FXT](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) i Avere kluster inställningar för mer information.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Stoppa eller starta om klustret med Avere Kontrollpanelen
 
-Den **systemunderhåll** inställningssidan har kommandon för att starta om klustertjänsterna, starta om klustret eller på ett säkert sätt behöva stänga klustret av. Läs [Administration > systemunderhåll](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (i Avere kluster inställningar guide) för information.
+Den **systemunderhåll** inställningssidan har kommandon för att starta om klustertjänsterna, starta om klustret eller på ett säkert sätt behöva stänga klustret av. Läs [Administration > systemunderhåll](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (i Avere kluster inställningar guide) för information.
 
 När ett kluster stängs av, den publicerar meddelanden till den **instrumentpanelen** fliken först. Efter en liten stund svarar Avere Kontrollpanelen sessionen, vilket innebär att klustret har avslutats.
 
@@ -83,7 +83,7 @@ Vfxt.py operations försöker kontrollera ändrade data lagras permanent på bac
 
 vfxt.PY förinstallerats på kontrollanten kluster VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-En fullständig vfxt.py användningsguiden finns på GitHub: [klusterhantering med vfxt.py i molnet](https://github.com/azure/averesdk/blob/master/docs/README.md)
+En fullständig vfxt.py användningsguiden finns på GitHub: [Hantering av molnet med vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Lägg till noder med vfxt.py
 

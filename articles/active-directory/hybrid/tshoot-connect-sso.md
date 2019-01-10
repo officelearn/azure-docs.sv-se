@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055908"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190433"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du hittar felsökningsinformation om vanliga pro
 
 - I några fall kan det ta upp till 30 minuter att aktivera sömlös enkel inloggning.
 - Om du inaktiverar och återaktiverar sömlös enkel inloggning på din klient, får användarna inte enkel inloggning till sina cachelagrade Kerberos-biljetter, vanligtvis är giltig i 10 timmar har gått ut.
-- Det finns inte stöd för Edge-webbläsaren.
+- Det finns inte stöd för Microsoft Edge-webbläsaren.
 - Om sömlös enkel inloggning kan användaren inte har möjlighet att välja **vill förbli inloggad**. På grund av det här beteendet [SharePoint och OneDrive mappning scenarier](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) fungerar inte.
 - Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730.xxxx och senare stöds med hjälp av en icke-interaktiv flow. Andra versioner stöds inte. i de versionerna kommer användarna anger sina användarnamn, men inte lösenord, logga in. För OneDrive, måste du aktivera den [OneDrive tyst config funktionen](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för en tyst inloggningsupplevelse.
 - Sömlös SSO fungerar inte i privat bläddrat läge på Firefox.
@@ -36,7 +36,7 @@ Den här artikeln beskriver hur du hittar felsökningsinformation om vanliga pro
 - Om en användare tillhör för många grupper i Active Directory, användarens Kerberos-biljett kommer antagligen vara för stort för att bearbeta och detta innebär att sömlös SSO misslyckas. Azure AD-HTTPS-begäranden kan ha rubriker med en maximal storlek på 50 KB; Kerberos-biljetter måste vara mindre än den gränsen för andra Azure AD-artefakter (normalt 2 – 5 KB), till exempel cookies. Vår rekommendation är att minska användarens gruppmedlemskap och försök igen.
 - Om du synkroniserar 30 eller fler Active Directory-skogar, kan du inte aktivera sömlös SSO via Azure AD Connect. Du kan komma runt [manuellt aktivera](#manual-reset-of-the-feature) funktionen på din klient.
 - Att lägga till URL: en för Azure AD-tjänsten (https://autologon.microsoftazuread-sso.com) i zonen Betrodda platser i stället för den lokala intranätzonen *blockerar användare från att logga in*.
-- Sömlös SSO använder den **RC4_HMAC_MD5** krypteringstyp för Kerberos. Inaktivera användningen av den **RC4_HMAC_MD5** bryter krypteringstyp i inställningarna för Active Directory sömlös enkel inloggning. I Redigeraren för Grupprinciphantering-verktyget kontrollerar du att principvärdet för **RC4_HMAC_MD5** under **Datorkonfiguration -> Windows-inställningar -> säkerhetsinställningar -> lokala principer -> säkerhetsalternativ - > ”Nätverkssäkerhet: Konfigurera krypteringstyper som tillåts för Kerberos”** är **aktiverat**. Dessutom sömlös enkel inloggning kan inte använda andra krypteringstyper, så se till att de är **inaktiverat**.
+- Sömlös SSO använder den **RC4_HMAC_MD5** krypteringstyp för Kerberos. Inaktivera användningen av den **RC4_HMAC_MD5** bryter krypteringstyp i inställningarna för Active Directory sömlös enkel inloggning. I Redigeraren för Grupprinciphantering-verktyget kontrollerar du att principvärdet för **RC4_HMAC_MD5** under **Datorkonfiguration -> Windows-inställningar -> säkerhetsinställningar -> lokala principer -> säkerhetsalternativ - > ”Nätverkssäkerhet: Konfigurera krypteringstyper som tillåts för Kerberos ”** är **aktiverat**. Dessutom sömlös enkel inloggning kan inte använda andra krypteringstyper, så se till att de är **inaktiverat**.
 
 ## <a name="check-status-of-feature"></a>Kontrollera status för funktionen
 
@@ -46,13 +46,13 @@ Se till att sömlös SSO-funktionen är fortfarande **aktiverad** på din klient
 
 Klicka här för att se alla AD-skogar som har aktiverats för sömlös enkel inloggning.
 
-![Azure Active Directory Administrationscenter: sömlös SSO-fönstret](./media/tshoot-connect-sso/sso13.png)
+![Azure Active Directory Administrationscenter: Sömlös SSO-fönstret](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Logga in orsaker till Återställningsfel i Azure Active Directory Administrationscenter (måste ha en premiumlicens)
 
 Om klienten har en associerad med den Azure AD Premium-licens, kan du också titta på den [inloggningsaktivitet rapporten](../reports-monitoring/concept-sign-ins.md) i den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/).
 
-![Azure Active Directory Administrationscenter: rapporten inloggningar](./media/tshoot-connect-sso/sso9.png)
+![Azure Active Directory Administrationscenter: Rapport över inloggningar](./media/tshoot-connect-sso/sso9.png)
 
 Bläddra till **Azure Active Directory** > **inloggningar** i den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/), och välj sedan en viss användares inloggningsaktivitet. Leta efter den **LOGGA IN FELKODEN** fält. Mappa fältets värde till en felorsak och en lösning med hjälp av följande tabell:
 
@@ -107,7 +107,7 @@ Om inte hjälpte felsökning, kan du manuellt återställa funktionen på din kl
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Steg 1: Importera sömlös SSO-PowerShell-modulen
 
 1. Först, hämta och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-2. Bläddra till den `%programfiles%\Microsoft Azure Active Directory Connect` mapp.
+2. Bläddra till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
 
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Steg 2: Hämta en lista över Active Directory-skogar där sömlös enkel inloggning har aktiverats

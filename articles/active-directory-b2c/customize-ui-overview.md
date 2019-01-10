@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08cd16cb9edc5606a18fc5d425910185f7747179
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844965"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187560"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användargränssnitt i Azure Active Directory B2C
 
@@ -118,6 +118,6 @@ För exempel på anpassning, ladda ned och granska dessa [exempel mallfiler](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du använder användarflöden kan du börja anpassa Användargränssnittet med självstudiekursen: [anpassa användargränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
-- Om du använder anpassade principer kan du börja anpassa Användargränssnittet med artikeln: [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Om du använder användarflöden, kan du börja anpassa Användargränssnittet med självstudiekursen: [Anpassa användargränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
+- Om du använder anpassade principer, kan du börja anpassa Användargränssnittet med artikeln: [Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

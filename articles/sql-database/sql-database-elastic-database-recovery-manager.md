@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f6c289c87f4f58fdad8950bdf61fa68016fe8d3e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5bb914de1cded7c70516bfb4bfdaa93c83fe0e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042078"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188682"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Korrigera shard-kartproblem med RecoveryManager-klassen
 
-Den [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) klassen ger ADO.Net-program möjlighet att enkelt identifiera och åtgärda eventuella inkonsekvenser mellan globala fragmentkartan (GSM) och lokala fragmentkartan (LSM) i en databasmiljö med fragmenterade (sharded).
+Den [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) klassen ger ADO.Net-program möjlighet att enkelt identifiera och åtgärda eventuella inkonsekvenser mellan globala fragmentkartan (GSM) och lokala fragmentkartan (LSM) i en databasmiljö med fragmenterade (sharded).
 
 Spåra mappningen av varje databas i ett delat GSM och LSM. Ibland kan sker ett avbrott mellan GSM och LSM. I så fall använda RecoveryManager-klassen för att identifiera och reparera avbrottet.
 
@@ -49,7 +49,7 @@ Mer information om Azure SQL Database Elastic Database-verktyg, geo-replikering 
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Hämta RecoveryManager från en ShardMapManager
 
-Det första steget är att skapa en RecoveryManager-instans. Den [GetRecoveryManager metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) returnerar recovery manager för aktuellt [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instans. För att åtgärda eventuella inkonsekvenser i fragmentkartan, måste du först hämta RecoveryManager för viss fragmentkartan.
+Det första steget är att skapa en RecoveryManager-instans. Den [GetRecoveryManager metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) returnerar recovery manager för aktuellt [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instans. För att åtgärda eventuella inkonsekvenser i fragmentkartan, måste du först hämta RecoveryManager för viss fragmentkartan.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
@@ -83,7 +83,7 @@ Eftersom det förutsätts borttagningen databasen var avsiktlig är slutlig rens
 
 ## <a name="to-detect-mapping-differences"></a>Att identifiera mappning skillnader
 
-Den [DetectMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) markerar och returnerar en av fragmentkartor (lokal eller global) som källa till sanningen och synkroniserar mappningar på båda fragmentkartor (GSM och LSM).
+Den [DetectMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) markerar och returnerar en av fragmentkartor (lokal eller global) som källa till sanningen och synkroniserar mappningar på båda fragmentkartor (GSM och LSM).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
@@ -94,19 +94,19 @@ Den [DetectMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/mic
 
 ## <a name="to-resolve-mapping-differences"></a>Du löser mappning skillnader
 
-Den [ResolveMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) väljer någon av fragmentkartor (lokal eller global) som källa till sanningen och synkroniserar mappningar på båda fragmentkartor (GSM och LSM).
+Den [ResolveMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) väljer någon av fragmentkartor (lokal eller global) som källa till sanningen och synkroniserar mappningar på båda fragmentkartor (GSM och LSM).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * Den *RecoveryToken* parametern räknar upp skillnader i mappningarna mellan GSM och LSM för det specifika fragmentet.
-* Den [MappingDifferenceResolution uppräkning](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) används för att ange metoden för att lösa skillnaden mellan fragment-mappningar.
+* Den [MappingDifferenceResolution uppräkning](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) används för att ange metoden för att lösa skillnaden mellan fragment-mappningar.
 * **MappingDifferenceResolution.KeepShardMapping** som rekommenderas när LSM innehåller korrekt mappning och därför mappningen i fragment ska användas. Detta är vanligtvis fallet om det finns en redundans: fragmentet finns nu på en ny server. Eftersom sharden måste först tas bort från GSM (metoden RecoveryManager.DetachShard), finns inte längre en mappning på GSM. Därför måste LSM användas för att återupprätta fragment mappningen.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Koppla en shard till ShardMap när en shard har återställts
 
-Den [AttachShard metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) kopplar det angivna fragmentet till fragmentkartan. Den identifierar inkonsekvenser fragment kartan och uppdaterar mappningarna för att matcha fragment vid återställningen fragment. Det förutsätts att databasen har även bytt namn för att återspegla det ursprungliga databasnamnet (innan sharden har återställts), eftersom point-in-time-återställning som standard till en ny databas läggas till med tidsstämpel.
+Den [AttachShard metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) kopplar det angivna fragmentet till fragmentkartan. Den identifierar inkonsekvenser fragment kartan och uppdaterar mappningarna för att matcha fragment vid återställningen fragment. Det förutsätts att databasen har även bytt namn för att återspegla det ursprungliga databasnamnet (innan sharden har återställts), eftersom point-in-time-återställning som standard till en ny databas läggas till med tidsstämpel.
 
    ```java
    rm.AttachShard(location, shardMapName)

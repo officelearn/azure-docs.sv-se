@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630469"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191606"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -131,7 +131,7 @@ Om din ILB ASE har domännamnet *contoso.net* och appnamnet på din är *testapp
 
 ## <a name="functions-and-web-jobs"></a>Functions och webbjobb ##
 
-Både Functions och webb-jobb beror på SCM-webbplatsen men stöds för användning i portalen, även om dina appar finns i en ILB ASE, så länge som din webbläsare kan nå SCM-webbplatsen.  Om du använder ett självsignerat certifikat med din ILB ASE, kommer du behöva aktivera webbläsaren för att lita på certifikatet.  För Internet Explorer och Edge innebär det att certifikatet måste finnas i arkivet med betrodda datorn.  Om du använder Chrome och sedan det innebär att du godkänt tidigare certifikatet i webbläsaren genom att trycka antas vara scm-webbplatsen direkt.  Den bästa lösningen är att använda ett kommersiellt certifikat som finns i webbläsarens certifikatkedja med förtroenden.  
+Både Functions och webb-jobb beror på SCM-webbplatsen men stöds för användning i portalen, även om dina appar finns i en ILB ASE, så länge som din webbläsare kan nå SCM-webbplatsen.  Om du använder ett självsignerat certifikat med din ILB ASE, kommer du behöva aktivera webbläsaren för att lita på certifikatet.  För Internet Explorer och Microsoft Edge innebär det att certifikatet måste vara i arkivet med betrodda datorn.  Om du använder Chrome och sedan det innebär att du godkänt tidigare certifikatet i webbläsaren genom att trycka antas vara scm-webbplatsen direkt.  Den bästa lösningen är att använda ett kommersiellt certifikat som finns i webbläsarens certifikatkedja med förtroenden.  
 
 ## <a name="ase-ip-addresses"></a>ASE-IP-adresser ##
 

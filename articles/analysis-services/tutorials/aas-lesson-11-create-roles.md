@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428917"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189753"
 ---
 # <a name="create-roles"></a>Skapa roller
 
-Under den här lektionen skapar du roller. Roller skyddar modelldatabasobjekt och data genom att begränsa åtkomsten till endast de användare som är rollmedlemmar. Varje roll definieras med en enskild behörighet: Ingen, Läsa, Läsa och bearbeta, Bearbeta eller Administratör. Roller kan definieras vid modellredigering med hjälp av rollhanteraren. När en modell har distribuerats kan du hantera roller med SQL Server Management Studio (SSMS). Mer information finns i [Roller](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
+Under den här lektionen skapar du roller. Roller skyddar modelldatabasobjekt och data genom att begränsa åtkomsten till endast de användare som är rollmedlemmar. Varje roll definieras med en enskild behörighet: Ingen, läsa, läsa och processen, Process eller administratör. Roller kan definieras vid modellredigering med hjälp av rollhanteraren. När en modell har distribuerats kan du hantera roller med SQL Server Management Studio (SSMS). Mer information finns i [Roller](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
 > Du behöver inte skapa roller för att slutföra den här självstudiekursen. Som standard har det konto som du är inloggad med administratörsbehörighet på modellen. Men för att andra användare i din organisation ska kunna se modellen med en rapporteringsklient måste du skapa minst en roll med läsbehörighet och lägga till dessa användare som medlemmar i rollen.  
@@ -32,7 +32,7 @@ Du kan skapa tre roller:
   
 Eftersom Windows-användarkonton och -gruppkonton i din organisation är unika kan du lägga till konton från din organisation till medlemmar. Men i den här självstudiekursen kan du lämna medlemsfälten tomma om du vill. Du får testa effekten av varje roll senare i lektion 12: Analysera i Excel.  
   
-Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 10: Skapa partitioner](../tutorials/aas-lesson-10-create-partitions.md).  

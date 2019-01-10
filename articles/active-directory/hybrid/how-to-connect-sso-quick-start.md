@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ed3271eb2fdae1b89013f0145b0e08de49792305
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062884"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187646"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -200,7 +200,7 @@ Användning av tredje parts Grupprincip i Active Directory-tillägg för att dis
 
 #### <a name="known-browser-limitations"></a>Kända webbläsare begränsningar
 
-Sömlös SSO fungerar inte i privat bläddrat läge på Firefox och Edge-webbläsare. Det också fungerar inte i Internet Explorer om webbläsaren körs i förbättrad skyddat läge.
+Sömlös SSO fungerar inte i privat bläddrat läge på Firefox och Microsoft Edge-webbläsare. Det också fungerar inte i Internet Explorer om webbläsaren körs i förbättrad skyddat läge.
 
 ## <a name="step-4-test-the-feature"></a>Steg 4: Testa funktionen
 

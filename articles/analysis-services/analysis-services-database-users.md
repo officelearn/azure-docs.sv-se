@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238887"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189804"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
 
@@ -63,6 +63,7 @@ När du skapar ett projekt för tabellmodeller kan du skapa roller och lägga ti
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Att lägga till eller hantera roller och användare i SSMS
+
 Om du vill lägga till roller och användare i en distribuerad modell-databas, måste du vara ansluten till servern som en serveradministratör eller redan i en databasroll med administratörsbehörighet.
 
 1. Högerklicka i objektet Exporer **roller** > **ny roll**.
@@ -83,6 +84,7 @@ Om du vill lägga till roller och användare i en distribuerad modell-databas, m
 5. Om du skapar rollen har läsbehörighet, kan du lägga till radfilter med hjälp av en DAX-formel. Klicka på **radfilter**, markera en tabell och skriv sedan en DAX-formel i den **DAX-Filter** fält. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Att lägga till roller och användare genom att använda en TMSL-skript
+
 Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd den [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) kommandot och [roller](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) objekt.
 
 **Exempelskript för TMSL**
@@ -116,6 +118,7 @@ I det här exemplet läggs en externa B2B-användare och en grupp till rollen an
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Att lägga till roller och användare med hjälp av PowerShell
+
 Den [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) modulen innehåller uppgiftsspecifika database management-cmdletar och den allmänna Invoke-ASCmd-cmdlet som accepterar en fråga Tabular Model Tabellmodellskriptspråket (TMSL) eller ett skript. Följande cmdletar som används för att hantera databasroller och användare.
   
 |Cmdlet|Beskrivning|
@@ -125,6 +128,7 @@ Den [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) modulen inneh�
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett TMSL-skript.|
 
 ## <a name="row-filters"></a>Radfilter  
+
 Radfilter definierar vilka rader i en tabell kan efterfrågas av medlemmar i en viss roll. Radfilter definieras för varje tabell i en modell med hjälp av DAX-formler.  
   
 Radfilter kan definieras endast för roller med läs- och läsa och bearbeta behörigheter. Som standard om ett radfilter inte har definierats för en viss tabell, medlemmar kan fråga efter alla rader i tabellen, såvida inte korsfiltrering gäller från en annan tabell.
@@ -144,6 +148,7 @@ Radfilter gäller för de angivna raderna och relaterade rader. När en tabell h
  Du kan använda filtret, *=FALSE()*, för att neka åtkomst till alla rader för en hel tabell.
 
 ## <a name="next-steps"></a>Nästa steg
+
   [Hantera serveradministratörer](analysis-services-server-admins.md)   
   [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md)  
   [Tabular Model Scripting Språkreferens (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

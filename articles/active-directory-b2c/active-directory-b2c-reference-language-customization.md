@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724323"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187770"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Språkanpassning i Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Du kan använda språkanpassning för att välja vilka språk som ditt användar
 
 Du kanske inte behöver den här nivån av kontroll över vilka språk som kunderna ser. Om du inte anger en `ui_locales` parametern kundens upplevelse styrs av sina webbläsarinställningar.  Du kan fortfarande styra vilka språk som ditt användarflöde översätts till genom att lägga till det som ett språk som stöds. Om en kund webbläsare är inställd på att visa ett språk som du inte vill att stödja, är det språk som du valt som standard i kulturer som stöds visas i stället.
 
-- **UI-språk angett språk**: när du har aktiverat språkanpassning ditt användarflöde översätts till det språk som anges här.
+- **UI-språk angett språk**: När du har aktiverat språkanpassning översätts ditt användarflöde till det språk som anges här.
 - **Webbläsaren begärt språk**: Om ingen `ui_locales` angavs, ditt användarflöde översätts till webbläsaren begärt-språket *om språket stöds*.
-- **Standardspråk för principen**: om webbläsaren inte anger ett språk eller anger en som inte stöds, användarflödet översätts till användarens standardspråk för flödet.
+- **Standardspråk för principen**: Om webbläsaren inte anger ett språk eller anger en som inte stöds, översätts användarflödet till användarens standardspråk för flödet.
 
 >[!NOTE]
 >Om du använder anpassade användarattribut, måste du ange dina egna översättningar. Mer information finns i [anpassa din strängar](#customize-your-strings).
@@ -175,7 +175,7 @@ Microsoft innehåller inte för närvarande stöd för höger-till-vänster-spr�
 ### <a name="social-identity-provider-translations"></a>Sociala providern översättningar
 Microsoft tillhandahåller den `ui_locales` OIDC-parametern till sociala inloggningar. Men vissa sociala identitetsleverantörer, inklusive Facebook och Google, respekterar inte dem. 
 ### <a name="browser-behavior"></a>Beteende för webbläsare
-Chrome och Firefox både begära för sina set-språk. Om det är ett språk som stöds, visas den före standard. Gränsen för närvarande begär inte ett språk och går direkt till standardspråket.
+Chrome och Firefox både begära för sina set-språk. Om det är ett språk som stöds, visas den före standard. Microsoft Edge för närvarande begär inte ett språk och går direkt till standardspråket.
 
 ### <a name="supported-languages"></a>Språk som stöds
 

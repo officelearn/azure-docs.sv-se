@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001960"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190865"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -38,7 +38,7 @@ De här stegen används Avere på Kontrollpanelen. Läs [åtkomst till klustret 
 
 ## <a name="create-a-core-filer"></a>Skapa en core-filer
 
-”Core filer” är en vFXT term för ett backend-lagringssystem. Lagringen kan vara en maskinvara NAS-installation som NetApp eller Isilon eller det kan vara en objektlagring i molnet. Mer information om grundläggande filter kan hittas [kluster guiden inställningar i Avere](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+”Core filer” är en vFXT term för ett backend-lagringssystem. Lagringen kan vara en maskinvara NAS-installation som NetApp eller Isilon eller det kan vara en objektlagring i molnet. Mer information om grundläggande filter kan hittas [kluster guiden inställningar i Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Välj någon av de två viktigaste typerna av core filter för att lägga till en core-filer:
 
@@ -70,7 +70,7 @@ Följande steg lägger du till en NAS core-filer:
   
    * Klicka på **nästa** och välja en cache-princip. 
    * Klicka på **lägga till Filer**.
-   * Mer detaljerad information, referera till [att lägga till en ny NAS viktiga filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) i Avere kluster inställningar guide.
+   * Mer detaljerad information, referera till [att lägga till en ny NAS viktiga filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) i Avere kluster inställningar guide.
 
 Gå sedan vidare till [skapa knutpunkt](#create-a-junction).  
 
@@ -133,7 +133,7 @@ Följ dessa steg för att lägga till Blob-lagring när du har skapat klustret.
    | Prenumeration | prenumerations-ID |
    | Lagringsåtkomstnyckel | Azure storage-kontonyckel (som du kopierade i föregående steg) | 
 
-   Klicka på **skicka**.
+   Klicka på **Skicka**.
 
    ![Fyllt molnet credential formuläret Avere på Kontrollpanelen](media/avere-vfxt-new-credential-submit.png)
 
@@ -156,7 +156,7 @@ Följ dessa steg för att lägga till Blob-lagring när du har skapat klustret.
    * Du kan också ange **krypteringstyp** till **ingen**.  Azure Storage krypteras som standard.
    * Klicka på **lägga till Filer**.
 
-  Mer detaljerad information kan du läsa [att lägga till en ny cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) i konfigurationsguiden för Avere kluster. 
+  Mer detaljerad information kan du läsa [att lägga till en ny cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) i konfigurationsguiden för Avere kluster. 
 
 Sidan uppdateras och du kan uppdatera sidan om du vill visa din nya core-filer.
 
@@ -168,7 +168,7 @@ Knutpunkt är en sökväg som du skapar för klienter. Klienter montera sökväg
 
 Du kan till exempel skapa `/avere/files` att mappa till din NetApp core filer `/vol0/data` exportera och `/project/resources` underkatalog.
 
-Mer information om vägkorsningar finns i den [namnområde delen av konfigurationsguiden för Avere kluster](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Mer information om vägkorsningar finns i den [namnområde delen av konfigurationsguiden för Avere kluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Följ anvisningarna i gränssnittet Avere Kontrollpanelen inställningar:
 

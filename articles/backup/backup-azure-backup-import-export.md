@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974445"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188308"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -109,7 +109,7 @@ Den *AzureOfflineBackupDiskPrep* förbereder du SATA-enheter som skickas till n�
     * Kopiera-datorn kan komma åt mellanlagringsplatsen för offline-seeding-arbetsflödet med hjälp av samma nätverkssökväg som angavs i den **påbörja offlinesäkerhetskopiering** arbetsflöde.
     * BitLocker har aktiverats på datorn kopia.
     * Azure PowerShell 3.7.0 har installerats.
-    * De senaste kompatibla webbläsarna (Edge eller Internet Explorer 11) har installerats och JavaScript är aktiverat. 
+    * De senaste kompatibla webbläsarna (Microsoft Edge eller Internet Explorer 11) har installerats och JavaScript är aktiverat. 
     * Kopiera-datorn kan komma åt Azure-portalen. Om det behövs, kan kopiera-datorn vara samma som källdatorn.
     
     > [!IMPORTANT] 

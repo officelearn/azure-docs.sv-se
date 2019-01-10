@@ -1,24 +1,26 @@
 ---
-title: Distribuera till Azure Analysis Services med SSDT | Microsoft Docs
+title: Distribuera till Azure Analysis Services med hjälp av Visual Studio (SSDT) | Microsoft Docs
 description: Lär dig hur du distribuerar en tabellmodell till en Azure Analysis Services-server med SSDT.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5f56ee65cd2ec5dfb39929f6985c26ebc339953e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429056"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188597"
 ---
-# <a name="deploy-a-model-from-ssdt"></a>Distribuera en modell från SSDT
+# <a name="deploy-a-model-from-visual-studio"></a>Distribuera en modell från Visual Studio
+
 När du har skapat en server i din Azure-prenumeration är du redo att distribuera en tabellmodelldatabas till den. Du kan använda SQL Server Data Tools (SSDT) för att skapa och distribuera ett tabellmodellprojekt som du arbetar med. 
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Du behöver följande för att komma igång:
 
 * **Analysis Services-server** i Azure. Läs mer i [Skapa en Azure Analysis Services-server](analysis-services-create-server.md).
@@ -53,10 +55,12 @@ Det var allt!
 
 
 ## <a name="troubleshooting"></a>Felsökning
+
 Om distributionen misslyckas när du distribuerar metadata beror det förmodligen på att SSDT inte kunde ansluta till servern. Kontrollera att du kan ansluta till servern med hjälp av SSMS. Kontrollera egenskapen Distributionsserver för projektet är korrekt.
 
 Om distributionen misslyckas för en tabell beror det förmodligen på att servern inte kunde ansluta till en datakälla. Om datakällan finns lokalt i din organisations nätverk måste du installera en [lokal datagateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har distribuerat en tabellmodell till servern är du redo att ansluta till den. Du kan [ansluta till den med SSMS](analysis-services-manage.md) om du vill hantera den. Och du kan [ansluta till den med ett klientverktyg](analysis-services-connect.md), till exempel Power BI, Power BI Desktop eller Excel, och börja skapa rapporter.
 

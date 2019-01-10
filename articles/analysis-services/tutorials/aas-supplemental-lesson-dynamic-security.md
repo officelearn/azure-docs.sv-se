@@ -1,19 +1,19 @@
 ---
-title: 'Kompletterande lektion i Azure Analysis Services-självstudiekurs: Dynamisk säkerhet | Microsoft Docs'
+title: 'Azure Analysis Services kompletterande självstudiekurs: Dynamisk säkerhet | Microsoft Docs'
 description: Beskriver hur du använder dynamisk säkerhet med hjälp av radfilter i Azure Analysis Services-kursen.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1908d655064a4a320191695c048271246951c29c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235934"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187492"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Kompletterande lektion – Dynamisk säkerhet
 
@@ -21,7 +21,7 @@ I den här kompletterande lektionen skapar du en ytterligare roll som implemente
   
 Om du vill implementera dynamisk säkerhet lägger du till en tabell i din modell som innehåller användarnamnen för de användare som ska kunna ansluta till modellen och visa modellobjekt och data. Modellen du skapar i den här självstudiekursen finns i kontexten för Adventure Works. Men för att slutföra den här lektionen måste du lägga till en tabell som innehåller användare från din egen domän. Du behöver inte lösenorden för användarnamnen som läggs till. För att skapa en EmployeeSecurity-tabell med ett litet antal användare från din egen domän använder du funktionen Klistra in och klistrar in data från ett Excel-kalkylblad. I ett verkligt scenario skulle tabellen som innehåller användarnamn vanligtvis vara en tabell från en faktisk databas som en datakälla, till exempel en verklig DimEmployee-tabell.  
   
-När du implementerar dynamisk säkerhet använder du två DAX-funktioner: [USERNAME (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) och [LOOKUPVALUE (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Dessa funktioner, som tillämpas i en radfilterformel, definieras i en ny roll. Med hjälp av funktionen LOOKUPVALUE anger formeln ett värde från tabellen EmployeeSecurity. Formeln skickar sedan att värdet till funktionen USERNAME som anger användarnamnet för den inloggade användaren som tillhör den här rollen. Användaren kan sedan endast visa de data som anges av rollens radfilter. I det här scenariot anger du att säljpersonal endast ska kunna visa information om Internetförsäljning för de försäljningsområden som de är medlem i.  
+Om du vill implementera dynamisk säkerhet, använder du två DAX-funktioner: [Funktionen USERNAME (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) och [funktionen LOOKUPVALUE (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Dessa funktioner, som tillämpas i en radfilterformel, definieras i en ny roll. Med hjälp av funktionen LOOKUPVALUE anger formeln ett värde från tabellen EmployeeSecurity. Formeln skickar sedan att värdet till funktionen USERNAME som anger användarnamnet för den inloggade användaren som tillhör den här rollen. Användaren kan sedan endast visa de data som anges av rollens radfilter. I det här scenariot anger du att säljpersonal endast ska kunna visa information om Internetförsäljning för de försäljningsområden som de är medlem i.  
   
 De aktiviteter som är unika för det här Adventure Works-tabellmodellscenariot, men som inte nödvändigtvis skulle gälla för ett verkligt scenario identifieras som sådana. Varje aktivitet innehåller ytterligare information som beskriver syftet med aktiviteten.  
   
@@ -37,7 +37,7 @@ Om du vill implementera dynamisk säkerhet för det här Adventure Works-scenari
   
 1.  I tabellmodellutforskaren > **Datakällor** högerklickar du på din anslutning och sedan på **Importera nya tabeller**.  
 
-    Om dialogrutan Autentiseringsuppgifter för personifiering visas anger du de autentiseringsuppgifter för personifiering som du använde i Lektion 2: Lägga till data.
+    Om dialogrutan autentiseringsuppgifter för personifiering visas anger du autentiseringsuppgifter för personifiering som du använde i lektion 2: Lägga till Data.
   
 2.  I navigatören väljer du tabellen **DimSalesTerritory** och klickar sedan på **OK**.    
   
@@ -107,7 +107,7 @@ I den här aktiviteten döljer du tabellen EmployeeSecurity så att den inte vis
 I den här aktiviteten skapar du en användarroll. Rollen innefattar ett radfilter som definierar vilka rader i tabellen DimSalesTerritory som ska vara synliga för användare. Filtret tillämpas sedan i relationsriktningen en-till-flera för alla andra tabeller som är relaterade till DimSalesTerritory. Du kan också tillämpa ett filter som skyddar hela EmployeeSecurity-tabellen så att ingen användare som är medlem i rollen kan fråga på data i tabellen.  
   
 > [!NOTE]  
-> Rollen Säljpersonal per område som du skapar i den här lektionen begränsar medlemmarna så att de bara kan visa (eller fråga på) försäljningsdata för det försäljningsområde som de tillhör. Om du lägger till en användare som medlem i rollen Säljpersonal per område och användaren även är medlem i en roll som skapats i [Lektion 11: Skapa roller](../tutorials/aas-lesson-11-create-roles.md) får du en kombination av behörigheter. När en användare är medlem i flera roller ackumuleras behörigheterna och radfitren som definierats för varje roll. Det vill säga att användaren får högre behörighet som bestäms av kombinationen av rollerna.  
+> Rollen Säljpersonal per område som du skapar i den här lektionen begränsar medlemmarna så att de bara kan visa (eller fråga på) försäljningsdata för det försäljningsområde som de tillhör. Om du lägger till en användare som en medlem säljpersonal per område som också finns som en medlem i en roll som skapats i [lektion 11: Skapa roller](../tutorials/aas-lesson-11-create-roles.md), får du en kombination av behörigheter. När en användare är medlem i flera roller ackumuleras behörigheterna och radfitren som definierats för varje roll. Det vill säga att användaren får högre behörighet som bestäms av kombinationen av rollerna.  
   
 #### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Så här skapar du användarrollen Säljpersonal per område  
   

@@ -1,20 +1,20 @@
 ---
-title: Importera data till search-index med hjälp av Azure portal – Azure Search
+title: Importera data till ett search-index med hjälp av Azure portal – Azure Search
 description: Lär dig hur du använder guiden Importera Data i Azure-portalen för att uppdatera Azure data från Cosmos DB, Blob storage, table storage, SQL Database och SQL Server på virtuella Azure-datorer.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8eb319538b409287538dd1e9d2856d9080d671b8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316482"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188801"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Hur du importerar data till Azure Search-index med hjälp av Azure portal
 

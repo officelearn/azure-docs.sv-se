@@ -1,5 +1,5 @@
 ---
-title: Så här inaktiverar du övervaka med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
+title: Hur du inaktiverar övervakning med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Den här artikeln beskrivs hur du kan sluta övervaka dina virtuella datorer med Azure Monitor för virtuella datorer.
 services: azure-monitor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b65df1489112bf6e9fe44fe4d4a11db76ff6f5b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f0addcc0b6220bcf877c3cac20f2d1376eb19e61
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183717"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191079"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Så här inaktiverar du övervaka dina virtuella datorer med Azure Monitor för virtuella datorer (förhandsversion)
 

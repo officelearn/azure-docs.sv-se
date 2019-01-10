@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357788"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189838"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problem som loggar in till ett program från åtkomstpanelen
 
@@ -68,7 +68,7 @@ För lösenordsbaserad SSO kan slutanvändarens webbläsare vara:
 
 -   Internet Explorer 8, 9, 10, 11 – på Windows 7 eller senare
 
--   Edge på Windows 10 Anniversary Edition eller senare
+-   Microsoft Edge i Windows 10 Anniversary Edition eller senare
 
 -   Chrome--På Windows 7 eller senare, och i Mac OS X eller senare
 
@@ -96,7 +96,7 @@ Du kan också ladda ned tillägget för Chrome och Microsoft Edge från direkt l
 
 -   [Chrome Access Panel-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Edge Access Panel-tillägg](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge Access Panel-tillägg](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Hur du konfigurerar federerad enkel inloggning för ett Azure AD-galleriprogram
 
@@ -285,7 +285,7 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program som 
 
   1. Ange svars-URL och identifierare för att konfigurera programmet som en IdP-initierad SSO.
 
-  2. **Valfritt:** för att konfigurera programmet som SP-initierad SSO, inloggnings-URL: en är ett obligatoriskt värde.
+  2. **Valfritt:** Om du vill konfigurera programmet som SP-initierad SSO, är inloggnings-URL: en ett obligatoriskt värde.
 
 12. I den **användarattribut**, Välj den unika identifieraren för dina användare i den **användaridentifierare** listrutan.
 
@@ -500,7 +500,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 

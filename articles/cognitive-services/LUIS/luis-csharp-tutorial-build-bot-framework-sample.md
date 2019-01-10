@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 951a202f8d57c736af8c17af91859ce89e9efc7d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e2feb1f5b0cad9a05f796d160a0a641622d6b59
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717967"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189227"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i C# med Bot Framework 3.x och Azure Web app-robot
 
@@ -161,6 +161,8 @@ Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://git
 ## <a name="next-steps"></a>Nästa steg
 
 Lägg till LUIS avsikter och Bot service dialogrutor för hantering av **hjälpa**, **Avbryt**, och **hälsning** avsikter. Kom ihåg att träna, publicera och [skapa](#build-the-bot) web app-robot. Både LUIS och roboten bör ha samma avsikter.
+
+Se fler [exempel](https://github.com/Microsoft/AI) med konversationsanpassade robotar. 
 
 > [!div class="nextstepaction"]
 > [Lägg till avsikter](./luis-how-to-add-intents.md)

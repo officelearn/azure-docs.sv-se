@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834714"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188937"
 ---
 # <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 
@@ -45,7 +45,7 @@ Du kan komma åt MyApps-portalen genom att gå till `https://myapps.microsoft.co
 
 Om du har anpassade anpassning som konfigurerats för din inloggningssida kan du läsa in anpassning genom att lägga till organisationens domän i URL: en (till exempel `https://myapps.microsoft.com/<your domain>.com`).
 
-Du kan använda alla aktiva eller verifierat domännamn som har konfigurerats i din Azure-portalen, som visas här: ![Wingtip Toys domännamn][2]  
+Du kan använda alla aktiva eller verifierat domännamn som har konfigurerats i din Azure-portalen enligt nedan: ![Wingtip Toys domännamn][2]  
 
 Distribuera URL: en för alla användare som loggar in till program som är integrerade med Azure AD.
 
@@ -65,7 +65,7 @@ Installationsprogrammet är arkitektur-specifika. Om du klickar på länken kan 
 
 
 MyApps portaltillägg är nu tillgänglig för:
-- **Edge**: på Windows 10 Anniversary Edition eller senare. 
+- **Microsoft Edge**: på Windows 10 Anniversary Edition eller senare. 
 - **Chrome**: på Windows 7 eller senare, och i Mac OS X eller senare.
 - **Firefox 26.0 eller senare**: på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
 - **Internet Explorer 11**: på Windows 7 eller senare (begränsat stöd).
@@ -79,7 +79,7 @@ Om du vill logga in på lösenordsbaserad enkel inloggning, måste du använda t
 - Du kan använda interna företagets URL: er samtidigt remote via [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Ytterligare funktioner är endast tillgängligt för Edge, Chrome och Firefox.
+> Ytterligare funktioner är endast tillgängligt för Microsoft Edge, Chrome och Firefox.
 >
 Du kan hämta tillägget direkt från följande platser:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

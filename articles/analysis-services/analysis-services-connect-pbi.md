@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 707bc41a2a66782d9540d95606c41685908e9848
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: cb93c29ae4cb8d365cd128c52ee726c10c94bc19
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429732"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189345"
 ---
 # <a name="connect-with-power-bi"></a>Anslut till Powerbi
 
@@ -45,9 +45,7 @@ När du har skapat en server i Azure och distribuerat en tabellmodell till den, 
 ## <a name="connect-in-power-bi-service"></a>Ansluta i Power BI (tjänst)
 
 1. Skapa en Power BI Desktop-fil som har en aktiv anslutning till din modell på din server.
-2. I [Power BI](https://powerbi.microsoft.com), klickar du på **hämta Data** > **filer**, leta upp och välj din .pbix-fil.
-
-
+2. I [Power BI](https://powerbi.microsoft.com), klickar du på **hämta Data** > **filer**, och leta upp och välj din .pbix-fil.
 
 ## <a name="see-also"></a>Se också
 [Ansluta till Azure Analysis Services](analysis-services-connect.md)   

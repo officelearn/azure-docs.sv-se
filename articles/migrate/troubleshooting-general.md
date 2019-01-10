@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9bf445b54ab6ac2d3edf53fcc4bbcc39ee475a81
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119109"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189504"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -245,14 +245,14 @@ Om du vill samla in Event Tracing för Windows, gör du följande:
 2. Tryck på F12 för att starta Developer Tools. Om det behövs, avmarkerar du inställningen **raderar du i navigeringsfönstret**.
 3. Klicka på den **nätverk** fliken och börja samla in nätverkstrafik:
  - Välj i Chrome, **Preserve log**. Inspelningen ska starta automatiskt. En röd cirkel anger att trafik avbildning. Om den inte visas klickar du på den svarta cirkeln att starta
- - I Edge/IE Starta inspelning automatiskt. Om det inte, klickar på gröna knappen Spela upp.
+ - I Microsoft Edge/IE, ska inspelning starta automatiskt. Om det inte, klickar på gröna knappen Spela upp.
 4. Försök att återskapa felet.
 5. När det har inträffat ett fel uppstod när inspelning stoppa inspelningen och spara en kopia av registrerad aktivitet:
  - I Chrome, högerklicka och klicka på **Spara som HAR med innehåll**. Det här zips och exporterar loggarna som en .har-fil.
- - I Edge/IE, klickar du på den **Export avbildas trafik** ikon. Det här zips och exporterar loggen.
+ - I Microsoft Edge/IE, klickar du på den **Export avbildas trafik** ikon. Det här zips och exporterar loggen.
 6. Navigera till den **konsolen** fliken för att söka efter eventuella varningar och fel. Spara konsolloggen:
  - I Chrome, högerklickar du någonstans i konsolloggen för. Välj **Spara som**, för att exportera och zip-loggen.
- - Högerklicka på fel och välj i Edge/IE **kopiera alla**.
+ - I Microsoft Edge/IE, högerklicka på fel och välj **kopiera alla**.
 7. Stäng Developer Tools.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Insamlaren felkoder och rekommenderade åtgärder

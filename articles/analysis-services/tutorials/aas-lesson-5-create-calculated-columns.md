@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428138"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187458"
 ---
 # <a name="create-calculated-columns"></a>Skapa beräknade kolumner
 
@@ -23,7 +23,7 @@ Du kan skapa fem nya beräknade kolumner i tre olika tabeller. Stegen för att g
 
 Det är även den här lektionen där du först använder dataanalysuttryck (DAX). DAX är ett särskilt språk för att skapa mycket anpassningsbara formeluttryck för tabellmodeller. I den här självstudien använder du DAX för att skapa beräknade kolumner, mått och filter för roller. Läs mer i [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular) (DAX i tabellmodeller). 
   
-Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 4: Skapa relationer](../tutorials/aas-lesson-4-create-relationships.md). 
@@ -42,7 +42,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
     En ny kolumn med namnet **Beräknad kolumn 1** infogas till vänster om kolumnen **Kalenderkvartal**.  
   
-4.  Ange följande DAX-formel i formelfältet ovanför tabellen: AutoComplete hjälper dig att ange de fullständiga namnen på kolumnerna och tabellerna och visar en lista över de funktioner som är tillgängliga.  
+4.  Skriv följande DAX-formel i formelfältet ovanför tabellen: AutoComplete hjälper dig att ange de fullständiga namnen på kolumnerna och tabellerna och visar en lista över de funktioner som är tillgängliga.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

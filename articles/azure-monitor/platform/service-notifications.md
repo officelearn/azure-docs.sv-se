@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159255"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190705"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa meddelanden om hälsostatus för tjänsten med hjälp av Azure-portalen
 
@@ -58,43 +58,27 @@ Properties.Stage | Möjliga värden för **Incident**, och **Security** är **ak
 Properties.communicationId | Kommunikation som är associerad till den här händelsen.
 
 ### <a name="details-on-service-health-level-information"></a>Information om service health nivåinformation
-  <ul>
-    <li><b>Åtgärd krävs</b> (properties.incidentType == åtgärd krävs) <dl>
-            <dt>Informationsmeddelande</dt>
-            <dd>Åtgärd av administratören krävs för att förhindra påverkan på befintliga tjänster</dd>
-        </dl>
-    </li>
-    <li><b>Underhåll</b> (properties.incidentType == underhåll) <dl>
-            <dt>Varning</dt>
-            <dd>vid akutfall Underhåll<dd>
-            <dt>Informationsmeddelande</dt>
-            <dd>standard planerat underhåll</dd>
-        </dl>
-    </li>
-    <li><b>Information</b> (properties.incidentType == endast i informationssyfte) <dl>
-            <dt>Informationsmeddelande</dt>
-            <dd>Administratören kan krävas för att förhindra påverkan på befintliga tjänster</dd>
-        </dl>
-    </li>
-    <li><b>Security</b> (properties.incidentType == säkerhet) <dl>
-            <dt>Fel</dt>
-            <dd>Frekvent påverkar åtkomst till flera tjänster över flera områden en rad olika kunder.</dd>
-            <dt>Varning</dt>
-            <dd>Problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.</dd>
-            <dt>Informationsmeddelande</dt>
-            <dd>Problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.</dd>
-        </dl>
-    </li>
-    <li><b>Tjänsten problem</b> (properties.incidentType == Incident) <dl>
-            <dt>Fel</dt>
-            <dd>Frekvent påverkar åtkomst till flera tjänster över flera områden en rad olika kunder.</dd>
-            <dt>Varning</dt>
-            <dd>Problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.</dd>
-            <dt>Informationsmeddelande</dt>
-            <dd>Problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Åtgärd krävs** (properties.incidentType == åtgärd krävs)
+    - Information - administratör åtgärd som krävs för att förhindra påverkan på befintliga tjänster
+    
+**Underhåll** (properties.incidentType == underhåll)
+    - Varning - nödfall Underhåll
+    - Information - standard planerat underhåll
+
+**Information** (properties.incidentType == Information)
+    - Information - administratör kan krävas för att förhindra påverkan på befintliga tjänster
+
+**Security** (properties.incidentType == säkerhet)
+    - Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
+    - Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
+    - Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
+
+**Tjänsten problem** (properties.incidentType == Incident)
+    - Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
+    - Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
+    - Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visa dina meddelanden om hälsostatus för tjänsten i Azure portal
 1.  I den [Azure-portalen](https://portal.azure.com)väljer **övervakaren**.

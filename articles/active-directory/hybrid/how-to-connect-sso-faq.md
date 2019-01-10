@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0672fc06130ce58ae3155672c66ac06ae96bc7b9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424841"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190644"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: Vanliga frågor och svar
 
 I den här artikeln har upp vi vanliga frågor och svar om Azure Active Directory sömlös enkel inloggning (sömlös SSO). Kontrollera tillbaka för nytt innehåll.
 
@@ -65,7 +65,7 @@ Ja. Har stöd för sömlös SSO `Alternate ID` som användarnamn när du konfigu
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Vad är skillnaden mellan enkel inloggning som tillhandahålls av [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös enkel inloggning?
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) tillhandahåller enkel inloggning för användare om deras enheter är registrerade med Azure AD. Dessa enheter behöver inte nödvändigtvis vara anslutna till en domän. Enkel inloggning har angetts med hjälp av *primära uppdateringstoken* eller *PRTs*, och inte Kerberos. Användarupplevelsen är mest optimala på Windows 10-enheter. SSO sker automatiskt i Edge-webbläsare. Fungerar på Chrome med hjälp av ett webbläsartillägg.
+[Azure AD Join](../active-directory-azureadjoin-overview.md) tillhandahåller enkel inloggning för användare om deras enheter är registrerade med Azure AD. Dessa enheter behöver inte nödvändigtvis vara anslutna till en domän. Enkel inloggning har angetts med hjälp av *primära uppdateringstoken* eller *PRTs*, och inte Kerberos. Användarupplevelsen är mest optimala på Windows 10-enheter. SSO sker automatiskt i Microsoft Edge-webbläsare. Fungerar på Chrome med hjälp av ett webbläsartillägg.
 
 Du kan använda Azure AD Join och sömlös enkel inloggning på din klient. De här två funktionerna är kompletterande. Om båda funktionerna aktiveras har enkel inloggning från Azure AD Join företräde framför sömlös enkel inloggning.
 
@@ -107,7 +107,7 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 
 ### <a name="step-1-disable-the-feature-on-your-tenant"></a>Steg 1. Inaktivera funktionen på din klient
 
-#### <a name="option-a-disable-using-azure-ad-connect"></a>Alternativ A: inaktivera med Azure AD Connect
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Alternativ A: Inaktivera med Azure AD Connect
 
 1. Kör Azure AD Connect, Välj **ändra användare på inloggningssidan** och klicka på **nästa**.
 2. Avmarkera den **aktivera enkel inloggning** alternativet. Fortsätt genom guiden.
@@ -118,7 +118,7 @@ När du har slutfört guiden för inaktiveras sömlös SSO på din klient. Dock 
 
 Om du vill slutföra rensningen, följer du steg 2 och 3 på den lokala servern där du kör Azure AD Connect.
 
-#### <a name="option-b-disable-using-powershell"></a>Alternativ B: inaktivera med hjälp av PowerShell
+#### <a name="option-b-disable-using-powershell"></a>Alternativ B: Inaktivera med hjälp av PowerShell
 
 Kör följande steg på den lokala servern där du kör Azure AD Connect:
 

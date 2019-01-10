@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608961"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190025"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -27,15 +27,18 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
-## <a name="version-161"></a>Version 1.6.1
-12/18/2018
+## <a name="version-162"></a>Version 1.6.2
+1/9/2019
 
-### <a name="download-azure-storage-explorer-161"></a>Hämta Azure Storage Explorer 1.6.1
-- [Azure Storage Explorer 1.6.1 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.6.1 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.6.1 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-162"></a>Hämta Azure Storage Explorer 1.6.2
+- [Azure Storage Explorer 1.6.2 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.6.2 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.6.2 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
+* 1.6.1 lades entiteter som läggs till ADLS Gen2 ACL: er av ObjectId som användare kan inte alltid som grupper. Endast grupper läggs nu som grupper och enheter, till exempel företagsprogram andService huvudkonton läggs till som användare. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* Om ett ADLS Gen2 Storage-konto har inga behållare och anslöts med namnet och nyckeln, skulle Lagringsutforskaren inte identifierar att Lagringskontot har ADLS Gen2. Problemet har åtgärdats. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* I 1.6.0 eller senare, skulle konflikter under kopiera och klistra in inte fråga efter en lösning. I stället misslyckas bara den borttagna kopian. Nu på den första konflikten blir du ombedd hur du vill ska lösas. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * Alla verifiering av ObjectIds i dialogrutan Hantera åtkomst har inaktiverats på grund av API-begränsningar. Verifieringen utförs nu endast för användare UPN-namn. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * I dialogrutan Hantera ADLS Gen2 åtkomst kan behörigheter för en grupp inte ändras. Problemet har åtgärdats. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * Ladda upp stöd till ADLS Gen2 redigeraren har lagts till dra och släpp. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -103,6 +106,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 ## <a name="previous-releases"></a>Tidigare versioner
 
+* [Version 1.6.1](#version-161)
 * [Version 1.6.0 eller senare](#version-160)
 * [Version 1.5.0](#version-150)
 * [Version 1.4.4](#version-144)
@@ -135,6 +139,75 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-161"></a>Version 1.6.1
+12/18/2018
+
+### <a name="hotfixes"></a>Snabbkorrigeringar
+* Alla verifiering av ObjectIds i dialogrutan Hantera åtkomst har inaktiverats på grund av API-begränsningar. Verifieringen utförs nu endast för användare UPN-namn. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* I dialogrutan Hantera ADLS Gen2 åtkomst kan behörigheter för en grupp inte ändras. Problemet har åtgärdats. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Ladda upp stöd till ADLS Gen2 redigeraren har lagts till dra och släpp. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* URL-egenskapen i egenskapsdialogrutan för ADLS Gen2 filer och mappar saknades ibland en '/'. Problemet har åtgärdats. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Om får den aktuella behörigheten för en behållare för ADLS Gen2 fil eller mapp misslyckas och felet är nu propertly som visas i aktivitetsloggen. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Den tillfälliga sökvägen som skapats för att öppna filer har kortats ned för att minska risken för att skapa en sökväg som är längre än MAX_PATH på Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* Dialogrutan Anslut nu visas korrekt när inga användare är inloggad och inga resurser har bifogats. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* Spara egenskaperna för icke - HNS Blobar och filer skulle i 1.6.0 eller senare koda värdet för varje egenskap. Detta resulterade i onödiga kodning av värden som innehöll endast ASCII-tecken. Värden kommer nu endast att kodas om de innehåller icke-ASCII-tecken. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Ladda upp en mapp till en icke - HNS blobbehållare misslyckas om en SAS har använts och SAS har inte behörighet att läsa. Problemet har åtgärdats. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* Avbryter en AzCopy-överföring fungerade inte. Problemet har åtgärdats. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy misslyckas vid försök att ladda ned en mapp från en ADLS Gen2 Blob-behållare om mappen hade blanksteg i namnet. Problemet har åtgärdats. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* CosmosDB-redigeraren har delats i 1.6.0 eller senare. Det har lösts. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### <a name="new"></a>Ny
+
+* Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
+* Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
+    * Skapa och ta bort behållare
+    * Hantera egenskaper för behållare och behörigheter (vänster)
+    * Visa och navigera data i behållare
+    * Skapa nya mappar
+    * Ladda upp, hämta, byta namn på och ta bort filer och mappar
+    * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+    
+    Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
+* Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.
+
+### <a name="known-issues"></a>Kända problem
+
+* När du laddar ned från ett ADLS Gen2 Storage-konto om något av de filer som överförs redan finns kommer AzCopy ibland krascha. Detta kommer att åtgärdas i en kommande snabbkorrigering.
+* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
+* Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
+   * Filresurser
+   * Åtkomstnivåer
+   * Mjuk borttagning
+* Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – detta kan göras genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-160"></a>Version 1.6.0 eller senare
 12/5/2018

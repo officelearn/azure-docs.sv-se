@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705692"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191045"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Felsöka problem med åtkomst till och med hjälp av MyApps-portalen
 
@@ -49,7 +49,7 @@ MyApps-portalen kräver en webbläsare som stöder JavaScript och CSS aktiverat.
 
 Kontrollera att du uppfyller följande webbläsarkrav:
 
-- **Edge**: på Windows 10 Anniversary Edition eller senare.
+- **Microsoft Edge**: på Windows 10 Anniversary Edition eller senare.
 - **Chrome**: på Windows 7 eller senare, och i Mac OS X eller senare.
 - **Firefox 26.0 eller senare**: på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
 - **Internet Explorer 11**: på Windows 7 eller senare (begränsat stöd).
@@ -90,7 +90,7 @@ Om du har installerat tillägget och fortfarande har problem kan du prova följa
        De tre sista appar som du har använt visas i den **nyligen använda** genväg lista.
 
 > [!NOTE]
-> Dessa alternativ är endast tillgängligt för Edge, Chrome och Firefox.
+> Dessa alternativ är endast tillgängligt för Microsoft Edge, Chrome och Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Hur lägger jag till en ny app?
 

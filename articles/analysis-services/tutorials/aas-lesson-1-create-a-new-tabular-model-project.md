@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3291721847d34b0fa9a6259bfeb6ec6fa06ed2b5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058512"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188019"
 ---
 # <a name="create-a-tabular-model-project"></a>Skapa ett projekt för tabellmodeller
 
 I den här lektionen använder du Visual Studio med Analysis Services-projekt eller SQL Server Data Tools (SSDT) för att skapa ett nytt projekt för tabellmodeller på kompatibilitetsnivå 1400. När det nya projektet har skapats kan du börja lägga till data och redigera din modell. Den här lektionen ger dig också en kort introduktion till redigeringsmiljön för tabellmodeller i Visual Studio.  
   
-Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet är den första lektionen i en självstudie om redigering av tabellmodeller. Det finns flera förutsättningar som måste uppfyllas för att slutföra den här lektionen. Läs mer i [Azure Analysis Services – Självstudiekurs för Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  

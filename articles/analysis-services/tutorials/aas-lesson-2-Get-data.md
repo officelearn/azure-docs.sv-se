@@ -5,29 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427628"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189328"
 ---
 # <a name="get-data"></a>Hämta data
 
 Under den här lektionen använder du Hämta data i SSDT för att ansluta till AdventureWorks-exempeldatabasen, väljer data, förhandsgranskar och filtrerar, och importerar sedan till modellarbetsytan.  
   
-Med Hämta data kan du importera data från en mängd olika datakällor: Azure SQL Database, Oracle, Sybase, OData-Feed, Teradata, filer med mera. Det går även att fråga data med ett Power Query M-formeluttryck.
+Genom att använda hämta Data kan importera du data från en mängd olika källor: Azure SQL Database, Oracle, Sybase, OData-Feed, Teradata, filer och mycket annat. Det går även att fråga data med ett Power Query M-formeluttryck.
 
 > [!NOTE]
 > Uppgifter och bilder i den här kursen visar hur ansluter till en AdventureWorksDW2014-databas på en lokal server. I vissa fall kan en AdventureWorks-databas på Azure skilja sig.
   
-Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
+Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
 ## <a name="prerequisites"></a>Förutsättningar  
-Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen bör du ha slutfört föregående lektion: [Lektion 1: Skapa ett nytt tabellmodellprojekt](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 1: Skapa ett nytt projekt för tabellmodeller](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Skapa en anslutning  
   
@@ -52,7 +52,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 5.  I navigatören markerar du databasen **AdventureWorksDW2014** och klickar sedan på **OK**. Då skapas en anslutning till databasen. 
   
-6.  I Navigatören markerar du kryssrutan för följande tabeller: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, och **FactInternetSales**, och klicka sedan på **redigera**.
+6.  I Navigatören markerar du kryssrutan för följande tabeller: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**,  **DimProductSubcategory**, och **FactInternetSales**, och klicka sedan på **redigera**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
@@ -151,7 +151,7 @@ Det är viktigt att spara modellprojektet ofta.
 -   Klicka på **Arkiv** > **Spara alla**.  
   
 ## <a name="whats-next"></a>Nästa steg
-[Lektion 3: Markera som datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md).
+[Lektion 3: Markera som Datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   
   

@@ -3,17 +3,17 @@ title: Skapa VM-skalningsuppsättningar i Azure med Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en skalningsuppsättning för virtuell dator i Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409421"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054166"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Skapa VM-skalningsuppsättningar i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina VM-skalningsuppsättningar (VMSS) i Azure på samma sätt som för alla andra Azure-resurser. I den här artikeln får du läsa om hur du använder Ansible för att skapa och skala ut en skalningsuppsättning för virtuell dator. 

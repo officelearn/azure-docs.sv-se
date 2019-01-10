@@ -1,19 +1,17 @@
 ---
 title: Utveckla lokalt med Azure Cosmos DB-emulatorn
 description: Med Azure Cosmos DB-emulatorn kan du utveckla och testa ditt program lokalt kostnadsfritt, utan att skapa en Azure-prenumeration.
-services: cosmos-db
-keywords: Azure Cosmos DB-emulator
-author: David-Noble-at-work
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: danoble
-ms.openlocfilehash: 1876a74ff1631ee8a383ebe954df9756f7ef89f1
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+author: deborahc
+ms.author: dech
+ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811451"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038202"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 

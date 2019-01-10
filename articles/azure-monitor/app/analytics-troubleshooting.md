@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017012"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189940"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Felsökningsanalys i Application Insights
 Problem med [Application Insights Analytics](analytics.md)? Börja här. Analytics är verktyget kraftfull sökning av Azure Application Insights.
@@ -54,7 +54,7 @@ Ett autentiseringsrelaterat fel har inträffat (under autentisering eller under 
 2. Använde du en favorit, ett bokmärke eller en sparad länk för att öppna Analytics-portalen? Är du inloggad med andra autentiseringsuppgifter än de du använde när du sparade länken?
 3. Försök att använda webbläsarfönstret i läget privat/inkognito (när du har stängt alla sådana fönster). Du måste ange dina autentiseringsuppgifter. 
 4. Öppna ett nytt (vanligt) webbläsarfönster och gå till [Azure](https://portal.azure.com). Logga ut. Öppna sedan länken och logga in med rätt autentiseringsuppgifter.
-5. Microsoft Edge- och Internet Explorer-användare kan också få det här felet om betrodda zoninställningar inte stöds.
+5. Microsoft Edge och Internet Explorer-användare kan också få det här felet om betrodda Zoninställningar inte stöds.
    
     Kontrollera att båda [analysportalen](https://portal.azure.com) och [Azure Active Directory-portalen](https://portal.azure.com) finns i samma säkerhetszon:
    

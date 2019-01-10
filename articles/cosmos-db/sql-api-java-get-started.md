@@ -1,21 +1,19 @@
 ---
 title: 'Självstudie om NoSQL: SQL API för Azure Cosmos DB Java SDK'
 description: En självstudiekurs om NoSQL som skapar en onlinedatabas och ett Java-konsolprogram med hjälp av SQL API för Azure Cosmos DB. Azure SQL är en NoSQL-databas för JSON.
-keywords: nosql tutorial, online database, java console application
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093037"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044050"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudie om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
@@ -140,7 +138,7 @@ Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.mic
 
 ![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa ett Java-konsolprogram](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
+## <a id="Query"></a>Steg 7: Köra frågor mot Azure Cosmos DB-resurser
 Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Följande exempelkod visar hur du frågar dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)-metoden.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(

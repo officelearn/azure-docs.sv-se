@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b3cfd57ff0e4b881352c07081d71bb9ba80fd11e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000197"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118090"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Översikt över Application Insights för DevOps
 
-Med [Application Insights](../../application-insights/app-insights-overview.md) kan du snabbt ta reda på hur appen fungerar och används när den är aktiv. Om det finns problem får du veta det, du får hjälp att bedöma effekten och att fastställa orsaken.
+Med [Application Insights](../../azure-monitor/app/app-insights-overview.md) kan du snabbt ta reda på hur appen fungerar och används när den är aktiv. Om det finns problem får du veta det, du får hjälp att bedöma effekten och att fastställa orsaken.
 
 Följande är en berättelse från ett team som utvecklar webbappar:
 
@@ -61,7 +61,7 @@ Fel visas som röda punkter på webbtestdiagrammet:
 Men en viktigare detalj är att en avisering om eventuella fel skickas till utvecklingsteamet. På så sätt får de veta det innan nästan alla kunder märker det.
 
 ## <a name="monitor-performance"></a>Övervaka prestanda
-På översiktssidan i Application Insights finns det ett diagram som visar flera olika [viktiga mått](../../application-insights/app-insights-web-monitor-performance.md).
+På översiktssidan i Application Insights finns det ett diagram som visar flera olika [viktiga mått](../../azure-monitor/app/web-monitor-performance.md).
 
 ![Skärmbild av översiktdiagram för KPI-prestanda](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ Undantag och händelser visas på bladet för [diagnostiksökning](diagnostic-se
 
 
 ## <a name="monitor-proactively"></a>Övervaka proaktivt
-Marcela sitter inte bara och väntar på aviseringar. Kort efter varje ny distribution tittar hon på [svarstider](../../application-insights/app-insights-web-monitor-performance.md), både de övergripande siffrorna och tabellen med de långsammaste förfrågningarna, samt antalet undantag.  
+Marcela sitter inte bara och väntar på aviseringar. Kort efter varje ny distribution tittar hon på [svarstider](../../azure-monitor/app/web-monitor-performance.md), både de övergripande siffrorna och tabellen med de långsammaste förfrågningarna, samt antalet undantag.  
 
 ![Graf för svarstid och rutnät med serversvarstider.](./media/detect-triage-diagnose/response-time.png)
 
@@ -184,7 +184,7 @@ Diagnostik är inte riktigt detsamma som felsökning. Innan du börjar gå igeno
 
 Vissa problem med långsamma beroenden är geolokaliseringsproblem. Fabrikam Bank använder virtuella Azure-datorer, och man upptäckte att man av misstag hade placera webbservern och kontoservern i olika länder. Man uppnådde en dramatisk förbättring genom att migrera en av dem.
 
-**Vad har vi gjort?** Om problemet inte verkar ligga i ett beroende och om det inte alltid har funnits där beror det troligtvis på en ändring som har skett nyligen. Det historiska perspektivet från mått- och händelsediagrammen gör det enkelt att korrelera eventuella ändringar med distributioner. Det begränsar sökningen efter problemet. Aktivera Application Insights Profiler för att identifiera vilka rader i programkoden som gör prestandan långsammare. Se [Profiling live Azure web apps with Application Insights](./../../application-insights/app-insights-profiler.md) (Profilera aktiva Azure-webbappar med Application Insights). När Profiler har aktiverats kan du se en spårning som liknar följande. I det här exemplet går det lätt att se att metoden *GetStorageTableData* har orsakat problemet.  
+**Vad har vi gjort?** Om problemet inte verkar ligga i ett beroende och om det inte alltid har funnits där beror det troligtvis på en ändring som har skett nyligen. Det historiska perspektivet från mått- och händelsediagrammen gör det enkelt att korrelera eventuella ändringar med distributioner. Det begränsar sökningen efter problemet. Aktivera Application Insights Profiler för att identifiera vilka rader i programkoden som gör prestandan långsammare. Se [Profiling live Azure web apps with Application Insights](./../../azure-monitor/app/profiler.md) (Profilera aktiva Azure-webbappar med Application Insights). När Profiler har aktiverats kan du se en spårning som liknar följande. I det här exemplet går det lätt att se att metoden *GetStorageTableData* har orsakat problemet.  
 
 ![Spårning i App Insights Profiler](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -215,7 +215,7 @@ Oavsett orsak hjälper data teamet att lista ut vad användarna gör. Fler spår
 
 Teamet börjar vänja sig vid att ha information om användarnas aktivitet. När man utformar en ny funktion funderar man numera över hur man kan få fram feedback om användningen av funktionen. Man utformar spårningsanrop i funktionen redan från början. Man använder sin feedback för att förbättra funktionen under varje utvecklingscykel.
 
-[Läs mer om att spåra användning](../../application-insights/app-insights-usage-overview.md).
+[Läs mer om att spåra användning](../../azure-monitor/app/usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>Använda DevOps-cykeln
 Så använder alltså ett team Application Insights för att inte bara åtgärda enskilda problem, utan för att även förbättra utvecklingslivscykeln. Jag hoppas att du nu har fått lite idéer om hur Application Insights kan hjälpa dig med hantering av programprestanda i dina egna program.
@@ -230,6 +230,6 @@ Du kan komma igång på flera sätt, beroende på programmets egenskaper. Välj 
 * [ASP.NET-webbapp](../../azure-monitor/app/asp-net.md)
 * [Java-webapp](../../azure-monitor/app/java-get-started.md)
 * [Node.js-webbapp](../../azure-monitor/app/nodejs.md)
-* Appar som redan har distribuerats som har [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) eller [Azure](../../application-insights/app-insights-overview.md) som värd.
+* Appar som redan har distribuerats som har [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) eller [Azure](../../azure-monitor/app/app-insights-overview.md) som värd.
 * [Webbsidor](../../azure-monitor/app/javascript.md) – En app med en enda sida eller en vanlig webbapp, använd det här på egen hand eller tillsammans med något av serveralternativen.
 * [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) för att testa appen från internet.

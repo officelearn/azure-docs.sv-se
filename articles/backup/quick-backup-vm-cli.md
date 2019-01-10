@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 8/3/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bcc995994b19314b985e9a038fed236ca55db804
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 20243c516410fc6ee6b3a4e6e3d0b16ec4930cfa
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878779"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159340"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Säkerhetskopiera en virtuell dator i Azure med CLI
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator i Azure med Azure CLI. Du kan också utföra de här stegen med [Azure PowerShell](quick-backup-vm-powershell.md) eller [Azure Portal](quick-backup-vm-portal.md).
@@ -64,7 +64,7 @@ Om den virtuella datorn inte finns i samma resursgrupp som valvet så syftar myR
 az backup protection enable-for-vm \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
-    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') \
     --policy-name DefaultPolicy
 ```
 

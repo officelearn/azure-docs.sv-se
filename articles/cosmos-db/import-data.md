@@ -1,20 +1,17 @@
 ---
 title: Databasmigreringsverktyg för Azure Cosmos DB
 description: Lär dig att använda datamigreringsverktyg för öppen källkod i Azure Cosmos DB till att importera data till Azure Cosmos DB från olika källor, bland annat MongoDB, SQL Server, tabellagring, Amazon DynamoDB, CSV och JSON-filer. Konvertering av CSV till JSON.
-keywords: csv to json, database migration tools, convert csv to json
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
-ms.custom: mvc
-ms.openlocfilehash: 45c9d5fac24bbbc7d90abf43f5f7662c26c7d4b0
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 82c34f3dcc606ccf7103b557518cd7a54a153183
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810159"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034128"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrera data till Azure Cosmos DB med hjälp av migreringsverktyget
 

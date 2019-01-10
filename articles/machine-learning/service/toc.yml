@@ -9,8 +9,8 @@ items:
   - name: Så här fungerar tjänsten
     displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
-  - name: Vad händer med Workbench?
-    displayName: desktop ui
+  - name: Vad hände med Workbench?
+    displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
   - name: Viktig information
     displayName: what's new issues bugs
@@ -142,6 +142,9 @@ items:
   - name: Använd CLI för Machine Learning
     displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
+  - name: Exportera och ta bort data
+    displayName: gdpr
+    href: how-to-export-delete-data.md
 - name: Referens
   items:
   - name: Maskininlärning SDK
@@ -166,213 +169,11 @@ items:
     href: resource-known-issues.md
   - name: Få support
     href: support-for-aml-services.md
-  - name: Exportera och ta bort data
-    displayName: gdpr
-    href: how-to-export-delete-data.md
-  - name: Inaktuella dokument
-    items:
-    - name: Migrera från Workbench
-      displayName: Workbench upgrade update transfer
-      href: how-to-migrate.md
-    - name: Exportera eller ta bort kontodata (inaktuellt)
-      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-    - name: Snabbstart för Workbench (inaktuell)
-      href: ../desktop-workbench/quickstart-installation.md
-    - name: 'Självstudie 1: Förbereda data'
-      href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
-    - name: 'Självstudie 2: Skapa modeller'
-      href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
-    - name: 'Självstudie 3: Distribuera modeller'
-      href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
-    - name: 'Självstudie 4: Avancerad dataförberedelse'
-      href: ../desktop-workbench/tutorial-bikeshare-dataprep.md
-    - name: Översikt över Machine Learning-modellhantering
-      href: ../desktop-workbench/model-management-overview.md
-    - name: Främsta CLI-åtgärder
-      href: ../desktop-workbench/cli-for-azure-machine-learning.md
-    - name: Använd Workbench
-      items:
-      - name: Arbeta med Python IDE:er
-        href: ../desktop-workbench/how-to-configure-your-IDE.md
-      - name: Jupyter Notebook
-        href: ../desktop-workbench/how-to-use-jupyter-notebooks.md
-      - name: Integrera med Git-lagringsplatser
-        href: ../desktop-workbench/using-git-ml-project.md
-      - name: Strukturera projekt med TDSP
-        href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-      - name: Roaming och samarbete
-        href: ../desktop-workbench/roaming-and-collaboration.md
-    - name: Använda IDE-tillägg
-      items:
-      - name: Använd Visual Studio Tools för AI
-        href: ../desktop-workbench/quickstart-visual-studio-tools.md
-      - name: Använd Visual Studio Code Tools för AI
-        href: ../desktop-workbench/quickstart-visual-studio-code-tools.md
-    - name: Använda Azure IoT Edge AI Toolkit
-      href: ../desktop-workbench/use-azure-iot-edge-ai-toolkit.md
-    - name: Konfigurera beräkningsmiljö
-      items:
-      - name: Konfigurera experimentering
-        href: ../desktop-workbench/experimentation-service-configuration.md
-      - name: Skapa DSVM och HDI Spark-kluster
-        href: ../desktop-workbench/how-to-create-dsvm-hdi.md
-      - name: Träna med GPU:er
-        href: ../desktop-workbench/how-to-use-gpu.md
-    - name: Skaffa och förstå data
-      items:
-      - name: Lägg till datakälla
-        href: ../desktop-workbench/data-source-wizard.md
-      - name: Guide för databearbetning
-        href: ../desktop-workbench/data-prep-getting-started.md
-      - name: Avancerad dataförberedelse
-        href: ../desktop-workbench/data-prep-user-guide.md
-      - name: Transformationer vid förberedelse av data
-        href: ../desktop-workbench/data-prep-appendix3-supported-transforms.md
-        items:
-        - name: Kombinera kolumner med exempel
-          href: ../desktop-workbench/data-prep-combine-columns-by-example.md
-        - name: Härled kolumner med exempel
-          href: ../desktop-workbench/data-prep-derive-column-by-example.md
-        - name: Dela kolumner med exempel
-          href: ../desktop-workbench/data-prep-split-column-by-example.md
-        - name: Expandera JSON
-          href: ../desktop-workbench/data-prep-expand-json.md
-    - name: Utveckla modeller
-      items:
-      - name: Klassificera Iris med hjälp av CLI
-        href: ../desktop-workbench/tutorial-iris-azure-cli.md
-      - name: Spåra körningshistorik och modellmått
-        href: ../desktop-workbench/how-to-use-run-history-model-metrics.md
-      - name: Hitta körning med bäst noggrannhet
-        href: ../desktop-workbench/how-to-find-best-accuracy-cli.md
-      - name: Läsa och skriva filer
-        href: ../desktop-workbench/how-to-read-write-files.md
-      - name: Använd MMLSpark-bibliotek
-        href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: Distribuera och använd modell
-      items:
-      - name: Konfigurera Machine Learning-modellhantering
-        href: ../desktop-workbench/deployment-setup-configuration.md
-      - name: Skala kluster och tjänster
-        href: ../desktop-workbench/how-to-scale-clusters.md
-      - name: Aktivera SSL på ett MLC-kluster
-        href: ../desktop-workbench/how-to-setup-ssl-on-mlc.md
-      - name: Distribuera en webbtjänst
-        href: ../desktop-workbench/model-management-service-deploy.md
-      - name: Anpassa en container
-        href: ../desktop-workbench/model-management-custom-container.md
-      - name: Distribuera till en IoT Edge-enhet
-        href: ../desktop-workbench/deploy-to-iot-edge-device.md
-      - name: Använda en webbtjänst
-        href: ../desktop-workbench/model-management-consumption.md
-      - name: Samla in modelldata
-        href: ../desktop-workbench/how-to-use-model-data-collection.md
-      - name: Distribuera felsökningsguide
-        href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Äldre exempel
-      items:
-      - name: Analys av dokumentsamling
-        href: ../desktop-workbench/scenario-document-collection-analysis.md
-      - name: Matchning av frågor och svar
-        href: ../desktop-workbench/scenario-qna-matching.md
-      - name: Förebyggande underhåll
-        href: ../desktop-workbench/scenario-predictive-maintenance.md
-      - name: Klassificering av flygfoto
-        href: ../desktop-workbench/scenario-aerial-image-classification.md
-      - name: Prognostisering av serverns arbetsbelastning i terabyte med data
-        href: ../desktop-workbench/scenario-big-data.md
-      - name: Prognoser för efterfrågan på energi för Time Series
-        href: ../desktop-workbench/scenario-time-series-forecasting.md
-      - name: Distribuerad justering av hyperparametrar
-        href: ../desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md
-      - name: Prognostiserad kundomsättning
-        href: ../desktop-workbench/scenario-churn-prediction.md
-      - name: Attitydanalys med djupinlärning
-        href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
-      - name: Biomedicinsk enhetsidentifiering – TDSP-projekt
-        href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      - name: Klassificera inkomster från USA – TDSP-projekt
-        href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
-      - name: Klassificering av avbildning med hjälp av CNTK
-        href: ../desktop-workbench/scenario-image-classification-using-cntk.md
-      - name: Djupinlärning för förutsägande underhåll
-        href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Äldre referens
-      items:
-      - name: Python-tillägg för förberedelse av data
-        href: ../desktop-workbench/data-prep-python-extensibility-overview.md
-      - name: Datakällor som stöds
-        href: ../desktop-workbench/data-prep-appendix2-supported-data-sources.md
-      - name: Läsa Azure Cosmos DB som datakälla
-        href: ../desktop-workbench/data-prep-load-azure-cosmos-db.md
-      - name: Kontroller som stöds
-        href: ../desktop-workbench/data-prep-appendix4-supported-inspectors.md
-      - name: Datamål som stöds
-        href: ../desktop-workbench/data-prep-appendix5-supported-destinations.md
-      - name: Kombinationer av körning och miljö som stöds
-        href: ../desktop-workbench/data-prep-supported-runtime-data-environments.md
-      - name: Exempel på filteruttryck i Python
-        href: ../desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md
-      - name: Exempel på anpassade dataflödestransformeringar i Python
-        href: ../desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md
-      - name: Exempel på anslutningar till datakällor i Python
-        href: ../desktop-workbench/data-prep-appendix8-sample-source-connections-python.md
-      - name: Exempel på anslutningar till mål i Python
-        href: ../desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md
-      - name: Exempel på kolumntransformeringar i Python
-        href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md
-      - name: API för körning av dataförberedelse
-        href: ../desktop-workbench/data-prep-python-execution-api.md
-      - name: Konfiguration av experimenteringstjänst
-        href: ../desktop-workbench/experimentation-service-configuration-reference.md
-      - name: API för loggning
-        href: ../desktop-workbench/reference-logging-api.md
-      - name: Mall för experimenteringstjänsten
-        href: ../desktop-workbench/experimentation-service-template.md
-      - name: API för Machine Learning-modellhantering
-        href: ../desktop-workbench/model-management-api-reference.md
-      - name: CLI för Machine Learning-modellhantering
-        href: ../desktop-workbench/model-management-cli-reference.md
-      - name: API för datainsamling
-        href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Domänpaket
-      href: ../desktop-workbench/reference-python-package-overview.md
-      items:
-      - name: Paketet för visuellt innehåll är inaktuellt
-        items:
-        - name: Installera paket
-          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
-        - name: Modellera och distribuera
-          items:
-          - name: Bildklassificering
-            href: ../desktop-workbench/how-to-build-deploy-image-classification-models.md
-          - name: Objektidentifiering
-            href: ../desktop-workbench/how-to-build-deploy-object-detection-models.md
-          - name: Bildlikhet
-            href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
-          - name: Förbättrad modellnoggrannhet
-            href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Prognospaketet är inaktuellt
-        items:
-        - name: Översikt och installation
-          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
-        - name: Skapa och distribuera prognosmodeller
-          href: ../desktop-workbench/how-to-build-deploy-forecast-models.md
-      - name: FPGA-accelerationspaket
-        href: reference-fpga-package-overview.md
-      - name: Textanalyspaket
-        items:
-        - name: Översikten och installationen är inaktuella
-          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
-        - name: Skapa och distribuera textklassificeringsmodeller
-          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Vanliga frågor och svar
-      href: ../desktop-workbench/frequently-asked-questions.md
-    - name: Äldre problem
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 4af9d970fe07370200d9c6472366ea3dab16a76c
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+  - name: Jämför maskininlärningsprodukter på Microsoft
+    href: overview-more-machine-learning.md
+ms.openlocfilehash: eb989777a0cf7fac41db64d05fa71a24efd34b5c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079229"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158968"

@@ -3,17 +3,17 @@ title: Skapa, ändra eller ta bort en Azure-routningstabell med Ansible
 description: Lär dig hur du använder Ansible för att skapa, ändra eller ta bort en routningstabell med Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, nätverk, väg, routningstabell
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: fa050733bbfcdb8ae0f2630c4f716aeed0ebd07e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797177"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158134"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Skapa, ändra eller ta bort en Azure-routningstabell med Ansible
 Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du vill ändra någon standardroutning i Azure kan du göra det genom att skapa en [routningstabell](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).

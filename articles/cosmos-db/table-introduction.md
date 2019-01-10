@@ -1,19 +1,18 @@
 ---
 title: Introduktion till tabell-API:et för Azure Cosmos DB
 description: Läs hur du kan använda Azure Cosmos DB för att lagra och ställa frågor till massiva volymer av nyckelvärdesdata med kort svarstid med hjälp av Azure Tables API.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 393a64cb62bcaf3623f77850ff43437396d7db81
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 68190ad15ed70ac831c21582d60bc54da5d3c14b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720160"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043931"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB: Tabell-API
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f4f7546efca0bd69fd71418116142acacb927604
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31dc45dbe8d7e3ed9b701f8623fd4e1425320316
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970907"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-katalogintegrering med G Suite
 
@@ -153,8 +153,8 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Supportteamet för G Suite](https://www.google.com/contact/) för att hämta dessa värden.
@@ -203,7 +203,7 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
 ### <a name="configure-g-suite-single-sign-on"></a>Konfigurera enkel inloggning för G Suite
 
-1. Öppna en ny flik i webbläsaren och logga in på [G Suite-administratörskonsolen](http://admin.google.com/) med ditt administratörskonto.
+1. Öppna en ny flik i webbläsaren och logga in på [G Suite-administratörskonsolen](https://admin.google.com/) med ditt administratörskonto.
 
 2. Klicka på **Säkerhet**. Om du inte ser länken, kan den vara dold under menyn **Fler kontroller** längst ned på skärmen.
 

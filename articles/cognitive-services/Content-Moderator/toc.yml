@@ -136,6 +136,10 @@ items:
     items:
     - name: .NET SDK-exempel
       href: samples-dotnet.md
+    - name: Python SDK-exempel
+      href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
+    - name: Node.js SDK-exempel
+      href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
     - name: REST API-exempel i C#
       href: samples-rest.md
     - name: Andra Azure-exempel
@@ -156,9 +160,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure-översikt
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: fa356b96f4b7064c83f28624a678e41e6942d51b
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: c9f43e8598afc6e9fa68c24313ef862072d48e75
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742328"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215379"

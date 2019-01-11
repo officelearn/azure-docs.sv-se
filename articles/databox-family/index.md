@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: fcda4fba376fbe1f527d60aa5a27f7e7f0713e3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977714"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157113"
 ---
 <h1>Azure Data Box</h1>
 <p>Azure Data Box-serien erbjuder produkter med olika lagringskapacitet för att skicka terabyte (TB) med data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Microsoft påskyndar säker dataöverföring genom att skicka skyddade lagringsenheter till dig som möjliggör dataöverföring offline eller över nätverket.</p>
@@ -35,7 +35,7 @@ ms.locfileid: "46977714"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk <SUP>förhandsversion</SUP></b> för datastorlekar < 40 TB. Microsoft skickar 1 till 5 krypterade SSD-diskar för att kopiera data och skicka tillbaka.</p>
+                            <p><b>Data Box Disk</b> för datastorlekar < 40 TB. Microsoft skickar 1 till 5 krypterade SSD-diskar för att kopiera data och skicka tillbaka.</p>
                         </div>
                     </div>
                 </div>

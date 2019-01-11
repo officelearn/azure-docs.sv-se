@@ -19,7 +19,7 @@ ms.lasthandoff: 01/11/2019
 ms.locfileid: "54214719"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Aktuell version](transform-data-using-machine-learning.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Med Azure Traffic Manager – vanliga frågor och svar | Microsoft Docs
+title: Med Azure Traffic Manager – vanliga frågor och svar
 description: Den här artikeln innehåller svar på vanliga frågor och svar om Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963580"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200055"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -437,8 +437,8 @@ Det är inte negativt priser effekten av att använda kapslade profiler.
 
 Traffic Manager-fakturering består av två komponenter: hälsokontroller av slutpunkter och miljontals DNS-frågor
 
-* Hälsokontroller av slutpunkter: uppges ingen avgift för en underordnad profil när konfigurerad som en slutpunkt i en överordnad-profil. Övervakning av slutpunkter i profilen för underordnade debiteras som vanligt.
-* DNS-frågor: varje fråga räknas endast en gång. En fråga till en överordnad-profil som returnerar en slutpunkt från en underordnad profil räknas mot den överordnade profilen.
+* Hälsokontroller av slutpunkter: Det finns ingen kostnad för en underordnad profil när konfigurerad som en slutpunkt i en överordnad-profil. Övervakning av slutpunkter i profilen för underordnade debiteras som vanligt.
+* DNS-frågor: Varje fråga räknas endast en gång. En fråga till en överordnad-profil som returnerar en slutpunkt från en underordnad profil räknas mot den överordnade profilen.
 
 Fullständig information finns i [Traffic Manager-sidan med priser](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2d4808aaccd704f4c54d44cfe7d45ddd84cf0e17
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438769"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198685"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
+# <a name="azure-standard-balancer-overview"></a>Översikt över Azure Standard belastningsutjämnare
 
 Azure Load Balancer kan du skala dina program och skapa hög tillgänglighet för dina tjänster. Belastningsutjämnare kan användas för inkommande samt utgående scenarier och innehåller med låg fördröjning och högt dataflöde och kan skalas upp till miljontals flöden för alla TCP och UDP-tillämpningar. 
 
@@ -89,12 +89,12 @@ Standard Load Balancer ger flerdimensionella mätvärden via Azure Monitor.  De 
 
 | Mått | Beskrivning |
 | --- | --- |
-| VIP-tillgänglighet | Load Balancer Standard utför kontinuerligt datasökväg från inom en region till Belastningsutjämnarens klientdel hela vägen till SDN-stacken som har stöd för den virtuella datorn. Så länge felfria instanser förblir följer mätningen samma sökväg som ditt programs belastningsutjämnad trafik. Datasökväg som används av kunderna har även verifierats. Måttet är osynliga för ditt program och störa inte andra åtgärder.|
-| Tillgängligheten för DIP | Load Balancer Standard använder en distribuerad hälsotillstånd avsökning tjänst som övervakar din programslutpunkt hälsa enligt dina inställningar. Det här måttet tillhandahåller en aggregering eller per slutpunkt filtrerade-vy av varje enskild instans-slutpunkt i belastningsutjämnaren lagringspoolen.  Du kan se hur belastningsutjämnaren visar hälsotillståndet för programmet som anges av din konfiguration för avsökning av hälsotillstånd.
-| SYN-paket | Load Balancer Standard inte avsluta TCP-anslutningar och interagera med flöden för TCP eller UDP-paket. Flöden och deras handskakningar är alltid mellan käll- och VM-instansen. Om du vill felsöka bättre scenariet TCP-protokollet, kan du använda SYN paket räknare att förstå hur många TCP-anslutning försök görs. Måttet rapporterar antalet TCP SYN-paket som tagits emot.|
-| SNAT-anslutningar | Load Balancer Standard rapporterar antalet utgående flöden som masqueraded till offentliga IP-adressen frontend. Det finns en icke förnybara resurs SNAT portar. Det här måttet kan ge en indikation på hur mycket programmet förlitar sig på SNAT för utgående trafikflöden.  Räknare för lyckade och misslyckade utgående SNAT flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.|
-| Räknare för byte | Load Balancer Standard rapporterar data som bearbetas per klient.|
-| Paket-räknare | Load Balancer Standard rapporterar de paket som bearbetas per klient.|
+| VIP-tillgänglighet | Standard Load Balancer utför kontinuerligt datasökväg från inom en region till Belastningsutjämnarens klientdel hela vägen till SDN-stacken som har stöd för den virtuella datorn. Så länge felfria instanser förblir följer mätningen samma sökväg som ditt programs belastningsutjämnad trafik. Datasökväg som används av kunderna har även verifierats. Måttet är osynliga för ditt program och störa inte andra åtgärder.|
+| Tillgängligheten för DIP | Standard Load Balancer använder en distribuerad hälsotillstånd avsökning tjänst som övervakar din programslutpunkt hälsa enligt dina inställningar. Det här måttet tillhandahåller en aggregering eller per slutpunkt filtrerade-vy av varje enskild instans-slutpunkt i belastningsutjämnaren lagringspoolen.  Du kan se hur belastningsutjämnaren visar hälsotillståndet för programmet som anges av din konfiguration för avsökning av hälsotillstånd.
+| SYN-paket | Standard Load Balancer inte avsluta TCP-anslutningar och interagera med flöden för TCP eller UDP-paket. Flöden och deras handskakningar är alltid mellan käll- och VM-instansen. Om du vill felsöka bättre scenariet TCP-protokollet, kan du använda SYN paket räknare att förstå hur många TCP-anslutning försök görs. Måttet rapporterar antalet TCP SYN-paket som tagits emot.|
+| SNAT-anslutningar | Standard Load Balancer rapporterar antalet utgående flöden som masqueraded till offentliga IP-adressen frontend. Det finns en icke förnybara resurs SNAT portar. Det här måttet kan ge en indikation på hur mycket programmet förlitar sig på SNAT för utgående trafikflöden.  Räknare för lyckade och misslyckade utgående SNAT flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.|
+| Räknare för byte | Standard Load Balancer rapporterar data som bearbetas per klient.|
+| Paket-räknare | Standard Load Balancer rapporterar de paket som bearbetas per klient.|
 
 Granska [detaljerad beskrivning av diagnostik för Standard Load Balancer](load-balancer-standard-diagnostics.md).
 
@@ -202,7 +202,7 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Load Balancer Standard finns för närvarande i alla regioner för offentliga moln.
+Standard Load Balancer är för närvarande tillgängligt i alla regioner för offentliga moln.
 
 ## <a name="sla"></a>SLA
 

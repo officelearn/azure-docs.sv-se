@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
+ms.date: 01/10/2019
 ms.author: ergreenl
-ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ed89954836fe262ba60f7401bd7b040e87b60101
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155175"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215192"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Översikt
@@ -65,10 +65,10 @@ Några designmönster för den hanterade domänen som tillhandahålls av Azure A
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Azure AD Domain Services för hybridorganisationer
 Organisationer med en hybrid IT-infrastruktur använder en blandning av molnresurser och lokala resurser. Sådana organisationer synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. Som hybridorganisationer se ut för att migrera mer av sina lokala program till molnet, särskilt äldre katalogbaserade appar Azure AD Domain Services kan vara användbar för dem.
 
-Litware Corporation har distribuerat [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), för att synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. ID-information som synkroniseras innehåller användarkonton, deras hashvärden för autentiseringsuppgifter för autentisering (Lösenordssynkronisering) och gruppmedlemskap.
+Litware Corporation har distribuerat [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), för att synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. ID-information som synkroniseras innehåller användarkonton, deras hashvärden för autentiseringsuppgifter för autentisering (lösenordshashsynkronisering) och gruppmedlemskap.
 
 > [!NOTE]
-> **Lösenordssynkronisering är obligatoriskt för hybridorganisationer att använda Azure AD Domain Services**. Det här kravet är eftersom användarnas autentiseringsuppgifter behövs i den hanterade domänen tillhandahålls av Azure AD Domain Services för att autentisera dessa användare via NTLM eller Kerberos autentiseringsmetoder.
+> **Synkronisering av lösenordshash är obligatoriskt för hybridorganisationer att använda Azure AD Domain Services**. Det här kravet är eftersom användarnas autentiseringsuppgifter behövs i den hanterade domänen tillhandahålls av Azure AD Domain Services för att autentisera dessa användare via NTLM eller Kerberos autentiseringsmetoder.
 >
 >
 

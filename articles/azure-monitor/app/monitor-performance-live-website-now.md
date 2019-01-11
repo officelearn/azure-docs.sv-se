@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189856"
+ms.locfileid: "54199393"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentera webbappar vid körning med Application Insights Status Monitor
 
@@ -96,14 +96,14 @@ Det här är några steg som du kan utföra för att bekräfta att installatione
 - Bekräfta att filen applicationInsights.config finns i målkatalogen för appen och innehåller din ikey.
 
 - Om du misstänker att data saknas kan du köra en enkel fråga i [Analytics](../log-query/get-started-portal.md) att lista alla molnroller som skickar telemetri.
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - Om du vill kontrollera att Application Insights är har bifogats kan du köra [Sysinternals referensen](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönstret för att bekräfta att applicationinsights.dll har lästs in av IIS.
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Går det inte att ansluta? Ser du ingen telemetri?
@@ -113,17 +113,17 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### <a name="unable-to-login"></a>Det går inte att logga in
 
 * Om Status Monitor inte kan logga in, gör en installation från kommandoraden i stället. Statusövervakaren försöker logga in för att samla in din ikey, men du kan ange detta manuellt med hjälp av kommandot: 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
 ### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Det gick inte att läsa in filen eller sammansättningen 'System.Diagnostics.DiagnosticSource'
 
-Du får det här felet när du har aktiverat Programsk insikter. Det beror på att installationsprogrammet ersätter denna DLL-fil i bin-katalogen.
+Du får det här felet när du har aktiverat Application Insights. Det beror på att installationsprogrammet ersätter denna DLL-fil i bin-katalogen.
 Åtgärda uppdatera filen web.config:
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>

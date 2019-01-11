@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679537"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214036"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -82,11 +82,11 @@ När du aktiverar uppdateringshantering för dina datorer, du kan visa informati
 
 Datorer som nyligen har aktiverats för uppdateringshantering kanske har ännu inte utvärderats. Kompatibilitetsstatus för tillstånd för dessa datorer är **ej utvärderat**. Här är en lista över möjliga värden för efterlevnadstillstånd:
 
-- **Kompatibla**: datorer som inte saknar kritiska eller säkerhetsuppdateringar.
+- **Kompatibla**: Datorer som är inte saknar kritiska eller säkerhetsuppdateringar.
 
-- **Icke-kompatibla**: datorer som saknar minste en kritisk uppdatering eller säkerhetsuppdatering.
+- **Icke-kompatibla**: Datorer som saknar minste en kritisk uppdatering eller säkerhetsuppdatering.
 
-- **Ej utvärderat**: uppdatera utvärderingsdata har inte tagits emot från datorn inom den förväntade tidsramen. För Linux-datorer är den förväntade tidsramen under de senaste 3 timmarna. För Windows-datorer är den förväntade tidsramen under de senaste 12 timmarna.
+- **Ej utvärderat**: Uppdatera utvärderingsdata har inte tagits emot från datorn inom den förväntade tidsramen. För Linux-datorer är den förväntade tidsramen under de senaste 3 timmarna. För Windows-datorer är den förväntade tidsramen under de senaste 12 timmarna.
 
 Om du vill visa statusen för agenten, väljer du länken i den **uppdatera AGENTBEREDSKAP** kolumn. Om du väljer det här alternativet öppnas den **Hybrid Worker** fönstret och visar status för Hybrid Worker. Följande bild visar ett exempel på en agent som inte har anslutits till hantering av uppdateringar under en längre tidsperiod:
 
@@ -113,7 +113,11 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
-En sökning körs två gånger per dag för varje hanterad Windows-dator. Var femtonde minut anropas Windows API att fråga efter den senaste uppdateringstiden att fastställa om statusen har ändrats. Om klientens onlinestatus ändrades, startar en genomsökning för kompatibilitet. En sökning körs var tredje timme för varje hanterad Linux-dator.
+När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
+
+Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter från MMA startas innan installationen av uppdateringen och efteråt.
+
+För en Linux-dator utförs kompatibilitetsgenomsökningen var tredje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
 
 Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data från hanterade datorer.
 
@@ -125,10 +129,10 @@ Att schemalägga en ny uppdateringsdistribution för en eller flera virtuella da
 
 I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
-- **Namn på**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
-- **Operativsystemet**: Välj **Windows** eller **Linux**.
-- **Grupper att uppdatera (förhandsversion)**: definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
-- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller välj datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md)
+- **Namn**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
+- **Operativsystem**: Välj **Windows** eller **Linux**.
+- **Grupper som ska uppdateras (förhandsversion)**: Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
+- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,7 +154,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
    ![Dialogrutan Schemainställningar](./media/manage-update-multi/update-set-schedule.png)
 
-- **Skript före och efter**: Välj skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
+- **Förskript och efterskript**: Välj vilka skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
 - **Underhållsperiod (minuter)**: Ange tidsperioden som uppdateringsdistributionen ska utföras. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
 - **Starta om kontrollen** – den här inställningen avgör hur omstarter hanteras för distributionen.
@@ -181,7 +185,7 @@ Välj den slutförda uppdateringsdistributionen för att visa instrumentpanelen 
 
 Den **Uppdateringsresultat** visar det totala antalet uppdateringar och distributionsresultat för den virtuella datorn. Tabellen till höger visar detaljer för varje uppdatering och installationsresultaten. Installationsresultaten kan ha något av följande värden:
 
-- **Inget försök har gjorts**: uppdateringen installerades inte eftersom fanns tillräckligt med tid tillgänglig utifrån underhållsfönstret som definierats.
+- **Inget försök har gjorts**: Uppdateringen installerades inte eftersom fanns tillräckligt med tid tillgänglig utifrån underhållsfönstret som definierats.
 - **Lyckades**: Uppdateringen lyckades.
 - **Misslyckades**: Uppdateringen misslyckades.
 

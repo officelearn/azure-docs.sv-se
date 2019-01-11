@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ac3c3d8f2a5ae37f1d32f9781f0cdbec0b293e8
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b3bcd752f14f5d43c8cb8f686534e016690c7c40
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42057616"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198073"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 Den här artikeln berättar om hur du använder Azure VM Backup för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och hemlighet inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (Nyckelkrypteringsnyckel) och en hemlighet (BitLocker-krypteringsnyckel) för den återställda virtuella datorn.
@@ -28,8 +28,8 @@ Den här artikeln berättar om hur du använder Azure VM Backup för att utföra
 
 > [!NOTE]
 > När disken har återställts för den krypterade virtuella datorn, kan du se till att:
-> 1. $details fylls med återställning för jobbet diskinformation som vi nämnde i [PowerShell steg i Restore-avsnittet diskar](backup-azure-vms-automation.md#restore-an-azure-vm)
-> 2. Virtuell dator bör skapas från återställda diskar **när nyckel och hemlighet har återställts till nyckelvalvet**.
+> * $details fylls med återställning för jobbet diskinformation som vi nämnde i [PowerShell steg i Restore-avsnittet diskar](backup-azure-vms-automation.md#restore-an-azure-vm)
+> * Virtuell dator bör skapas från återställda diskar **när nyckel och hemlighet har återställts till nyckelvalvet**.
 >
 >
 
@@ -61,7 +61,10 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ## <a name="restore-secret"></a>Återställa hemlighet
-Använd JSON-fil som genererats ovan för att hämta hemliga namn och värde och skicka om du vill ange hemlig cmdlet för att placera hemlighet (BEK) tillbaka i nyckelvalvet. **Använd dessa cmdletar om din virtuella dator har krypterats med BEK och KEK.**
+
+Om din Azure virtuell dator utan Azure AD är krypterad med BEK endast (för både Windows och Linux-datorer), generera hemliga namn och värde via kommandona som anges ovan och skicka om du vill ange hemlig cmdlet för att placera hemlighet (BEK) tillbaka i nyckelvalvet.
+
+**Använd dessa cmdletar om din virtuella Windows-dator har krypterats med BEK och KEK.**
 
 ```
 PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -71,17 +74,27 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Om den virtuella datorn är **krypterats med BEK endast**, generera hemliga blob-fil från JSON-filen och skicka om du vill återställa hemliga cmdlet om du vill placera hemlighet (BEK) tillbaka i nyckelvalvet.
+**Använd dessa cmdletar om din Linux-VM är krypterat med BEK och KEK.**
+
+```
+PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
+PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+```
+
+Om din Azure-VM med AD **krypterats med BEK endast**, generera hemliga blob-fil från JSON-filen och skicka om du vill återställa hemliga cmdlet om du vill placera hemlighet (BEK) tillbaka i nyckelvalvet.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'
 PS C:\> [io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
 PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
-```
+  ```
 
 > [!NOTE]
-> 1. Värdet för $secretname kan erhållas genom refererar till utdatan från $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemliga URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
+> * Värdet för $secretname kan erhållas genom refererar till utdatan från $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemliga URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
 >
 >
 
@@ -111,9 +124,9 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. Värdet för $secretname kan hämtas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemlighet URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
-> 3. Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Värdet för $secretname kan hämtas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemlighet URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
+> * Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

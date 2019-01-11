@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta en dator till ett virtuellt nätverk med punkt-till-plats- och RADIUS-autentisering: PowerShell | Azure'
+title: 'Ansluta en dator till ett virtuellt nätverk med punkt-till-plats och RADIUS-autentisering: PowerShell | Azure'
 description: Ansluta Windows- och Mac OS X-klienter på ett säkert sätt till ett virtuellt nätverk med P2S och RADIUS-autentisering.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: b5d69b8f9f004da93e5bed05b86e46f6e4214d63
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847362"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200912"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med RADIUS-autentisering: PowerShell
 
@@ -64,28 +64,28 @@ Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenu
 
 ### <a name="sign-in"></a>Logga in
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>Exempelvärden
 
 Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln. Du kan antingen se stegen som en genomgång och använda värdena utan att ändra dem, eller ändra dem så att de avspeglar din egen miljö.
 
 * **Namn: VNet1**
-* **Adressutrymme: 192.168.0.0/16** and **10.254.0.0/16**<br>I det här exemplet används mer än ett adressutrymme för att illustrera att den här konfigurationen fungerar med flera adressutrymmen. Flera adressutrymmen krävs dock inte för den här konfigurationen.
-* **Undernätsnamn: FrontEnd**
+* **Adressutrymme: 192.168.0.0/16** och **10.254.0.0/16**<br>I det här exemplet används mer än ett adressutrymme för att illustrera att den här konfigurationen fungerar med flera adressutrymmen. Flera adressutrymmen krävs dock inte för den här konfigurationen.
+* **Namn på undernät: Klientdel**
   * **Adressintervall för undernätet: 192.168.1.0/24**
-* **Undernätsnamn: BackEnd**
+* **Namn på undernät: Serverdel**
   * **Adressintervall för undernätet: 10.254.1.0/24**
-* **Undernätsnamn: GatewaySubnet**<br>Undernätsnamnet *GatewaySubnet* är obligatoriskt för att VPN-gatewayen ska fungera.
-  * **Adressintervall för gateway-undernätet: 192.168.200.0/24** 
+* **Namn på undernät: GatewaySubnet**<br>Undernätsnamnet *GatewaySubnet* är obligatoriskt för att VPN-gatewayen ska fungera.
+  * **GatewaySubnet-adressintervallet: 192.168.200.0/24** 
 * **VPN-klientadresspool: 172.16.201.0/24**<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från VPN-klientadresspoolen.
-* **Prenumeration:** Kontrollera att du använder rätt prenumeration om du har mer än en.
+* **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
 * **Resursgrupp: TestRG**
-* **Plats: Östra USA**
+* **Plats: USA, östra**
 * **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning för ditt virtuella nätverk. (valfritt)
 * **GW-namn: Vnet1GW**
-* **Offentligt IP-namn: VNet1GWPIP**
-* **VPNType: RouteBased** 
+* **Namn på offentlig IP: VNet1GWPIP**
+* **VpnType: Routningsbaserad** 
 
 ## 1. <a name="vnet"></a>Skapa resursgrupp, VNet och offentlig IP-adress
 

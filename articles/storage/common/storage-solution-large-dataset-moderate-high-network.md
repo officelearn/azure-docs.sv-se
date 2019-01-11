@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 7243edbe0b51a3cca69bec018d6cbb15e9aa1674
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53264009"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214325"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföringen för stora datauppsättningar med måttlig till hög nätverksbandbredd
  
@@ -102,7 +102,7 @@ Om du använder online dataöverföring, Använd tabell i följande avsnitt för
     - [Överföra data med Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
 - [Överföra data med AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - Förstå hur du:
-    - [Överföra data med Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Överföra data med Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Transformera data med Data Box Edge innan du skickar till Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
 - [Lär dig att överföra data med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
 - Använda REST-API: er för att överföra data

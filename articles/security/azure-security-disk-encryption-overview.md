@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093292"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200861"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption för virtuella IaaS-datorer
 
-Microsoft Azure är förbundet till att se till att dina datasekretess och datasuveränitet. Med Azure kan du styra dina Azure-baserade data via ett utbud av avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar och kontroll och granskning åtkomst av data. Den här kontrollen innehåller Azure-kunder med flexibiliteten att välja den lösning som bäst uppfyller sina affärsbehov. Den här artikeln ger en introduktion till en tekniklösning: ”Azure Disk Encryption för Windows och Linux IaaS-datorer (VM)”. Den här tekniken kan skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. 
+Microsoft Azure är förbundet till att se till att dina datasekretess och datasuveränitet. Med Azure kan du styra dina Azure-baserade data via ett utbud av avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar och kontroll och granskning åtkomst av data. Den här kontrollen innehåller Azure-kunder med flexibiliteten att välja den lösning som bäst uppfyller sina affärsbehov. Den här artikeln ger en introduktion till en tekniklösning: ”Azure Disk Encryption för Windows och Linux IaaS virtuella datorer (VM)”. Den här tekniken kan skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -81,7 +81,7 @@ Lösningen stöder inte följande scenarier, funktioner och -teknik:
 
 * Basic-nivån virtuella IaaS-datorer.
 * Inaktivera kryptering på en operativsystemenhet för virtuella Linux IaaS-datorer.
-* Inaktivera kryptering på en dataenhet när OS-enhet är krypterad för virtuella Linux Iaas-datorer.
+* Inaktivera kryptering på en dataenhet när OS-enhet är krypterad för virtuella Linux IaaS-datorer.
 * Virtuella IaaS-datorer som skapas med hjälp av metod för skapande av klassiska virtuella datorer.
 * Aktivera kryptering av kunden anpassade avbildningar på virtuella Linux IaaS-datorer.
 * Integrering med din lokala nyckelhanteringssystem.

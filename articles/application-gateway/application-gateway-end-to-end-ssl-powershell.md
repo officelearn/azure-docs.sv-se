@@ -2,30 +2,25 @@
 title: Konfigurera SSL för slutpunkt till slutpunkt med Azure Application Gateway
 description: Den här artikeln beskrivs hur du konfigurerar SSL för slutpunkt till slutpunkt med Azure Application Gateway med hjälp av PowerShell
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945339"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214070"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera SSL från slutpunkt till slutpunkt med hjälp av Application Gateway med PowerShell
 
 ## <a name="overview"></a>Översikt
 
-Azure Application Gateway stöder slutpunkt till slutpunkt-kryptering av trafik. Application Gateway avbryter SSL-anslutningen vid application gateway. Gatewayen sedan tillämper routingregler på trafik, omkrypteras paketet och vidarebefordrar paketet till rätt backend-server baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
+Azure Application Gateway stöder slutpunkt till slutpunkt-kryptering av trafik. Application Gateway avbryter SSL-anslutningen vid application gateway. Gatewayen sedan tillämper routingregler till trafiken, återkrypterar paketet och vidarebefordrar paketet till rätt backend-server baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
 
-Application Gateway stöder definiera anpassade SSL-alternativ. Det stöder också inaktivera följande protokollversioner: **TLSv1.0**, **TLSv1.1**, och **TLSv1.2**och definiera vilka krypteringssviter som du använder och i prioritetsordning efter . Om du vill veta mer om konfigurerbara alternativ som SSL kan se den [översikt över SSL-princip](application-gateway-SSL-policy-overview.md).
+Application Gateway stöder definiera anpassade SSL-alternativ. Det stöder också inaktivera följande protokollversioner: **TLSv1.0**, **TLSv1.1**, och **TLSv1.2**och definiera vilka krypteringssviter som du använder och i prioritetsordning efter. Om du vill veta mer om konfigurerbara alternativ som SSL kan se den [översikt över SSL-princip](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 och SSL 3.0 är inaktiverade som standard och kan inte aktiveras. De anses vara osäkra och kan inte användas med Programgatewayen.
@@ -45,9 +40,9 @@ Det här scenariot kommer att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du vill konfigurera SSL för slutpunkt till slutpunkt med application gateway, krävs ett certifikat för gateway och certifikat krävs för backend servrarna. Gateway-certifikatet används för att kryptera och dekryptera trafiken som skickas till den via SSL. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik.
+Om du vill konfigurera SSL för slutpunkt till slutpunkt med application gateway, krävs ett certifikat för gateway och certifikat krävs för backend servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik.
 
-För slutpunkt till slutpunkt SSL-kryptering måste backend-servern också vitlistas med application gateway. Du måste överföra det offentliga certifikatet backend-servrar till application gateway. Lägger till certifikatet säkerställer att den application gatewayen kommunicerar bara med kända serverdelsinstanser. Detta skyddar ytterligare slutpunkt till slutpunkt-kommunikation.
+För slutpunkt till slutpunkt SSL-kryptering måste backend-servern också vitlistas med application gateway. Ladda upp det offentliga certifikatet backend-servrar till application gateway. Lägger till certifikatet säkerställer att den application gatewayen kommunicerar bara med kända serverdelsinstanser. Detta skyddar ytterligare slutpunkt till slutpunkt-kommunikation.
 
 Konfigurationsprocessen beskrivs i följande avsnitt.
 
@@ -258,7 +253,7 @@ Föregående steg tog du skapar ett program med slutpunkt-till-slutpunkt SSL och
 
    ```
 
-   3. Slutligen uppdaterar du gatewayen. Observera att det sista steget är en tidskrävande uppgift. När den är klar konfigureras slutpunkt till slutpunkt SSL på application gateway.
+   3. Slutligen uppdaterar du gatewayen. Det sista steget är en tidskrävande uppgift. När den är klar konfigureras slutpunkt till slutpunkt SSL på application gateway.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

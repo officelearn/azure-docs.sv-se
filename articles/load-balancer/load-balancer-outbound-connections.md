@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190976"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201388"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -91,9 +91,9 @@ Ett exempel är en Azure Resource Manager-distribution där programmet kraftigt 
 
 ### <a name="multife"></a> Flera klienter för utgående flöden
 
-#### <a name="load-balancer-standard"></a>Load Balancer Standard
+#### <a name="standard-load-balancer"></a>Standard Load Balancer
 
-Load Balancer Standard använder alla kandidater för utgående flöden på samma tid då [flera (offentliga) IP-klienter](load-balancer-multivip-overview.md) finns. Varje klientdel multiplicerar antalet tillgängliga portar för förallokerade SNAT om en belastningsutjämningsregel har aktiverats för utgående anslutningar.
+Standard Load Balancer använder alla kandidater för utgående flöden på samma tid då [flera (offentliga) IP-klienter](load-balancer-multivip-overview.md) finns. Varje klientdel multiplicerar antalet tillgängliga portar för förallokerade SNAT om en belastningsutjämningsregel har aktiverats för utgående anslutningar.
 
 Du kan välja att ignorera en frontend IP-adress används för utgående anslutningar med ett nytt belastningen belastningsutjämning regelalternativ:
 

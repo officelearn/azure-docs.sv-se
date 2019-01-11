@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 46d8a26398ed63bef4fa101fbaf0be9087880109
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424943"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214155"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -23,7 +23,7 @@ HÄR får du svar på vanliga frågor om Azure Multi-Factor Authentication och m
 
 ## <a name="general"></a>Allmänt
 
-**F: hur hanterar användardata i Azure Multi-Factor Authentication-servern?**
+**F: Hur hanterar användardata i Azure Multi-Factor Authentication-servern?**
 
 Med Multi-Factor Authentication Server lagras användardata endast på lokala servrar. Inga beständiga användardata lagras i molnet. När användaren utför tvåstegsverifiering, skickar data till Azure Multi-Factor Authentication-Molntjänsten för autentisering med hjälp av Multi-Factor Authentication Server. Kommunikation mellan Multi-Factor Authentication-servern och Multi-Factor Authentication-Molntjänsten använder Secure Sockets Layer (SSL) eller Transport Layer Security (TLS) via port 443 för utgående trafik.
 
@@ -44,7 +44,7 @@ Valfria fält kan konfigureras i Multi-Factor Authentication Server.
 
 Verifikationsresultat (lyckades eller nekades) och orsaken om den nekades lagras med autentiseringsinformationen. Informationen är tillgänglig i autentisering och användningsrapporter.
 
-**F: vilka korta SMS-koder som används för att skicka SMS-meddelanden till Mina användare?**
+**F: Vilka korta SMS-koder som används för att skicka SMS-meddelanden till Mina användare?**
 
 I USA Microsoft använder du följande koder för SMS-kort:
 
@@ -64,17 +64,17 @@ Microsoft garanterar inte konsekvent SMS eller Voice-baserade Multifaktorautenti
 
 De flesta faktureringsfrågor besvaras genom att referera till antingen den [prissättning för multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) eller i dokumentationen om [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
-**F: är min organisation debiteras för telefonsamtal och textmeddelanden som används för autentisering?**
+**F: Debiteras min organisation för att skicka telefonsamtal och SMS som används för autentisering?**
 
 Nej, du debiteras inte för enskilda telefonsamtal eller SMS meddelanden som skickas till användare via Azure Multi-Factor Authentication. Om du använder en MFA-provider per autentisering, debiteras du för varje autentisering men inte för den metod som används.
 
 Användarna kan debiteras för telefonsamtal eller SMS som de får enligt deras personliga telefontjänst.
 
-**F: faktureringsmodellen per användare debiterar mig för alla aktiverade användare eller bara de som utförs tvåstegsverifiering?**
+**F: Faktureringsmodellen per användare debiterar mig för alla aktiverade användare eller bara de som utförs tvåstegsverifiering?**
 
 Fakturering baseras på antalet användare som har konfigurerats för att använda Multi-Factor Authentication, oavsett om de utförs tvåstegsverifiering den månaden.
 
-**F: hur fungerar fakturering för multi-Factor Authentication?**
+**F: Hur fungerar fakturering för multi-Factor Authentication?**
 
 När du skapar en per användare eller per autentisering MFA-provider, faktureras din organisations Azure-prenumeration per månad baserat på användning. Detta faktureringsmodellen liknar hur Azure fakturor för användningen av virtuella datorer och webbplatser.
 
@@ -82,7 +82,7 @@ När du köper en prenumeration för Azure Multi-Factor Authentication kan betal
 
 Läs mer om alternativen i [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
-**F: finns det en kostnadsfri version av Azure Multi-Factor Authentication?**
+**F: Finns det en kostnadsfri version av Azure Multi-Factor Authentication?**
 
 I vissa fall Ja.
 
@@ -90,7 +90,7 @@ Multi-Factor Authentication för administratörer för Azure erbjuder en delmän
 
 Multi-Factor Authentication för Office 365-användare erbjuder en delmängd av Azure MFA-funktioner utan kostnad för åtkomst till Office 365-tjänster, inklusive Exchange Online och SharePoint Online. Det här erbjudandet gäller för användare som har en Office 365-licens som tilldelas när den motsvarande instansen av Azure Active Directory inte har den fullständiga versionen av Azure MFA via en MFA-licens, ett paket eller en fristående förbrukningsbaserad provider.
 
-**F: kan organisationen växlar mellan per användare och per autentisering förbrukning faktureringsmodellerna när som helst?**
+**F: Min organisation kan växla mellan per användare och per autentisering förbrukning faktureringsmodellerna när som helst?**
 
 Om din organisation köper MFA som en fristående tjänst med konsumtionsbaserad fakturering kan välja du faktureringsmodellen när du skapar en MFA-provider. Du kan inte ändra faktureringsmodellen när en MFA-provider har skapats. Du kan dock ta bort MFA-providern och sedan skapa en med en annan faktureringsmodell.
 
@@ -100,7 +100,7 @@ Om MFA-provider är *inte* länkad till en Azure AD-klient, eller om du kopplar 
 
 Mer information om MFA-leverantörer i [komma igång med Azure Multi-Factor Authentication-Provider](concept-mfa-authprovider.md).
 
-**F: kan organisationen växlar mellan konsumtionsbaserad fakturering och prenumerationer (en licens-baserade modellen) när som helst?**
+**F: Kan min organisation växla mellan konsumtionsbaserad fakturering och prenumerationer (en licens-baserade modellen) när som helst?**
 
 I vissa fall Ja.
 
@@ -108,7 +108,7 @@ Om din katalog har en *per användare* Azure Multi-Factor Authentication-provide
 
 Om din katalog har en *per autentisering* Azure Multi-Factor Authentication-providern, alltid debiteras du för varje autentisering, förutsatt att MFA-providern är kopplad till din prenumeration. Du kan tilldela MFA-licenser till användare, men du kommer fortfarande att debiteras för varje förfrågningar om tvåstegsverifiering, om den kommer från någon med en MFA-licens eller inte.
 
-**F: min organisation har du använder och synkronisera identiteter för att använda Azure Multi-Factor Authentication?**
+**F: Har organisationen att använda och synkronisera identiteter för att använda Azure Multi-Factor Authentication?**
 
 Om din organisation använder en förbrukningsbaserad faktureringsmodellen, är Azure Active Directory valfritt, men krävs inte. Om MFA-providern inte är länkad till en Azure AD-klient kan du bara distribuera Azure Multi-Factor Authentication Server lokalt.
 
@@ -116,9 +116,11 @@ Azure Active Directory krävs för licens-modellen eftersom licenser läggs till
 
 ## <a name="manage-and-support-user-accounts"></a>Hantera och stöd användarkonton
 
-**F: Vad ska jag säga Mina användare ska jag göra om de inte får ett svar på sin telefon eller inte har telefonen med dem?**
+**F: Vad ska jag säga Mina användare ska jag göra om de inte får ett svar på sin telefon?**
 
-Alla användare konfigurerats förhoppningsvis mer än en verifieringsmetod. Be dem att försöka logga in igen, men välj en annan verifieringsmetod på inloggningssidan.
+Låt dina användare försöka upp till 5 gånger under 5 minuter för att få ett telefonsamtal eller SMS för autentisering. Microsoft använder flera leverantörer för att leverera anrop och SMS-meddelanden. Om det inte fungerar öppnar du ett supportärende med Microsoft för att felsöka detta ytterligare.
+
+Om stegen ovan inte fungerar förhoppningsvis konfigurerat dina användare mer än en verifieringsmetod. Be dem att försöka logga in igen, men välj en annan verifieringsmetod på inloggningssidan.
 
 Du kan ange dina användare till den [slutanvändarens felsökningsguide för](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
@@ -149,7 +151,7 @@ Om användarna ofta har problem med att på ett tillförlitligt sätt ta emot te
 
 Om du måste använda textmeddelanden, bör du använda envägs-SMS i stället för dubbelriktad SMS när det är möjligt. Enkelriktad SMS är mer tillförlitlig och det förhindrar att användare ska globala SMS från besvarar ett textmeddelande som skickats från ett annat land.
 
-**F: kan jag ändra Mina användare behöva ange verifieringskoden från ett textmeddelande innan tidsgränsen uppnås för systemet tiden?**
+**F: Kan jag ändra Mina användare behöva ange verifieringskoden från ett textmeddelande innan tidsgränsen uppnås för systemet tiden?**
 
 I vissa fall kan Ja. 
 
@@ -165,7 +167,7 @@ Du kan konfigurera timeout-inställningen för dubbelriktad SMS med Azure MFA Se
 
 Du kan inte konfigurera timeout-inställningen för enkelriktad SMS med Azure MFA i molnet (inklusive AD FS-adaptern eller NPS-tillägget). Azure AD lagrar verifieringskoden i 180 sekunder. 
 
-**F: kan jag använda maskinvarutoken med Azure Multi-Factor Authentication-servern?**
+**F: Kan jag använda maskinvarutoken med Azure Multi-Factor Authentication-servern?**
 
 Om du använder Azure Multi-Factor Authentication Server kan du importera från tredje part öppen autentisering (OATH) tidsbaserade, enstaka lösenord (TOTP)-token och sedan använda dem för tvåstegsverifiering.
 
@@ -176,7 +178,7 @@ Du kan importera från tredje part TOTP OATH-token med följande format:
 - Bärbar symmetriska nyckelbehållare (PSKC)  
 - CSV om filen innehåller ett serienummer, en hemlig nyckel i Base-32-format och ett tidsintervall  
 
-**F: kan jag använda Azure Multi-Factor Authentication-servern för att skydda Terminal Services?**
+**F: Kan jag använda Azure Multi-Factor Authentication-servern för att skydda Terminal Services?**
 
 Ja, men om du använder Windows Server 2012 R2 eller senare du bara skydda Terminal Services genom att använda fjärrskrivbordsgateway (RD Gateway).
 
@@ -186,7 +188,7 @@ Säkerhetsändringar i Windows Server 2012 R2 kan du ändra hur Azure Multi-Fact
 
 När Multi-Factor Authentication-samtal görs via det offentliga telefon-nätverket, skickas ibland de genom en operatör som inte stöder anroparen-ID. Därför garanteras inte Uppringarens ID, även om Multi-Factor Authentication-systemet skickar alltid.
 
-**F: Varför Mina användare att uppmanas att registrera deras säkerhetsinformation?**
+**F: Varför är min som uppmanas användarna att registrera deras säkerhetsinformation?**
 Det finns flera orsaker till att du kan uppmanas användarna att registrera deras säkerhetsinformation:
 
 - Användaren har aktiverats för MFA av administratören i Azure AD, men har inte säkerhetsinformation som har registrerats för sitt konto.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134445"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213119"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM gäst-OS-brandväggen blockerar inkommande trafik
 
@@ -113,7 +113,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
     > [!Note]
     > Följande riktlinjer gäller för brandväggsprincipen, beroende på hur den är konfigurerad:
     >    * *BlockInbound*: All inkommande trafik blockeras om du inte har en regel som gäller för att tillåta den trafiken.
-    >    * *BlockInboundAlways*: alla brandväggsregler ignoreras och all trafik blockeras.
+    >    * *BlockInboundAlways*: Alla brandväggsregler ignoreras och all trafik blockeras.
 
 2.  Redigera den *DefaultInboundAction* att ställa in de här profilerna på **Tillåt** trafik. Gör detta genom att köra följande kommando:
 
@@ -142,7 +142,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
 
 #### <a name="mitigation-1"></a>Lösning 1
 
-Se [hur att aktivera / inaktivera en brandvägg-regel för ett dokument för gäst-OS]().
+Se [hur för aktivera / inaktivera en brandvägg som regeln på ett Gästoperativsystem](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Lösning 2
 

@@ -3,7 +3,7 @@ title: N-serien GPU-drivrutinen konfigurationen av Azure för Linux | Microsoft 
 description: Hur du ställer in NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Linux i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017271"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201048"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Linux
 
@@ -51,9 +51,9 @@ Du ser utdata som liknar följande exempel (visar ett NVIDIA Tesla K80-kort):
 
 Sedan kör installationskommandon som är specifika för din distribution.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. Hämta och installera CUDA-drivrutiner.
+1. Hämta och installera CUDA-drivrutiner från NVIDIA-webbplatsen. Till exempel för Ubuntu 16.04 LTS:
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS eller Red Hat Enterprise Linux 7.3 eller 7.4
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS eller Red Hat Enterprise Linux
 
 1. Uppdatera kernel (rekommenderas). Om du väljer att inte uppdatera kerneln, kontrollera att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
 
@@ -174,7 +174,7 @@ Distribuera RDMA-kompatibla N-serien virtuella datorer från en avbildning i Azu
 
 Om du vill installera NVIDIA GRID-drivrutiner på NV eller NVv2-seriens virtuella datorer, skapar du en SSH-anslutning till varje virtuell dator och följ anvisningarna för din Linux-distribution. 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. Kör `lspci`-kommandot. Kontrollera att NVIDIA M60-kort eller kort visas som PCI-enheter.
 

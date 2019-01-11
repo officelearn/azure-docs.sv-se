@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: 8847a33d6d78060c066f60863c415c266cdc7214
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051891"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199518"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK: er
 
@@ -65,7 +65,7 @@ Azure IoT Hub device SDK för Java:
 * Lägg till i [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) projekt
 * [Källkod](https://github.com/Azure/azure-iot-sdk-java)
 * [API-referens](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
-* [Modulreferens](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
+* [Modulreferens](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
 
 Azure IoT Hub device SDK för Node.js: 
 

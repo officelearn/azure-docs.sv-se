@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2823772787adf56dfbe216a68161f633eadba255
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 519fd063e52d1e202ea76db0fd4be15ebd117cd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001624"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214937"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använda portalen för att koppla en datadisk till en Linux VM 
 Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Linux-dator via Azure portal. Du kan också [ansluter en datadisk till en virtuell Windows-dator i Azure-portalen](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -28,13 +28,13 @@ Den här artikeln visar hur du kopplar både nya och befintliga diskar till en L
 Innan du kopplar diskar till din virtuella dator, granskar du de här tipsen:
 
 * Storleken på den virtuella datorn styr hur många datadiskar som du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Om du vill använda Premium storage behöver du en virtuell dator DS-serien eller GS-serien. Du kan använda både Premium och Standard disks med dessa virtuella datorer. Premium storage är tillgängligt i vissa regioner. Mer information finns i [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Om du vill använda Premium storage behöver du en virtuell dator DS-serien eller GS-serien. Du kan använda både Premium och Standard disks med dessa virtuella datorer. Premium storage är tillgängligt i vissa regioner. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Diskar som är anslutna till virtuella datorer är faktiskt .vhd-filer som är lagrade i Azure. Mer information finns i [om diskar och virtuella hårddiskar för virtuella datorer](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * När du bifoga disken, måste du [ansluta till Linux VM att montera den nya disken](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
 ## <a name="find-the-virtual-machine"></a>Hitta den virtuella datorn
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På menyn till vänster klickar du på **virtuella datorer**.
 3. Välj den virtuella datorn i listan.
 4. Till virtuellt datorer kan i **Essentials**, klickar du på **diskar**.
@@ -96,7 +96,12 @@ Utdata ser ut ungefär så här:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Här kan *sdc* är den disk som vi vill. Partitionera disken med `fdisk`, gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:
+Här kan *sdc* är den disk som vi vill. 
+
+### <a name="partion-a-new-disk"></a>Partion en ny disk
+Om du använder en befintlig disk som innehåller data, kan du hoppa över att montera disken. Om du kopplar en ny disk kan behöva du partitionera disken.
+
+Använd `fdisk` blir primär disk på partition 1 om du vill partitionera disken och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -176,8 +181,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-Nu skapar du en katalog för att montera filsystemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
+### <a name="mount-the-disk"></a>Montera disken
+Skapa en katalog för att montera filsystemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
 
 ```bash
 sudo mkdir /datadrive

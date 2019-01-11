@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 94ccd3f437f74b27ef158a5e373b6ff315b5eb42
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159034"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214852"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -323,7 +323,7 @@ Alla logikappar i en region använder samma intervall av IP-adresser. Stöd för
 
 ### <a name="managed-connectors"></a>Hanterade anslutningsappar
 
-Stöd för anrop som [Microsoft-hanterade anslutningsappar](../connectors/apis-list.md) märke, konfigurera din brandväggskonfigurationer så att de inkluderar alla utgående IP-adresser anges för de regioner där dina logic apps finns. För [Azure Government](/azure-government/documentation-government-welcome) och [Azure Kina 21Vianet](/azure/china/china-welcome), reserverade IP-adresser för kopplingar är inte tillgänglig för tillfället.
+Stöd för anrop som [Microsoft-hanterade anslutningsappar](../connectors/apis-list.md) märke, konfigurera din brandväggskonfigurationer så att de inkluderar alla utgående IP-adresser anges för de regioner där dina logic apps finns. För [Azure Government](../azure-government/documentation-government-welcome.md) och [Azure Kina 21Vianet](/azure/china/china-welcome), reserverade IP-adresser för kopplingar är inte tillgänglig för tillfället.
 
 > [!IMPORTANT]
 > 

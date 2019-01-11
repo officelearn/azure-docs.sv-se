@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074095"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213629"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
 Konsulttjänster i Azure Marketplace och AppSource ger Microsoft-partner mål anslutande kunder med tjänster som stöder och utökar deras användning av Azure och affärsmål. 
@@ -69,7 +69,7 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 |Dynamics 365 för Finance and Operations, Enterprise edition  |  Silver eller Gold [Sage](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) kompetens och en minsta intäkter av $25 K i molnet åtgärder i efterföljande 12 månader.       |
 |Dynamics 365 för finans och åtgärder, Business edition  |  Fungera som [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) eller [Digital Partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) för minst en kund      |
 |Power BI, Power BI-anpassad visuell information | Uppfyller den [Lösningspartner kriterier](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Publicerar [Partnerdemonstration]() lösning
+|PowerApps | Publicerar [Partnerdemonstration](https://appsource.microsoft.com/partners) lösning
 
 <b> Mer information finns i [uppnådda via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  

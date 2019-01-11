@@ -15,14 +15,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961968"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214274"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudie: Hämta data med hjälp av Azure Active Directory reporting API: et med certifikat
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudier: Hämta data med hjälp av Azure Active Directory Reporting-API:et med certifikat
 
 [Azure Active Directory reporting API: er](concept-reporting-api.md) ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg. Om du vill komma åt Azure AD Reporting API utan inblandning av användaren, måste du konfigurera din åtkomst för att använda certifikat.
 
@@ -30,24 +30,28 @@ I den här självstudien får du lära dig hur du använder ett testcertifikat �
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-1. Först måste slutföra den [krav för att få åtkomst till Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+1. Kontrollera att du har en Azure Active Directory-klient med en premiumlicens (P1/P2) för att komma åt inloggningsdata. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Observera att om du inte har några aktiviteter data före uppgraderingen, det tar ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens. 
 
-2. Ladda ned och installera [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+2. Skapa eller växla till ett användarkonto i den **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare** eller **rapportera läsare** roll för klienten. 
 
-3. Installera [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Den här modulen tillhandahåller flera verktygs-cmdlets, däribland:
+3. Slutför den [krav för att få åtkomst till Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+
+4. Ladda ned och installera [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+
+5. Installera [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Den här modulen tillhandahåller flera verktygs-cmdlets, däribland:
     - ADA-biblioteken krävs för autentisering
     - Åtkomsttoken från användare, programnycklar och certifikat med ADAL
     - Växlingsbara resultat för Graph API-hantering
 
-4. Om det är första gången du använder modulen kör **installera MSCloudIdUtilsModule**, importera annars den med hjälp av den **Import-Module** Powershell-kommando. Sessionen bör likna den här skärmen: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Om det är första gången du använder modulen kör **installera MSCloudIdUtilsModule**, importera annars den med hjälp av den **Import-Module** Powershell-kommando. Sessionen bör likna den här skärmen: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-5. Använd den **New-SelfSignedCertificate** Powershell-kommandot för att skapa ett testcertifikat.
+7. Använd den **New-SelfSignedCertificate** Powershell-kommandot för att skapa ett testcertifikat.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-6. Använd den **Export-Certificate** för att exportera den till en certifikatfil.
+8. Använd den **Export-Certificate** för att exportera den till en certifikatfil.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"

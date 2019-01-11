@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 19a9ef3e3f6a33e1f8e4d1e47ddc7562c0b90e37
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191674"
+ms.locfileid: "54197682"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring
 
 ## <a name="overview"></a>Översikt
 
-Azure storage erbjuder olika nivåer som du kan lagra data i Blob-objekt på det mest kostnadseffektiva sättet. De tillgängliga nivåerna är:
+Azure storage erbjuder olika lagringsnivåer, som gör att du kan lagra Blob-objekt på det mest kostnadseffektiva sättet. De tillgängliga nivåerna är:
 
-- **Premium storage (förhandsversion)** tillhandahåller högpresterande maskinvara för data som används ofta.
+- **Premium storage (förhandsversion)** tillhandahåller maskinvara med höga prestanda för data som används ofta.
  
 - **Frekvent lagring**: är optimerad för att lagra data som används ofta. 
 
@@ -47,15 +47,15 @@ För varje scenario finns en lagringsnivå som är optimerad för motsvarande å
 
 ## <a name="storage-accounts-that-support-tiering"></a>Lagringskonton med stöd för flera lagringsnivåer
 
-Du kan endast datanivå dina data för lagring av objekt för att frekvent, lågfrekvent eller Arkiv i Blob storage- eller generell användning v2 (GPv2)-konton. GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
+Du kan endast datanivå dina data för lagring av objekt för att frekvent, lågfrekvent eller Arkiv i Blob storage och generell användning v2 (GPv2)-konton. GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
 BLOB storage- och GPv2-konton visas den **åtkomstnivå** attributet på kontonivå, vilket gör att du kan ange standardlagringsnivån som frekvent eller lågfrekvent för alla blobar i lagringskontot som inte har en explicit nivå angiven på den objektnivå. För objekt där nivån har ställts in på objektnivå används inte nivåinställningen för kontot. Nivån Arkivlagring kan endast tillämpas på objektnivå. Du kan växla mellan dessa lagringsnivåer när som helst.
 
 ## <a name="premium-access-tier"></a>Premium-åtkomstnivå
 
-Tillgängligt i förhandsversionen är en Premium-åtkomstnivå vilket gör ofta använda data som är tillgängliga via maskinvara med höga prestanda. Data som lagras i den här nivån lagras på SSD-enheter som är optimerade för kortare svarstider som en högre transaktionella priser jämfört med traditionella hårddiskar. Åtkomstnivå Premium är tillgängligt via Blockblob lagringskontotypen endast.
+Tillgängligt i förhandsversionen är en Premium åtkomstnivå, vilket gör ofta använda data som är tillgängliga via maskinvara med höga prestanda. Data som lagras i den här nivån lagras på SSD-enheter som är optimerade för kortare svarstider och högre transaktionella priser jämfört med traditionella hårddiskar. Åtkomstnivå Premium är tillgängligt via Blockblob lagringskontotypen endast.
 
-Den här nivån är perfekt för arbetsbelastningar som kräver snabb och konsekvent svarstider. Data som innebär att slutanvändare, till exempel interaktiva videoredigering, statiskt webbinnehåll, onlinetransaktioner och liknande är en bra kandidater för nivån Premium och åtkomst. Den här nivån är utformad för arbetsbelastningar som utför många små transaktioner, till exempel samla in telemetridata, meddelanden och transformering av data.
+Den här nivån är perfekt för arbetsbelastningar som kräver snabb och konsekvent svarstider. Data som innebär att slutanvändare, till exempel interaktiva videoredigering, statiskt webbinnehåll, onlinetransaktioner och liknande är bra kandidater för nivån Premium och åtkomst. Den här nivån är utformad för arbetsbelastningar som utför många små transaktioner, till exempel samla in telemetridata, meddelanden och transformering av data.
 
 Om du vill använda den här nivån, etablera ett nytt Block Blob storage-konto och börja skapa behållare och blobar med hjälp av den [REST-API för Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), eller [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -119,9 +119,9 @@ Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, 
 
 ### <a name="blob-level-tiering-billing"></a>Fakturering för blobnivåindelning
 
-När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, frekvent -> Arkiv eller lågfrekvent -> Arkiv) faktureras åtgärden som en skrivning till målnivån där Skrivåtgärden (per 10 000) och kostnaderna för dataskrivning (per GB) för målnivån tillämpas. När en blob flyttas till en varmare nivå (Arkiv -> lågfrekvent, Arkiv -> frekvent eller lågfrekvent -> frekvent) faktureras åtgärden som en läsning från källnivån där Läsåtgärden (per 10 000) och kostnaderna för datahämtning (per GB) för källnivån tillämpas.
+När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, frekvent -> Arkiv eller lågfrekvent -> Arkiv) faktureras åtgärden som en skrivning till målnivån där Skrivåtgärden (per 10 000) och kostnaderna för dataskrivning (per GB) för målnivån tillämpas. När en blob flyttas till en varmare nivå (Arkiv -> lågfrekvent, Arkiv -> frekvent eller lågfrekvent -> frekvent) faktureras åtgärden som en läsning från källnivån där Läsåtgärden (per 10 000) och kostnaderna för datahämtning (per GB) för källnivån tillämpas. I följande tabell sammanfattas hur nivåändringar faktureras.
 
-| | **Skriva kostnad** | **Läsa kostnad** 
+| | **Skriva avgifter (åtgärden + åtkomst)** | **Läs avgifter (åtgärden + åtkomst)** 
 | ---- | ----- | ----- |
 | **SetBlobTier riktning** | Frekvent -> lågfrekvent, frekvent -> Arkiv, lågfrekvent -> Arkiv | Arkiv -> lågfrekvent, Arkiv -> frekvent, lågfrekvent -> frekvent
 
@@ -141,7 +141,7 @@ Följande tabell visar en jämförelse av frekvent, lågfrekvent och Arkivlagrin
 | ---- | ----- | ----- | ----- |
 | **Tillgänglighet** | 99,9 % | 99 % | Saknas |
 | **Tillgänglighet** <br> **(RA-GRS-läsningar)**| 99,99 % | 99,9 % | Saknas |
-| **Avgifter för användning** | Högre kostnader för lagring, lägre kostnader för åtkomst och transaktioner | Lägre kostnader för lagring, högre kostnader för åtkomst och transaktioner | Lägst kostnader för lagring, högst kostnader för åtkomst och transaktioner |
+| **Avgifter för användning** | Högre kostnader för lagring, lägre transaktionskostnader för åtkomst, och | Lägre kostnader för lagring och högre transaktionskostnader | Lägst kostnader för lagring, högsta åtkomst och transaktionskostnader |
 | **Minsta objektstorlek** | Saknas | Saknas | Saknas |
 | **Minsta lagringstid** | Gäller inte | 30 dagar (endast GPv2) | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | millisekunder | millisekunder | < 15 timmar
@@ -237,7 +237,7 @@ Varje blob faktureras alltid enligt den nivå som anges av blobens **åtkomstniv
 
 **Hur vet jag om jag påförs en avgift för tidig borttagning när du tar bort eller flyttar en blob från lågfrekvent lagring eller arkivlagring?**
 
-En blob tas bort eller flyttas från lågfrekvent lagring (endast GPv2-konton) eller arkivnivån 30 dagar och 180 dagar, påförs en proportionellt beräknad avgift för tidig borttagning. Du kan fastställa hur länge en blob har lagrats på nivån för lågfrekvent nivå eller arkivnivå genom att markera den **ändringstid för nivån** blobegenskapen som innehåller en tidsstämpel för den senaste ändringen. Se [lågfrekvent lagring och tidig borttagning i arkivet](#cool-and-archive-early-deletion) mer information.
+En blob tas bort eller flyttas från lågfrekvent lagring (endast GPv2-konton) eller arkivnivån 30 dagar och 180 dagar, påförs en proportionellt beräknad avgift för tidig borttagning. Du kan fastställa hur länge en blob har lagrats på nivån för lågfrekvent nivå eller arkivnivå genom att markera den **ändringstid för nivån** blobegenskapen som innehåller en tidsstämpel för den senaste ändringen. Mer information finns i [lågfrekvent lagring och tidig borttagning i arkivet](#cool-and-archive-early-deletion).
 
 **Vilka Azure-verktyg och SDK: er stöder blobnivåindelning och arkivlagring?**
 

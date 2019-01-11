@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187425"
+ms.locfileid: "54198533"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
 
@@ -116,8 +116,6 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 ## <a name="limitations"></a>Begränsningar
 
 - Den här funktionen att skriva om HTTP-huvuden är för närvarande bara tillgänglig via Azure PowerShell, Azure API och Azure SDK. Support via portalen och Azure CLI är tillgänglig snart.
-
-- Du bör inte använda portalen för att göra eventuella efterföljande ändringar för den Application Gateway tills funktionen stöds för portalen när du tillämpar en rubrik-omskrivning på Application Gateway. Om du använder portalen för att göra ändringar i Application Gateway efter att ha tillämpat en omskrivningsregel, Skriv rubriken om regeln. Du kan fortsätta att göra ändringar med hjälp av Azure PowerShell, Azure API: er eller Azure SDK.
 
 - HTTP-huvudet omskrivning stöd stöds bara på den nya SKU: N [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Funktionen stöds inte på den gamla SKU: N.
 

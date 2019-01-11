@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628348"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214903"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azure-oberoende molnet med hjälp av PowerShell
 
@@ -37,7 +37,7 @@ Exemplen kräver Azure PowerShell-modulen Az version 0.7 eller senare. Kör i et
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Kör den [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) cmdlet för att se tillgängliga Azure-miljöer:
+Kör den [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cmdlet för att se tillgängliga Azure-miljöer:
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ Slutpunktssuffixet för var och en av dessa miljöer skiljer sig från offentlig
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Hämta slutpunkten med hjälp av Get-AzEnvironment 
 
-Hämta slutpunkten suffix med [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). Slutpunkten är den *StorageEndpointSuffix* egenskap för miljön. I följande kodavsnitt visar hur du gör detta. Alla dessa kommandon returnera något ”core.cloudapp.net” eller ”core.cloudapi.de”, t.ex. Lägg till detta till storage-tjänsten för att komma åt tjänsten. Till exempel kommer ”queue.core.cloudapi.de” åt kötjänsten i tyska molnet.
+Hämta slutpunkten suffix med [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). Slutpunkten är den *StorageEndpointSuffix* egenskap för miljön. I följande kodavsnitt visar hur du gör detta. Alla dessa kommandon returnera något ”core.cloudapp.net” eller ”core.cloudapi.de”, t.ex. Lägg till detta till storage-tjänsten för att komma åt tjänsten. Till exempel kommer ”queue.core.cloudapi.de” åt kötjänsten i tyska molnet.
 
 Det här kodfragmentet hämtar alla miljöerna och slutpunktssuffixet för var och en.
 

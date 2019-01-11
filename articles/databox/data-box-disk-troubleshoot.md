@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191708"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213152"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Felsöka problem i Azure Data Box-Disk
 
@@ -96,12 +96,11 @@ Det här avsnittet beskriver några av de viktigaste problemen inför under dist
 
 Detta kan bero på en felaktig filsystem. 
 
-- Ommontering en enhet som läst fungerar inte med Data Box-diskar. Det här scenariot stöds inte med enheter dekrypteras av dislocker. 
-- Ommontering utan skrivskydd fungerar inte. Du kanske har har monteras enheten med följande kommando: 
+Ommontering en enhet som Läs-och fungerar inte med Data Box-diskar. Det här scenariot stöds inte med enheter dekrypteras av dislocker. Du kanske har har monteras enheten med följande kommando: 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Även om den ommontering lyckades, behålls inte data.
+Även om den ommontering lyckades, behålls inte data.
 
 **Lösning**
 
@@ -125,11 +124,11 @@ Om du ser att enheten inte har data när den var demontera (även om data har ko
  
 Om så är fallet, se lösningen på [enheter komma monterats som skrivskyddade](#issue-drive-getting-mounted-as-read-only).
 
-Om det inte är fallet, [hämta diagnostikloggar](#download-diagnostic-logs) från datorn och [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
+Om det inte är fallet, kopiera loggarna från mappen med verktyget Data Box Disk låsa upp och [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Problem med distribution för Windows
 
-Det här avsnittet beskrivs några av de viktigaste problemen inför under distributionen av Data Box-Disk när du använder en Linux-klient för kopiering av data
+Det här avsnittet beskrivs några av de viktigaste problemen inför under distributionen av Data Box-Disk när du använder en Windows-klient för kopiering av data
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Ärende: Det gick inte att låsa upp enheten från BitLocker
  
@@ -139,7 +138,7 @@ Du har använt lösenord i BitLocker-dialogrutan och försök att låsa upp disk
 
 **Lösning**
 
-För att låsa upp Data Box-diskar, måste du använda verktyget Data Box Disk låsa upp och ange lösenord från Azure-portalen.
+För att låsa upp Data Box-diskar, måste du använda verktyget Data Box Disk låsa upp och ange lösenord från Azure-portalen. Mer information går du till [självstudien: Packa upp, Anslut och lås Azure Data Box-Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Ärende: Det gick inte att låsa upp eller verifiera några volymer. Kontakta Microsoft-supporten.
  
@@ -155,7 +154,7 @@ Detta anger att du förmodligen saknar rätt version av Windows PowerShell på W
 
 Du kan installera [Windows PowerShell-v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) och försök igen.
  
-Om du fortfarande inte kan låsa upp volymerna, [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
+Om du fortfarande inte kan låsa upp volymerna, kopiera loggar från mappen med verktyget Data Box Disk låsa upp och [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

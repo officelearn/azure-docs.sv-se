@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77d3bdd755e7c8d68115e12c6bee318fda652b09
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 38f20f74f8c553c134a6ef91151aa49b99ad45b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972209"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213509"
 documentType: LandingData
 title: Azure Storage-dokumentation
 metadata:
@@ -67,9 +67,9 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
     - title: Data Lake Storage Gen2
       values:
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-the-azure-portal
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-powershell
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-azure-cli
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-azure-cli
       - href: 
       - href: 
       - href: 
@@ -83,7 +83,7 @@ sections:
     - title: Blobar
       html: <p>Ladda upp och bearbeta avbildningsdata i molnet</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Ladda upp och hämta avbildningsdata i molnet</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Utlösa Azure Functions för att bearbeta blobar</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Skydda programdata</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Övervaka och felsöka lagring</a></li></ul><p>Utforma ditt program för hög tillgänglighet</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Skapa hög tillgänglighet för dina programdata</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulera ett fel vid läsåtkomst till redundant lagring</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Söka efter ostrukturerade data i Azure Storage</a></p>
     - title: Data Lake Storage Gen2
-      html: <p><a href="/azure/storage/blobs/handle-data-using-databricks">Extrahera, transformera och läsa in data med Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Få åtkomst till Azure Data Lake Storage Gen2-data med DataBricks med hjälp av Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight</a></p>
+      html: <p><a href="/azure/storage/blobs/data-lake-storage-handle-data-using-databricks">Extrahera, transformera och läsa in data med Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Få åtkomst till Azure Data Lake Storage Gen2-data med DataBricks med hjälp av Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight</a></p>
 - title: Exempel
   items:
   - type: paragraph

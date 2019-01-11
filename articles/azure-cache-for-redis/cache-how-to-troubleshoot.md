@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104156"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199586"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Felsökning av Azure Cache för Redis
 Den här artikeln innehåller riktlinjer för felsökning av följande typer av Azure Cache för Redis-problem.
@@ -231,9 +231,9 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
    
     Information om hur du ansluter till Azure Cache för Redis SSL-slutpunkten med hjälp av redis-cli och stunnel finns i den [Vi presenterar ASP.NET-Sessionstillståndsprovider Redis förhandsversionen](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg. Mer information finns i [SlowLog](https://redis.io/commands/slowlog).
 6. Hög Redis-serverbelastningen kan orsaka timeout. Du kan övervaka belastningen på servern genom att övervaka den `Redis Server Load` [cachelagra prestandamått](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). En serverbelastning på 100 (högsta värde) innebär det att redis-servern har varit upptagen med någon inaktiv tid, bearbetning av begäranden. Om du vill se om vissa begäranden som tar upp alla server-kapacitet, kör du kommandot SlowLog enligt beskrivningen i föregående stycke. Mer information finns i [hög CPU-användning / serverbelastningen](#high-cpu-usage-server-load).
-7. Var det andra händelser på klientsidan som kan ha orsakat en nätverk blip? Kontrollera på klienten (webb, worker-roll eller en Iaas VM) om det uppstod en händelse som skala antalet klientinstanser som upp eller ned eller distribuerar en ny version av klienten eller automatisk skalning är aktiverat? I våra tester, vi har hittat som automatisk skalning eller skala upp/ned kan utgående nätverksanslutning för orsak kan vara förlorad under flera sekunder. StackExchange.Redis-koden är motståndskraftiga mot sådana händelser och återansluter. Under denna tid för återansluter kan alla begäranden i kön timeout.
+7. Var det andra händelser på klientsidan som kan ha orsakat en nätverk blip? Kontrollera på klienten (webb, worker-roll eller en IaaS VM) om det uppstod en händelse som skala antalet klientinstanser som upp eller ned eller distribuerar en ny version av klienten eller automatisk skalning är aktiverat? I våra tester, vi har hittat som automatisk skalning eller skala upp/ned kan utgående nätverksanslutning för orsak kan vara förlorad under flera sekunder. StackExchange.Redis-koden är motståndskraftiga mot sådana händelser och återansluter. Under denna tid för återansluter kan alla begäranden i kön timeout.
 8. Var det en stor begäran föregående flera små begäranden till Azure Cache för Redis som gjort timeout? Parametern `qs` i felet meddelande som anger hur många förfrågningar skickades från klienten till servern, men ännu inte behandlats ett svar. Det här värdet kan hålla växer eftersom StackExchange.Redis använder en enda TCP-anslutning och endast kan läsa ett svar i taget. Även om den första tidsgränsen uppnåddes, slutar den inte de data som skickas till och från servern och andra begäranden blockeras tills stora begäran har slutförts, orsakar timeout. En lösning är att minimera risken för tidsgränser genom att säkerställa att din cache är tillräckligt stort för din arbetsbelastning och dela upp stora värden i mindre segment. En annan möjlig lösning är att använda en pool med `ConnectionMultiplexer` objekt i din klient och Välj minst inlästa `ConnectionMultiplexer` när du skickar en ny begäran. Detta bör förhindra att en enda tidsgräns orsakar övriga förfrågningar till också timeout.
-9. Om du använder `RedisSessionStateprovider`, kontrollerar du har angett tidsgräns för återförsök på rätt sätt. `retrytimeoutInMilliseconds` bör vara högre än `operationTimeoutinMilliseonds`, annars Inga återförsök sker. I följande exempel `retrytimeoutInMilliseconds` är inställd på 3000. Mer information finns i [ASP.NET-Sessionstillståndsprovider för Azure Cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurationsparametrarna för Sessionstillståndsprovider och Utdatacacheprovider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+9. Om du använder `RedisSessionStateProvider`, kontrollerar du har angett tidsgräns för återförsök på rätt sätt. `retryTimeoutInMilliseconds` bör vara högre än `operationTimeoutInMilliseconds`, annars Inga återförsök sker. I följande exempel `retryTimeoutInMilliseconds` är inställd på 3000. Mer information finns i [ASP.NET-Sessionstillståndsprovider för Azure Cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurationsparametrarna för Sessionstillståndsprovider och Utdatacacheprovider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     <add
       name="AFRedisCacheSessionStateProvider"

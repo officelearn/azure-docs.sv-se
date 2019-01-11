@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185791"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214138"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Parsa textdata i Log Analytics
 Vissa data som samlas in av Log Analytics innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Reguljära uttryck
-Om dina data kan identifieras med ett reguljärt uttryck, kan du använda [funktioner med reguljära uttryck](/azure/kusto/query/re2) att extrahera enskilda värden. I följande exempel används [extrahera](/kusto/query/extractfunction) kan dela upp den _UPN_ från _AzureActivity_ registrerar och sedan returnera specifika användare.
+Om dina data kan identifieras med ett reguljärt uttryck, kan du använda [funktioner med reguljära uttryck](/azure/kusto/query/re2) att extrahera enskilda värden. I följande exempel används [extrahera](/azure/kusto/query/extractfunction) kan dela upp den _UPN_ från _AzureActivity_ registrerar och sedan returnera specifika användare.
 
 ```Kusto
 AzureActivity

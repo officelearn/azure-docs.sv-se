@@ -5,20 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 012/5/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 4d817e71cffd782bdcfdfb91492dbd5d08fb8479
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967103"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200536"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Använda Azure DNS för privata domäner
 
 Domain Name System- eller DNS, ansvarar för att översätta (eller lösa) ett tjänstnamn till dess IP-adress. En värdtjänst för DNS-domäner med Azure DNS ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Förutom att stöda mot internet DNS-domäner, Azure DNS stöder nu också privata DNS-domäner som en förhandsversion av funktionen.
 
-Azure DNS är en tillförlitlig och säker DNS-tjänst för att hantera och matcha namn i ett virtuellt nätverk utan att behöva lägga till en anpassad DNS-lösning. Du kan använda dina egna anpassade domännamn i stället för de Azure-tillhandahållen namn som är tillgängliga idag genom att använda privata DNS-zoner. Använda anpassade domännamn hjälper dig att skräddarsy dina virtuella nätverksarkitekturen som bäst passar organisationens behov. Det ger namnmatchning för virtuella datorer (VM) inom ett virtuellt nätverk och mellan virtuella nätverk. Du kan också konfigurera zoner namn med vyn Dela vågrätt, vilket ger en privat och en offentlig DNS-zon kan dela samma namn.
+Azure DNS är en tillförlitlig och säker DNS-tjänst för att hantera och matcha namn i ett virtuellt nätverk utan att behöva lägga till en anpassad DNS-lösning. Du kan använda dina egna anpassade domännamn i stället för de Azure-tillhandahållen namn som är tillgängliga idag genom att använda privata DNS-zoner. Använda anpassade domännamn hjälper dig att skräddarsy dina virtuella nätverksarkitekturen som bäst passar organisationens behov. Det ger namnmatchning för virtuella datorer (VM) inom ett virtuellt nätverk och mellan virtuella nätverk. Du kan också konfigurera zoner namn med vyn Dela vågrätt, vilket ger en privat och en offentlig DNS-zon kan dela namn.
 
 Om du anger ett virtuellt nätverk för registrering, DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen är inte kan visas eller hämtas från Azure Powershell och Azure CLI-API: er, men VM-poster verkligen har registrerats och kommer Lös har.
 
@@ -57,11 +57,11 @@ Azure DNS tillhandahåller följande funktioner:
 
 * **Vidarebefordra DNS-matchningen stöds mellan olika virtuella nätverk som är länkade till den privata zonen som virtuella matchningsnätverk**. För flera virtuella nätverk DNS-matchning finns ingen explicit beroende så att de virtuella nätverken är peer-kopplade med varandra. Kunder kanske vill peerkoppla virtuella nätverk för andra scenarier (till exempel HTTP-trafik).
 
-* **Omvänd DNS-sökning stöds inom omfånget för virtuellt nätverk**. Omvänd DNS-sökning för en privat IP-adress inom det virtuella nätverket som tilldelats en privat zon returneras det FQDN som inkluderar värd/postens namn samt zonnamnet som suffix.
+* **Omvänd DNS-sökning stöds inom omfånget för virtuellt nätverk**. Omvänd DNS-sökning för en privat IP-adress inom det virtuella nätverket som tilldelats en privat zon returnerar det FQDN som innehåller värden/postens namn och zonnamnet som suffix.
 
 ## <a name="limitations"></a>Begränsningar
 
-Azure DNS är uppleva följande begränsningar:
+Azure DNS innehåller följande begränsningar:
 
 * Endast ett virtuellt registreringsnätverk tillåts per privat zon.
 * Upp till 10 lösningar tillåts virtuella nätverk per privat zon.
@@ -70,14 +70,14 @@ Azure DNS är uppleva följande begränsningar:
 * Om du anger ett virtuellt nätverk för registrering är DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen inte kan visas eller hämtas från Azure Powershell och Azure CLI-API: er. VM-poster verkligen har registrerats och löser har.
 * Omvänd DNS fungerar endast för privat IP-adressutrymme i det virtuella nätverket för registrering.
 * Omvänd DNS för en privat IP-adress som inte är registrerade i den privata zonen (t.ex, en privat IP-adress för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk för lösning till ett privat zon) returnerar *internal.cloudapp.net* som DNS-suffix. Detta suffix är dock inte matchas.
-* Det virtuella nätverket måste vara tomt (det vill säga VM inte finns några poster) när den först (det vill säga för första gången) länkar till en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket kan dock sedan vara tomma för att framtida länka som en registrering eller matchning virtuellt nätverk till andra privata zoner.
-* För närvarande stöds inte villkorlig vidarebefordran (till exempel för att aktivera matchning mellan Azure och OnPrem-nätverk). Information om hur kunderna kan få det här scenariot via andra metoder finns i [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Det virtuella nätverket måste vara helt tom första gången du länkar den till en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket kan dock sedan vara tomma för att framtida länka som en registrering eller matchning virtuellt nätverk till andra privata zoner.
+* Villkorlig vidarebefordran stöds för närvarande inte (till exempel för att aktivera matchning mellan Azure och OnPrem-nätverk). Information om hur kunderna kan få det här scenariot via andra metoder finns i [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 För vanliga frågor och svar om privata zoner i Azure DNS, inklusive specifika DNS-registrering och upplösning som du kan förvänta dig för vissa typer av åtgärder, finns i [vanliga frågor och svar](./dns-faq.md#private-dns).  
 
 ## <a name="pricing"></a>Prissättning
 
-Privata DNS-zoner funktionen är kostnadsfritt under den offentliga förhandsversionen. Under allmänt tillgängliga, funktionen kommer att erbjuda en användningsbaserad Prismodell liknande den i den befintliga Azure DNS erbjuder. 
+Privata DNS-zoner funktionen är kostnadsfritt under den offentliga förhandsversionen. Under allmänt tillgängliga erbjuder funktionen en användningsbaserad Prismodell liknande den i den befintliga Azure DNS erbjuder. 
 
 ## <a name="next-steps"></a>Nästa steg
 

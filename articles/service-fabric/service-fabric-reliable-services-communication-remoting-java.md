@@ -1,6 +1,6 @@
 ---
-title: Tjänsten fjärrkommunikation använder Java i Azure Service Fabric | Microsoft Docs
-description: Service Fabric-fjärrkommunikation kan klienter och tjänster att kommunicera med Java-tjänster med hjälp av ett fjärranrop.
+title: Fjärrtjänst med Java i Azure Service Fabric | Microsoft Docs
+description: Fjärrkommunikation för Service Fabric kan klienter och tjänster att kommunicera med Java-tjänster med hjälp av en RPC-anrop.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3215ee4adf907524626b4919b637ce23b9e0e782
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eb991df64f0454fa6103c9104e5c0e9991503a43
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750188"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198277"
 ---
-# <a name="service-remoting-in-java-with-reliable-services"></a>Tjänsten fjärrkommunikation i Java med Reliable Services
+# <a name="service-remoting-in-java-with-reliable-services"></a>Fjärrkommunikation för tjänster i Java med Reliable Services
 > [!div class="op_single_selector"]
 > * [C# i Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java i Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
 
-För tjänster som inte är kopplad till en viss kommunikationsprotokoll eller stacken, till exempel WebAPI, Windows Communication Foundation (WCF) eller andra, ger Reliable Services framework dig möjlighet att snabbt och enkelt konfigurera RPC-anrop för fjärrkommunikation tjänster.  Den här artikeln beskrivs hur du ställer in RPC-anrop för tjänster som skrivits med Java.
+För tjänster som inte är kopplad till en viss kommunikationsprotokoll eller stack, till exempel WebAPI, Windows Communication Foundation (WCF) eller andra, tillhandahåller Reliable Services-ramverk en mekanism för fjärrkommunikation att snabbt och enkelt konfigurera RPC-anrop för tjänster.  Den här artikeln beskrivs hur du ställer in RPC-anrop för tjänster som skrivits med Java.
 
-## <a name="set-up-remoting-on-a-service"></a>Ställa in fjärrstyrning för en tjänst
-Ställa in fjärrstyrning för en tjänst görs i två enkla steg:
+## <a name="set-up-remoting-on-a-service"></a>Ställa in fjärrstyrning på en tjänst
+Hur du konfigurerar fjärrstyrning för en tjänst görs i två enkla steg:
 
-1. Skapa ett gränssnitt för tjänsten att implementera. Det här gränssnittet definierar metoder som är tillgängliga för remote procedure call på din tjänst. Metoderna måste vara åtgärdsreturnerande asynkrona metoder. Gränssnittet måste implementera `microsoft.serviceFabric.services.remoting.Service` att signalera att tjänsten har ett gränssnitt för fjärrkommunikation.
+1. Skapa ett gränssnitt för tjänsten att implementera. Det här gränssnittet definierar metoder som är tillgängliga för ett RPC-anrop till din tjänst. Metoderna måste vara aktiviteten returnerar asynkrona metoder. Gränssnittet måste implementera `microsoft.serviceFabric.services.remoting.Service` att signalera att tjänsten har ett gränssnitt för fjärrkommunikation.
 2. Använd en lyssnare för fjärrkommunikation i din tjänst. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärrkommunikation. `FabricTransportServiceRemotingListener` kan användas för att skapa en lyssnare för fjärrkommunikation med transportprotokollet standard fjärrkommunikation.
 
-Till exempel exponerar följande tillståndslösa tjänsten en metod för att få ”Hello World” över ett fjärranrop.
+Till exempel exponerar följande tillståndslös tjänst en enkel metod för att få ”Hello World” med ett RPC-anrop.
 
 ```java
 import java.util.ArrayList;
@@ -70,12 +70,12 @@ class MyServiceImpl extends StatelessService implements MyService {
 ```
 
 > [!NOTE]
-> Argumenten och returtyper i gränssnittet service kan vara enkla, komplexa eller anpassade typer, men de måste kunna serialiseras.
+> Argumenten och returtyper i tjänstegränssnittet kan vara några enkla, komplexa eller anpassade typer, men de måste kunna serialiseras.
 >
 >
 
 ## <a name="call-remote-service-methods"></a>Anropa fjärrtjänsten metoder
-Anropar metoder för en tjänst med hjälp av fjärrkommunikation stacken görs med hjälp av en lokal proxyserver till tjänsten via den `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klass. Den `ServiceProxyBase` metoden skapar en lokal proxyserver genom att använda samma gränssnitt som tjänsten implementerar. Med denna proxy, kan du bara fjärranropa metoder i gränssnittet.
+Anropa metoder på en tjänst med hjälp av fjärrkommunikation stack görs med hjälp av en lokal proxy till tjänsten via den `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klass. Den `ServiceProxyBase` metoden skapar en lokal proxy genom att använda samma gränssnitt som implementerar tjänsten. Med den proxyn kan du helt enkelt anropa metoder på gränssnittet via en fjärranslutning.
 
 ```java
 
@@ -85,24 +85,24 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ```
 
-Fjärr-framework sprider undantag på tjänsten till klienten. Så undantagshantering logik på klienten med hjälp av `ServiceProxyBase` direkt kan hantera undantag som genereras av tjänsten.
+Fjärr-framework sprider undantag på tjänsten till klienten. Så undantagshantering logik på klienten med hjälp av `ServiceProxyBase` kan direkt hantera undantag som genereras av tjänsten.
 
 ## <a name="service-proxy-lifetime"></a>Tjänsten Proxylivslängden
-ServiceProxy skapas en enkel åtgärd så att du kan skapa så många som du behöver. Tjänstproxy instanser kan återanvändas när de behövs. Du kan återanvända samma instans som proxy även om ett fjärranrop genererar ett undantag. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden via kabel. Vid anrop fjärranrop utförs interna kontroller för att fastställa om kommunikation klienten är giltig. Baserat på resultatet av dessa kontroller, återskapas kommunikation klienten om det behövs. Därför om ett undantag inträffar kan du inte behöver återskapa `ServiceProxy`.
+Skapa en ServiceProxy är en enkel åtgärd så att du kan skapa så många som du behöver. Tjänstproxy instanser kan återanvändas så länge de behövs. Du kan återanvända samma proxy-instans även om ett RPC genererar ett undantag. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden över nätverket. Samtidigt som du anropar fjärranrop utförs interna kontroller för att fastställa om kommunikation klienten är giltig. Baserat på resultatet av dessa kontroller, återskapas kommunikation klienten om det behövs. Därför, om ett undantag inträffar, du behöver inte återskapa `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livslängd
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) är en fabrik som skapar proxy för olika fjärrkommunikation gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy, framework skapar sedan en `FabricServiceProxyFactory`.
-Det är praktiskt att skapa ett manuellt när du måste åsidosätta [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) egenskaper.
-Fabriken är en kostsam åtgärd. `FabricServiceProxyFactory` underhåller cache för klienter för kommunikation.
-Bästa praxis är att cacheminnet `FabricServiceProxyFactory` så länge som möjligt.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabric_service_proxy_factory) är en fabrik som skapar proxy för olika fjärrkommunikation gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy, framework skapar sedan en `FabricServiceProxyFactory`.
+Det är bra att skapa ett manuellt när du behöver åsidosätta [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.service_remoting_client_factory) egenskaper.
+Factory är en kostsam åtgärd. `FabricServiceProxyFactory` underhåller cache av klienter för kommunikation.
+Bra tips är att cacheminnet `FabricServiceProxyFactory` så länge som möjligt.
 
 ## <a name="remoting-exception-handling"></a>Fjärrkommunikation undantagshantering
-Alla fjärranslutna undantag som uppstått i tjänsten API, skickas tillbaka till klienten som RuntimeException eller FabricException.
+Alla fjärranslutna undantag utlöstes av tjänsten API, skickas tillbaka till klienten som RuntimeException eller FabricException.
 
-ServiceProxy hanterar alla Failover-undantag för service-partition som skapats för. Slutpunkterna löser igen om det finns Failover Exceptions(Non-Transient Exceptions) och försöker anropa med korrekt slutpunkt. Antal återförsök för redundans undantag är obegränsad.
-Vid TransientExceptions, endast ett nytt försök anropet.
+ServiceProxy hanterar alla redundans undantag för service-partition som den har skapats för. Det igen löser slutpunkterna om det finns Failover Exceptions(Non-Transient Exceptions) och försöker anropet med rätt slutpunkt. Antal återförsök för redundans undantag är obestämd.
+När det gäller TransientExceptions, endast ett nytt försök görs anropet.
 
-Försök standardparametrarna är etablerar av [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Du kan konfigurera dessa värden genom att skicka OperationRetrySettings objekt till ServiceProxyFactory konstruktor.
+Återförsök standardparametrarna är etablerar genom att [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operation_retry_settings) Du kan konfigurera dessa värden genom att skicka OperationRetrySettings objekt till ServiceProxyFactory konstruktorn.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Att säkra kommunikationen för Reliable Services](service-fabric-reliable-services-secure-communication-java.md)
+* [Säker kommunikation för Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

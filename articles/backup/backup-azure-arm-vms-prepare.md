@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994682"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215447"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
@@ -77,7 +77,7 @@ Om det behövs installerar du agenten på följande sätt.
 **Virtuella Linux-datorer** | Installationen med hjälp av en RPM- eller DEB-paketet från paketdatabasen för din distribution är den bästa metoden för att installera och uppgradera Azure Linux Agent. Alla de [godkända distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrera Azure Linux-agenten i sina avbildningar och databaser. Agenten är tillgängligt på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att installera därifrån.
 Om du har problem med säkerhetskopiering av Virtuella Azure kan du använda följande tabell för att kontrollera att Azure VM-agenten är korrekt installerad på den virtuella datorn. Tabellen innehåller ytterligare information om VM-agenten för Windows och Linux-datorer.
 
-### <a name="establish-network-connectivity"></a>Upprätta nätverksanslutning
+### <a name="establish-network-connectivity"></a>Etablera nätverksanslutning
 
 Säkerhetskopieringstillägget som körs på den virtuella datorn måste ha utgående åtkomst till Azure offentliga IP-adresser. För att tillåta åtkomst kan du:
 
@@ -90,7 +90,7 @@ Tänk på kompromisser när du bestämmer mellan alternativen.
 
 **Alternativ** | **Fördelar** | **Nackdelar**
 --- | --- | ---
-**NSG** | Ingen extra kostnad. Enkelt att hantera med tjänsttaggar | Ger åtkomst till hela Azure och inte bara lagring. |
+**NSG** | Inga ytterligare kostnader. Enkelt att hantera med tjänsttaggar | Ger åtkomst till hela Azure och inte bara lagring. |
 **HTTP-proxy** | Detaljerad kontroll över storage-URL: er tillåts.<br/><br/> Enskild punkt för Internetåtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.
 **FQDN-taggar** | Enkelt att använda om du har Azure brandväggen ställts in i ett undernät för virtuellt nätverk | Det går inte att skapa dina egna FQDN-taggar eller ändra FQDN: er i en tagg.
 
@@ -285,5 +285,5 @@ När du har aktiverat säkerhetskopiering:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Felsök eventuella problem som uppstår vid den [Azure VM-agenter](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) eller [virtuell Azure-säkerhetskopiering](backup-azure-vms-troubleshoot.md).
+- Felsök eventuella problem som uppstår vid den [Azure VM-agenter](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) eller [virtuell Azure-säkerhetskopiering](backup-azure-vms-troubleshoot.md).
 - [Säkerhetskopiera virtuella Azure-datorer](backup-azure-vms-first-look-arm.md)

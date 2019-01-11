@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264246"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211917"
 ---
 # <a name="azure-managed-disks-overview"></a>Översikt över Azure Managed Disks
 
@@ -37,7 +37,7 @@ Hanterade diskar ger bättre tillförlitlighet för Tillgänglighetsuppsättning
 
 ### <a name="highly-durable-and-available"></a>Extremt tillförlitliga och tillgängliga
 
-Azure-diskar har en tillförlitlighet på 99,999 %. Förvissad om att du har tre repliker av dina data som möjliggör hög tålighet. Om en eller två repliker får problem kan återstående replik(er) ta över för att säkerställa beständigheten hos dina data och ge en hög tolerans mot fel. Tack vare den här arkitekturen har Azure oavbrutet kunnat tillhandahålla tillförlitlighet på storföretagsnivå för sina IaaS-diskar. Azure är branschledande inom detta område med 0 % driftstopp per år. 
+Azure-diskar har en tillförlitlighet på 99,999 %. Förvissad om att du har tre repliker av dina data som möjliggör hög tålighet. Om en eller två repliker får problem kan återstående replik(er) ta över för att säkerställa beständigheten hos dina data och ge en hög tolerans mot fel. Tack vare den här arkitekturen har Azure oavbrutet kunnat tillhandahålla tillförlitlighet på storföretagsnivå för sina IaaS-diskar. Azure är branschledande inom detta område med 0 % driftstopp per år.
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomstkontroll
 
@@ -45,7 +45,7 @@ Du kan använda [rollbaserad åtkomstkontroll (RBAC)](../articles/role-based-acc
 
 ### <a name="azure-backup-service-support"></a>Support för Azure Backup-tjänsten
 
-Använd Azure Backup-tjänsten med Managed Disks för att skapa ett säkerhetskopieringsjobb med tidsbaserade säkerhetskopior, enkel återställning av virtuell dator och lagringsprinciper för säkerhetskopiering. Hanterade diskar har endast stöd för lokalt Redundant lagring (LRS) som replikeringsalternativ. Tre kopior av data hålls inom en enda region. För regional haveriberedskap, måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av [Azure Backup-tjänsten](../articles/backup/backup-introduction-to-azure-backup.md) och ett GRS-lagringskonto som säkerhetskopieringsvalv. Azure Backup stöder för närvarande diskstorlekar upp till 4 TB diskar. Du behöver [uppgradera säkerhetskopieringsstack för virtuell dator till V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) om stöd för 4 TB diskar. Mer information finns i [med hjälp av Azure Backup-tjänsten för virtuella datorer med Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Använd Azure Backup-tjänsten med Managed Disks för att skapa ett säkerhetskopieringsjobb med tidsbaserade säkerhetskopior, enkel återställning av virtuell dator och lagringsprinciper för säkerhetskopiering. Hanterade diskar har endast stöd för lokalt Redundant lagring (LRS) som replikeringsalternativ. Tre kopior av data hålls inom en enda region. För regional haveriberedskap, måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av [Azure Backup-tjänsten](../articles/backup/backup-introduction-to-azure-backup.md) och ett GRS-lagringskonto som säkerhetskopieringsvalv. För närvarande Azure Backup har stöd för diskstorlekar upp till 4 TB diskar, se [omedelbar återställning](../articles/backup/backup-instant-restore-capability.md) om stöd för 4 TB diskar. Mer information finns i [med hjälp av Azure Backup-tjänsten för virtuella datorer med Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
@@ -63,35 +63,35 @@ När du använder Managed Disks, gäller följande för debitering:
 
 Låt oss ta en närmare titt på de här alternativen.
 
-**Lagringstyp:** Managed Disks har 3 prestandanivåer: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), och [Premium](../articles/virtual-machines/windows/premium-storage.md). Faktureringen för en hanterad disk beror på vilken typ av lagring som du har valt för disken.
+**Lagringstyp:** Hanterade prestandanivåer för diskar erbjudanden 3: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), och [Premium](../articles/virtual-machines/windows/premium-storage.md). Faktureringen för en hanterad disk beror på vilken typ av lagring som du har valt för disken.
 
-**Diskstorlek**: faktureringen för hanterade diskar är beroende av den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GB, kommer du att debiteras enligt priserna för S15 disktypen.
+**Diskstorlek**: Faktureringen för hanterade diskar är beroende av den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GB, kommer du att debiteras enligt priserna för S15 disktypen.
 
 Här är de diskar som är tillgängliga för en premium-hanterad disk, storlekar som är markerad med en asterisk är för närvarande förhandsversioner:
 
 | **Premium SSD hanteras <br>disktyp** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
+| Diskstorlek        | 32 GiB  | 64 GiB  | 128 GiB | 256 GB | 512 GiB | 1 024 GiB (1 TiB) | 2 048 GiB (2 TiB) | 4 095 GiB (4 TiB) | 8 192 GiB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 
 Här följer de diskar som är tillgängliga för en standard SSD hanterad disk, storlekar som är markerad med en asterisk är för närvarande förhandsversioner:
 
 | **Standard SSD hanteras <br>disktyp** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Diskstorlek        | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
+| Diskstorlek        | 128 GiB | 256 GB | 512 GiB | 1 024 GiB (1 TiB) | 2 048 GiB (2 TiB) | 4 095 GiB (4 TiB) | 8 192 GiB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 
 Här följer de diskar som är tillgängliga för en standard HDD hanterad disk, storlekar som är markerad med en asterisk är för närvarande förhandsversioner:
 
 | **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
+| Diskstorlek        | 32 GiB  | 64 GiB  | 128 GiB | 256 GB | 512 GiB | 1 024 GiB (1 TiB) | 2 048 GiB (2 TiB) | 4 095 GiB (4 TiB) | 8 192 GiB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 
-**Antalet transaktioner**: debiteras du för antalet transaktioner som du kan utföra på en hanterad disk som standard.
+**Antalet transaktioner**: Du debiteras för antalet transaktioner som du kan utföra på en hanterad disk som standard.
 
 Standard SSD-diskar använder storlek på i/o på 256KB. Om de data som överförs är mindre än 256 KB, betraktas den 1 i/o-enhet. Större i/o-storlekar räknas som flera I/o för storlek på 256 KB. Till exempel räknas en 1 100 KB-i/o som fem i/o-enheter.
 
 Det kostar ingenting för transaktioner för en hanterad disk i premium.
 
-**Utgående dataöverföringar**: [utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
+**Utgående dataöverföringar**: [Utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
 
 Detaljerad information om priser för Managed Disks finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 

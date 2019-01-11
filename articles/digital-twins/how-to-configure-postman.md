@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 705d96225c699c6e9824dadbd7fa1272ba5ddb2d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117527"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213288"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för Azure Digital Twins
 
@@ -52,7 +52,7 @@ Konfigurera din Azure Active Directory-app för att använda OAuth 2.0 implicit 
 
 Nu ska installera och konfigurera Postman att skaffa en Azure Active Directory-token. Därefter gör en autentiserad HTTP-begäran i digitala Twins i Azure med hjälp av förvärvade token:
 
-1. Gå till [www.getpostman.com]([https://www.getpostman.com/) att ladda ned appen.
+1. Gå till [www.getpostman.com](https://www.getpostman.com/) att ladda ned appen.
 1. Kontrollera att din **Auktoriseringswebbadressen** är korrekt. Det bör ta formatet:
 
     ```plaintext

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107437"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198770"
 ---
 # <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
 
@@ -48,7 +48,7 @@ Azure Backup krypterar inte data som en del av säkerhetskopieringen. Azure Back
 
 Om du vill ta ögonblicksbilder när appar körs, tar Azure Backup appkonsekventa ögonblicksbilder.
 
-- **Windows-datorer**: För Windows-datorer samordnar Backup-tjänsten med Volume Shadow Copy Service (VSS) till en konsekvent ögonblicksbild av VM-diskarna.
+- **Virtuella Windows-datorer**: För Windows-datorer samordnar Backup-tjänsten med Volume Shadow Copy Service (VSS) till en konsekvent ögonblicksbild av VM-diskarna.
     - Som standard tar Azure Backup Fullständig VSS-säkerhetskopiering. [Läs mer](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - Om du vill ändra inställningen så att Azure-säkerhetskopior tar VSS säkerhetskopior anger du följande registernyckel:
         ```
@@ -132,11 +132,10 @@ En återställningsåtgärd består av två huvudsakliga uppgifter: kopiera data
 
 Vi rekommenderar att följande dessa metoder när du konfigurerar säkerhetskopior av virtuella datorer:
 
-- Uppgradera valv till omedelbar RP. Dessa [fördelar](backup-upgrade-to-vm-backup-stack-v2.md), [överväganden](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), och fortsätt sedan med att uppgradera genom att följa de här [instruktioner](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Du kan ändra standardnamnet princip tid (för t.ex. Om din princip standardtid är 12:00 AM Överväg att öka med minuter) när ögonblicksbilder av data kommer att se till att resurser används optimalt.
 - För virtuella datorer i Premium allokerar säkerhetskopiering på icke - omedelbar RP-funktionen ~ 50% av det totala utrymmet för kontot. Backup-tjänsten kräver den här utrymme för att kopiera ögonblicksbilden till samma lagringskonto och för att överföra den till valvet.
 - För att återställa virtuella datorer från ett enda valv, rekommenderas att använda olika [gpv2-lagringskonton](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) så inte begränsas mållagringskontot. Varje virtuell dator måste till exempel ha olika lagringskonto (om 10 virtuella datorer har återställts och sedan bör du använda 10 olika lagringskonton).
-- Återställningar från lagringsskikt för nivå 1 (snapshot) kommer att slutföras på bara några minuter (eftersom det är samma lagringskonto) mot den nivå 2-lagringsskikt (valv) som kan ta timmar. Vi rekommenderar att du använder [omedelbar RP](backup-upgrade-to-vm-backup-stack-v2.md) funktionen för snabbare återställningar för fall där data är tillgängliga på nivå 1 (om data måste återställas från valvet och sedan det tar tid).
+- Återställningar från lagringsskikt för nivå 1 (snapshot) kommer att slutföras på bara några minuter (eftersom det är samma lagringskonto) mot den nivå 2-lagringsskikt (valv) som kan ta timmar. Vi rekommenderar att du använder [omedelbar återställning](backup-instant-restore-capability.md) funktionen för snabbare återställningar för fall där data är tillgängliga på nivå 1 (om data måste återställas från valvet och sedan det tar tid).
 - Gränsen för antalet diskar per lagringskonto är i förhållande till hur hög diskarna som används av program som körs på IaaS VM. Kontrollera om flera diskar finns på ett enda lagringskonto. Som en allmän regel om 5 till 10 diskar eller mer finns på ett enda lagringskonto, en belastningsutjämning genom att flytta vissa diskar för att avgränsa storage-konton.
 
 ## <a name="backup-costs"></a>Kostnader för säkerhetskopiering

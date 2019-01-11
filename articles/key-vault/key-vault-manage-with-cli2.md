@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 3d97ce7588642462920e98eb90c5c6b5d3748067
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076371"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198906"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
 
@@ -103,7 +103,7 @@ Mer information om hur du konfigurerar Azure plattformsoberoende kommandoradsgr�
 När du använder Azure Resource Manager skapas alla relaterade resurser inuti en resursgrupp. Du kan skapa ett nyckelvalv i en befintlig resursgrupp. Om du vill använda en ny resursgrupp, kan du skapa en ny.
 
 ```azurecli
-az group create -n 'ContosoResourceGroup' -l 'East Asia'
+az group create -n "ContosoResourceGroup" -l "East Asia"
 ```
 
 Den första parametern är resursgruppens namn och den andra parametern är platsen. Om du vill hämta en lista över alla möjliga skriver platser du:
@@ -127,7 +127,7 @@ Använd den `az keyvault create` kommando för att skapa ett nyckelvalv. Det hä
 Skapa ett nytt valv med namnet **ContosoKeyVault**, i resursgruppen **ContosoResourceGroup**, som förvaras i den **Östasien** plats, typ: 
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
 ```
 
 Kommandots utdata visar egenskaper för nyckelvalvet som du har skapat. De två viktigaste egenskaperna är:
@@ -142,13 +142,13 @@ Nu har ditt Azure-konto behörighet att utföra åtgärder i det här nyckelvalv
 Om du vill att Azure Key Vault ska skapa en programvaruskyddad nyckel åt dig använder den `az key create` kommando.
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
+az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
 Om du har en befintlig nyckel i en PEM-fil kan överföra du den till Azure Key Vault. Du kan välja att skydda den med programvara eller HSM. Använd följande för att importera nyckeln från filen .pem och skydda den med programvara:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
 ```
 
 Du kan nu referera till den nyckel som du har skapat eller överfört till Azure Key Vault med hjälp av dess URI. Använd **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** att alltid hämta den aktuella versionen. Använd https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] att hämta den här specifika versionen. Till exempel **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
@@ -156,7 +156,7 @@ Du kan nu referera till den nyckel som du har skapat eller överfört till Azure
 Lägga till en hemlighet till valvet, vilket är ett lösenord med namnet SQLPassword och som har värdet av Pa$ $w0rd till Azure Key Vaults. 
 
 ```azurecli
-az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
 ```
 
 Referera till det här lösenordet med hjälp av dess URI. Använd **https://ContosoVault.vault.azure.net/secrets/SQLPassword** att alltid hämta den aktuella versionen och https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] att hämta den här specifika versionen. Till exempel **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -164,7 +164,7 @@ Referera till det här lösenordet med hjälp av dess URI. Använd **https://Con
 Importera ett certifikat till valvet med hjälp av en PEM- eller .pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\cert.pfx' --name 'ContosoCert' --password 'Pa$$w0rd'
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
 ```
 
 Nu ska vi visa nyckeln, hemlighet eller certifikat som du skapade:
@@ -172,19 +172,19 @@ Nu ska vi visa nyckeln, hemlighet eller certifikat som du skapade:
 * Om du vill visa dina nycklar, skriver du: 
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 * Om du vill visa dina hemligheter, skriver du: 
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 * Om du vill visa certifikat, skriver du: 
 
 ```azurecli
-az keyvault certificate list --vault-name 'ContosoKeyVault'
+az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
 ## <a name="registering-an-application-with-azure-active-directory"></a>Registrerar ett program med Azure Active Directory
@@ -203,7 +203,7 @@ Detaljerade anvisningar om hur du registrerar ett program med Azure Active Direc
 Du registrerar ett program i Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -214,33 +214,35 @@ Om du vill ge programmet åtkomst till nyckeln eller hemligheten i valvet använ
 Till exempel om ditt valvnamn är ContosoKeyVault programmet har en appID för 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed och du vill godkänna att programmet dekrypterar och loggar in med nycklar i ditt valv, Använd följande kommando:
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
 Om du vill ge samma programmet att läsa hemligheter i valvet, skriver du följande kommando:
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
 ## <a name="bkmk_KVperCLI"></a> Inställningen avancerade åtkomstprinciper för nyckelvalvet
 
-Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) att aktivera avancerade principer för key vault. 
+Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) att aktivera avancerade principer för key vault.
 
  Aktivera Key Vault för distribution: Tillåter att virtuella datorer att hämta certifikat som lagras som hemligheter från valvet.
+
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
- ``` 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+ ```
 
 Aktivera Key Vault för diskkryptering: Krävs vid användning av valvet för Azure Disk encryption.
 
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
 Aktivera Key Vault för malldistribution: Gör Resource Manager för att hämta hemligheter från valvet.
- ```azurecli 
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
+
+```azurecli 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
  ```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Arbeta med maskinvarusäkerhetsmoduler (HSM)
@@ -252,25 +254,25 @@ Du måste ha en valvbeskrivning som stöder HSM-skyddade nycklar för att skapa 
 När du skapar nyckelvalvet lägger du till parametern ”sku”:
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
 ```
 
 Du kan lägga till programvaruskyddade nycklar (som du såg tidigare) och HSM-skyddade nycklar till det här valvet. Ange målparametern till 'HSM' om du vill skapa en HSM-skyddad nyckel:
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
+az keyvault key create --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --protection "hsm"
 ```
 
 Du kan använda följande kommando för att importera en nyckel från en PEM-fil på din dator. Det här kommandot importerar nyckeln till HSM-moduler i Key Vault-tjänsten:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
 Nästa kommando importerar ett BYOK-paket (Bring Your Own Key). På så sätt kan du generera nyckeln i din lokala HSM och överföra den till HSM-moduler i Key Vault-tjänsten utan att nyckeln lämnar HSM-gränsen:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
 Mer detaljerade instruktioner om hur du skapar den här BYOK-paket finns i [hur du använder HSM-Protected nycklar med Azure Key Vault](key-vault-hsm-protected-keys.md).
@@ -280,13 +282,13 @@ Mer detaljerade instruktioner om hur du skapar den här BYOK-paket finns i [hur 
 Om du inte längre behöver nyckelvalvet och dess nycklar eller hemligheter kan du ta bort nyckelvalvet med hjälp av den `az keyvault delete` kommando:
 
 ```azurecli
-az keyvault delete --name 'ContosoKeyVault'
+az keyvault delete --name "ContosoKeyVault"
 ```
 
 Eller så kan du ta bort en hel Azure-resursgrupp, som innehåller nyckelvalvet och andra resurser som du har lagt till i gruppen:
 
 ```azurecli
-az group delete --name 'ContosoResourceGroup'
+az group delete --name "ContosoResourceGroup"
 ```
 
 ## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Diverse plattformsoberoende kommandoradsgränssnittet kommandon
@@ -296,31 +298,31 @@ Andra kommandon som kan vara användbara för att hantera Azure Key Vault.
 Det här kommandot visar en tabellvy över alla nycklar och valda egenskaper:
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 Det här kommandot visar en fullständig lista över egenskaper för den angivna nyckeln:
 
 ```azurecli
-az keyvault key show --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 Det här kommandot visar en tabellvy över alla hemliga namn och valda egenskaper:
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 Här är ett exempel på hur du tar bort en viss nyckel:
 
 ```azurecli
-az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 Här är ett exempel på hur du tar bort en särskild hemlighet:
 
 ```azurecli
-az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
+az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

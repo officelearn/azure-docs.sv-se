@@ -1,7 +1,7 @@
 ---
 title: Belastningsutjämna zonredundant virtuella datorer med Azure CLI
 titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar en offentlig Load Balancer Standard med zonen redundant klientdel med Azure CLI
+description: Lär dig hur du skapar en offentlig Standard Load Balancer med zonen redundant klientdel med Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250815"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197801"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Belastningsutjämna virtuella datorer mellan alla tillgänglighetszoner med Azure CLI
 
-Den här artikeln visar hur du skapar en offentlig [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel att uppnå zonredundans utan beroenden på flera DNS-poster. En frontend IP-adress är automatiskt zonredundant.  Med en zon redundant klientdel för en belastningsutjämnare, med en enda IP-adress kan du nu nå virtuella datorer i ett virtuellt nätverk inom en region som ligger över alla Tillgänglighetszoner. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
+Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnare](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel att uppnå zonredundans utan beroenden på flera DNS-poster. En frontend IP-adress är automatiskt zonredundant.  Med en zon redundant klientdel för en belastningsutjämnare, med en enda IP-adress kan du nu nå virtuella datorer i ett virtuellt nätverk inom en region som ligger över alla Tillgänglighetszoner. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
 
 Mer information om hur du använder tillgänglighetszoner med standardlastbalanserare finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Skapa Azure Load Balancer Standard
+## <a name="create-azure-standard-load-balancer"></a>Skapa Azure Standard Load Balancer
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
 - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i lastbalanseraren.
 - en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.

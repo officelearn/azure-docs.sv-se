@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 36c16cd48ffba704b9cc8b0884491c3b92543b5c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874591"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215498"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -187,9 +187,9 @@ Lagringsanalys loggar följande typer av autentiserade och anonyma begäranden:
 ### <a name="azure-networking-logs"></a>Azures nätverksloggar
 Nätverket loggning och övervakning i Azure är omfattande och består av två olika kategorier:
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): scenariobaserade nätverksövervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Scenariobaserade nätverksövervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
 
-* [Resursövervakning](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): nivån Resursövervakning består av fyra funktioner, diagnostikloggar, mätvärden, felsökning och resurshälsa. Alla dessa funktioner bygger på nätverksnivå för resursen.
+* [Resursövervakning](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Nivån Resursövervakning består av fyra funktioner, diagnostikloggar, mätvärden, felsökning och resurshälsa. Alla dessa funktioner bygger på nätverksnivå för resursen.
 
 ![Azures nätverksloggar](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -219,19 +219,19 @@ Network Watcher får en diagnostics-loggar vy. Den här vyn innehåller alla nä
 
 
 Förutom funktionerna som tidigare nämnts loggning har Network Watcher för tillfället följande funktioner:
-- [Topologi](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): ger en på nätverksnivå vy som visar de olika anslutningarna och associationer mellan nätverksresurser i en resursgrupp.
+- [Topologi](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Innehåller en på nätverksnivå vy som visar de olika anslutningarna och associationer mellan nätverksresurser i en resursgrupp.
 
-- [Variabla infångade paket](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): samlar in paketdata till och från en virtuell dator. Avancerade alternativ för filtrering och justera kontroller, till exempel inställningar för tid och storlek begränsning, ger flexibiliteten. Paketdata kan lagras i en blob store eller på den lokala disken i *.cap* filformat.
+- [Variabla infångade paket](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Samlar in paketdata till och från en virtuell dator. Avancerade alternativ för filtrering och justera kontroller, till exempel inställningar för tid och storlek begränsning, ger flexibiliteten. Paketdata kan lagras i en blob store eller på den lokala disken i *.cap* filformat.
 
-* [IP-flöde verifiering](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): kontrollerar om ett paket tillåts eller nekas baserat på flow information 5-tuppel paket parametrar (det vill säga mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en säkerhetsgrupp, returneras regeln och grupp som nekade paketet.
+* [IP-flöde verifiering](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Kontrollerar om ett paket tillåts eller nekas baserat på flow information 5-tuppel paket parametrar (det vill säga mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en säkerhetsgrupp, returneras regeln och grupp som nekade paketet.
 
 * [Nästa hopp](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Anger nästa hopp för paket som vidarebefordras i Azure nätverksinfrastruktur, så att du kan diagnostisera eventuella felkonfigurerad användardefinierade vägar.
 
-* [Säkerhetsgruppvy](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
+* [Säkerhetsgruppvy](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
 
-* [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): hjälper dig att felsöka virtuella nätverksgatewayer och anslutningar.
+* [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Hjälper dig att felsöka virtuella nätverksgatewayer och anslutningar.
 
-* [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): gör att du kan visa nätverksresursanvändning mot gränser.
+* [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Kan du visa nätverksresursanvändning mot gränser.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -245,25 +245,25 @@ Det fungerar för appar på en mängd olika plattformar, inklusive .NET, Node.js
 
 Application Insights är avsett för utvecklingsteamet och gör det lättare att förstå hur appen fungerar och hur den används. Tjänsten övervakar:
 
-* **Begär frekvens, svarstider och Felfrekvens**: ta reda på vilka sidor som är mest populära vid vilka tidpunkter på dagen, och var dina användarna finns. Se vilka sidor som fungerar bäst. Om din svarstider och Felfrekvens går hög när det finns fler begäranden, kanske ett resourcing problem.
+* **Begär frekvens, svarstider och Felfrekvens**: Ta reda på vilka sidor som är mest populära vid vilka tidpunkter på dagen, och var dina användarna finns. Se vilka sidor som fungerar bäst. Om din svarstider och Felfrekvens går hög när det finns fler begäranden, kanske ett resourcing problem.
 
-* **Beroendefrekvens, svarstider och Felfrekvens**: ta reda på om externa tjänster gör systemet långsammare.
+* **Beroendefrekvens, svarstider och Felfrekvens**: Ta reda på om externa tjänster gör systemet långsammare.
 
-* **Undantag**: analysera aggregerad statistik, eller Välj specifika instanser och öka detaljnivån i stackspårningen och relaterade begäranden. Både server- och webbläsarundantag rapporteras.
+* **Undantag**: Analysera aggregerad statistik, eller Välj specifika instanser och öka detaljnivån i stackspårningen och relaterade begäranden. Både server- och webbläsarundantag rapporteras.
 
-* **Sidvyer och inläsningsprestanda**: hämta rapporter från användarnas webbläsare.
+* **Sidvyer och inläsningsprestanda**: Hämta rapporter från användarnas webbläsare.
 
-* **AJAX-anrop**: hämta webbsidan frekvens, svarstider och Felfrekvens.
+* **AJAX-anrop**: Hämta webbsidan frekvens, svarstider och Felfrekvens.
 
 * **Antal användare och sessioner**.
 
-* **Prestandaräknare**: hämta data från din Windows- eller Linux serverdatorer, till exempel processor, minne, och nätverkets användning.
+* **Prestandaräknare**: Hämta data från din Windows- eller Linux serverdatorer, till exempel processor, minne och nätverksanvändning.
 
-* **Värddiagnostik**: hämta data från Docker eller Azure.
+* **Värddiagnostik**: Hämta data från Docker eller Azure.
 
-* **Diagnostik spårningsloggar**: hämta data från din app, så att du kan jämföra spårningshändelser med begäranden.
+* **Diagnostik spårningsloggar**: Hämta data från din app, så att du kan jämföra spårningshändelser med begäranden.
 
-* **Anpassade händelser och mått**: hämta data som du skriver själv i klient- eller serverkoden för att spåra affärshändelser, t.ex. sålda artiklar eller vunna spel.
+* **Anpassade händelser och mått**: Hämta data som du skriver själv i klient- eller serverkoden för att spåra affärshändelser, t.ex. sålda artiklar eller vunna spel.
 
 I följande tabell listar och beskriver integrationsscenarier:
 
@@ -271,9 +271,9 @@ I följande tabell listar och beskriver integrationsscenarier:
 | --------------------- | :---------- |
 |[Programkarta](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Komponenterna i din app, med viktiga mätvärden och aviseringar.||
 |[Diagnostik söka för instans data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.||
-|[Metrics Explorer för aggregerade data](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider.||
+|[Metrics Explorer för aggregerade data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider.||
 |[Instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat.||
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat.||
 |[Analys](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Besvara svåra frågor om appens prestanda och användning med hjälp av det här kraftfulla frågespråket.||
 |[Automatiska och manuella aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatiska aviseringar anpassa appens normala telemetrimönster telemetri och utlöses när det finns något utanför det vanliga mönstret. Du kan också ställa in aviseringar på särskilda nivåer med anpassade mätvärden eller standardmätvärden.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Visa prestandadata i koden. Gå till kod från stackspårningar.||
@@ -288,11 +288,11 @@ Hotidentifieringen i Azure Security Center sker genom automatisk insamling av s�
 
 Security Center använder avancerade säkerhetsanalyser, som går mycket längre än signaturbaserade lösningar. Den gäller genombrott i stora mängder data och [maskininlärning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) tekniker för att utvärdera händelser i hela molninfrastrukturen. På så vis upptäcks hot som skulle vara omöjliga att identifiera med manuella metoder och att förutsäga utvecklingen av nya attacker. Dessa säkerhetsanalyser omfattar:
 
-* **Integrerad hotinformation**: söker efter kända illvilliga aktörer genom att tillämpa global hotinformation från Microsoftprodukter och tjänster, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) och externa flöden används.
+* **Integrerad hotinformation**: Söker efter kända illvilliga aktörer genom att tillämpa global hotinformation från Microsoftprodukter och tjänster, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) och externa flöden används.
 
-* **Beteendeanalys**: tillämpar kända mönster för att identifiera skadligt beteende.
+* **Beteendeanalys**: Tillämpar kända mönster för att identifiera skadligt beteende.
 
-* **Avvikelseidentifiering**: använder statistisk profilering för att skapa en historisk baslinje. Den här typen av identifiering varnar vid avvikelser från upprättade baslinjer som matchar vektorn för ett potentiellt angrepp.
+* **Avvikelseidentifiering**: Använder statistisk profilering för att skapa en historisk baslinje. Den här typen av identifiering varnar vid avvikelser från upprättade baslinjer som matchar vektorn för ett potentiellt angrepp.
 
 Många säkerhetsåtgärder och incidenter team beroende av en SIEM-lösning som startpunkt för sortering och undersökning av säkerhetsaviseringar. Du kan synkronisera aviseringar i Security Center och virtuella datorer säkerhetshändelser som samlas in av Azure diagnostics och granska loggar med din Log Analytics eller SIEM-lösning i nära realtid med Azure Log Integration.
 
@@ -367,24 +367,24 @@ Loggintegrering stöder för närvarande integreringen av Azure-aktivitetsloggar
 |Diagnostikloggar (resurs-loggarna)|  Ja|
 |VM-loggar|   Ja, via vidarebefordrade händelser och inte via JSON|
 
-[Kom igång med Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): den här självstudiekursen beskriver hur du installerar Azure Log Integration och integrera loggar från Azure storage, Azure-aktivitetsloggar och aviseringar i Azure Security Center Azure AD granskningsloggar.
+[Kom igång med Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): Den här självstudiekursen beskriver hur du installerar Azure Log Integration och integrera loggar från Azure storage, Azure-aktivitetsloggar och aviseringar i Azure Security Center Azure AD granskningsloggar.
 
 Integrationsscenarier för SIEM:
 
-* [Partner konfigurationssteg](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): det här blogginlägget visar hur du konfigurerar Azure Log Integration att arbeta med partnerlösningar Splunk, HP ArcSight och IBM QRadar.
+* [Partner konfigurationssteg](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Det här blogginlägget visar hur du konfigurerar Azure Log Integration att arbeta med partnerlösningar Splunk, HP ArcSight och IBM QRadar.
 
-* [Azure Log Integration FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): den här artikeln ger svar på frågor om Azure Log Integration.
+* [Azure-Loggintegrering vanliga frågor och svar](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Den här artikeln får du svar på frågor om Azure Log Integration.
 
-* [Integrera aviseringar i Security Center med Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): den här artikeln beskrivs hur du synkroniserar aviseringar i Security Center, virtuell dator säkerhetshändelser som samlas in av Azure-diagnostikloggar och Azure granskningsloggar med Log Analytics eller SIEM lösning.
+* [Integrera aviseringar i Security Center med Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Den här artikeln beskrivs hur du synkroniserar aviseringar i Security Center, virtuell dator säkerhetshändelser som samlas in av Azure-diagnostikloggar och Azure granskningsloggar med din Log Analytics eller SIEM-lösning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Granskning och loggning](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): skydda data genom att upprätthålla synlighet och svara snabbt på rätt tid säkerhetsaviseringar.
+- [Granskning och loggning](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): Skydda data genom att upprätthålla synlighet och svara snabbt på rätt tid säkerhetsaviseringar.
 
-- [Security loggning och granskningsloggen samling i Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): tillämpa dessa inställningar för att säkerställa att dina Azure-instanser kan samla in rätt säkerhet och granskning loggarna.
+- [Security loggning och granskningsloggen samling i Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Tillämpa inställningarna för att säkerställa att dina Azure-instanser kan samla in rätt säkerhet och granskning loggarna.
 
 - [Konfigurera granskningsinställningar för en webbplatssamling](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): Om du är administratör för en webbplatssamling kan hämta historiken för enskilda användare, åtgärder och historik över åtgärder som vidtagits under ett visst datumintervall. 
 
-- [Sök igenom granskningsloggen i Office 365 säkerhets- och Efterlevnadscenter](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Använd Office 365 säkerhets- och Efterlevnadscenter för att söka enhetlig granskningsloggen och visa användar- och aktivitet i din Office 365-organisation.
+- [Sök igenom granskningsloggen i Office 365 säkerhets- och Efterlevnadscenter](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Använda Office 365 säkerhets- och Efterlevnadscenter för att söka efter enhetlig granskningsloggen och visa användar- och aktivitet i din Office 365-organisation.
 
 

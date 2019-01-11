@@ -2,7 +2,6 @@
 title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och redundans för automatiska slutpunkt för att Azure-kunder distribuera program med hög tillgänglighet
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890355"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199638"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -37,7 +36,7 @@ Om du vill konfigurera slutpunktsövervakning, måste du ange följande inställ
 
     ![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Bild: Traffic Manager-slutpunktsövervakning**
+    **Figur:  Traffic Manager endpoint monitoring**
 
 ## <a name="how-endpoint-monitoring-works"></a>Så här fungerar slutpunktsövervakning
 
@@ -112,7 +111,7 @@ Tidslinje i följande bild är en detaljerad beskrivning av övervakningsprocess
 
 ![Traffic Manager endpoint redundans och återställning efter fel sekvens](./media/traffic-manager-monitoring/timeline.png)
 
-**Bild: Traffic manager endpoint redundans och återställning sekvens**
+**Figur:  Traffic manager endpoint redundans och återställning sekvens**
 
 1. **HÄMTA**. För varje slutpunkt utför Traffic Manager övervakningssystem en GET-begäran på den sökväg som anges i inställningarna för övervakning.
 2. **200 OK eller anpassad kod intervallet anges Traffic Manager-profil övervakningsinställningarna** . Övervakningssystemet förväntar sig en HTTP 200 OK eller eller anpassad kod intervallet anges Traffic Manager-profil som övervakning av för inställningsmeddelandet som ska returneras inom 10 sekunder. När den har fått det här svaret identifierar att tjänsten är tillgänglig.

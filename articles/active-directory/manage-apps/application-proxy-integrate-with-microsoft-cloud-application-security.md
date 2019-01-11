@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731620"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215107"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurera övervakning av realtidsprogram åtkomst med Microsoft Cloud App Security och Azure Active Directory
 Konfigurera ett lokalt program i Azure Active Directory (AD Azure) att använda Microsoft Cloud App Security (MCAS) för övervakning i realtid. MCAS använder Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
@@ -27,7 +27,7 @@ Här följer några exempel på typer av principer som du kan skapa med MCAS:
 - Använda klientcertifikat eller enhetsefterlevnad för att blockera åtkomst till specifika program från ohanterade enheter.
 - Begränsa användarsessioner från icke-företagsnätverk. Du kan ge begränsad åtkomst till användare med åtkomst till ett program från utanför företagsnätverket. Till exempel kan begränsad åtkomst blockera användaren från att hämta känsliga dokument.
 
-Mer information finns i [skydda appar med Microsoft Cloud App Security åtkomst till Appkontroll för villkorsstyrd](/cloud-app-security/proxy-intro-aad.md).
+Mer information finns i [skydda appar med Microsoft Cloud App Security åtkomst till Appkontroll för villkorsstyrd](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Krav
 

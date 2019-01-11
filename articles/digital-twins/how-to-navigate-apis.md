@@ -2,18 +2,18 @@
 title: 'Navigera Azure Digital Twins API: er | Microsoft Docs'
 description: 'Lär dig hur du gemensamma mönster för frågor till Azure Digital Twins management API: er.'
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108323"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200963"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Hur du använder Azure Digital Twins management API: er
 
@@ -25,11 +25,11 @@ I följande lista visas komponenterna i den digitala Twins-API: er.
 
 * [/ blanksteg](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Dessa API: er kan interagera med de fysiska platserna i din konfiguration. Dessa hjälper dig att skapa, ta bort och hantera de digitala mappningarna i din fysiska platser i form av en [spatial graph](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Dessa API: er hjälper dig att konfigurera resurser, t.ex en IoT-hubb för din digitala Twins-instans.
-
 * [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Dessa API: er interagera med enheter i din konfiguration. Enheterna kan hantera en eller flera sensorer. Till exempel kan en enhet vara din telefon eller en Raspberry Pi sensor pod eller en Lora-gateway och så vidare.
 
 * [/Sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): Dessa API: er hjälpa dig att kommunicera med sensorer som är associerade med dina enheter och din fysiska platser. Sensorerna registrera och skicka omgivande värden som kan användas för att manipulera miljön spatial.  
+
+* [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Dessa API: er hjälper dig att konfigurera resurser, t.ex en IoT-hubb för din digitala Twins-instans.
 
 * [/ skriver](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Dessa API: er kan du associera utökade typer med din digitala Twins-objekt, lägga till specifika egenskaper för de aktuella objekten. Dessa typer möjliggör enkel filtrering och gruppering av objekt i Användargränssnittet och anpassade funktioner som bearbetar dina telemetridata. Exempel på utökade typer är *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType* , *SpaceBlobType*, *SpaceResourceType*och så vidare.
 

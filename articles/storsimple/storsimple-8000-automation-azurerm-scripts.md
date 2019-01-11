@@ -1,6 +1,6 @@
 ---
 title: Använda Azure Resource Manager-skript för att hantera StorSimple-enheter | Microsoft Docs
-description: Lär dig hur du använder Azure Resource Manager-skript för att automatisera StorSimple jobb
+description: Lär dig hur du använder Azure Resource Manager-skript för att automatisera uppgifter för StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d9c428e3fa8d9fe964b83ae345bb70fd49a6ce1a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26373949"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215311"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använda Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 
-Den här artikeln beskrivs hur Azure Resource Manager SDK-baserade skript kan användas för att hantera enheten StorSimple 8000-serien. Dessutom ingår ett exempelskript vägleder dig genom stegen för att konfigurera din miljö för att köra skripten.
+Den här artikeln beskriver hur Azure Resource Manager SDK-baserade skript kan användas för att hantera din enhet i StorSimple 8000-serien. Dessutom ingår ett exempelskript vägleder dig genom stegen för att konfigurera din miljö för att köra skripten.
 
-Den här artikeln gäller StorSimple 8000-serien enheter som körs i Azure portal.
+Den här artikeln gäller för enheter i StorSimple 8000-serien som kör i Azure portal.
 
 ## <a name="sample-scripts"></a>Exempelskript
 
 Följande exempel på skript är tillgängliga för att automatisera olika StorSimple-jobb.
 
-#### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabell med Azure Resource Manager SDK-baserade exempel på skript
+#### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabell med Azure Resource Manager SDK-baserade exempelskript
 
-| Azure Resource Manager-skript                    | Beskrivning                                                                                                                                                                                                       |
+| Skriptexempel för Azure Resource Manager                    | Beskrivning                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Auktorisera ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Det här skriptet kan du verifiera din StorSimple-enhet för att ändra krypteringsnyckeln för tjänstdata.                                                                                                           |
-| [Skapa StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Det här skriptet skapar en StorSimple 8010 eller en 8020 moln-enhet. Moln-enhet kan sedan konfigureras och registrerad med StorSimple Data Manager-tjänsten.                                                       |
+| [Auktorisera ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Det här skriptet kan du ge din StorSimple-enhet för att ändra krypteringsnyckeln för tjänstdata.                                                                                                           |
+| [Skapa StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Det här skriptet skapar en 8010 eller 8020 StorSimple Cloud Appliance. Molninstallationen kan sedan konfigureras och registrerad med StorSimple Data Manager-tjänsten.                                                       |
 | [CreateOrUpdate Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | Det här skriptet skapar eller ändrar StorSimple-volymer.                                                                                                                                                             |
-| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Det här skriptet visar en lista över alla säkerhetskopior för en enhet som registreras med din StorSimple Device Manager-tjänst.                                                                                                          |
-| [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | Detta skript för alla principer för säkerhetskopiering för din StorSimple-enhet.                                                                                                                                                 |
-| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Det här skriptet hämtar alla StorSimple-jobb som körs på din StorSimple Device Manager-tjänst.                                                                                                                     |
-| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Det här skriptet söker igenom uppdateringsservern och får du reda på om det finns uppdateringar ska installeras på din StorSimple-enhet.                                                                                          |
+| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Det här skriptet visar en lista över alla säkerhetskopior för en enhet som registreras med StorSimple Device Manager-tjänsten.                                                                                                          |
+| [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | Detta skript för alla principer för säkerhetskopiering för StorSimple-enheten.                                                                                                                                                 |
+| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Det här skriptet hämtar alla StorSimple-jobb som körs på din StorSimple Device Manager-tjänsten.                                                                                                                     |
+| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Det här skriptet söker igenom uppdateringsservern och får du reda på om uppdateringar är tillgängliga att installera på din StorSimple-enhet.                                                                                          |
 | [Installera DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | Det här skriptet installerar uppdateringar på din StorSimple-enhet.                                                                                                                                           |
-| [Hantera CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Det här skriptet börjar en manuell moln-ögonblicksbild och tar bort molnögonblicksbilder som är äldre än angivna dagar.                                                                                                   |
+| [Hantera CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Det här skriptet startar en manuell molnögonblicksbild och tar bort ögonblicksbilder av molnet som är äldre än angivna kvarhållningsdagar.                                                                                                   |
 | [Övervaka Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | Det här Azure Automation Runbook PowerShell-skriptet rapporterar status för alla säkerhetskopieringsjobb.                                                                                                              |
 | [Ta bort DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | Det här skriptet tar bort ett enskilt objekt för säkerhetskopiering.                                                                                                                                                           |
-| [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | Det här skriptet börjar en manuell säkerhetskopiering på StorSimple-enheten.                                                                                                                                       |
-| [Uppdatera CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Det här skriptet uppdaterar krypteringsnyckel för tjänstdata för alla 8010/8020 StorSimple moln installationer som registrerats med din StorSimple Device Manager-tjänst.                                     |
-| [Kontrollera BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Det här skriptet visar saknas säkerhetskopieringar när du har analyserat alla scheman som är associerade med principer för säkerhetskopiering. Verifierar också den säkerhetskopiera katalogen med listan över tillgängliga säkerhetskopior.             |
+| [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | Det här skriptet startar en manuell säkerhetskopiering på StorSimple-enheten.                                                                                                                                       |
+| [Uppdatera CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Det här skriptet uppdaterar krypteringsnyckeln för tjänstdata för alla StorSimple 8010/8020-Molninstallationer som registrerats med StorSimple Device Manager-tjänsten.                                     |
+| [Kontrollera BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Det här skriptet visar säkerhetskopiorna som saknas när du har analyserat alla scheman som är associerade med principer för säkerhetskopiering. Verifierar också säkerhetskopieringskatalogen med listan över tillgängliga säkerhetskopior.             |
 
 
 
 
 ## <a name="configure-and-run-a-sample-script"></a>Konfigurera och köra ett exempelskript
 
-Det här avsnittet tar ett exempelskript och beskrivs de olika stegen som krävs för att köra skriptet.
+Det här avsnittet tar ett exempelskript och beskriver de olika stegen som krävs för att köra skriptet.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar bör du kontrollera att du har:
+Innan du börjar måste du kontrollera att du har:
 
-*   Azure PowerShell har installerats. Installera Azure PowerShell-moduler:
-    * I en windowsmiljö, följer du stegen i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Du kan installera Azure PowerShell på Windows Server-värd för din StorSimple om du använder en.
-    * I en miljö med Linux eller MacOS, följer du stegen i [installera och konfigurera Azure PowerShell på MacOS- eller Linux](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
+*   Azure PowerShell installerad. Installera Azure PowerShell-moduler:
+    * I en Windows-miljö, följer du stegen i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Du kan installera Azure PowerShell på Windows Server-värd för din StorSimple om du använder en.
+    * I en Linux eller MacOS-miljö, följer du stegen i [installera och konfigurera Azure PowerShell på MacOS eller Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
 
-Mer information om hur du använder Azure PowerShell, gå till [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Mer information om hur du använder Azure PowerShell, går du till [Kom igång med hjälp av Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
 ### <a name="run-azure-powershell-script"></a>Köra Azure PowerShell-skript
 
-Skriptet som används i det här exemplet visar en lista över alla jobb på en StorSimple-enhet. Detta omfattar de jobb som lyckades, misslyckades eller pågår. Utför följande steg för att ladda ned och kör skriptet.
+Skriptet i det här exemplet visar en lista över alla jobb på en StorSimple-enhet. Detta omfattar de jobb som lyckades, misslyckades eller pågår. Utför följande steg för att ladda ned och kör skriptet.
 
 1. Starta Azure PowerShell. Skapa en ny mapp och ändra katalogen till den nya mappen.
 
@@ -77,9 +77,9 @@ Skriptet som används i det här exemplet visar en lista över alla jobb på en 
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Hämta NuGet CLI](http://www.nuget.org/downloads) under mappen skapade i föregående steg. Det finns olika versioner av _nuget.exe_. Välj den version som motsvarar din SDK. Varje hämtningslänken pekar direkt till en _.exe_ fil. Se till att högerklicka på och spara filen på datorn i stället för körs från webbläsaren.
+2. [Ladda ned NuGet CLI](http://www.nuget.org/downloads) under mappen skapade i föregående steg. Det finns olika versioner av _nuget.exe_. Välj den version som motsvarar din SDK. Varje länk för hämtning pekar direkt till en _.exe_ fil. Se till att högerklicka på och spara filen på datorn i stället för att köra den från webbläsaren.
 
-    Du kan också köra följande kommando för att hämta och spara skriptet i samma mapp som du skapade tidigare.
+    Du kan också köra följande kommando för att hämta och lagra skriptet i samma mapp som du skapade tidigare.
     
     ```
         wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
@@ -98,7 +98,7 @@ Skriptet som används i det här exemplet visar en lista över alla jobb på en 
 
     ```
 
-5. Kör skriptet. När du uppmanas att autentisera, ange dina autentiseringsuppgifter för Azure. Det här skriptet bör utdata en filtrerad lista över alla jobb på StorSimple-enheten.
+5. Kör skriptet. När du uppmanas att autentisera, anger du dina autentiseringsuppgifter för Azure. Det här skriptet bör utdata i en filtrerad lista över alla jobb på StorSimple-enheten.
            
     ```           
         .\Get-StorSimpleJob.ps1 -SubscriptionId [subid] -TenantId [tenant id] -DeviceName [name of device] -ResourceGroupName [name of resource group] -ManagerName[name of device manager] -FilterByStatus [Filter for job status] -FilterByJobType [Filter for job type] -FilterByStartTime [Filter for start date time] -FilterByEndTime [Filter for end date time]
@@ -107,7 +107,7 @@ Skriptet som används i det här exemplet visar en lista över alla jobb på en 
 
 ### <a name="sample-output"></a>Exempel på utdata
 
-Följande utdata visas när exempelskript som körs. Utdata innehåller alla jobb som kördes på en registrerad enhet som startades på 25 September 2017 och slutfördes med 2 oktober 2017.
+Följande utdata visas när exempelskriptet har körts. Utdata innehåller alla jobb som körts på en registrerad enhet som startat den 25 September 2017 och fyllas i av den 2 oktober 2017.
 
 ```
 -----------------------------------------
@@ -176,4 +176,4 @@ PS C:\Scripts\StorSimpleSDKTools>
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd Enhetshanteraren för StorSimple-tjänsten för att hantera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+[Använd StorSimple Device Manager-tjänsten för att hantera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).

@@ -7,20 +7,20 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b5ced2814aff51317304cd44c41b04ab9a954844
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578135"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213203"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämför StorSimple med Azure File Sync och Data Box Edge alternativ för överföring 
  
 Det här dokumentet innehåller en översikt över alternativ för att överföra data för lokala till Azure, jämföra: Data Box Edge vs. Jämfört med Azure File Sync StorSimple 8000-serien.
 
-- **[Data Box Edge](/azure/databox-online/data-box-edge-overview.md)**  – Data Box Edge är en lokal nätverksenhet som flyttar data till och från Azure och har AI-aktiverade Edge-beräkning att Förbearbeta data under överföringen. Den presenterades på Ignite 2018 och är i offentlig förhandsversion. Data Box-Gateway är en virtuell version av enheten med samma funktioner för överföring av data.
-- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)**  – Azure File Sync kan användas för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Allmän tillgänglighet för Azure File Sync lanserades tidigare i 2018.
-- **[StorSimple](/azure/storsimple/storsimple-overview.md)**  – StorSimple är en hybrid-enhet som hjälper företag att konsolidera sina lagringsinfrastrukturen för primär lagring, dataskydd, arkivering och katastrofåterställning på en enda lösning genom nära integrering med Azure storage. Produktens hela livscykel för StorSimple finns [här](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[Data Box Edge](/azure/databox-online/data-box-edge-overview)**  – Data Box Edge är en lokal nätverksenhet som flyttar data till och från Azure och har AI-aktiverade Edge-beräkning att Förbearbeta data under överföringen. Den presenterades på Ignite 2018 och är i offentlig förhandsversion. Data Box-Gateway är en virtuell version av enheten med samma funktioner för överföring av data.
+- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)**  – Azure File Sync kan användas för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Allmän tillgänglighet för Azure File Sync lanserades tidigare i 2018.
+- **[StorSimple](/azure/storsimple/storsimple-overview)**  – StorSimple är en hybrid-enhet som hjälper företag att konsolidera sina lagringsinfrastrukturen för primär lagring, dataskydd, arkivering och katastrofåterställning på en enda lösning genom nära integrering med Azure storage. Produktens hela livscykel för StorSimple finns [här](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 ## <a name="comparison-summary"></a>Jämförelse av sammanfattning
 

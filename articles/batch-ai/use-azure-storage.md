@@ -12,12 +12,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c1ebcae04b51fbf18da22872e3e4160a37a7e2fe
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408008"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201167"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Store Batch AI-jobbindata och utdata med Azure Storage
 
@@ -79,7 +79,7 @@ Om du vill montera en Azure Storage-volym i ett jobb som skapats med Azure CLI, 
 - < FILE_SHARE_NAME > - namnet på filresursen
 - < BLOB_CONTAINER_NAME > - namnet på Blob-behållaren
 
-Om du vill montera Azure Storage-volymer med Azure Batch AI-SDK: er, ange den `mount_volumes` (Python) eller `MountVolumes` (C#, Java)-egenskapen i `JobCreateParameters`. Du måste ange lagringskontots autentiseringsuppgifter vid montering av volymer med Azure Batch AI-SDK: er. Visa scheman för att montera volymer i [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), och [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+Om du vill montera Azure Storage-volymer med Azure Batch AI-SDK: er, ange den `mount_volumes` (Python) eller `MountVolumes` (C#, Java)-egenskapen i `JobCreateParameters`. Du måste ange lagringskontots autentiseringsuppgifter vid montering av volymer med Azure Batch AI-SDK: er. Visa scheman för att montera volymer i [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), och [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable).
 
 ### <a name="mount-volumes-to-a-cluster"></a>Monteringsvolymer till ett kluster
 

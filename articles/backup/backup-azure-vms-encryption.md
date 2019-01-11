@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583076"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201082"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Den innehåller också information om scenarier som stöds, nödvändiga komponenter och felsökningssteg för fel.
@@ -128,6 +128,8 @@ Använd följande steg för att ange relevant behörighet till Backup för att f
 När behörigheterna har har angetts, kan du fortsätta med att aktivera säkerhetskopiering för krypterade virtuella datorer.
 
 ## <a name="restore-an-encrypted-vm"></a>Återställa en krypterad virtuell dator
+Azure Backup nu stöder återställning av [Azure krypterade virtuella datorer utan Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad) utöver den tidigare versionen av återställning stöd till Azure krypterade virtuella datorer med Azure AD.<br>
+
 Om du vill återställa en krypterad virtuell dator, återställa diskar genom att följa stegen i avsnittet ”återställa säkerhetskopierade diskar” i [väljer en konfiguration för återställning av virtuell dator](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Efter det kan använda du något av följande alternativ:
 
 * Följ PowerShell steg i [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) skapa en fullständig virtuell dator från återställda diskar.

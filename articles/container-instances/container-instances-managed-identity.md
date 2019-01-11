@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1f93a186db7685f7e4e159ae1796c4287de74373
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578679"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213066"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Hur du använder hanterade identiteter med Azure Container Instances
 
@@ -134,7 +134,7 @@ Den `identity` avsnittet i utdata ser ut ungefär så här, som visar identitet 
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Bevilja användartilldelade identiteter åtkomst till Key Vault
 
-Kör följande [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommandot för att definiera en åtkomstprincip för Key Vault. I följande exempel kan Användartilldelad identitet att hämta hemligheter från Key Vault:
+Kör följande [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)(/ cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommando för att ange en åtkomstprincip för Key Vault. I följande exempel kan Användartilldelad identitet att hämta hemligheter från Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -154,7 +154,7 @@ Kör följande kommandon i bash-gränssnittet i behållaren. Om du vill få en �
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Ge åtkomst till behållaren till Key Vault
 
-Kör följande [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommandot för att definiera en åtkomstprincip för Key Vault. I följande exempel kan hanteras av datorn identiteten att hämta hemligheter från Key Vault:
+Kör följande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommandot för att definiera en åtkomstprincip för Key Vault. I följande exempel kan hanteras av datorn identiteten att hämta hemligheter från Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -236,7 +236,7 @@ Kör följande kommandon i bash-gränssnittet i behållaren. Om du vill få en �
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041296"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201320"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Vanliga frågor – Azure Backup
 
@@ -57,14 +57,13 @@ Om du låser resursgruppen, Azure Backup-tjänsten kan inte ta bort äldre åter
 Nej. Datum och tid på den lokala datorn är lokal med aktuella sommartid används. Den tid som angetts för schemalagda säkerhetskopieringar kan skilja sig från den lokala tiden på grund av Sommartid.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Hur många datadiskar kan jag ansluta till en virtuell dator som backas upp av Azure Backup?
-Azure Backup kan säkerhetskopiera virtuella datorer med upp till 16 diskar. Stöd för 16 diskar finns i den [senaste versionen](backup-upgrade-to-vm-backup-stack-v2.md) för säkerhetskopiering av virtuella datorer i Azure stack V2.
+Azure Backup kan säkerhetskopiera virtuella datorer med upp till 16 diskar. Stöd för 16 diskar finns i den [omedelbar återställning](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Har Azure stöd för säkerhetskopiering SSD hanterade standarddiskar?
-Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks ger en ny typ av beständig lagring för virtuella Azure-datorer. Stöd för SSD hanterade diskar finns i den [senaste versionen](backup-upgrade-to-vm-backup-stack-v2.md) för säkerhetskopiering av virtuella datorer i Azure stack V2.
+Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD managed disks ger en ny typ av beständig lagring för virtuella Azure-datorer. Stöd för SSD hanterade diskar finns i den [omedelbar återställning](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en WA Write Accelerator-aktiverade disk?
-Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia. Disk-undantag för virtuella datorer med WA-aktiverade diskar stöds endast för prenumerationer som uppgraderas till säkerhetskopiering för Azure stack V2. Om du vill uppgradera till säkerhetskopiering för Azure stack V2, finns i den här [artikeln](backup-upgrade-to-vm-backup-stack-v2.md). Den här funktionen är för närvarande tillgängligt i östra Japan, Norra Europa, Asien, sydöstra, USA, östra, USA, västra 2, Europa, västra och östra usa2.
-
+Ögonblicksbilder kan inte utföras på disken WA-aktiverade. Azure Backup-tjänsten kan dock utesluta WA-aktiverade disken från en säkerhetskopia. Disk-undantag för virtuella datorer med WA-aktiverade diskar stöds endast för prenumerationer som uppgraderas till omedelbar återställning.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Jag har en virtuell dator med Write Accelerator (WA) diskar och SAP HANA installerad. Hur kan jag säkerhetskopiera?
 Azure Backup kan inte säkerhetskopiera disken WA-aktiverade men kan undanta den från en säkerhetskopia. Säkerhetskopian Ange inte dock databaskonsekvens eftersom informationen på WA-aktiverade inte har säkerhetskopierats. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill att operativsystemdisken, och säkerhetskopiering av diskar som inte är WA-aktiverade.
@@ -104,7 +103,7 @@ Ja. Även om du tar bort den virtuella datorn går du till motsvarande säkerhet
 När du återställer till tillgänglighetsuppsättningar är aktiverat för hanterad Disk Azure-dator, genom att tillhandahålla ett alternativ i mallen vid återställning som hanterade diskar. Den här mallen har den indataparameter med namnet **tillgänglighetsuppsättningar**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställning prestanda?
-För snabbare återställningsprestanda rekommenderar vi att du flyttar till VM-säkerhetskopieringsstack V2 och använda [omedelbar RP funktionen](backup-upgrade-to-vm-backup-stack-v2.md).
+För snabbare återställningsprestanda vi flyttar till [omedelbar återställning](backup-instant-restore-capability.md) kapaciteten.
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191334"
+ms.locfileid: "54201116"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Använda databeroende routning för att dirigera en fråga till lämplig databas
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * Den **nyckel** parametern används som en lookup-nyckel i fragmentkartan för att fastställa lämplig databas för begäran.
 * Den **connectionString** används för att skicka endast användaruppgifter för önskad anslutning. Inget databasnamn eller servernamn som ingår i den här *connectionString* eftersom metoden anger databasen och servern med den **ShardMap**.
-* Den **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) ska vara inställd på **ConnectionOptions.Validate** om en miljö där shardkartor maj ändra och rader kan flyttas till andra databaser på grund av delad tunnel eller merge-åtgärder. Den här verifieringen inbegriper en kortfattad fråga till den lokala fragmentkartan på mål-databasen (inte till den globala fragmentkartan) innan anslutningen kan levereras till programmet.
+* Den **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) ska vara inställd på **ConnectionOptions.Validate** om en miljö där shardkartor maj ändra och rader kan flyttas till andra databaser på grund av delad tunnel eller merge-åtgärder. Den här verifieringen inbegriper en kortfattad fråga till den lokala fragmentkartan på mål-databasen (inte till den globala fragmentkartan) innan anslutningen kan levereras till programmet.
 
 Om verifieras mot lokala fragmentkartan (som anger att cachen är felaktig) misslyckas frågar Fragmentkartehanteraren globala fragmentkartan för att hämta nya rätt värde för sökningen, uppdatera cachen och hämta och returnera rätt databasanslutningen .
 

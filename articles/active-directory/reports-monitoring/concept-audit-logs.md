@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1a2ec0e0513e0bcdcc3427a9e24385dc415ae651
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624666"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215039"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -45,7 +45,7 @@ Den här artikeln ger en översikt över granskningsrapporten.
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-Azure AD-audit-loggarna ger dokumentation över systemaktiviteter för efterlevnad av. För att komma åt granskningsrapporten, Välj **granskningsloggar** i den **aktivitet** delen av **Azure Active Directory**. 
+Azure AD-audit-loggarna ger dokumentation över systemaktiviteter för efterlevnad av. För att komma åt granskningsrapporten, Välj **granskningsloggar** i den **aktivitet** delen av **Azure Active Directory**. Observera att granskningsloggar kan ha en fördröjning på upp till en timme, så det kan ta så lång tid för aktiviteten granskningsdata visas i portalen när du har slutfört uppgiften.
 
 ![Granskningsloggar](./media/concept-audit-logs/61.png "Granskningsloggar")
 

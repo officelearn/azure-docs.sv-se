@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104071"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199926"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
@@ -120,7 +120,7 @@ Här följer överväganden för att välja en Cache-erbjudande.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Azure Cache för Redis-prestanda
-I följande tabell visas de värden för maximal bandbredd som observerats vid testning av olika storlekar av Standard och Premium cachelagrar med hjälp av `redis-benchmark.exe` från en Iaas-VM mot Azure Cache för Redis-slutpunkten. För SSL-dataflöde används redis-benchmark med stunnel för att ansluta till Azure Cache för Redis-slutpunkten.
+I följande tabell visas de värden för maximal bandbredd som observerats vid testning av olika storlekar av Standard och Premium cachelagrar med hjälp av `redis-benchmark.exe` från en IaaS-VM mot Azure Cache för Redis-slutpunkten. För SSL-dataflöde används redis-benchmark med stunnel för att ansluta till Azure Cache för Redis-slutpunkten.
 
 >[!NOTE] 
 >Dessa värden garanteras inte och det finns inget serviceavtal för dessa siffror, men bör vara vanliga. Du bör läsa in testa ditt eget program för att fastställa rätt cachestorleken för ditt program.

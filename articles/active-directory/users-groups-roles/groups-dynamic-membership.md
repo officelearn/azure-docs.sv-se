@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a64f92df7592b4df419e5f70a32f631ca0504c6c
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994223"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214649"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -80,7 +80,7 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | city |Någon strängvärde eller *null* |(user.city - eq ”value”) |
 | Land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
 | Företagsnamn | Någon strängvärde eller *null* | (user.companyName - eq ”value”) |
-| Avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
+| avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
 | displayName |ett värde |(user.displayName - eq ”value”) |
 | employeeId |ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”value”) |
@@ -348,7 +348,7 @@ Du kan använda följande enhetsattribut.
  accountEnabled | SANT FALSKT | (device.accountEnabled - eq SANT)
  displayName | ett värde |(device.displayName - eq ”Rob Iphone”)
  deviceOSType | ett värde | (device.deviceOSType - eq ”iPad”)- eller (device.deviceOSType - eq ”iPhone”)
- deviceOSVersion | ett värde | (enhet. OSVersion - eq ”9.1”)
+ deviceOSVersion | ett värde | (device.deviceOSVersion - eq ”9.1”)
  deviceCategory | ett giltigt enhetsnamn för kategori | (device.deviceCategory - eq ”BYOD”)
  deviceManufacturer | ett värde | (device.deviceManufacturer - eq ”Samsung”)
  deviceModel | ett värde | (device.deviceModel - eq ”iPad luften”)

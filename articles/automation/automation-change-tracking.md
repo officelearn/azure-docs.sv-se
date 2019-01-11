@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408926"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213220"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -51,15 +51,14 @@ Följande Linux-distributioner stöds officiellt. Linux-agenten kan också köra
 * Debian GNU/Linux 8 och 9
 * Ubuntu Linux 14.04 LTS och 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
+## <a name="onboard"></a>Aktivera ändringsspårning och inventering
 
-Om du vill börja spåra ändringar, måste du Aktivera ändringsspårning och inventering lösningen för ditt Automation-konto.
+Om du vill börja spåra ändringar, måste du aktivera lösningen ändringsspårning och inventering. Det finns många sätt att registrera datorer till ändringsspårning och inventering. Följande är den rekommenderade och stöd för hur du publicerar lösningen.
 
-1. I Azure-portalen går du till ditt Automation-konto
-2. Välj **ändringsspårning** under **CONFIGURATION**.
-3. Välj en befintlig Log analytics-arbetsyta eller **Skapa ny arbetsyta** och klicka på **aktivera**.
-
-Detta gör att lösningen för ditt automation-konto. Lösningen kan ta upp till 15 minuter att aktivera. Blå banderoll meddelar dig när lösningen har aktiverats. Gå tillbaka till den **ändringsspårning** att hantera lösningen.
+* [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
+* [Från flera datorer-surfning](automation-onboard-solutions-from-browse.md)
+* [Från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
+* [Med en Azure Automation-runbook](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Konfigurera ändringsspårning och inventering
 
@@ -85,7 +84,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
 |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger.<br>**Följ** – följer de symboliska länkarna under rekursion och dessutom ingår refererade filer/kataloger.<br>**Hantera** – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.     |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
 
 > [!NOTE]
 > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
@@ -105,7 +104,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"       |
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
-|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Inställningar för jokertecken, rekursion och miljö
 

@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263938"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193484"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage med kostnadseffektiv lagring och ohanterade och hanterade Virtuella Azure-diskar
 
@@ -25,9 +25,9 @@ Den här artikeln handlar om användning av standard SSD och HDD-diskar. Mer inf
 
 Det finns två sätt att skapa standarddiskar för virtuella Azure-datorer:
 
-**Ohanterade diskar**: den här typen av disken är den ursprungliga metoden där du hanterar de lagringskonton som används för att lagra VHD-filerna som motsvarar VM-diskarna. VHD-filer som lagras som sidblobar i lagringskonton. Ohanterade diskar kan kopplas till valfri Azure VM-storlek, inklusive de virtuella datorer som främst använder Premium Storage kan till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöd för att koppla flera standarddiskar, vilket gör att upp till 256 TiB lagringsutrymme per virtuell dator. Om du använder diskstorlekar förhandsversion måste ha du upp till cirka 2 PiB lagringsutrymme per virtuell dator.
+**Ohanterade diskar**: Den här typen av disken är den ursprungliga metoden där du hanterar de lagringskonton som används för att lagra VHD-filerna som motsvarar VM-diskarna. VHD-filer som lagras som sidblobar i lagringskonton. Ohanterade diskar kan kopplas till valfri Azure VM-storlek, inklusive de virtuella datorer som främst använder Premium Storage kan till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöd för att koppla flera standarddiskar, vilket gör att upp till 256 TiB lagringsutrymme per virtuell dator. Om du använder diskstorlekar förhandsversion måste ha du upp till cirka 2 PiB lagringsutrymme per virtuell dator.
 
-[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): den här funktionen hanterar de lagringskonton som används för VM-diskarna åt dig. Du kan ange typ (Premium SSD-, Standard SSD- och Standard HDD) och storlek på disk och Azure skapar och hanterar disken åt dig. Du inte behöver bekymra dig om genom att diskarna placeras på flera lagringskonton för att säkerställa att du håller dig inom skalbarhetsgränserna för storage-konton – Azure hanterar det åt dig.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): Den här funktionen hanterar de lagringskonton som används för VM-diskarna åt dig. Du kan ange typ (Premium SSD-, Standard SSD- och Standard HDD) och storlek på disk och Azure skapar och hanterar disken åt dig. Du inte behöver bekymra dig om genom att diskarna placeras på flera lagringskonton för att säkerställa att du håller dig inom skalbarhetsgränserna för storage-konton – Azure hanterar det åt dig.
 
 Även om båda typer av diskar är tillgängliga, bör du använda Managed Disks för att dra nytta av deras många funktioner.
 
@@ -42,15 +42,15 @@ Information om hur du skapar en virtuell dator med Managed Disks finns i någon 
 
 Låt oss ta en titt på några av funktionerna i Standard-lagring. Mer information finns i [introduktion till Azure Storage](../articles/storage/common/storage-introduction.md).
 
-**Standardlagring**: Azure standardlagring har stöd för Azure Disks, Azure Blobs, Azure Files, Azure-tabeller och Azure-köer. För att använda Standard Storage-tjänster måste börja med [skapa ett Azure Storage-konto](../articles/storage/common/storage-quickstart-create-account.md).
+**Standardlagring**: Azure Standard Storage har stöd för Azure Disks, Azure Blobs, Azure Files, Azure-tabeller och Azure-köer. För att använda Standard Storage-tjänster måste börja med [skapa ett Azure Storage-konto](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Standard SSD-diskar:** Standard SSD-diskar ger mer tillförlitlig prestanda än Standard HDD-diskar och är tillgängliga. Mer information om regiontillgänglighet för Standard SSD-diskar finns i [regiontillgänglighet för Standard SSD-diskar](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
-**HDD-standarddiskar:** Standard HDD-diskar kan kopplas till alla Azure virtuella datorer, inklusive storlek-seriens virtuella datorer som används med Premium Storage, till exempel DSv2 och GS-serien. En Standard HDD-disk kan bara kopplas till en virtuell dator. Men kan du koppla en eller flera av dessa diskar till en virtuell dator, upp till maximalt Diskantalet som definierats för den VM-storleken. I följande avsnitt på Standard Storage skalbarhets- och prestandamål beskriver vi specifikationerna i detalj.
+**Standard HDD-diskar:** Standard HDD-diskar kan kopplas till alla Azure virtuella datorer, inklusive storlek-seriens virtuella datorer som används med Premium Storage, till exempel DSv2 och GS-serien. En Standard HDD-disk kan bara kopplas till en virtuell dator. Men kan du koppla en eller flera av dessa diskar till en virtuell dator, upp till maximalt Diskantalet som definierats för den VM-storleken. I följande avsnitt på Standard Storage skalbarhets- och prestandamål beskriver vi specifikationerna i detalj.
 
 **Standard sidblob**: Standard-sidblobar används för att lagra beständiga diskar för virtuella datorer och kan även nås direkt via REST precis som andra typer av Azure-Blobar. [Sidblob-objekt](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) är en samling 512 byte-sidor som är optimerade för icke-sekventiella Läs- och skrivåtgärder. 
 
-**Storage-replikering:** i de flesta regionerna data i ett standardlagringskonto kan vara lokalt replikerade eller geo-replikerade över flera datacenter. Fyra typer av replikering som är tillgängliga är lokalt Redundant lagring (LRS), Zonredundant lagring (ZRS), Geo-Redundant lagring (GRS) och Read Access Geo-Redundant lagring (RA-GRS). Hanterade diskar i standardlagring stöd för närvarande för lokalt Redundant lagring (LRS) endast. Mer information finns i [Lagringsreplikering](../articles/storage/common/storage-redundancy.md).
+**Storage-replikering:** I de flesta regionerna kan data i ett standardlagringskonto vara lokalt replikerade eller geo-replikerade över flera datacenter. Fyra typer av replikering som är tillgängliga är lokalt Redundant lagring (LRS), Zonredundant lagring (ZRS), Geo-Redundant lagring (GRS) och Read Access Geo-Redundant lagring (RA-GRS). Hanterade diskar i standardlagring stöd för närvarande för lokalt Redundant lagring (LRS) endast. Mer information finns i [Lagringsreplikering](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Mål för skalbarhet och prestanda
 
@@ -75,15 +75,7 @@ Om programmets behov överstiger det för skalbarhetsmål för ett enda lagrings
 
 ### <a name="standard-disks-limits"></a>Standarddiskar gränser
 
-Till skillnad från Premiumdiskar, indata/utdataåtgärder per sekund (IOPS) och dataflöde (bandbredd) på standarddiskar inte har etablerats. Prestanda för standarddiskar varierar beroende på virtuella datorstorlek till att disken är ansluten, inte till storleken på disken. Du kan förvänta dig att uppnå upp till den prestanda gränsen som anges i tabellen nedan.
-
-**Standarddiskar gränser (hanterade och ohanterade)**
-
-| **Nivå för virtuell dator**            | **Basic-nivån VM** | **Virtuell dator på standardnivå** |
-|------------------------|-------------------|----------------------|
-| Max diskens storlek          | 32 767 giB           | 32 767 giB        |
-| Maximalt antal 8 KB IOPS per disk | Upp till 2 000         | Upp till 2 000        |
-| Max Bandwidth per disk | Upp till 500 MB/s     | Upp till 500 MB/s      |
+Till skillnad från Premiumdiskar, indata/utdataåtgärder per sekund (IOPS) och dataflöde (bandbredd) på standarddiskar inte har etablerats. Prestanda för standarddiskar varierar beroende på virtuella datorstorlek till som disken är ansluten och storleken på disken.
 
 Om arbetsbelastningen kräver stöd för diskar med höga prestanda och låg latens, bör du överväga att använda Premium Storage. Om du vill veta mer fördelarna med Premium Storage finns [högpresterande Premium Storage och Azure VM-diskar](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -117,18 +109,18 @@ När du använder Standard-lagring, gäller följande för debitering:
 * Utgående dataöverföringar
 * Transaktioner
 
-**Ohanterade lagringsstorleken för data och disk:** för ohanterade diskar och andra data (blobs, tabeller, köer och filer), debiteras du bara den mängd utrymme som du använder. Till exempel om du har en virtuell dator vars sidblob har etablerats som 127 GB, men den virtuella datorn är egentligen bara använder 10 GB utrymme, debiteras du för 10 GB utrymme. Vi stöder upp till standardlagring 8191 GB och Standard ohanterade diskar upp till 4 095 GB. 
+**Ohanterad data och disk lagringsstorlek:** För ohanterade diskar och andra data (blobs, tabeller, köer och filer) debiteras du bara den mängd utrymme som du använder. Till exempel om du har en virtuell dator vars sidblob har etablerats som 127 GB, men den virtuella datorn är egentligen bara använder 10 GB utrymme, debiteras du för 10 GB utrymme. Vi stöder upp till standardlagring 8191 GB och Standard ohanterade diskar upp till 4 095 GB. 
 
-**Hanterade diskar:** faktureringen för hanterade standarddiskar beror på den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GiB, kommer du att debiteras enligt priserna för S15 disktypen.
+**Hanterade diskar:** Faktureringen för hanterade standarddiskar beror på den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GiB, kommer du att debiteras enligt priserna för S15 disktypen.
 
 Storlekar som är markerad med en asterisk finns för närvarande i förhandsversion.
 
 | **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16,385 giB (16 TiB) | 32 767 giB (32 TiB) |
+| Diskstorlek        | 32 GiB  | 64 GiB  | 128 GiB | 256 GB | 512 GiB | 1 024 GiB (1 TiB) | 2 048 GiB (2 TiB) | 4 095 GiB (4 TiB) | 8 192 GiB (8 TiB) | 16,385 giB (16 TiB) | 32 767 giB (32 TiB) |
 
 
-**Ögonblicksbilder**: ögonblicksbilder av standarddiskar faktureras för ytterligare kapacitet som används av ögonblicksbilder. Information om ögonblicksbilder finns [skapa en ögonblicksbild av en Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+**Ögonblicksbilder**: Ögonblicksbilder av standarddiskar faktureras för ytterligare kapacitet som används av ögonblicksbilder. Information om ögonblicksbilder finns [skapa en ögonblicksbild av en Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Utgående dataöverföringar**: [utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
 

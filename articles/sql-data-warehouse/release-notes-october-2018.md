@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966831"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213697"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i oktober 2018.
@@ -41,7 +41,7 @@ Avancerade inställningen för Azure SQL Data Warehouse (SQL DW) bara fick enkla
 Azure SQL Data Warehouse Accelerated Database Recovery (ADR) finns nu i offentlig förhandsversion. Regel för automatisk distribution är en ny SQL Server-motorn som avsevärt förbättrar databastillgänglighet, särskilt i förekomsten av långvariga transaktioner genom att göra om den aktuella återställningsprocessen från grunden upp helt. De främsta fördelarna med ADR är snabbt och konsekvent databasåterställning och omedelbar transaktionsåterställning.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Azure Monitor-diagnostikloggar
-SQL Data Warehouse (SQL DW) kan nu bättre insikter om analytiska arbetsbelastningar genom att integrera direkt med Azure Monitor diagnostikloggar. Den här nya funktionen kan utvecklare Analysera arbetsbelastning beteende under en längre tid och fatta välgrundade beslut om frågan optimering eller kapacitet management. Nu har vi lagt en extern loggning process via [diagnostikloggar för Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) som ger ytterligare insikter om din arbetsbelastning i informationslager. Med ett enda klick för en knapp, du kan nu konfigurera diagnostikloggar för historiksökning prestandafelsökning funktioner med hjälp av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure Monitor-diagnostikloggar stöder anpassningsbara kvarhållningsperioder genom att spara loggarna till ett lagringskonto i granskningssyfte, möjlighet att strömningsloggar till event hubs nästan i realtid telemetri insikter och möjligheten att analysera loggar med Log Analytics med [logga frågor](). Diagnostikloggarna består av telemetriska vyer av ditt informationslager. Vyerna som motsvarar de oftast använda DMV:erna för prestandafelsökning i SQL Data Warehouse. För den här första versionen har vi aktiverat vyer för vyer för dynamisk hantering av följande system:
+SQL Data Warehouse (SQL DW) kan nu bättre insikter om analytiska arbetsbelastningar genom att integrera direkt med Azure Monitor diagnostikloggar. Den här nya funktionen kan utvecklare Analysera arbetsbelastning beteende under en längre tid och fatta välgrundade beslut om frågan optimering eller kapacitet management. Nu har vi lagt en extern loggning process via [diagnostikloggar för Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) som ger ytterligare insikter om din arbetsbelastning i informationslager. Med ett enda klick för en knapp, du kan nu konfigurera diagnostikloggar för historiksökning prestandafelsökning funktioner med hjälp av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure Monitor-diagnostikloggar stöder anpassningsbara kvarhållningsperioder genom att spara loggarna till ett lagringskonto i granskningssyfte, möjlighet att strömningsloggar till event hubs nästan i realtid telemetri insikter och möjligheten att analysera loggar med Log Analytics med loggfrågor. Diagnostikloggarna består av telemetriska vyer av ditt informationslager. Vyerna som motsvarar de oftast använda DMV:erna för prestandafelsökning i SQL Data Warehouse. För den här första versionen har vi aktiverat vyer för vyer för dynamisk hantering av följande system:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)

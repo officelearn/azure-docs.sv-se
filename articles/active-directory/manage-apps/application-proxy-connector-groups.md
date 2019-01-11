@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52dc78b03a1be73763b5a3c494404f4d439d04ca
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139033"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198039"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper
 
@@ -73,11 +73,11 @@ För program som är installerade på IaaS för molnåtkomst anger anslutningsap
 
 Ta som exempel en organisation som har flera virtuella datorer som är anslutna till sina egna IaaS finns virtuellt nätverk. Om du vill låta de anställda använder dessa program, är dessa privata nätverk anslutna till företagsnätverket med hjälp av plats-till-plats-VPN. Detta ger en bra upplevelse för anställda som finns lokalt. Men det kanske inte är perfekt för fjärranslutna anställda, eftersom den kräver ytterligare lokal infrastruktur för att dirigera åtkomst, som du ser i diagrammet nedan:
 
-![AzureAD Iaas-nätverk](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![AzureAD IaaS-nätverk](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Du kan aktivera en common service att säkra åtkomst till alla program utan att skapa ytterligare beroende på företagets nätverk med Azure AD Application Proxy connector grupper:
 
-![AzureAD Iaas flera Molnleverantörer](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![AzureAD IaaS flera Molnleverantörer](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Flera skogar – olika anslutningsapp-grupper för varje skog
 

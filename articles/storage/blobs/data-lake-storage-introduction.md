@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994342"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214409"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introduktion till Azure Data Lake Storage Gen2 förhandsversion
 
@@ -51,7 +51,7 @@ Azure Storage är skalbar avsiktligt om du har åtkomst till via Data Lake Stora
 
 ### <a name="cost-effectiveness"></a>Kostnadseffektivitet
 
-En av de många fördelarna med att skapa Data Lake Storage Gen2 ovanpå Azure Blob storage är den låga kostnaden i lagringskapacitet och transaktioner. Till skillnad från andra molnlagringstjänster måste data som lagras i Data Lake Storage Gen2 inte flyttas eller omvandlas innan du utför analys. Mer information om priser finns i [Azure Storage-priser]((https://azure.microsoft.com/pricing/details/storage)).
+En av de många fördelarna med att skapa Data Lake Storage Gen2 ovanpå Azure Blob storage är den låga kostnaden i lagringskapacitet och transaktioner. Till skillnad från andra molnlagringstjänster måste data som lagras i Data Lake Storage Gen2 inte flyttas eller omvandlas innan du utför analys. Mer information om priser finns i [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage).
 
 Dessutom funktioner som den [hierarkiskt namnområde](data-lake-storage-namespace.md) förbättrar prestanda i många analytics-jobb. Denna förbättring av prestanda innebär att du behöver mindre datorkraft för att bearbeta samma mängd data, vilket resulterar i en lägre total ägandekostnad (TCO) för slutpunkt till slutpunkt analytics-jobbet.
 

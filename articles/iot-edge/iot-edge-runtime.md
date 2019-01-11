@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3495d157f1a681e80b6d113acced53d01751690f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00183e14c16c6f13043272845a0fb45fe5e223f3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077502"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199739"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -43,7 +43,7 @@ Edge hub är en av två moduler som utgör Azure IoT Edge-körningen. Den funger
 >[!NOTE]
 >Edge Hub har stöd för klienter som ansluter med hjälp av MQTT eller AMQP. Det har inte stöd för klienter som använder HTTP. 
 
-Edge hub är inte en fullständig version av IoT Hub som körs lokalt. Det finns några saker som Microsoft Edge hub tyst delegerar till IoT Hub. Edge hub vidarebefordrar begäranden om autentisering till IoT Hub när en enhet först försöker ansluta. När den första anslutningen har upprättats kan cachelagras säkerhetsinformation lokalt Edge hub. Efterföljande anslutningar från den enheten tillåts utan att behöva autentisera till molnet. 
+Edge hub är inte en fullständig version av IoT Hub som körs lokalt. Det finns några saker som Edge hub tyst delegerar till IoT Hub. Edge hub vidarebefordrar begäranden om autentisering till IoT Hub när en enhet först försöker ansluta. När den första anslutningen har upprättats kan cachelagras säkerhetsinformation lokalt Edge hub. Efterföljande anslutningar från den enheten tillåts utan att behöva autentisera till molnet. 
 
 >[!NOTE]
 >Vara måste ansluten körningen varje gång den försöker autentisera en enhet.
@@ -74,7 +74,7 @@ Registrera ett återanrop som bearbetar inkommande meddelanden på en specifik i
    await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-Mer information om klassen ModuleClient och dess kommunikationsmetoder finns i API-referens för SDK det språk du föredrar: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C och Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), eller [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Mer information om klassen ModuleClient och dess kommunikationsmetoder finns i API-referens för SDK det språk du föredrar: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C och Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable), eller [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 Lösningsutvecklaren är ansvarig för att ange reglerna som bestämmer hur Edge hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas fram till Edge hub i dess enhetstvilling. Samma syntax för IoT Hub vägar används för att definiera rutter mellan moduler i Azure IoT Edge. 
 

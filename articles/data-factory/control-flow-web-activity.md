@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054299"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214308"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Web-aktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
@@ -115,7 +115,7 @@ Ange base64-kodad innehållet i en PFX-filen och lösenordet.
 
 ### <a name="managed-identity"></a>Hanterad identitet
 
-Ange resurs-uri för vilken åtkomst-token kommer att begäras med hjälp av den hanterade identitet för data factory. För att anropa Azure Resource Management-API, använda `https://management.azure.com/`.
+Ange resurs-uri för vilken åtkomst-token kommer att begäras med hjälp av den hanterade identitet för data factory. För att anropa Azure Resource Management-API, använda `https://management.azure.com/`. Mer information om hur hanterade identiteter fungerar finns i den [hanterade identiteter för Azure-resurser översiktssidan](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {

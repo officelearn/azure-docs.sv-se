@@ -1,19 +1,19 @@
 ---
 title: Ladda upp bilder till programmet Azure IoT Central | Microsoft Docs
 description: Lär dig hur du förbereder och ladda upp bilder till Azure IoT Central programmet som en builder.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+manager: philmea
+ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005146"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198617"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs hur, som ett verktyg du kan anpassa ditt Azure IoT Ce
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
+1. Ett Azure IoT Central program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 1. Ett verktyg för att skala och ändra storlek på avbildningar filer.
 
 ## <a name="choose-where-to-use-custom-images"></a>Välj var du vill använda anpassade avbildningar
@@ -58,8 +58,8 @@ I följande tabell sammanfattas bildstorleken som du kan använda:
 
 | Plats | Storlekar |
 | -------- | ------ |
-| Programhanterare | 268 x 160 bpt |
-| Mall för enhet | 64 x 64 px |
+| Application Manager | 268 x 160 bpt |
+| Enhetsmall | 64 x 64 px |
 | Startsida och paneler på instrumentpanelen | Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter |
 
 För bästa utseende i programmet, bör du skapa bilder som motsvarar de dimensioner som visas i föregående tabell.
@@ -86,7 +86,7 @@ Under Konfigurera bild klickar du på ikonen bild att ladda upp en förberedd bi
 
 **Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Klicka på **klar** när du är klar. 
 
-### <a name="device-template"></a>Mall för enhet
+### <a name="device-template"></a>Enhetsmall
 
 Om du vill ladda upp en bild i en mall för enhet, gå till **Device Explorer**, väljer mallen enhet och sedan på en enhet. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 

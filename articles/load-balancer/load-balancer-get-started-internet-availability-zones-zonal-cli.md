@@ -1,6 +1,7 @@
 ---
-title: Skapa en offentlig Load Balancer Standard med zonindelad klientdel med Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en offentlig Load Balancer Standard med zonindelad klientdel med Azure CLI
+title: Skapa en belastningsutjämnare med zonindelad frontend - Azure CLI
+titlesuffix: Azure Load Balancer
+description: Lär dig hur du skapar en Standardbelastningsutjämnare med zonindelad klientdel med Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -11,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 3a0fc37b8e2865163ae6c55813d145a568d796e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 466fa37b8ed7a182eb8bd6bc4fe68e0715056398
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414503"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200887"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Skapa en offentlig Load Balancer Standard med zonindelad klientdel med Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Skapa en Standardbelastningsutjämnare med zonindelad klientdel med Azure CLI
 
-Den här artikeln visar hur du skapar en offentlig [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdel. Har en zonindelad klientdel innebär det att alla inkommande eller utgående flöden hanteras av en enskild zon i en region. Du kan skapa en belastningsutjämnare med en zonindelad klientdel med hjälp av en zonindelad offentlig IP-adress i den frontend-konfigurationen. Information om hur tillgänglighetszoner fungerar med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md). 
+Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnare](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdel. Har en zonindelad klientdel innebär det att alla inkommande eller utgående flöden hanteras av en enskild zon i en region. Du kan skapa en belastningsutjämnare med en zonindelad klientdel med hjälp av en zonindelad offentlig IP-adress i den frontend-konfigurationen. Information om hur tillgänglighetszoner fungerar med Standard Load Balancer finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -50,7 +51,7 @@ az network public-ip create --resource-group myResourceGroupZLB --name myPublicI
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa en offentlig Load Balancer Standard med den offentliga IP som du skapade i föregående steg med följande kommando:
+Skapa en offentlig Standard Load Balancer med den offentliga IP som du skapade i föregående steg med följande kommando:
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroupZLB --name myLoadBalancer --public-ip-address myPublicIPZonal --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard

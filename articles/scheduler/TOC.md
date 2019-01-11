@@ -25,7 +25,8 @@
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
-## [REST API](/rest/api/scheduler)
+## [REST-API](/rest/api/scheduler)
+## [Resource Manager-mall](/azure/templates/microsoft.scheduler/allversions)
 
 # Resurser
 ## [Azure Scheduler-översikt](https://azure.microsoft.com/updates/?product=scheduler)

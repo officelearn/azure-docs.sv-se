@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ea78176b9e35643698acf3901b30520b7c7be3c2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016048"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214410"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -99,7 +99,13 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 
 ## <a name="add-or-remove-an-address-range"></a>Lägg till eller ta bort ett adressintervall
 
-Du kan lägga till och ta bort adressintervall för ett virtuellt nätverk. Ett adressintervall måste anges i CIDR-notation och får inte överlappa med andra adressintervall inom samma virtuella nätverk. Adressintervallen som du definierar kan vara offentlig eller privat (RFC 1918). Om du definierar adressintervallet som offentliga eller privata kan adressintervallet som nås från i det virtuella nätverket från sammankopplade virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. Du kan inte lägga till följande-adressintervall:
+Du kan lägga till och ta bort adressintervall för ett virtuellt nätverk. Ett adressintervall måste anges i CIDR-notation och får inte överlappa med andra adressintervall inom samma virtuella nätverk. Adressintervallen som du definierar kan vara offentlig eller privat (RFC 1918). Om du definierar adressintervallet som offentliga eller privata kan adressintervallet som nås från i det virtuella nätverket från sammankopplade virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. 
+
+<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+
+the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+Du kan inte lägga till följande-adressintervall:
 
 - 224.0.0.0/4 (Multicast)
 - 255.255.255.255/32 (Broadcast)
@@ -131,7 +137,7 @@ Alla virtuella datorer som är anslutna till virtuella nätverk registrera med D
 3.  Välj **DNS-servrar**under **inställningar**.
 4. Välj något av följande alternativ:
     - **Standard (medföljer Azure)**: Alla resursnamn och privata IP-adresser registreras automatiskt till Azure DNS-servrar. Du kan matcha namn mellan alla resurser som är anslutna till samma virtuella nätverk. Du kan inte använda det här alternativet för att matcha namn för virtuella nätverk. Om du vill matcha namnen för virtuella nätverk, måste du använda en anpassad DNS-server.
-    - **Anpassad**: Du kan lägga till en eller flera servrar, upp till Azure gränsen för ett virtuellt nätverk. Läs mer om DNS-serverns gränser i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
+    - **Anpassat**: Du kan lägga till en eller flera servrar, upp till Azure gränsen för ett virtuellt nätverk. Läs mer om DNS-serverns gränser i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
         - **Lägga till en adress**: Lägger till servern i listan virtuellt nätverk DNS-servrar. Det här alternativet kan du även registrerar DNS-servern med Azure. Om du redan har registrerat en DNS-server med Azure kan du välja den DNS-servern i listan.
         - **Ta bort en adress**: Markera bredvid den server som du vill ta bort **...** , sedan **ta bort**. Tar bort servern tar bort servern från den här listan över virtuella nätverk. DNS-servern är fortfarande registrerade i Azure för dina virtuella nätverk för att använda.
         - **Ändra ordning på DNS-serveradresser**: Det är viktigt att verifiera att du lista dina DNS-servrar i rätt ordning för din miljö. DNS-serverlistor används i den ordning som de anges. De fungerar inte som en resursallokering-installationsprogrammet. Om den första DNS-servern i listan kan nås, använder klienten den DNS-servern, oavsett om DNS-servern fungerar korrekt. Ta bort alla DNS-servrar som listas och Lägg sedan till dem i den ordning som du vill.

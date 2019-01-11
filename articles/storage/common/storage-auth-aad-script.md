@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633773"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214053"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)
 
@@ -84,7 +84,7 @@ Använda Azure PowerShell för att logga in med en Azure AD-identitet:
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. Stäng och öppna PowerShell-fönstret.
-1. Anropa den [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet för att skapa en kontext och inkludera den `-UseConnectedAccount` parametern. 
+1. Anropa den [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) cmdlet för att skapa en kontext och inkludera den `-UseConnectedAccount` parametern. 
 1. Skicka nya kontexten till cmdlet för att anropa en cmdlet med ett Azure AD-identitet.
 
 I följande exempel visar hur du listar blobarna i en behållare från Azure PowerShell med hjälp av en Azure AD-identitet. Tänk på att ersätta platshållaren konto och en behållare namnen med dina egna värden: 

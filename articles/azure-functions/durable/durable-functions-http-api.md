@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340791"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215413"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -96,9 +96,9 @@ Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Dataty
 | taskHub    | Frågesträng    | Namnet på den [uppgift hub](durable-functions-task-hubs.md). Om inte anges, antas hubbnamnet för den aktuella funktionsapp uppgift. |
 | anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inte anges, antas standardanslutningssträngen för funktionsappen. |
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
-| showInput  | Frågesträng    | Valfri parameter. Om inställd `false`, körningen indata inte tas med i svarets nyttolast.|
-| showHistory| Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
-| showHistoryOutput| Frågesträng    | Valfri parameter. Om inställd `true`, aktiviteten matar ut tas med i orchestration-körningshistorik.|
+| showInput  | Frågesträng    | Valfri parameter; enskild instans-begäran. Om inställd `false`, körningen indata inte tas med i svarets nyttolast.|
+| showHistory| Frågesträng    | Valfri parameter; enskild instans-begäran. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
+| showHistoryOutput| Frågesträng    | Valfri parameter; enskild instans-begäran. Om inställd `true`, aktiviteten matar ut tas med i orchestration-körningshistorik.|
 | createdTimeFrom  | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
 | createdTimeTo    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller innan den givna tidsstämpeln ISO8601.|
 | runtimeStatus    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
@@ -146,7 +146,7 @@ Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt
 | utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
 | createdTime     | sträng    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
 | lastUpdatedTime | sträng    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
-| historyEvents   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`.  |
+| historyEvents   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`. |
 
 Här är ett exempel svarsnyttolasten inklusive orchestration historik och aktivitetens utdata från körningen (formaterad för läsbarhet):
 

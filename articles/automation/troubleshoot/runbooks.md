@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063649"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199127"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -397,7 +397,7 @@ Några vanliga orsaker som en modul inte kan importera till Azure Automation är
 * Strukturen matchar inte strukturen som Automation måste det finnas i.
 * Modulen är beroende av en annan modul som inte har distribuerats till ditt Automation-konto.
 * Modulen saknar dess beroenden i mappen.
-* Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen och have't får fullständig lagringssökväg eller har inte lästs in modulen med hjälp av en offentligt tillgänglig URL.
+* Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen, och du har inte beviljat fullständig lagringssökväg eller har inte lästs in modulen med hjälp av en offentligt tillgänglig URL.
 
 #### <a name="resolution"></a>Lösning
 

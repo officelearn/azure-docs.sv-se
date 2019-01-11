@@ -1,7 +1,7 @@
 ---
-title: Skapa en Standardbelastningsutjämnare med zonredundant klientdel med Azure PowerShell
+title: Skapa en belastningsutjämnare med zonredundant frontend - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Lär dig att skapa offentlig Load Balancer Standard med en zonredundant offentlig IP-adress klientdel med hjälp av PowerShell
+description: Lär dig hur du skapar offentlig Standard Load Balancer med en zonredundant offentlig IP-adress klientdel med hjälp av PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ccf30e435ef04f1e4e874c1b7fc78c86a494a3d9
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138754"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198124"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Skapa en Standard Balancer med zonredundant klientdel med Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Skapa en Standardbelastningsutjämnare med zonredundant klientdel med Azure PowerShell
 
-Den här artikeln visar hur du skapar en offentlig [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel som använder en offentlig IP-Standard-adress.
+Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnare](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel som använder en offentlig IP-Standard-adress.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -86,7 +86,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
-Skapa en Load Balancer Standard med följande kommando:
+Skapa en Standardbelastningsutjämnare med följande kommando:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

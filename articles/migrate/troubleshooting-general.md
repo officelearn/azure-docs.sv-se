@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189504"
+ms.locfileid: "54201304"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -28,6 +28,18 @@ Identifiering av kontinuerlig installationen endast samlar in prestandadata kont
    ![Stoppa identifiering](./media/troubleshooting-general/stop-discovery.png)
 
 - Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Borttagning av Azure Migrate-projekt och associerade Log Analytics-arbetsyta
+
+När du tar bort ett Azure Migrate-projekt, tar den bort migreringsprojekt tillsammans med alla grupper och utvärderingar. Men om du har kopplat en Log Analytics-arbetsyta i projektet, tas den inte bort automatiskt Log Analytics-arbetsytan. Det beror på att samma Log Analytics-arbetsytan kan användas för flera användningsområden. Om du vill ta bort Log Analytics-arbetsytan måste du göra det manuellt.
+
+1. Bläddra till Log Analytics-arbetsytan som är kopplade till projektet.
+   a. Om du inte har tagit bort migreringsprojektet ännu, hittar du på länken till arbetsytan från projektets översiktssida i informationsavsnittet.
+   
+   ![LA arbetsyta](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Om du redan har tagits bort migreringsprojektet klickar du på **resursgrupper** i den vänstra rutan i Azure-portalen och gå till resursgruppen där arbetsytan har skapats och gå sedan till den.
+2. Följ instruktionerna [i den här artikeln](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) att ta bort arbetsytan.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Skapa projekt för migreringen misslyckades med felet *förfrågningar måste innehålla användaridentitetsrubriker*
 
@@ -80,7 +92,7 @@ Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att 
 
    ![Projektets plats](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Fel för logginsamlare
+## <a name="collector-issues"></a>Insamlaren problem
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Distribution av Azure Migrate Collector misslyckades med felet: Den angivna manifestfilen är ogiltig: Ogiltig OVF manifest post.
 
@@ -156,6 +168,17 @@ Om problemet inträffar fortfarande i den senaste versionen kan bero det insamla
 2. Om steg 1 misslyckas kan du försöka ansluta till vCenter-servern via en IP-adress.
 3. Identifiera rätt portnummer för att ansluta till vCenter.
 4. Kontrollera slutligen om vCenter-servern är igång.
+
+### <a name="antivirus-exclusions"></a>Antivirusundantag
+
+Om du vill skydda Azure Migrate-installation, måste du undanta följande mappar i installationen från viruskontroll:
+
+- Mapp som innehåller binärfilerna för Azure Migrate-tjänsten. Undanta alla undermappar.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web hemsidan. Undanta alla undermappar.
+  %SystemDrive%\Inetpub\Wwwroot
+- Lokal Cache för databasen och loggfiler. Azure migrate ha RW åtkomst till den här mappen.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Visualisering beroendeproblem
 

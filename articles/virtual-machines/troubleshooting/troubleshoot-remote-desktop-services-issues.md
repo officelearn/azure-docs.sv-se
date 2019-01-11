@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957716"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215124"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster är inte startar på en Azure VM
 
@@ -37,16 +37,16 @@ När du försöker ansluta till en virtuell dator händer följande scenarier:
 
 - Du fjärrvisa händelseloggarna på den virtuella datorn med hjälp av Loggboken. Du ser att Fjärrskrivbordstjänster TermService, inte startar eller inte går att starta. Följande loggen är ett exempel:
 
-    **Loggar namnet**: System </br>
-    **Källan**: Service Control Manager </br>
-    **Datum**: 2017-12-16 11:19:36 AM</br>
-    **Händelse-ID**: 7022</br>
-    **Uppgift kategori**: ingen</br>
-    **Nivå**: fel</br>
-    **Nyckelord**: klassisk</br>
-    **Användaren**: ej tillämpligt</br>
+    **Loggar namnet**:      System </br>
+    **Källa**:        Service Control Manager </br>
+    **Datum**:          2017-12-16 11:19:36 AM</br>
+    **Händelse-ID**:      7022</br>
+    **Uppgift kategori**: Ingen</br>
+    **Nivå**:         Fel</br>
+    **Nyckelord**:      Klassisk</br>
+    **Användaren**:          Gäller inte</br>
     **Datorn**: vm.contoso.com</br>
-    **Beskrivning av**: The Remote Desktop Services Avstannade vid start. 
+    **Beskrivning**: Tjänsten Remote Desktop Services Avstannade vid start. 
 
     Du kan också använda funktionen åtkomst Seriekonsol för att leta efter felen genom att köra följande fråga: 
 
@@ -112,7 +112,7 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService tjänsten har stoppats på grund av ett problem med åtkomst nekad
 
-1. Ansluta till [Seriekonsolen](serial-console-windows.md#) och öppna en PowerShell-instans.
+1. Ansluta till [Seriekonsolen](serial-console-windows.md) och öppna en PowerShell-instans.
 2. Hämta det Övervakare för processen genom att köra följande skript:
 
    ```

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: alkarche
-ms.openlocfilehash: 042d41e9125e5d4fa0af04fd6edeba5f0b33123a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1140c23a0aa5344119c35434316ec73cc3918f90
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001596"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198379"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrera en Funktionsapp med en Azure-nätverk
 Den här stegvisa självstudien visar hur du använder Azure Functions för att ansluta till resurser i ett virtuellt Azure nätverk. 
@@ -117,7 +117,7 @@ Funktionsappen är ansluten till både Internet och det virtuella nätverket. Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Azure Functions som körs i App Service planer körs på samma tjänst som webbappar, så att alla documnention för Web Apps gäller för dedikerade funktioner.
+Azure Functions som körs i App Service planer körs på samma tjänst som webbappar, så att alla i dokumentationen för Web Apps gäller för dedikerade funktioner.
 
 1. [Läs mer om VNET-integrering med App Service / fungerar här](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Mer information om virtuella nätverk i Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)

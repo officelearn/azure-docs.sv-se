@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: bc7ed9051f95877760bccec65ff2fa7f49e44993
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a5154d8d3a4922dead686c3d5002eaae818ff5a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002145"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201371"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindningar för Azure Functions
 
@@ -59,9 +59,9 @@ När funktionen aktiveras först, finns det endast en instans av funktionen. Vi 
 
 * **Den nya funktionen instanser behövs inte**: `Function_0` kan bearbeta alla 1000 händelser innan de funktioner som skalning logic aktiveras. I det här fallet alla 1000 meddelanden bearbetas av `Function_0`.
 
-* **En ytterligare funktion-instans läggs**: Functions skalning logic avgör att `Function_0` har fler meddelanden än den kan bearbeta. I det här fallet en ny funktion app-instansen (`Function_1`) skapas tillsammans med en ny [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instans. Händelsehubbar identifierar att en ny värdinstans som försöker läsa meddelanden. Event Hubs-belastningsutjämnar partitioner över på dess värddatorinstanser. Till exempel partitioner 0-4 kan ha tilldelats `Function_0` och partitionerar 5 – 9 till `Function_1`.
+* **En ytterligare funktion-instans läggs**: Funktionerna skalning logic avgör att `Function_0` har fler meddelanden än den kan bearbeta. I det här fallet en ny funktion app-instansen (`Function_1`) skapas tillsammans med en ny [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instans. Händelsehubbar identifierar att en ny värdinstans som försöker läsa meddelanden. Event Hubs-belastningsutjämnar partitioner över på dess värddatorinstanser. Till exempel partitioner 0-4 kan ha tilldelats `Function_0` och partitionerar 5 – 9 till `Function_1`.
 
-* **N fler instanser av funktionen läggs**: Functions skalning logic avgör att båda `Function_0` och `Function_1` har fler meddelanden än vad de kan bearbeta. Ny funktion appinstanser `Function_2`... `Functions_N` skapas, där `N` är större än antalet händelsenavspartitioner. I vårt exempel Händelsehubbar igen belastningsutjämnar partitioner, i det här fallet mellan instanserna `Function_0`... `Functions_9`.
+* **N fler instanser av funktionen läggs**: Funktionerna skalning logic avgör att båda `Function_0` och `Function_1` har fler meddelanden än vad de kan bearbeta. Ny funktion appinstanser `Function_2`... `Functions_N` skapas, där `N` är större än antalet händelsenavspartitioner. I vårt exempel Händelsehubbar igen belastningsutjämnar partitioner, i det här fallet mellan instanserna `Function_0`... `Functions_9`.
 
 Observera att om funktioner som kan skalas till `N` instanser, vilket är ett tal som är större än antalet händelsenavspartitioner. Detta görs för att se till att det är alltid [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instanser är tillgängliga att hämta lås på partitioner när de blir tillgängliga från andra instanser. Du debiteras bara för de resurser som används när funktionen-instans kör; du debiteras inte för den här överetablering.
 
@@ -422,7 +422,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
 |**consumerGroup** |**consumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. |
 |**kardinalitet** | Saknas | För Javascript. Ange `many` för att aktivera Batchbearbetning.  Om detta utelämnas eller värdet `one`, enskilt meddelande som skickades till funktionen. |
-|**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den [namnområde](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte händelsehubben själva. Den här anslutningssträngen måste ha minst läsbehörighet till aktivera utlösaren.|
+|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den [namnområde](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte händelsehubben själva. Den här anslutningssträngen måste ha minst läsbehörighet till aktivera utlösaren.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -452,7 +452,7 @@ Den [host.json](functions-host-json.md#eventhub) filen innehåller inställninga
 
 Använda Event Hubs-utdatabindning till skriva händelser till en händelseström. Du måste ha skicka behörighet till en event hub att skriva händelser till den.
 
-Kontrollera att nödvändiga paketet refererar till är uppfyllda: [fungerar 1.x](#packages---functions-1.x) eller [fungerar 2.x](#packages---functions-2.x)
+Kontrollera att nödvändiga paketet refererar till är uppfyllda: [Fungerar 1.x](#packages---functions-1.x) eller [fungerar 2.x](#packages---functions-2.x)
 
 ## <a name="output---example"></a>Utdata - exempel
 
@@ -659,7 +659,7 @@ public String sendTime(
  }
  ```
 
-I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@EventHubOutput` anteckning om parametrar vars värde är poublished till Event Hub.  Parametern måste vara av typen `OutputBinding<T>` , där T är en POJO eller några interna Java-datatypen.
+I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@EventHubOutput` anteckning om parametrar vars värde som ska publiceras till Event Hub.  Parametern måste vara av typen `OutputBinding<T>` , där T är en POJO eller några interna Java-datatypen.
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
@@ -689,7 +689,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar händelsen. |
 |**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
 |**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
-|**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den *namnområde*, inte händelsehubben själva. Den här anslutningssträngen måste ha behörighet att skicka att skicka meddelandet till händelseströmmen.|
+|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den *namnområde*, inte händelsehubben själva. Den här anslutningssträngen måste ha behörighet att skicka att skicka meddelandet till händelseströmmen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

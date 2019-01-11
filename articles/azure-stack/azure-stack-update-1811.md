@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055174"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214597"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -82,9 +82,9 @@ Azure Stack snabbkorrigeringar med jämna mellanrum. Se till att installera den 
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    När du har importerat de obligatoriska tilläggscertifikat värd, kan du återuppta 1811 uppdateringen från administratörsportalen. Medan Azure Stack-operatörer att placera skalningsenheten i underhållsläge under uppdateringen rekommenderas, bör inte ett fel på grund av att de saknas värden tilläggscertifikat påverka befintliga arbetsbelastningar eller tjänster.  
+    När du har importerat de obligatoriska tilläggscertifikat värd, kan du återuppta 1811 uppdateringen från administratörsportalen. Medan Azure Stack-operatörer att schemalägga en underhållsperiod under uppdateringen rekommenderas, bör inte ett fel på grund av att de saknas värden tilläggscertifikat påverka befintliga arbetsbelastningar eller tjänster.  
 
-    Användarportalen för Azure Stack är inte tillgänglig under installationen av uppdateringen, medan tillägget värden konfigureras. Konfigurationen av tillägget värd kan ta upp till 5 timmar. Under den tiden kan du kontrollera status för en uppdatering eller återuppta en misslyckad uppdatering installationen med hjälp av [Azure Stack-administratören PowerShell eller Privilegierade slutpunkten](azure-stack-monitor-update.md).
+    Användarportalen för Azure Stack är inte tillgänglig under installationen av uppdateringen, medan tillägget värden konfigureras. Konfigurationen av tillägget värd kan ta upp till 5 timmar. Under den tiden kan du kontrollera status för en uppdatering eller återuppta en misslyckad uppdateringsinstallation med hjälp av [Azure Stack-administratören PowerShell eller privilegierad slutpunkt](azure-stack-monitor-update.md).
 
 ## <a name="new-features"></a>Nya funktioner
 
@@ -195,7 +195,7 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 
 - När du kör [Test-AzureStack](azure-stack-diagnostic-test.md)om antingen den **AzsInfraRoleSummary** eller **AzsPortalApiSummary** testet misslyckas, uppmanas du att köra  **Test-AzureStack** med den `-Repair` flaggan.  Om du kör det här kommandot misslyckas med följande felmeddelande visas:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Det här problemet korrigeras i en framtida version.
 
-- Använd portalen för Azure Stack är inte tillgänglig under installationen av uppdateringen 1811 medan tillägget värden konfigureras. Konfigurationen av tillägget värd kan ta upp till 5 timmar. Under den tiden kan du kontrollera status för en uppdatering eller återuppta en misslyckad uppdatering installationen med hjälp av [Azure Stack-administratören PowerShell eller Privilegierade slutpunkten](azure-stack-monitor-update.md). 
+- Använd portalen för Azure Stack är inte tillgänglig under installationen av uppdateringen 1811 medan tillägget värden konfigureras. Konfigurationen av tillägget värd kan ta upp till 5 timmar. Under den tiden kan du kontrollera status för en uppdatering eller återuppta en misslyckad uppdateringsinstallation med hjälp av [Azure Stack-administratören PowerShell eller privilegierad slutpunkt](azure-stack-monitor-update.md). 
 
 - Under installationen av uppdateringen 1811 på portalens användarinstrumentpanel kanske inte är tillgänglig och anpassningar kan gå förlorade. Du kan återställa instrumentpanelen till standardinställningen när uppdateringen har slutförts genom att öppna inställningarna för användarportalen och välja **Återställ standardinställningarna**.
 
@@ -254,6 +254,12 @@ Här följer efter installation kända problem för den här build-versionen.
 ### <a name="compute"></a>Compute
 
 - När du skapar en ny Windows virtuell dator (VM), den **inställningar** bladet kräver att du väljer en offentlig inkommande port för att kunna fortsätta. I 1811, den här inställningen är obligatorisk, men har ingen effekt. Det beror på att funktionen är beroende av Brandvägg för Azure som inte har implementerats i Azure Stack. Du kan välja **inga offentliga inkommande portar**, eller någon av de andra alternativen att fortsätta med skapa en virtuell dator. Inställningen har ingen effekt.
+
+- När du skapar en ny Windows virtuell dator (VM), visas följande fel:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   Felet inträffar om du vill aktivera startdiagnostik på en virtuell dator men ta bort ditt lagringskonto för startdiagnostik. Undvik problemet genom att återskapa lagringskontot med samma namn som du använde tidigare.
 
 <!-- 3235634 – IS, ASDK -->
 - Distribuera virtuella datorer med storlekarna som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, anger du suffix som **Standard_A2_v2** (gemener v). Använd inte **Standard_A2_V2** (versaler V). Detta fungerar i globala Azure och är en inkonsekvens i Azure Stack.

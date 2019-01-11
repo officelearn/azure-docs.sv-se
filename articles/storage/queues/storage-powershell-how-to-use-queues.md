@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634430"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213237"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-I följande exempel skapar först en anslutning till Azure Storage med kontexten för lagringskontot, som innehåller namnet på lagringskontot och dess åtkomstnyckel. Därefter anropar [New AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) cmdlet för att skapa en kö med namnet ”könamn'.
+I följande exempel skapar först en anslutning till Azure Storage med kontexten för lagringskontot, som innehåller namnet på lagringskontot och dess åtkomstnyckel. Därefter anropar [New AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet för att skapa en kö med namnet ”könamn'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Information om namngivningskonventioner för Azure-kötjänsten finns [namngivni
 
 ## <a name="retrieve-a-queue"></a>Hämta en kö
 
-Du kan fråga efter och hämta en särskild kö eller en lista över alla köer i ett lagringskonto. Följande exempel visar hur du hämtar alla köer i lagringskontot och en särskild kö; båda kommandon använder den [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) cmdlet.
+Du kan fråga efter och hämta en särskild kö eller en lista över alla köer i ett lagringskonto. Följande exempel visar hur du hämtar alla köer i lagringskontot och en särskild kö; båda kommandon använder den [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue) cmdlet.
 
 ```powershell
 # Retrieve a specific queue

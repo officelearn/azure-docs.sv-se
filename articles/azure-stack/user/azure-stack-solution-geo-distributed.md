@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 917f9a5ff2f6f9f6101b19dccee05fe5ab25c5a9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714856"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214784"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
@@ -106,7 +106,7 @@ Uppdatera DNS-zon filen foCreate webbappar och publishr domänen. Azure AD kan s
 Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack och automatiskt skicka ändringar till båda molnen.
 
 > [!Note]  
-> Azure Stack med rätt avbildningar syndikeras kör (Windows Server och SQL) och App Service-distributionen måste anges. Granska dokumentation om App Service ”[innan du sätter igång med App Service i Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)” för Azure Stack-operatör.
+> Azure Stack med rätt avbildningar syndikeras kör (Windows Server och SQL) och App Service-distributionen måste anges. Granska dokumentation om App Service [innan du sätter igång med App Service i Azure Stack](../azure-stack-app-service-before-you-get-started.md) för Azure Stack-operatör.
 
 #### <a name="add-code-to-azure-repos"></a>Lägg till kod i Azure-lagringsplatser
 

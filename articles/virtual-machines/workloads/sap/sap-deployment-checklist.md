@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189158"
+ms.locfileid: "54201337"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure checklista för planering och distribution 
 
@@ -83,7 +83,7 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
 Piloten kan köras före eller parallellt till projektet planering och förberedelser. Fasen kan också användas för att testa metoder och design som gjorts i fasen av planering och förberedelser. Pilotfasen kan stretchas till en verklig bevis på koncept. Vi rekommenderar att konfigurera och verifiera en fullständig hr/DR-lösning samt säkerhetsdesign under en pilotdistribution. I vissa fall kunden kan skalbarhet tester också utföras i det här steget. Andra kunder använder distribution av SAP sandbox-system som pilotfasen. Så vi förutsätter att du har identifierat ett system som du vill migrera till Azure, i syfte att köra ett pilotprojekt.
 
 1.  Optimera dataöverföring i Azure. Mycket beroende på kunden fall överföring via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) från en lokal var snabbaste om Express-kretsen har tillräckligt med bandbredd. Med andra kunder kommit gå via internet fram till att vara snabbare
-2.  Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872). 
+2.  Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
     1.  Exportera till källa, Export filuppladdning till Azure och importera prestanda.  Maximera överlapp mellan export och import
     2.  Utvärdera mängden databas mellan mål- och mål-plattformen för att avspegla i infrastruktur-storlek    
     3.  Validera och optimera Tidsinställning 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7251ec6e20dcbc9169c2dab2247386ff500760e7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2e251e534e0c79feb995fd181d6bb207873e4fdb
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033884"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212591"
 documentType: LandingData
 title: Hanterad Azure SQL Database-instans
 metadata:
@@ -132,7 +132,7 @@ sections:
     items:
     - html: Lär dig mer om <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">maskinvaruegenskaper och begränsningar</a> och <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">skillnader i Transact-SQL-språket</a>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Konfigurera</a> virtuella Azure-nätverket där den hanterade instansen ska distribueras.
-    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration.md#modify-an-existing-virtual-network-for-managed-instances">Verifiera</a> att dina befintliga virtuella Azure-nätverket kan användas för att distribuera hanterade instanser.
+    - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">Verifiera</a> att dina befintliga virtuella Azure-nätverket kan användas för att distribuera hanterade instanser.
     - html: Ansluta till din instans med hjälp av <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure-dator</a> eller <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punkt-till-plats-anslutning</a>, eller <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">program</a>.
     - html: Kontrollera att databasen kan migreras med hjälp av <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Asisstant</a> eller <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">databasen experimentering Assistant</a>.
     - html: Ta med dina databaser till Managed Instance med <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">interna återställning</a> eller <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Datamigreringstjänst</a>.

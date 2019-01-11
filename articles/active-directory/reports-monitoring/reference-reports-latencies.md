@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623187"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212268"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapporteringssvarstider
 
@@ -40,10 +40,14 @@ I följande tabell visas latensinformation för aktivitetsrapporter.
 > **Svarstid (95: e percentilen)** refererar till den tid som 95% av loggarna rapporteras, och **svarstid (99: e percentilen)** refererar till den tid som 99% av loggarna rapporteras. 
 >
 
-| Rapport | Svarstid (95: e percentilen) |Svarstid (99: e percentilen)|
-| :-- | --- | --- | 
-| Granskningsloggar | 2 min  | 5 min  |
-| Inloggningar | 2 min  | 5 min |
+| Rapport | Svarstid (95: e percentilen) |Svarstid (99: e percentilen)|Tidsintervall inom vilket loggar rapporteras|
+| :-- | --- | --- | --- |
+| Granskningsloggar | 2 min  | 5 min  | 2 – 60 minuter |
+| Inloggningar | 2 min  | 5 min | 2-120 minuter |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hur snart ser aktiviteter data när du har fått en premiumlicens?
+
+Om du redan har data för aktiviteter med din kostnadsfri licens, kan då du se det omedelbart vid uppgradering. Om du inte har några data, kan det ta en eller två dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens.
 
 ## <a name="security-reports"></a>Säkerhetsrapporter
 

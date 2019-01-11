@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d322a0027f786be0603e7147eb3ba24341dd7fbf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653364"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214869"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -44,7 +44,7 @@ Det här avsnittet ger en översikt över rapporten inloggningar.
 * Dessutom kan alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
-* Din klient måste ha en Azure AD Premium-licens som är associerade med den för att visa inloggningar helt upp i rapporten. Se [komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) att uppgradera din Azure Active Directory-version.
+* Din klient måste ha en Azure AD Premium-licens som är associerade med den för att visa inloggningar helt upp i rapporten. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Observera att om du inte har några aktiviteter data före uppgraderingen, det tar ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens.
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar
 
@@ -54,7 +54,7 @@ Användaren loggar in rapporten innehåller svar på följande frågor:
 * Hur många användare har loggat in under en vecka?
 * Vad är status för dessa inloggningar?
 
-Du kan komma åt rapporten inloggningar genom att välja **inloggningar** i den **aktivitet** delen av den **Azure Active Directory** -bladet i den [Azure-portalen](https://portal.azure.com).
+Du kan komma åt rapporten inloggningar genom att välja **inloggningar** i den **aktivitet** delen av den **Azure Active Directory** -bladet i den [Azure-portalen](https://portal.azure.com). Observera att det kan ta upp till två timmar för vissa poster visas i portalen.
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/61.png "inloggningsaktivitet")
 

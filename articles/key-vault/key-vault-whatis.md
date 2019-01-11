@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Key Vault? – Azure Key Vault | Microsoft Docs
-description: Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Genom att använda Azure Key Vault kan kunder kryptera nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM).
+description: Azure Key Vault skydda kryptografiska nycklar och hemligheter som används av molnprogram och molntjänster. Kunder kan kryptera autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM).
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -11,18 +11,18 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 889f12b935eaad72eb7637524ab578f28fbc412f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076339"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198498"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
-Azure Key Vault hjälper dig att lösa följande problem:
+Azure Key Vault kan hjälpa dig att lösa följande problem:
 
 - **Hantering av hemligheter** – Azure Key Vault kan användas för att lagra säkert och väl styr åtkomsten till token, lösenord, certifikat, API-nycklar och andra hemligheter.
 - **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
@@ -76,7 +76,7 @@ Vem som helst med en Azure-prenumeration kan skapa och använda nyckelvalv. Key 
 
 Administratören kan sedan ge utvecklare URI:er som de kan anropa från sina program, och förse säkerhetsadministratören med logginformation om nyckelanvändningen. 
 
-! [Översikt över Azure Key Vault] [1]
+! [Översikt över hur Azure Key Vault fungerar] [1]
 
 Utvecklare kan också hantera nycklar direkt, med hjälp av API:er. Mer information finns i [guiden för Key Vault-utvecklare](key-vault-developers-guide.md).
 

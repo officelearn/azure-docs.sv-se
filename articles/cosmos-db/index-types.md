@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034098"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199076"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Index-typer i Azure Cosmos DB
 
@@ -29,6 +29,9 @@ Azure Cosmos DB stöder Hash-index och intervallsindex för varje sökväg som k
 
 - **Hash-index** stöder effektiv likhet och JOIN-frågor. De flesta användningar behöver Hash-index en högre precision än standardvärdet 3 byte. Datatypen kan vara en sträng eller en siffra.
 
+  > [!NOTE]
+  > Azure Cosmos-behållare stöder en ny indexlayout som inte längre använder typ för Hash-index. Om du anger en typ för Hash-index på indexprincip CRUD-begäranden på behållaren ska ignorera index-typ och svaret från behållaren innehåller endast index-typ intervall. Alla nya Cosmos-behållare använder den nya layouten för index som standard. 
+  
 - **Intervallsindex** stöder effektiv likhetsfrågor, omfångsfrågor (med hjälp av >, <>, =, < =,! =), och ORDER BY-frågor. ORDER By-frågor som standard även kräva maximala index precision (-1). Datatypen kan vara en sträng eller en siffra.
 
 - **Spatialindexet** stöder effektiv spatial (inom och avståndet) frågor. Datatypen kan vara punkt, Polygon eller LineString. Azure Cosmos DB stöder också spatialindexet-typ för varje sökväg som kan anges för punkt, Polygon eller LineString-datatyper. Värdet på den angivna sökvägen måste vara ett giltigt GeoJSON-fragment som {”type”: ”Plats”, ”coordinates”: [0.0, 10.0]}. Azure Cosmos DB har stöd för automatisk indexering av Point och Polygon LineString-datatyper.
@@ -58,6 +61,9 @@ Här följer exempel på frågor som Hash, intervallet, och rumsindex kan använ
 - Spatialindex använda alltid standard index precisionen för alla typer (Point, LineString och Polygon). Standard index precisionen för rumsindex kan inte åsidosättas.
 
 Azure Cosmos DB Returnerar ett fel när en fråga använder ORDER BY men inte har en intervallsindex mot den efterfrågade sökvägen med den maximala precisionen.
+
+> [!NOTE]
+> En ny indexlayout som kräver ett anpassat index precision än maximal precision value(-1) inte längre stöd för Azure Cosmos-behållare. Med den här metoden är alltid sökvägar indexeras med det högsta precision. Om du anger ett precisionsvärde på indexprincip CRUD-begäranden på en behållare ska ignorera antalet decimaler och svaret från behållaren innehåller endast maximal precision value(-1).  Alla nya Cosmos-behållare använder den nya layouten för index som standard.
 
 ## <a name="next-steps"></a>Nästa steg
 

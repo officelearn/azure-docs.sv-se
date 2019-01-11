@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a3327c2c6f9684efe0d86b0cf923886f7310e1b0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053742"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199792"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Skicka ett stort antal aktiviteter till ett Batch-jobb
 
@@ -36,7 +36,7 @@ Den maximala storleken för den uppgift-samling som du kan lägga till i ett end
 
 * Följande Batch API: er begränsa mängden **100 uppgifter**. Gränsen kan vara mindre beroende på storleken på uppgifter – till exempel om aktiviteterna har ett stort antal resursfiler eller miljövariabler.
 
-    * [REST API](/rest/api/batchservice/task/addcollection)
+    * [REST-API](/rest/api/batchservice/task/addcollection)
     * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
     * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
 
@@ -45,7 +45,7 @@ Den maximala storleken för den uppgift-samling som du kan lägga till i ett end
 * Följande API: er har stöd för mycket större uppgift samlingar – begränsas bara av RAM tillgänglighet på skickar klienten. Dessa API: er hantera transparent dividera uppgift samlingen i ”segment” för lågnivå-API: er och nya försök om det inte går att lägga till aktiviteter.
 
     * [.NET-API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java-API](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [Java-API](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [Azure Batch CLI-tillägg](batch-cli-templates.md) med Batch CLI-mallar
     * [Python SDK-tillägg](https://pypi.org/project/azure-batch-extensions/)
 

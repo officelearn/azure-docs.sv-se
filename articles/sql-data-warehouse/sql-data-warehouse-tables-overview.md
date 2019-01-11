@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302321"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212557"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Utforma tabeller i Azure SQL Data Warehouse
 
@@ -103,7 +103,7 @@ En partitionerad tabell lagrar och utför åtgärder på tabellrader enligt data
 ## <a name="columnstore-indexes"></a>Columnstore-index
 Som standard lagrar SQL Data Warehouse en tabell som ett grupperat kolumnlagringsindex. Den här typen av datalagring uppnår hög datakomprimering och frågeprestanda för stora tabeller.  Grupperat columnstore-index är vanligtvis det bästa valet, men i vissa fall ett grupperat index eller en heap är lämplig lagringsstrukturen.
 
-En lista över columnstore funktioner finns i [vad är nytt för kolumnlagringsindex](/sql/relational-databases/indexes/columnstore-indexes-whats-new). För att förbättra prestanda för columnstore-index, se [maximera radgrupps kvalitet för kolumnlagringsindex](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+En lista över columnstore funktioner finns i [vad är nytt för kolumnlagringsindex](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). För att förbättra prestanda för columnstore-index, se [maximera radgrupps kvalitet för kolumnlagringsindex](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statistik
 Frågeoptimeringen använder statistik på kolumnnivå när den skapar planen för att köra en fråga. För att förbättra frågeprestanda är det viktigt att skapa statistik på enskilda kolumner, särskilt de kolumner som används i frågan kopplar. Skapar och uppdaterar statistik sker inte automatiskt. [Skapa statistik](/sql/t-sql/statements/create-statistics-transact-sql) när du har skapat en tabell. Uppdatera statistik när ett stort antal rader läggs till eller ändras. Till exempel uppdatera statistiken efter att en belastning. Mer information finns i [statistik vägledning](sql-data-warehouse-tables-statistics.md).
@@ -133,7 +133,7 @@ SQL Data Warehouse stöder många, men inte alla, tabell-funktioner erbjuds av a
 - [Indexerade vyer](/sql/relational-databases/views/create-indexed-views)
 - [Sekvens](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Glesa kolumner](/sql/relational-databases/tables/use-sparse-columns)
-- [Surrogatnycklar](). Implementera med [identitet](sql-data-warehouse-tables-identity.md).
+- Surrogate nycklar. Implementera med [identitet](sql-data-warehouse-tables-identity.md).
 - [Synonymer](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Utlösare](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unika index](/sql/t-sql/statements/create-index-transact-sql)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b96a00fb5dbf96a7b57adbaaacf24af319d86950
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718970"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215396"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -156,7 +156,7 @@ Uppgifter som du kan utföra med loggar som följande:
 Alla loggdata i Azure Monitor hämtas med hjälp av en [loggfråga](../log-query/log-query-overview.md) skrivna med den [Datautforskaren frågespråk](../log-query/get-started-queries.md), där du kan snabbt hämta, konsolidera och analysera insamlade data. Använd [Log Analytics](../log-query/portals.md) att skriva och testa frågor i Azure-portalen. Du kan arbeta interaktivt med resultat eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta loggar med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Data från Application Insights lagras i en separat partition än andra loggdata i Azure Monitor. Det ger stöd för samma funktioner som andra loggdata, men du måste använda den [Application Insights-konsolen](/azure-monitor/app/analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../log-query/cross-workspace-query.md) att analysera programdata tillsammans med andra loggdata.
+> Data från Application Insights lagras i en separat partition än andra loggdata i Azure Monitor. Det ger stöd för samma funktioner som andra loggdata, men du måste använda den [Application Insights-konsolen](../app/analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../log-query/cross-workspace-query.md) att analysera programdata tillsammans med andra loggdata.
 
 ![Logs](media/data-collection/logs.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049702"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199552"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 > [!div class="op_single_selector"]
@@ -39,10 +39,10 @@ Om du vill konfigurera det kan gå till [komma igång på Mac](service-fabric-ge
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 Om du vill komma igång med Reliable Services, behöver du bara förstå några grundläggande begrepp:
 
-* **Typ av tjänst**: det här är din implementering. Den definieras av den klass som du skriver och som utökar `StatelessService` och eventuella andra koden och beroenden som används i, tillsammans med ett namn och ett versionsnummer.
-* **Namngiven tjänstinstans**: Om du vill köra tjänsten du skapar namngivna instanser i din tjänsttyp mycket som du skapar objektinstanser av en klasstyp. Instanser av tjänsten är i själva verket objektinstansieringar på din tjänstklass som du skriver.
-* **Tjänstevärden**: namngiven tjänst-instanser som du skapar måste du köra i en värd. Tjänstevärden är bara en process där instanser av din tjänst kan köras.
-* **Registrering av tjänst**: registrering samlar allt. Tjänsttypen måste vara registrerad med Service Fabric-körning i en tjänstevärd så att Service Fabric för att skapa instanser av den att köra.  
+* **Typ av tjänst**: Det här är din implementering. Den definieras av den klass som du skriver och som utökar `StatelessService` och eventuella andra koden och beroenden som används i, tillsammans med ett namn och ett versionsnummer.
+* **Namngiven tjänstinstans**: Om du vill köra tjänsten skapar du namngivna instanser i din tjänsttyp mycket som du skapar objektinstanser av en klasstyp. Instanser av tjänsten är i själva verket objektinstansieringar på din tjänstklass som du skriver.
+* **Tjänstevärden**: Namngiven tjänst-instanser som du skapar måste du köra i en värd. Tjänstevärden är bara en process där instanser av din tjänst kan köras.
+* **Registrering av tjänst**: Registrering samlar allt. Tjänsttypen måste vara registrerad med Service Fabric-körning i en tjänstevärd så att Service Fabric för att skapa instanser av den att köra.  
 
 ## <a name="create-a-stateless-service"></a>Skapa en tillståndslös tjänst
 Börja med att skapa ett Service Fabric-program. Service Fabric SDK för Linux finns en Yeoman generator att tillhandahålla ställningarna för ett Service Fabric-program med en tillståndslös tjänst. Starta genom att köra följande Yeoman kommando:
@@ -201,7 +201,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) är en ordlista-implementering som du kan använda för att på ett tillförlitligt sätt lagrar tillstånd i tjänsten. Du kan lagra data direkt i din tjänst utan att behöva en extern beständigt Arkiv med Service Fabric och tillförlitlig HashMaps. Tillförlitlig HashMaps gör dina data med hög tillgänglighet. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av din tjänst för dig. Det ger också ett API som avlägsnar komplex hantering av dessa repliker och ändrar deras status.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) är en ordlista-implementering som du kan använda för att på ett tillförlitligt sätt lagrar tillstånd i tjänsten. Du kan lagra data direkt i din tjänst utan att behöva en extern beständigt Arkiv med Service Fabric och tillförlitlig HashMaps. Tillförlitlig HashMaps gör dina data med hög tillgänglighet. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av din tjänst för dig. Det ger också ett API som avlägsnar komplex hantering av dessa repliker och ändrar deras status.
 
 Tillförlitliga samlingar kan lagra alla Java-datatypen, inklusive din anpassade typer med ett par varningar:
 

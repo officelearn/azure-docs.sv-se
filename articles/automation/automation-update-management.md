@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631863"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215005"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -125,6 +125,15 @@ Mer information om hur lösningens hanteringspaket uppdateras finns i [ansluta O
 > [!NOTE]
 > För system med Operations Manager-agenten för att kunna hanteras helt av uppdateringshantering, måste agenten uppdateras till Microsoft Monitoring Agent. Information om hur du uppdaterar agenten finns [så här uppgraderar du en Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
+## <a name="onboard"></a>Aktivera uppdateringshantering
+
+Om du vill börja korrigeringar system, måste du aktivera lösningen för uppdateringshantering. Det finns många sätt att registrera datorer till hantering av uppdateringar. Följande är den rekommenderade och stöd för hur du publicerar lösningen:
+
+* [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
+* [Från flera datorer-surfning](automation-onboard-solutions-from-browse.md)
+* [Från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
+* [Med en Azure Automation-runbook](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Bekräfta att icke-Azure-datorer är integrerats
 
 Om du vill bekräfta att direkt anslutna datorer kommunicerar med Log Analytics, efter ett par minuter kan du köra en följande sökningar i loggen.

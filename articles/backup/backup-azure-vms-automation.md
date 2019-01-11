@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743909"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199535"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 
@@ -72,7 +72,7 @@ Börja:
 6. Du kan verifiera att Providers, registrerad med följande kommandon:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ``` 
+    ```
     I utdata från kommandot den **RegistrationState** bör ändras till **registrerad**. Om inte, kör bara det **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet igen.
 
 Följande aktiviteter kan automatiseras med PowerShell:
@@ -185,7 +185,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 När du har definierat protection-principen kan aktivera du fortfarande principen för ett objekt. Använd **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** att aktivera skydd. Aktiverar skydd kräver två objekt - objektet och principen. När principen har associerats med valvet, utlöses arbetsflöde för säkerhetskopiering på den tid som definierats i principschemat.
 
-I följande exempel aktiverar skyddet för objektet, V2VM, använder principen NewPolicy. I exemplen som skiljer sig åt beroende på om den virtuella datorn är krypterad och vad som typ av kryptering. 
+I följande exempel aktiverar skyddet för objektet, V2VM, använder principen NewPolicy. I exemplen som skiljer sig åt beroende på om den virtuella datorn är krypterad och vad som typ av kryptering.
 
 Att aktivera skydd på **icke-krypterade Resurshanterar-VM**:
 
@@ -355,7 +355,7 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Återställa hanterade diskar
 
 > [!NOTE]
-> Om den säkerhetskopierade virtuella datorn har hanterade diskar och du vill återställa dem som hanterade diskar, har vi lagt funktionen från Azure Powershell v 6.7.0. och senare
+> Om den säkerhetskopierade virtuella datorn har hanterade diskar och du vill återställa dem som hanterade diskar, har vi lagt funktionen från Azure PowerShell v 6.7.0. och senare
 >
 >
 
@@ -457,7 +457,7 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
        }
        ```
 
-   * **Icke-hanterade och krypterade virtuella datorer (endast BEK)** -för icke-hanterad, krypterade virtuella datorer (krypterad endast med BEK), måste du återställa hemligheten till nyckelvalvet innan du kan lägga till diskar. Mer information finns i artikeln [återställa en krypterad virtuell dator från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). I följande exempel visas hur du kopplar OS och datadiskar för krypterade virtuella datorer. När du anger OS-disken, se till att nämna relevanta OS-typen.
+   * **Icke-hanterade och krypterade virtuella datorer med Azure AD (endast BEK)** -för icke-hanterad, krypterade virtuella datorer med Azure AD (krypterad endast med BEK), måste du återställa hemligheten till nyckelvalvet innan du kan lägga till diskar. Mer information finns i den [återställa en krypterad virtuell dator från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). I följande exempel visas hur du kopplar OS och datadiskar för krypterade virtuella datorer. När du anger OS-disken, se till att nämna relevanta OS-typen.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -469,13 +469,8 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
       ```
-      Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
 
-      ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
-      ```
-
-   * **Icke-hanterade krypterade virtuella datorer och (BEK och KEK)** – för icke-hanterad, krypterade virtuella datorer (krypterad med BEK och KEK), återställa nyckel och hemlighet till nyckelvalvet innan du kopplar diskar. Mer information finns i artikeln [återställa en krypterad virtuell dator från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). I följande exempel visas hur du kopplar OS och datadiskar för krypterade virtuella datorer.
+   * **Icke-hanterade och krypterade virtuella datorer med Azure AD (BEK och KEK)** – för icke-hanterad, krypterade virtuella datorer med Azure AD (krypterad med BEK och KEK), återställa nyckel och hemlighet till nyckelvalvet innan du kopplar diskar. Mer information finns i [återställa en krypterad virtuell dator från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). I följande exempel visas hur du kopplar OS och datadiskar för krypterade virtuella datorer.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -484,34 +479,100 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
       Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
       foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
-       }
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+     }
       ```
 
-      Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
+   * **Icke-hanterade krypterade virtuella datorer och utan Azure AD (endast BEK)** – för icke-hanterad, krypterade virtuella datorer utan Azure AD (krypterad endast med BEK), om källan **keyVault/hemligheten är inte tillgängliga** återställa hemligheterna till nyckelvalvet med hjälp av proceduren i [återställa en icke-krypterade virtuella datorer från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). Kör följande skript för att ställa in Krypteringsinformation på den återställda OS-blob (det här steget inte krävs för datablob). $Dekurl kan hämtas från den återställda keyVault.<br>
+
+   I skriptet nedan måste köras endast när källan keyVault/hemligheten inte är tillgänglig.
 
       ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""}}]}"
+      $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
+      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
+      $osBlob.ICloudBlob.SetMetadata()
       ```
 
-   * **Hanterade och icke-krypterade virtuella datorer** – för hanterade icke-krypterade virtuella datorer, bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+    Efter den **hemligheter är tillgängliga** och Krypteringsinformation även är inställda på OS-Blob, koppla diskar med hjälp av skriptet som anges nedan.<br>
 
-   * **Hanteras och krypterade virtuella datorer (endast BEK)** – för hanterade krypterade virtuella datorer (krypterad endast med BEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-
-     Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
-
-       ```powershell
-       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
-       ```
-
-   * **Hanteras och krypterade virtuella datorer (BEK och KEK)** – för hanterade krypterade virtuella datorer (krypterad med BEK och KEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i artikeln [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-
-      Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
+    Om källan keyVault/hemligheter finns redan, behöver skriptet ovan inte utföras.
 
       ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
+      foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
+      {
+      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      }
       ```
+
+   * **Icke-hanterade krypterade virtuella datorer och utan Azure AD (BEK och KEK)** – för icke-hanterad, krypterade virtuella datorer utan Azure AD (krypterad med BEK och KEK), om källan **keyVault/nycklar/hemligheter är inte tillgängliga** återställa nyckeln och nyckeln till nyckelvalvet med hjälp av proceduren i [återställa en icke-krypterade virtuella datorer från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). Kör följande skript för att ställa in Krypteringsinformation på den återställda OS-blob (det här steget inte krävs för datablob). $Dekurl och $kekurl kan hämtas från den återställda keyVault.
+
+   I skriptet nedan måste köras endast när källan keyVault/nycklar/hemligheter inte är tillgänglig.
+
+    ```powershell
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""},""keyEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""keyUrl"":""$kekUrl""}}]}"
+      $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
+      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
+      $osBlob.ICloudBlob.SetMetadata()
+      ```
+   Efter den **nyckel/hemligheter som är tillgängliga** och Krypteringsinformation är inställda på OS-Blob, koppla diskar med hjälp av skriptet som anges nedan.
+
+    Om källan keyVault/nyckel/hemligheter är tillgängliga, behöver skriptet ovan inte utföras.
+
+    ```powershell
+      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
+      foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
+      {
+      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      }
+      ```
+
+  * **Hanterade och icke-krypterade virtuella datorer** – för hanterade icke-krypterade virtuella datorer, bifoga de återställda hanterade diskarna. Detaljerad information finns i [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Hanteras och krypterade virtuella datorer med Azure AD (endast BEK)** – för hanterade krypterade virtuella datorer med Azure AD (krypterad endast med BEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Hanteras och krypterade virtuella datorer med Azure AD (BEK och KEK)** – för hanterade krypterade virtuella datorer med Azure AD (krypterad med BEK och KEK), bifoga de återställda hanterade diskarna. Detaljerad information finns i [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Hanteras och krypterade virtuella datorer utan Azure AD (endast BEK)** -för hanterade krypterade virtuella datorer utan Azure AD (krypterad endast med BEK), om källan **keyVault/hemligheten är inte tillgängliga** återställa hemligheterna till nyckelvalv med hjälp av den proceduren i [återställa en icke-krypterade virtuella datorer från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). Kör följande skript för att ställa in Krypteringsinformation på den återställda OS-disken (det här steget inte krävs för datadisk). $Dekurl kan hämtas från den återställda keyVault.
+
+    I skriptet nedan måste köras endast när källan keyVault/hemligheten inte är tillgänglig.  
+
+    ```powershell
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
+      $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+      Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+      ```
+
+    När hemligheterna är tillgängliga och Krypteringsinformation är inställda på OS-disken, om du vill lägga till de återställda hanterade diskarna, se [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+
+  * **Hanteras och krypterade virtuella datorer utan Azure AD (BEK och KEK)** – för hanterade krypterade virtuella datorer utan Azure AD (krypterad med BEK och KEK), om källan **keyVault/nycklar/hemligheter är inte tillgängliga** återställa nyckeln och hemligheter till nyckel valvet med hjälp av proceduren i [återställa en icke-krypterade virtuella datorer från en återställningspunkt för Azure Backup](backup-azure-restore-key-secret.md). Kör följande skript för att ställa in Krypteringsinformation på den återställda OS-disken (det här steget inte krävs för datadisk). $Dekurl och $kekurl kan hämtas från den återställda keyVault.
+
+  I skriptet nedan måste köras endast när källan keyVault/nycklar/hemligheter inte är tillgänglig.
+
+  ```powershell
+     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+     $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+     $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+     $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
+     $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+     $diskupdateconfig = Set-AzureRmDiskUpdateKeyEncryptionKey -DiskUpdate $diskupdateconfig -KeyUrl $kekUrl -SourceVaultId $keyVaultId  
+     Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+    ```
+
+    När nyckeln/hemligheter är tillgängliga och Krypteringsinformation är inställda på OS-disken, om du vill lägga till de återställda hanterade diskarna, se [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
 5. Ange nätverksinställningarna.
 
@@ -525,11 +586,44 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
     $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
+
 6. Skapa den virtuella datorn.
 
     ```powershell  
     New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+7. Skicka ADE tillägget.
+
+  * **För den virtuella datorn med Azure AD** -Använd följande kommando för att manuellt Aktivera kryptering för datadiskar  
+
+    **BEK endast**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      ```
+
+    **BEK och KEK**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      ```
+
+  * **För virtuell dator utan Azure AD** -Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
+
+    Om schemanamn om under Kommandokörning uppmanas du att ange AADClientID, måste du uppdatera din Azure PowerShell.
+
+    **BEK endast**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
+
+      **BEK och KEK**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Återställa filer från en virtuell Azure-säkerhetskopiering
 
@@ -614,4 +708,4 @@ Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du föredrar att använda PowerShell för att engagera wi th din Azure-resurser finns i PowerShell-artikeln [distribuera och hantera säkerhetskopiering för Windows Server](backup-client-automation.md). Om du hanterar DPM-säkerhetskopior som finns i artikeln [distribuera och hantera säkerhetskopiering för DPM](backup-dpm-automation.md). Båda de här artiklarna har en version för klassiska distributioner och Resource Manager-distributioner.  
+Om du vill använda PowerShell för att interagera med dina Azure-resurser finns i PowerShell-artikeln [distribuera och hantera säkerhetskopiering för Windows Server](backup-client-automation.md). Om du hanterar DPM-säkerhetskopior som finns i artikeln [distribuera och hantera säkerhetskopiering för DPM](backup-dpm-automation.md). Båda de här artiklarna har en version för klassiska distributioner och Resource Manager-distributioner.  

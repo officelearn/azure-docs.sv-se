@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785672"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214121"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric-kluster som använder certifikatets unika namn i stället för tumavtryck
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Ett kluster med vanliga namn för certifikatet gör det mycket enklare att certifikathantering. Den här artikeln beskriver hur du distribuerar Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
  
 ## <a name="get-a-certificate"></a>Få ett certifikat
-Först hämtar ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority).  Namnet på certifikatet ska vara namnet på klustret.  Till exempel ”myclustername.southcentralus.cloudapp.azure.com”.  
+Först hämtar ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority).  Namnet på certifikatet ska vara för den anpassade domänen du egna och köpta från en domänregistrator. Till exempel ”azureservicefabricbestpractices.com”; de personer som inte är Microsoft-anställda kan inte etablera certifikat för MS domäner, så att du inte kan använda din LB eller Traffic Manager DNS-namn som vanliga namn för ditt certifikat och du måste etablera en [Azure DNS-zon](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) om dina anpassade domän som ska matchas i Azure. Du bör även att deklarera den anpassade domänen som du äger som din klustrets ”managementEndpoint” om du vill att portalen att visa den anpassade domänen alias för klustret.
 
 Du kan få en CA-signerat certifikat från en kostnadsfri eller öppna certifikatutfärdare i testsyfte.
 
 > [!NOTE]
-> Självsignerat certifikat, inklusive de som skapas när du distribuerar Service Fabric-kluster i Azure portal, stöds inte.
+> Självsignerat certifikat, inklusive de som skapas när du distribuerar Service Fabric-kluster i Azure portal, stöds inte. 
 
 ## <a name="upload-the-certificate-to-a-key-vault"></a>Överför certifikatet till ett nyckelvalv
 Service Fabric-kluster har distribuerats på en VM-skalningsuppsättning i Azure.  Överför certifikatet till ett nyckelvalv.  När klustret distribueras installerar certifikatet på virtuella datorns skalningsuppsättning som klustret körs på.

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103518"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198788"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i Log Analytics
 Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog. När samlats in, kan du parsa data till enskilda fält i dina frågor eller extrahera data vid insamling av enskilda fält.
@@ -164,6 +164,18 @@ Vi använder en fråga med *typ = MyApp_CL* och alla poster från insamlade logg
 Vi använder anpassade fält för att definiera den *EventTime*, *kod*, *Status*, och *meddelande* fält och vi kan se skillnaden mellan poster som returneras av frågan.
 
 ![Loggfråga med ytterligare anpassade fält](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>Alternativ för anpassade loggar
+Anpassade loggar är användbara om dina data passar kriterierna om, men det finns fall, till exempel följande där du behöver en annan strategi:
+
+- Data passar inte nödvändig struktur, till exempel att ha tidsstämpeln i ett annat format.
+- Loggfilen följa inte krav, till exempel Filkodning eller en strukturen för snabbkorrigeringar som inte stöds.
+- Data kräver förbearbetning och filtrering innan samling. 
+
+Överväg följande alternativa strategier i de fall där dina data inte kan samlas in med anpassade loggar:
+
+- Använd ett anpassat skript eller annan metod för att skriva data till [Windows-händelser](data-sources-windows-events.md) eller [Syslog](data-sources-syslog.md) som samlas in av Log Analytics. 
+- Skicka data direkt till Log Analytics med hjälp av [HTTP Data Collector API](data-collector-api.md). Ett exempel med hjälp av runbooks i Azure Automation finns i [samla in data i Log Analytics med en Azure Automation-runbook](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [parsa textdata i Log Analytics](../log-query/parse-text.md) importeras metoder att parsa var och en loggpost till flera egenskaper.

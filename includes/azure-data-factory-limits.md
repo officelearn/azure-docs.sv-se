@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122793"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211914"
 ---
 Data factory är en tjänst för flera klienter som har följande standardgränserna på plats för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 
@@ -26,6 +26,7 @@ Data factory är en tjänst för flera klienter som har följande standardgräns
 | Total CPU-kärnor för Azure-SSIS Integration Runtime(s) under en prenumeration | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Samtidiga pipelinekörningar per data factory (delas mellan alla pipelines i fabriken) | 10 000  | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Högsta antal aktiviteter per pipeline (inklusive inre aktiviteter för behållare) | 40 | 40 |
+| Maxantal länkade Integration Runtime som kan skapas mot en enda lokal Integration Runtime | 20 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximalt antal parametrar per pipeline | 50 | 50 |
 | ForEach-objekt | 100 000 | 100 000 |
 | ForEach-parallellitet | 20 | 50 |

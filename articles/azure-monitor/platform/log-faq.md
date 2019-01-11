@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107235"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214750"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -63,7 +63,7 @@ S: Om du vill visa VM-loggar måste beviljas läsbehörighet till arbetsytor som
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>F. Varför får jag åtkomst till Min arbetsyta i OMS-portalen, men jag får felet ”du har inte behörighet” i Azure-portalen?  
 
-S: Du måste ha Azure behörigheter för att öppna en arbetsyta i Azure. Det finns tillfällen där du inte kanske har rätt behörighet. I dessa fall kan administratören måste ge dig med behörigheter i Azure.See [OMS-portalen som flyttar till Azure](/../../azure-monitor/platform/oms-portal-transition.md) för mer information.
+S: Du måste ha Azure behörigheter för att öppna en arbetsyta i Azure. Det finns tillfällen där du inte kanske har rätt behörighet. I dessa fall kan administratören måste ge dig med behörigheter i Azure.See [OMS-portalen som flyttar till Azure](oms-portal-transition.md) för mer information.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>F. Varför ser jag inte kan inte Vydesigner posten i loggarna? 
 S: Vydesigner är endast tillgänglig i loggarna för användare som har tilldelats med deltagarbehörighet eller högre.

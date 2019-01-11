@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 0112853bf36c6b7b594400d303234d204b2ea24a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108295"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198651"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Hur du frågar Azure Digital Twins API: er för vanliga uppgifter
 
@@ -26,7 +26,7 @@ Den här artikeln visar frågemönster att hjälpa dig att utföra vanliga scena
 
 Det här avsnittet visas exempelfrågor som du vill ha mer information om ditt etablerade blanksteg. Göra autentiserade GET HTTP-begäranden med exempelfrågor, ersätta platshållarna med värden från din konfiguration. 
 
-- Hämta rotnoder.
+- Hämta utrymmen som rotnoder.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -38,7 +38,7 @@ Det här avsnittet visas exempelfrågor som du vill ha mer information om ditt e
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- Få blanksteg vars överordnade är angivna utrymmes-ID och inkludera beroenden. 
+- Hämta blanksteg och deras enhet/sensorinformation, vars överordnade är angivna utrymmes-ID och som är på nivå två till fem [i förhållande till det angivna utrymmet](how-to-navigate-apis.md#api-navigation). 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -91,7 +91,7 @@ Det här avsnittet visar vissa frågor och få mer information om roller och der
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## <a name="queries-for-device-management"></a>Frågor för enhetshantering
+## <a name="queries-for-devices"></a>Frågor för enheter
 
 Det här avsnittet visas några exempel på hur du kan använda Management-API: er för att få specifik information om dina enheter. Alla API-anrop måste vara autentiserade GET HTTP-begäranden.
 
@@ -167,7 +167,7 @@ Det här avsnittet visas några exempel på hur du kan använda Management-API: 
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- Hämta IoT hub-anslutningssträngen för en viss enhet.
+- Hämta anslutningssträngen för IoT Hub-enhet för din enhet.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString

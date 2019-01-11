@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b5d931225edce92590b9c2b7f28ad39630362e6d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721843"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213832"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -26,7 +26,27 @@ SQL Data Sync är en tjänst som bygger på Azure SQL Database som gör att du s
 > [!IMPORTANT]
 > Azure SQL Data Sync har **inte** stöd för Azure SQL Database Managed Instance just nu.
 
-## <a name="architecture-of-sql-data-sync"></a>Arkitekturen för SQL Data Sync
+## <a name="when-to-use-data-sync"></a>När du ska använda datasynkronisering
+
+Datasynkronisering är användbart i fall där data ska hållas uppdaterad över flera Azure SQL-databaser eller SQL Server-databaser. Här är huvudsakliga användningsområden för Data Sync:
+
+-   **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala databaser och Azure SQL-databaser för att möjliggöra hybridprogram med Data Sync. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
+
+-   **Distribuerade program:** I många fall är det bra att separera olika arbetsbelastningar på olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
+
+-   **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
+
+Datasynkronisering är inte det en bättre lösningen för följande scenarier:
+
+| Scenario | Några av de rekommenderade lösningar |
+|----------|----------------------------|
+| Haveriberedskap | [Azure geo-redundanta säkerhetskopieringar](sql-database-automated-backups.md) |
+| Läsa skala | [Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)](sql-database-read-scale-out.md) |
+| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migrering från en lokal SQLServer till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
+
+## <a name="overview-of-sql-data-sync"></a>Översikt över SQL Data Sync
 
 Datasynkronisering baseras kring begreppet en Synkroniseringsgrupp. En Synkroniseringsgrupp är en grupp med databaser som du vill synkronisera.
 
@@ -49,26 +69,6 @@ En Synkroniseringsgrupp har följande egenskaper:
 -   Den **synkroniseringsintervall** beskriver hur ofta synkronisering sker.
 
 -   Den **principen för konfliktlösning** är en säkerhetsnivå för gruppen, som kan vara *Hub wins* eller *medlem wins*.
-
-## <a name="when-to-use-data-sync"></a>När du ska använda datasynkronisering
-
-Datasynkronisering är användbart i fall där data ska hållas uppdaterad över flera Azure SQL-databaser eller SQL Server-databaser. Här är huvudsakliga användningsområden för Data Sync:
-
--   **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala databaser och Azure SQL-databaser för att möjliggöra hybridprogram med Data Sync. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
-
--   **Distribuerade program:** I många fall är det bra att separera olika arbetsbelastningar på olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
-
--   **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
-
-Datasynkronisering är inte det en bättre lösningen för följande scenarier:
-
-| Scenario | Några av de rekommenderade lösningar |
-|----------|----------------------------|
-| Haveriberedskap | [Azure geo-redundanta säkerhetskopieringar](sql-database-automated-backups.md) |
-| Läsa skala | [Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)](sql-database-read-scale-out.md) |
-| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
-| Migrering från en lokal SQLServer till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
-|||
 
 ## <a name="how-does-data-sync-work"></a>Hur fungerar Data Sync? 
 

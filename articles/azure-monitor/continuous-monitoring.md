@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117273"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214461"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -47,7 +47,7 @@ Program är bara lika tillförlitlig som den underliggande infrastrukturen. Med 
 - Lägg till [övervakningslösningar](insights/solutions-inventory.md) för olika program och tjänster i din miljö.
 
 
-[Infrastruktur som kod](/devops/learn/what-is-infrastructure-as-code) är hantering av infrastrukturen i en beskrivande modell, med samma versionshantering som DevOps-team för källkoden. Den lägger till tillförlitlighet och skalbarhet för din miljö och gör att du kan använda liknande processer som används för att hantera dina program.
+[Infrastruktur som kod](/azure/devops/learn/what-is-infrastructure-as-code) är hantering av infrastrukturen i en beskrivande modell, med samma versionshantering som DevOps-team för källkoden. Den lägger till tillförlitlighet och skalbarhet för din miljö och gör att du kan använda liknande processer som används för att hantera dina program.
 
 -  Använd [Resource Manager-mallar](platform/template-workspace-configuration.md) att aktivera övervakning och konfigurera aviseringar via ett stort antal resurser.
 - Använd [Azure Policy](../governance/policy/overview.md) till tillämpar olika regler på resurserna. Detta säkerställer att resurserna följer företagets standarder och serviceavtal. 
@@ -63,7 +63,7 @@ Kontinuerlig integrering / kontinuerlig distribution kan du automatiskt vill int
 
 
 - Använd [Azure Pipelines](/azure/devops/pipelines) kan implementera kontinuerlig distribution och automatisera hela processen från kodbekräftelse till produktion baserat på dina CI/CD-tester.
-- Använd [kvalitet Gates](/devops/pipelines/release/approvals/gates) att integrera övervakning i din före eller efter distributionen. Detta säkerställer att du uppfyller health/prestandarelaterade nyckeltal (KPI: er) som dina program flyttar från utveckling till produktion och eventuella skillnader i infrastruktursmiljö eller skalning inte negativt påverka din KPI: er.
+- Använd [kvalitet Gates](/azure/devops/pipelines/release/approvals/gates) att integrera övervakning i din före eller efter distributionen. Detta säkerställer att du uppfyller health/prestandarelaterade nyckeltal (KPI: er) som dina program flyttar från utveckling till produktion och eventuella skillnader i infrastruktursmiljö eller skalning inte negativt påverka din KPI: er.
 - [Underhålla separata övervakning instanser](../azure-monitor/app/separate-resources.md) mellan dina olika distributionsmiljöer som utveckling, testning, Kanarieöarna och Prod. Detta säkerställer att insamlade data är relevanta för associerade program och infrastruktur. Om du behöver att korrelera data mellan miljöer kan du använda [flera resource diagrammen i Metrics Explorer](../azure-monitor/platform/metrics-charts.md) eller skapa [mellan resurser frågor i Log Analytics](log-query/cross-workspace-query.md).
 
 

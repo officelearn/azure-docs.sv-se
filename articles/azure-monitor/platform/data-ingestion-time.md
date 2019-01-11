@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: d8d8e344ce9ee317a7f864492514162b1dc085f9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883459"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213135"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tid för inmatning av data i Log Analytics
 Azure Log Analytics är en tjänst för hög skala i Azure Monitor som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar innan data blir tillgängliga i Log Analytics när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
@@ -46,7 +46,7 @@ Agenter och lösningar för hantering kan du använda olika strategier för att 
 För att säkerställa Log Analytics-agenten är enkel, agenten buffrar loggar och överför dem regelbundet till Log Analytics. Ladda upp frekvens varierar mellan 30 sekunder och 2 minuter beroende på vilken typ av data. De flesta data har överförts under 1 minut. Nätverksförhållanden kan negativt påverka svarstiden för dessa data för att nå inläsningspunkten för Log Analytics.
 
 ### <a name="azure-logs-and-metrics"></a>Azure loggar och mått 
-Aktivitetsloggdata tar cirka 5 minuter ska bli tillgänglig i Log Analytics. Data från diagnostikloggar och mått kan det ta 1 – 5 minuter att bli tillgängliga, beroende på Azure-tjänsten. Sedan tar en ytterligare mellan 30 och 60 sekunder för loggar och 3 minuter för mått för data som ska skickas till Log Analytics inläsningspunkten.
+Aktivitetsloggdata tar cirka 5 minuter ska bli tillgänglig i Log Analytics. Data från diagnostikloggar och mått kan det ta 1 – 15 minuter att bli tillgängliga för bearbetning, beroende på Azure-tjänsten. När den är tillgänglig, tar sedan en ytterligare mellan 30 och 60 sekunder för loggar och 3 minuter för mått för data som ska skickas till Log Analytics inläsningspunkten.
 
 ### <a name="management-solutions-collection"></a>Hantering av lösningar samling
 Vissa lösningar samlar inte in data från en agent och använder en samling-metod som medför en ytterligare fördröjning. Vissa lösningar samla in data med jämna mellanrum utan försök nästan i realtid samling. Specifika exempel är följande:
@@ -73,22 +73,60 @@ Den här processen tar för närvarande cirka 5 minuter om det finns låg volym 
 
 
 ## <a name="checking-ingestion-time"></a>Kontrollera inmatningen tid
-Du kan använda den **pulsslag** tabell för att få en uppskattning av svarstid för data från agenter. Eftersom pulsslag skickas en gång en minut, skillnaden mellan aktuell tid och den sista posten för pulsslag ska helst vara så nära lite som möjligt.
+Datainmatning tiden kan variera för olika resurser under olika omständigheter. Du kan använda loggfrågor för att identifiera specifika beteendet för din miljö.
 
-Använd följande fråga listar du datorerna med den högsta svarstiden.
+### <a name="ingestion-latency-delays"></a>Datainmatning svarstid fördröjningar
+Du kan mäta svarstiden för en viss post genom att jämföra resultatet av den [ingestion_time()](/azure/kusto/query/ingestiontimefunction) funktionen för att den _TimeGenerated_ fält. Dessa data kan användas med olika aggregeringar för att hitta hur datainmatningssvarstid fungerar. Granska vissa: e percentilen inmatning tid att hämta insikter för stora mängder data. 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
+Till exempel visar följande fråga du vilka datorer hade den högsta tiden för inmatning under den aktuella dagen: 
 
+``` Kusto
+Heartbeat
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+```
  
-Använd följande fråga i stora miljöer sammanfatta svarstiden för olika procentandelar av totalt antal datorer.
+Använd följande fråga där informationen även visualiseras i ett diagram om du vill öka detaljnivån för inmatning tiden för en specifik dator under en viss tidsperiod: 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart  
+```
+ 
+Använd följande fråga för att visa datortiden för inmatning av land de befinner sig i som baseras på deras IP-adress: 
 
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+```
+ 
+Olika datatyper från agenten kan ha olika inmatning svarstid tid så att de tidigare frågorna kan användas med andra typer. Använd följande fråga för att undersöka inmatning tidpunkten för olika Azure-tjänster: 
 
+``` Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+```
+
+### <a name="resources-that-stop-responding"></a>Resurser som inte svarar 
+I vissa fall kan en resurs sluta skicka data. För att förstå om en resurs skickar data eller inte, titta på dess senaste post som kan identifieras av standarden _TimeGenerated_ fält.  
+
+Använd den _pulsslag_ tabell för att kontrollera tillgängligheten för en virtuell dator eftersom ett pulsslag skickas en gång i minuten av agenten. Använd följande fråga för att lista de aktiva datorer som inte har rapporterat pulsslag nyligen: 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs den [servicenivåavtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) för Log Analytics.

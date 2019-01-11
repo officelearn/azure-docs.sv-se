@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990968"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214495"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en Linux-dator med Accelererat nätverk
 
@@ -31,14 +31,14 @@ I den här självstudien får du lära dig hur du skapar en Linux-dator (VM) med
 
 Alla nätverkstrafiken och från den virtuella datorn måste passera värden och den virtuella växeln utan accelererat nätverk. Den virtuella växeln tillhandahåller alla tvingande, till exempel nätverkssäkerhetsgrupper, åtkomstkontrollistor, isolering och andra virtualiserade nätverkstjänster nätverkstrafik. Mer information om virtuella växlar den [Hyper-V-nätverksvirtualisering och virtuella växeln](https://technet.microsoft.com/library/jj945275.aspx) artikeln.
 
-Med accelererat nätverk trafik anländer till den Virtuella datorns nätverksgränssnitt (NIC) och sedan vidarebefordras till den virtuella datorn. Alla nätverksprinciper som gäller för den virtuella växeln Avlastade nu och tillämpas i maskinvara. Tillämpa principen i maskinvara kan nätverkskort för att vidarebefordra trafik direkt till den virtuella datorn, vilket kringgår värden och den virtuella växeln, samtidigt som den principen som det tillämpas på värden.
+Med accelererat nätverk trafik anländer till den virtuella datorns nätverksgränssnitt (NIC) och sedan vidarebefordras till den virtuella datorn. Alla nätverksprinciper som gäller för den virtuella växeln Avlastade nu och tillämpas i maskinvara. Tillämpa principen i maskinvara kan nätverkskort för att vidarebefordra trafik direkt till den virtuella datorn, vilket kringgår värden och den virtuella växeln, samtidigt som den principen som det tillämpas på värden.
 
-Fördelarna med accelererat nätverk gäller endast för den virtuella datorn som den är aktiverad på. För bästa resultat är det perfekt för att aktivera den här funktionen på minst två virtuella datorer är anslutna till samma Azure Virtual Network (VNet). Vid kommunikation mellan virtuella nätverk eller ansluta lokala har den här funktionen minimal påverkan på Total svarstid.
+Fördelarna med accelererat nätverk gäller endast för den virtuella datorn som den är aktiverad på. För bästa resultat är det perfekt för att aktivera den här funktionen på minst två virtuella datorer är anslutna till samma Azure virtuella nätverk (VNet). Vid kommunikation mellan virtuella nätverk eller ansluta lokala har den här funktionen minimal påverkan på Total svarstid.
 
 ## <a name="benefits"></a>Fördelar
-* **Lägre latens / högre paket per sekund (pps):** ta bort den virtuella växeln från datapath tar bort paket tid i värden för behandling av princip för och ökar antalet paket som kan bearbetas i den virtuella datorn.
-* **Minskar jitter:** virtuella växeln bearbetning beror på mängden principinformation som måste installeras och arbetsbelastningen processorkraft som klarar bearbetningen. Avlastning av principtillämpning till maskinvara tar bort den variationen genom att tillhandahålla paket direkt till den virtuella datorn, ta bort värden till VM-kommunikation och all programvara avbrott och kontext växlar.
-* **Minskar CPU-användning:** kringgår den virtuella växeln på värden leder till färre CPU-belastningen för bearbetning av nätverkstrafik.
+* **Lägre latens / högre paket per sekund (pps):** Ta bort den virtuella växeln från datapath tar bort paket tid i värden för behandling av princip för och ökar antalet paket som kan bearbetas i den virtuella datorn.
+* **Reducerat jitter:** Virtuell växel bearbetning beror på mängden principinformation som måste installeras och arbetsbelastningen processorkraft som klarar bearbetningen. Avlastning av principtillämpning till maskinvara tar bort den variationen genom att tillhandahålla paket direkt till den virtuella datorn, ta bort värden till VM-kommunikation och all programvara avbrott och kontext växlar.
+* **Minskad CPU-belastning:** Kringgår den virtuella växeln på värden leder till färre CPU-belastningen för bearbetning av nätverkstrafik.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 Följande distributioner stöds direkt från Azure-galleriet: 
@@ -55,15 +55,16 @@ Följande distributioner stöds direkt från Azure-galleriet:
 ### <a name="supported-vm-instances"></a>VM-instanser som stöds
 Accelererat nätverk stöds i de flesta generella och beräkningsoptimerade instansstorlekar med minst 2 virtuella processorer.  Dessa alternativ som stöds är: D/DSv2 och F/Fs
 
-På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Stöds-serier är: D/DSv3, E/ESv3, Fsv2 och Ms-/ Mms.
+På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Serier som stöds är: D/DSv3 E/ESv3, Fsv2 och Ms-/ Mms.
 
 Läs mer på VM-instanser, [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="regions"></a>Regioner
 Tillgängligt i alla offentliga Azure-regioner samt Azure Government-moln.
 
-### <a name="network-interface-creation"></a>Skapa en Network interface 
-Accelererat nätverk kan bara aktiveras för ett nytt nätverkskort. Det går inte att aktivera för ett befintligt nätverkskort.
+<!-- ### Network interface creation 
+Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
+removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Aktivering av Accelererat nätverk på en aktiv virtuell dator
 En VM-storlek som stöds utan accelererat nätverk aktiverat kan bara ha funktionen aktiverad när den stoppas och frigörs.  
 ### <a name="deployment-through-azure-resource-manager"></a>Distribution via Azure Resource Manager

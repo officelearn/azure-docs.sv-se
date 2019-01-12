@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: hector.linares
-ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.reviewer: hectorl
+ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191537"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243652"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer som distribueras på Azure Stack
 
@@ -53,7 +53,7 @@ Varje Azure Stack-molnet har distribuerats till ett datacenter. Det krävs en se
 
 Planera din strategi för säkerhetskopiering, återställning och katastrofåterställning för varje program att fastställa mål för varje program. En återställningsplan hjälper din organisation korrekt storlek storage kapacitet som krävs för lokala platser och projekt förbrukning i det offentliga molnet.
 
-|  | Global Azure | Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N | Azure Stack som distribueras i kundernas datacenter och drivs av kunden |
+|  | Globalt Azure | Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N | Azure Stack som distribueras i kundernas datacenter och drivs av kunden |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **Azure Stack som distribueras till CSP-datacentret och drivs av CSP: N** | Användare VMs distribueras till CSP drivs Azure Stack.<br><br>Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | CSP: N fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter.<br><br>Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. | CSP: N fungerar Azure Stack på den primära platsen.<br><br>Kundens datacenter är målet för återställning eller redundans. |
 | **Azure Stack som distribueras i kundernas datacenter och drivs av kunden** | Användare VMs distribueras till kunden drivs av Azure Stack.<br><br>Användare VMs återställts från en säkerhetskopia eller växlas över direkt till Azure. | Kunden fungerar Azure Stack på den primära platsen.<br><br>CSP-datacenter är målet för återställning eller redundans. | Kunden fungerar de primära och sekundära instanserna av Azure Stack i sina egna datacenter.<br><br>Användare VMs återställas eller redundansväxlats mellan två Azure Stack-instanser. |

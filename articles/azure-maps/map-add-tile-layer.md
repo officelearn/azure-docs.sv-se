@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b61602d221c71fd756a23f338f2817561e9f5d09
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8e18822fff852a82b367acfa45e3d55048b4e54c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215090"
+ms.locfileid: "54232608"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägg till en bildrutsskikt på en karta
 
@@ -27,7 +27,7 @@ En panel layer belastning i paneler från en server. Dessa avbildningar kan vara
 * Angränsande ruta – avgränsar koordinater för avgränsningsfält kan användas för att ange en bild i formatet `{west},{south},{east},{north}` som ofta används av [Web mappning Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) är ett bra sätt att visualisera stora datauppsättningar på kartan. Inte bara en bildrutsskikt genereras från en avbildning, men vektordata kan också återges som en bildrutsskikt för. Av rendering vektordata som en panel-lager, behöver bara i kartkontroll att läsa in, vilka kan vara mycket mindre filstorlek än vektordata som de representerar. Den här tekniken används av många som behöver att återge miljontals rader med data på kartan.
+> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) är ett bra sätt att visualisera stora datauppsättningar på kartan. Inte bara en bildrutsskikt genereras från en avbildning, men vektordata kan också återges som en bildrutsskikt för. Av rendering vektordata som en panel-lager, behöver bara i kartkontroll att läsa in, vilka kan vara mycket mindre filstorlek än vektordata som de representerar. Den här tekniken används av många som behöver att återge miljoner rader med data på kartan.
 
 Panel-URL som skickades till en bildrutsskikt måste vara en http/https-URL till en TileJSON resurs eller en panel URL: en mall som använder följande parametrar: 
 

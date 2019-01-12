@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106689"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244601"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter-anteckningsbok med Python
 
@@ -40,7 +40,7 @@ Slutförda anteckningsboken kan hittas på [GitHub - exempel för Azure-anteckni
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-    - **Projektnamnet**: exempel på linjär Regression – Cricket Chirps
+    - **Projektnamnet**: Exempel på linjär Regression – Cricket Chirps
     - **Projektet ID**: linjär regression exempel
     - **Offentliga projekt**: (avmarkerad)
     - **Skapa en README.md**: (avmarkerad)
@@ -411,17 +411,13 @@ När du är klar med en bärbar dator, använder den **filen** > **Stäng och st
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Felsöka anteckningsböcker som använder Visual Studio Code
 
-Om koden cellerna i anteckningsboken inte fungerar på det sätt som du förväntar dig, kan du ha koden buggar eller andra fel. Men än att använda `print` -uttryck för att visa värdet för variabler, alla felsökning anläggningar inte omfattas av en Jupyter-anteckningsbok.
+Om koden cellerna i anteckningsboken inte fungerar på det sätt som du förväntar dig, kan du ha koden buggar eller andra fel. Men än att använda `print` -uttryck för att visa värdet för variabler, alla felsökning anläggningar inte omfattas av en typisk Jupyter-miljö.
 
-Som tur är kan importera Python-tillägg för Visual Studio Code direkt en Jupyter-anteckningsbok som en enda kodfil med din Markdown-celler i kommentarerna. Du kan sedan köra Visual Studio Code-felsökare för att gå igenom koden, ange brytpunkter, granska tillstånd och så vidare. 
+Som tur är kan du kan ladda ned den bärbara datorn *.ipynb* filen och sedan öppna den i Visual Studio Code med Python-tillägg. Tillägget importerar direkt en bärbar dator som en enda kodfil bevara din Markdown-celler i kommentarerna. När du har importerat anteckningsboken, kan du använda felsökaren för Visual Studio Code för att gå igenom koden, ange brytpunkter, granska tillstånd och så vidare. När du har gjort ändringar i koden du sedan exportera den *.ipynb* från Visual Studio Code och ladda upp den tillbaka till Azure-anteckningsböcker.
 
-När du har gjort ändringar i koden, spara den *.ipynb* filen och överföra den till Azure-anteckningsböcker.
+Mer information finns i [felsöka en Jupyter-anteckningsbok](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) i Visual Studio Code-dokumentationen.
 
-Mer information finns i följande artiklar i Visual Studio Code-dokumentation:
-
-- [Översikt över Jupyter notebooks i VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Python-självstudie – konfigurera och köra felsökaren](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Redigera - Jupyter kod celler](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Se även [Visual Studio Code - stöd för Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) för ytterligare funktioner i Visual Studio Code för Jupyter-anteckningsböcker.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -431,8 +427,8 @@ Instruktionsartiklar:
 
 - [Skapa och klona projekt](create-clone-jupyter-notebooks.md)
 - [Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Installera paket inifrån en notebook-fil](install-packages-jupyter-notebook.md)
 - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-- [Arbeta med filer](work-with-project-data-files.md)
-- [Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Arbeta med datafiler](work-with-project-data-files.md)
+- [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
 - [Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

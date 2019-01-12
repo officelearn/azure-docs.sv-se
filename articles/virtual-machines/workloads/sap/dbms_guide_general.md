@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606766"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246882"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure tillämpar en kvot för IOPS per datadisk. Dessa kvoter är olika för dis
 
 > [!NOTE]
 > För att kunna dra nytta av Azure är unika [enkel VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) alla diskar som är anslutna måste vara av typen Azure Premium Storage, inklusive en bas-VHD.
->
+
+
+> [!NOTE]
+> Det går inte att värden huvuddatabasen (filer data och loggfiler) av SAP-databaser på lagringsmaskinvara som finns i den samordnade från tredje part Datacenter angränsande till Azure-datacenter. För SAP arbetsbelastningen endast storage som representeras som interna Azure har service stöd för data och transaktionen loggfiler SAP-databaser.
+> 
 
 Placeringen av databasfilerna och log/gör om filer och vilken typ av Azure Storage används, måste definieras av krav på IOPS, latens och dataflöde. För att få tillräckligt med IOPS, kan du tvingas att utnyttja flera diskar eller använda en större Premium Storage-disk. Vid att använda flera diskar, skapar du en programvara stripe över diskar som innehåller datafiler eller log/gör om filer. I sådana fall kan är IOPS och diskdataflöde serviceavtal för de underliggande Premium Storage-diskarna eller högsta möjliga IOPS för Azure Standard Storage-diskar ackumulerande för den resulterande stripe-uppsättningen.
 

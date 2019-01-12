@@ -1,6 +1,6 @@
 ---
 title: Azure-säkerhet MVP-programmet | Microsoft Docs
-description: Artikeln innehåller en översikt över Azure-säkerhet bidrag område i MVP-programmet.
+description: Artikeln innehåller en översikt över Azure Security bidrag område i MVP-programmet.
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,23 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: ebe6a6ffec094d535ec38d471ff6036b7379fcb8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5329dcaeb20087412a693d3ebef935fafd6a2b7d
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180750"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246049"
 ---
-# <a name="azure-security-mvp-program"></a>Azure-säkerhet MVP-programmet
+# <a name="azure-security-mvp-program"></a>Azure-säkerhet MVP-Program
 
-Microsoft mest MVP (MVP) är andra som har har visat ändamålsenliga engagemang för att hjälpa andra ut det mesta av sin erfarenhet av Microsoft-teknik. De dela sina passion och verklig kunskap teknisk expertis med gemenskapen och med Microsoft.
+Microsoft Most Valuable Professionals (MVP) är community-ledare som har har visat mån engagemang för att hjälpa andra. MVP: er kan andra för att få ut det mesta av sin erfarenhet av Microsoft-tekniker. De delar sin passion och verklig kunskap teknisk expertis med communityn och Microsoft.
 
-Microsoft Azure kan nu identifiera experter med särskilda kunskaper i Azure-säkerhet. Microsoft MVPs kan tilldelas MVP i Microsoft Azure i Azure-bidrag säkerhetsområde.
+Microsoft Azure kan nu identifiera experter särskild kompetens i Azure-säkerhet. Microsoft MVPs kan tilldelas MVP i Microsoft Azure i området Azure Security bidrag.
 
 ![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 
-När det finns inga prestandamått för att bli en MVP delvis eftersom den varierar efter teknik och det är livscykel, några av kriterierna som innehåller effekten av en kandidat bidrag till onlineforum som Microsoft Answers, TechNet och MSDN; wikisidor och onlineinnehåll; konferenser och användargrupper; poddsändningar, webbplatser, bloggar och sociala medier. och artiklar och böcker.
+Det finns inga prestandamått för att bli en MVP. Detta är delvis eftersom den varierar beroende på teknik och dess livscykel. Några av kriterierna som innehåller:
 
-Är du expert på Azure-säkerhet? Vet du att någon som? Sedan [utse dig själv eller någon annan](https://mvp.microsoft.com/Nomination/nominate-an-mvp) ska bli en Azure-säkerhet MVP idag!
+- Effekten av en kandidat bidrag till onlineforum som Microsoft Answers, TechNet och MSDN
+- Wikis och innehåll online
+- Konferenser och användargrupper
+- Podcaster, webbplatser, bloggar och sociala medier
+- Artiklar och böcker.
+
+Är du expert på Azure-säkerhet? Vet du någon som? Sedan [Nominera dig själv eller någon annan](https://mvp.microsoft.com/Nomination/nominate-an-mvp) ska bli en Azure-säkerhet MVP idag!

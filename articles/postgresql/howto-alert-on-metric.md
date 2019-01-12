@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 26b7e92bf8fa6c42320f604643bc996794ed52ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/11/2019
+ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540732"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243975"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Använda Azure portal för att konfigurera aviseringar i mått för Azure Database för PostgreSQL 
 
@@ -25,48 +25,54 @@ Du kan konfigurera en avisering om att göra följande när den utlöses:
 * Anropa en webhook.
 
 Du kan konfigurera och få information om Varningsregler med:
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Kommandoradsgränssnittet (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en aviseringsregel på ett mått från Azure portal
 1. I den [Azure-portalen](https://portal.azure.com/), väljer Azure Database for PostgreSQL-server som du vill övervaka.
 
-2. Under den **övervakning** avsnittet på sidopanelen, Välj **Aviseringsregler** enligt:
+2. Under den **övervakning** avsnittet på sidopanelen, Välj **aviseringar** enligt:
 
-   ![Välj aviseringsregler](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Välj Aviseringsregler](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Välj **Lägg till metrisk varning** (+ ikonen). 
+3. Välj **Lägg till metrisk varning** (+ ikonen).
 
-4. Den **Lägg till regel** öppnas som på bilden nedan.  Fyll i informationen som krävs:
+4. Den **skapa regeln** öppnas som på bilden nedan. Fyll i informationen som krävs:
 
-   ![Lägg till metrisk varning formulär](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Lägg till metrisk varning formulär](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | Inställning | Beskrivning  |
-   |---------|---------|
-   | Namn | Ange ett namn för regeln. Det här värdet skickas för avisering om e-postmeddelandet. |
-   | Beskrivning | Ange en kort beskrivning av regeln. Det här värdet skickas för avisering om e-postmeddelandet. |
-   | Varning vid | Välj **mått** för den här typen av avisering. |
-   | Prenumeration | Det här fältet innehåller redan den prenumeration som är värd för din Azure Database för PostgreSQL. |
-   | Resursgrupp | Det här fältet innehåller redan resursgruppen för din Azure Database för PostgreSQL. |
-   | Resurs | Det här fältet är innehåller namnet på din Azure Database för PostgreSQL. |
-   | Mått | Välj det mått som du vill skicka en avisering för. Till exempel **lagringsprocent**. |
-   | Tillstånd | Välj det villkor för mått som ska jämföras med. Till exempel **är större än**. |
-   | Tröskelvärde | Tröskelvärde för mått, till exempel 85 (procent). |
-   | Period | Tidsperioden som måttregel måste vara uppfyllda innan aviseringen utlösare. Till exempel **under de senaste 30 minuterna**. |
+5. I den **villkor** väljer **Lägg till villkor**.
 
-   Baseras på exemplet söker aviseringen efter lagringsprocent över 85 procent under en 30-minuters period. Den här aviseringen utlöses när den genomsnittliga procentandelen för lagring har varit över 85 procent under 30 minuter. När den första utlösaren inträffar, utlöser den igen när den genomsnittliga procentandelen för lagring är mindre än 85% över 30 minuter.
+6. Välj ett mått från listan över signaler bli aviserad om. I det här exemplet väljer du ”Storage procent”.
+   
+   ![Välj mått](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. Välj den meddelandemetoden som du vill använda för regeln. 
+7. Konfigurera alert logic, inklusive den **villkor** (ex.) ”Större än”), **tröskelvärdet** (ex.) 85 procent), **tidsmängd**, **Period** tid måttregel måste vara uppfyllda innan aviseringen utlösare (t.ex. ”Under de senaste 30 minuterna”), och **frekvens**.
+   
+   Välj **klar** när du är klar.
 
-   Kontrollera **e-postägare, deltagare och läsare** om du vill prenumerationsadministratörer och medadministratörer för att få e-postaviseringar när aviseringen utlöses.
+   ![Välj mått](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   Om du vill att ytterligare e-postmeddelanden tar emot ett meddelande när aviseringen utlöses, lägga till dem i den **administratören email(s)** fält. Avgränsa flera e-postmeddelanden med semikolon -  *email@contoso.com;email2@contoso.com*
+8. I den **åtgärdsgrupper** väljer **Skapa ny** att skapa en ny grupp om du vill ta emot meddelanden på aviseringen.
 
+9. Fyll i formuläret ”Lägg till åtgärdsgrupp” med ett namn, kort namn, prenumeration och resursgrupp.
+
+10. Konfigurera en **e-post/SMS/Push/röst** åtgärdstyp.
+    
+   Välj ”e-post Azure Resource Manager roll” välja Prenumerationsägare, deltagare och läsare för att ta emot meddelanden.
+   
    Du kan också ange en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
 
-6. Skapa aviseringen genom att välja **OK**.
+   Välj **OK** när du är klar.
+
+   ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. Ange varningsregelns namn, beskrivning och allvarlighetsgrad.
+
+   ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. Välj **skapa varningsregel** att skapa aviseringen.
 
    Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 

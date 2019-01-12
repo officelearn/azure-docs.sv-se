@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238083"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232285"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
@@ -296,7 +296,7 @@ Du är nu redo att konfigurera en tillgänglighetsgrupp med följande steg:
 
     ![Guiden för ny AG, Välj inledande datasynkronisering](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var, **\\\\\<första SQLServer\>\Backup\**. Klicka på **Nästa**.
+8. I den **Välj inledande datasynkronisering** väljer **fullständig** och ange en delad nätverksplats. För plats, använder den [säkerhetskopieringsresursen du skapade](#backupshare). I det här exemplet var,  **\\ \\ \<första SQLServer\>\Backup\\**. Klicka på **Nästa**.
 
    >[!NOTE]
    >Fullständig synkronisering tar en fullständig säkerhetskopiering av databasen på den första instansen av SQL Server och återställer det till den andra instansen. Fullständig synkronisering rekommenderas inte för stora databaser, eftersom det kan ta lång tid. Du kan minska nu genom att manuellt gör en säkerhetskopia av databasen och återställer dem med `NO RECOVERY`. Om databasen har redan återställts med `NO RECOVERY` på andra SQL Server innan du konfigurerar Availability-gruppen, Välj **Anslut bara**. Om du vill säkerhetskopiera när du har konfigurerat Availability-gruppen, Välj **hoppa över inledande datasynkronisering**.

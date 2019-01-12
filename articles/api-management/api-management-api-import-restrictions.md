@@ -14,27 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a4f9147008ceb0de32e0f5879a194b45bd4c6421
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106832"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245403"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-importrestriktioner och kända problem
 ## <a name="about-this-list"></a>Om den här listan
 När du importerar ett API, kan du stöta på vissa begränsningar eller identifiera problem som måste åtgärdas innan du kan importera. Den här artikeln dokument dessa, ordnade efter importformatet för API: et.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Om du får fel importera OpenAPI-dokument, se till att du har godkänt den – antingen med hjälp av designern i Azure portal (Design - Front End - OpenAPI-Specifikationsredigerare), eller med en tredjeparts-verktyget som <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-* Endast JSON-format för OpenAPI stöds.
-* Obligatoriska parametrar i både sökvägen och frågan måste ha unika namn. (I OpenAPI ett parameternamn endast måste vara unika inom en plats, t.ex. sökväg, fråga, rubrik.  Vi kan dock tillåta åtgärder för att vara discriminated efter både sökvägen och frågan parametrar (som inte har stöd för OpenAPI) i API Management. Därför kräver vi parametern som ska vara unikt inom mallen hela URL: en.)
-* Scheman som refereras till med hjälp av **$ref** egenskaper får inte innehålla andra **$ref** egenskaper.
+Om du har fått fel importera OpenAPI-dokument, kontrollera att du har verifierat den i förväg. Du kan göra det antingen med hjälp av designern i Azure portal (Design - Front End - OpenAPI-Specifikationsredigerare) eller med ett verktyg från tredje part som <a href="https://editor.swagger.io">Swagger Editor</a>.
+
+### <a name="open-api-general"> </a>Allmänt
+
+* Obligatoriska parametrar i både sökvägen och frågan måste ha unika namn. (I OpenAPI ett parameternamn endast måste vara unika inom en plats, till exempel sökvägen, fråga, rubrik. I API Management kan vi dock tillåta åtgärder för att vara discriminated efter både sökvägen och frågan parametrar (som OpenAPI inte stöder). That's varför vi kräver att parametern som ska vara unikt inom mallen hela URL: en.)
 * **$ref** pekare kan inte referera till de externa filerna.
 * **x-ms-sökvägar** och **x-servers** är de enda tillägg som stöds.
 * Anpassade tillägg ignoreras för import och inte sparas eller bevaras för export.
-* **Rekursion** -definitioner som är definierade rekursivt (exempelvis referera till sig själva) stöds inte av APIM.
+* **Rekursion** -API Management stöder inte definitioner som definierats rekursivt (till exempel hänvisar till sig själva).
+* Käll-fil-URL (om tillgängligt) tillämpas på relativ URL.
+
+### <a name="open-api-v2"> </a>OpenAPI version 2
+
+* JSON-format stöds.
+
+### <a name="open-api-v3"> </a>OpenAPI version 3
+
+* Om många **servrar** anges, API Management kommer att försöka att välja den första HTTPs-URL. Om det inte finns några webbadresser för HTTPs - första HTTP-URL. Om det inte finns några HTTP-URL: er - serverns URL är tom.
+* **Exempel** stöds inte, men **exempel** är.
+* **Multipart/form-data** stöds inte.
 
 > [!IMPORTANT]
 > Det här [dokumentet](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) innehåller viktig information och tips om OpenAPI-import.

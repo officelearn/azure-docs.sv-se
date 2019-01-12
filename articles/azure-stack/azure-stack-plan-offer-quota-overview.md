@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.reviewer: unknown
+ms.openlocfilehash: 61afc8a736025763f950307fdbb78bb21577b22f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318137"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244213"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Översikt över plan, erbjudande, kvot och prenumeration
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 [Azure Stack](azure-stack-poc.md) kan du leverera en mängd olika tjänster, t.ex. virtuella datorer, SQL Server-databaser, SharePoint, Exchange, och även [Azure Marketplace-objekt](azure-stack-marketplace-azure-items.md). Som Azure Stack-operatör, konfigurera och skicka sådana tjänster i Azure Stack via planer, erbjudanden och kvoter.
 
@@ -67,7 +67,7 @@ När du skapar ett erbjudande, kan tjänstadministratören innehålla en Basplan
 
 Tilläggsplaner finns valfria planer som du lägger till i ett erbjudande. Tilläggsplaner ingår inte som standard i prenumerationen. Tilläggsplaner är ytterligare scheman (med kvoter) tillgängliga i ett erbjudande som en prenumerant kan lägga till prenumerationerna. Du kan exempelvis erbjuda Basplan med begränsade resurser för en utvärderingsversion och en tilläggsplanen med mer omfattande resurser till kunder som väljer att införa tjänsten.
 
-## <a name="offers"></a>Erbjudande
+## <a name="offers"></a>Erbjudanden
 
 Erbjudanden är grupper med en eller flera planer som du skapar så att användare kan prenumerera på dem. Erbjuder Alpha kan exempelvis innehålla Plan A, vilket ger en uppsättning Beräkningstjänster och planera B, som innehåller en uppsättning tjänster för lagring och nätverk.
 

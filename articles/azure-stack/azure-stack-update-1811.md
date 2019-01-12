@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214597"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247630"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -40,9 +40,9 @@ Azure Stack 1811 update build-nummer är **1.1811.0.101**.
 Azure Stack snabbkorrigeringar med jämna mellanrum. Se till att installera den [senaste Azure Stack-snabbkorrigeringen](#azure-stack-hotfixes) för 1809 innan du uppdaterar Azure Stack till 1811.
 
 > [!TIP]  
-> Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+> Prenumerera på följande *RSS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack-snabbkorrigeringar
 
@@ -162,7 +162,7 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
 
 - Den befintliga program-cmdleten för att hämta nycklar för BitLocker-återställning har bytt namn i 1811 från Get-AzsCsvsRecoveryKeys till Get-AzsRecoveryKeys. Mer information om hur du hämtar återställningsnycklar BitLocker finns i [anvisningar om hur du hämtar nycklarna](azure-stack-security-bitlocker.md).
 
-## <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+## <a name="common-vulnerabilities-and-exposures"></a>Vanliga säkerhetsproblem och exponeringar
 
 Den här uppdateringen installeras följande säkerhetsuppdateringar:  
 
@@ -260,6 +260,8 @@ Här följer efter installation kända problem för den här build-versionen.
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    Felet inträffar om du vill aktivera startdiagnostik på en virtuell dator men ta bort ditt lagringskonto för startdiagnostik. Undvik problemet genom att återskapa lagringskontot med samma namn som du använde tidigare.
+
+- När du skapar en [Dv2-serien VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 virtuella datorer kan du skapa 4, 8, 16 och 32 datadiskar respektive. Skapa VM-fönstret visas dock 8, 16, 32 och 64 datadiskar.
 
 <!-- 3235634 – IS, ASDK -->
 - Distribuera virtuella datorer med storlekarna som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, anger du suffix som **Standard_A2_v2** (gemener v). Använd inte **Standard_A2_V2** (versaler V). Detta fungerar i globala Azure och är en inkonsekvens i Azure Stack.

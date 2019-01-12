@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188442"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229480"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -87,9 +87,7 @@ När du har skapat ditt dokument för användningsvillkor använder du följande
 
 1. Om du vill kräva av slutanvändarna läsa villkoren innan de accepterar dem., ange **kräva att användarna expanderar användningsvillkoren** till **på**.
 
-1. Om du vill kräva av slutanvändarna att godkänna dina användningsvillkor på varje enhet som de får från, ange **användare måste samtycka på alla enheter** till **på**.
-
-    Om du inte ser den **användare måste samtycka på alla enheter** inställningen beror det på den här funktionen inte har ännu distribuerats till din region. Den här funktionen förväntas distribueras helt med början januari 2019. Mer information finns i [Per enhet användningsvillkor](#per-device-terms-of-use).
+1. Om du vill kräva av slutanvändarna att godkänna dina användningsvillkor på varje enhet som de får från, ange **användare måste samtycka på alla enheter** till **på**. Mer information finns i [Per enhet användningsvillkor](#per-device-terms-of-use).
 
 1. Om du vill ska upphöra användningsvillkor godkänner enligt ett schema genom att ange **upphör att gälla medgivanden** till **på**. När värdet på visas två ytterligare schemainställningar.
 
@@ -253,9 +251,6 @@ Följande procedur beskriver hur du lägger till användningsvillkor Använd spr
 ## <a name="per-device-terms-of-use"></a>Per enhet användningsvillkor
 
 Den **användare måste samtycka på alla enheter** inställningen gör det möjligt för dig att slutanvändaren måste godkänna dina användningsvillkor på varje enhet som de får från. Användaren kommer att behöva ansluta sina enheter i Azure AD. När enheten är ansluten, används enhets-ID för att framtvinga användningsvillkoren på varje enhet.
-
-> [!NOTE]
-> Om du inte ser den **användare måste samtycka på alla enheter** inställningen när du skapar nya användningsvillkor, beror det på den här funktionen inte har ännu distribuerats till din region. Den här funktionen förväntas distribueras helt med början januari 2019.
 
 Här är en lista över plattformar som stöds och programvara.
 

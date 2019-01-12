@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040752"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230602"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -36,6 +36,19 @@ Log Analytics är aktiverat och hanteras i Azure-portalen. Öppna Azure portal i
     * Om du vill skapa en arbetsyta kan du ange ett namn, en resursgrupp och en plats.
 1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera. Som standard den *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare* loggar är aktiverade. Du kan aktivera ytterligare loggar som *kube-granskning* och *kluster autoskalningen*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics är aktiverade.
 1. När du är klar väljer **spara** att aktivera insamling av valda loggarna.
+
+> [!NOTE]
+> AKS samlar endast in granskningsloggar för kluster som skapas eller uppgraderas efter att en funktionsflagga har aktiverats på din prenumeration. Att registrera den *AKSAuditLog* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+>
+> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
+>
+> Vänta på status för att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan] [ az-feature-list] kommando:
+>
+> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
+>
+> När du är klar kan du uppdatera registreringen av resursprovidern AKS med hjälp av den [az provider register] [ az-provider-register] kommando:
+>
+> `az provider register --namespace Microsoft.ContainerService`
 
 I följande exempel portal skärmbild visas den *diagnostikinställningar* fönstret och sedan på alternativet för att skapa en Log Analytics-arbetsyta:
 
@@ -133,3 +146,6 @@ I den här artikeln har du lärt dig hur du aktiverar och granska loggarna för 
 [analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957433"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247591"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-referens
 
-Modulen: Microsoft.AzureStack.ReadinessChecker
+Modul: Microsoft.AzureStack.ReadinessChecker
 
 Den här modulen innehåller endast en enda cmdlet.  Denna cmdlet utför en eller flera före eller före Underhåll funktioner för Azure Stack.
 
@@ -169,7 +169,7 @@ Den **Start AzsReadinessChecker** cmdlet verifierar certifikat, Azure-konton, Az
 
 ## <a name="examples"></a>Exempel
 
-### <a name="example-generate-certificate-signing-request"></a>Exempel: Generera en förfrågan om Certifikatsignering
+### <a name="example-generate-certificate-signing-request"></a>Exempel: Skapa förfrågan om Certifikatsignering
 
 ```PowerShell
 $regionName = 'east'
@@ -213,7 +213,7 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName eas
 
 I det här exemplet skapas en hash-tabell med sökvägar och lösenord för att varje PaaS-certifikat. Certifikat kan utelämnas. Start-AzsReadinessChecker kontrollerar varje PFX-sökvägen finns och verifierar dem med hjälp av regionen ”östra” och externa FQDN 'azurestack.contoso.com'.
 
-### <a name="example-validate-paas-certificates-with-deployment-data"></a>Exempel: Verifiera PaaS-certifikat med distributionsdata
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>Exempel: Certifikatsverifiering med data för PaaS
 
 ```PowerShell
 $PaaSCertificates = @{
@@ -228,7 +228,7 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 
 I det här exemplet skapas en hash-tabell med sökvägar och lösenord för att varje PaaS-certifikat. Certifikat kan utelämnas. Start-AzsReadinessChecker kontrollerar varje PFX-sökvägen finns och verifierar dem med hjälp av regionen och externa FQDN läsa från JSON-filen distribution data genereras för distribution. 
 
-### <a name="example-validate-azure-identity"></a>Exempel: Bekräfta Azure identitet
+### <a name="example-validate-azure-identity"></a>Exempel: Verifiera Azure identity
 
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -268,7 +268,7 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 I det här exemplet Prenumerationens ägare autentiseringsuppgifter uppmanas på ett säkert sätt och Start-AzsReadinessChecker utför sedan verifieras mot det angivna kontot och prenumeration för att kontrollera att den kan användas för Azure Stack-registrering där ytterligare information är läsa från den distribution data JSON-fil som genererats för distributionen.
 
-### <a name="example-importexport-pfx-package"></a>Exempel: Import/Export PFX-paket
+### <a name="example-importexport-pfx-package"></a>Exempel: Importera/exportera PFX-paket
 
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString

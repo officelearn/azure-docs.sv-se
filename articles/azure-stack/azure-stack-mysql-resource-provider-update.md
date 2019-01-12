@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 790a8bfed693f03cdadd036cab17eb94dee1c1ed
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.reviewer: jiahan
+ms.openlocfilehash: 9f53dbd3546fcd3f761338664179b42fce5be200
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119299"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246032"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Uppdatera MySQL-resursprovider 
 
 *Gäller för: Integrerade Azure Stack-system.*
 
-En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har uppdaterats. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt. 
+En ny MySQL-resursprovideradaptern kan släppas när Azure Stack bygger uppdateras. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt. 
 
-> [!IMPORTANT]
-> Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+Från och med MySQL resource provider version 1.1.33.0, uppdateringar är kumulativa och behöver inte installeras i den ordning som de släpptes; Så länge som startar från version 1.1.24.0 eller senare. Till exempel om du kör version 1.1.24.0 av MySQL-resursprovider, kan du uppgradera till version 1.1.33.0 eller senare utan att behöva installera version 1.1.30.0. Om du vill granska tillgängliga resursgrupper providerversioner och versionen av Azure Stack som de kan användas för att referera till listan över versioner i [distribuera resource provider krav](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Uppdatera MySQL-resursprovideradaptern (endast integrerade system)
-
-En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har uppdaterats. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt.  
- 
 Uppdatering av resursprovidern som du använder den **UpdateMySQLProvider.ps1** skript. Processen påminner om en process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuerar resursprovidern](#deploy-the-resource-provider) i den här artikeln. Skriptet ingår hämtning av resursprovidern. 
+
+ > [!IMPORTANT]
+ > Innan du uppgraderar resursprovidern Läs den viktiga informationen för att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
+
+## <a name="update-script-processes"></a>Uppdatera skript processer
 
 Den **UpdateMySQLProvider.ps1** skriptet skapar en ny virtuell dator med den senaste resource provider koden och migrerar inställningarna från den gamla virtuella datorn till den nya virtuella datorn. De inställningar som migreras inkluderar databasen och som är värd för serverinformation nödvändiga DNS-posten. 
 
@@ -43,7 +43,27 @@ Den **UpdateMySQLProvider.ps1** skriptet skapar en ny virtuell dator med den sen
 
 Skriptet måste använda samma argument som beskrivs för DeployMySqlProvider.ps1-skriptet. Ange certifikat här också.  
 
-Följande är ett exempel på den *UpdateMySQLProvider.ps1* skript som du kan köra från PowerShell-prompten. Tänk på att ändra kontoinformation och lösenord efter behov:  
+
+## <a name="update-script-parameters"></a>Uppdatera Skriptparametrar 
+Du kan ange följande parametrar från kommandoraden när du kör den **UpdateMySQLProvider.ps1** PowerShell-skript. Om du inte, eller om någon parameter-valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna. 
+
+| Parameternamn | Beskrivning | Kommentar eller standardvärde | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _Krävs_ | 
+| **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ | 
+| **VMLocalCredential** |Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ | 
+| **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ | 
+| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure AD, **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Din .pfx-certifikatfil måste placeras i den här katalogen samt. | _Valfritt_ (_obligatoriska_ för flera noder) | 
+| **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ | 
+| **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 | 
+| **RetryDuration** | Timeout-intervall mellan försök i sekunder. | 120 | 
+| **Avinstallera** | Ta bort resursprovidern och alla associerade resurser (se nedan). | Nej | 
+| **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej | 
+| **AcceptLicense** | Hoppar över uppmaningen om att acceptera licensen GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+
+## <a name="update-script-example"></a>Uppdatera exempel på skript
+Följande är ett exempel på hur du använder den *UpdateMySQLProvider.ps1* skript som du kan köra från en upphöjd PowerShell-konsol. Tänk på att ändra Variabelinformation och lösenord efter behov:  
 
 > [!NOTE] 
 > Uppdateringen gäller endast för integrerade system. 
@@ -92,26 +112,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
-``` 
- 
-### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parametrar 
-Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon parameter-valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna. 
-
-| Parameternamn | Beskrivning | Kommentar eller standardvärde | 
-| --- | --- | --- | 
-| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _Krävs_ | 
-| **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ | 
-| **VMLocalCredential** |Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ | 
-| **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ | 
-| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Din .pfx-certifikatfil måste placeras i den här katalogen samt. | _Valfritt_ (_obligatoriska_ för flera noder) | 
-| **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ | 
-| **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 | 
-| **RetryDuration** | Timeout-intervall mellan försök i sekunder. | 120 | 
-| **Avinstallera** | Ta bort resursprovidern och alla associerade resurser (se nedan). | Nej | 
-| **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej | 
-| **AcceptLicense** | Hoppar över uppmaningen om att acceptera licensen GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
- 
+```  
 
 ## <a name="next-steps"></a>Nästa steg
 [Underhålla MySQL-resursprovider](azure-stack-mysql-resource-provider-maintain.md)

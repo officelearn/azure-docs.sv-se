@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: eed545c88b840f942ad763793595ef5b9c3cd19d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 69c4f08d93ee87a93d575d60e12890a0aebb1807
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233702"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244927"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft-tjänster i Cybersäkerhet
 
-Microsoft Services tillhandahåller en omfattande metod för säkerhet, identitet och cybersäkerhet. Microsoft Services ger en matris med säkerhets-och Identitetstjänster över strategi, planering, implementering och kontinuerlig support. De här tjänsterna hjälper företagskunder som implementerar heltäckande säkerhetslösningar som överensstämmer med deras strategiska mål.
+Microsoft Services tillhandahåller en omfattande metod för säkerhet, identitet och cybersäkerhet. De innehåller en matris med säkerhets-och Identitetstjänster över strategi, planering, implementering och kontinuerlig support. De här tjänsterna hjälper företagskunder implementera säkerhetslösningar som överensstämmer med deras strategiska mål.
 
-Direkt åtkomst till produkten utvecklingsteam kan vi skapa lösningar som kan integreras och förbättra de senaste funktionerna för säkerhet och identitet på våra produkter för att skydda våra kunders företag och Driv på innovationer.
+Microsoft-tjänster kan skapa lösningar som kan integreras och förbättra de senaste funktionerna för säkerhet och identitet på våra produkter för att skydda ditt företag och Driv på innovationer.
 
-Ansvarar för att skydda och aktivera världens största organisationer, våra olika grupp av IT-tekniker som består av mycket tränade experter som ger en uppsjö av säkerhets- och identitetsupplevelse.
+Vårt team med tekniker består av mycket tränade experter som ger en uppsjö av säkerhets- och identitetsupplevelse.
 
 Läs mer om tjänster som tillhandahålls av Microsoft Services:
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 21689cf7fe3df7ca7e362ba49824fadd5daaa3ea
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888782"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231742"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägga till HTML-markeringar på kartan
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du lägger till en anpassad HTML till exempel en bil
 > HTML-markeringar ansluter inte till datakällor. I stället position information läggs direkt till markörens och markören har lagts till i maps `markers` egenskap som är en [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Till skillnad från de flesta lager i Azure Maps webbkontrollen som använder WebGL för rendering använder HTML-markeringar traditionella DOM-element för rendering. Det innebär mer HTML-markörer lagt till en sida, mer DOM-element som finns. Prestanda kan försämras när du lagt till några hundered HTML-markörer. Överväg att antingen klustring dina data eller med en Symbol- eller bubbeldiagram lager för större datauppsättningar.
+> Till skillnad från de flesta lager i Azure Maps webbkontrollen som använder WebGL för rendering använder HTML-markeringar traditionella DOM-element för rendering. Det innebär mer HTML-markörer lagt till en sida, mer DOM-element som finns. Prestanda kan försämras när du lagt till några hundra HTML-markörer. Överväg att antingen klustring dina data eller med en Symbol- eller bubbeldiagram lager för större datauppsättningar.
 
 ## <a name="add-an-html-marker"></a>Lägg till en HTML-markör
 

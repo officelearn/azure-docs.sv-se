@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191827"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229310"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
@@ -144,7 +144,7 @@ Slutligen, markera kryssrutan bredvid **GetWebContent** i den *värden* att fyll
 
 ![Azure Storage-serverstatiska webbplatser mått GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-Ett aktiverat trafik statistik på filer i den *$web* behållare som rapporteras i instrumentpanelen för hälsostatistik.
+När du har aktiverat, trafik statistik på filer i den *$web* behållare rapporteras i instrumentpanelen för hälsostatistik.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

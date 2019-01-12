@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122827"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242360"
 ---
 Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/azure-monitor/app/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Du kan konfigurera och övervaka mängden [diagnostikdata](https://docs.microsof
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md) baserat på specifika prestandamått. Exempel på de problem som du kan bli aviserad om är när Genomsnittlig CPU-användning överskrider ett visst tröskelvärde eller tillgängligt diskutrymme sjunker under ett visst belopp. Aviseringar kan konfigureras i den [Azure-portalen](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)med hjälp av [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), eller [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md) baserat på specifika prestandamått. Exempel på de problem som du kan bli aviserad om är när Genomsnittlig CPU-användning överskrider ett visst tröskelvärde eller tillgängligt diskutrymme sjunker under ett visst belopp. Aviseringar kan konfigureras i den [Azure-portalen](../articles/azure-monitor/platform/alerts-classic-portal.md)med hjälp av [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), eller [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 

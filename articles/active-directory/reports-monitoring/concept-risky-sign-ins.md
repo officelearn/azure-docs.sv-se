@@ -14,18 +14,18 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623867"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244723"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 
-Azure Active Directory (Azure AD) identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd, en post med namnet en **riskhändelsen** har skapats. Mer information finns i [Azure AD-riskhändelser](concept-risk-events.md). 
+Azure Active Directory (Azure AD) identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post med namnet **riskhändelse**. Mer information finns i [Azure AD-riskhändelser](concept-risk-events.md). 
 
-Du kan komma åt säkerhetsrapporter från den [Azure-portalen](https://portal.azure.com) genom att välja den **Azure Active Directory** bladet och sedan navigera till den **Security** avsnittet. 
+Du kan komma åt säkerhetsrapporterna via [Azure-portalen](https://portal.azure.com) genom att välja bladet **Azure Active Directory** och sedan navigera till avsnittet **Säkerhet**. 
 
 Det finns två olika säkerhetsrapporter som beräknas utifrån riskhändelser:
 
@@ -35,7 +35,7 @@ Det finns två olika säkerhetsrapporter som beräknas utifrån riskhändelser:
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/10.png)
 
-Läs hur du konfigurerar principer som utlöser dessa riskhändelser i [så här konfigurerar du principen för användarrisk](../identity-protection/howto-user-risk-policy.md).  
+Information om hur du konfigurerar principer som utlöser dessa riskhändelser finns i [Konfigurera riskprincipen för användare](../identity-protection/howto-user-risk-policy.md).  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Vem som kan komma åt rapporten över riskfyllda inloggningar?
 
@@ -53,7 +53,7 @@ Alla utgåvor av Azure AD ger rapporter över riskfyllda inloggningar. Nivån av
 
 - I den **versionerna Azure Active Directory Free och Basic**, visas en lista över riskfyllda inloggningar. 
 
-- Dessutom kan den **Azure Active Directory Premium 1** edition kan du undersöka några av de underliggande riskhändelser som har identifierats för varje rapport. 
+- Dessutom kan du med utgåvan **Azure Active Directory Premium 1** utforska några av de underliggande riskhändelser som har identifierats för varje rapport. 
 
 - Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om alla underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
 
@@ -85,12 +85,11 @@ Den här rapporten innehåller också ett alternativ för att:
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapporten om riskfyllda inloggningar för Azure AD premium-versioner
 
 Rapporten över riskfyllda inloggningar i Azure AD premium-versionerna ger dig:
 
-- Sammanställd information om de [riskhändelsetyper](concept-risk-events.md) som har identifierats
+- Sammanställd information om den [riskhändelsetyper](concept-risk-events.md) som har identifierats. Med den **Azure AD Premium P1 edition**, identifieringar som inte omfattas av din licens visas som riskhändelsen **inloggning med identifierad ytterligare risk**. Med den **Azure AD Premium P2-versionen**, du får den mest detaljerade informationen om alla underliggande identifieringar.
 
 - Ett alternativ för att ladda ned rapporten
 
@@ -127,6 +126,6 @@ Detta öppnar bladet **Information** för den här riskhändelsen. På bladet **
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här konfigurerar du principen för användarrisk](../identity-protection/howto-user-risk-policy.md)
-- [Konfigurera princip för användarrisk-reparation](../identity-protection/howto-user-risk-policy.md)
+- [Konfigurera riskprincipen för användare](../identity-protection/howto-user-risk-policy.md)
+- [Konfigurera riskåtgärdsprincipen](../identity-protection/howto-user-risk-policy.md)
 - [Typer av riskhändelser](concept-risk-events.md)

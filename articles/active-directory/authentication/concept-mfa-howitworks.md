@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4e1dc4ded48330f19a11db193fa5fe400326b420
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114166"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232829"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -27,7 +27,7 @@ Säkerheten för tvåstegsverifiering ligger i dess lager. En stor utmaning ange
 
 <center>![Konceptuell autentisering metoder bild](./media/concept-mfa-howitworks/methods.png)</center>
 
-Azure Multi-Factor Authentication (MFA) hjälper dig att skydda åtkomsten till data och program samtidigt som förenklar för användare. Det ger ökad säkerhet genom att kräva ett andra formen av autentisering och ger stark autentisering via en mängd lättanvända [autentiseringsmetoder](concept-authentication-methods.md).
+Azure Multi-Factor Authentication (MFA) hjälper dig att skydda åtkomsten till data och program samtidigt som förenklar för användare. Det ger ökad säkerhet genom att kräva ett andra formen av autentisering och ger stark autentisering via en mängd lättanvända [autentiseringsmetoder](concept-authentication-methods.md). Användare kan eller inte kan angripas för MFA baserat på konfigurationsbeslut som administratören gör.
 
 ## <a name="how-to-get-multi-factor-authentication"></a>Hur du hämtar Multi-Factor Authentication?
 

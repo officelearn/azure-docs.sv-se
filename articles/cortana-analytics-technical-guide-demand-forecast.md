@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427071"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231180"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till lösningsmallen Cortana Intelligence för begäran Prognostisera i energi
 ## <a name="overview"></a>**Översikt**
@@ -163,8 +163,8 @@ Följande steg hjälper dig hur du visualisera data i realtid utdata från Strea
 
 1. Lägg till Power BI-utdata i Azure Stream Analytics (ASA).
 
-   * Du måste följa anvisningarna i [Azure Stream Analytics och Power BI: en instrumentpanel för analys i realtid för realtid för strömmande data](stream-analytics/stream-analytics-power-bi-dashboard.md) att konfigurera utdata för din Azure Stream Analytics-jobb som Power BI-instrumentpanel .
-   * Leta upp stream analytics-jobbet i din [Azure-portalen](https://portal.azure.com). Namnet på jobbet ska vara: YourSolutionName + ”streamingjob” + slumpmässigt nummer + ”asapbi” (dvs. demostreamingjob123456asapbi).
+   * Du måste följa anvisningarna i [Azure Stream Analytics och Power BI: En instrumentpanel för analys i realtid för realtid för strömmande data](stream-analytics/stream-analytics-power-bi-dashboard.md) att ställa in utdata från ditt Azure Stream Analytics-jobb som Power BI-instrumentpanelen.
+   * Leta upp stream analytics-jobbet i din [Azure-portalen](https://portal.azure.com). Namnet på jobbet bör vara: YourSolutionName + ”streamingjob” + slumpmässigt nummer + ”asapbi” (dvs. demostreamingjob123456asapbi).
    * Lägg till en Power BI-utdata för ASA-jobbet. Ange den **utdata Alias** som **'PBIoutput'**. Ange din **Datamängdsnamn** och **tabellnamn** som **'EnergyStreamData'**. När du har lagt till utdata, klickar du på **”Start”** längst ned på sidan för att starta Stream Analytics-jobbet. Du bör få ett bekräftelsemeddelande (till exempel ”från stream analytics-jobbet myteststreamingjob12345asablob lyckades”).
 2. Logga in på [Power BI online](https://www.powerbi.com)
 
@@ -185,7 +185,7 @@ Följande steg hjälper dig hur du visualisera data i realtid utdata från Strea
 I kalla sökvägen datapipeline är viktigt målet att hämta prognosen för efterfrågan för varje region. Powerbi ansluter till en Azure SQL-databas som datakälla, där de förutsagda resultaten som lagras.
 
 > [!NOTE]
-> 1) Det tar några timmar att samla in tillräckligt prognoser resultat för instrumentpanelen. Vi rekommenderar att du börjar den här processen 2 – 3 timmar efter att du lunch datageneratorn. 2) i det här steget är nödvändiga att ladda ned och installera den kostnadsfria programvaran [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> (1) det tar några timmar att samla in tillräckligt prognoser resultat för instrumentpanelen. Vi rekommenderar att du börjar den här processen 2 – 3 timmar efter att du lunch datageneratorn. 2) i det här steget är nödvändiga att ladda ned och installera den kostnadsfria programvaran [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
@@ -200,7 +200,7 @@ I kalla sökvägen datapipeline är viktigt målet att hämta prognosen för eft
 2. Uppdatera datakällan för Power BI-filen kalla sökvägen
 
    * Kontrollera att du har installerat den senaste versionen av [Power BI desktop](https://powerbi.microsoft.com/desktop).
-   * I den **”DemandForecastingDataGeneratorv1.0”** mapp som du har hämtat, dubbelklickar du på den **”Power BI Template\DemandForecastPowerBI.pbix'** fil. Inledande visualiseringar baserade på dummy data. **Obs:** om du ser ett felmeddelande, se till att du har installerat den senaste versionen av Power BI Desktop.
+   * I den **”DemandForecastingDataGeneratorv1.0”** mapp som du har hämtat, dubbelklickar du på den **”Power BI Template\DemandForecastPowerBI.pbix'** fil. Inledande visualiseringar baserade på dummy data. **Obs!** Om du ser ett felmeddelande, kontrollera att du har installerat den senaste versionen av Power BI Desktop.
 
      När du öppnar den överst i filen, klickar du på **redigera frågor**. I frigörs fönster, dubbelklickar du på **'Source'** i den högra rutan.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ I kalla sökvägen datapipeline är viktigt målet att hämta prognosen för eft
 4. (Valfritt) Schemalägga en uppdatering av datakällan.
 
    * Att schemalägga en uppdatering av data, håller du muspekaren över den **EnergyBPI-slutlig** datauppsättning, klickar du på ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) och välj sedan **Schemalägg uppdatering**.
-     **Obs:** om du ser en varning massage, klickar du på **redigera autentiseringsuppgifter** och se till att dina autentiseringsuppgifter på databasen är samma som de som beskrivs i steg 1.
+     **Obs!** Om du ser en varning massage, klickar du på **redigera autentiseringsuppgifter** och se till att dina autentiseringsuppgifter på databasen är samma som de som beskrivs i steg 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Expandera den **Schemalägg uppdatering** avsnittet. Aktivera ”Håll dina data aktuella”.

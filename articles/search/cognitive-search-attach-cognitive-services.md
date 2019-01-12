@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 509125e7c93f34b9ce28c58cb1ec96db1074d995
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119653"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231435"
 ---
 # <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Associera en Cognitive Services-resurs med en kompetens i Azure Search 
 
-AI-algoritmer som driver [kognitiv sökning](cognitive-search-concept-intro.md) pipelines för bearbetning av Ostrukturerade data som är baserade på [ **Cognitive Services-resurser**](https://azure.microsoft.com/services/cognitive-services/). Resurser som [ **visuellt** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) ger bildanalys och optisk teckenläsning (OCR) extraherar text och struktur utanför bildfiler, medan [ **Text Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) ger naturlig språkbearbetning, till exempel entitet erkännande och nyckeln diskussionsämne, att nämna några.
+AI-algoritmer som driver [kognitiv sökning pipelines](cognitive-search-concept-intro.md) för bearbetning av Ostrukturerade data baserat på [ **Cognitive Services-resurser**](https://azure.microsoft.com/services/cognitive-services/). Resurser som [ **visuellt** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) ger bildanalys och optisk teckenläsning (OCR) för att extrahera text och struktur utanför bildfiler, medan [ **Text Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) ger naturlig språkbearbetning, till exempel entitet erkännande och nyckeln diskussionsämne, att nämna några.
 
-Du kan utöka ett begränsat antal dokument kostnadsfritt eller du kan koppla en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln får du lära dig hur du associerar en resurs för Cognitive Services med dina cognitive färdigheter och utöka data under indexering.
+Du kan utöka ett begränsat antal dokument kostnadsfritt eller bifoga en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln får du lära dig hur du associerar en resurs för Cognitive Services med dina cognitive färdigheter och utöka data under indexering.
 
 Om din pipeline består uteslutande av [anpassade funktioner](cognitive-search-create-custom-skill-example.md), du behöver inte att koppla en resurs för Cognitive Services.
 

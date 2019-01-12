@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410202"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245216"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Självstudie: Distribuera en lösning för hybridmoln med Azure och Azure Stack
+# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Självstudier: Distribuera en lösning för hybridmoln med Azure och Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Den här självstudien visar hur du distribuerar en lösning för hybridmoln som använder det offentliga Azure-molnet och det privata molnet i Azure Stack.
 
@@ -194,7 +194,7 @@ Läs mer om hur App Service kan integreras med virtuella Azure-nätverk i [integ
 
 Den lokala nätverksgatewayen i Azure Stack-nätverk måste konfigureras för att dirigera trafik från adressintervallet för punkt-till-plats App Service.
 
-1. I Azure Stack, går du till **lokal nätverksgateway**. Under **inställningar**väljer **Configuration**.
+1. I Azure Stack, går du till **lokal nätverksgateway**. Under **Inställningar** väljer du **Konfiguration**.
 
     ![Alternativ för gateway](media/azure-stack-solution-hybrid-cloud/image14.png)
 
@@ -436,7 +436,7 @@ Azure Application Insights kan du övervaka program och skicka aviseringar baser
 
 Du använder Application Insights-mått för att skapa aviseringar. När dessa aviseringar utlöser stack webbprogrammen instansen kommer automatiskt växla från Azure Stack till Azure för att skala ut och sedan tillbaka till Azure att skala i.
 
-### <a name="create-an-alert-from-metrics"></a>Skapa en avisering från mått
+### <a name="create-an-alert-from-metrics"></a>Skapa en avisering utifrån mått
 
 Gå till resursgruppen för den här självstudien och välj Application Insights-instans för att öppna **Application Insights**.
 

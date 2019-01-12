@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201304"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230551"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -35,7 +35,7 @@ När du tar bort ett Azure Migrate-projekt, tar den bort migreringsprojekt tills
 
 1. Bläddra till Log Analytics-arbetsytan som är kopplade till projektet.
    a. Om du inte har tagit bort migreringsprojektet ännu, hittar du på länken till arbetsytan från projektets översiktssida i informationsavsnittet.
-   
+
    ![LA arbetsyta](./media/troubleshooting-general/LA-workspace.png)
 
    b. Om du redan har tagits bort migreringsprojektet klickar du på **resursgrupper** i den vänstra rutan i Azure-portalen och gå till resursgruppen där arbetsytan har skapats och gå sedan till den.

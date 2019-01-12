@@ -1,9 +1,11 @@
 ---
-title: Kapslade Traffic Manager-profiler | Microsoft Docs
+title: Kapslade Traffic Manager-profiler i Azure
+titlesuffix: Azure Traffic Manager
 description: Den här artikeln förklarar kapslade profiler-funktionen i Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648606"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228834"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Kapslade Traffic Manager-profiler
 
@@ -28,7 +30,7 @@ I följande exempel visas hur du använder kapslade Traffic Manager-profiler i o
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exempel 1: Kombinera ”Performance” och ”viktat' routning av nätverkstrafik
 
-Anta att du distribuerat ett program i följande Azure-regioner: västra USA, västra Europa och Östasien. Du kan använda Traffic Manager ”Performance” trafikdirigeringsmetoden för att distribuera trafik till regionen som är närmast användaren.
+Anta att du distribuerat ett program i följande Azure-regioner: Västra USA, västra Europa och Asien. Du kan använda Traffic Manager ”Performance” trafikdirigeringsmetoden för att distribuera trafik till regionen som är närmast användaren.
 
 ![Enskild Traffic Manager-profil][4]
 
@@ -61,7 +63,7 @@ Följande bild visar den här konfigurationen:
 > [!NOTE]
 > ”Prioritet” trafikdirigeringsmetoden distribuerar all trafik till en enda slutpunkt. Därför finns det lite syfte i en MinChildEndpoints inställning än ”1” för en underordnad-profil.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exempel 3: Prioriteras redundans regioner i trafikroutningsmetoden ”Performance”-trafik
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exempel 3: Prioriterad redundans regioner i trafikroutningsmetoden ”Performance”-trafik
 
 Standardbeteendet för trafikdirigeringsmetoden ”Performance” är när du har slutpunkter på olika geografiska platser som slutanvändarna dirigeras till ”närmaste” slutpunkten när det gäller den lägsta Nätverksfördröjningen.
 
@@ -83,7 +85,7 @@ I stället för att lägga till flera slutpunkter i Europa, västra, är dessa s
 
 ![”Performance” trafiken dirigeras med anpassade regional trafikfördelning][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>Exempel 5: Per slutpunkt övervakningsinställningarna
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Exempel 5: Inställningarna för övervakning av per slutpunkt
 
 Anta att du använder Traffic Manager för att smidigt migrera trafik från en äldre lokala webbplats till en ny molnbaserade version i Azure. För äldre platsen, som du vill använda startsidan URI för att övervaka hälsa för platsen. Men för den nya versionen molnbaserade du implementerar en anpassad övervakning sida (sökvägen ”/ monitor.aspx”) som innehåller ytterligare kontroller.
 

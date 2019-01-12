@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 279f029dee9e49985805a383fb4fefb82a4f4ebd
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038338"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230177"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Optimera dataflödet kostnaden i Azure Cosmos DB
 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 De plattformsspecifika SDK: er (.NET/.NET Core, Java, Node.js och Python) implicit fånga upp svaret, respekterar det server angiven sidhuvudet retry-after och försök begäran. Om inte ditt konto används samtidigt av flera klienter, lyckas nästa återförsök.
 
-Om du har mer än en klient kumulativt kanske fungerar konsekvent ovan blir förfrågningsfrekvensen standard antal försök för närvarande som har angetts till 9 bot är tillräckligt. I detta fall är klienten genererar ett `DocumentClientException` med status code 429 till programmet. Standardvärdet för antal återförsök kan ändras genom att ange den `RetryOptions` på ConnectionPolicy-instans. Som standard returneras DocumentClientException med statuskoden 429 efter en kumulativ väntetid på 30 sekunder om begäran fortsätter att fungera ovan blir förfrågningsfrekvensen. Detta inträffar även när det aktuella antalet återförsök är mindre än antalet försök, oavsett om det är standardvärdet 9 eller ett användardefinierat värde. 
+Om du har mer än en för klienten kumulativt konsekvent ovan blir förfrågningsfrekvensen kanske standard antal försök för närvarande som har angetts till 9 inte tillräckligt med. I detta fall är klienten genererar ett `DocumentClientException` med status code 429 till programmet. Standardvärdet för antal återförsök kan ändras genom att ange den `RetryOptions` på ConnectionPolicy-instans. Som standard returneras DocumentClientException med statuskoden 429 efter en kumulativ väntetid på 30 sekunder om begäran fortsätter att fungera ovan blir förfrågningsfrekvensen. Detta inträffar även när det aktuella antalet återförsök är mindre än antalet försök, oavsett om det är standardvärdet 9 eller ett användardefinierat värde. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) har angetts till 3, så i detta fall om en begäransåtgärden har begränsats av som överstiger det reserverade genomflödet för insamling, begäransåtgärden försöker tre gånger innan du utlöser den undantag i programmet.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställd på 60, så i det här fallet om cumulative återförsök väntar tid i sekunder sedan först begäran överstiger 60 sekunder, undantaget utlöses.
 

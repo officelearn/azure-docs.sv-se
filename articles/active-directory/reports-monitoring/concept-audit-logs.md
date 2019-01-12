@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1a2ec0e0513e0bcdcc3427a9e24385dc415ae651
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215039"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247766"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -178,6 +178,11 @@ Du kan filtrera den här vyn ned till **grupper** eller **användare**.
 
 ![Granskningsloggar](./media/concept-audit-logs/25.png "Granskningsloggar")
 
+## <a name="office-365-activity-logs"></a>Office 365-aktivitetsloggar
+
+Du kan visa Office 365-aktivitetsloggar från den [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Även om aktivitet för Office 365 och Azure AD delar en massa directory-resurser, endast Office 365 Admin Center ger en fullständig överblick över aktivitetsloggarna i Office 365. 
+
+Du kan också komma åt Office 365-aktivitetsloggar programmässigt med hjälp av den [API: er för Office 365-Management](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

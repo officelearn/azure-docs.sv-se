@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187646"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244687"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -192,7 +192,7 @@ Se till att den dator som kör macOS är ansluten till AD. Instruktioner för AD
 
 Om du har åsidosätts den [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (`https://autologon.microsoftazuread-sso.com`) till dem också.
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome (endast macOS)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (Mac OS och andra icke-Windows-plattformar)
 
 Google Chrome på Mac OS och andra icke-Windows-plattformar finns i [krom projekt Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) information om hur du godkänna Azure AD-URL för integrerad autentisering.
 

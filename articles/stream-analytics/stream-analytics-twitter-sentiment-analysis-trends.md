@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248735"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231146"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>I realtid Twitter-attitydanalys i Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Analysverktyg för sociala medier hjälpa företag att förstå populära ämnen
 
 Trendanalys för Twitter i realtid är ett bra exempel på ett analysverktyg, eftersom prenumerationsmodell hashtagg kan du lyssna på specifika nyckelord (hashtaggar) och utveckla känsloanalys av flödet.
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: Attitydanalys för sociala medier i realtid
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Scenario: Analys av sociala medier åsikter i realtid
 
 Ett företag som har en nyhetsmedier webbplats är intresserad av att få en fördel jämfört med konkurrenterna med webbplatsens innehåll som är relevant omedelbart till dess läsare. Företaget använder analys av sociala medier om ämnen som är relevanta för läsare genom att göra känsloanalys av Twitter-data i realtid.
 
@@ -36,7 +36,7 @@ I den här självstudien använder du ett klientprogram som ansluter till Twitte
 * En Azure-prenumeration
 * Ett Twitter-konto 
 * Ett Twitter-program och [OAuth-åtkomsttoken](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) för programmet. Vi tillhandahåller övergripande instruktioner för hur du skapar en Twitter-programmet senare.
-* TwitterWPFClient programmet, vilket läser Twitter-flöde. För att få det här programmet kan hämta den [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) från GitHub och packa upp paketet till en mapp på datorn. Om du vill se source code och kör programmet med en felsökare, kan du hämta källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* TwitterWPFClient programmet, vilket läser Twitter-flöde. För att få det här programmet kan hämta den [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) från GitHub och packa upp paketet till en mapp på datorn. Om du vill se source code och kör programmet med en felsökare, kan du hämta källkoden från [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Skapa en händelsehubb för Streaming Analytics-indata
 
@@ -214,12 +214,12 @@ Nu när tweet händelser strömning i realtid från Twitter, kan du ställa in e
 
 2. I den **indata** bladet klickar du på  **+ &nbsp;Lägg till** och Fyll i bladet med följande värden:
 
-    * **Inmatat alias**: Använd namnet `TwitterStream`. Om du använder ett annat namn, notera den eftersom du behöver den senare.
+    * **Indataalias**: Använd namnet `TwitterStream`. Om du använder ett annat namn, notera den eftersom du behöver den senare.
     * **Datakällans typ**: Välj **dataströmmen**.
-    * **Källan**: Välj **händelsehubb**.
+    * **Källa**: Välj **händelsehubb**.
     * **Importalternativ**: Välj **Använd händelsehubb från aktuell prenumeration**. 
     * **Service bus-namnområde**: Välj händelsehubbens namnområde som du skapade tidigare (`<yourname>-socialtwitter-eh-ns`).
-    * **Händelsehubb**: Välj den händelsehubb som du skapade tidigare (`socialtwitter-eh`).
+    * **Händelsehubb**: Välj händelsehubben som du skapade tidigare (`socialtwitter-eh`).
     * **Namn på händelsehubbsprincipen**: Välj den åtkomstprincip som du skapade tidigare (`socialtwitter-access`).
 
     ![Skapa nya indata för Streaming Analytics-jobb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)

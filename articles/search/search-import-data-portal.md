@@ -9,107 +9,118 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8eb319538b409287538dd1e9d2856d9080d671b8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188801"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229765"
 ---
-# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Hur du importerar data till Azure Search-index med hjälp av Azure portal
+# <a name="import-data-wizard-for-azure-search"></a>Guiden Importera data för Azure Search
 
-Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Portal kan du läsa in data i ett index. 
+Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Portal kan du läsa in data i ett index. I bakgrunden i guiden konfigurerar och aktiverar en *datakälla*, *index*, och *indexeraren* – vilket automatiserar flera steg i indexeringsprocessen: 
 
-  ![Importera data i kommandofältet][1]
+* Ansluter till en extern datakälla i samma Azure-prenumeration.
+* Du kan också integreras optisk teckenläsning eller naturligt språk bearbetning för att extrahera text från Ostrukturerade data.
+* Genererar ett index baserat på datasampling och metadata för den externa datakällan.
+* Crawlar datakällan för sökbart innehåll serialisering och läsa in JSON-dokument i indexet.
 
-Internt konfigurerar och aktiverar guiden en *indexerare*, vilket automatiserar flera steg i indexeringsprocessen: 
+Guiden kan inte ansluta till ett fördefinierat index eller köra en befintlig indexerare, men i guiden kan du konfigurera ett nytt index eller en indexerare som stöd för struktur och beteenden som du behöver.
 
-* Anslut till en extern datakälla i samma Azure-prenumeration
-* Generera ett ändringsbart indexschema baserat på källdatastrukturen
-* Läs in JSON-dokument i ett index med en raduppsättning som hämtats från datakällan
+Har du inte provat Azure Search än? Gå igenom den [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) kan provköra importera och indexering med **dataimport** och inbyggda realestate-provdatauppsättning.
 
-> [!NOTE]
-> Du kan starta guiden **Importera data** från Azure Cosmos DB-instrumentpanelen för att förenkla indexeringen för datakällan. Välj **Samlingar** > **Lägg till Azure Search** i navigeringsfältet till vänster för att komma igång.
+## <a name="start-importing-data"></a>Börja importera data
 
-## <a name="data-sources-supported-by-the-import-data-wizard"></a>Datakällor som stöds av guiden Importera data
-Guiden Importera Data stöder följande datakällor: 
+Det här avsnittet beskrivs hur du startar guiden och ger en översikt över varje steg.
 
-* Azure SQL Database
-* SQL Server-relationsdata på en virtuell Azure-dator
-* Azure Cosmos DB
-* Azure Blob Storage
-* Azure Table Storage
+1. I den [Azure-portalen](https://portal.azure.com), öppna söktjänstsidan från instrumentpanelen eller [hitta din tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i tjänstelistan.
+
+2. I tjänstöversiktssidan högst upp, klickar du på **dataimport**.
+
+   ![Kommandot Importera data i portalen](./media/search-import-data-portal/import-data-cmd2.png "starta guiden Importera data")
+
+   > [!NOTE]
+   > Du kan starta **dataimport** från andra Azure-tjänster, inklusive Azure Cosmos DB, Azure SQL Database och Azure Blob storage. Leta efter **Lägg till Azure Search** i det vänstra navigeringsfönstret på översiktssidan för tjänsten.
+
+3. Guiden öppnar **Anslut till dina data**, där du kan välja en extern datakälla som ska användas för den här importen. Det finns flera saker att veta om det här steget, så var noga med att läsa den [datakällans indata](#data-source-inputs) mer information.
+
+   ![Guiden Importera data i portalen](./media/search-import-data-portal/import-data-wizard-startup.png "i guiden Importera data för Azure Search")
+
+4. Nästa är **Lägg till kognitiv sökning**, om du vill inkludera optisk teckenläsning (OCR) av text i bildfiler eller textanalys Ostrukturerade data. AI-algoritmer från Cognitive Services hämtas för den här uppgiften. Det finns två delar i det här steget:
+  
+   Först [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) till ett Azure Search-kompetens.
+  
+   Dessutom välja vilka AI enrichments ska ingå i gruppens kunskaper avgör. En genomgång demonstration finns i den här [snabbstarten](cognitive-search-quickstart-blob.md).
+
+   Om du vill importera data, hoppa över det här steget och gå direkt till indexdefinitionen.
+
+5. Nästa är **anpassa målindex**, där du kan acceptera eller ändra indexschemat som visas i guiden. Guiden härleder fält och datatyper genom att sampla data och läsa metadata från den externa datakällan.
+
+   För varje fält [Kontrollera indexattributen](#index-definition) att aktivera beteendet. Om du inte väljer några attribut, ditt index inte kan användas. 
+
+6. Nästa är **skapa en indexerare**, vilket är en produkt i den här guiden. En indexerare är en crawler som extraherar sökbara data och metadata från en extern datakälla för Azure. Genom att välja datakälla och koppla kompetens (valfritt) och ett index har konfigurerar du en indexerare för varje steg i guiden.
+
+   Ge ett namn för indexeraren och klicka på **skicka** att starta importen. 
+
+Du kan övervaka indexeringen i portalen genom att klicka på indexerare i den **indexerare** lista. Under tiden dokumenten läses in ökar antalet dokument för det index som du har definierat. Ibland kan det ta några minuter för portalsidan att hämta de senaste uppdateringarna.
+
+Indexet är redo för frågor när det första dokumentet har lästs in. Du kan använda [Sökutforskaren](search-explorer.md) för den här uppgiften.
+
+<a name="data-source-inputs"></a>
+
+## <a name="data-source-inputs"></a>Inmatningar av referensdata källa
+
+Den **dataimport** guiden skapar ett beständigt datakällobjekt att ange information om anslutningen till en extern datakälla. Datakällobjektet uteslutande används tillsammans med [indexerare](search-indexer-overview.md) och kan skapas för följande datakällor: 
+
+* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md) (stöds inte för [kognitiv sökning](cognitive-search-concept-intro.md) pipelines)
 
 En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importera från en enskild tabell, databasvy eller likvärdig datastruktur. Innan du kör guiden bör du skapa den här datastrukturen.
 
-## <a name="connect-to-your-data"></a>Ansluta till data
-1. Logga in på [Azure Portal](https://portal.azure.com) och öppna instrumentpanelen för tjänsten. Du kan klicka på **Alla tjänster** i indexet om du vill söka efter befintliga ”söktjänster” i den nuvarande prenumerationen. 
-
-1. Klicka på **Importera data** i kommandofältet för att öppna bladet Importera data.
-
-1. Klicka på **Anslut till dina data** för att ange en definition för datakällan som används av en indexerare. Vid datakällor inom prenumerationen kan guiden vanligtvis identifiera och läsa anslutningsinformationen, vilket minimerar de allmänna konfigurationskraven.
-
-|  |  |
-| --- | --- |
-| **Befintlig datakälla** |Om du redan har definierat indexerare i söktjänsten, kan du välja en definition av en befintlig datakälla för en annan import. |
+|  Val | Beskrivning |
+| ---------- | ----------- |
+| **Befintlig datakälla** |Om du redan har definierat indexerare i söktjänsten, kan du välja en definition av en befintlig datakälla för en annan import. Datakällobjekt som endast används av indexerare i Azure Search. Du kan skapa ett datakällobjekt programmässigt eller via den **dataimport** guiden.|
+| **Exempel**| Azure Search är värd för en kostnadsfri offentlig Azure SQL-databas som du kan använda om du vill veta mer om importera och fråga begäranden i Azure Search. Gå till [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) en genomgång. |
 | **Azure SQL Database** |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
-| **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt tjänstnamn, användar-ID och lösenord, samt databasen som en anslutningssträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
+| **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt kvalificerat namn, användar-ID och lösenord och databasen som en anslutningssträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | **Azure Cosmos DB** |Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att utjämna eller filtrera raduppsättningen, eller identifiera ändrade dokument för efterföljande datauppdateringar. |
 | **Azure Blob Storage** |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
 | **Azure Table Storage** |Kraven innefattar lagringskontot och ett tabellnamn. Du kan också ange en fråga för att hämta en delmängd av tabellerna. Se [Indexera Table Storage](search-howto-indexing-azure-tables.md) för mer information. |
 
-## <a name="customize-target-index"></a>Anpassa målindex
-Ett preliminärt index är vanligtvis härlett från datauppsättningen. Lägga till, redigera eller ta bort fält för att slutföra schemat. Du kan dessutom ange attributen på fältnivå för att fastställa dess efterföljande sökbeteenden.
 
-1. I **Anpassa målindex** anger du namnet och en **nyckel** som ska användas för att identifiera varje dokument. Nyckeln måste vara en sträng. Om fältvärdena innehåller mellanslag eller tankstreck måste du ange avancerade alternativ i **Importera dina data** för att utelämna valideringskontrollen av dessa tecken.
+<a name="index-definition"></a>
 
-1. Granska och ändra återstående fält. Fältnamnet och typen fylls vanligtvis i automatiskt. Du kan ändra datatypen fram till dess att indexet har skapats. Om du ändrar datatypen efter detta måste indexet återskapas.
+## <a name="index-attributes"></a>Indexattribut
 
-1. Ange indexattribut för varje fält:
+Den **dataimport** guiden genererar ett index som fylls med dokument från indata-källa. 
+
+Kontrollera att du har följande element som definierats för ett funktionella index.
+
+1. Ett fält måste vara markerad som en **nyckel**, som används för att identifiera varje dokument. Den **nyckel** måste vara *Edm.string*. 
+
+   Om fältvärdena innehåller mellanslag eller tankstreck, måste du ange den **Base64-koda nyckeln** alternativet i den **skapa en indexerare** steg under **avancerade alternativ**, för att utelämna den verifieringskontroll dessa tecken.
+
+1. Ange indexattribut för varje fält. Ditt index är i stort sett innehålla något annat än nyckelfältet krävs om du väljer inga attribut. Välj en eller flera av dessa attribut för varje fält som ett minimum.
    
-   * Hämtningsbar returnerar fältet i sökresultatet.
-   * Filtrerbar gör att du kan referera till fältet i filteruttryck.
-   * Sorterbar gör att fältet kan användas i en sortering.
-   * Fasettbar gör att fältet kan användas för fasetterad navigering.
-   * Sökbar gör att du kan använda fulltextsökning.
+   + **Hämtningsbar** returnerar fältet i sökresultatet. Varje fält som anger innehåll till sökresultat måste ha det här attributet. Ange det här fältet påverkas inte Indexstorlek avsevärt.
+   + **Filtrerbar** gör att fältet kan refereras i filteruttryck. Varje fält som används i en **$filter** uttrycket måste ha det här attributet. Filteruttryck är för exakta matchningar. Eftersom textsträngar förblir intakta, krävs ytterligare lagringsutrymme för ordagrant innehållet.
+   + **Sökbara** möjliggör fulltextsökning. Varje fält som används i fri form frågor eller frågeuttryck måste ha det här attributet. Vägar i inverterad index skapas för varje fält som du definierar som **sökbar**.
 
-1. Klicka på fliken **Analyzer** om du vill ange ett språkanalysverktyg på fältnivå. Det går endast att ange språkanalysverktyg för närvarande. Om du använder ett anpassat analysverktyg eller en icke-språkanalys som t.ex. nyckelord, mönster och så vidare, kommer kod att krävas.
+1. Du kan också ange dessa attribut:
+
+   + **Sorterbar** gör att fältet kan användas i en sortering. Varje fält som används i en **$Orderby** uttrycket måste ha det här attributet.
+   + **Fasettbar** gör att fältet för fasetterad navigering. Endast fält också märkta **Filtrerbart** kan markeras som **Fasettbar**.
+
+1. Ange en **Analyzer** om du vill att språk utökad indexering och frågor. Standardvärdet är *Standard Lucene* men du kan välja *Microsoft English* om du vill använda Microsofts analyzer för avancerade lexikal bearbetning, som att hantera oregelbunden substantiv och verb formulär.
+
+   + Välj **sökbar** att aktivera den **Analyzer** lista.
+   + Välj en analyzer som anges i listan. 
    
-   * Klicka på **Sökbara** för att använda fulltextsökning i fältet och aktivera listrutan Analyzer.
-   * Välj det analysverktyg som du vill använda. Mer information finns i [Skapa ett index för dokument på flera språk](search-language-support.md).
+   Det går endast att ange språkanalysverktyg för närvarande. Om du använder ett anpassat analysverktyg eller en icke-språkanalys som t.ex. nyckelord, mönster och så vidare, kommer kod att krävas. Läs mer om analysverktyg, [skapa ett index för dokument på flera språk](search-language-support.md).
 
-1. Klicka på **Förslagsställare** för att aktivera frågeifyllningsförslag i markerade fält.
-
-## <a name="import-your-data"></a>Importera dina data
-1. I **Importera dina data** anger du ett namn på indexeraren. Kom ihåg att produkten från guiden Importera data är en indexerare. Om du senare vill visa eller redigera den måste du välja den från portalen i stället för att köra guiden igen. 
-
-1. Ange det schema som är baserat på den nationella tidszonen där tjänsten har etablerats.
-
-1. Ställ in avancerade alternativ för att ange tröskelvärden där indexeringen kan fortsätta om ett dokument tas bort. Dessutom kan du ange om fältet **Nyckel** får innehålla blanksteg och snedstreck.  
-
-1. Klicka på **OK** för att skapa indexet och importera data.
-
-Du kan övervaka indexeringen i portalen. Under tiden dokumenten läses in ökar antalet dokument för det index som du har definierat. Ibland kan det ta några minuter för portalsidan att hämta de senaste uppdateringarna.
-
-Så snart alla dokument har lästs in kan du köra frågor mot indexet.
-
-## <a name="query-an-index-using-search-explorer"></a>Fråga ett index med Sökutforskaren
-
-Portalen innehåller **Sökutforskaren** så att du kan fråga ett index utan att behöva skriva någon kod. Du kan använda [Sökutforskaren](search-explorer.md) för valfritt index.
-
-Sökupplevelse baseras på standardinställningar, t.ex. [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [searchMode-frågeparametern](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
-
-Resultaten returneras i JSON (i ett utförligt format) så att du kan gå igenom hela dokumentet.
-
-## <a name="edit-an-existing-indexer"></a>Redigera en befintlig indexerare
-Guiden Importera data skapar som sagt en **indexerare**, som du kan ändra som en fristående konstruktion i portalen.
-
-Dubbelklicka på panelen Indexerare på instrumentpanelen för tjänsten för att visa en lista med alla indexerare som skapats för din prenumeration. Dubbelklicka på en av indexerarna för att köra, redigera eller ta bort den. Du kan ersätta indexet med ett annat befintligt index, ändra datakällan och ange alternativ för tröskelvärden för fel vid indexering.
-
-## <a name="edit-an-existing-index"></a>Redigera ett befintligt index
-Guiden skapade även ett **index**. Om det görs strukturella uppdateringar av ett index måste indexet återskapas i Azure Search. Vid återskapandet tas indexet bort och skapas på nytt med ett reviderat schema som har de ändringar du vill ha, och data läses in på nytt. Strukturella uppdateringar innebär att man ändrar datatypen och byter namn på eller tar bort ett fält.
-
-Ändringar som inte kräver att indexet återskapas omfattar att lägga till ett nytt fält, ändra bedömningsprofil, ändra förslagsställare eller ändra språkanalys. Mer information finns i [Uppdatera index](https://msdn.microsoft.com/library/azure/dn800964.aspx).
+1. Välj den **förslagsställare** kryssrutan för att aktivera frågeifyllningsförslag frågeförslag på markerade fält.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -119,7 +130,3 @@ Använd dessa länkar om du vill veta mer om indexerare:
 * [Indexera Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexera Table Storage](search-howto-indexing-azure-tables.md)
-
-<!--Image references-->
-[1]: ./media/search-import-data-portal/search-import-data-command.png
-

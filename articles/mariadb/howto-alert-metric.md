@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 9cc08920c5b8814a3e4b649f4518dce78c7cb38e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160601"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244247"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Använda Azure portal för att ställa in aviseringar i mått för Azure Database for MariaDB
 
@@ -25,10 +25,9 @@ Du kan konfigurera en avisering om att göra följande när den utlöses:
 * Anropa en webbhook
 
 Du kan konfigurera och få information om Varningsregler med:
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Kommandoradsgränssnittet (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Skapa en aviseringsregel på ett mått
 1. I den [Azure-portalen](https://portal.azure.com/), väljer Azure Database for MariaDB-server som du vill övervaka.
@@ -49,7 +48,7 @@ Du kan konfigurera och få information om Varningsregler med:
    
    ![Välj mått](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Konfigurera alert logic, inklusive den **villkor** (ex.) ”Större än”), **tröskelvärdet** (ex.) 85 procent), **tidsmängd**, **Period** tid måttregel måste vara uppfyllda innan aviseringen utlösare (t.ex. ”Under de senaste 30 minuterna”, och **frekvens**.
+7. Konfigurera alert logic, inklusive den **villkor** (ex.) ”Större än”), **tröskelvärdet** (ex.) 85 procent), **tidsmängd**, **Period** tid måttregel måste vara uppfyllda innan aviseringen utlösare (t.ex. ”Under de senaste 30 minuterna”), och **frekvens**.
    
    Välj **klar** när du är klar.
 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b8051ea7f8e7c188e4ed287db626f2a989def619
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582199"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231759"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-aktivitetsloggar i Azure Monitor (förhandsversion)
 
@@ -116,6 +116,12 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 **F: Hur strax efter en åtgärd motsvarande loggarna visas i mitt lagringskonto?**
 
 **EN**: För Azure storage-konton är svarstiden var som helst från 5 till 15 minuter efter att åtgärden utförs.
+
+---
+
+**F: Vad händer om en administratör ändrar kvarhållningsperioden för en diagnostikinställning?**
+
+**EN**: Den nya kvarhållningsprincipen kommer att gälla loggar som samlats in efter ändringen. Insamlade loggar innan principändringen påverkas.
 
 ---
 

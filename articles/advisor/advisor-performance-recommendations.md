@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 53571fa0c29c4b9bf5493a1e558356eba38fe617
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101725"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244424"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
@@ -32,7 +32,7 @@ Azure Advisor identifierar Traffic Manager-profiler med ett längre TTL-värde s
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Förbättra databasens prestanda med SQL DB Advisor
 
-Advisor ger dig en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Det integreras med SQL Database Advisor för att ge dig rekommendationer för att förbättra prestandan för din SQL Azure-databas. SQL Database Advisor utvärderar prestanda för dina SQL Azure-databaser genom att analysera din användningshistorik. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens normal belastning. 
+Advisor ger dig en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Det integreras med SQL Database Advisor för att ge dig rekommendationer för att förbättra prestandan för din SQL Azure-databas. SQL Database Advisor utvärderar prestanda för dina SQL Azure-databaser genom att analysera din användningshistorik. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens normal belastning.
 
 > [!NOTE]
 > För att få rekommendationer, en databas måste ha om en veckas användning och inom den veckan måste det finnas viss konsekvent aktivitet. SQL Database Advisor kan optimera enklare för konsekvent frågemönster än för slumpmässiga ökningar av aktivitet.
@@ -43,7 +43,7 @@ Läs mer om SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.
 
 Azure Advisor integrerar rekommendationer om bästa praxis för att förbättra din upplevelse för App Services och identifiera relevanta plattformsfunktioner. Exempel på rekommendationer för App Services är:
 * Identifiering av instanser där minne eller CPU-resurser är slut genom appen körningar med alternativ för lösning.
-* Identifiering av instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och lägre kostnader. 
+* Identifiering av instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och lägre kostnader.
 
 Läs mer om rekommendationer för App Services, [Metodtips för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -75,7 +75,9 @@ Advisor identifierar tabeller som inte är replikerade tabeller men skulle ha ny
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrera ditt Storage-konto till Azure Resource Manager för att få alla de senaste Azure-funktionerna
 
-Migrera din modell för distribution av Storage-konto till Azure Resource Manager (ARM) att dra nytta av malldistributioner, ytterligare säkerhetsalternativ och möjlighet att uppgradera till ett GPv2-konto för användning av Azure Storage senaste funktionerna. Advisor identifierar eventuella fristående lagringskonton som använder den klassiska distributionsmodellen och rekommenderar att du migrerar till ARM-distributionsmodellen. 
+Migrera din modell för distribution av Storage-konto till Azure Resource Manager (ARM) att dra nytta av malldistributioner, ytterligare säkerhetsalternativ och möjlighet att uppgradera till ett GPv2-konto för användning av Azure Storage senaste funktionerna. Advisor identifierar eventuella fristående lagringskonton som använder den klassiska distributionsmodellen och rekommenderar att du migrerar till ARM-distributionsmodellen.
+
+Klassiska aviseringar i Azure Monitor har meddelats att dra tillbaka i juni 2019, rekommenderar vi att du uppgraderar ditt klassiska lagringskonto till ARM till behåller aviseringsdata funktioner med den nya aviseringsdata plattformen. Mer information finns i [klassiska aviseringar tillbakadragande](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt prestandarekommendationer i Advisor
 
@@ -92,4 +94,3 @@ Mer information om Advisor-rekommendationer finns:
 * [Advisor kostnadsrekommendationer](advisor-performance-recommendations.md)
 * [Advisor-rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
 * [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md)
-

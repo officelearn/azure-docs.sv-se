@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ddef3ba2f1fa14445b0a06670d8f18abe76911ab
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103374"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230364"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
 Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -35,7 +35,7 @@ Den här artikeln visar hur du konfigurerar Azure Diagnostics-data med Event Hub
 * Så här felsöker du anslutningen  
 
 ## <a name="prerequisites"></a>Förutsättningar
-Event Hubs receieving data från Azure Diagnostics stöds i molntjänster, virtuella datorer, Virtual Machine Scale Sets och Service Fabric från och med Azure SDK 2.9 och motsvarande Azure Tools för Visual Studio.
+Händelsehubbar ta emot data från Azure-diagnostik har stöd för molntjänster, virtuella datorer, Virtual Machine Scale Sets och Service Fabric från och med Azure SDK 2.9 och motsvarande Azure Tools för Visual Studio.
 
 * Azure Diagnostics-tillägg 1.6 ([Azure SDK för .NET 2.9 eller senare](https://azure.microsoft.com/downloads/) riktar sig mot det som standard)
 * [Visual Studio 2013 eller senare](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)

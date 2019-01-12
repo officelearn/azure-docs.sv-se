@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156212"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246967"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
 
@@ -59,8 +60,11 @@ _För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-cer
 
 ## <a name="deploy-the-sql-resource-provider"></a>Distribuera SQL-resursprovider
 
-När du har allt som krävs installerat kan köra den **DeploySqlProvider.ps1** skript för att distribuera SQL-resursprovider. Skriptet DeploySqlProvider.ps1 extraheras som en del av SQL resource provider binärfilen som du hämtade för din version av Azure Stack.
+När du har installerat alla krav, kan du köra den **DeploySqlProvider.ps1** skript för att distribuera SQL-resursprovider. Skriptet DeploySqlProvider.ps1 extraheras som en del av SQL resource provider binärfilen som du hämtade för din version av Azure Stack.
 
+ > [!IMPORTANT]
+ > Innan du distribuerar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
+ 
 Om du vill distribuera SQL-resursprovider, öppna en **nya** upphöjd PowerShell-fönster (inte PowerShell ISE) och ändra till katalogen där du extraherade de binära filerna för SQL resource provider. Vi rekommenderar att du använder ett nytt PowerShell-fönster för att undvika potentiella problem som orsakas av PowerShell-moduler som redan har lästs in.
 
 Kör skriptet DeploySqlProvider.ps1 som utför följande uppgifter:
@@ -133,6 +137,10 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `

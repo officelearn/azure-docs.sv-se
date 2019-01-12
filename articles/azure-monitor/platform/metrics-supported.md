@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549640"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232897"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -65,7 +65,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ProcessingPoolIdleIOJobThreads|Trådar: Bearbetningspoolen inaktiva i/o-jobbtrådar|Antal|Medel|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|ServerResourceType|
 |ProcessingPoolIdleNonIOThreads|Trådar: Bearbetning av poolen inaktiva icke-I/O-trådar|Antal|Medel|Antal inaktiva trådar i bearbetningstrådpoolen som är dedikerade till icke-I/O-jobb.|ServerResourceType|
 |QueryPoolIdleThreads|Trådar: Frågepoolen inaktiva trådar|Antal|Medel|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|ServerResourceType|
-|QueryPoolJobQueueLength|Trådar: Fråga frågepoolen jobbkölängd|Antal|Medel|Antal jobb i kön för frågetrådspoolen.|ServerResourceType|
+|QueryPoolJobQueueLength|Trådar: Fråga efter pool jobbkölängd|Antal|Medel|Antal jobb i kön för frågetrådspoolen.|ServerResourceType|
 |ShortParsingBusyThreads|Trådar: Kort parsning upptagna trådar|Antal|Medel|Antal upptagna trådar i den korta parsningstrådpoolen.|ServerResourceType|
 |ShortParsingIdleThreads|Trådar: Kort parsning inaktiva trådar|Antal|Medel|Antal inaktiva trådar i den korta parsningstrådpoolen.|ServerResourceType|
 |ShortParsingJobQueueLength|Trådar: Kort parsning jobbkölängd|Antal|Medel|Antal jobb i kön för den korta parsningstrådpoolen.|ServerResourceType|
@@ -121,10 +121,10 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |PoolDeleteCompleteEvent|Pool ta bort klar händelser|Antal|Totalt|Totalt antal borttagningar för poolen som har slutförts|Inga dimensioner|
 |JobDeleteCompleteEvent|Jobbet Ta bort klar händelser|Antal|Totalt|Totalt antal jobb som har tagits bort.|Inga dimensioner|
 |JobDeleteStartEvent|Jobbet Ta bort Start händelser|Antal|Totalt|Totalt antal jobb som har begärts att tas bort.|Inga dimensioner|
-|JobDisableCompleteEvent|Jobbet inaktivera fullständig händelser|Antal|Totalt|Totalt antal jobb som har har inaktiverats.|Inga dimensioner|
+|JobDisableCompleteEvent|Jobbet inaktivera fullständig händelser|Antal|Totalt|Totalt antal jobb som har inaktiverats.|Inga dimensioner|
 |JobDisableStartEvent|Jobbet inaktivera Start-händelser|Antal|Totalt|Totalt antal jobb som har begärt att inaktiveras.|Inga dimensioner|
-|JobStartEvent|Jobbet Start händelser|Antal|Totalt|Totalt antal jobb som har har startats.|Inga dimensioner|
-|JobTerminateCompleteEvent|Jobbet Avsluta fullständig händelser|Antal|Totalt|Antal jobb som har har avslutats.|Inga dimensioner|
+|JobStartEvent|Jobbet Start händelser|Antal|Totalt|Totalt antal jobb som har startats.|Inga dimensioner|
+|JobTerminateCompleteEvent|Jobbet Avsluta fullständig händelser|Antal|Totalt|Totalt antal jobb som har avslutats.|Inga dimensioner|
 |JobTerminateStartEvent|Jobbet Avsluta Start-händelser|Antal|Totalt|Totalt antal jobb som har begärt att avslutas.|Inga dimensioner|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -816,7 +816,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ClusterDataCapacityFactor|Cache-användning|Procent|Medel|På en nivå i omfånget för kluster|Inga dimensioner|
 |QueryDuration|Frågevaraktighet|Millisekunder|Medel|Frågor varaktighet i sekunder|QueryStatus|
 |IngestionsLoadFactor|Datainmatning användning|Procent|Medel|Förhållandet mellan används inmatning kortplatser i klustret|Inga dimensioner|
-|IsEngineAnsweringQuery|Keep Alive|Antal|Medel|Kontrollera förstånd anger kluster respondes till frågor|Inga dimensioner|
+|IsEngineAnsweringQuery|Keep Alive|Antal|Medel|Kontrollera förstånd anger klustret svarar på frågor|Inga dimensioner|
 |IngestCommandOriginalSizeInMb|Datainmatning volymen (i MB)|Antal|Totalt|Totala mängden insamlade data i klustret (i MB)|Inga dimensioner|
 |EventAgeSeconds|Datainmatningssvarstid (i sekunder)|Sekunder|Medel|Datainmatning tid från källan (t.ex. meddelandet är EventHub) till klustret i sekunder|Inga dimensioner|
 |EventReceivedFromEventHub|Händelser som bearbetas (för Event Hubs)|Antal|Totalt|Antalet händelser som bearbetas av klustret om mata in från Event Hub|Inga dimensioner|

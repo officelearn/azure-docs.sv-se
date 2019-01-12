@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338898"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230381"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -272,7 +272,7 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Prenumerationsnyckeln Speech Service. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
-| `Content-type` | Beskriver format och codec-enheten för den angivna ljuddata. Godkända värden är `audio/wav; codec=audio/pcm; samplerate=16000` och `audio/ogg; codec=audio/pcm; samplerate=16000`. | Krävs |
+| `Content-type` | Beskriver format och codec-enheten för den angivna ljuddata. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
 | `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfri |
 | `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Med Taltjänsten medvetna om den första begäran och väntar på dig ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
 | `Accept` | Om det måste vara `application/json`. Med Taltjänsten ger resultat i JSON. Vissa webbramverk för begäran innehåller ett inkompatibelt standardvärdet om du inte anger något, så det är bra att alltid `Accept`. | Valfritt men rekommenderas. |
@@ -296,7 +296,7 @@ Det här är en vanliga HTTP-begäran. Exemplet nedan innehåller värdnamn och 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Detta kodexempel visar hur du skickar ljud i segment. Endast det första segment
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.reviewer: unknown
+ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127490"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244162"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Översikt över erbjudna tjänster i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 [Microsoft Azure Stack](azure-stack-poc.md) är en hybridmolnplattform som du kan leverera tjänster från ditt datacenter. En tjänstleverantör, kan du erbjuda tjänster till dina klienter. Inom ett företag eller en myndighet kan du erbjuda dina anställda lokala tjänster. 
 
@@ -47,11 +47,11 @@ För att leverera tjänsterna till dina användare, måste du skapa [planer, erb
 
 När du planerar dina erbjudanden, Tänk på följande saker övervägas:
 
-**Testversioner**: du kan använda testversioner för att locka nya användare, som sedan kan uppgradera till ytterligare tjänster. Skapa en utvärderingsversionen kan skapa ett litet [Basplan](azure-stack-plan-offer-quota-overview.md#base-plan) med en valfri större tilläggsplanen.
+**Testversioner**: Du kan använda testversioner för att locka nya användare, som sedan kan uppgradera till ytterligare tjänster. Skapa en utvärderingsversionen kan skapa ett litet [Basplan](azure-stack-plan-offer-quota-overview.md#base-plan) med en valfri större tilläggsplanen.
 
-**Kapacitetsplanering**: du kan vara orolig över användare som hämta stora mängder resurser och belastning system för alla användare. För att prestanda, kan du [konfigurera dina planer med kvoter](azure-stack-plan-offer-quota-overview.md#plans) tak Usage.
+**Kapacitetsplanering**: Du kan bli orolig över användare som hämta stora mängder resurser och belastning system för alla användare. För att prestanda, kan du [konfigurera dina planer med kvoter](azure-stack-plan-offer-quota-overview.md#plans) tak Usage.
 
-**Delegerade providrar**: du kan ge andra möjlighet att skapa erbjudanden i din miljö. Om du är en tjänstleverantör, du kan exempelvis [delegera](azure-stack-delegated-provider.md) möjligheten att din återförsäljare. Eller, om du är en organisation, kan du delegera till andra avdelningar/dotterbolag.
+**Delegerade providrar**: Du kan bevilja andra erbjuder möjligheten att skapa i din miljö. Om du är en tjänstleverantör, du kan exempelvis [delegera](azure-stack-delegated-provider.md) möjligheten att din återförsäljare. Eller, om du är en organisation, kan du delegera till andra avdelningar/dotterbolag.
 
 ## <a name="next-steps"></a>Nästa steg
 

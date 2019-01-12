@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
-ms.reviewer: alfredo
-ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: alfredop
+ms.openlocfilehash: 26abc338b617b967c6919ebbe556a81226ff47d8
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961474"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247868"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Hantera användning och fakturering för Azure Stack som en Molntjänstleverantör 
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Den här artikeln beskriver hur du registrerar Azure Stack som en Cloud Provider (CSP) och lägga till kunder.
 

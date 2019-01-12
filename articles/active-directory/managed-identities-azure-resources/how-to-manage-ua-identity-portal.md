@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 971d0181cb8e38b952c3dd3dd1d7e5e1cbec5128
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720143"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244665"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, visa, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal
 
@@ -41,9 +41,9 @@ Om du vill skapa en hanterad Användartilldelad identitet, ditt konto måste den
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumeration för att skapa den hanterade Användartilldelad identitet.
 2. I sökrutan skriver *hanterade identiteter*, och under **Services**, klickar du på **hanterade identiteter**.
 3. Klicka på **Lägg till** och ange värden i följande fält under **skapa användartilldelade hanteras** identity-fönstret:
-   - **Resursnamnet**: det här är namnet på din användartilldelade hanterad identitet, till exempel UAI1.
+   - **Resursnamn**: Det här är namnet på din användartilldelade hanterad identitet, till exempel UAI1.
    - **Prenumeration**: Välj den prenumeration för att skapa hanterade Användartilldelad identitet under
-   - **Resursgrupp**: skapa en ny resursgrupp för att innehålla din hanterade Användartilldelad identitet eller välj **Använd befintlig** att skapa den hanterade Användartilldelad identitet i en befintlig resursgrupp.
+   - **Resursgrupp**: Skapa en ny resursgrupp för att innehålla din hanterade Användartilldelad identitet eller välj **Använd befintlig** att skapa den hanterade Användartilldelad identitet i en befintlig resursgrupp.
    - **Plats**: Välj en plats för att distribuera användartilldelade hanterad identitet, till exempel **västra USA**.
 4. Klicka på **Skapa**.
 
@@ -62,6 +62,8 @@ Om du vill lista/läsa en hanterad Användartilldelad identitet, ditt konto mås
 ## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en hanterad Användartilldelad identitet
 
 Om du vill ta bort en hanterad Användartilldelad identitet måste ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
+
+Tar bort en Användartilldelad identitet tar det inte bort från den virtuella datorn eller en resurs som tilldelades till.  Ta bort Användartilldelad identitet från en virtuell dator finns i [ta bort en hanterad Användartilldelad identitet från en virtuell dator](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumeration att ta bort en hanterad Användartilldelad identitet.
 2. Välj den hanterade Användartilldelad identitet och klicka på **ta bort**.

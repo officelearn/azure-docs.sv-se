@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 3154c3a5a677f208973d442ff3875bb5ee8df6a1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.openlocfilehash: 98a1235532ec4cc225ac6a5117265e145b21034b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160638"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245182"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Lägga till Linux-avbildningar i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan distribuera virtuella Linux-datorer (VM) på Azure Stack genom att lägga till en Linux-baserad avbildning i Azure Stack Marketplace. Det enklaste sättet att lägga till en Linux-avbildning till Azure Stack är via hantering av Marketplace. Dessa avbildningar har förberett och testats för kompatibilitet med Azure Stack.
 

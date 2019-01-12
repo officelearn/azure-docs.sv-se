@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077971"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244706"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -81,7 +81,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 > [!IMPORTANT]  
 > Om du har en brandvägg som inte tillåter anslutningar från det offentliga VIP-nätverket till filservern innebär ändringen infrastruktur säkerhetskopieringar att misslyckas med ”fel 53 inte gick att hitta nätverkssökvägen”. Det här är en viktig ändring som har ingen rimlig lösning. Baserat på feedback från kunder, återgår Microsoft den här ändringen i en snabbkorrigering. Granska den [efter uppdatering i avsnittet steg](#post-update-steps) för mer information om tillgängliga snabbkorrigeringar för 1809. När snabbkorrigeringen är tillgänglig kan du se till att använda den när du har uppdaterat till 1809 endast om din nätverksprinciper inte tillåter det offentliga VIP-nätverket att få åtkomst till resurser i infrastrukturen. i 1811, kommer den här ändringen tillämpas på alla system. Om du har installerat snabbkorrigeringen i 1809, det finns ingen ytterligare åtgärd krävs.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Vanliga säkerhetsproblem och exponeringar
 
 Den här uppdateringen installeras följande säkerhetsuppdateringar:  
 
@@ -251,6 +251,8 @@ Här följer efter installation kända problem för den här build-versionen.
 - Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en **fel vid skapande av Fabric VM**, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
 
 ### <a name="compute"></a>Compute
+
+- När du skapar en [Dv2-serien VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 virtuella datorer kan du skapa 4, 8, 16 och 32 datadiskar respektive. Skapa VM-fönstret visas dock 8, 16, 32 och 64 datadiskar.
 
 <!-- 3235634 – IS, ASDK -->
 - Distribuera virtuella datorer med storlekarna som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, ange suffix som **Standard_A2_v2** (gemener v). Använd inte **Standard_A2_V2** (versaler V). Detta fungerar i globala Azure och är en inkonsekvens i Azure Stack.

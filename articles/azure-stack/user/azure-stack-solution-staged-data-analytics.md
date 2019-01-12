@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969540"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245539"
 ---
-# <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudie: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
+# <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Lär dig hur du använder både lokala och offentliga molnmiljöer för att uppfylla kraven från flera anläggning företag. Azure Stack är en snabb, säker och flexibel lösning för att samla in, bearbeta, lagra och distribuera lokal och fjärransluten data, särskilt om säkerhet, sekretess, företagsprinciper och regelkrav kan variera mellan platser och användare.
 
@@ -49,7 +49,7 @@ I den här självstudien skapar du en exempel-miljö för att:
 
 Vissa förberedelser krävs för att skapa den här lösningen:
 
--   Ett installerat och fungerar Azure Stack (Mer information finns här: [översikt över Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
+-   Ett installerat och fungerar Azure Stack (Mer information finns här: [Översikt över Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   En Azure-prenumeration. (Skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -81,25 +81,25 @@ Storage-konto och blob behållare ska innehålla alla ursprungliga data som gene
 
 3.  Använd följande information för kontot:
 
-    a.  Namn: **ditt val**
+    a.  Namn: **Ditt val**
 
     b.  Distributionsmodell: **Resource Manager**
 
-    c.  Typ av konto: **Storage (general-purpose V1)**
+    c.  Typ av konto: **Lagring (general-purpose V1)**
 
     d.  Plats: **USA, västra**
 
-    e.  Replikering: **lokalt redundant lagring (LRS)**
+    e.  Replikering: **Lokalt redundant lagring (LRS)**
 
     f.  Prestanda: **Standard**
 
-    g.  Säker överföring krävs: **inaktiverad**
+    g.  Säker överföring krävs: **Inaktiverad**
 
-    h.  Prenumeration: Välj något
+    h.  Prenumeration: Välj ett
 
     i.  Resursgrupp: Ange en ny resursgrupp eller välja en befintlig resursgrupp
 
-    j.  Konfigurera virtuella nätverk: **inaktiverad**
+    j.  Konfigurera virtuella nätverk: **Inaktiverad**
 
 4.  Välj **skapa för att skapa lagringskontot**.
 
@@ -113,9 +113,9 @@ Storage-konto och blob behållare ska innehålla alla ursprungliga data som gene
 
     ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  Namn: **ditt val**
+8.  Namn: **Ditt val**
 
-9.  Offentlig åtkomstnivå: **behållare** (anonym läsåtkomst för behållare och blobbar)
+9.  Offentlig åtkomstnivå: **Behållaren** (anonym läsåtkomst för behållare och blobbar)
 
 10.  Välj **OK**.
 
@@ -168,7 +168,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
     ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Välj **C\#**  som språk och namnet funktionen: `upload-to-azure` schemalägga `0 0 * * * *`, som i CRON-notation är en gång i timmen.
+3.  Välj **C\#**  som språk och namnet funktionen: `upload-to-azure`  Ställ in schemat `0 0 * * * *`, som i CRON-notation är en gång i timmen.
 
     ![Alternativ text](media/azure-stack-solution-staged-data-analytics/image5.png)
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994869"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247511"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -25,7 +25,7 @@ Azure Application Gateway är en Application Delivery Controller (ADC) som en tj
 
 ### <a name="what-features-does-application-gateway-support"></a>Vilka funktioner stöder Application Gateway?
 
-Application Gateway stöder automatisk skalning, SSL-avlastning och slutpunkt till slutpunkt SSL, Brandvägg för webbaserade program, cookie-baserad sessionstillhörighet, url-sökvägsbaserad routning, flera webbplatser och andra. En fullständig lista över funktioner som stöds finns i [introduktion till Application Gateway](application-gateway-introduction.md).
+Application Gateway stöder automatisk skalning, SSL-avlastning och slutpunkt till slutpunkt SSL, Brandvägg för webbaserade program, Cookiebaserad sessionstillhörighet, url-baserad routning, flera platser som är värd för och andra. En fullständig lista över funktioner som stöds finns i [introduktion till Application Gateway](application-gateway-introduction.md).
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Vad är skillnaden mellan Application Gateway och Azure Load Balancer?
 
@@ -53,7 +53,7 @@ Serverdelspooler kan bestå av nätverkskort, VM-skalningsuppsättningar, offent
 
 ### <a name="what-regions-is-the-service-available-in"></a>Vilka regioner är tillgängliga i tjänsten?
 
-Application Gateway är tillgängliga i alla globala Azure-regioner. Det är också tillgängliga i [Azure Kina](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+Application Gateway är tillgängliga i alla globala Azure-regioner. Det är också tillgängliga i [Azure Kina 21Vianet](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Är detta en dedikerad distribution för min prenumeration eller delas mellan kunder?
 
@@ -126,7 +126,7 @@ Nej, men du kan distribuera andra application gatewayer i undernätet.
 
 Nätverkssäkerhetsgrupper (NSG) stöds i application gateway-undernätet med följande begränsningar:
 
-* Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunderna till dessa gateways, inte initiera alla ändringar på dessa slutpunkter.
+* Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer går externa entiteter, inklusive kunderna till dessa gateways, inte att initiera alla ändringar på dessa slutpunkter.
 
 * Det går inte att blockera utgående internet-anslutning.
 
@@ -137,6 +137,8 @@ Nätverkssäkerhetsgrupper (NSG) stöds i application gateway-undernätet med f�
 Användardefinierade vägar (Udr) stöds i application gateway-undernätet, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation.
 
 Exempel: du kan ställa in en UDR i application gateway-undernätet så att den pekar till en brandväggsinstallation för paketinspektion, men måste du kontrollera att paketet kan nå den avsedda mål post granskar. I annat fall kan leda till felaktig hälsotillstånd avsökning eller SNMP-trafiken routning beteende. Detta inkluderar inlärda eller 0.0.0.0/0 standardvägar sprids av ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
+
+Udr: er i application gateway-undernätet är **inte** stöds på v2-SKU. Mer information finns i [automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Vilka är gränserna på Application Gateway? Kan jag öka gränserna?
 
@@ -206,11 +208,11 @@ Ja, v2-SKU: N för Application Gateway stöder automatisk skalning. Mer informat
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>Stöder manuell skala upp/ned orsak driftavbrott?
 
-Stilleståndstid ingen, instanser är fördelade på uppgraderingsdomäner och feldomäner.
+Det finns inget avbrott. Instanser distribueras bland uppgraderingsdomäner och feldomäner.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Stöder Application Gateway Anslutningstömning?
 
-Ja. Du kan konfigurera Anslutningstömning om du vill ändra medlemmar i en backend-pool utan avbrott. Detta gör att befintliga anslutningar fortsätter som ska skickas till sina tidigare målvolymen tills anslutningen är stängd eller en konfigurerbar tidsgränsen har nåtts. Anslutningstömning endast väntar aktuella pågående anslutningar att slutföra. Application Gateway är inte medveten om sessionstillstånd för programmet.
+Ja. Du kan konfigurera Anslutningstömning om du vill ändra medlemmar i en backend-pool utan avbrott. På så sätt kan befintliga anslutningar fortsätter som ska skickas till sina tidigare målvolymen tills anslutningen är stängd eller en konfigurerbar tidsgränsen har nåtts. Anslutningstömning endast väntar aktuella pågående anslutningar att slutföra. Application Gateway är inte medveten om sessionstillstånd för programmet.
 
 ### <a name="what-are-application-gateway-sizes"></a>Vad är application gateway-storlekar?
 
@@ -292,7 +294,7 @@ Ja, [konfigurationen av krypteringssviter](application-gateway-ssl-policy-overvi
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Hur många SSL-certifikat stöds?
 
-Upp till 20 SSL stöds-certifikat.
+Upp till 100 SSL stöds-certifikat.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Hur många autentiseringscertifikat för serverdelen omkryptering stöds?
 
@@ -374,13 +376,13 @@ Ja, stöder Application Gateway aviseringar. Aviseringar kan konfigureras på m�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hur jag för att analysera trafik statistik för Application Gateway?
 
-Du kan visa och analysera loggar för åtkomst via ett antal metoder, till exempel Azure Log Analytics, Excel, Power BI osv.
+Du kan visa och analysera loggar för åtkomst via flera mekanismer som till exempel Azure Log Analytics, Excel, Power BI osv.
 
 Vi har också publicerat en Resource Manager-mall som installerar och kör populära [GoAccess](https://goaccess.io/) logga analyzer för Åtkomstloggar för Application Gateway. GoAccess ger värdefull HTTP-trafik statistik, till exempel unika besökare, begärt filer, värdar, operativsystem, webbläsare, HTTP-statuskoder och mycket mer. Mer information finns i den [Readme-filen i mallmappen för Resource Manager-i GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Serverdelens hälsotillstånd returnerar okänd status, vad som kan vara orsaken denna status?
 
-Den vanligaste orsaken är åtkomst till serverdelen blockeras av en NSG eller anpassad DNS. Se [serverdelens hälsotillstånd, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md) vill veta mer.
+Den vanligaste orsaken är blockeras åtkomsten till serverdelen av en NSG eller anpassad DNS. Se [serverdelens hälsotillstånd, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md) vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 

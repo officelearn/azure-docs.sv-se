@@ -1,94 +1,102 @@
 ---
-title: Premium P2-licensiering funktionen checklist - Azure Active Directory | Microsoft Docs
-description: Checklista för distribution för Azure Active Directory Premium P2 funktionen distribution på 30 dagar, 90 dagar, och mycket mer.
+title: Checklista för distribution till Azure AD
+description: Azure Active Directory checklista för distribution av funktionen
 services: active-directory
 ms.service: active-directory
 ms.component: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.custom: it-pro, seodec18
-ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.reviewer: ''
+ms.openlocfilehash: 1bfc97eb850cf81ff638f92bc628c856fa75681e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064722"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230670"
 ---
-# <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 licensiering funktionen Checklista
+# <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktionen
 
-Det kan verka överväldigande att distribuera Azure Active Directory (Azure AD) för din organisation och skydda den. Den här artikeln beskrivs några vanliga saker som kunderna användbara. Kunder vanligtvis utföra dessa uppgifter under 30 dagar, 90 dagar, eller efter för att förbättra sin säkerhetsposition. Även organisationer som redan har distribuerat Azure AD kan använda den här checklistan för att se till att de får ut maximalt av sina investeringar.
+Det kan verka skrämmande att distribuera Azure Active Directory (Azure AD) för din organisation och skydda den. Den här artikeln beskrivs vanliga uppgifter att kunder vara till hjälp för att slutföra i faser, under loppet av 30, 60, 90 dagar eller mer att förbättra deras säkerhet efterlevnadsstatus. Även organisationer som redan har distribuerat Azure AD kan använda den här guiden för att se till att de får ut maximalt av sina investeringar.
 
-Ett framgångsrikt och utförs identitetsinfrastrukturen banar vägen för säkrare åtkomst till din produktivitet arbetsbelastningar och data genom att endast autentiserade användare och enheter.
+Ett framgångsrikt och utförs identitetsinfrastrukturen banar vägen för säker åtkomst till din produktivitet arbetsbelastningar och data av kända användare och enheter endast.
+
+Dessutom kunder kan kontrollera sina [identitet skyddar score](identity-secure-score.md) att se hur justerade de är bästa praxis från Microsoft. Kontrollera dina säker poäng före och efter tillämpning av de här rekommendationerna för att se hur väl du åstadkommer jämfört med andra i din bransch och andra organisationer av storleken på dina.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här handboken förutsätts att du har licenser för Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 eller ett liknande licens-paket.
+Många av rekommendationerna i den här guiden kan implementeras med Azure AD kostnadsfri, Basic eller ingen licens alls. Där licenser krävs ange vi vilken licens krävs minst att utföra uppgiften.
 
-[Azure AD-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)
+Mer information om licensiering finns på följande sidor:
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
+* [Azure AD-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
+* [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
+* [Azure AD B2B-licensiering vägledning](../b2b/licensing-guidance.md)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
+## <a name="phase-1-foundation-of-security"></a>Fas 1: Grunden för säkerhet
 
-## <a name="plan-and-deploy-day-1-30"></a>Planera och distribuera: Dag 1 – 30
+I fas 1-administratörer aktivera grundläggande säkerhetsfunktioner att skapa en säkrare och mer lättanvända grund i Azure AD innan vi importera eller skapa vanliga användarkonton. Den här grundläggande fasen säkerställer att du är i tillståndet säkrare från början och att slutanvändarna bara behöver introduceras nya en gång.
 
-- Ange mer än en global administratör (glas konto)
-   - [Hantera nödfall-åtkomst till administratörskonton i Azure AD](../users-groups-roles/directory-emergency-access.md)
-- Aktivera Azure AD Privileged Identity Management (PIM) för att visa rapporter
-   - [Börja använda PIM](../privileged-identity-management/pim-getting-started.md)
-- Använda icke-globala administrativa roller där det är möjligt.
-   - [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
-- Autentisering
-   - [Lansera självåterställning av lösenord](../authentication/howto-sspr-deployment.md)
-   - Distribuera Azure AD-lösenord Protection (förhandsversion)
-      - [Eliminera felaktiga lösenord i din organisation](../authentication/concept-password-ban-bad.md)
-      - [Använda Azure AD-lösenordsskydd för Windows Server Active Directory](../authentication/concept-password-ban-bad-on-premises.md)
-   - Konfigurera principer för kontoutelåsning
-      - [Azure Active Directory smart kontoutelåsning](../authentication/howto-password-smart-lockout.md)
-      - [AD FS Extranätsutelåsning och Smart Extranätsutelåsning](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
-   - [Distribuera Azure AD Multi-Factor Authentication med hjälp av principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md)
-   - [Aktivera konvergerade registrering för lösenordsåterställning via självbetjäning och Azure AD Multi-Factor Authentication (förhandsversion)](../authentication/concept-registration-mfa-sspr-converged.md)
-   - [Aktivera Azure Active Directory Identity Protection](../identity-protection/enable.md)
-      - [Använda riskhändelser utlösaren Multi-Factor Authentication och ändring av lösenord](../authentication/tutorial-risk-based-sspr-mfa.md)
-   - [Riktlinjer för lösenord](https://www.microsoft.com/research/publication/password-guidance/)
-      - Underhålla en åtta tecken minimilängden, längre är inte nödvändigtvis bättre.
-      - Eliminera krav för tecken-sammansättning.
-      - [Eliminera obligatoriska periodiska lösenordsåterställning för användarkonton.](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire)
-- Synkronisera användare från en lokal Active Directory
-   - [Installera Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md)
-   - [Implementera lösenordets Hash-synkronisering](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-   - [Implementera tillbakaskrivning av lösenord](../authentication/howto-sspr-writeback.md)
-   - [Implementera Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
-- [Tilldela licenser till användare av gruppmedlemskap i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+| Aktivitet | Information | Licens som krävs |
+| ---- | ------ | ---------------- |
+| [Ange mer än en global administratör](../users-groups-roles/directory-emergency-access.md) | Tilldela minst två molnbaserad permanent globala administratörskonton för användning om det finns ett nödfall. Dessa konton är inte användas för varje dag och ska ha långa och komplexa lösenord. | Azure AD Kostnadsfri |
+| [Använda icke-globala administrativa roller, där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer endast åtkomst till de områden som de behöver åtkomst till. Inte alla administratörer måste vara globala administratörer. | Azure AD Kostnadsfri |
+| [Aktivera Privileged Identity Management för att spåra användning för admin-rollen](../privileged-identity-management/pim-getting-started.md) | Aktivera Privileged Identity Management att starta spårning av administrativ roll. | Azure AD Premium P2 |
+| [Lansera självåterställning av lösenord](../authentication/howto-sspr-deployment.md) | Minska antalet samtal till supportavdelningen för lösenordsåterställning genom att låta personal att återställa sina lösenord med hjälp av principer du som en administratör-kontroll. | Azure AD Basic |
+| [Skapa en organisation specifik anpassade förbjudna lösenordslista](../authentication/howto-password-ban-bad-configure.md) | Förhindra att användarna skapar lösenord som innehåller vanliga ord eller fraser från din organisation eller ditt område. | Azure AD Basic |
+| [Aktivera lokal integrering med Azure AD-lösenordsskydd](../authentication/concept-password-ban-bad-on-premises.md) | Utöka lista med förbjudna lösenord till din lokala katalog så lösenord Ange lokala är också kompatibla med den globala och klientspecifik förbjudna lösenordslistor. | Azure AD Premium P1 |
+| [Aktivera Microsofts lösenord vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Stoppa att kräva att användare kan ändra sitt lösenord på ett schema, inaktivera krav på komplexitet och dina användare är mer apt att komma ihåg lösenorden och hålla dem något som är säker. | Azure AD Kostnadsfri |
+| [Inaktivera periodiska lösenordsåterställning för molnbaserade användarkonton](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Periodiska lösenordsåterställning Uppmana användarna att öka deras befintliga lösenord. Följ sedan riktlinjerna i Microsofts lösenord vägledning dokument och spegling av din lokala princip för endast molnbaserade användare. | Azure AD Kostnadsfri |
+| [Anpassa Azure Active Directory smart kontoutelåsning](../authentication/howto-password-smart-lockout.md) | Stoppa utelåsningar från molnbaserade användare replikeras till den lokala Active Directory-användare | Azure AD Basic |
+| [Aktivera smarta Extranätsutelåsning för AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extranätsutelåsning skyddar mot brute force lösenord gissa attacker, samtidigt som giltig AD FS-användarna fortsätta att använda sina konton. | |
+| [Distribuera Azure AD Multi-Factor Authentication med hjälp av principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md) | Kräv att användare utför en tvåstegsverifiering vid åtkomst till känsliga program med hjälp av principer för villkorlig åtkomst. | Azure AD Premium P1 |
+| [Aktivera Azure Active Directory Identity Protection](../identity-protection/enable.md) | Aktivera spårning av riskfyllda inloggningar och komprometterade autentiseringsuppgifter för användare i din organisation. | Azure AD Premium P2 |
+| [Använd riskhändelser för att utlösa Multi-Factor authentication och ändring av lösenord](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivera automatisering som kan utlösa händelser som multifaktorautentisering, lösenordsåterställning och blockerar över inloggningar baserat på risk. | Azure AD Premium P2 |
+| [Aktivera konvergerade registrering för lösenordsåterställning via självbetjäning och Azure AD Multi-Factor Authentication (förhandsversion)](../authentication/concept-registration-mfa-sspr-converged.md) | Tillåt användarna att registrera från en gemensam upplevelsen för både Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning. | Azure AD Premium P1 |
 
-## <a name="plan-and-deploy-day-31-90"></a>Planera och distribuera: 31 90 dagar
+## <a name="phase-2-users-synchronization-and-devices"></a>Fas 2: Användare, synkronisering och enheter
 
-- [Planera för gästanvändares åtkomst](../b2b/what-is-b2b.md)
-   - [Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal](../b2b/add-users-administrator.md)
-   - [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](../b2b/allow-deny-list.md)
-   - [Grant B2B-användare i Azure AD åtkomst till dina lokala program](../b2b/hybrid-cloud-to-on-premises.md)
-- Fatta beslut om användaren strategi för hantering av livscykeln
-- [Besluta om enhetshanteringsstrategi](../devices/overview.md)
-   - [Användningsscenarier och överväganden vid distribution för Azure AD Join](../devices/azureadjoin-plan.md)
-- [Hantera Windows Hello för företag i din organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
+I fas 2, vi lägga till i grunden som i fas 1 genom att importera våra användare och aktiverar synkronisering, planera för gäståtkomst och förbereda för ytterligare funktioner.
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Planera och distribuera: 90 dagars och senare
+| Aktivitet | Information | Licens som krävs |
+| ---- | ------ | ---------------- |
+| [Installera Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Förbered för att synkronisera användare från din befintliga lokala katalog till molnet. | Azure AD Kostnadsfri |
+| [Implementera lösenordets Hash-synkronisering](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synkronisera lösenordshash så att lösenordsändringar som ska replikeras, felaktiga lösenord identifiering och reparation och rapportering av läckta autentiseringsuppgifter. | Azure AD Premium P1 |
+| [Implementera tillbakaskrivning av lösenord](../authentication/howto-sspr-writeback.md) | Tillåt ändring av lösenord i molnet för att skrivas tillbaka till en lokal Windows Server Active Directory-miljö. | Azure AD Premium P1 |
+| [Implementera Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Aktivera övervakning av EU: s statistik för Azure AD Connect-servrar, AD FS-servrar och domänkontrollanter. | Azure AD Premium P1 |
+| [Tilldela licenser till användare av gruppmedlemskap i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Spara tid och energi genom att skapa licensiering grupper som aktiverar eller inaktiverar funktioner av gruppen i stället för inställningen per användare. | |
+| [Skapa en plan för gästanvändares åtkomst](../b2b/what-is-b2b.md) | Samarbeta med gästanvändare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, Skol- eller sociala identiteter. | [Azure AD B2B-licensiering vägledning](../b2b/licensing-guidance.md) |
+| [Besluta om enhetshanteringsstrategi](../devices/overview.md) | Bestäm vad din organisation tillåter inte om enheter. Registrera vs koppla, Bring Your Own Device vs företagets tillhandahålls. | |
+| [Distribuera Windows Hello för företag i din organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Förbereda för lösenord utan autentisering med hjälp av Windows Hello | |
 
-- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
-   - [Konfigurera Azure AD directory rollinställningar i PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)
-   - [Tilldela Azure AD-katalogroller i PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md)
-- [Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM](../privileged-identity-management/pim-how-to-start-security-review.md)
-- Hantera livscykeln för användaren holistiskt
-   - Azure AD har en metod för att hantera identitetslivscykel
-   - Ta bort manuella steg från din anställdas konto livscykel, för att förhindra obehörig åtkomst:
-      - Synkronisera identiteter från din källa till sanningen (HR-systemet) till Azure AD.
-      - [Använda dynamiska grupper för att automatiskt tilldela användare i grupper baserat på deras attribut från HR (eller din källa till sanningen), till exempel avdelning, rubrik, region, och andra attribut.](../users-groups-roles/groups-dynamic-membership.md)
-      - [Använd gruppbaserad åtkomsthantering driftsättning till automatiskt etablera användare för SaaS-program.](../manage-apps/what-is-access-management.md)
+## <a name="phase-3-applications"></a>Fas 3: Appar
+
+I fas 3 börjar administratörer den pågående processen att lägga till i program.
+
+| Aktivitet | Information | Licens som krävs |
+| ---- | ------ | ---------------- |
+| Identifiera dina program | Identifiera program som används i din organisation: lokala, SaaS-program i molnet och andra line-of-business-program. Anger om programmen kan och bör hanteras med Azure AD. | Ingen licens krävs |
+| [Integrera SaaS-program som stöds i galleriet](../manage-apps/add-application-portal.md) | Azure AD har ett galleri som innehåller tusentals redan integrerade program. Några av de program som din organisation använder är förmodligen i galleriet tillgänglig direkt från Azure-portalen. | Azure AD Kostnadsfri |
+| [Använda programproxy för att integrera dina lokala program](../manage-apps/application-proxy-add-on-premises-application.md) | Programproxy kan användare komma åt lokala program genom att logga in med sitt Azure AD. | Azure AD Basic |
+
+## <a name="phase-4-privileged-identities-access-reviews-and-user-lifecycle"></a>Steg 4: Privilegierade identiteter och åtkomstgranskningar användaren livscykel
+
+Fas 4 ser administratörer tillämpa minsta privilegium principer för administration, du har slutfört sin första åtkomstgranskningar och aktivera automatisering av vanliga aktiviteter för livscykelhantering av användare.
+
+| Aktivitet | Information | Licens som krävs |
+| ---- | ------ | ---------------- |
+| [Framtvinga användningen av Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ta bort administrativa roller från normala dagliga användarkonton. Berättiga administrativa användare att använda deras roll efter lyckas en kontroll för multifaktorautentisering, vilket ger en motivering eller begära godkännande från utnämnda godkännare. | Azure AD Premium P2 |
+| [Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Arbeta med dina säkerhets- och ledarskap team att skapa en princip för granskning av åtkomst om du vill granska administrativ åtkomst baserat på organisationens principer. | Azure AD Premium P2 |
+| [Implementera dynamiskt medlemskap grupprinciper](../users-groups-roles/groups-dynamic-membership.md) | Använda dynamiska grupper för att automatiskt tilldela användare i grupper baserat på deras attribut från HR (eller din källa till sanningen), till exempel avdelning, rubrik, region, och andra attribut. |  |
+| [Implementera gruppbaserade programetablering](../manage-apps/what-is-access-management.md) | Använd gruppbaserad åtkomsthantering driftsättning till automatiskt etablera användare för SaaS-program. |  |
+| [Automatisera användaretablering och avetablering](../manage-apps/user-provisioning.md) | Ta bort manuella steg från anställdas konto livscykeln att förhindra obehörig åtkomst. Synkronisera identiteter från din källa till sanningen (HR-systemet) till Azure AD. |  |
 
 ## <a name="next-steps"></a>Nästa steg
+
+[Azure AD-licensiering och prisinformation](https://azure.microsoft.com/pricing/details/active-directory/)
 
 [Konfigurationer för identitets- och Enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 

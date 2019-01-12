@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a2c45807f846dbe9d1c6bd91ce8c87958949ab17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344303"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231333"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -79,7 +79,7 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 | Egenskap  | Beskrivning |
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enskild kategori så att de grupperas tillsammans i konsolen. |
-| DisplayName | Namn som ska visas på den sparade sökningen i portalen. |
+| displayname (visningsnamn) | Namn som ska visas på den sparade sökningen i portalen. |
 | DocumentDB | Frågan ska köras. |
 
 > [!NOTE]
@@ -153,7 +153,7 @@ Det finns två typer av åtgärden resursen som anges av den **typ** egenskapen.
 Aviseringsåtgärder har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
 
 
-```
+```json
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -290,7 +290,7 @@ Egenskaper för Webhook-åtgärd resurser beskrivs i följande tabeller.
 |:--|:--|:--|
 | typ | Ja | Typ av åtgärd.  Det här är **Webhook** för webhook-åtgärder. |
 | namn | Ja | Visningsnamn för åtgärden.  Detta visas inte i konsolen. |
-| wehookUri | Ja | URI för webhook. |
+| WebhookUri | Ja | URI för webhook. |
 | customPayload | Nej | Anpassad nyttolast som ska skickas till webhooken. Formatet beror på vad webhooken förväntas. |
 
 
@@ -304,7 +304,7 @@ Nedan följer ett exempel på en lösning som innehåller följande resurser:
 
 I exemplet används [standardlösning parametrar]( solutions-solution-file.md#parameters) variabler som ofta används i en lösning till skillnad från hardcoding värden i resursdefinitionerna.
 
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -462,7 +462,7 @@ I exemplet används [standardlösning parametrar]( solutions-solution-file.md#pa
 ```
 
 Följande parameterfilen ger exempel värden för den här lösningen.
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",

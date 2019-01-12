@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: a16360fe74efe7394c061118bc4e6fa34e484858
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198550"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229974"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -33,6 +33,15 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
 
 Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="december-2018"></a>December 2018
+
+Uppdateringar från GA-versionen av V3-API: et innehåller:
+       
+* Den **PresentationTimeRange** egenskaper är inte längre behövs för **AssetFilters** och **AccountFilters**. 
+* Fråga efter alternativ för $top och $skip **jobb** och **omvandlar** har tagits bort och $orderby har lagts till. Som en del av att lägga till de nya funktionerna i skrivordning, upptäcktes att alternativen $top och $skip hade av misstag gjorts tillgänglig tidigare även om de inte har implementerats.
+* Uppräkning utökningsbarhet har återaktiverats. Den här funktionen har aktiverats i förhandsgranskningsversionerna av SDK och inaktiverades av misstag i GA-versionen.
+* Två fördefinierade strömmande principer har bytt namn. **SecureStreaming** är nu **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** är nu **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>November 2018
 

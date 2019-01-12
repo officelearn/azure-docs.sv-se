@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8b31a85abf1c6034aaff511f23d96fae9ee64561
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117613"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230058"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -101,6 +101,43 @@ public void ConfigureServices(IServiceCollection services)
     // ....
 }
 ```
+
+#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Aktivera W3C distribuerad spårning av stöd för Java-appar
+
+Inkommande:
+
+**J2EE appar** Lägg till följande till den `<TelemetryModules>` tagg i ApplicationInsights.xml
+
+```xml
+<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+   <Param name = "W3CEnabled" value ="true"/>
+   <Param name ="enableW3CBackCompat" value = "true" />
+</Add>
+```
+
+**Spring Boot-appar** Lägg till följande egenskaper:
+
+`azure.application-insights.web.enable-W3C=true`
+`azure.application-insights.web.enable-W3C-backcompat-mode=true`
+
+Utgående:
+
+Lägg till följande AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Bakåtkompatibilitet läge är aktiverat som standard och enableW3CBackCompat-parametern är valfri och bör endast användas när du vill stänga av den. 
+
+Vi rekommenderar är detta fallet när alla tjänster har uppdaterats till nyare version av SDK: er stöder W3C-protokollet. Vi rekommenderar starkt att flytta till nyare version av SDK: er med stöd för W3C så snart som möjligt. 
+
+Se till att båda **inkommande och utgående konfigurationer är exakt samma**.
 
 ## <a name="open-tracing-and-application-insights"></a>Öppna spårning och Application Insights
 

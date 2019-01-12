@@ -1,23 +1,18 @@
 ---
-title: Övervaka åtkomstloggar, Prestandaloggar, backend-hälsotillstånd och mått för Application Gateway
-description: Lär dig hur du aktiverar och hanterar åtkomstloggar och Prestandaloggar för Application Gateway
+title: Övervaka åtkomstloggar, Prestandaloggar, backend-hälsotillstånd och mått för Azure Application Gateway
+description: Lär dig hur du aktiverar och hanterar åtkomstloggar och Prestandaloggar för Azure Application Gateway
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437477"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231112"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -98,7 +93,7 @@ Följande kodavsnitt visar ett exempel på svaret:
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob storage och visas i olika verktyg, till exempel [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel och Power BI. Du kan läsa mer om de olika typerna av loggar i listan nedan:
 
 * **Aktivitetsloggen**: Du kan använda [Azure-aktivitetsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare känt som driftloggar och granskningsloggar) att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
-* **Åtkomstlogg**: Du kan använda den här loggfilen för att visa mönster i databasåtkomst Application Gateway och analysera viktiga information, inklusive anroparens IP, begärd URL, svarsfördröjning, returkod och byte in och ut. En åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av Application Gateway. Application Gateway-instans kan identifieras av egenskapen instanceId.
+* **Åtkomstlogg**: Du kan använda den här loggen visar Application Gateway åtkomstmönster och analyserar viktig information. Detta inkluderar anroparens IP, begärd URL, svarsfördröjning, returkod och byte in och ut. En åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av Application Gateway. Application Gateway-instans kan identifieras av egenskapen instanceId.
 * **Prestandaloggen**: Du kan använda den här loggfilen för att visa hur Application Gateway-instanser utför. Den här loggfilen innehåller prestandainformation om för varje instans, inklusive totalt antal begäranden som hanteras, genomflöde i byte, totalt antal begäranden hanteras, antalet misslyckade förfrågningar och antal felfria och defekta backend-instanser. En prestandalogg som samlas in var 60: e sekund.
 * **Brandväggslogg**: Du kan använda den här loggfilen för att visa förfrågningar som loggas via identifiering eller förhindra läget för en Programgateway med brandväggen för webbaserade program.
 
@@ -217,7 +212,7 @@ Prestandaloggen skapas endast om du har aktiverat det på varje Application Gate
 |HealthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antal defekta värdar i backend poolen.        |
 |RequestCount     | Antal begäranden som hanteras.        |
-|svarstid | Svarstid (i millisekunder) för förfrågningar från instansen till backend-server som hanterar begäranden. |
+|svarstid | Genomsnittlig svarstid (i millisekunder) för förfrågningar från instansen till backend-server som hanterar begäranden. |
 |failedRequestCount| Antal misslyckade begäranden.|
 |Dataflöde| Genomsnittligt dataflöde sedan senaste loggen, mätt i byte per sekund.|
 

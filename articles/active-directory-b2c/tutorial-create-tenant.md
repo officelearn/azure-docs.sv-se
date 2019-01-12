@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7571e5f4d95320ab92fa3b69b0ea1f05ff9c771f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 982932f538f13ac3cb8f842a32f9439f717d971f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408410"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247783"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudier: Skapa en Azure Active Directory B2C-klient
 
@@ -33,8 +33,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Skapa en Azure AD B2C-klient
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Se till att du använder den katalog som innehåller din prenumeration genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller den. Det här är en annan katalog än den som innehåller din Azure AD B2C-klient.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Se till att du använder den katalog som innehåller din prenumeration genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller den. Den här katalogen är annorlunda än det som innehåller din Azure AD B2C-klient.
 
     ![Växla till prenumerationskatalogen](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
@@ -46,8 +46,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     I det här exemplet är klientnamnet contoso0926Tenant.onmicrosoft.com
 
-6. På den **Skapa ny B2C-klient eller länka till en befintlig klient** väljer **länka en befintlig Azure AD B2C-Klientorganisation till min Azure-prenumeration**, Välj den klient som du har skapat, Välj din prenumeration, klickar du på **Skapa nytt** och ange ett namn för resursgruppen som ska innehålla klienten, välj platsen och klicka sedan på **skapa**.
-7. Om du vill börja använda den nya klientorganisationen, kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller den.
+6. På den **Skapa ny B2C-klient eller länka till en befintlig klient** väljer **länka en befintlig Azure AD B2C-Klientorganisation till min Azure-prenumeration**väljer du den klient som du har skapat, Välj din prenumeration och sedan Klicka på **Skapa ny**.
+7. Ange ett namn för resursgruppen som ska innehålla klienten, välj platsen och klicka sedan på **skapa**.
+8. Om du vill börja använda den nya klientorganisationen, kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller den.
 
     ![Växla till directory-klient](./media/tutorial-create-tenant/switch-directories.png)
 
@@ -60,4 +61,4 @@ I den här artikeln har du lärt dig hur du:
 > * Länka din klient till din prenumeration
 
 > [!div class="nextstepaction"]
-> [Aktivera en webbapp för autentisering med konton](active-directory-b2c-tutorials-web-app.md)
+> [Registrera ditt program](tutorial-register-applications.md)

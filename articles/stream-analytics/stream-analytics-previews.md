@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557605"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232132"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -26,10 +26,6 @@ Följande funktioner finns i offentlig förhandsversion. Du kan dra nytta av fun
 ### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
 
 Du kan skala Stream Analytics-jobb med Machine Learning (ML)-funktioner. Läs mer om hur du kan använda ML-funktioner i ditt Stream Analytics-jobb [skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md). Kolla in ett verkligt scenario med [utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Sessionen windows
-
-Stream Analytics har inbyggt stöd för fönsterfunktioner, så att utvecklare kan skapa komplexa strömbearbetning jobb med minimal ansträngning. [Sessionen windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) gruppera händelser som kommer vid samma tid filtrerar ut tidsperioder där det finns inga data. Läs mer om fönsterfunktioner [introduktion till Stream Analytics fönsterfunktioner](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>BLOB-utdata partitionering av anpassad tid
 

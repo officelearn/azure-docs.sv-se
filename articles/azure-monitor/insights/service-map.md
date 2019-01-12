@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186505"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232931"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -269,7 +269,7 @@ Den **säkerhet datorer** visar data från lösningen för säkerhet och granskn
 ![Fönstret för dator-säkerhet](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integrering av uppdateringar
-Tjänstkarta-integrering med hantering av uppdateringar sker automatiskt när båda lösningarna är aktiverat och konfigurerat i loggen Anlaytics-arbetsytan.
+Tjänstkarta-integrering med hantering av uppdateringar sker automatiskt när båda lösningarna är aktiverade och konfigurerade i Log Analytics-arbetsytan.
 
 Den **uppdateringar för virtuella datorer** fönstret visar data från lösningen för uppdateringshantering för den valda servern. Fönstret visar en sammanfattning av uppdateringar som saknas för servern under det valda tidsintervallet.
 

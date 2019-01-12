@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193798"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229854"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -109,7 +109,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
 4. På den **installationsprogrammet** kan du se alternativet att installera Log Analytics-agenter och konfigurera agenter för övervakning i den **gemensamma inställningar för** vy. Som tidigare förklarats om du har installerat och konfigurerat Log Analytics-agenter, väljer den **installationsprogrammet** vy för att konfigurera funktionen du vill använda. 
 
-   **Övervakare av nätverksprestanda**: Välj protokollet som ska användas för syntetiska transaktioner i den **standard** Prestandaövervakaren regel och välj **spara och fortsätt**. Den här protokollval innehåller endast för systemgenererade Standardregeln. Du måste välja protokollet som varje gång du skapar en regel för Prestandaövervakaren uttryckligen. Du alltid gå till den **standard** regel inställningar för den **Prestandaövervakaren** fliken (den visas när du har slutfört konfigurationen dag 0) och senare ändrar protokollet. Om du inte vill rPerfomance bildskärmar, kan du inaktivera Standardregeln från den **standard** regel inställningar för den **Prestandaövervakaren** fliken.
+   **Övervakare av nätverksprestanda**: Välj protokollet som ska användas för syntetiska transaktioner i den **standard** Prestandaövervakaren regel och välj **spara och fortsätt**. Den här protokollval innehåller endast för systemgenererade Standardregeln. Du måste välja protokollet som varje gång du skapar en regel för Prestandaövervakaren uttryckligen. Du alltid gå till den **standard** regel inställningar för den **Prestandaövervakaren** fliken (den visas när du har slutfört konfigurationen dag 0) och senare ändrar protokollet. Om du inte vill Performance Monitor-funktionen kan du inaktivera Standardregeln från den **standard** regel inställningar för den **Prestandaövervakaren** fliken.
 
    ![Visning av Prestandaövervakaren](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -270,7 +270,7 @@ Om du är en NPM-användare som skapar en avisering via Azure-portalen:
 4. Du kan använda Hantera aviseringar länk för att hantera dina aviseringar när aviseringen har skapats. 
 
 Varje gång du skapar en avisering skapar NPM en frågebaserade loggvarningsregel i Azure Monitor. Den här frågan är triggerred var 5: e minut som standard. Med Azure monitor debiteras inte för de första 250 logga aviseringsregler skapade och Varningsregler ovan begränsa 250 loggvarningsregler debiteras enligt [aviseringar prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Meddelanden debiteras separat enligt [meddelanden prissättningen i Azure Monitor pricig sidan](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Meddelanden debiteras separat enligt [meddelanden prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Prissättning

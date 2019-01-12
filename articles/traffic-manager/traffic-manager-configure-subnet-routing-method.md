@@ -1,9 +1,10 @@
 ---
-title: Konfigurera trafikroutningsmetoden för undernät med Azure Traffic Manager | Microsoft Docs
+title: Konfigurera undernät trafikroutningsmetod med Azure Traffic Manager
 description: Den här artikeln förklarar hur du konfigurerar Traffic Manager kan dirigera trafik från specifika undernät.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 624bbb9fa8841b0c43800f318e83c54d6d408a09
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e3a3a9fdc2ab7f03db2d3a646eaeec7a02f88692
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987451"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231554"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirigera trafik till specifika slutpunkter baserat på användares undernät med Traffic Manager
 
@@ -102,7 +103,7 @@ I det här avsnittet ska du installera IIS-servern på två virtuella datorer �
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my test website server - " + $env:computername)
     ```
-8. Stäng RDP-anslutning med *myIISVMEastUS*.
+8. Stäng RDP-anslutningen med *myIISVMEastUS*.
 9. Upprepa steg 1 – 6 med genom att skapa en RDP-anslutning med den virtuella datorn *myIISVMWEurope* inom den *myResourceGroupTM2* resursgrupp för att installera IIS och anpassa dess standardwebbsidan.
 10. Starta Windows PowerShell på *myIISVMWEurope* och använder följande kommandon för att installera IIS-servern och uppdatera standard htm-fil.
     ```powershell-interactive
@@ -118,12 +119,12 @@ I det här avsnittet ska du installera IIS-servern på två virtuella datorer �
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Konfigurera DNS-namnen för de virtuella datorer som kör IIS
 
-Traffic Manager dirigerar användartrafik baserat på tjänstslutpunkternas DNS-namn. I det här avsnittet ska du konfigurera DNS-namn för IIS-servrar – *myIISVMEastUS* och *myIISVMWEurope*.
+Traffic Manager dirigerar användartrafik baserat på tjänstslutpunkternas DNS-namn. I det här avsnittet konfigurerar du DNS-namnen för IIS-servrarna – *myIISVMEastUS* och *myIISVMWEurope*.
 
-1. Klicka på **alla resurser** på den vänstra menyn och sedan i resurslistan, väljer du *myIISVMEastUS* som finns i den *myResourceGroupTM1* resursgrupp.
+1. Klicka på **Alla resurser** i den vänstra menyn och från resurslistan väljer du sedan *myIISVMEastUS* som finns i resursgruppen *myResourceGroupTM1*.
 2. På sidan **Översikt** under **DNS-namn** väljer du **Konfigurera**.
 3. På sidan **Konfiguration**, under DNS-namnetiketten, lägger du till ett unikt namn och sedan väljer du **Spara**.
-4. Upprepa steg 1 – 3, för den virtuella datorn med namnet *myIISVMWEurope* som finns i den *myResourceGroupTM1* resursgrupp.
+4. Upprepa steg 1–3, för den virtuella datorn med namnet *myIISVMWEurope* som finns i resursgruppen *myResourceGroupTM1*.
 
 ### <a name="create-test-vms"></a>Skapa virtuella testdatorer
 
@@ -191,7 +192,7 @@ Lägg till de två virtuella datorer som kör IIS servrar – *myIISVMEastUS*  &
     | Typ                    | Azure-slutpunkt                                   |
     | Namn           | myTestWebSiteEndpoint                                        |
     | Målresurstyp           | Offentlig IP-adress                          |
-    | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resource**, Välj offentlig IP-adress med namnet *myIISVMEastUS ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
+    | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet *myIISVMEastUS-ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
     |  Inställningar för undernätsroutning    |   Lägg till IP-adressen för *myVMEastUS* testa virtuell dator. Alla användare-frågor från den här virtuella datorn dirigeras till den *myTestWebSiteEndpoint*.    |
 
 4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet *myProductionEndpoint* för den offentliga IP-adressen *myIISVMWEurope ip* som är associerad med den IIS-servern virtuell dator med namnet *myIISVMWEurope* . För **routning undernätsinställningar**, Lägg till IP-adressen för testet VM - *myVMWestEurope*. Alla användarfråga från det här testet VM kommer att dirigeras till slutpunkten - *myProductionWebsiteEndpoint*.
@@ -220,12 +221,12 @@ Så här kan du fastställa DNS-namnet i Traffic Manager-profilen:
 ### <a name="view-traffic-manager-in-action"></a>Se hur Traffic Manager fungerar i praktiken
 I det här avsnittet får du se Traffic Manager i arbete. 
 
-1. Välj **alla resurser** på den vänstra menyn och klicka sedan i resurslistan på *myVMEastUS* som finns i den *myResourceGroupTM1* resursgrupp.
+1. Välj **Alla resurser** på menyn till vänster och klicka i listan över resurser på *myVMEastUS* som vinns i resursgruppen *myResourceGroupTM1*.
 2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**. 
 3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. 
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen. 
-1. I en webbläsare på den virtuella datorn *myVMEastUS*, DNS-namn för din Traffic Manager-profil för att visa din webbplats. Eftersom den virtuella datorn *myVMEastUS* IP-adress som är associerad med slutpunkten *myIISVMEastUS*, webbläsaren startar Test-webbplatsservern - *myIISVMEastUS*.
+1. I en webbläsare på den virtuella datorn *myVMEastUS* anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Eftersom den virtuella datorn *myVMEastUS* IP-adress som är associerad med slutpunkten *myIISVMEastUS*, webbläsaren startar Test-webbplatsservern - *myIISVMEastUS*.
 
    ![Testa Traffic Manager-profil](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
 

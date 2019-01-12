@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5d90e9440758f457aca591e5c2792c6670868685
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721977"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245488"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -41,7 +41,7 @@ De här stegen kan skilja sig något beroende på vilken typ av program som du s
 
 ## <a name="web-applications"></a>Webbprogram
 
-Azure AD B2C stöder för webbprogram (inklusive .NET, PHP, Java, Ruby, Python och Node.js) som finns på en server och öppnas via en webbläsare, [OpenID Connect](active-directory-b2c-reference-protocols.md) i alla användarmiljöer. till exempel inloggning, registrering och profilhantering. I Azure AD B2C-implementeringen av OpenID Connect initierar din webbapp dessa användarupplevelser genom att utfärda autentiseringsförfrågningar till Azure AD. Resultatet av begäran är en `id_token`. Den här säkerhetstoken representerar användarens identitet. Den tillhandahåller även information om användaren i form av anspråk:
+Azure AD B2C stöder för webbprogram (inklusive .NET, PHP, Java, Ruby, Python och Node.js) som finns på en server och öppnas via en webbläsare, [OpenID Connect](active-directory-b2c-reference-protocols.md) i alla användarmiljöer. I Azure AD B2C-implementeringen av OpenID Connect initierar din webbapp användarupplevelser genom att utfärda autentiseringsförfrågningar till Azure AD. Resultatet av begäran är en `id_token`. Den här säkerhetstoken representerar användarens identitet. Den tillhandahåller även information om användaren i form av anspråk:
 
 ```
 // Partial raw id_token
@@ -68,7 +68,7 @@ I ett webbprogram, varje körning av en [princip](active-directory-b2c-reference
 6. Den `id_token` verifieras och en sessions-cookie har angetts.
 7. En säker sida returneras till användaren.
 
-Valideringen av `id_token` med hjälp av en offentlig signeringsnyckel som fås från Azure AD är tillräckligt för att verifiera användarens identitet. Åtgärden konfigurerar även en sessions-cookie som kan användas för att identifiera användaren vid efterföljande sidförfrågningar.
+Valideringen av `id_token` med hjälp av en offentlig signeringsnyckel som fås från Azure AD är tillräckligt för att verifiera användarens identitet. Den här processen ställer även en sessions-cookie som kan användas för att identifiera användaren vid efterföljande sidförfrågningar.
 
 Om du vill se det här scenariot fungerar i praktiken kan du prova någon av web application inloggning kodexempel i vår [komma igång-avsnittet](active-directory-b2c-overview.md).
 
@@ -124,58 +124,18 @@ Om du vill konfigurera autentiseringsuppgifter klientflödet Se [Azure Active Di
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
 
-Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, där både skyddas av Azure AD B2C. Det här scenariot är vanligt i interna klienter som har ett webb-API på serversidan. Detta anropar sedan en Microsoft-onlinetjänst som Azure AD Graph API.
+Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, där både skyddas av Azure AD B2C. Det här scenariot är vanligt i interna klienter som har en webb-API-serverdel och en Microsoft-onlinetjänst som Azure AD Graph API-anrop.
 
 Det här scenariot med länkade webb-API:er kan användas genom en tilldelning av OAuth 2.0 JWT-ägarautentiseringsuppgifter, även kallat On-Behalf-Of-flöde.  Detta flöde är emellertid inte implementerat i Azure AD B2C.
 
-### <a name="reply-url-values"></a>Svars-URL-värden
-
-Appar som har registrerats med Azure AD B2C är för närvarande begränsade till en begränsad uppsättning svars-URL-värden. Svars-URL för webbprogram och tjänster måste börja med schemat `https` och alla svars-URL-värden måste dela en enda DNS-domän. Exempelvis kan du registrera ett webbprogram som har en av dessa svars-URL: er:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Registreringssystemet jämför hela DNS-namnet på den befintliga svars-URL:en med DNS-namnet på den svars-URL som du lägger till. Begäran om att lägga till DNS-namnet misslyckas om något av följande villkor föreligger:
-
-- Hela DNS-namnet på den nya svars-URL:en motsvarar inte DNS-namnet på den befintliga svars-URL:en.
-- Hela DNS-namnet på den nya svars-URL:en är inte en underdomän till den befintliga svars-URL:en.
-
-Till exempel om appen har svars-URL:
-
-`https://login.contoso.com`
-
-Du kan lägga till data så här:
-
-`https://login.contoso.com/new`
-
-I det här fallet matchar DNS-namnet exakt. Du kan också göra detta:
-
-`https://new.login.contoso.com`
-
-I så fall måste du referera till DNS-underdomänen login.contoso.com. Om du vill ha en app som har login-east.contoso.com och login-west.contoso.com som svars-URL: er måste du lägga till dessa svars-URL: er i den här ordningen:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Du kan lägga till två senare eftersom de är underdomäner i den första reply-URL:en, contoso.com. 
-
-När du skapar mobila/interna program kan du definiera en **omdirigerings-URI** i stället för en **repetitionsattacker URL**. Det finns två viktiga överväganden när du väljer en omdirigerings-URI:
-
-- **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I det här exemplet `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` är schemat. Det här mönstret ska följas. Om två program delar samma schema, ser användaren ett **väljer app** dialogrutan. Inloggningen misslyckas om användaren gör ett felaktigt val.
-- **Fullständig**: Omdirigerings-URI måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen. Till exempel `//contoso/` fungerar och `//contoso` misslyckas. Se till att det finns några specialtecken som understreck i omdirigerings-URI.
-
 ### <a name="faulted-apps"></a>Felaktig appar
 
-Azure AD B2C-program bör inte redigeras:
+Redigera inte Azure AD B2C-program på följande sätt:
 
 - På andra programhanteringsportaler som den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
 - Med Graph API eller PowerShell.
 
-Om du redigerar Azure AD B2C-program utanför Azure portal, blir en felaktig App och inte längre kan användas med Azure AD B2C. Du måste ta bort programmet och skapa det igen.
+Om du redigerar Azure AD B2C-program utanför Azure portal, blir en felaktig App och inte längre kan användas med Azure AD B2C. Ta bort programmet och skapa det igen.
 
 Om du vill ta bort programmet går du till den [Programregistreringsportalen](https://apps.dev.microsoft.com/) och ta bort appen. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
 

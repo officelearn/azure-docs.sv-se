@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995073"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231401"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data.
@@ -73,6 +73,8 @@ Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata 
 | Användarnamn | Användarnamnet som har åtkomst till att skriva till databasen. Stream Analytics stöder endast SQL-autentisering. |
 | Lösenord | Lösenordet för att ansluta till databasen. |
 | Tabell | Tabellnamnet där skrivs utdata. Tabellnamnet är skiftlägeskänsligt och schemat för den här tabellen ska matcha exakt med antalet fält och deras typer som skapas av din jobbutdata. |
+|Ärv partitionsschema| På så sätt kan du ärver partitioneringsschemat av din föregående fråga steg att aktivera fullständigt parallella topologi med flera skrivare i tabellen. Mer information finns i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).|
+|Matcha batchantal| Rekommenderade övre gräns för antalet poster som skickas med varje bulk insert transaktion.|
 
 > [!NOTE]
 > Azure SQL Database-erbjudande är för närvarande en jobbutdata i Stream Analytics. Men stöds en Azure virtuell dator som kör SQL Server med en-databas ansluten inte. Detta kan ändras i framtida versioner.

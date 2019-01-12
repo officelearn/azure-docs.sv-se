@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb3730718c366cbf3fe9caecceeb4e65855ac8c4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346619"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231639"
 ---
-# <a name="publish-consulting-service-offer"></a>Publicera konsult tjänsterbjudande
+# <a name="publish-a-consulting-service-offer"></a>Publicera en konsult tjänsterbjudande
 
-När du har slutfört den **erbjuder inställningar**, **Storefront information**, och **kontakter**väljer **publicera** och ange en e-postadress. När Microsoft är redo att publicera ditt erbjudande, får du ett e-postmeddelande om du vill förhandsgranska den innan det lanseras. Du kan gå tillbaka till portalen för att kontrollera status för erbjudandet när som helst i tid.
+När du har slutfört **erbjuder inställningar**, **Storefront information**, och **kontakter**väljer **publicera** och ange en e-postadress. När Microsoft är redo att publicera ditt erbjudande, får du ett e-postmeddelande om du vill förhandsgranska den innan det lanseras. Du kan gå tillbaka till portalen för att kontrollera status för erbjudandet när som helst.
 
-Erbjudanden kan visas i en ”publicera avbryts” eller ”publicera misslyckades” status under publiceringsprocessen. Denna status är en normal del av processen och gör Microsoft kan göra ändringar i ditt erbjudande. Om du ser ditt erbjudande i ”Publicera har avbrutits”, lämna den i denna status.
+Erbjudanden kan visas i en ”publicera avbryts” eller ”publicera misslyckades” status under publiceringsprocessen. Dessa beteckningar normala ingår i processen och Tillåt att Microsoft kan göra ändringar i ditt erbjudande. Om ditt erbjudande visas som ”publicera har avbrutits”, kan du lämna den som denna status.
 
-**Leda mål**
+## <a name="lead-destination"></a>Leda mål
 
-Du kan välja en CRM-systemet där ditt lead kommer att lagras. CRM-system som du väljer här är där skriver du information för slutanvändare som provar din app på AppSource (leads).
+Du kan välja ett CRM-system där din lead-information lagras. CRM-system som du väljer här är där vi skriver information om de användare som provar din app på AppSource.
 
-Beroende på i CRM-systemet som du väljer, klickar du på motsvarande URL nedan för information om hur du slutför nästa uppsättning fält
+Baserat på CRM-system som du väljer, välj motsvarande URL i listan nedan för information om hur du fyller i en uppsättning fält.
 
-* Välj [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) om du har någon av följande CRM-system: Salesforce, Marketo, Microsoft Dynamics CRM. 
+Välj [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) om du har någon av följande CRM-system:  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
 * [Microsoft Dynamics CRM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)
 * [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)
 
-**Nästa steg**
+## <a name="next-steps"></a>Nästa steg
 
-Fortsätta att erbjuda publicering.
+Fortsätta att lära dig hur du publicerar ditt erbjudande.

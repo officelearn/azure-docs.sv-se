@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0f85aa1a3efb4ea058c22870ae96069a2a1070ad
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186709"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247307"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Så här hämtar du Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ I följande tabell beskrivs skillnaderna mellan tre versioner av multifaktoraute
 
 | Version | Beskrivning |
 | --- | --- |
-| Multi-Factor Authentication för Office 365 |Den här versionen fungerar enbart med Office 365-program och hanteras via Office 365-portalen. Administratörer kan [skydda Office 365-resurser med tvåstegsverifiering](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Den här versionen är en del av Office 365-prenumeration. |
+| Multi-Factor Authentication för Office 365 <br> Microsoft 365 Business |Den här versionen fungerar enbart med Office 365-program och hanteras via Office 365 eller Microsoft 365-portalen. Administratörer kan [skydda Office 365-resurser med tvåstegsverifiering](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Den här versionen är en del av en Office 365 eller Microsoft 365 Business-prenumeration. |
 | Multi-Factor Authentication för Azure AD-administratörer | Användare som har tilldelats rollen Global administratör för Azure AD i Azure AD-klienter kan aktivera tvåstegsverifiering utan extra kostnad.|
 | Azure Multi-Factor Authentication | Azure Multi-Factor Authentication erbjuder kallas ofta ”full” version, den bästa möjliga uppsättningen funktioner. Det ger ytterligare konfigurationsalternativ via den [Azure-portalen](https://portal.azure.com), avancerad rapportering och stöd för flera olika lokala och molnprogram. Azure Multi-Factor Authentication är en funktion i [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), och kan distribueras antingen i molnet eller lokalt. |
 

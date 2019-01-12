@@ -4,7 +4,7 @@ description: Den här artikeln hjälper dig att förstå hur Traffic Manager dir
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: traffic-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 97ce7fb9d5a99f70e5dd6c81d8c8dd1af343117e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400373"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229259"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
 
-Med Azure Traffic Manager kan du styra distributionen av trafiken mellan slutpunkterna för din. En slutpunkt är alla Internet-ansluten tjänst i och utanför Azure.
+Med Azure Traffic Manager kan du styra distributionen av trafiken mellan slutpunkterna för din. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
 
 Traffic Manager har två viktiga fördelar:
 

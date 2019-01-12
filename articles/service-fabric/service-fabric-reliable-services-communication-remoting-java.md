@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: eb991df64f0454fa6103c9104e5c0e9991503a43
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 686d736798a4d949e3590d988f399d7da82d4fee
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198277"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231996"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Fjärrkommunikation för tjänster i Java med Reliable Services
 > [!div class="op_single_selector"]
@@ -91,8 +91,8 @@ Fjärr-framework sprider undantag på tjänsten till klienten. Så undantagshant
 Skapa en ServiceProxy är en enkel åtgärd så att du kan skapa så många som du behöver. Tjänstproxy instanser kan återanvändas så länge de behövs. Du kan återanvända samma proxy-instans även om ett RPC genererar ett undantag. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden över nätverket. Samtidigt som du anropar fjärranrop utförs interna kontroller för att fastställa om kommunikation klienten är giltig. Baserat på resultatet av dessa kontroller, återskapas kommunikation klienten om det behövs. Därför, om ett undantag inträffar, du behöver inte återskapa `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livslängd
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabric_service_proxy_factory) är en fabrik som skapar proxy för olika fjärrkommunikation gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy, framework skapar sedan en `FabricServiceProxyFactory`.
-Det är bra att skapa ett manuellt när du behöver åsidosätta [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.service_remoting_client_factory) egenskaper.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) är en fabrik som skapar proxy för olika fjärrkommunikation gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy, framework skapar sedan en `FabricServiceProxyFactory`.
+Det är bra att skapa ett manuellt när du behöver åsidosätta [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) egenskaper.
 Factory är en kostsam åtgärd. `FabricServiceProxyFactory` underhåller cache av klienter för kommunikation.
 Bra tips är att cacheminnet `FabricServiceProxyFactory` så länge som möjligt.
 
@@ -102,7 +102,8 @@ Alla fjärranslutna undantag utlöstes av tjänsten API, skickas tillbaka till k
 ServiceProxy hanterar alla redundans undantag för service-partition som den har skapats för. Det igen löser slutpunkterna om det finns Failover Exceptions(Non-Transient Exceptions) och försöker anropet med rätt slutpunkt. Antal återförsök för redundans undantag är obestämd.
 När det gäller TransientExceptions, endast ett nytt försök görs anropet.
 
-Återförsök standardparametrarna är etablerar genom att [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operation_retry_settings) Du kan konfigurera dessa värden genom att skicka OperationRetrySettings objekt till ServiceProxyFactory konstruktorn.
+Återförsök standardparametrarna är etablerar av [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Du kan konfigurera dessa värden genom att skicka OperationRetrySettings objekt till ServiceProxyFactory konstruktorn.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Säker kommunikation för Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

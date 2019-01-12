@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714210"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246559"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -84,6 +84,14 @@ Systemet bör använda högsta bedömnings avsikten oavsett dess värde. Till ex
 Totala endpoint träffar i din app instrumentpanelen uppdateras regelbundet, men de mått som är associerade med din LUIS slutpunktsnyckeln i Azure-portalen uppdateras oftare.
 
 Om du inte ser uppdaterade endpoint träffar på instrumentpanelen, logga in på Azure-portalen och hitta den resurs som är associerade med din LUIS slutpunktsnyckeln och öppna **mått** att välja den **totala anrop** mått. Om slutpunktsnyckeln används för mer än en LUIS-app, visar det sammanlagda antalet anrop från alla LUIS-appar som använder den mått i Azure-portalen.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>Finns det ett PowerShell-kommando till slutpunkten kvoten?
+
+Du kan använda ett PowerShell-kommando för att se endpoint-kvot:
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Min LUIS-app fungerar igår men idag jag får 403-fel. Appen ändras inte. Hur jag för att åtgärda det?
 Efter den [instruktioner](#how-do-i-create-and-assign-a-luis-endpoint-key) i nästa vanliga frågor om att skapa en LUIS-slutpunktsnyckeln och tilldela den till appen. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -194,6 +202,12 @@ Om du väljer en LUIS-mall och välj den **Välj** knappen i panelen fönstret v
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Vilka LUIS-regioner har stöd för Bot Framework tal promotor?
 [Tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) stöds bara för LUIS-appar i den centrala (USA)-instansen.
+
+## <a name="api-programming-strategies"></a>Strategier för API-programmering
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Hur får jag en LUIS-region för en resurs via programmering? 
+
+Använd LUIS-exemplet för att [hitta region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programmässigt med C# eller Node.Js. 
 
 ## <a name="luis-service"></a>LUIS-tjänsten
 

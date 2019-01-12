@@ -4,6 +4,7 @@ description: Konfigurera dina webbsidor för att skicka faktisk Slutanvändarmä
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138195"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232013"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Hur du skickar Real User Measurements till Azure Traffic Manager med webbsidor
 
@@ -35,7 +36,7 @@ Du kan hämta den ROM-nyckeln med hjälp av Azure portal:
  
   ![Generera Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Bild 1: Hur användarna mätningar nyckelgenerering**
+   **Bild 1: Real User Measurements nyckelgenerering**
 
 5. Bladet visar nu ROM-nyckeln som genererades och ett JavaScript-kodfragment som krävs för att bädda in HTML-sidan.
  

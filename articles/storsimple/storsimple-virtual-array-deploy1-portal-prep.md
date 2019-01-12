@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257273"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244791"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple Virtual Array – förbereda Azure-portalen
 
@@ -43,7 +43,7 @@ För att distribuera StorSimple Virtual Array, finns i följande artiklar i för
 | **#** | **I det här steget** | **Du gör detta...** | **Och Använd de här dokumenten.** |
 | --- | --- | --- | --- |
 | 1. |**Konfigurera Azure-portalen** |Skapa och konfigurera din StorSimple Device Manager-tjänsten innan du etablerar en StorSimple Virtual Array. |[Förbereda portalen](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Etablera den virtuella matrisen** |För Hyper-V, etablerar och ansluter till en StorSimple Virtual Array i ett värdsystem som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2. <br></br> <br></br> För VMware, etablerar och ansluter till en StorSimple Virtual Array i ett värdsystem som kör VMware ESXi 5.0, 5.5 och 6.0.<br></br> |[Etablera en virtuell matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Etablera en virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Etablera den virtuella matrisen** |För Hyper-V, etablerar och ansluter till en StorSimple Virtual Array i ett värdsystem som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2. <br></br> <br></br> För VMware, etablerar och ansluter till en StorSimple Virtual Array i ett värdsystem som kör VMware ESXi 5.0, 5.5, 6.0 eller 6.5.<br></br> |[Etablera en virtuell matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Etablera en virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Konfigurera den virtuella matrisen** |Utföra installationen för din filserver, registrera din StorSimple-filserver och slutföra installationen av enheten. Sedan kan du etablera SMB-resurser. <br></br> <br></br> För iSCSI-servern, utföra installationen, registrera StorSimple iSCSI-servern och slutföra installationen av enheten. Du kan sedan etablera iSCSI-volymer. |[Konfigurera virtuell matris som filserver](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Konfigurera virtuell matris som iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Nu kan du börja konfigurera Azure-portalen.
@@ -71,7 +71,7 @@ Innan du börjar ska du kontrollera att:
 
 Kontrollera följande innan du distribuerar en virtuell matris:
 
-* Du har åtkomst till en värdsystem som kör Hyper-V på Windows Server 2008 R2 eller senare eller VMware (ESXi 5.0, 5.5 och 6.0) som kan användas för att en etablera en enhet.
+* Du har åtkomst till en värdsystem som kör Hyper-V på Windows Server 2008 R2 eller senare eller VMware (ESXi 5.0, 5.5, 6.0 eller 6.5) som kan användas för att en etablera en enhet.
 * Värddatorn är att dedikera följande resurser för att etablera den virtuella matrisen:
   
   * Minst 4 kärnor.
@@ -92,7 +92,7 @@ Använd följande steg för steg-instruktioner för att förbereda din portal f�
 
 ## <a name="step-1-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
 
-En instans av StorSimple Device Manager-tjänsten kan hantera flera StorSimple Virtual Array. Skapa en instans av StorSimple Device Manager-tjänsten genom att utföra stegen nedan. Om du har en befintlig StorSimple Device Manager-tjänsten för att hantera dina virtuella matriser, hoppa över det här steget och gå till [steg 2: hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key).
+En instans av StorSimple Device Manager-tjänsten kan hantera flera StorSimple Virtual Array. Skapa en instans av StorSimple Device Manager-tjänsten genom att utföra stegen nedan. Om du har en befintlig StorSimple Device Manager-tjänsten för att hantera dina virtuella matriser, hoppa över det här steget och gå till [steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key).
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
@@ -100,7 +100,7 @@ En instans av StorSimple Device Manager-tjänsten kan hantera flera StorSimple V
 > Om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst måste du skapa minst ett lagringskonto efter att du har skapat en tjänst.
 > 
 > * Om du inte har skapat ett lagringskonto automatiskt går du till [Konfigurera ett nytt lagringskonto för tjänsten](#optional-step-configure-a-new-storage-account-for-the-service) för detaljerade anvisningar.
-> * Om du har aktiverat automatiskt skapande av ett lagringskonto går du till [steg 2: hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
+> * Om du har aktiverat automatiskt skapande av ett storage-konto går du till [steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key).
 > 
 > 
 
@@ -137,10 +137,10 @@ Utför följande steg på [Azure-portalen](https://portal.azure.com/).
    
    * VHDX för Hyper-V på Windows Server 2012 och senare
    * VHD för Hyper-V på Windows Server 2008 R2 och senare
-   * VMDK för VMWare ESXi 5.0, 5.5 och 6.0
+   * VMDK för VMWare ESXi 5.0, 5.5, 6.0 eller 6.5
 5. Ladda ned och packa upp filen till en lokal enhet och skriv ned sökvägen till de uppackade filerna.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Valfritt steg: konfigurera ett nytt lagringskonto för tjänsten
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Valfritt steg: Konfigurera ett nytt lagringskonto för tjänsten
 
 Det här steget är valfritt och bör utföras endast om du inte har aktiverat automatiskt skapande av ett lagringskonto med din tjänst.
 

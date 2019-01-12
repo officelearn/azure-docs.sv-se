@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983005"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232880"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Lägga till ytterligare skalning enhet noder i Azure Stack
 
@@ -105,6 +105,7 @@ Status för skalningsenheten och skala enhet noder kan hämtas med hjälp av Pow
 
 ### <a name="status-for-the-add-node-operation"></a>Status för åtgärden Lägg till nod 
 **För en skalningsenhet:**
+
 |Status               |Beskrivning  |
 |---------------------|---------|
 |Körs              |Alla noder deltar aktivt i skalningsenheten.|
@@ -115,6 +116,7 @@ Status för skalningsenheten och skala enhet noder kan hämtas med hjälp av Pow
 
 
 **För en nod för skala enhet:**
+
 |Status                |Beskrivning  |
 |----------------------|---------|
 |Körs               |Noden deltar aktivt i skalningsenheten.|
@@ -128,17 +130,17 @@ Status för skalningsenheten och skala enhet noder kan hämtas med hjälp av Pow
 ## <a name="troubleshooting"></a>Felsökning
 Här följer några vanliga problem som kan uppstå när du lägger till en nod. 
 
-**Scenario 1:** noden åtgärden Lägg till enhet misslyckas men en eller flera noder visas med statusen stoppad.  
+**Scenario 1:**  Lägg till enhet noden åtgärden misslyckas, men en eller flera noder visas med statusen stoppad.  
 - Reparation: Använd reparationen för att reparera en eller flera noder. En enda reparationen kan köras i taget.
 
-**Scenario 2:** en eller flera skala enhet noder har lagts till men utökad lagring misslyckades. I det här scenariot skalobjektet enhet noden rapporterar statusen körs men uppgiften konfigurera lagring är inte igång.  
-- Reparation: Använd den privilegierade slutpunkten för att granska hälsostatusen lagring genom att köra följande PowerShell-cmdlet:
+**Scenario 2:** En eller flera skala enhet noder har lagts till men utökad lagring misslyckades. I det här scenariot skalobjektet enhet noden rapporterar statusen körs men uppgiften konfigurera lagring är inte igång.  
+- Reparation: Använda privileged slutpunkten för att granska hälsostatusen lagring genom att köra följande PowerShell-cmdlet:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Scenario 3:** du har fått en avisering som anger storage skalbar-jobbet misslyckades.  
-- Reparation: I det här fallet konfigurationsåtgärd storage misslyckades. Det här problemet måste du kontakta supporten.
+**Scenario 3:** Du har fått en avisering som anger storage skalbar-jobbet misslyckades.  
+- Reparation: I det här fallet misslyckades konfigurationsåtgärd storage. Det här problemet måste du kontakta supporten.
 
 
 ## <a name="next-steps"></a>Nästa steg 

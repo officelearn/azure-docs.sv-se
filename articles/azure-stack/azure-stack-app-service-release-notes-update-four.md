@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 80948b973e6d20b4760e97311c5a65886cf91f8f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.reviewer: anwestg
+ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617015"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247324"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service i Azure Stack uppdatering 4 viktig information
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure Stack uppdatering 4 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
 
@@ -204,10 +204,10 @@ Verifiera
 - Arbetare är inte nå filserver när App Service har distribuerats i ett befintligt virtuellt nätverk och servern är endast tillgänglig i det privata nätverket som påpekas i Azure App Service i Azure Stack-dokumentationen.
 
 Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
- * Källa: alla
+ * Källa: Alla
  * Käll-portintervall: *
  * Mål: IP-adresser
- * Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+ * Mål-IP-adressintervall: Intervall av IP-adresser för din filserver
  * Målportintervall: 445
  * Protokoll: TCP
  * Åtgärd: Tillåt

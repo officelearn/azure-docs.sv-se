@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233131"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232251"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller Anslut till parallella grenar för arbetsflödesåtgärder i Azure Logic Apps
 
@@ -37,7 +37,7 @@ För att köra fristående steg på samma gång, kan du lägga till parallella g
 
 ![Kör du steg parallellt](media/logic-apps-control-flow-branches/parallel.png)
 
-Logikappen väntar tills alla grenar slutförts innan du fortsätter arbetsflöde. Parallella grenar körs endast när deras `runAfter` egenskapsvärden matchar det färdiga överordnade steget status. Till exempel både `branchAction1` och `branchAction2` är inställd på att köras endast när den `parentAction` är klar med `Succeded` status.
+Logikappen väntar tills alla grenar slutförts innan du fortsätter arbetsflöde. Parallella grenar körs endast när deras `runAfter` egenskapsvärden matchar det färdiga överordnade steget status. Till exempel både `branchAction1` och `branchAction2` är inställd på att köras endast när den `parentAction` är klar med `Succeeded` status.
 
 > [!NOTE]
 > Innan du börjar måste din logikapp redan ha ett steg där du kan lägga till parallella grenar.

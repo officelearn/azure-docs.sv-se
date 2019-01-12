@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f64331c2b75df84f44486f192e17a744b43fcf9b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040667"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244910"
 ---
 # <a name="how-to-configure-password-writeback"></a>Så här gör du: Konfigurera tillbakaskrivning av lösenord
 
@@ -52,6 +52,7 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 * Microsoft 365 E3 eller A3
 * Microsoft 365 E5 eller A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.

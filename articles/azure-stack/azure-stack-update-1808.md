@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754551"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244978"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -99,7 +99,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 <!--  TBD – IS, ASDK --> 
 - *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>Vanliga säkerhetsproblem och exponeringar
 
 Den här uppdateringen installeras följande uppdateringar:  
 
@@ -254,6 +254,8 @@ Här följer efter installation kända problem för den här build-versionen.
 - Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en **fel vid skapande av Fabric VM**, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
 
 ### <a name="compute"></a>Compute
+
+- När du skapar en [Dv2-serien VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 virtuella datorer kan du skapa 4, 8, 16 och 32 datadiskar respektive. Skapa VM-fönstret visas dock 8, 16, 32 och 64 datadiskar.
 
 <!-- 3164607 – IS, ASDK -->
 - Återansluta en kopplas från disk till samma virtuella-dator (VM) med samma namn och LUN misslyckas med ett fel som **det går inte att koppla data disk 'datadisk' till virtuell dator ”vm1”**. Felet inträffar eftersom disken håller på att frånkopplas eller senaste frånkopplingen misslyckades. Vänta tills disken är helt frånkopplad och sedan försök igen eller ta bort/frånkoppla disken igen. Lösningen är att ansluta den igen med ett annat namn eller på en annan logisk enhet. 

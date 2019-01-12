@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744096"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231078"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
 
@@ -99,6 +99,25 @@ Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i di
 
 Kunder med ett Enterprise-avtal som signerats före den 1 juli 2018 eller som redan har skapat en Log Analytics-arbetsyta i en prenumeration kan du fortfarande har åtkomst till den *kostnadsfri* plan. Om din prenumeration inte är kopplat till en befintlig EA-registrering i *kostnadsfri* nivån är inte tillgänglig när du skapar en arbetsyta i en ny prenumeration efter 2 April 2018.  Data är begränsad till 7 dagars kvarhållning för den *kostnadsfri* nivå.  För äldre *fristående* eller *Per nod* nivåer, samt den aktuella 2018 enda prisnivån, data som samlas in är tillgängligt under de senaste 31 dagarna. Den *kostnadsfri* nivån har en gräns på 500 MB dagliga datainmatning och om du upptäcker att konsekvent överstiger de mängder som tillåts volym, kan du ändra din arbetsyta till en annan plan att samla in data utöver den här gränsen. 
 
+> [!NOTE]
+> Välj Log Analytics för att använda rättigheter som kommer från inköp av OMS E1 Suite, OMS E2 Suite eller OMS-tillägget för System Center, *Per nod* prisnivå.
+
+## <a name="changing-pricing-tier"></a>Ändra prisnivå
+
+Om Log Analytics-arbetsytan har tillgång till äldre prisnivåer för att ändra mellan äldre prisnivåer.
+
+1. Välj en arbetsyta från fönstret Log Analytics-prenumerationer i Azure-portalen.
+
+2. Från fönstret med arbetsytans under **Allmänt**väljer **prisnivå**.  
+
+3. Under **prisnivå**, Välj en prisnivå och klickar sedan på **Välj**.  
+    ![Valt prisplanen](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Om du vill flytta din arbetsyta till aktuell prisnivå kan du behöva [ändra prismodellen i Azure Monitor för övervakning av din prenumeration](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) som kommer att ändras prisnivån för alla arbetsytor i prenumerationen.
+
+> [!NOTE]
+> Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
+
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Felsökning varför Log Analytics inte längre att samla in data
 Om du är på den äldre kostnadsfria prisnivån och skicka fler än 500 MB data under en dag, stoppar insamling av data under resten av dagen. Når den dagliga gränsen är en vanlig orsak som Log Analytics slutar att samla in data eller data verkar sakna.  Log Analytics skapar en händelse av typen igen när datainsamlingen startar och stoppar. Kör följande fråga i sökningen för att kontrollera om du når den dagliga gränsen och saknade data: 
@@ -136,22 +155,55 @@ Du kan öka detaljnivån ytterligare till Se datatrender för specifika datatype
 
 ### <a name="nodes-sending-data"></a>Noder som skickar data
 
-Om du vill undersand antalet noder som rapporterar data för den senaste månaden, använda
+För att förstå hur många datorer (noder) och rapporterar data varje dag under den senaste månaden, använda
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Om du vill se antalet händelser som matas in per dator
+Hämta en lista över datorer som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria), utnyttja den `_IsBilled` egenskapen:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över data data typres är dyrt att köra. 
+
+Detta kan utökas för att returnera antalet datorer per timme som skickar faktureras datatyper:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Se den **storlek** faktureringsbara händelser matas in per dator, använder den `_BilledSize` egenskapen som tillhandahåller storlek i byte:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Den här frågan ersätter det gamla sättet att läsa detta med datatypen användning. 
+
+Se den **antal** händelser matas in per dator, använda
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Använd den här frågan sparsamt eftersom det är dyrt att köra. Om du vill se vilka datatyper är sendng data till en specifik dator Använd:
+Om du vill se antalet faktureringsbara händelser matas in per dator 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Om du vill se antalet för fakturerbar datatyper skickar data till en specifik dator Använd:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Vissa fält av datatypen användning medan fortfarande i schemat har gjorts inaktuell och kommer deras värden fylls inte längre. Det här är **datorn** samt relaterade fält till inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** och **AverageProcessingTimeMs**.

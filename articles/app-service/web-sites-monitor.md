@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994954"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247280"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervakningsfunktioner för web apps, mobila serverdelar och API-appar i den [Azure-portalen](https://portal.azure.com).
@@ -72,7 +72,7 @@ För en app är tillgängliga mått:
 | Mått | Beskrivning |
 | --- | --- |
 | **Genomsnittlig svarstid** | Genomsnittlig tid för app som hanterar begäranden, i millisekunder. |
-| **Genomsnittligt arbetsminne** | Genomsnittlig mängden minne som används av appen i mebibytes (MiB). |
+| **Genomsnittligt arbetsminne** | Genomsnittlig mängden minne som används av appen, i megabyte (MiB). |
 | **CPU-tid** | Hur mycket Processorkraft som används av appen, i sekunder. Läs mer om det här måttet [vs CPU CPU-tid i procent](#cpu-time-vs-cpu-percentage). |
 | **Data i** | Mängden inkommande bandbredd som används av appen i MiB. |
 | **Data ut** | Mängden utgående bandbredd som används av appen i MiB. |
@@ -141,14 +141,12 @@ Läs mer om mätvärden i [övervakar tjänstmått](../monitoring-and-diagnostic
 ## <a name="alerts-and-autoscale"></a>Aviseringar och automatisk skalning
 Mått för en app eller en App Service plan kan vara kopplat till aviseringar. Mer information om varningsaviseringar finns [här](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service-appar som finns i Basic, Standard eller Premium-App Service-planer stöd för automatisk skalning. Med automatisk skalning kan konfigurera du regler som övervakar mått för App Service-plan. Regler kan öka eller minska instansantalet, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen konfigureras felaktigt. 
+App Service-appar som finns i Basic, Standard eller Premium-App Service-planer stöd för automatisk skalning. Med automatisk skalning kan konfigurera du regler som övervakar mått för App Service-plan. Regler kan öka eller minska instansantalet, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen konfigureras felaktigt.
 
 Läs mer om automatisk skalning, [så här skalar du](../monitoring-and-diagnostics/insights-how-to-scale.md) och [bästa praxis för automatisk skalning i Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

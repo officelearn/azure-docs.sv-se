@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997936"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228817"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, undantag som fångats och metoden körningstider i Java-webbappar
 
@@ -89,6 +89,32 @@ Ange innehållet i xml-filen. Redigera i följande exempel för att ta med eller
 Du måste aktivera rapporter undantag och metoden val av tidpunkt för enskilda metoder.
 
 Som standard `reportExecutionTime` är SANT och `reportCaughtExceptions` är FALSKT.
+
+### <a name="spring-boot-agent-additional-config"></a>Spring Boot-agenten ytterligare konfiguration
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> AI-Agent.xml och agenten jar-filen ska vara i samma mapp. De placeras ofta tillsammans i den `/resources` mappen i projektet. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>Aktivera W3C distribuerad spårning
+
+Lägg till följande AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Bakåtkompatibilitet läge är aktiverat som standard och enableW3CBackCompat-parametern är valfri och bör endast användas när du vill stänga av den. 
+
+Vi rekommenderar är detta fallet när alla tjänster har uppdaterats till nyare version av SDK: er stöder W3C-protokollet. Vi rekommenderar starkt att flytta till nyare version av SDK: er med stöd för W3C så snart som möjligt.
+
+Se till att **både [inkommande](correlation.md#w3c-distributed-tracing) och utgående (agent) konfigurationer** är exakt desamma.
 
 ## <a name="view-the-data"></a>Visa data
 Sammanställda remote beroende- och metoden körningstider visas i Application Insights-resurs [under panelen prestanda][metrics].

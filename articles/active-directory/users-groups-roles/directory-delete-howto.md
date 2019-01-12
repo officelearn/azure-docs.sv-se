@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139694"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243890"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Ta bort en Azure Active Directory-klient
+
 När en klient tas bort så raderas även alla resurser som finns i klienten. Du måste förbereda klienten genom att minimera dess kopplade resurser innan du tar bort. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-klient från portalen.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Förbereda klienten för borttagning
@@ -59,17 +60,17 @@ Prenumerationens status | Data | Åtkomst till data
 Aktiv (30 dagar för utvärderingsversion)  | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Office 365 Administrationscenter och resurser 
 Har upphört att gälla (30 dagar)   | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Office 365 Administrationscenter och resurser
 Inaktiverad (30 dagar) | Data som är tillgängliga för enbart administratör  | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan få åtkomst till administrationscentret för Office 365, men det går inte att tilldela licenser till eller uppdatera användare
-Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan komma åt Office 365 Administrationscenter för att köpa och hantera andra prenumerationer 
+Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan komma åt Office 365 Administrationscenter för att köpa och hantera andra prenumerationer
 
 Du kan placera en prenumeration till en **Deprovisoned** tillstånd och kan inte tas bort inom 3 dagar med Microsoft Store för företag-administrationscentret. Den här funktionen kommer snart att Office 365 Administrationscenter.
 
 1. Logga in på den [Microsoft Store för företag-administrationscentret](https://businessstore.microsoft.com/manage/) med ett konto som är en Global administratör i klienten. Om du vill ta bort ”Contoso”-klient som har den initiala domänen contoso.onmicrosoft.com, logga in med ett UPN som admin@contoso.onmicrosoft.com.
 
-2. Gå till den **hantera** fliken och markera **produkter och tjänster**, Välj den prenumeration som du vill avbryta. När du klickar på **Avbryt**, uppdatera sidan.
+2. Gå till den **hantera** fliken och markera **produkter och tjänster**, Välj den prenumeration du vill avbryta och väljer sedan **ta bort**.
   
   ![Ta bort länken för att ta bort prenumeration](./media/directory-delete-howto/delete-command.png)
   
-3. Välj **ta bort** att ta bort prenumerationen och acceptera de allmänna villkoren. Alla data tas bort permanent inom tre dagar. Du kan återaktivera prenumerationen under tre dagar, om du ändrar dig.
+3. Välj **ta bort prenumerationen** att acceptera villkoren och ta bort prenumerationen. Alla data raderas permanent inom tre dagar. Du kan återaktivera prenumerationen under de kommande tre dagarna om du ändrar dig.
   
   ![allmänna villkor](./media/directory-delete-howto/delete-terms.png)
 

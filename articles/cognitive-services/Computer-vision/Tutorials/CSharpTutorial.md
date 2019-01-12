@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584453"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232761"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Självstudier: Skapa en avbildning som app - C bearbetas&#35;
 
@@ -97,9 +97,6 @@ Du kan köra exempelappen, om du vill se hur det interagerar med dig och med kli
    |Identifiera Text (OCR) | Använder den [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) åtgärd för att identifiera och extrahera ut text från en avbildning. Du kan antingen välja språket som ska användas eller låta visuellt identifiera språket automatiskt. |
    |Identifiera Text V2 (på engelska) | Använder den [identifiera Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) och [hämta identifiera Text Åtgärdsresultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) åtgärder för att identifiera och extrahera utskrivna eller handskriven text från en avbildning asynkront. |
    |Hämta miniatyrbilden | Använder den [hämta miniatyrbilden](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) åtgärden att skapa en miniatyrbild för en lokal eller fjärransluten avbildning. |
-
-   > [!IMPORTANT]
-   > Microsoft tar emot avbildningar upp- och använder dem för att förbättra API för visuellt innehåll och relaterade tjänster. Genom att skicka in en bild bekräftar du att du har följt vår [uppförandekod för utvecklare](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    Följande skärmbild visar sidan tillhandahålls för scenariot analysera avbildningen när du har analyserat en exempelbild.
    ![Skärmbild av sidan analysera bild](../Images/Analyze_Image_Example.PNG)

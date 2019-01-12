@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364106"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244995"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Underhåll-åtgärder för SQL-resursprovider
 
@@ -32,16 +32,6 @@ SQL-resursprovider underhålls inte som en del av Azure Stack eftersom det är e
 ### <a name="provider-virtual-machine"></a>Providern virtuell dator
 
 Eftersom resursprovidern körs på en *användaren* virtuell dator som du ska använda de uppdateringar som krävs och uppdateringarna när de ges ut. Du kan använda Windows update-paket som tillhandahålls som en del av korrigeringen och uppdateringscykeln för att tillämpa uppdateringar för den virtuella datorn.
-
-## <a name="backuprestoredisaster-recovery"></a>Säkerhetskopiering och återställning/Haveriberedskap
-
- Eftersom det är en tilläggskomponent som, säkerhetskopieras SQL-resursprovider inte som en del av en process för Azure Stack Business Continuity Disaster Recovery (BCDR). Skript kommer att tillhandahållas för följande åtgärder:
-
-- Säkerhetskopiering av information om tillstånd (lagras i ett Azure Stack-lagringskonto).
-- Återställer resursprovidern om en fullständig stack återställning krävs.
-
->[!NOTE]
->Om du behöver göra en återställning måste databasservrar återställas innan resursprovidern har återställts.
 
 ## <a name="updating-sql-credentials"></a>Uppdatering av SQL-autentiseringsuppgifter
 
@@ -122,7 +112,7 @@ När du använder resursprovidrar SQL- och MySQL med Azure Stack integrerade sys
 
 ### <a name="known-issues"></a>Kända problem
 
-**Problemet**: hemligheter rotation loggar.<br>
+**Problemet**: Hemligheter rotation loggar.<br>
 Loggar för hemligheter rotation inte samlas in automatiskt om det anpassade skriptet hemliga rotation misslyckas när den körs.
 
 **Lösning**:<br>

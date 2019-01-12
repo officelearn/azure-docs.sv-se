@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6d6a06af90c02dee0a7711d7362d0604018cb4a5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043047"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246593"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställning av Licensieringskrav för lösenord för självbetjäning i Azure AD
 
@@ -33,15 +33,15 @@ Lösenord för självbetjäning av Azure AD lösenordsåterställning licensiera
 * Självbetjäning för återställning av lösenord för molnanvändare
    * Jag är en **endast molnbaserad** och har glömt mitt lösenord.
       * Jag skulle vilja **återställa** mitt lösenord till något som jag vet.
-   * Den här funktionen ingår i Azure AD Basic, Premium P1 eller Premium P2-versioner.
+   * Den här funktionen ingår i Azure AD Basic, Premium P1 eller P2 eller Microsoft 365 Business.
 
 * Självbetjäning lösenord återställning/ändring/upplåsning **med lokal tillbakaskrivning**
    * Jag är en **hybrid användaren** mitt lokala Active Directory-användarkonto är synkroniserad med min Azure AD-konto med Azure AD Connect. Jag skulle vilja ändra mitt lösenord, har glömt mitt lösenord eller låsts ute.
       * Jag skulle vilja ändra mitt lösenord eller återställa den till något som jag vet eller låsa upp mitt konto, **och** har att ändra synkroniseras tillbaka till en lokal Active Directory.
-   * Den här funktionen ingår i Azure AD Premium P1 eller Premium P2-versioner.
+   * Den här funktionen ingår i Azure AD Premium P1 eller P2 eller Microsoft 365 Business.
 
 > [!WARNING]
-> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver en plan som innehåller Azure AD Premium P1 eller Premium P2-versioner för den här funktionen till fungera.
+> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver en plan som innehåller Azure AD Premium P1, Premium P2 eller Microsoft 365 Business för detta funktionen ska fungera.
 >
 
 Ytterligare information om licenser går inklusive kostnader, kan hittas på följande sidor:
@@ -50,6 +50,7 @@ Ytterligare information om licenser går inklusive kostnader, kan hittas på fö
 * [Azure Active Directory-funktioner och egenskaper](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Tjänstbeskrivning för Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-business-service-description.md)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Aktivera grupp eller användarbaserade licensiering
 

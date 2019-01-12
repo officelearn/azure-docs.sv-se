@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104666"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230347"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägga till en App Service-resursprovider i en frånkopplad Azure Stack-miljö som skyddas av AD FS
 
@@ -27,14 +27,15 @@ ms.locfileid: "54104666"
 
 > [!IMPORTANT]
 > Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4.
->
->
 
 Genom att följa anvisningarna i den här artikeln kan du installera den [App Service-resursprovider](azure-stack-app-service-overview.md) till en Azure Stack-miljö som är:
 
 - inte ansluten till Internet
 - skyddas av Active Directory Federation Services (AD FS).
 
+ > [!IMPORTANT]
+ > Innan du distribuerar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
+ 
 Om du vill lägga till App Service-resursprovider i distributionen Azure Stack, måste du slutföra de här toppnivåaktiviteter:
 
 1. Slutför den [nödvändiga steg](azure-stack-app-service-before-you-get-started.md) (t.ex. köpa certifikat, vilket kan ta ett par dagar att ta emot).

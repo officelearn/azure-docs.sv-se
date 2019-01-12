@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: ea78176b9e35643698acf3901b30520b7c7be3c2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214410"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247834"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -101,9 +101,9 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 
 Du kan lägga till och ta bort adressintervall för ett virtuellt nätverk. Ett adressintervall måste anges i CIDR-notation och får inte överlappa med andra adressintervall inom samma virtuella nätverk. Adressintervallen som du definierar kan vara offentlig eller privat (RFC 1918). Om du definierar adressintervallet som offentliga eller privata kan adressintervallet som nås från i det virtuella nätverket från sammankopplade virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. 
 
-<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+Om du inte har några undernät som är associerade med den kan du minska adressintervallet för ett virtuellt nätverk. Annars kan kan du bara förlänga adressintervall, till exempel ändra en /16 till/8 som. Du kan börja med en liten adressintervall, och sedan utöka det senare eller Lägg till ytterligare adressintervall.
 
-the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 Du kan inte lägga till följande-adressintervall:
 

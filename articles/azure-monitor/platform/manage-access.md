@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186063"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231792"
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -40,7 +40,7 @@ För närvarande tillhandahåller en arbetsyta:
 
 * En geografisk plats för lagring av data
 * Dataisolering att definiera olika användare behörighet
-* Omfång för konfiguration av inställningar som kvarhållning och data tak som skall
+* För konfigurationen av inställningarna som [prisnivån](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [kvarhållning](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) och [data tak som skall](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 Från förbrukning synsätt rekommenderar vi att du skapar så få arbetsytor som möjligt. Det gör administration och fråga upplevelse för enklare och snabbare. Men baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 
@@ -145,96 +145,6 @@ Använd de här rollerna för att ge användare åtkomst med olika omfång:
 - Resurs: endast åtkomst till en angiven arbetsyta
 
 Vi rekommenderar att du utför tilldelningar på resursnivå (arbetsyta) för att garantera korrekt åtkomstkontroll.  Använd [anpassade roller](../../role-based-access-control/custom-roles.md) för att skapa roller med specifik behörighet.
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Länka en befintlig arbetsyta till en Azure-prenumeration
-Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan det här datumet måste kopplas till en arbetsyta när du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Om du vill länka en arbetsyta till en Azure-prenumeration i Azure-portalen
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
-
-2. Klicka på fönstret Log Analytics-prenumerationer **Lägg till**.  
-
-    ![lista över arbetsytor](./media/manage-access/workspace-link-existing-01.png)
-
-3. Från den **Log Analytics-arbetsyta** fönstret klickar du på **länka befintliga**.  
-
-4. Klicka på **Konfigurera nödvändiga inställningar**.  
-
-5. Du ser listan över arbetsytor som ännu inte har länkats till ditt Azure-konto. Välj arbetsytan.  
-   
-6. Om det behövs, kan du ändra värdena för följande objekt:
-   * Prenumeration
-   * Resursgrupp
-   * Plats
-   * Prisnivå  
-
-7. Klicka på **OK**. Arbetsytan är nu länkad till ditt Azure-konto.
-
-> [!NOTE]
-> Om du inte ser den arbetsyta du vill länka så har inte Azure-prenumerationen åtkomst till den arbetsyta du skapade via OMS-portalen.  Läs [Lägga till en användare i en befintlig arbetsyta](#add-a-user-to-an-existing-workspace) om du vill bevilja åtkomst till kontot från OMS-portalen.
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Uppgradera en arbetsyta till en betald plan
-Det finns tre typer av arbetsytan planer för OMS: **Kostnadsfria**, **fristående**, och **OMS**.  Om du har planen *Kostnadsfri* finns det en gräns på 500 MB data per dag som kan skickas till Log Analytics.  Om du överskrider denna mängd måste du ändra din arbetsyta till en betald plan för att undvika att data inte samlas in utöver denna gräns. Du kan ändra din plantyp när som helst.  Mer information om OMS-priser finns i [Prisinformation](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Använda rättigheter från en OMS-prenumeration
-För att använda rättigheter som kommer från inköp av OMS E1, OMS E2 OMS eller MS-tillägg för System Center väljer du *OMS*-planen för OMS Log Analytics.
-
-När du köper en OMS-prenumeration läggs rättigheterna till i ditt Enterprise Agreement. Alla Azure-prenumerationer som har skapats under det här avtalet kan använda rättigheterna. Alla arbetsytor på dessa prenumerationer använder OMS-rättigheter.
-
-För att säkerställa att användningen av en arbetsyta tillämpas på dina rättigheter från OMS-prenumerationen måste du:
-
-1. Skapa din arbetsyta i en Azure-prenumeration som är en del av ett Enterprise Agreement som omfattar OMS-prenumerationen
-
-2. Välja planen *OMS* för arbetsytan
-
-> [!NOTE]
-> Om din arbetsyta skapades innan 26 september 2016 och din Log Analytics-prisplan är *Premium* kommer den här arbetsytan att använda rättigheter från OMS tillägget för System Center. Du kan också använda dina rättigheter genom att ändra till prisnivån *OMS*.
->
->
-
-OMS-prenumerationens rättigheter är inte synliga i Azure-portalen. Du kan se rättigheter och användning i Enterprise Portal.  
-
-Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Använda Azure-åtagande från ett Enterprise-avtal
-Om du inte har en OMS-prenumeration betalar du separat för varje komponent i OMS och användningen visas på din Azure-faktura.
-
-Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopplad till dina Azure-prenumerationer kommer all användning av Log Analytics automatiskt att debiteras mot eventuella återstående betalningsåtaganden.
-
-Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Ändra en arbetsyta till en prisnivå i Azure Portal
-1. Välj en arbetsyta från fönstret Log Analytics-prenumerationer i Azure-portalen.
-
-2. Från fönstret med arbetsytans under **Allmänt**väljer **prisnivå**.  
-
-3. Under **prisnivå**, Välj en prisnivå och klickar sedan på **Välj**.  
-    ![Valt prisplanen](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Ändra en arbetsyta till en prisnivå i OMS-portalen
-
-Om du vill ändra prisnivån med OMS-portalen måste du ha en Azure-prenumeration.
-
-1. Klicka på panelen **Inställningar** på OMS-portalen.
-
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Azure-prenumeration och dataplan**.
-
-3. Klicka på den prisnivå som du vill använda.
-
-4. Klicka på **Spara**.  
-
-    ![prenumeration och dataplaner](./media/manage-access/subscription-tab.png)
-
-Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan.
-
-![OMS-menyflikar](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.

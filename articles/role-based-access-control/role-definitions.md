@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715778"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231911"
 ---
 # <a name="understand-role-definitions"></a>Förstå rolldefinitioner
 
@@ -163,7 +163,7 @@ Bobs behörigheter är begränsade till bara den `Actions` och `DataActions` ang
 
 Om du vill visa och arbeta med dataåtgärder, måste du ha rätt versioner av verktyg och SDK: er:
 
-| Verktyg  | Version  |
+| Verktyget  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 eller senare |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 eller senare |
@@ -172,6 +172,10 @@ Om du vill visa och arbeta med dataåtgärder, måste du ha rätt versioner av v
 | [Azure för Java](/java/azure/) | 1.9.0 eller senare |
 | [Azure för Python](/python/azure) | 0.40.0 eller senare |
 | [Azure SDK för Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 eller senare |
+
+Azure-portalen tillåter även användare att söka efter och hantera innehållet i köer och Blob förhandsgranskningsupplevelsen för behållare via Azure AD. Klicka på länken ”utforska data med hjälp av Azure AD-preview” för lagringskontot översikt om du vill se och hantera innehållet i en kö eller Blob-behållare.
+
+![Utforska köer och Blob-behållare med hjälp av Azure AD-förhandsversion](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>Åtgärder
 

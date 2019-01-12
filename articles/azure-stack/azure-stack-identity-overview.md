@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902849"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245692"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Översikt över identitet för Azure Stack
 
@@ -33,8 +33,8 @@ Ditt val av Azure AD eller AD FS kan fastställas med det läge som du distribue
 
 Mer information om dina alternativ, som är beroende av Azure Stack-miljön, finns i följande artiklar:
 
-- Azure Stack deployment kit: [identitet överväganden](azure-stack-datacenter-integration.md#identity-considerations).
-- Integrerade Azure Stack-system: [distribution planeringsbeslut för Azure Stack-integrerade system](azure-stack-deployment-decisions.md).
+- Kit för Azure Stack-distribution: [Identitet överväganden](azure-stack-datacenter-integration.md#identity-considerations).
+- Integrerade Azure Stack-system: [Distributionsplanerings-beslut för Azure Stack-integrerade system](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Vanliga begrepp för identitet
 
@@ -74,23 +74,23 @@ Om du vill bjuda in gästanvändare molnoperatörer och användare kan använda 
 
 Som gästanvändare, kan du logga in till en annan organisation directory-klient. Om du vill göra det du lägga till den organisationens katalognamnet på portalen URL: en. Till exempel om du ingår i Contoso-organisation och vill logga in till katalogen Fabrikam du använda https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="applications"></a>Program
+### <a name="applications"></a>Appar
 
 Du kan registrera program till Azure AD eller AD FS och sedan erbjuda program till användare i din organisation.
 
 Programmen innehåller:
 
-- **Webbprogram**: exempel på Azure portal och Azure Resource Manager. De stöder webb-API-anrop.
-- **Inbyggd klient**: exempel: Azure PowerShell, Visual Studio och Azure CLI.
+- **Webbprogram**: Exempel: Azure-portalen och Azure Resource Manager. De stöder webb-API-anrop.
+- **Inbyggd klient**: Exempel: Azure PowerShell, Visual Studio och Azure CLI.
 
 Program som stöder två typer av organisationer i samma installation:
 
-- **Enda klient**: har stöd för användare och tjänster från samma katalog där programmet har registrerats.
+- **Enda klient**: Har stöd för användare och tjänster från samma katalog där programmet har registrerats.
 
   > [!NOTE]
   > Eftersom AD FS stöder endast en enskild katalog kan är program som du skapar i en AD FS-topologi avsiktligt enda klient program.
 
-- **Flera innehavare**: stöder Använd av användare och tjänster från både directory där programmet har registrerats och ytterligare klient kataloger. Program med flera klienter logga användare av en annan klient directory (en annan Azure AD-klient) kan in på ditt program. 
+- **Flera innehavare**: Stöder Använd av användare och tjänster från både directory där programmet har registrerats och ytterligare klient kataloger. Program med flera klienter logga användare av en annan klient directory (en annan Azure AD-klient) kan in på ditt program. 
 
   Läs mer om flera innehavare, [aktivera flera innehavare](azure-stack-enable-multitenancy.md).
 
@@ -98,9 +98,9 @@ Program som stöder två typer av organisationer i samma installation:
 
 När du registrerar ett program kan skapa du två objekt:
 
-- **Programobjekt**: globala representation av programmet för alla klienter. Den här relationen är en med programmet och finns bara i den katalog där programmet registreras första gången.
+- **Programobjekt**: En global representation av programmet för alla klienter. Den här relationen är en med programmet och finns bara i den katalog där programmet registreras första gången.
 
-- **Tjänstens huvudnamnsobjekt**: en autentiseringsuppgift som har skapats för ett program i katalogen där programmet registreras första gången. Ett huvudnamn för tjänsten skapas också i katalogen för varje ytterligare klient där programmet används. Den här relationen kan vara en-till-många med programmet.
+- **Tjänstens huvudnamnsobjekt**: En autentiseringsuppgift som har skapats för ett program i katalogen där programmet registreras första gången. Ett huvudnamn för tjänsten skapas också i katalogen för varje ytterligare klient där programmet används. Den här relationen kan vara en-till-många med programmet.
 
 Läs mer om program och tjänstobjekt i [program och tjänstobjekt i Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -155,9 +155,9 @@ För program och användare beskrivs arkitekturen för Azure Stack med fyra lage
 
 För att autentisera med identitetsprovidern och ta emot en JSON Web Token, måste du ha följande information:
 
-1. **URL: en för ID-system (Authority)**: URL: en då din identitetsprovider kan nås. Till exempel *https://login.windows.net*.
-2. **App-ID-URI: N för Azure Resource Manager**: den unika identifieraren för Azure Resource Manager som har registrerats hos din identitetsprovider. Det är också unik för varje Azure Stack-installation.
-3. **Autentiseringsuppgifter**: de autentiseringsuppgifter som du använder för att autentisera med identitetsprovidern.
+1. **URL: en för ID-system (Authority)**: Den URL som din identitetsprovider kan nås. Till exempel *https://login.windows.net*.
+2. **App-ID-URI: N för Azure Resource Manager**: Den unika identifieraren för Azure Resource Manager som har registrerats hos din identitetsprovider. Det är också unik för varje Azure Stack-installation.
+3. **autentiseringsuppgifter**: De autentiseringsuppgifter som du använder för att autentisera med identitetsprovidern.
 4. **URL för Azure Resource Manager**: URL: en är platsen för Azure Resource Manager-tjänsten. Till exempel *https://management.azure.com* eller *https://management.local.azurestack.external*.
 
 När ett huvudnamn (en klient, program eller användare) gör en autentiseringsbegäran till en resurs, måste begäran innehålla:

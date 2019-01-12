@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054307"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232506"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
@@ -27,7 +27,19 @@ I den här artikeln får du lära dig olika metoder för att läsa in data med h
 * Typ konverze med inferens under inläsningen av filen
 * Stödet för MS SQL Server och Azure Data Lake Storage
 
-## <a name="load-text-line-data"></a>Läsa in text raddata 
+## <a name="load-data-automatically"></a>Läsa in data automatiskt
+
+Läs in data automatiskt utan att ange filtypen genom att använda den `auto_read_file()` funktion. Typ av filen och argument som krävs för att läsa den är härledd automatiskt.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+Den här funktionen är användbar när filtypen inte uttryckligen är känd. Ett användningsexempel på är en katalog som innehåller hundratals olika typer som ska konverteras till objekt som dataflöde av filer. Gå igenom varje sökväg och anropar `auto_read_file()` kan du enkelt bearbeta filer i katalogen i en lista med objekt som dataflöde.
+
+## <a name="load-text-line-data"></a>Läsa in text raddata
 
 Om du vill läsa enkel textdata i en dataflöde, använda den `read_lines()` utan att ange valfria parametrar.
 
@@ -188,7 +200,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 SDK: N kan också läsa in data från en SQL-källa. För närvarande stöds endast Microsoft SQL Server. Om du vill läsa data från en SQLServer, skapa en `MSSQLDataSource` objekt som innehåller anslutningsparametrarna. Parametern password av `MSSQLDataSource` accepterar en `Secret` objekt. Du kan skapa hemliga objekt på två sätt:
 
-* Registrera hemligheten och dess värde med motorn för körning. 
+* Registrera hemligheten och dess värde med motorn för körning.
 * Skapa hemligheten med endast en `id` (om värdet för hemligheten har redan registrerats i körningsmiljön) med hjälp av `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -232,7 +244,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Om ditt användarkonto är medlem i fler än en Azure-klient, måste du ange klienten i formuläret AAD-URL-värddatornamn.
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Skapa ett huvudnamn för tjänsten med Azure CLI
@@ -256,7 +268,7 @@ Konfigurera ACL för filsystemet Azure Data Lake Storage med objekt-ID för anv�
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Konfigurera `Read` och `Execute` åtkomst för filsystemet Azure Data Lake Storage du konfigurera ACL för mappar och filer individuellt. Detta beror på att den underliggande HDFS ACL-modellen har inte stöd för arv. 
+Konfigurera `Read` och `Execute` åtkomst för filsystemet Azure Data Lake Storage du konfigurera ACL för mappar och filer individuellt. Detta beror på att den underliggande HDFS ACL-modellen har inte stöd för arv.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

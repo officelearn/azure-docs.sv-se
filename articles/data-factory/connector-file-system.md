@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022214"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiera data till eller från ett filsystem med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
 > * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Aktuell version](connector-file-system.md)
 

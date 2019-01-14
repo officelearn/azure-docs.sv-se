@@ -209,7 +209,7 @@
 ## Referens
 ### [REST-API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Resource Manager-mall](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple Data Manager
 

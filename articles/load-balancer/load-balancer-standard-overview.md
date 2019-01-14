@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2d4808aaccd704f4c54d44cfe7d45ddd84cf0e17
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 15a67bb5d42028f945cc44a75a7210f132a434c3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198685"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245180"
 ---
 # <a name="azure-standard-balancer-overview"></a>Översikt över Azure Standard belastningsutjämnare
 
@@ -210,7 +210,12 @@ Standard belastningsutjämnare är tillgängliga med ett serviceavtal på 99,99%
 
 ## <a name="pricing"></a>Prissättning
 
-Standard Load Balancer är en produkt som debiteras baserat på antalet belastningsutjämningsregler konfigurerats och all inkommande och utgående data som bearbetas. Standard Load Balancer information om priser finns i [Load Balancer priser](https://aka.ms/lbpricing) sidan.
+Standard Load Balancer användningen debiteras.
+
+- Antal konfigurerade belastningsutjämning och utgående regler regler (inkommande NAT-regler räknas inte mot det totala antalet regler)
+- Mängden data som bearbetas regel för inkommande och utgående oavsett. 
+
+Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-priser](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="limitations"></a>Begränsningar
 

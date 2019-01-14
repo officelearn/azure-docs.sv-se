@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 0d01715922286743b9442ae1c656b34c37a7d795
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201201"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230772"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -53,6 +53,7 @@ Azure Migrate stöder för närvarande Europa, USA och Azure Government som proj
 **Geografi** | **Lagringsplats för metadata**
 --- | ---
 Azure Government | Virginia (USA-förvaltad region)
+Asien | Sydostasien
 Europa | Europa, norra eller Europa, västra
 USA | Östra USA för USA, västra centrala
 
@@ -63,6 +64,17 @@ Anslutningen kan vara via internet eller använda ExpressRoute med offentlig pee
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med OVA-mallen?
 
 Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i OVA-mallen som kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att arbeta lämnas skick.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Om du vill skydda Azure Migrate-installation, vilka är de rekommendera Antivirus (AV)-undantag?
+
+Du behöver undanta följande mappar i tillämpning för viruskontroll:
+
+- Mapp som innehåller binärfilerna för Azure Migrate-tjänsten. Undanta alla undermappar.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web hemsidan. Undanta alla undermappar.
+  %SystemDrive%\Inetpub\Wwwroot
+- Lokal Cache för databasen och loggfiler. Azure migrate ha RW åtkomst till den här mappen.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Identifiering
 
@@ -136,16 +148,6 @@ Om du har en miljö som delas mellan klienter och du inte vill identifiera de vi
 
 Du kan identifiera 1500 virtuella datorer i en enda migreringsprojekt. Om du har flera virtuella datorer i din lokala miljö, [mer](how-to-scale-assessment.md) om hur du kan identifiera en stor miljö i Azure Migrate.
 
-### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Om du vill skydda Azure Migrate-installation, vilka är de rekommendera Antivirus (AV)-undantag?
-
-Du behöver undanta följande mappar i tillämpning för viruskontroll:
-
-- Mapp som innehåller binärfilerna för Azure Migrate-tjänsten. Undanta alla undermappar.
-  %ProgramFiles%\ProfilerService  
-- Azure Migrate Web hemsidan. Undanta alla undermappar.
-  %SystemDrive%\Inetpub\Wwwroot
-- Lokal Cache för databasen och loggfiler. Azure migrate ha RW åtkomst till den här mappen.
-  %SystemDrive%\Profiler
 
 ## <a name="assessment"></a>Utvärdering
 

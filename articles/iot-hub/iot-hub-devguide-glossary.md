@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055089"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231622"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -59,7 +59,7 @@ Den [Microsoft Azure-portalen](https://portal.azure.com) är en central plats d�
 [Azure Storage](../storage/common/storage-introduction.md) är en lösning för molnlagring. Den innehåller Blob Storage-tjänsten som du kan använda för att lagra Ostrukturerade objektdata. Vissa IoT Hub-självstudier använder blob storage.
 
 ## <a name="back-end-app"></a>Backend-app
-I samband med [IoT Hub](#iot-hub), en backend-app är en app som ansluter till en tjänst-slutpunkter i IoT hub. Till exempel en backend-app kan hämta [enhet till moln](#device-to-cloud)meddelanden eller hantera den [identitetsregistret](#identity-registry). Vanligtvis en backend-app som körs i molnet, men i många av självstudierna backend-apparna är konsolappar som körs på din lokala utvecklingsdator.
+I samband med [IoT Hub](#iot-hub), en backend-app är en app som ansluter till en tjänst-slutpunkter i IoT hub. Till exempel en backend-app kan hämta [enhet till moln](#device-to-cloud) meddelanden eller hantera den [identitetsregistret](#identity-registry). Vanligtvis en backend-app som körs i molnet, men i många av självstudierna backend-apparna är konsolappar som körs på din lokala utvecklingsdator.
 
 ## <a name="built-in-endpoints"></a>Inbyggda slutpunkter
 Varje IoT-hubb innehåller en inbyggd [endpoint](iot-hub-devguide-endpoints.md) dvs Event Hub-kompatibla. Du kan använda valfri metod som fungerar med Event Hubs kan läsa meddelanden från enhet till moln från den här slutpunkten.

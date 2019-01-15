@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846257"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262905"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -105,7 +105,7 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
 
   - **Namn på**: namnet på prenumerationen och gruppen
   - **Virtuella datorer**: antalet virtuella datorer i gruppen
-  - **Läget**: granskningsläget loggas försök att köra program; Framtvinga kommer inte att program ska köras
+  - **Läget**: Granskningsläget loggas försök att köra program; Framtvinga kommer inte att program ska köras
   - **Aviseringar**: aktuella överträdelser
 
 2. Klicka på en grupp att göra ändringar i den **redigera principer för programkontroll** sidan.
@@ -122,7 +122,7 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
    > - Som vi nämnde tidigare blir alltid en ny princip för programkontroll som standard konfigurerad i läget *Granska*. 
    >
 
-4. Under **principtillägg**, du kan lägga till valfri programsökväg som du vill tillåta. När du lägger till sökvägarna skapar Security Center uppdaterar whielisting-princip för program på de virtuella datorerna i den markerade gruppen av virtuella datorer och skapar lämpliga regler för programmen utöver de regler som redan finns på plats.
+4. Under **principtillägg**, du kan lägga till valfri programsökväg som du vill tillåta. När du lägger till sökvägarna skapar Security Center uppdaterar listan över tillåtna program-princip för program på de virtuella datorerna i den markerade gruppen av virtuella datorer och skapar lämpliga regler för programmen utöver de regler som redan finns på plats.
 
 5. Granska de aktuella överträdelser som anges i den **de senaste aviseringarna** avsnittet. Klicka på varje rad omdirigeras till den **aviseringar** sidan i Azure Security Center och visa alla aviseringar som har identifierats av Azure Security Center på virtuella.
   - **Aviseringar**: eventuella överträdelser som har loggats.
@@ -130,9 +130,9 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
 
 6. Under **utgivare av regler för**, **sökväg för regler för lista över tillåtna**, och **Hash-vitlisteregler** ser du vilka listan över tillåtna program regler är för närvarande konfigurerats på virtuella datorer i en grupp, enligt Samlingstypen av regler. För varje regel kan du se:
 
-  - **Regeln**: de specifika parametrarna som ett program granskas av AppLocker att avgöra om ett program kan köras.
-  - **Filtypen**: de filtyper som omfattas av en specifik regel. Detta kan vara något av följande: EXE, Script, MSI eller alla permutation av dessa filtyper.
-  - **Användare**: namn eller antal användare som har tillåtelse att köra ett program som omfattas av en regel för lista över tillåtna program.
+  - **Regeln**: De specifika parametrarna som ett program granskas av AppLocker att avgöra om ett program kan köras.
+  - **Filtypen**: De filtyper som omfattas av en specifik regel. Detta kan vara något av följande: EXE, Script, MSI eller alla permutation av dessa filtyper.
+  - **Användare**: Namn eller antalet användare som har tillåtelse att köra ett program som omfattas av en regel för lista över tillåtna program.
 
    ![Regler för lista över tillåtna](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

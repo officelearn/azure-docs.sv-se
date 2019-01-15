@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249905"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304421"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Informationen i den här artikeln hjälper operatorn Övervakare för Azure Stack-molnet och hantera lagringskapaciteten för deras Azure Stack-distribution. Azure Stack-lagringsinfrastruktur allokerar en delmängd av den totala lagringskapaciteten på Azure Stack-distributioner som ska användas för **lagringstjänster**. Lagringstjänsterna lagra data för en klient på resurser på volymer som motsvarar noderna i distributionen.
 
@@ -101,12 +101,12 @@ När du använder admin portal kan få du aviseringar om resurser som är ont om
 > [!IMPORTANT]
 > Behåll resurser från att nå fullständig användning som en cloud-operator. När en resurs är 100% optimeras lagringen tjänsten inte längre funktioner för resursen. Om du vill återställa ledigt utrymme och återställning på en resurs som är 100% används, måste du kontakta Microsoft support.
 
-**Varning**: när en filresurs är över 80% används, får du en *varning* avisering i admin portal: ![exempel: varning](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Varning**: När en filresurs är över 80% används, får du en *varning* avisering i admin portal: ![Exempel: Varning](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Kritiska**: när en filresurs är över 90% används, får du en *kritiska* avisering i admin portal: ![exempel: kritisk avisering](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Kritiska**: När en filresurs är över 90% används, får du en *kritisk* avisering i admin portal: ![Exempel: Kritisk varning](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Visa information om**: I admin portal öppnar du informationen för en avisering för att visa alternativ för minskning: ![exempel: Visa aviseringsinformation](media/azure-stack-manage-storage-shares/alert-details.png)
+**Visa information om**: Du kan öppna informationen för en avisering för att visa alternativ för minskning i admin portal: ![Exempel: Visa uppgifter om varning](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Hantera tillgängligt utrymme
@@ -119,7 +119,7 @@ Du kan frigöra kapacitet som används av innehavarens konton som har tagits bor
 
 Mer information finns i [frigöra kapacitet](azure-stack-manage-storage-accounts.md#reclaim) i hantera lagringsresurser.
 
-### <a name="migrate-a-container-between-volumes"></a>Migrera en behållare mellan volymer
+### <a name="migrate-a-container-between-volumes"></a>Migrera en container mellan volymer
 *Det här alternativet gäller endast för distributioner med flera noder.*
 
 På grund av klient användningsmönster använda några klient resurser mer utrymme än andra. Resultatet kan vara en resurs som börjar ta slut på utrymme innan andra resurser som är relativt oanvända.

@@ -1,5 +1,6 @@
 # Översikt
-## [Om virtuella datorer](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [VM-tillägg](agents-and-extensions-classic.md)
+## [Tillgänglighet](configure-availability-classic.md)
 ## [Vanliga frågor och svar](faq-classic.md)
 
 # Kom igång
@@ -29,20 +30,17 @@
 ### [Underhåll](planned-maintenance-schedule-classic.md)
 
 ## Hantera
-### [Migrera från klassisk till Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Migrera från klassisk till Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Hantera virtuella datorer med hjälp av Azure PowerShell](manage-psh-classic.md)
 ### [Om VM-agenten och tillägg](agents-and-extensions-classic.md)
 ### [Hantera VM-tillägg](manage-extensions-classic.md)
 
 ## Hantera arbetsbelastningar
-### [Databehandling med höga prestanda (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### Databehandling med höga prestanda (HPC)
 #### [Skala resurser automatiskt](hpcpack-cluster-node-autogrowshrink.md)
 #### [Hantera beräkningsnoder](hpcpack-cluster-node-manage.md)
 #### [Skapa ett kluster](hpcpack-cluster-powershell-script.md)
 #### [Konfigurera ett kluster för att köra MPI-program](hpcpack-rdma-cluster.md)
-#### [Kör Excel och SOA-arbetsbelastningar](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Skapa huvudnoden med en Marketplace-avbildning](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Skicka jobb från en lokal plats till Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [tomcat](java-run-tomcat-app-server.md)
 
@@ -56,8 +54,7 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
-## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Skapa Resource Manager-mallar](../../../resource-group-authoring-templates.md)
+## [NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Community-mallar](https://azure.microsoft.com/documentation/templates)
 ## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)

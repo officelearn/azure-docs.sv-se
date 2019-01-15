@@ -1,26 +1,8 @@
 ---
-title: Använd exemplen på datauppsättningar – Azure Machine Learning Studio | Microsoft Docs
-description: Beskrivningar av de datauppsättningar som används i exemplet modeller som ingår i Machine Learning Studio. Du kan använda dessa exempel på datauppsättningar för dina experiment.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270492"
+Rubrik: Använd exemplet datauppsättningar titleSuffix: Beskrivning av Azure Machine Learning Studio: Beskrivningar av de datauppsättningar som används i exemplet modeller som ingår i Machine Learning Studio. Du kan använda dessa exempel på datauppsättningar för dina experiment.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/19/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -114,7 +96,7 @@ En av tre cancer-relaterade datauppsättningar som tillhandahålls av Oncology I
 <p></p>
 <b>Syntax:</b> Klassificera datatypen för cancer, baserat på 9 attribut, vilket är linjär och vissa är kategoriska. 
 <p></p>
-<b>Relaterade Research:</b> Wohlberg, W.H., gata, W.N. och Mangasarian, O.L. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -167,7 +149,7 @@ En samling av simulerade energi profiler, baserat på 12 annan byggnad former. B
 <p></p>
 <b>Syntax:</b> Använda regression eller klassificering för att förutsäga betyget energieffektivitet baserat som en av två riktig värdefull svar. Flera klassificering, är i avrunda variabeln svar till närmaste heltal. 
 <p></p>
-<b>Relaterade Research:</b> Xifara A. & Tsanas A. (2012). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -180,7 +162,7 @@ Datauppsättningen tar upp hur lång tid April – oktober 2013. Innan du skicka
   <li>Datauppsättningen har filtrerats för att täcka endast de 70 mest använda flygplatserna i kontinentala USA</li>
   <li>Avbrutna flyg märkta som försenade på grund av mer än 15 minuter</li>
   <li>Och distribueras flyg filtrerades bort</li>
-  <li>Följande kolumner har valts: År, månad, dag i månaden, DayOfWeek, operatör, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, har avbrutits</li>
+  <li>Följande kolumner har valts: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
 </ul>
 </td>
 </tr>
@@ -251,7 +233,7 @@ Data visas i olika bilar i miles per gallon samband med bränsle. Den innehålle
 <p></p>
 <b>Syntax:</b> Förutsäga bränsleekonomin baserat på tre diskreta flervärdesattribut och fem kontinuerliga attribut. 
 <p></p>
-<b>Relaterade Research:</b> StatLib, Carnegie Mellon University (1993). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -327,7 +309,7 @@ Data har bearbetats för att skapa ett avlångt kluster med långt axel är inri
 <p></p>
 Observera också att antalet händelser som bakgrund (för hadronic duschar h) är överskattade. I verkliga mått representerar klassen h eller brus merparten av händelser. 
 <p></p>
-<b>Relaterade Research:</b> Bock R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
+<b>Relaterade Research:</b> Bock, R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
 </tr>
 
 <tr>
@@ -346,7 +328,7 @@ Väderdata täcker observationer som görs från en flygplats väder stationer, 
 </tr>
 
 <tr>
-  <td>Wikipedia SP 500 datauppsättning</td>
+  <td>Wikipedia SP 500 Dataset</td>
   <td>
 Data hämtas från Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) baserat på artiklar på varje S & P 500 företag, lagras som XML-data.
 <p></p>
@@ -403,7 +385,7 @@ Avsnittet tilldelningar efter nyhetsartiklar i RCV1 V2 Reuters nyheter dataupps�
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering utmaningen (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A., Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra jag 2008-2009. Utmana datauppsättning från KDD Cup 2010 Educational Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering utmaningen (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A., Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra I 2008-2009. Utmana datauppsättning från KDD Cup 2010 Educational Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) och innehåller loggfiler från student tutoring system. De angivna funktionerna inkluderar problem-ID och en kort beskrivning, student-ID, tidsstämpel och hur många försök elevens gjort innan du lösa problemet på rätt sätt. Den ursprungliga datauppsättningen innehåller poster för 8.9M; den här datauppsättningen har varit samplas ned till de första 100K raderna. Datauppsättningen har 23 tabbavgränsade kolumner med olika typer: numeriska, kategoriska, och tidsstämpel.
   </td>

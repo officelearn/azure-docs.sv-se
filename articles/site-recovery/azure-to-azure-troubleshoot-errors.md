@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: e120c10468ca95b604ef8f857959607d3a066ea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8023129bf700793447b63f0686acd22f6ac2b25c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973561"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265013"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -286,6 +286,39 @@ Du kan öppna ”tjänster”-konsolen och se till att den ”COM + System Appli
 --- | --- | ---
 150172<br></br>**Meddelandet**: Att det gick inte aktivera skydd för den virtuella datorn eftersom den innehåller (DiskName) med storlek (Diskstorlek) som är mindre än minimikraven storlek på 10 GB. | -Disken är mindre än maxstorleken på 1 024 MB| Kontrollera att de diskar som är inom storleksintervallet som stöds och försök igen. 
 
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Aktivera skydd kunde inte utföras eftersom enhetsnamn som nämns i GRUB-konfigurationen istället för UUID (felkod 151126)
 
-## <a name="next-steps"></a>Nästa steg
-[Replikera virtuella Azure-datorer](site-recovery-replicate-azure-to-azure.md)
+**Möjlig orsak:** </br>
+GRUB-konfigurationsfilerna (”/ boot/grub/menu.lst” ”, / boot/grub/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub”) kan innehålla värdet för parametrarna **rot** och **återuppta** som den namn på verkliga enheter istället för UUID. Site Recovery mandat UUID-metod som namn på enheter som kan ändras över omstart av den virtuella datorn när virtuell dator inte kanske kommer upp med samma namn på redundans, vilket resulterar i problem. Exempel: </br>
+
+
+- Följande rad är GRUB-fil **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- Följande rad är GRUB-fil **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+
+Om du upptäcker fetstil strängen ovan, innehåller GRUB faktiska enhetsnamn för parametrar ”rot” och ”återuppta” istället för UUID.
+ 
+**Så här åtgärdar du:**<br>
+Enhetsnamn ska ersättas med motsvarande UUID.<br>
+
+
+1. Hitta UUID för enheten genom att köra kommandot ”blkid <device name>”. Exempel:<br>
+```
+blkid /dev/sda1 
+```<br>
+```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+```blkid /dev/sda2```<br> 
+```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```<br>
+
+
+
+1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+
+## Next steps
+[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

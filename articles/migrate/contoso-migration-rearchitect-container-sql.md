@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 9fd83124585e3a0eb19c43e278eeeacb6ec4409c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094113"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267427"
 ---
-# <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso-migrering: omforma en lokal app till en Azure container och Azure SQL Database
+# <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso-migrering: Omforma en lokal app till en Azure container och Azure SQL Database
 
 Den här artikeln visar hur Contoso migrerar och omforma dess SmartHotel360-app i Azure. Contoso migrerar app klientdelens VM till en Azure Windows-behållare och app-databas till en Azure SQL-databas.
 
@@ -22,14 +22,14 @@ Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företa
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
+[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
 [Artikel 2: Distribuera Azure-infrastrukturen](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Tillgängligt
 [Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Contoso kör en utvärdering av dess lokal SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Tillgängligt
 [Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel360-app. Contoso migrerar app frontend virtuell dator med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt   
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel360 app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel360-app. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt 
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso har slutförts en lift and shift-migrering av Linux osTicket app på virtuella Azure-datorer med Azure Site Recovery | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Azure Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
+[Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso har slutförts en lift and shift-migrering av Linux osTicket app på virtuella Azure-datorer med Azure Site Recovery | Tillgängligt
+[Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Azure Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar SmartHotel360-app till ett Azure Web Apps och app-databasen har migrerats till en Azure SQL Server-instans med Database Migration Assistant | Tillgängligt
 [Artikel 10: Omstrukturera en app för Linux på Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt 
 [Artikel 11: Omstrukturera TFS på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar dess lokal Team Foundation Server-distribution till Azure DevOps-tjänsterna i Azure. | Tillgängligt
@@ -43,13 +43,13 @@ I den här artikeln migrerar Contoso tvålagers-Windows WPF, XAML forms SmartHot
 
 Contoso IT-ledning har haft ett nära samarbete med affärspartners att förstå vad de vill uppnå med den här migreringen:
 
-- **Åtgärda tillväxten**: Contoso växer, och därför har Press på dess lokala system och infrastruktur.
+- **Åtgärda tillväxten**: Contoso växer och det finns därför trycket på sina lokala system och infrastruktur.
 - **Öka effektiviteten**: Contoso måste ta bort onödiga procedurer och förenkla processer för utvecklare och användare.  Affärsbehov IT ska vara snabbt och inte spill tid eller pengar och därför leverera snabbare på kunders behov.
-- **Förbättrad flexibilitet**: Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än ändringarna i marketplace, aktivera kan användas i en global ekonomi.  Det får inte vara i vägen eller bli en blockerare för företag.
-- **Skala**: när verksamheten växer har, Contoso IT måste tillhandahålla system som kan växa i samma takt.
+- **Förbättrad flexibilitet**:  Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än ändringarna i marketplace, aktivera kan användas i en global ekonomi.  Det får inte vara i vägen eller bli en blockerare för företag.
+- **Skala**: När verksamheten växer har, ange Contoso IT system som kommer växa i samma takt.
 - **Kostnaderna**: Contoso vill minimera licensieringskostnaderna.
 
-## <a name="migration-goals"></a>Mål för migrering
+## <a name="migration-goals"></a>Migreringsmål
 
 Contoso cloud-teamet har fästs ned mål för den här migreringen. Dessa mål har använts för att avgöra den bästa migreringsmetoden.
 
@@ -134,15 +134,15 @@ Här är vad som behöver Contoso att köra det här scenariot:
 Här är hur Contoso körs migreringen:
 
 > [!div class="checklist"]
-> * **Steg 1: Etablera en SQL-databasinstans i Azure**: Contoso etablerar en SQL-instans i Azure. Efter VM har migrerats till en Azure-behållare frontend webben, pekar behållarinstans med app-webbservergrupp till den här databasen.
+> * **Steg 1: Etablera en SQL Database-instans i Azure**: Contoso etablerar en SQL-instans i Azure. Efter VM har migrerats till en Azure-behållare frontend webben, pekar behållarinstans med app-webbservergrupp till den här databasen.
 > * **Steg 2: Skapa ett Azure Container Registry (ACR)**: Contoso etablerar ett enterprise-behållarregister för docker-behållaravbildningar.
-> * **Steg 3: Etablera Azure Service Fabric**: det tillhandahåller en Service Fabric-kluster.
+> * **Steg 3: Etablera Azure Service Fabric**: Det tillhandahåller en Service Fabric-kluster.
 > * **Steg 4: Hantera service fabric-certifikat**: Contoso ställer in certifikat för Azure DevOps-tjänsterna åtkomst till klustret.
-> * **Steg 5: Migrera databas med DMA**: den har migrerats app-databasen med Database Migration Assistant.
+> * **Steg 5: Migrera databas med DMA**: Den har migrerats app-databasen med Database Migration Assistant.
 > * **Steg 6: Konfigurera Azure DevOps-tjänsterna**: Contoso ställer in ett nytt projekt i Azure DevOps-tjänsterna och importerar koden till Git-lagringsplats.
 > * **Steg 7: Konvertera appen**: Contoso konverterar appen till en behållare med Azure DevOps och SDK-verktyg.
-> * **Steg 8: Ställa in skapa och släpp**: Contoso ställer in skapa och släpp pipelines att skapa och publicera appen i ACR och Service Fabric-kluster.
-> * **Steg 9: Utöka appen**: när appen är offentlig kan Contoso utökar den för att dra nytta av funktioner i Azure och publicerar den till Azure med hjälp av pipelinen.
+> * **Steg 8: Konfigurera skapa och släpp**: Contoso ställer in skapa och släpp pipelines att skapa och publicera appen i ACR och Service Fabric-kluster.
+> * **Steg 9: Utöka appen för**: När appen är offentlig kan Contoso utökar den för att dra nytta av Azure-funktioner och publicerar den till Azure med hjälp av pipelinen.
 
 
 
@@ -254,7 +254,7 @@ SmartHotel360-behållaren körs i Azure Service Fabric Sluster. Contoso-administ
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric13.png) 
 
 
-## <a name="step-4-manage-service-fabric-certificates"></a>Steg 4: Hantera certifikat för Service Fabric
+## <a name="step-4-manage-service-fabric-certificates"></a>Steg 4: Hantera Service Fabric-certifikat
 
 Contoso behöver klustercertifikat så att Azure DevOps-tjänsterna åtkomst till klustret. Contoso administratörer ställa in.
 
@@ -403,7 +403,7 @@ Contoso-administratörer ska konvertera appen till en behållare med projektplat
 5. Nu kan kontrollera de hur lösningen har ändrats.
 
     - Den nya appen är **SmartHotel.RegistrationApplication/**
-    - Den innehåller två tjänster: **SmartHotel.Registration.WCF** och **SmartHotel.Registration.Web**.
+    - Den innehåller två tjänster: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
 
     ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
@@ -581,7 +581,7 @@ När du utökar appen, publicera den till Azure med pipelinen om Contoso-adminis
 
 1. Hunnit checka in och skicka koden till Azure DevOps-tjänsterna. Detta startar skapa och släpp pipelines.
 
-2. Efter skapande och distribution slutförs körs SmartHotel360 nu Service Fabric. Servie infrastrukturhantering-konsolen visas nu tre tjänster.
+2. Efter skapande och distribution slutförs körs SmartHotel360 nu Service Fabric. Service Fabric Management-konsolen visas nu tre tjänster.
 
     ![Publicera på nytt](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 

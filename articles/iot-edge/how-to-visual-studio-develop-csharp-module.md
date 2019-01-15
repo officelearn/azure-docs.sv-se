@@ -9,12 +9,12 @@ ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8fec963dfce8c55cc618f2ce6877d4d591a9cf27
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3091e53b47d85e3e58c32b255dc9dcebd54ab2c5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215226"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264945"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Använd Visual Studio 2017 för att utveckla och felsöka C#-moduler för Azure IoT Edge (förhandsversion)
 
@@ -61,7 +61,7 @@ När din Visual Studio 2017 är klar, behöver du följande verktyg och komponen
 
 1. Från den **verktyg** menyn och välj **tillägg och uppdateringar**. Expandera **installerad > Verktyg** och du hittar **Azure IoT Edge Tools** och **Cloud Explorer för Visual Studio**.
 
-1. Observera den installerade versionen. Du kan jämföra den här versionen med den senaste versionen på Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))
+1. Observera den installerade versionen. Du kan jämföra den här versionen med den senaste versionen på Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools))
 
 1. Om din version är äldre än vad som är tillgängligt på Visual Studio Marketplace kan du uppdatera dina verktyg i Visual Studio som du ser i följande avsnitt.
 

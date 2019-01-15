@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585874"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304382"
 ---
 # <a name="optimize-sql-server-performance"></a>Optimera prestanda för SQL Server
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller vägledning för att optimera prestanda för SQL S
 När du skapar SQL Server-avbildningar, [Överväg att etablera virtuella datorer i Azure Stack portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Ladda ned SQL IaaS-tillägget från Marketplace-hantering i Azure Stack Admin Portal och ladda ned ditt val av SQL VM virtuella hårddiskar (VHD). Dessa inkluderar SQL2014SP2 och SQL2016SP1 SQL2017.
 
 > [!NOTE]  
-> När artikeln beskriver hur du etablerar en SQL Server-dator med hjälp av den globala Azure-portalen, riktlinjerna gäller även för Azure Stack med följande skillnader: SSD är inte tillgänglig för operativsystemdisken, hanterade diskar är inte tillgängliga, och Det finns mindre skillnader i lagringskonfiguration.
+> När artikeln beskriver hur du etablerar en SQL Server-dator med hjälp av den globala Azure-portalen, gäller riktlinjerna även Azure Stack med följande skillnader: SSD är inte tillgänglig för operativsystemdisken, hanterade diskar är inte tillgängliga och det finns mindre skillnader i lagringskonfiguration.
 
 Hämta den *bästa* prestanda för SQL Server på Azure Stack virtuella datorer ligger fokus i den här artikeln. Om din arbetsbelastning är mindre systemresurser, kanske du inte kräver varje rekommenderade optimering. Överväg att dina prestandabehov och arbetsbelastningmönster medan du utvärderar de här rekommendationerna.
 
@@ -42,7 +42,7 @@ Följande checklista är optimala prestanda för SQL Server på Azure Stack-dato
 
 |Område|Optimeringar|
 |-----|-----|
-|Virtuell datorstorlek |[DS3](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) eller högre för SQL Server Enterprise edition.<br><br>[DS2](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) eller högre för SQL Server Standard edition och Web edition.|
+|Storlek på virtuell dator |[DS3](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) eller högre för SQL Server Enterprise edition.<br><br>[DS2](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) eller högre för SQL Server Standard edition och Web edition.|
 |Storage |Använda en VM-familj som stöder [premiumlagring](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-acs-differences).|
 |Diskar |Använder minst två datadiskar (en för loggfiler) och en för datafilen och TempDB och välja diskens storlek baserat på dina kapacitetsbehov. Ange standard sökvägar till dessa diskar under SQL Server-installationen.<br><br>Undvik att använda operativsystemet eller temporära diskar för databaslagring eller loggning.<br>Stripe-flera Azure-datadiskar för att få ökad i/o-dataflöde med hjälp av lagringsutrymmen.<br><br>Formatera med dokumenterade allokering storlekar.|
 |I/O|Aktivera omedelbara filen initiering av datafiler.<br><br>Begränsa automatisk storleksökning för databaser med förhållandevis små fast steg (64 MB - 256 MB).<br><br>Inaktivera automatiska storleksminskningen för databasen.<br><br>Konfigurera säkerhetskopiering och databasen standardsökvägar på datadiskar, inte operativsystemdisken.<br><br>Aktivera låsta sidor.<br><br>Gäller SQL Server servicepack och kumulativa uppdateringar.|
@@ -76,11 +76,11 @@ När du skapar ett lagringskonto i Azure Stack, har geo-replikering-alternativet
 
 Det finns tre huvudsakliga disktyper på en virtuell dator i Azure Stack:
 
-- **Operativsystemdisken:** när du skapar en virtuell dator i Azure Stack plattformen bifogar minst en disk (märkta som den **C** enhet) till den virtuella datorn för operativsystemets disk. Den här disken är en virtuell Hårddisk som lagras som en sidblobb i lagring.
+- **Operativsystemets disk:** När du skapar en virtuell dator i Azure Stack plattformen bifogar minst en disk (märkta som den **C** enhet) till den virtuella datorn för operativsystemets disk. Den här disken är en virtuell Hårddisk som lagras som en sidblobb i lagring.
 
-- **Temporär disk:** Azure Stack virtuella datorer innehåller en annan disk kallas den temporära disken (märkta som den **D** enhet). Det här är en disk på den nod som kan användas för tillfälliga utrymmet.
+- **Temporär disk:** Azure Stack-datorer innehåller en annan disk kallas den temporära disken (märkta som den **D** enhet). Det här är en disk på den nod som kan användas för tillfälliga utrymmet.
 
-- **Datadiskar:** du kan koppla ytterligare diskar till din virtuella dator som datadiskar och diskarna sparas i lagring som sidblobar.
+- **Datadiskar:** Du kan koppla ytterligare diskar till din virtuella dator som datadiskar och diskarna sparas i lagring som sidblobar.
 
 I följande avsnitt beskrivs rekommendationer för att använda dessa olika diskar.
 
@@ -101,7 +101,7 @@ Vi rekommenderar att du lagrar TempDB på en datadisk som innehåller högst upp
 > [!NOTE]  
 > När du etablerar en SQL Server-dator i portalen kan har du möjlighet att redigera din konfiguration för lagring. Beroende på din konfiguration konfigurerar en eller flera diskar i Azure Stack. Flera diskar kombineras till en enskild lagringspool. Både data och loggfiler filerna finnas tillsammans i den här konfigurationen.
 
-- **Disk striping:** mer dataflöde kan du lägga till ytterligare datadiskar och använda disk striping. Att fastställa antalet datadiskar som du behöver analysera antalet IOPS och bandbredd som krävs för loggfilerna och för dina data och TempDB-filer. Observera att IOPS-gränserna är per datadisk utifrån i serien för virtuella datorer och inte baserat på storleken på virtuella datorn. Nätverk bandbreddsgränser, men baseras på storleken på virtuella datorn. Se tabellerna på [VM-storlekar i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) för mer information. Använd följande riktlinjer:
+- **Disk striping:** Du kan lägga till ytterligare datadiskar och använda disk striping mer dataflöde. Att fastställa antalet datadiskar som du behöver analysera antalet IOPS och bandbredd som krävs för loggfilerna och för dina data och TempDB-filer. Observera att IOPS-gränserna är per datadisk utifrån i serien för virtuella datorer och inte baserat på storleken på virtuella datorn. Nätverk bandbreddsgränser, men baseras på storleken på virtuella datorn. Se tabellerna på [VM-storlekar i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) för mer information. Använd följande riktlinjer:
 
     - För Windows Server 2012 eller senare, Använd [lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) med följande riktlinjer:
 
@@ -120,8 +120,8 @@ Vi rekommenderar att du lagrar TempDB på en datadisk som innehåller högst upp
 
 - Bestämma antalet diskar som är associerade med din lagringspool baserat på dina förväntningar för belastningen. Tänk på att olika virtuella datorstorlekar tillåter olika antal anslutna datadiskar. Mer information finns i [VM-storlekar som stöds i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - För att få högsta möjliga IOPS för datadiskar rekommendationen är att lägga till det maximala antalet datadiskar som stöds av din [VM-storlek](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) och använda disk striping.
-- **Storlek på NTFS-allokeringsenhet:** formaterar datadisken och vi rekommenderar att du använder en storlek på allokeringsenhet 64 KB för data och loggfiler samt TempDB.
-- **Disk management praxis:** när du tar bort en datadisk, stoppa SQL Server-tjänsten vid ändringen. Dessutom inte ändra inställningar för cachelagring på diskarna eftersom det inte ger några prestandaförbättringar.
+- **Storlek på NTFS-allokeringsenhet:** Formaterar datadisken och rekommenderas det att du använder en storlek på allokeringsenhet 64 KB för data och loggfiler samt TempDB.
+- **Disk management praxis:** När du tar bort en datadisk, stoppa SQL Server-tjänsten under tiden. Dessutom inte ändra inställningar för cachelagring på diskarna eftersom det inte ger några prestandaförbättringar.
 
 > [!WARNING]  
 > Det gick inte att stoppa SQL-tjänsten vid de här åtgärderna kan orsaka databasfel.

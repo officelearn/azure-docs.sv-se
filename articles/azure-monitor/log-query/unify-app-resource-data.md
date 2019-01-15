@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dd475c776a3cdb4f2281b9b5468968745024ac
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215175"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265217"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
 Den här artikeln beskriver hur du fråga efter och visa alla dina Application Insights log programdata på samma plats, även om de finns i olika Azure-prenumerationer, som en ersättning för utfasningen av Application Insights-anslutningsprogram.  
@@ -64,7 +64,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
@@ -101,25 +101,25 @@ I följande tabell visas schemaolikheter mellan Log Analytics och Application In
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | namn | 
-| deviceModel | client_Model | 
+| DeviceModel | client_Model | 
 | Enhetstyp | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | meddelande | 
 | ExceptionType | typ |
 | Åtgärds-ID | operation_id |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | Operativsystem | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | varaktighet | 
 | PageViewName | namn | 
-| ParentOpeartionID | operation_Id | 
+| ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | varaktighet | 
 | Begärande-ID | id | 
 | RequestName | namn | 
 | RequestSuccess | lyckades | 
-| ResponseCode | Resultatkod | 
+| ResponseCode | resultCode | 
 | Roll | cloud_RoleName |
 | Rollinstans | cloud_RoleInstance |
 | sessions-ID | session_Id | 

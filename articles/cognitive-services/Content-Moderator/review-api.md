@@ -1,23 +1,23 @@
 ---
 title: Moderering av jobb och human-i-the-loop granskningar - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Gäller mänsklig övervakning datorstödd moderering för bästa resultat.
+description: Kombinera datorstödd moderering med funktioner för mänskliga-i-the-loop med Azure Content Moderator granska API för att få bästa resultat för ditt företag.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223267"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265353"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Moderering av jobb och granskningar
+# <a name="content-moderation-jobs-and-reviews"></a>Innehållsmoderering jobb och granskningar
 
 Kombinera datorstödd moderering med funktioner för mänskliga-i-the-loop med hjälp av Azure Content Moderator [granska API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) att få bästa resultat för ditt företag.
 
@@ -55,12 +55,12 @@ Använd den `Job.Get` åtgärden och jobb-ID för att hämta information om ett 
 
 Dina indata inkludera följande information:
 
-- Granska lag-ID: jobb-ID som returneras av den föregående åtgärden
+- Granska lag-ID: Jobb-ID som returneras av den föregående åtgärden
 
 Svaret innehåller följande information:
 
 - Identifierare för granskning skapas. (Använda detta ID för att få resultat slutlig granskning.)
-- Status för jobbet (slutförd eller pågående): de tilldelade moderering taggarna (nyckel / värde-par).
+- Status för jobbet (slutförd eller pågående): Tilldelade moderering taggar (nyckel / värde-par).
 - Jobbet Körningsrapport.
  
  
@@ -110,7 +110,7 @@ Svaret innehåller följande information:
             ]
         }
  
-![Bild granskning för mänskliga moderatorer](images/ocr-sample-image.PNG)
+![Bildgranskning för mänskliga moderatorer](images/ocr-sample-image.PNG)
 
 ## <a name="review-operations"></a>Granska åtgärder
 

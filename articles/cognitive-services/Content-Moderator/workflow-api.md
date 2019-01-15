@@ -1,23 +1,23 @@
 ---
 title: Moderering arbetsflöden – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Använda arbetsflöden med innehållsmoderering.
+description: Använda arbetsflöden med granska API-jobbet åtgärderna för att automatisera human-i-the-loop granskningar baserat på din innehållsprinciper och tröskelvärden.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3a3ff5ed325205c5ae17aaff053127f4e84504bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226882"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262667"
 ---
-# <a name="moderation-workflows"></a>Moderering av arbetsflöden
+# <a name="automate-moderation-reviews-with-workflows"></a>Automatisera moderering granskningar med arbetsflöden
 
 Content Moderator ingår verktyg och API: er för att hantera arbetsflöden. Du använder arbetsflöden med den [granska API jobbåtgärder](review-api.md) att automatisera human-i-the-loop granskning skapas baserat på ditt innehåll och tröskelvärden.
 
@@ -218,9 +218,9 @@ Den [arbetsflödesåtgärder](https://westus.dev.cognitive.microsoft.com/docs/se
 
 Den **arbetsflödet Get** åtgärden godkänner följande indata:
 
-- **team**: lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: namnet på ditt arbetsflöde. Använd `default` börja med.
-- **OCP-Apim-Subscription-Key**: finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
+- **team**: Lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: Namnet på ditt arbetsflöde. Använd `default` börja med.
+- **Ocp-Apim-Subscription-Key**: På den **inställningar** fliken. Mer information finns i [Översikt](overview.md).
 
 Om åtgärden lyckas den **svarsstatus** är `200 OK` och **svarsinnehåll** arbetsflödesdefinitionen visar JSON-format.
 Mer information finns i [arbetsflöde API konsolen Snabbstart](try-review-api-job.md).
@@ -231,9 +231,9 @@ Skapande och uppdatering igen kan du skapa arbetsflödet från API: et.
 
 Den **arbetsflöde – skapa eller uppdatera** åtgärden godkänner följande indata:
 
-- **team**: lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: namnet på ditt arbetsflöde. Använd `default` börja med.
-- **OCP-Apim-Subscription-Key**: finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
+- **team**: Lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: Namnet på ditt arbetsflöde. Använd `default` börja med.
+- **Ocp-Apim-Subscription-Key**: På den **inställningar** fliken. Mer information finns i [Översikt](overview.md).
 
 Om åtgärden lyckas den **svarsstatus** är `200 OK` och **svarsinnehåll** rutan visar `true`. Mer information, [Testkör den `Create` åtgärden](try-review-api-job.md).
 

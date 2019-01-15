@@ -1,28 +1,28 @@
 ---
 title: Måttlig bilder med API-konsolen – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Testa bildmoderering i Content Moderator-API-konsolen.
+description: Använd Image Moderering API i Azure Content Moderator för att initiera genomsökning och granska moderering arbetsflöden för innehållet.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: a88eb1e0fc91fb47a95c8b1fea84cfac32674266
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 154a7cd4855429bfe3274974a0f4ae5c8be841f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224984"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265948"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Måttlig bilder från API-konsol
 
 Använd den [Image Moderering API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) i Azure Content Moderator för att initiera genomsökning och granska moderering arbetsflöden för innehållet. Moderering av jobbet söker igenom innehållet med avseende på svordomar och jämför den med anpassade och delade svartlistor.
 
 ## <a name="use-the-api-console"></a>Använd API-konsol
-Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [översikt](overview.md).
+Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [Översikt](overview.md).
 
 1.  Gå till [Bildmoderering API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 

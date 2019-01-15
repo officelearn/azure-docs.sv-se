@@ -112,14 +112,14 @@ items:
       href: how-to-build-deploy-onnx.md
   - name: Distribuera modeller
     items:
-    - name: Välj var du vill distribuera modeller
+    - name: Var och hur du distribuerar
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
     - name: FPGA:er
       href: how-to-deploy-fpga-web-service.md
     - name: Felsöka
       href: how-to-troubleshoot-deployment.md
-    - name: Skydda med SSL
+    - name: Säkra webbtjänster med SSL
       href: how-to-secure-web-service.md
   - name: Konsumera webbtjänster
     items:
@@ -139,7 +139,7 @@ items:
   - name: Hantera resurskvoter
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Använda med Virtual Networks
+  - name: Skydda med virtuella nätverk
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Använd CLI för Machine Learning
@@ -174,9 +174,9 @@ items:
     href: support-for-aml-services.md
   - name: Jämför maskininlärningsprodukter på Microsoft
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 84f4c2ec1d9f361cdf030b724860aea89f5c9cc3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 098c8a9f9bc8d0458490adf4d80e2eaf69dd9f7f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247375"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266084"

@@ -1,26 +1,7 @@
 ---
-title: Azure AI-galleriet samlingar – Azure Machine Learning Studio | Microsoft Docs
-description: 'Du kan använda en samling i Azure AI-galleriet för att gruppera experiment, API: er och andra Galleriobjekt som du använder för en viss lösning eller begrepp. Du kan gruppera dem att använda, spara för senare referens eller att dela.'
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: b88489f826bbeab636903c7c9918f34d16b2f122
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271376"
+Rubrik: Azure AI-galleriet samlingar titleSuffix: Beskrivning av Azure Machine Learning Studio: Du kan använda en samling i Azure AI-galleriet för att gruppera experiment, API: er och andra Galleriobjekt som du använder för en viss lösning eller begrepp. Du kan gruppera dem att använda, spara för senare referens eller att dela.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel  
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 03/31/2017
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Upptäcka och dela samlingar i Azure AI-galleriet
 

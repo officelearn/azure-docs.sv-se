@@ -6,12 +6,12 @@ description: Lär dig att skapa och hantera kraftfulla program med Microsoft Azu
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: af59a3f4d631992c2319a79f40a721c45535bb91
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581070"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306598"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -211,6 +211,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -780,6 +781,11 @@ Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/notebooks">
+                                                <img src="media/index/notebooks.svg" alt="" />
+                                                <p>Azure Notebooks</p>
+                                            </a>
+                                        </li>                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure Search</p>
@@ -3562,7 +3568,7 @@ Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                         <a href="#ai">AI + Machine Learning</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
-                                <h2>Artificiell intelligens</h2>
+                                <h2>Artificiell intelligens + maskininlärning</h2>
                             </li>
                             <li>
                                 <a href="/azure/azure-databricks/">
@@ -3672,6 +3678,25 @@ Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
                                                     <p>Stärk dina appar, webbplatser och robotar med intelligens för att se, höra, tala och förstå</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notebooks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/notebooks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Notebooks</h3>
+                                                    <p>Hantera och köra Jupyter Notebooks i en förkonfigurerad molnmiljö</p>
                                                 </div>
                                             </div>
                                         </div>

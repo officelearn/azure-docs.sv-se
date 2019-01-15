@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082959"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263415"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrera Azure DevTest Labs i din Azure DevOps kontinuerlig integrering och leverans pipeline
 Du kan använda den *Azure DevTest Labs-uppgifter* som är installerad i Azure DevOps att enkelt integrera din version och versionen CI/CD-pipeline med Azure DevTest Labs. Tillägget installeras tre uppgifter: 
@@ -85,7 +85,7 @@ Det här avsnittet beskriver hur du skapar Azure Resource Manager-mallen som anv
 
 1. Kontrollera skriptet ditt källkontrollsystem. Något som **GetLabVMParams.ps1**.
 
-   När du kör det här skriptet på agenten som en del av versionspipelinen, och om du använder uppgift som *Azure File Copy* eller *PowerShell på måldatorer*, skriptet samlar in de värden som du behöver distribuera din app till den virtuella datorn. Du skulle normalt använda dessa uppgifter för att distribuera appar till en Azure-dator. Uppgifterna kan du kräva värden som namn på resursgrupp för virtuell dator, IP-adress och fullständigt kvalificerade domännamnet (fullständigt domännamn).
+   När du kör det här skriptet på agenten som en del av versionspipelinen, och om du använder uppgift som *Azure File Copy* eller *PowerShell på måldatorer*, skriptet samlar in de värden som du behöver distribuera din app till den virtuella datorn. Du skulle normalt använda dessa uppgifter för att distribuera appar till en Azure-dator. Uppgifterna kan du kräva värden som namn på resursgrupp för virtuell dator, IP-adress och fullständigt kvalificerade domännamnet (FQDN).
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>Skapa en pipeline för versionen i Release Management
 Om du vill skapa versionspipelinen, gör du följande:

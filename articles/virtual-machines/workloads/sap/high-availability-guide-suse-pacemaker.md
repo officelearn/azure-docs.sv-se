@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2cec9e9b9724ca401778d4493d03def2aefc4ee9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074384"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304490"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -483,7 +483,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
 
-1. Gå till < https\://portal.azure.com >
+1. Gå till [https://portal.azure.com](https://portal.azure.com)
 1. Öppna bladet Azure Active Directory  
    Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
 1. Klicka på App-registreringar

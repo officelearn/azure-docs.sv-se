@@ -4,17 +4,17 @@ description: Lär dig hur du felsöker problem skapa och tilldela skisser
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315539"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261935"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka med hjälp av Azure skisser
 
@@ -52,6 +52,20 @@ En princip orsaka en konflikt med distributionen för en rad orsaker:
 #### <a name="resolution"></a>Lösning
 
 Ändra skissen så att det inte står i konflikt med principerna i felinformationen. Om den här ändringen inte är möjligt, är ett alternativ att ha omfånget för principtilldelningen ändras så skissen inte längre är i konflikt med principen.
+
+### <a name="escape-function-parameter"></a>Scenario: Skissparametern är en funktion
+
+#### <a name="issue"></a>Problem
+
+Skissparametrar som är funktioner bearbetas innan de skickas till artefakter.
+
+#### <a name="cause"></a>Orsak
+
+Skicka en skissparametern som använder en funktion som `[resourceGroup().tags.myTag]`, i en artefakt resulterar i bearbetade resultatet av funktionen som anges på artefakten i stället för funktionen dynamiskt.
+
+#### <a name="resolution"></a>Lösning
+
+Om du vill skicka en funktion via som en parameter, escape-hela strängen med `[` så att skissparametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecknet orsakar skisser värdet ska behandlas som en sträng vid bearbetning av skissen. Skisser placerar funktionen på den artefakt så att den kan vara dynamiska som förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
 

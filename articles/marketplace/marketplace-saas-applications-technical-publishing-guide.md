@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074724"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261153"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
 
@@ -140,7 +140,7 @@ Microsoft är värd för handel transaktionen. Microsoft fakturerar kunden å di
 | Krav | Information |  
 |:--- |:--- |  
 |Fakturering och mätning | Ditt erbjudande debiteras med en månatlig fast pris. Användningsbaserade priser och användningsbaserad ”true up” funktioner stöds inte just nu. |  
-|Annullering | Erbjudandet är avbrytbar av kunden när som helst. |  
+|Annulleringen | Erbjudandet är avbrytbar av kunden när som helst. |  
 |Landningssida för transaktion | Du vara värd för en landningssidan för Azure anpassade transaktion där användare kan skapa och hantera sina SaaS-tjänstkontot. |   
 | Prenumeration API | Du kan exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort ett användaravtal för kontot och tjänsten. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar släpps regelbundet. |  
 

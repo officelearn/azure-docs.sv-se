@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 01/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "36338330"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306887"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Stöds BGP på alla Azure VPN Gateway-SKU:er?
 Nej, BGP stöds på Azure VPN-gatewayerna **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** och **HighPerformance**. **Basic** SKU stöds inte.
@@ -30,8 +30,8 @@ Nej, i dagens läge har Azure VPN Gateway stöd för 16-bitars ASN:er.
 ### <a name="are-there-asns-reserved-by-azure"></a>Finns det ASN:er reserverade av Azure?
 Ja, följande ASN:er är reserverade av Azure för både interna och externa peerings:
 
-* Offentliga ASN:er: 8074, 8075, 12076
-* Privata ASN:er: 65515, 65517, 65518, 65519, 65520
+* Offentliga ASN: er: 8074, 8075, 12076
+* Privata ASN: er: 65515, 65517, 65518, 65519, 65520
 
 Du kan inte ange dessa ASN:er för dina lokala VPN-enheter när du ansluter till Azure VPN-gatewayer.
 
@@ -68,7 +68,7 @@ Ja, du kan använda BGP för både anslutningar mellan platser och VNet-till-VNe
 Ja, du kan blanda både BGP- och icke-BGP-anslutningar för samma Azure VPN-gateway.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Stöder Azure VPN-gateway BGP-överföringsrutter?
-Ja, BGP-överföringsrutter stöds, med undantaget att Azure VPN-gatewayer **INTE** annonserar ut standardrutter till andra BGP-peers. För att aktivera överföringsrutter över flera Azure VPN-gatewayer, behöver du aktivera BGP på alla mellanliggande VNet-till-VNet-anslutningar.
+Ja, BGP-överföringsrutter stöds, med undantaget att Azure VPN-gatewayer **INTE** annonserar ut standardrutter till andra BGP-peers. För att aktivera överföringsrutter över flera Azure VPN-gatewayer, behöver du aktivera BGP på alla mellanliggande VNet-till-VNet-anslutningar. Mer information finns i [om BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Kan jag har fler än en tunnel mellan en Azure VPN-gateway och mitt lokala nätverk?
 Ja, du kan skapa fler än en S2S-VPN-tunnel mellan en Azure VPN-gateway och ditt lokala nätverk. Observera att alla dessa tunnlar räknas mot det totala antalet tunnlar för dina Azure VPN-gateways och att du måste aktivera BGP för båda tunnlarna.

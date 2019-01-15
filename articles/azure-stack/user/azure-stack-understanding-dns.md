@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-09/28/2018started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 783262a5b55bd645ae3b85c1f00434648d7ee35f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 837b96246191bd88ec380f122cf9ece85f822203
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584975"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304541"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduktion till IDN: er för Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 IDN: er är ett nätverk Azure Stack-funktion som gör det möjligt för dig att lösa externa DNS-namn (till exempel http://www.bing.com.) det också möjligt att registrera namn för internt virtuellt nätverk. Då kan lösa du virtuella datorer på samma virtuella nätverk genom att namnet i stället för IP-adress. Den här metoden tar bort behovet av att tillhandahålla anpassade DNS-serverposter. Mer information om DNS finns i den [översikt över Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview).
 

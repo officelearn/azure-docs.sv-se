@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157453"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263685"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Använd API-versionsprofiler med Ruby i Azure Stack
 
@@ -90,7 +90,7 @@ För att kunna använda Azure-SDK för Ruby med Azure Stack, måste du ange föl
 | Klientorganisations-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.  |
 | Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
 | Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats. |
-| Resource Manager-slutpunkten | ARM_ENDPOINT | Se [The Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
+| Resource Manager-slutpunkten | ARM_ENDPOINT | Se [The Azure Stack resource manager-slutpunkten](#The-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager-slutpunkt
 

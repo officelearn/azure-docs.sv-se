@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904426"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263689"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Så här: Konfigurera rollanspråk som utfärdats i SAML-token för företagsprogram
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Konfigurera rollanspråk som utfärdats i SAML-token för företagsprogram
 
 Du kan anpassa Anspråkstypen för rollen som anspråk i svarstoken du får när du godkänner en app med hjälp av Azure Active Directory (AD Azure).
 
@@ -151,25 +151,29 @@ Om ditt program förväntar sig anpassade roller som ska skickas som en SAML-sva
 
 8. Uppdatera den **attribut** tabell för att definiera en anpassad mappning av rollen anspråket.
 
-9. I den **användarattribut** delen av den **enkel inloggning** dialogrutan konfigurerar attributet SAML-token som visas i bilden och utför följande steg.
+9. I den **användarattribut och anspråk** delen av den **enkel inloggning** dialogrutan konfigurerar attributet SAML-token som visas i bilden och utför följande steg.
 
     | Attributnamn | Attributvärde |
     | -------------- | ----------------|
-    | Rollnamn  | User.assignedroles |
+    | Rollnamn  | user.assignedroles |
 
-    a. Välj **Lägg till attribut** att öppna den **lägga till attributet** fönstret.
+    a. Klicka på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+
+      ![Knappen ”Lägg till attribut”](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Välj **Lägg till attribut** att öppna den **hantera användaranspråk** fönstret.
 
       ![Knappen ”Lägg till attribut”](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![Fönstret ”Lägg till attribut”](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. I den **namn** skriver attributets namn efter behov. Det här exemplet används **rollnamn** som anspråkets namn.
-
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. I den **namn** skriver attributets namn efter behov. Det här exemplet används **rollnamn** som anspråkets namn.
 
     d. Lämna den **Namespace** lämnas omarkerad.
 
-    e. Välj **OK**.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
+
+    f. Välj **Spara**.
 
 10. Om du vill testa ditt program i en enkel inloggning som initieras av en identitetsprovider, logga in på den [åtkomstpanelen](https://myapps.microsoft.com) och välj din program-panel. Du bör se alla tilldelade roller för användaren med namnet på anspråk som du har gett i SAML-token.
 

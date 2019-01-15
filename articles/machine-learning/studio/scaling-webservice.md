@@ -1,27 +1,8 @@
 ---
-title: Skala en Machine Learning Studio-webbtjänst - Azure | Microsoft Docs
-description: Lär dig mer om att öka parallellkörningen av en Azure Machine Learning Studio-webbtjänst genom att lägga till ytterligare slutpunkter.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-keywords: Azure machine learning web services driftsättning, skalning, slutpunkt, samtidighet
-ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: NA
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/23/2017
-ms.openlocfilehash: 736c27f5c8ad6efb2b4e36f44998ce06d7b69248
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256357"
+Rubrik: Skala en Machine Learning Studio web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig mer om att öka parallellkörningen av en Azure Machine Learning Studio-webbtjänst genom att lägga till ytterligare slutpunkter.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/23/2017
 ---
 # <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>Skala en Azure Machine Learning Studio-webbtjänst genom att lägga till ytterligare slutpunkter
 > [!NOTE]

@@ -1,26 +1,8 @@
 ---
-title: Distribuera en Machine Learning Studio-webbtjänst - Azure | Microsoft Docs
-description: Så här att konvertera ett träningsexperiment till ett förutsägbart experiment, förbereda för distribution och sedan distribuera den som en Azure Machine Learning Studio-webbtjänst.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: 71315b6c36a9e41e5805d5a15bde5b1d1d84f2b5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269931"
+Rubrik: Distribuera en Machine Learning Studio web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att konvertera ett träningsexperiment till ett förutsägbart experiment, förbereda för distribution och sedan distribuera den som en Azure Machine Learning Studio-webbtjänst.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/06/2017
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
 Azure Machine Learning kan du skapa, testa och distribuera förutsägande Analyslösningar.
@@ -29,7 +11,7 @@ Detta görs från en återställningspunkt-för-översikt, i tre steg:
 
 * **[Skapa ett träningsexperiment]**  -Azure Machine Learning Studio är en gemensam visual utvecklingsmiljö som används för att träna och testa en modell för förutsägelseanalys med hjälp av träningsdata som du anger.
 * **[Konvertera den till ett förutsägbart experiment]**  -när modellen har tränats med befintliga data och du är redo att använda den för att rangordna nya data kan du förbereda och effektivisera experimentet för förutsägelser.
-* **[Distribuera den som en webbtjänst]**  – du kan distribuera dina förutsägelseexperiment som en [Ny] eller [Klassisk] Azure-webbtjänst. Användare kan skicka data till din modell och ta emot din modell förutsägelser.
+* **[Distribuera den som en webbtjänst]**  – du kan distribuera dina förutsägelseexperiment som en [Ny] eller [klassiska] Azure-webbtjänst. Användare kan skicka data till din modell och ta emot din modell förutsägelser.
 
 
 
@@ -188,7 +170,7 @@ Ett alternativ för att uppdatera din webbtjänst är att träna modellen progra
 [Konvertera den till ett förutsägbart experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Distribuera den som en webbtjänst]: #deploy-it-as-a-web-service
 [Ny]: #deploy-the-predictive-experiment-as-a-new-web-service
-[Klassisk]: #deploy-the-predictive-experiment-as-a-classic-web-service
+[klassiska]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

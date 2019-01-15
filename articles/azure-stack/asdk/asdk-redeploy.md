@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037387"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263519"
 ---
 # <a name="redeploy-the-asdk"></a>Distribuera om ASDK
 I den här artikeln får du lära dig hur du distribuera om Azure Stack Development Kit (ASDK) i en produktionsmiljö. Eftersom uppgraderar ASDK inte stöds, måste du distribuera helt om den att flytta till en nyare version. Du kan också distribuera om ASDK när som helst som du vill börja om från början.
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du distribuera om Azure Stack Developm
 ## <a name="remove-azure-registration"></a>Ta bort Azure-registrering 
 Om du tidigare har registrerat din ASDK-installation med Azure bör du ta bort registreringen resursen innan du omdistribuerar ASDK. Omregistrera ASDK om du vill aktivera tillgängligheten för objekt i marketplace när du distribuerar om ASDK. Om du inte redan har registrerat ASDK med din Azure-prenumeration kan du hoppa över det här avsnittet.
 
-Ta bort resursen för registrering med den **Remove-AzsRegistration** cmdlet för att avregistrera Azure Stack. Använd sedan den **Remove-AzureRMRsourceGroup** cmdlet för att ta bort Azure Stack-resursgruppen från Azure-prenumerationen:
+Ta bort resursen för registrering med den **Remove-AzsRegistration** cmdlet för att avregistrera Azure Stack. Använd sedan den **Remove-AzureRMResourceGroup** cmdlet för att ta bort Azure Stack-resursgruppen från Azure-prenumerationen:
 
 1. Öppna en PowerShell-konsol som administratör på en dator som har åtkomst till privilegierad slutpunkt. För ASDK är som värddator för development kit.
 

@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Kom igång med Content Moderator'
+title: 'Snabbstart: Prova Content Moderator på webben - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Hur du kommer igång med Content Moderator.
+description: I den här snabbstarten ska du använda online Content Moderator granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 382401bd8ca073bec6f77fadf1096e42ab1e1d72
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852698"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266475"
 ---
-# <a name="quickstart-get-familiar-with-content-moderator"></a>Snabbstart: Bekanta dig med Content Moderator
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Snabbstart: Prova Content Moderator på webben
 
 I den här snabbstarten ska du använda online Content Moderator granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i din app snabbare kan se de andra snabbstarterna i den [nästa steg](#next-steps) avsnittet.
 
@@ -50,7 +50,7 @@ Skicka in ditt innehåll för moderering. Internt anropar granskningsverktyget m
 
 Granska de tillämpade moderering taggarna. Du kan se vilka taggar har kopplats till ditt innehåll och vad poängen var i varje kategori. Se den [bild](image-moderation-api.md), [Text](text-moderation-api.md), och [Video](video-moderation-api.md) moderering avsnitt mer information om olika innehåll taggar visas.
 
-![Granska resultat](images/reviewresults_text.png)
+![Granska resultatet](images/reviewresults_text.png)
 
 Du eller ditt granskningsteam kan ändra dessa taggar eller lägga till fler taggar efter behov i ett projekt. Du skickar ändringarna med den **nästa** knappen. Dina affärsprogram anropar Moderator-API: er, kommer taggade innehållet köa här, kan granskas av mänsklig granskning-team. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 

@@ -1,5 +1,5 @@
 ---
-title: Granska text i Azure Content Moderator | Microsoft Docs
+title: Granska text i Azure Content Moderator - Content Moderator
 description: Lär dig att granska text i Content Moderator att se dess poäng och identifierade taggar. Använd informationen om du vill veta om innehållet är lämpligt.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +7,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 005e6ed853cbc6013d74e7ff479097dcbb0a1043
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852103"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259571"
 ---
-# <a name="review-text"></a>Granska text
+# <a name="let-human-reviewers-review-text"></a>Låt mänsklig granskare granska text
 
 Du kan använda Azure Content Moderator för att granska text med hjälp av poäng och upptäcks taggar. Använd informationen för att fastställa om innehåll är lämpligt. 
 

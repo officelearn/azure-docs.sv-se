@@ -10,19 +10,19 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117409"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302042"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
 Azure Active Directory B2C (Azure AD B2C) genererar granskningsloggar som innehåller information om B2C-resurser, utfärdade token och administratörsåtkomst systemaktivitet. Den här artikeln innehåller en kort översikt över informationen som är tillgänglig via granskningsloggar och instruktioner om hur du kommer åt dessa data för din Azure AD B2C-klient.
 
 > [!IMPORTANT]
-> Granskningsloggar behålls endast i sju dagar. Planera att hämta och lagra dina loggar med någon av metoderna nedan om du behöver en längre period. 
+> Granskningsloggar behålls endast i sju dagar. Planera att hämta och lagra dina loggar med någon av metoderna nedan om du behöver en längre period.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över aktiviteter som är tillgängliga i kategorin B2C på granskningsloggar
 Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktiviteter:
@@ -43,7 +43,7 @@ Exemplet nedan visar data som hämtats när en användare loggar in med en exter
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure Portal
 1. Gå till [Azure-portalen](https://portal.azure.com). Kontrollera att du är i din B2C-katalog.
-2. Klicka på **Azure Active Directory** i fältet Favoriter till vänster 
+2. Klicka på **Azure Active Directory** i fältet Favoriter till vänster
     
     ![Granskningsloggar – AAD-knappen](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
@@ -56,14 +56,14 @@ Exemplet nedan visar data som hämtats när en användare loggar in med en exter
 
     ![Granskningsloggar – kategori](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna. 
+Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna.
 - Använd den **Aktivitetsresurstyp** listrutan för att filtrera efter aktivitetstyper som beskrivs ovan
 - Använd den **datumintervall** listrutan för att filtrera datumintervallet för de aktiviteter som visas
 - Om du klickar på en specifik rad i listan över visas en sammanhangsberoende rutan till höger ytterligare attribut som är associerat med aktiviteten
 - Klicka på **hämta** att hämta aktiviteterna som en csv-fil
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Få åtkomst till granskningsloggar via Azure AD reporting-API
-Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azure Active Directory, så att de kan nås via den [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azure Active Directory, så att de kan nås via den [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
 ### <a name="prerequisites"></a>Förutsättningar
 För att autentisera till Azure AD reporting API: et måste du först registrera ett program. Se till att följa stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
@@ -82,7 +82,7 @@ Följande skript innehåller ett exempel på hur du använder PowerShell för at
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-$loginURL       = "https://login.microsoftonline.com"     
+$loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -93,13 +93,13 @@ $body       = @{grant_type="client_credentials";resource=$resource;client_id=$Cl
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
 # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-if ($oauth.access_token -ne $null) {   
+if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago 
+    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
 
     # loop through each query page (1 through n)
-    Do{
+    Do {
         # display each event on the console window
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -117,4 +117,3 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
-

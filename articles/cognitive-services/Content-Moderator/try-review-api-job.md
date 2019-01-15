@@ -1,21 +1,21 @@
 ---
 title: Kör jobb för innehållsmoderering med API-konsolen – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Lär dig hur du kör innehållsmoderering jobb i API-konsol.
+description: Använd granska API-jobbet åtgärderna för att initiera jobb innehållsmoderering för slutpunkt till slutpunkt för bild eller text innehåll i Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4d1f96cbf7a94c59476f077cc4e72a26ee9c8296
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227120"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259129"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Starta ett jobb för moderering från API-konsol
 
@@ -33,8 +33,8 @@ Navigera till den [granskningsverktyget](https://contentmoderator.cognitive.micr
 Om du vill testa API: et med hjälp av konsolen online, behöver du några värden för att komma in i konsolen:
     
 - `teamName`: Använd den `Id` fältet från din granskningsverktyget autentiseringsuppgifter skärm. 
-- `ContentId`: Den här strängen skickas till API: et och returneras via motringningen. **ContentId** är användbart för att associera interna identifierare eller metadata med resultatet från ett jobb för moderering.- `Workflowname`: namnet på den [arbetsflöde som du skapade](Review-Tool-User-Guide/Workflows.md) i föregående avsnitt.
-- `Ocp-Apim-Subscription-Key`: Finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
+- `ContentId`: Den här strängen skickas till API: et och returneras via motringningen. **ContentId** är användbart för att associera interna identifierare eller metadata med resultatet från ett jobb för moderering.- `Workflowname`: Namnet på den [arbetsflöde som du skapade](Review-Tool-User-Guide/Workflows.md) i föregående avsnitt.
+- `Ocp-Apim-Subscription-Key`: På den **inställningar** fliken. Mer information finns i [Översikt](overview.md).
 
 Komma åt API-konsolen är från den **autentiseringsuppgifter** fönster.
 

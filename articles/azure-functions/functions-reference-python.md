@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 624dcae6cadefd27b663699552068b37e658d9bf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198867"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304397"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Utvecklarguide för Azure Functions Python
 
@@ -215,9 +215,9 @@ Ytterligare loggningsmetoder är tillgängliga som låter dig skriva till konsol
 | ---------------------- | ------------------------------------------ |
 | loggning. **kritiska (_meddelande_)**   | Skriver ett meddelande med nivån kritiskt på rot-loggaren.  |
 | loggning. **fel (_meddelande_)**   | Skriver ett meddelande med på TOPPNIVÅ på rot-loggaren.    |
-| loggning. **varning (_meddelande_)**    | Skriver ett meddelande med nivån varning på rot-loggaren.  |
+| logging.**warning(_message_)**    | Skriver ett meddelande med nivån varning på rot-loggaren.  |
 | loggning. **info (_meddelande_)**    | Skriver ett meddelande med nivån information på rot-loggaren.  |
-| loggning. **felsöka (_meddelande_)** | Skriver ett meddelande på felsökning på rot-loggaren.  |
+| logging.**debug(_message_)** | Skriver ett meddelande på felsökning på rot-loggaren.  |
 
 ## <a name="importing-shared-code-into-a-function-module"></a>Importera delad kod till en funktionsmodul
 
@@ -317,7 +317,7 @@ The terminal process terminated with exit code: 1
 Att automatiskt skapa och konfigurera nödvändiga binärfiler [installera Docker](https://docs.docker.com/install/) på din lokala dator och kör sedan följande kommando för att publicera med hjälp av den [Azure Functions Core Tools](functions-run-local.md#v2) (func). Kom ihåg att ersätta `<app name>` med namnet på din funktionsapp i Azure. 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 Under försättsbladen, Core Tools ska använda docker för att köra den [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) avbildning som en behållare på den lokala datorn. Med den här miljön kan det därefter skapar och installera de nödvändiga modulerna från källdistribution innan du paketerar dem för slutlig distribution till Azure.

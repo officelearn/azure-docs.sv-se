@@ -1,4 +1,4 @@
-# [Översikt](../overview.md)
+# Översikt
 ## [VM-tillägg](agents-and-extensions-classic.md)
 ## [Tillgänglighet](configure-availability-classic.md)
 ## [Vanliga frågor och svar](faq-classic.md)
@@ -49,7 +49,6 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
-## [Skapa Resource Manager-mallar](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community-mallar](https://azure.microsoft.com/documentation/templates)
 ## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)

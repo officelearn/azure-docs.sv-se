@@ -10,21 +10,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: fe516d1d34496d190ae45e00893deb646fc08408
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078338"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306564"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>Använd Azure Stack API
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan använda Application Programming Interface (API) för att automatisera åtgärder som att lägga till en virtuell dator i Azure Stack-molnet.
 
@@ -68,7 +68,7 @@ För varje värde:
  - **_typ av beviljande**  
     Typ av schema för autentiseringsmetoder som du ska använda. I det här exemplet är värdet `password`
 
- - **resurs**  
+ - **resource**  
     Resursen har åtkomst till att token. Du kan hitta resursen genom att fråga metadata för Azure Stack hanteringsslutpunkten. Titta på den **målgrupper** avsnittet
 
  - **Azure Stack-hanteringsslutpunkt**  
@@ -120,7 +120,7 @@ För varje värde:
   | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
-  | WindowsAzureActiveDirectory | 00000002-0000-0000-C000-000000000000 |
+  | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
@@ -189,7 +189,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL-struktur och frågesyntax
 
-Allmän begäran URI, består av: {URI-schema} :// {URI-värden} / {resurssökväg}? {frågesträngen}
+Allmän begäran URI, består av: {URI-schema} :// {URI-värden} / {resurssökväg}? {query-string}
 
 - **URI-schema**:  
 URI: N anger det protokoll som används för att skicka begäran. Till exempel `http` eller `https`.

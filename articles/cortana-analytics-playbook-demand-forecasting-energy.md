@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426262"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306496"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution mallen Spelboken för prognostisering av efterfrågan på energi
 ## <a name="executive-summary"></a>Sammanfattning
@@ -156,7 +156,7 @@ Cortana Intelligence och machine learning kan vara mycket effektivt i lösa en v
 
 Kvalificering av användningsfall baserat på ovanstående villkor kan avsevärt förbättra slutförandefrekvenser för användningsfall och upprätta en bra beachhead för implementeringen av framtida användningsfall.
 
-### <a name="cloud-based-solutions"></a>Molnbaserade lösningar
+### <a name="cloud-based-solutions"></a>Cloud-Based Solutions
 Cortana Intelligence Suite i Azure är en integrerad miljö som finns i molnet. Distributionen av en analyslösning i en molnmiljö har betydande fördelar för företag och samtidigt kan innebära stor förändring för företag att fortfarande använda lokala IT-lösningar. Inom energisektorn finns det en tydlig trend över gradvis migrering av åtgärder i molnet. Denna trend går hand i hand tillsammans med utvecklingen av smart rutnätet som beskrivs ovan, i **branschtrender**. När denna spelbok fokuserar på en molnbaserad lösning i energi-domän, är det viktigt att förklara fördelarna och annat att tänka på för att distribuera en molnbaserad lösning.
 
 Kanske är den största fördelen med en molnbaserad lösning kostnaden. Lösningen utnyttjar molnet-distribuerade komponenter, det finns inga startavgifter eller kostnad för sålda varor (kostnad för sålda varor) Komponentkostnader i samband med den. Det innebär att det finns inget behov att investera i maskinvara, programvara och IT-Underhåll det finns därför en betydande minskning i affärsrisk.
@@ -172,7 +172,7 @@ Kunden kan vara intresserad av att få en motivering för en viss användningsfa
 
 Å andra sidan, ska en ha en god förståelse av affärsvärde för att hantera en efterfrågan på energi som prognostisering (kort eller lång sikt). Det är i själva verket Tänk affärsvärde för varje prognoser åtgärd. Till exempel korrekt prognostisering effektbelastningar för nästkommande 24 timmar kan förhindra overproduction eller kan förhindra överlagringar i rutnätet och detta kan vara kvantifierade när det gäller finansiella besparingar per dag.
 
-En grundläggande formel för beräkning av finansiella fördelen med begäran Prognostisera lösning kan vara: ![grundläggande formel för beräkning av finansiella fördelen med begäran göra prognoser för lösningen](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+En grundläggande formel för beräkning av finansiella fördelen med begäran prognos lösning kan vara: ![Grundläggande formel för beräkning av finansiella fördelen med begäran göra prognoser för lösningen](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Eftersom Cortana Intelligence Suite tillhandahåller en prismodell som betalar per användning, finns det inget behov av att faktureras en fast kostnadskomponent formel. Den här formeln kan beräknas på grundval av varje dag, månad eller årlig.
 
@@ -183,7 +183,7 @@ Utvecklingscykeln av en efterfrågan på energi prognoser lösningen omfattar va
 
 Detta illustreras i följande diagram:
 
-![Smart Grid cykel](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
+![Smart Grid Cycle](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
 
 Följande stycke beskrivs processen 4 steg:
 
@@ -249,13 +249,13 @@ Rådata består av rader och kolumner. Varje mått representeras som en enda rad
 
 Följande tabeller visar exempel på ett bra förbrukning och temperatur dataformat:
 
-| **datum** | **tid** | **Mätnings-ID** | **Fas 1** | **Fas 2** | **Fas 3** |
+| **datum** | **Time** | **Mätnings-ID** | **Fas 1** | **Fas 2** | **Fas 3** |
 | --- | --- | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |ABC1234 |7.0 |2.1 |5.3 |
 | 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
 | 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-| **datum** | **tid** | **Plats** | **temperatur** |
+| **datum** | **Time** | **Plats** | **temperatur** |
 | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |11242 |24.4 |
 | 7/1/2015 |10:00:01 |11242 |24.4 |
@@ -263,20 +263,20 @@ Följande tabeller visar exempel på ett bra förbrukning och temperatur datafor
 
 Som visas ovan, innehåller det här exemplet 3 olika värden för användning som är associerade med 3 power faser. Observera också att datum och tid fälten avgränsas, men också kombineras i en enda kolumn. I det här fallet representeras kolumnen plats i ett 5-siffrig postnummer format och temperaturen i grader Celsius format.
 
-### <a name="data-format"></a>Dataformat
+### <a name="data-format"></a>Data Format
 Cortana Intelligence Suite har stöd för de vanligaste dataformat som CSV, TVS, JSON, *osv*. Det är viktigt att dataformatet förblir konsekvent för hela livscykeln för projektet.
 
 ### <a name="data-ingestion"></a>Datainhämtning
 Eftersom energi begäran prognosen ständigt och ofta förväntas, måste vi Kontrollera att rådata flödar med hjälp av en stabil och tillförlitlig inhämtning process. Datainmatning processen måste garantera att rådata är tillgänglig för prognostisering processen på den begärda tiden. Som innebär att frekvensen för inmatning av data ska vara större än prognosmodellen frekvensen.
 
-Till exempel: om vår lösning för prognostisering begäran skulle Generera en ny prognos kl 8:00 dagligen så vi måste se till att alla data som har samlats in under de senaste 24 timmarna har fullständigt inmatade till den tidpunkten och måste även inkluderar den senaste timmen av  data.
+Exempel: Om våra efterfrågeprognostisering lösningen skulle Generera en ny prognos kl 8:00 dagligen måste vi se till att alla data som har samlats in under de senaste 24 timmarna har fullständigt inmatade till den tidpunkten och måste även inkludera den senaste timmen av data.
 
 Cortana Intelligence Suite erbjuder olika sätt att stödja en tillförlitlig inhämtning process för att kunna göra detta. Det här diskuteras ytterligare i den **distribution** i det här dokumentet.
 
 ### <a name="data-quality"></a>DQS
 Råa datakällan som krävs för att utföra prognoser för efterfrågan högtillförlitliga och exakta måste uppfylla vissa kvalitetskriterier för grundläggande data. Även om avancerad statistiska metoder kan användas för att kompensera för vissa möjliga data kvalitetsproblem, måste vi fortfarande att se till att vi korsa vissa grunddata kvalitet tröskelvärde när mata in nya data. Här följer några saker som om rådata kvalitet:
 
-* **Saknade värden** – detta avser situationen när specifikt mått inte samlades in. Det grundläggande kravet är att frekvensen saknas värdet inte får vara större än 10% för en viss tidsperiod. I fall att ett enda värde saknas det bör anges med ett fördefinierat (till exempel: ”9999') och inte” 0 ”vilket kan vara ett giltigt mått.
+* **Saknade värden** – detta avser situationen när specifikt mått inte samlades in. Det grundläggande kravet är att frekvensen saknas värdet inte får vara större än 10% för en viss tidsperiod. I fall att ett enda värde saknas det bör anges med ett fördefinierat (till exempel: 9999) och inte ”0” vilket kan vara ett giltigt mått.
 * **Mätningsnoggrannhet** – det faktiska värdet för förbrukning eller temperatur ska registreras korrekt. Felaktiga mått skapas felaktiga prognoser. Mätning fel bör vanligtvis vara lägre än 1% i förhållande till värdet true.
 * **Tid för mätning** – det krävs att den faktiska tidsstämpeln för data som samlas in kommer inte avvika med mer än 10 sekunder i förhållande till SANT tidpunkten för den verkliga mätningen.
 * **Synkronisering** – när flera datakällor som används (*t.ex.*, förbrukning och temperatur) vi måste se till att det finns inga tidssynkronisering problem med varandra. Det innebär att tidsskillnaden mellan den insamlade tidsstämpeln från alla två oberoende datakällor inte får överstiga mer än 10 sekunder.
@@ -287,7 +287,7 @@ När rådata har tagits matas in (se **datainmatning**) och har på ett säkert 
 
 I det här avsnittet vi listas några av de vanliga funktioner som ingår i energi för prognosmodeller begäran.
 
-**Tid som drivs av funktioner:** funktionerna härleds från datum/tidsstämpel. Dessa är extraherade och konverteras till kategoriska funktioner som:
+**Tid driven funktioner:** De här funktionerna härleds från datum/tidsstämpel. Dessa är extraherade och konverteras till kategoriska funktioner som:
 
 * Tid på dagen – det här är timme på dagen som tar värden mellan 0 och 23
 * Dag i veckan – det här representerar dag i veckan och hämtar ett värde från 1 (söndag) till 7 (lördag)
@@ -297,16 +297,16 @@ I det här avsnittet vi listas några av de vanliga funktioner som ingår i ener
 * Helgdag – detta är ett binärt värde-funktion som hämtar ett värde på 0 för en vanlig dag eller 1 för en helgdag
 * Fourier termer – Fourier villkoren är vikterna som härleds från tidsstämpel och används för att avbilda säsongsvärdet (cycles) i data. Eftersom vi kan ha flera säsonger i våra data kan vi behöva flera Fourier termer. Begäran värden kan exempelvis ha årliga veckovisa och dagliga säsonger/cykler som leder till 3 Fourier villkor.
 
-**Oberoende och skäliga funktioner:** oberoende funktioner inkluderar alla dataelement som vi vill använda som förutsägelserna i modellen. Här utesluter vi funktionen beroende som vi behöver för att förutsäga.
+**Oberoende och skäliga funktioner:** Oberoende funktioner inkluderar alla dataelement som vi vill använda som förutsägelserna i modellen. Här utesluter vi funktionen beroende som vi behöver för att förutsäga.
 
 * Funktionen lag – det här är tid beräkningsarbete värdena för den faktiska efterfrågan. Lag 1-funktioner ska innehålla värdet för begäran i föregående Timma (förutsatt att per timme) i förhållande till aktuell timestamp. På samma sätt kan vi kan lägga till fördröjning 2, lag 3, *osv*. Faktiska kombinationen av lag-funktioner som används fastställs under fasen för modellering av utvärdering av modellen resultaten.
 * Långvariga trender – den här funktionen representerar linjär tillväxt i efterfrågan mellan åren.
 
-**Beroende funktionen:** beroende funktionen är datakolumnen som vi vill gärna vår modell att förutsäga. Med [övervakat maskininlärning](https://en.wikipedia.org/wiki/Supervised_learning), måste vi först öva med modellen med hjälp av beroende funktioner (som även kallas etiketter). På så sätt kan modellen att lära dig mönster i data som är associerade med funktionen beroende. Skapa prognoser för efterfrågan på energi vi normalt vill förutsäga den faktiska efterfrågan och därför använder vi den som beroende funktion.
+**Beroende funktion:** Funktionen beroende är datakolumnen som vi vill gärna vår modell att förutsäga. Med [övervakat maskininlärning](https://en.wikipedia.org/wiki/Supervised_learning), måste vi först öva med modellen med hjälp av beroende funktioner (som även kallas etiketter). På så sätt kan modellen att lära dig mönster i data som är associerade med funktionen beroende. Skapa prognoser för efterfrågan på energi vi normalt vill förutsäga den faktiska efterfrågan och därför använder vi den som beroende funktion.
 
-**Hantering av värden som saknas:** under förberedelsefasen data som behöver avgöra den bästa strategin för att hantera värden som saknas. Detta görs med hjälp av de olika statistiska huvudsakligen [data uppräkning metoder](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). När det gäller energi prognoser för efterfrågan, vi normalt sedan imputera saknade värden med hjälp av glidande medelvärde från föregående tillgängliga datapunkter.
+**Hantering av värden som saknas:** Under förberedelsefasen data behöver som avgöra den bästa strategin för att hantera värden som saknas. Detta görs med hjälp av de olika statistiska huvudsakligen [data uppräkning metoder](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). När det gäller energi prognoser för efterfrågan, vi normalt sedan imputera saknade värden med hjälp av glidande medelvärde från föregående tillgängliga datapunkter.
 
-**Databasnormalisering:** databasnormalisering är en annan typ av omvandling som används för att ta med alla numeriska data, till exempel skapa prognoser för efterfrågan i en liknande skala. Detta ger vanligtvis bättre modellens Precision och precision. Vi skulle vanligtvis göra detta genom att dividera det faktiska värdet med en uppsättning data.
+**Databasnormalisering:** Databasnormalisering är en annan typ av omvandling som används för att ta med alla numeriska data, till exempel skapa prognoser för efterfrågan i en liknande skala. Detta ger vanligtvis bättre modellens Precision och precision. Vi skulle vanligtvis göra detta genom att dividera det faktiska värdet med en uppsättning data.
 Det ursprungliga värdet skalas till ett mindre intervall, vanligtvis mellan 1 och 1.
 
 ## <a name="modeling"></a>Modellering
@@ -320,21 +320,21 @@ När det gäller efterfrågeprognostisering vi att använda historiska data som 
 Under de senaste åren har avancerade algoritmer utvecklats för att få plats med tidsserier och för att förbättra prognosernas exakthet. Vi går kortfattat igenom några av dem här.
 
 > [!NOTE]
-> Det här avsnittet är inte avsedd att användas som en machine learning och prognostisering översikt utan i stället som en kort översikt över modellering tekniker som ofta används för prognostisering av efterfrågan. Mer information och utbildningsmaterial om tidsserier rekommenderar vi starkt online boken [prognostisering: principer och praxis](https://www.otexts.org/book/fpp).
+> Det här avsnittet är inte avsedd att användas som en machine learning och prognostisering översikt utan i stället som en kort översikt över modellering tekniker som ofta används för prognostisering av efterfrågan. Mer information och utbildningsmaterial om tidsserier rekommenderar vi starkt online boken [prognostisering: principer och praxis](https://www.otexts.org/).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (glidande medelvärde)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (glidande medelvärde)**
 Glidande medelvärde är en av de första analystekniker som har använts för tidsserier och det är fortfarande en av mest vanliga tekniker från och med dagens datum. Det är också grunden för mer avancerade prognoser tekniker. Med glidande medelvärde vi prognoser nästa datapunkt som medelvärdet över de senaste punkterna K, där K anger ordningen för glidande medelvärdet.
 
 Glidande medelvärde tekniken har effekten av Utjämning prognosen och därför inte kan hantera även stora volatil i data.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (exponentiell utjämning)**](https://www.otexts.org/fpp/7/5)
-Exponentiell utjämning (ETS) är en familj av olika metoder som använder Viktat genomsnitt för senaste datapunkter för att förutsäga nästa datapunkt. Tanken är att tilldela högre vikter till nyare värden och gradvis minska denna vikt för äldre mätvärden. Det finns ett antal olika metoder med familjen, några av dem är hantering av säsongsberoende i data som [Holt-Winters säsongens metoden](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**ETS (exponentiell utjämning)**
+Exponentiell utjämning (ETS) är en familj av olika metoder som använder Viktat genomsnitt för senaste datapunkter för att förutsäga nästa datapunkt. Tanken är att tilldela högre vikter till nyare värden och gradvis minska denna vikt för äldre mätvärden. Det finns ett antal olika metoder med familjen, några av dem är hantering av säsongsberoende i data, till exempel Holt-Winters säsongens metod.
 
 Vissa av dessa metoder också räkna in säsongsberoende data.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (automatisk Regression integrerat glidande medelvärde)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (automatisk Regression integrerat glidande medelvärde)**
 Automatisk Regression integrerad flytta medelvärde (ARIMA) är en annan familj av metoder som används för prognostisering tidsserie. Den kombinerar praktiskt taget automatisk regression metoder med glidande medelvärde. Metoder för automatisk regression använda regressionsmodeller genom att tidigare time series-värden för att kunna beräkna nästa datum punkt. ARIMA metoder gäller även differentierande metoder beräknar skillnaden mellan datapunkter och använda dem i stället för det ursprungliga uppmätta värdet. Slutligen ARIMA också använder glidande medelvärde tekniker som beskrivs ovan. Kombinationen av alla dessa metoder på olika sätt är vad konstruktioner familjen av ARIMA metoder.
 
 ETS och ARIMA används ofta i dag för prognostisering av efterfrågan i energi och många andra prognosmodellen problem. I många fall dessa kombineras tillsammans för att leverera mycket korrekta resultat.

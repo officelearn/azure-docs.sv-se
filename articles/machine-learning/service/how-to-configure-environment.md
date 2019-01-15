@@ -1,7 +1,7 @@
 ---
 title: Konfigurera en utvecklingsmiljö för Python
 titleSuffix: Azure Machine Learning service
-description: 'Lär dig mer om att konfigurera en utvecklingsmiljö när du arbetar med Azure Machine Learning-tjänsten. I den här artikeln får du lära dig hur du använder Conda-miljöer, skapa konfigurationsfiler och konfigurera Jupyter Notebooks, Azure anteckningsböcker, IDE: er, kod redigerare och Data Science Virtual Machine.'
+description: 'Lär dig mer om att konfigurera en utvecklingsmiljö när du arbetar med Azure Machine Learning-tjänsten. I den här artikeln får du lära dig hur du använder Conda-miljöer, skapa konfigurationsfiler och konfigurera Jupyter Notebooks, anteckningsböcker i Azure, Azure Databricks, IDE: er, kod redigerare och Data Science Virtual Machine.'
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: 46a1872d2ac5d1670620148edf7ee273580826d3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: db853be456dbf893163f53bbc797cf12172d38b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811281"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261102"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -27,7 +27,7 @@ De enda kraven för din utvecklingsmiljö är Python 3, Conda (för isolerade mi
 
 Den här artikeln fokuserar på följande miljöer och verktyg:
 
-* [Azure anteckningsböcker](#aznotebooks): En Jupyter notebook-tjänst som finns i Azure-molnet. Det är det enklaste sättet att komma igång, eftersom SDK: N för Azure Machine Learning har installerats.
+* [Azure Notebooks](#aznotebooks): En Jupyter notebook-tjänst som finns i Azure-molnet. Det är det enklaste sättet att komma igång, eftersom SDK: N för Azure Machine Learning har installerats.
 
 * [Den virtuella datorn för datavetenskap (DSVM)](#dsvm): En förinställd utvecklings- eller experimentering miljö i Azure-molnet som är avsedd för data science fungerar och kan distribueras till CPU endast VM-instanser eller GPU-baserade instanser. Python 3, Conda, Jupyter-anteckningsböcker och SDK: N för Azure Machine Learning har redan installerats. Den virtuella datorn levereras med populära machine learning och deep learning ramverk, verktyg och redigerare för att utveckla maskininlärningslösningar. Det är förmodligen mest omfattande utvecklingsmiljö för machine learning på Azure-plattformen.
 
@@ -72,7 +72,7 @@ DSVM är en anpassad virtuell dator (VM)-avbildning. Det är utformat för data 
   - Populära verktyg för datavetenskap, till exempel Spark fristående och test.
   - Azure-verktyg som Azure CLI, AzCopy och Storage Explorer.
   - Integrated development Environment (IDE: er), till exempel Visual Studio Code, pycharm med RStudio.
-  - Jupyter Notebook-Server. 
+  - Jupyter Notebook Server. 
 
 Azure Machine Learning-SDK fungerar på antingen Ubuntu eller Windows-versionen av DSVM. Om du vill använda DSVM som en utvecklingsmiljö, gör du följande:
 
@@ -242,9 +242,50 @@ Du kan använda en anpassad version av Azure Machine Learning-SDK för Azure Dat
 
 Förbereda din Databricks-klustret och får exempelanteckningsböcker:
 
-1. Skapa en [Databricks-klustret](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) med en Databricks-körningsversion av 4.x (hög samtidighet önskade) med Python 3. 
+1. Skapa en [Databricks-klustret](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) med följande inställningar:
 
-1. Installera och bifoga Azure Machine Learning-SDK för Python `azureml-sdk[databricks]` PyPi paket till ditt kluster [skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library).  
+    | Inställning | Värde |
+    |----|---|
+    | Klusternamn | yourclustername |
+    | Databricks Runtime | Alla icke ML-körning (icke ML 4.x, 5.x) |
+    | Python-version | 3 |
+    | Arbetare | 2 eller högre |
+
+    Använd de här inställningarna endast om du kommer att använda automatiska maskininlärning på Databricks:
+    
+    |   Inställning | Värde |
+    |----|---|
+    | VM-typer för Worker-nod | Minnesoptimerade virtuella datorer rekommenderas |
+    | Aktivera automatisk skalning | Avmarkera |
+    
+    Antalet arbetarnoder i Databricks-klustret anger det maximala antalet samtidiga iterationer i inställningarna för automatisk ML.  
+
+    Det tar några minuter att skapa klustret. Vänta tills klustret körs innan du fortsätter.
+
+1. Installera och bifoga Azure Machine Learning SDK-paketet i ditt kluster.  
+
+    * [Skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) med någon av de här inställningarna (Välj endast en av dessa alternativ):
+    
+        * Installera Azure Machine Learning SDK utan automatisk machine learning-funktionen:
+            | Inställning | Värde |
+            |----|---|
+            |Källa | Ladda upp Python ägg eller PyPI
+            |Namn på PyPi | azureml-sdk[databricks]
+    
+        * Installera Azure Machine Learning-SDK med automatiserade machine learning:
+            | Inställning | Värde |
+            |----|---|
+            |Källa | Ladda upp Python ägg eller PyPI
+            |Namn på PyPi | azureml-sdk[automl_databricks]
+    
+    * Markera inte **ansluta automatiskt till alla kluster**
+
+    * Välj **bifoga** bredvid klusternamnet
+
+    * Se till att det inte finns några fel tills status ändras till **anslutna**. Det kan ta några minuter.
+
+    Om du har en äldre version av SDK, avmarkera den från klustrets installerade libs och flytta till Papperskorgen. Installera den nya versionen av SDK och starta om klustret. Om det finns ett problem efter det, frånkoppla eller återansluta ditt kluster.
+
     När du är klar bifogas i biblioteket som du ser i följande bild. Tänk på dessa [vanliga problem med Databricks](resource-known-issues.md#databricks).
 
    ![SDK är installerat på Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
@@ -257,13 +298,12 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
 
    c. På den **bibliotek** fliken **starta om**.
 
-1. Ladda ned den [arkivfil för Azure Databricks/Azure Machine Learning SDK notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+1. Ladda ned den [arkivfil för Azure Databricks/Azure Machine Learning SDK notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
 
    >[!Warning]
    > Många exempelanteckningsböcker som är tillgängliga för användning med Azure Machine Learning-tjänsten. Endast [dessa exempelanteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) fungerar med Azure Databricks.
-   > 
 
-1.  [Importera den här arkivfilen](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) till din Databricks-klustret och börja utforska enligt beskrivningen på den [Machine Learning anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) sidan.
+1.  [Importera arkivfilen](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) till din Databricks-klustret och börja utforska enligt beskrivningen på den [Machine Learning anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) sidan.
 
 
 ## <a id="workspace"></a>Skapa en konfigurationsfil för arbetsyta
@@ -311,6 +351,6 @@ Du kan skapa konfigurationsfilen på tre sätt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Träna en modell i Azure Machine Learning med MNIST-datauppsättning](tutorial-train-models-with-aml.md)
-- [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk)
-- [Azure Machine Learning-SDK för dataförberedelse](https://aka.ms/data-prep-sdk)
+- [Träna en modell](tutorial-train-models-with-aml.md) i Azure Machine Learning med datauppsättningen MNIST]
+- Visa den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) referens
+- Lär dig mer om den [Azure Machine Learning Data Förbered SDK](https://aka.ms/data-prep-sdk)

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245948"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267342"
 ---
 # <a name="validate-azure-identity"></a>Verifiera Azure identity 
 Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att verifiera att din Azure Active Directory (Azure AD) är klart att användas med Azure Stack. Verifiera din för Azure-identitetslösning innan du påbörjar en Azure Stack-distributionen.  
@@ -48,7 +48,7 @@ Följande krav måste vara på plats.
 **Azure Active Directory-miljö:**
  - Identifiera Azure AD-konto du vill använda för Azure Stack och kontrollera att det är en Azure Active Directory Global administratör.
  - Identifiera namnet på din Azure AD-klient. Innehavarens namn måste vara den *primära* domännamn för din Azure Active Directory. Till exempel *contoso.onmicrosoft.com*. 
- - Identifiera AzureEnvironement som du ska använda. Värden som stöds för miljön name-parametern är AzureCloud, AzureChinaCloud eller azureusgovernment eller beroende på vilken Azure-prenumeration du använder.
+ - Identifiera AzureEnvironment som du ska använda. Värden som stöds för miljön name-parametern är AzureCloud, AzureChinaCloud eller azureusgovernment eller beroende på vilken Azure-prenumeration du använder.
 
 ## <a name="validate-azure-identity"></a>Verifiera Azure identity 
 1. Öppna en administrativ PowerShell-kommandotolk och kör sedan följande kommando för att installera AzsReadinessChecker på en dator som uppfyller kraven:  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **Orsak** -kontot kan inte logga in på den angivna Azure Active Directory (AADDirectoryTenantName). I det här exemplet *AzureChinaCloud* har angetts som den *AzureEnvironment*.
 
-**Lösning** – Kontrollera att kontot är giltigt för den angivna Azure-miljön. I PowerShell kör du följande för att verifiera kontot är giltigt för en viss miljö:   Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
+**Lösning** – Kontrollera att kontot är giltigt för den angivna Azure-miljön. I PowerShell kör du följande för att verifiera kontot är giltigt för en viss miljö:   Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Kontot är inte en administratör 
  
 ````PowerShell

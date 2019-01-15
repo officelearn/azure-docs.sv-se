@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376960"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305969"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Den här artikeln beskrivs den allmänna processen för att ersätta en fysisk disk i Azure Stack. Om en fysisk disk kraschar, bör du ersätta det så snart som möjligt.
 
 Du kan använda den här proceduren för integrerade system och development kit distributioner som har diskar som växlas.
 
-Faktiska diskbyte stegen varierar baserat på din maskinvaruleverantör för OEM-tillverkare (original equipment manufacturer). Se dokumentationen från leverantören fältet replaceable enhet (FRU) för detaljerade anvisningar som är specifika för ditt system. 
+Faktiska diskbyte stegen varierar baserat på din maskinvaruleverantör för OEM-tillverkare (original equipment manufacturer). Se dokumentationen från leverantören fältet replaceable enhet (FRU) för detaljerade anvisningar som är specifika för ditt system. 
 
 ## <a name="review-disk-alert-information"></a>Granska disk aviseringsinformation
-När en disk misslyckas, kan du få ett meddelande som talar om att anslutningen har kopplats till en fysisk disk. 
+När en disk misslyckas, kan du få ett meddelande som talar om att anslutningen har kopplats till en fysisk disk. 
 
  ![Avisering som visar anslutningen kopplades till fysisk disk](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ Följ instruktionerna för din OEM maskinvaruleverantörens FRU för faktiska di
 
 Om du vill förhindra användning av en disk som inte stöds i ett integrerat system, blockerar systemet diskar som inte stöds av leverantören. Om du försöker använda en som inte stöds disk, om en ny avisering att en disk har har placerats i karantän på grund av en modell som inte stöds eller inbyggd programvara.
 
-När du ersätter disken identifieras den nya disken automatiskt i Azure Stack och startar reparationsprocessen virtuell disk.  
+När du ersätter disken identifieras den nya disken automatiskt i Azure Stack och startar reparationsprocessen virtuell disk.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Kontrollera status för virtuell disk reparation
  

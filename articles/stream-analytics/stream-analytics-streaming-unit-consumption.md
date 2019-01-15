@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002662"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304847"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera Direktuppspelningsenheter
 
@@ -58,6 +58,8 @@ Mer information om hur du väljer rätt antal su: er finns i den här sidan: [Sk
 Temporala (time-orienterade) fråga element är den grundläggande uppsättningen tillståndskänsliga operatörer som tillhandahålls av Stream Analytics. Stream Analytics hanterar tillståndet för de här åtgärderna internt för användarens räkning genom att hantera minnesförbrukning, kontrollpunkter för återhämtning och återställning av systemtillstånd under uppgraderingar av tjänsten. Även om Stream Analytics hanterar fullständigt tillstånd, finns det ett antal rekommendationer om metodtips som användare bör tänka på.
 
 Observera att ett jobb med komplex fråga logic kan ha hög SU % utnyttjande även när den inte tar emot inkommande händelser kontinuerligt. Detta kan inträffa efter en plötslig insamling i indata- och händelser. Jobbet kan fortsätta att upprätthålla tillståndet i minnet om frågan är komplex.
+
+SU % utnyttjande försvinner plötsligt till 0 för en kort tidsperiod innan du kommer tillbaka till förväntade nivåer. Detta inträffar på grund av tillfälliga fel eller systeminitierad uppgraderingar.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Tillståndskänsliga frågans logik i temporala element
 En av den unika funktionen för Azure Stream Analytics-jobb är att utföra tillståndskänsliga bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner. Var och en av de här operatorerna behåller statusinformation. Den maximala fönsterstorleken för de här elementen i frågan är sju dagar. 

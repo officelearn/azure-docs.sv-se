@@ -11,16 +11,34 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: a7a15e4cd8670e71e1000bc6b1827a4b9292302b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200623"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304113"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
+
+## <a name="2019-01-14"></a>2019-01-14
+
+### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning-SDK för Python v1.0.8
+
++ **Referensdokument för SDK**: https://aka.ms/aml-sdk
+
++ **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
+
+### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Förbered SDK v1.0.7
+
++ **Referensdokument för SDK**: https://aka.ms/data-prep-sdk
+
++ **Nya funktioner**
+  + Förbättringar av datalager (beskrivs i [How-to-till-guide-datalager](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + Möjlighet att läsa från och skriva till Azure-filresurser och ADLS-datalager i skala upp har lagts till.
+    + När du använder datalager, stöder Dataförberedelser nu med autentisering av tjänstens huvudnamn i stället för interaktiv autentisering.
+    + Stöd har lagts till för wasb och wasbs URL: er.
 
 ## <a name="2019-01-09"></a>2019-01-09
 
@@ -39,7 +57,7 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 
 + **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
 
-### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Förbered SDK v1.0.4
+### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
 
 + **Referensdokument för SDK**: https://aka.ms/data-prep-sdk
 
@@ -116,7 +134,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
   + Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md)
   + Lär dig hur du [kör batch förutsägelser med pipelines](how-to-run-batch-predictions.md)
 + Azure Machine Learning-beräkningsmål
-  + [Exempelanteckningsböcker] (https://aka.ms/aml-notebooks) uppdateras nu om du vill använda den nya hantera databearbetning.
+  + [Exempel på bärbara datorer](https://aka.ms/aml-notebooks) uppdateras nu om du vill använda den nya hantera databearbetning.
   + [Lär dig mer om den här beräkning](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Azure-portalen: nya funktioner
@@ -137,7 +155,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 
 + **Större ändringar** 
   * *azureml.Train.widgets* namnområde har flyttats till *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* gör blir föråldrat följande klasser - *azureml.core.compute.BatchAICompute* och *azureml.core.compute.DSVMCompute*. Klassen senare tas bort i kommande versioner. Klassen AmlCompute har nu en enklare definition bara behöver en vm_size och max_nodes och skalar automatiskt ditt kluster från 0 till max_nodes när ett jobb skickas. Vår [exempelanteckningsböcker] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) har uppdaterats med den här informationen och bör ge dig användningsexempel. Vi hoppas att du som den här förenkling av distribution och mycket mer spännande funktioner kommer i en senare version!
+  * *azureml.core.compute.AmlCompute* gör blir föråldrat följande klasser - *azureml.core.compute.BatchAICompute* och *azureml.core.compute.DSVMCompute*. Klassen senare tas bort i kommande versioner. Klassen AmlCompute har nu en enklare definition bara behöver en vm_size och max_nodes och skalar automatiskt ditt kluster från 0 till max_nodes när ett jobb skickas. Vår [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) har uppdaterats med den här informationen och bör ge dig användningsexempel. Vi hoppas att du som den här förenkling av distribution och mycket mer spännande funktioner kommer i en senare version!
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Förbered SDK v0.5.1 
 

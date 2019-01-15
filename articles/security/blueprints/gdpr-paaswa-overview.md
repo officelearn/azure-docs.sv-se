@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600819"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267223"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för GDPR
 
@@ -35,7 +35,7 @@ Den här referensarkitekturen och associerade Implementeringsguide hotmodell är
 ## <a name="architecture-diagram-and-components"></a>Diagram över arkitektur och komponenter
 Den här lösningen tillhandahåller en Referensarkitektur för ett PaaS-webbprogram med en Azure SQL Database-serverdel. Webbprogrammet är värd för en isolerad Azure App Service Environment, vilket är en privat, dedikerad miljö i ett Azure-datacenter. Den miljö belastningsutjämning trafik för webbprogrammet över datorer som hanteras av Azure. Den här arkitekturen omfattar också nätverkssäkerhetsgrupper, ett Application Gateway, Azure DNS och belastningsutjämnare. Azure Monitor är dessutom realtidsanalys av systemhälsan. **Azure rekommenderar att du konfigurerar en VPN eller ExpressRoute-anslutning för hantering och import till undernätet för referens-arkitektur.**
 
-![PaaS Web Applicaiton för GDPR-referens för Arkitekturdiagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Applicaiton för Arkitekturdiagram för GDPR-referens")
+![PaaS-webbprogram för GDPR-referens för Arkitekturdiagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS webbprogram för Arkitekturdiagram för GDPR-referens")
 
 Den här lösningen använder följande Azure-tjänster. Information om distributionsarkitekturen finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
 
@@ -48,7 +48,7 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
         - Regeluppsättning: OWASP 3.0
         - Lyssnare: port 443
 - Azure-virtuellt nätverk
-- nätverkssäkerhetsgrupper
+- Nätverkssäkerhetsgrupper
 - Azure DNS
 - Azure Storage
 - Azure Monitor
@@ -62,9 +62,9 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 Följande avsnitt beskriver elementen distribution och implementering.
 
-**Med Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ger kunder möjlighet att arbeta med resurserna i lösningen som en grupp. Kunder kan distribuera, uppdatera eller ta bort alla resurser för lösningen i en enda, samordnad åtgärd. Kunder använder en mall för distributionen mallen kan användas för olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper kunder att hantera sina resurser efter distributionen.
+**Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ger kunder möjlighet att arbeta med resurserna i lösningen som en grupp. Kunder kan distribuera, uppdatera eller ta bort alla resurser för lösningen i en enda, samordnad åtgärd. Kunder använder en mall för distributionen mallen kan användas för olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper kunder att hantera sina resurser efter distributionen.
 
-**App Service-miljö v2**: Den [Azure App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) är en funktion i App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av App Service-program i hög skala.
+**App Service Environment v2**: Den [Azure App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) är en funktion i App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av App Service-program i hög skala.
 
 Ase-miljöer är isolerade för att endast köra en enda kunds program och de distribueras alltid till ett virtuellt nätverk. Kunderna har detaljerad kontroll över både inkommande och utgående programnätverkstrafik och programmen kan upprätta säkra höghastighetsanslutningar över virtuella nätverk till lokala företagsresurser.
 
@@ -144,7 +144,7 @@ Följande tekniker ger funktioner för att hantera åtkomst till personliga data
 
 **Application Gateway** arkitekturen minskar risken för säkerhetsproblem med en Programgateway med Web Application Firewall (WAF) och OWASP-regeluppsättning aktiverat. Ytterligare funktioner är följande:
 
-- [Slutpunkt till slutpunkt-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Inaktivera [TLS v1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (WAF-läge)
@@ -181,7 +181,7 @@ Dessutom kan ingår följande övervakningslösningar som en del av den här ark
 
 Dataflödesdiagram för denna Referensarkitektur är tillgängligt för [hämta](https://aka.ms/gdprPaaSdfd) eller finns nedan. Den här modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du gör ändringar.
 
-![PaaS Web Applicaiton för GDPR hotmodell](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton för GDPR hotmodell")
+![PaaS-webbprogram för GDPR hotmodell](images/gdpr-paaswa-threat-model.png?raw=true "PaaS webbprogram för GDPR hotmodell")
 
 ## <a name="compliance-documentation"></a>Dokumentation om efterlevnad
 Den [Azure säkerhet och efterlevnad skissen – GDPR kundens ansvar matrisen](https://aka.ms/gdprCRM) visar en lista över styrenhet och processor ansvar för alla GDPR-artiklar. Observera att för Azure-tjänster en kund är vanligtvis domänkontrollanten och Microsoft fungerar som processorn.

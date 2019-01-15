@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9c163ddf7859246fcdaa28edfd4b598a24a32be2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48be60a7ba5770f8c329cb6323a5caa8fcf7f961
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197227"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265064"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en användare VHD
 
@@ -39,16 +39,16 @@ Kopiera Azure Resource Manager-mall för [VHD distribution](cpp-deploy-json-temp
 | subscriptionId             | Azure-prenumerations-ID                                                  |
 | Plats                   | Standard Azure geografisk plats för resursgruppen                       |
 | vmName                     | Namnet på den virtuella datorn                                                    |
-| VaultName                  | Namnet på nyckelvalvet                                                          |
+| vaultName                  | Namnet på nyckelvalvet                                                          |
 | vaultResourceGroup         | Resursgrupp för nyckelvalvet
-| certificateUrl             | URL: en för certifikatet med version som lagras i nyckelvalvet, till exempel:  https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7 |
+| certificateUrl             | URL: en för certifikatet med version som lagras i nyckelvalvet, till exempel:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL: en för den virtuella hårddisken                                                   |
 | vmSize                     | Storleken på den virtuella datorinstansen                                           |
 | publicIPAddressName        | Namnet på den offentliga IP-adressen                                                  |
 | virtualNetworkName         | Namnet på det virtuella nätverket                                                    |
 | nicName                    | Namnet på nätverkskortet för det virtuella nätverket                     |
 | adminUserName              | Användarnamnet för administratörskontot                                          |
-| adminPassword              | Administratörslösenord                                                          |
+| adminPassword              | Lösenord                                                          |
 |  |  |
 
 

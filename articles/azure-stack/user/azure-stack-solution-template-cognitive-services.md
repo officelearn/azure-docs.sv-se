@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194693"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260642"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Distribuera Azure Cognitive Services till Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Aure Cognitive Services på Azure Stack finns i förhandsversion.
+> Azure Cognitive Services på Azure Stack finns i förhandsversion.
 
 Du kan använda Azure Cognitive Services med stöd för behållare på Azure Stack. Stöd för behållare i Azure Cognitive Services kan du använda samma omfattande API: er som är tillgängliga i Azure. Din användning av behållare möjliggör flexibilitet att distribuera och tillhandahålla tjänster som levereras i [Docker-behållare](https://www.docker.com/what-container). Stöd för behållare finns för närvarande i förhandsversion för en delmängd av Azure Cognitive Services, inklusive delar av [visuellt](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [ansikte](https://docs.microsoft.com/azure/cognitive-services/face/overview), och [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), och [Språkförståelse](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
@@ -41,7 +41,7 @@ Skapa behållare är en metod för distribution av programvara där ett program 
   Ange appanvändarna version och uppdatering av modeller som distribuerats i sin lösning.
 
 - **Bärbar arkitektur**  
-  Aktivera skapandet av en bärbar apparkitektur så att du kan distribuera din lösning till det offentliga molnet, till ett privat moln lokala resurser eller gränsen. Du kan distribuera din behållare till Azure Kubernetes Service, Azure Container Instances, eller till ett Kubernetes-kluster i till Azure Stack. Mer information finns i [distribuera Kubernetes i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Aktivera skapandet av en bärbar apparkitektur så att du kan distribuera din lösning till det offentliga molnet, till ett privat lokalt eller gränsen i molnet. Du kan distribuera din behållare till Azure Kubernetes Service, Azure Container Instances, eller till ett Kubernetes-kluster i till Azure Stack. Mer information finns i [distribuera Kubernetes i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **Högt dataflöde och låg latens**  
    Ge användarna möjlighet att skala med trafiktoppar för stora dataflöden och låg fördröjning. Aktivera Cognitive Services körs i Azure Kubernetes Service fysiskt nära sina programmets logik och data.
@@ -66,7 +66,7 @@ Innan du börjar måste du:
 
 Skapa en resurs för Cognitive Service på Azure för att förhandsgranska ansikte, LUIS eller identifiera Text behållare, respektive. Du måste använda prenumerationen nyckel och slutpunkt Webbadressen från resursen för att skapa en instans av cognitive service-behållare.
 
-1.  Skapa en Azure-resurs i Azure-portalen. Om du vill förhandsgranska Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [snabbstarten: Skapa ett Cognitive Services-konto i Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1.  Skapa en Azure-resurs i Azure-portalen. Om du vill förhandsgranska Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [ Snabbstart: Skapa ett Cognitive Services-konto i Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
     >  [!Note]  
     >  Ansikts- eller visuellt resursen måste använda F0 prisnivån.
@@ -140,10 +140,10 @@ Information om viktiga fält:
 | Fält | Anteckningar |
 | --- | --- |
 | replicaNumber | Definierar de första replikerna av instanser för att skapa. Du kan visserligen skala den senare efter distributionen. |
-| imageLocation | Anger platsen för specifika cognitive service behållaravbildningen i ACR. Till exempel ansikts-tjänsten: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Anger platsen för specifika cognitive service behållaravbildningen i ACR. Till exempel ansikts-tjänsten: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Slutpunkts-URL som anges i steg i [skapa Azure-resurs](#create-azure-resources) |
 | ApiKey | Prenumerationsnyckeln anges i steg i [skapa Azure-resurs](#create-azure-resources) |
-| secretName | Det hemliga namnet som du precis antecknade i steg i [skapa secrete för att komma åt det privata behållarregistret](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | Det hemliga namnet som du precis antecknade i steg i [skapa secrete för att komma åt det privata behållarregistret](#create-secrete-to-access-the-private-container-registry) |
 
 ## <a name="deploy-the-cognitive-service"></a>Distribuera cognitive service
 

@@ -1,29 +1,22 @@
 ---
-title: Översikt över BGP med Azure VPN gateway | Microsoft Docs
+title: Översikt över BGP och Azure VPN-gatewayer | Microsoft Docs
 description: Den här artikeln innehåller en översikt över BGP med Azure VPN Gateway.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
-tags: ''
-ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720058"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306530"
 ---
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Översikt över BGP med Azure VPN Gateway
-Den här artikeln innehåller en översikt över BGP-stöd (Border Gateway Protocol) i Azure VPN Gateway.
+# <a name="about-bgp-with-azure-vpn-gateway"></a>Om BGP med Azure VPN Gateway
+Den här artikeln innehåller en översikt över BGP (Border Gateway Protocol)-stöd i Azure VPN Gateway.
 
 BGP är ett standardroutningsprotokoll som vanligen används på Internet för att utbyta information om routning och åtkomst mellan två eller flera nätverk. När det används i virtuella Azure-nätverk möjliggör BGP att Azure VPN Gateway och dina lokala VPN-enheter (kallas BGP-peer eller grannar) kan utbyta ”vägar” som informerar båda gatewayerna om åtkomsten för de prefix som ska passera genom de gatewayer eller routrar som berörs. BGP kan också möjliggöra överföringsroutning mellan flera nätverk genom att sprida vägar som BGP-gatewayen får information om från en BGP-peer till alla andra BGP-peers. 
 

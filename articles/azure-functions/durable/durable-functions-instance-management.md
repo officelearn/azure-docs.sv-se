@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 19abd905bbc5e8ab724f7a2f25cb6da90db82841
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042469"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262650"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i varaktiga funktioner i Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "54042469"
 
 ## <a name="starting-instances"></a>Start instanser
 
-[StartNewAsync] (https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metoden på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) eller `startNew` på den `DurableOrchestrationClient` (JavaScript) startar en ny instans av en orchestrator-funktion. Instanser av den här klassen kan fås med hjälp av den `orchestrationClient` bindning. Internt, den här metoden placerar det i kö ett meddelande till kön kontroll, som utlöser sedan början av en funktion med det angivna namnet som använder den `orchestrationTrigger` utlösa bindning.
+Den [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metoden på den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) eller `startNew` på den `DurableOrchestrationClient` (JavaScript) startar en ny instans av en orchestrator-funktion. Instanser av den här klassen kan fås med hjälp av den `orchestrationClient` bindning. Internt, den här metoden placerar det i kö ett meddelande till kön kontroll, som utlöser sedan början av en funktion med det angivna namnet som använder den `orchestrationTrigger` utlösa bindning.
 
 Den här asynkrona åtgärden har slutförts när orchestration-process har schemalagts. Orchestration-processen bör starta inom 30 sekunder. Om det tar längre tid, en `TimeoutException` genereras.
 
@@ -114,7 +114,7 @@ Metoden returnerar ett JSON-objekt med följande egenskaper:
 * **Indata**: Indata för funktionen som ett JSON-värde. Det här fältet fylls inte om `showInput` är FALSKT.
 * **CustomStatus**: Anpassad orkestreringsstatus i JSON-format.
 * **Utdata**: Resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om orchestrator-funktionen misslyckades, innehåller den här egenskapen information om felet. Om orchestrator-funktion har avslutats tas den tillhandahållna orsaken till att den här egenskapen (om sådan finns).
-* **runtimeStatus**: En av följande värden:
+* **RuntimeStatus**: En av följande värden:
   * **Väntande**: Instansen har schemalagts men har startats inte som körs.
   * **Körning**: Instansen har startats.
   * **Slutfört**: Instansen har slutförts normalt.

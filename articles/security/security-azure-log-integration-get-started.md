@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602196"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304419"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration med Azure Diagnostisk loggning och vidarebefordran av Windows-händelser
 
 
 >[!IMPORTANT]
-> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog nedladdningar inaktiveras den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog hämtningar har inaktiverats på den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Du bör endast använda Azure-loggintegrering om en [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) anslutningen inte är tillgänglig från leverantören av säkerhetsincidenter och händelsehantering (SIEM).
 
@@ -85,7 +85,7 @@ För att förbättra prestanda, har också möjlighet att skala upp tjänsten Az
 
 ## <a name="install-azure-log-integration"></a>Installera Azure-Loggintegrering
 
-Installera Azure Log Integration genom att ladda ned den [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installationsfilen. Slutföra installationsprocessen. Välj om du vill ange telemetriinformation till Microsoft.
+Gå igenom Ställ in rutinen. Välj om du vill ange telemetriinformation till Microsoft.
 
 Azure Log Integration-tjänsten samlar in telemetridata från den dator där den är installerad.  
 
@@ -116,7 +116,7 @@ När du har slutfört grundinställning är du redo att utföra efter installati
   ![Skärmbild av utdata från kommandot LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Konfigurera Azure Log Integration för att använda en specifik Azure-miljön. En *Azure-miljön* är den typ av Azure-molndatacenter som du vill arbeta med. Även om det finns flera Azure-miljöer, för närvarande, relevanta alternativ är antingen **AzureCloud** eller **azureusgovernment eller**. Kör PowerShell som administratör, se till att du är i C:\Program Files\Microsoft Azure Log Integration\. Kör det här kommandot:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (för **AzureCloud**)
+  `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
   
   Om du vill använda US Government Azure-molnet använder **azureusgovernment eller** för den **-namnet** variabeln. För närvarande stöds andra Azure-moln inte.  
 
@@ -245,7 +245,6 @@ Du kan även öppna en [supportförfrågan](../azure-supportability/how-to-creat
 
 Mer information om Azure Log Integration finns i följande artiklar: Innan du försöker utföra stegen i den här artikeln måste du granska Kom igång-artikel och slutför stegen.
 
-* [Azure Log Integration för Azure loggar](https://www.microsoft.com/download/details.aspx?id=53324). Download Center innehåller information om systemkrav och installationsanvisningar för Azure Log Integration.
 * [Introduktion till Azure-Loggintegrering](security-azure-log-integration-overview.md). Den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.
 * [Partner konfigurationssteg](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Det här blogginlägget visar hur du konfigurerar Azure Log Integration att arbeta med partnerlösningar Splunk, HP ArcSight och IBM QRadar. Det beskriver våra aktuella vägledning om hur du konfigurerar SIEM-komponenter. Kontrollera med leverantören SIEM för ytterligare information.
 * [Vanliga frågor (och svar FAQ) om Azure Log Integration](security-azure-log-integration-faq.md). HÄR får du svar på vanliga frågor om Azure Log Integration.

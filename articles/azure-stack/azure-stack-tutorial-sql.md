@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954920"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259758"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Självstudie: Erbjuder högtillgänglig SQL-databaser
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Självstudier: Erbjud högtillgänglig SQL-databaser
 
 Du kan konfigurera server-datorer till värden SQL Server-databaser som en Azure Stack-Operator. När du har en SQL server som värd är har skapas och hanteras av Azure Stack, användare som prenumererar på SQL-tjänster kan enkelt skapa SQL-databaser.
 
@@ -141,7 +141,7 @@ Se till att använda offentliga IP-adress eller fullständiga FQDN för den offe
 > [!NOTE]
 > Det här steget måste köras från Azure Stack-administrationsportalen av en Azure Stack-operatör.
 
-Med SQL AlwaysOn-tillgänglighetsgruppen load balancer lyssnare inloggningsinformation för offentlig IP-adress och SQL-autentisering, en Azure Stack-operatör kan nu [skapar en SQL som är värd för Server med gruppen SQL AlwaysOn-tillgänglighet](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+Med SQL AlwaysOn-tillgänglighetsgruppen load balancer lyssnare inloggningsinformation för offentlig IP-adress och SQL-autentisering, en Azure Stack-operatör kan nu [skapar en SQL som är värd för Server med SQL AlwaysOn-tillgänglighetsgruppen](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
 
 Se också till att du har skapat planer och erbjudanden för att tillgängliggöra skapande av SQL AlwaysOn-databas för användare. Operatören behöver du lägga till den **Microsoft.SqlAdapter** tjänsten till en plan och skapa en ny kvot specifikt för höggradigt tillgängliga databaser. Mer information om hur du skapar planer finns i [översikt över Plan, erbjudande, kvot och prenumeration](azure-stack-plan-offer-quota-overview.md).
 

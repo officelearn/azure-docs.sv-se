@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247885"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263228"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
 
@@ -198,7 +198,7 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
 Azure rollbaserad åtkomstkontroll (RBAC) ger detaljerad åtkomsthantering för Azure. Med RBAC kan styra du vilken åtkomstnivå som användarna behöver för att göra sina jobb. Mer information om rollbaserad åtkomstkontroll finns i [hantera åtkomst till Azure-prenumerationsresurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="azure-devops-services-agent-pools"></a>Azure DevOps Services Agentpooler
+### <a name="azure-devops-services-agent-pools"></a>Azure DevOps Services Agent Pools
 
 Du kan ordna agenter i agentpooler istället för att hantera varje agent separat. En agentpool definierar delningsapplikationen gränsen för alla agenter i poolen. Agentpooler är begränsade till organisationen Azure DevOps-tjänsterna, vilket innebär att du kan dela en agentpool över projekt i Azure DevOps-tjänsterna. Läs mer om agentpooler i [skapa Agentpooler och köer](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
@@ -248,13 +248,13 @@ Skapa en personlig åtkomsttoken för att komma åt Azure DevOps-tjänsterna.
 
 Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (VSTO) Azure Service-appar till Azure Stack. Azure DevOps-tjänster som ansluter till build-agenten, som ansluter till Azure Stack.
 
-![NorthwindCloud exempelprogram i VSTO](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
+![NorthwindCloud sample app in VSTO](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. Logga in på VSTO och gå till inställningssidan.
 2. På **inställningar**väljer **Security**.
 3. I **Azure DevOps tjänster grupper**väljer **Endpoint skapare**.
 
-    ![Skapare av NorthwindCloud slutpunkt](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
+    ![NorthwindCloud Endpoint Creators](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. På den **medlemmar** fliken **Lägg till**.
 
@@ -264,7 +264,7 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 6. Välj **spara ändringar**.
 7. I den **Azure DevOps tjänster grupper** väljer **Endpoint administratörer**.
 
-    ![NorthwindCloud Endpoint administratörer](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
+    ![NorthwindCloud Endpoint Administrators](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. På den **medlemmar** fliken **Lägg till**.
 9. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
@@ -307,7 +307,7 @@ Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
 | Namn | Exempel | Beskrivning |
 | --- | --- | --- |
-| Anslutningsnamn | Azure Stack AD FS | Namnet på anslutningen. |
+| Anslutningsnamn | Azure Stack ADFS | Namnet på anslutningen. |
 | Miljö | AzureStack | Namnet på din miljö. |
 | URL-miljön | `https://management.local.azurestack.external` | Hanteringsslutpunkten. |
 | Scopenivå | Prenumeration | Omfattningen för anslutningen. |
@@ -360,7 +360,7 @@ Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd 
 
 1. Logga in på Azure DevOps-tjänster med en organisation som kan skapa en build-pipeline.
 
-2. Navigera till den **skapa Web Applicaiton** sidan för projektet.
+2. Navigera till den **skapa webbprogram** sidan för projektet.
 
 3. I **argument**, lägga till **- r win10-x64** kod. Detta krävs för att utlösa en självständig distribution med .net Core.
 

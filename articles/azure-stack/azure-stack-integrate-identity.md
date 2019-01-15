@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188904"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263806"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -55,7 +55,7 @@ Krav:
 
 |Komponent|Krav|
 |---------|---------|
-|Graph|Microsoft Active Directory-2012/2012 R2/2016|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Konfigurera Graph-integrering
@@ -122,8 +122,8 @@ Graph-tjänsten i Azure Stack använder följande protokoll och portar för att 
 |---------|---------|---------|
 |LDAP|389|TCP OCH UDP|
 |LDAP SSL|636|TCP|
-|GLOBAL KATALOG LDAP|3268|TCP|
-|LDAP-GC SSL|3269|TCP|
+|LDAP GC|3268|TCP|
+|LDAP GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Om du konfigurerar AD FS-integrationen genom att ladda ned federationsmetadata
 
@@ -171,7 +171,7 @@ Följande information måste anges som indata för automation-parametrar:
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
 |CustomAdfsName|Namnet på anspråksprovidern. Den visas på så sätt på landningssidan för AD FS.|Contoso|
-|CustomADFSFederationMetadataFileContent|Metadata för innehåll|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Metadata för innehåll|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Skapa federation metadata-fil
 
@@ -319,7 +319,7 @@ Om det inträffar ett fel som lämnar miljön i ett tillstånd där du kan inte 
 2. Kör följande cmdlet:
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    När du har kört återställningsåtgärden återställs alla konfigurationsändringar. Endast autentisering med inbyggt **CloudAdmin** användaren är möjligt.

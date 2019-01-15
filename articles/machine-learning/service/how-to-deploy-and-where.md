@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2c71b0abd5069aeb00b63fde8b76e5bb0fc0beda
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3341dbc486ebd184979381fa6bef05ec9404aa98
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246440"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304115"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
 Azure Machine Learning-tjänsten finns flera sätt du kan distribuera tränade modellen med hjälp av SDK. I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT edge-enheter.
+
+> [!IMPORTANT]
+> Cross-origin resource sharing (CORS) stöds inte för närvarande när du distribuerar en modell som en webbtjänst.
 
 Du kan distribuera modeller till följande beräkning:
 
@@ -31,41 +34,34 @@ Du kan distribuera modeller till följande beräkning:
 | [Azure IoT Edge](#iotedge) | IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
 
+Processen för att distribuera en modell är liknande för alla beräkningsmål:
+
+1. Träna och registrera en modell.
+1. Konfigurera och registrera en avbildning som använder modellen.
+1. Distribuera avbildningen till ett beräkningsmål.
+1. Testa distributionen
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+
 - En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [Kom igång med Azure Machine Learning Snabbstart](quickstart-get-started.md).
 
-- En tränad modell i antingen pickle (`.pkl`) eller ONNX (`.onnx`) format. Om du inte har en tränad modell, Följ stegen i den [träna modeller](tutorial-train-models-with-aml.md) självstudie för att träna och registrera en med Azure Machine Learning-tjänsten.
+- En tränad modell. Om du inte har en tränad modell, Följ stegen i den [träna modeller](tutorial-train-models-with-aml.md) självstudie för att träna och registrera en med Azure Machine Learning-tjänsten.
 
-- Avsnitten kod förutsätts att `ws` refererar till machine learning-arbetsyta. Till exempel `ws = Workspace.from_config()`.
+    > [!NOTE]
+    > Medan Azure Machine Learning-tjänsten kan arbeta med valfri allmän modell som kan läsas in i Python 3, visar exemplen i det här dokumentet med hjälp av en modell som lagras i pickle-format.
+    > 
+    > Mer information om hur du använder ONNX-modeller finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
 
-## <a name="deployment-workflow"></a>Arbetsflöde för distribution
+## <a id="registermodel"></a> Registrera en träningsmodell
 
-Processen för att distribuera en modell är liknande för alla beräkningsmål:
-
-1. Träna en modell.
-1. Registrera modellen.
-1. Skapa en bildkonfiguration.
-1. Skapa avbildningen.
-1. Distribuera avbildningen till ett beräkningsmål.
-1. Testa distributionen
-1. (Valfritt) Rensa upp artefakter.
-
-    * När **distribueras som en webbtjänst**, det finns tre alternativ:
-
-        * [Distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): När du använder den här metoden kan behöver du inte registrera modellen eller skapa avbildningen. Men du kan inte styra namnet på modellen eller avbildning eller associerade taggar och beskrivningar.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): När du använder den här metoden kan behöver du inte skapa en avbildning. Men du har inte kontroll över namnet på den avbildning som har skapats.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Registrera modellen och skapa en avbildning innan du använder den här metoden.
-
-        Exemplen i det här dokumentet används `deploy_from_image`.
-
-    * När **distribueras som en IoT Edge-modul**, måste du registrera modellen och skapa avbildningen.
-
-## <a name="register-a-model"></a>Registrera en modell
-
-Endast tränade modeller kan distribueras. Modellen tränas med hjälp av Azure Machine Learning eller en annan tjänst. Använd följande kod för att registrera en modell från filen:
+Modell-registret är ett sätt att lagra och organisera dina tränade modeller i Azure-molnet. Modeller är registrerade i din arbetsyta för Azure Machine Learning-tjänsten. Modellen tränas med hjälp av Azure Machine Learning eller en annan tjänst. Använd följande kod för att registrera en modell från filen:
 
 ```python
 from azureml.core.model import Model
@@ -77,16 +73,15 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
-> [!NOTE]
-> Även om exemplet visar med hjälp av en modell som lagras som en pickle-filen, men du kan också använda ONNX-modeller. Mer information om hur du använder ONNX-modeller finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
+**Uppskattad tidsåtgång**: Cirka 10 sekunder.
 
 Mer information finns i referensdokumentationen för den [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a id="configureimage"></a> Skapa en konfiguration för avbildning
+## <a id="configureimage"></a> Skapa och registrera en avbildning
 
 Distribuerade modeller paketeras i en bild. Bilden innehåller de beroenden som behövs för att köra modellen.
 
-För **Azure-Behållarinstans**, **Azure Kubernetes Service**, och **Azure IoT Edge** distributioner, den `azureml.core.image.ContainerImage` klassen används för att skapa en konfiguration för avbildningen. Bild-konfigurationen används sedan för att skapa en ny dockeravbildning. 
+För **Azure-Behållarinstans**, **Azure Kubernetes Service**, och **Azure IoT Edge** distributioner, den [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klassen används för att skapa en konfiguration för avbildningen. Bild-konfigurationen används sedan för att skapa en ny dockeravbildning. 
 
 Följande kod visar hur du skapar en ny bildkonfiguration:
 
@@ -102,24 +97,101 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-Den här konfigurationen använder en `score.py` fil att skicka begäranden till modellen. Den här filen innehåller två funktioner:
+**Uppskattad tidsåtgång**: Cirka 10 sekunder.
 
-* `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
+Viktiga parametrar i det här exemplet som beskrivs i följande tabell:
 
-* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indatan och utdatan i körningen använder vanligtvis JSON för serialisering och deserialisering, men andra format stöds också.
-
-Ett exempel `score.py` fil, finns i den [bild klassificering självstudien](tutorial-deploy-models-with-aml.md#make-script). Ett exempel som använder en ONNX-modell, finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
-
-Den `conda_file` parametern används för att tillhandahålla en miljö conda-fil. Den här filen definierar conda-miljö för distribuerad modell. Mer information om hur du skapar den här filen finns i [skapar du en miljöfil (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file).
+| Parameter | Beskrivning |
+| ----- | ----- |
+| `execution_script` | Anger ett pythonskript som används för att ta emot förfrågningar som skickas till tjänsten. I det här exemplet finns skriptet i den `score.py` filen. Mer information finns i den [körning skriptet](#script) avsnittet. |
+| `runtime` | Anger att avbildningen använder Python. Ett annat alternativ är `spark-py`, som använder Python med Apache Spark. |
+| `conda_file` | Används för att ange en fil för conda-miljö. Den här filen definierar conda-miljö för distribuerad modell. Mer information om hur du skapar den här filen finns i [skapar du en miljöfil (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
 Mer information finns i referensdokumentationen för [ContainerImage-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
-## <a id="createimage"></a> Skapa avbildningen
+### <a id="script"></a> Körning av skript
 
-När du har skapat avbildningen konfigurationen kan använda du den för att skapa en avbildning. Den här avbildningen finns sparad i behållarregister för arbetsytan. När du skapat kan du distribuera samma avbildning för flera tjänster.
+Körning av skriptet tar emot data som skickas till en distribuerade avbildningen och skickar dem till modellen. Sedan tar svaret som returnerades av modellen och returnerar som till klienten. Skriptet är specifik för din modell; Det måste förstå de data som modellen förväntas och returnerar. Skriptet innehåller vanligtvis två funktioner som att läsa in och kör modellen:
+
+* `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
+
+* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör du vanligtvis använda JSON för serialisering och deserialisering. Du kan också arbeta med binära rådata. Du kan omvandla data innan du skickar till modellen eller innan det returneras till klienten. 
+
+#### <a name="working-with-json-data"></a>Arbeta med JSON-data
+
+Följande är ett exempelskript som godkänner och returnerar JSON-data. Den `run` funktionen omvandlar data från JSON till ett format att modellen förväntar sig och sedan omvandlar JSON svaret innan det returneras:
 
 ```python
-# Create the image from the image configuration
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### <a name="working-with-binary-data"></a>Arbeta med binära data
+
+Om din modell accepterar __binärdata__, använda `AMLRequest`, `AMLResponse`, och `rawhttp`. Följande är ett exempel på ett skript som tar emot binära data och Returnerar inverterad byte för POST-förfrågningar. För GET-begäranden returnerar den fullständiga URL i svarstexten:
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Den `azureml.contrib` namnområde ändras ofta, när vi arbetar för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion, och stöds inte fullt ut av Microsoft.
+>
+> Om du vill testa detta på din lokala utvecklingsmiljö kan du installera komponenterna i den `contrib` namnområde med hjälp av följande kommando: 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a id="createimage"></a> Registrera avbildningen
+
+När du har skapat avbildningen konfigurationen, kan du använda det för att registrera en bild. Den här avbildningen finns sparad i behållarregister för arbetsytan. När du skapat kan du distribuera samma avbildning för flera tjänster.
+
+```python
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -133,7 +205,7 @@ Bilder är version automatiskt när du registrerar flera avbildningar med samma 
 
 Mer information finns i referensdokumentationen för [ContainerImage klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a name="deploy-the-image"></a>Distribuera avbildningen
+## <a id="deploy"></a> Distribuera avbildningen
 
 När du kommer till distribution, är processen variera beroende på beräkningsmål som du distribuerar till. Använd informationen i följande avsnitt för att lära dig hur du distribuerar till:
 
@@ -141,6 +213,17 @@ När du kommer till distribution, är processen variera beroende på beräknings
 * [Azure Kubernetes-tjänster](#aks)
 * [Project Brainwave (fältet-programmable gate Array)](#fpga)
 * [Azure IoT Edge-enheter](#iotedge)
+
+> [!NOTE]
+> När **distribueras som en webbtjänst**, det finns tre metoder för distribution som du kan använda:
+>
+> | Metod | Anteckningar |
+> | ----- | ----- |
+> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Du måste registrera modellen och skapa en avbildning innan du använder den här metoden. |
+> | [Distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | När du använder den här metoden kan behöver du inte registrera modellen eller skapa avbildningen. Men du kan inte styra namnet på modellen eller avbildning eller associerade taggar och beskrivningar. |
+> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | När du använder den här metoden kan behöver du inte skapa en avbildning. Men du har inte kontroll över namnet på den avbildning som har skapats. |
+>
+> Exemplen i det här dokumentet används `deploy_from_image`.
 
 ### <a id="aci"></a> Distribuera till Azure Container Instances
 
@@ -179,75 +262,82 @@ Azure Kubernetes Service innehåller följande funktioner:
 * Insamling av modelldata
 * Snabba svarstider för webbtjänster
 
-Använd följande steg om du vill distribuera till Azure Kubernetes Service:
+#### <a name="create-a-new-cluster"></a>Skapa ett nytt kluster
 
-1. Använd följande kod för att skapa ett AKS-kluster:
+Använd följande kod för att skapa ett nytt Azure Kubernetes Service-kluster:
 
-    > [!IMPORTANT]
-    > Skapa AKS-klustret är en tid processen för arbetsytan. När du skapat kan du återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resursgruppen som innehåller den, måste du skapa ett nytt kluster nästa gång du behöver distribuera.
-    > För [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), om du väljer Anpassad värden för agent_count och vm_size, måste du se till att agent_count multiplicerat med vm_size är större än eller lika med 12 virtuella processorer. Till exempel om du använder en vm_size av ”Standard_D3_v2” som har 4 virtuella processorer, bör sedan du välja en agent_count 3 eller högre.
+> [!IMPORTANT]
+> Skapa AKS-klustret är en tid processen för arbetsytan. När du skapat kan du återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resursgruppen som innehåller den, måste du skapa ett nytt kluster nästa gång du behöver distribuera.
+> För [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), om du väljer Anpassad värden för agent_count och vm_size, måste du se till att agent_count multiplicerat med vm_size är större än eller lika med 12 virtuella processorer. Till exempel om du använder en vm_size av ”Standard_D3_v2” som har 4 virtuella processorer, bör sedan du välja en agent_count 3 eller högre.
 
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
 
-    # Use the default configuration (you can also provide parameters to customize this)
-    prov_config = AksCompute.provisioning_configuration()
+# Use the default configuration (you can also provide parameters to customize this)
+prov_config = AksCompute.provisioning_configuration()
 
-    aks_name = 'aml-aks-1' 
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws, 
-                                        name = aks_name, 
-                                        provisioning_configuration = prov_config)
+aks_name = 'aml-aks-1' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                    name = aks_name, 
+                                    provisioning_configuration = prov_config)
 
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
+# Wait for the create process to complete
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
 
-    **Uppskattad tidsåtgång**: Ungefär 20 minuter.
+**Uppskattad tidsåtgång**: Ungefär 20 minuter.
 
-    > [!TIP]
-    > Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.11. *, du kan använda den för att distribuera din avbildning. Följande kod visar hur du kopplar ett befintligt kluster till din arbetsyta:
-    >
-    > ```python
-    > from azureml.core.compute import AksCompute, ComputeTarget
-    > # Set the resource group that contains the AKS cluster and the cluster name
-    > resource_group = 'myresourcegroup'
-    > cluster_name = 'mycluster'
-    > 
-    > # Attatch the cluster to your workgroup
-    > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-    >                                          cluster_name = cluster_name)
-    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-    > 
-    > # Wait for the operation to complete
-    > aks_target.wait_for_completion(True)
-    > ```
+#### <a name="use-an-existing-cluster"></a>Använd ett befintligt kluster
 
-2. Distribuera den avbildning som skapats i den [skapa avbildningen](#createimage) avsnitt i det här dokumentet, Använd följande kod:
+Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.11. *, du kan använda den för att distribuera din avbildning. Följande kod visar hur du kopplar ett befintligt kluster till din arbetsyta:
 
-    ```python
-    from azureml.core.webservice import Webservice, AksWebservice
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+# Set the resource group that contains the AKS cluster and the cluster name
+resource_group = 'myresourcegroup'
+cluster_name = 'mycluster'
 
-    # Set configuration and service name
-    aks_config = AksWebservice.deploy_configuration()
-    aks_service_name ='aks-service-1'
-    # Deploy from image
-    service = Webservice.deploy_from_image(workspace = ws, 
-                                                name = aks_service_name,
-                                                image = image,
-                                                deployment_config = aks_config,
-                                                deployment_target = aks_target)
-    # Wait for the deployment to complete
-    service.wait_for_deployment(show_output = True)
-    print(service.state)
-    ```
+# Attatch the cluster to your workgroup
+attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name)
+aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 
-    > [!TIP]
-    > Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa loggar för AKS-tjänsten. Loggade informationen kan tyda på orsaken till felet.
+# Wait for the operation to complete
+aks_target.wait_for_completion(True)
+```
 
-Mer information finns i referensdokumentationen för den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) klasser.
+**Uppskattad tidsåtgång**: Ca 3 minuter.
+
+#### <a name="deploy-the-image"></a>Distribuera avbildningen
+
+Distribuera den avbildning som skapats i den [skapa avbildningen](#createimage) avsnitt i det här dokumentet i Azure Kubernetes serverkluster, Använd följande kod:
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+
+# Set configuration and service name
+aks_config = AksWebservice.deploy_configuration()
+aks_service_name ='aks-service-1'
+# Deploy from image
+service = Webservice.deploy_from_image(workspace = ws, 
+                                            name = aks_service_name,
+                                            image = image,
+                                            deployment_config = aks_config,
+                                            deployment_target = aks_target)
+# Wait for the deployment to complete
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+**Uppskattad tidsåtgång**: Ca 3 minuter.
+
+> [!TIP]
+> Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa loggar för AKS-tjänsten. Loggade informationen kan tyda på orsaken till felet.
+
+Mer information finns i referensdokumentationen för den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klasser.
 
 ### <a id="fpga"></a> Distribuera till fältet-programmable gate matriser (FPGA)
 
@@ -375,7 +465,9 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## <a name="update-the-web-service"></a>Uppdatera webbtjänsten
+Webbtjänsten är ett REST-API så du kan skapa klientprogram på flera olika programmeringsspråk. Mer information finns i [skapa klient program kan använda webservices](how-to-consume-web-service.md).
+
+## <a id="update"></a> Uppdatera webbtjänsten
 
 Om du vill uppdatera webbtjänsten använder den `update` metoden. Följande kod visar hur du uppdaterar webbtjänsten för att använda en ny avbildning:
 
@@ -397,6 +489,8 @@ print(service.state)
 > [!NOTE]
 > När du uppdaterar en bild, uppdateras inte webbtjänsten automatiskt. Du måste manuellt uppdatera varje tjänst som du vill använda den nya avbildningen.
 
+Mer information finns i referensdokumentationen för den [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klass.
+
 ## <a name="clean-up"></a>Rensa
 
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
@@ -405,9 +499,14 @@ Om du vill ta bort en avbildning, använder `image.delete()`.
 
 Ta bort registrerade modellen genom att använda `model.delete()`.
 
+Mer information finns i referensdokumentationen för [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), och [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 * [Hur du kör batch-förutsägelser](how-to-run-batch-predictions.md)
+* [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
+* [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
+* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Använda Azure Machine Learning-tjänsten med Azure-nätverk](how-to-enable-virtual-network.md)

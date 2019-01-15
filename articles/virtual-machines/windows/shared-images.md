@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192246"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305185"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Förhandsversion: Skapa en delad bildgalleriet med Azure PowerShell 
 
@@ -49,7 +49,7 @@ Du måste ha en befintlig hanterad avbildning för att utföra exemplet i den h�
  
 ## <a name="create-vms-from-an-image"></a>Skapa virtuella datorer från en avbildning
 
-När versionsnumret för avbildningen är complte kan skapa du en eller flera nya virtuella datorer. Med hjälp av parametern förenklad ange för den [New-AzureRMVM]() cmdlet, behöver du bara ange avbildnings-ID för versionsnumret för avbildningen. 
+När versionsnumret för avbildningen är klar kan skapa du en eller flera nya virtuella datorer. Med hjälp av parametern förenklad ange för den [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet, behöver du bara ange avbildnings-ID för versionsnumret för avbildningen. 
 
 Det här exemplet skapar en virtuell dator med namnet *myVMfromImage*i den *myResourceGroup* i den *USA, östra* datacenter.
 

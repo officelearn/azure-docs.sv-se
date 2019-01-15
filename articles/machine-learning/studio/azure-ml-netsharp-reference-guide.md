@@ -1,26 +1,8 @@
 ---
-title: 'NET # Neural Networks - Azure Machine Learning Studio | Microsoft Docs'
-description: 'Syntaxen för den Net # neural networks-språket, tillsammans med exempel på hur du skapar en modell för anpassade neurala nätverk med hjälp av Net # med Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: reference
-ms.date: 03/01/2018
-ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631133"
+Rubrik: Net# Neural Networks titleSuffix: Beskrivning av Azure Machine Learning Studio: Syntaxen för den Net # neural networks-språket, tillsammans med exempel på hur du skapar en modell för anpassade neurala nätverk med hjälp av Net # med Azure Machine Learning Studio.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: referens
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
@@ -138,7 +120,7 @@ Följande utdata-funktioner stöds:
 + softmax
 + rlinear
 + Ruta
-+ SQRT
++ sqrt
 + srlinear
 + ABS
 + TANH

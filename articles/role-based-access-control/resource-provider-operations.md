@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c841fb8676cff8d15f54384aac84721bc8fb163b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728456"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267529"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -33,16 +33,16 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.AAD/domainServices/delete | Ta bort Domäntjänsten |
+> | Åtgärd | Microsoft.AAD/domainServices/delete | Delete Domain Service |
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/delete | Ta bort Organisationsenhetsbehållaren |
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/read | Läsa Ou-behållare |
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/write | Skriva Organisationsenhetsbehållaren |
-> | Åtgärd | Microsoft.AAD/domainServices/read | Läs Domain Services |
-> | Åtgärd | Microsoft.AAD/domainServices/write | Skriva Domäntjänsten |
+> | Åtgärd | Microsoft.AAD/domainServices/read | Read Domain Services |
+> | Åtgärd | Microsoft.AAD/domainServices/write | Write Domain Service |
 > | Åtgärd | Microsoft.AAD/locations/operationresults/read |  |
 > | Åtgärd | Microsoft.AAD/Operations/read |  |
-> | Åtgärd | Microsoft.AAD/register/action | Registrera Domäntjänsten |
-> | Åtgärd | Microsoft.AAD/unregister/action | Avregistrera Domain Service |
+> | Åtgärd | Microsoft.AAD/register/action | Register Domain Service |
+> | Åtgärd | Microsoft.AAD/unregister/action | Unregister Domain Service |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
@@ -50,11 +50,11 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.aadiam/diagnosticsettings/delete | Tar bort en diagnostikinställning |
-> | Åtgärd | Microsoft.aadiam/diagnosticsettings/Read | Läser en diagnostikinställning |
-> | Åtgärd | Microsoft.aadiam/diagnosticsettings/Write | Skriva en diagnostikinställning |
+> | Åtgärd | microsoft.aadiam/diagnosticsettings/read | Läser en diagnostikinställning |
+> | Åtgärd | microsoft.aadiam/diagnosticsettings/write | Skriva en diagnostikinställning |
 > | Åtgärd | Microsoft.aadiam/diagnosticsettingscategories/Read | Läser en diagnostikinställning kategorier |
 
-## <a name="microsoftaddons"></a>Microsoft Addons
+## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
@@ -77,7 +77,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/configuration/read | Hämtar tjänstkonfigurationen för skogen. Exempel - skogsnamn, funktionsnivå, domäner master FSMO-rollen, FSMO schemahanterare osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/delete | Tar bort en tjänst och det är servrar tillsammans med data för hälsotillstånd. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Hämtar information om domäner och platser för skogen. Exempel-hälsostatus, aktiva aviseringar, lösta aviseringar, egenskaper som domänens funktionsnivå, skog, infrastrukturhanteraren, PDC och RID master osv.  |
-> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Hämtar användarens inställning för skogen.<br>Exempel - MetricCounterName som ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Inställningar för Användargränssnittet diagram osv. |
+> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Hämtar användarens inställning för skogen.<br>Example- MetricCounterName like ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Inställningar för Användargränssnittet diagram osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Hämtar skog sammanfattning för den angivna skogen som skogsnamn antalet domäner under den här skogen, antalet platser och platser information osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
@@ -450,7 +450,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Automation/automationAccounts/credentials/read | Hämtar en Azure Automation-autentiseringsuppgiftstillgång |
 > | Åtgärd | Microsoft.Automation/automationAccounts/credentials/write | Skapar eller uppdaterar en Azure Automation-autentiseringsuppgiftstillgång |
 > | Åtgärd | Microsoft.Automation/automationAccounts/delete | Tar bort ett Azure Automation-konto |
-> | Åtgärd | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Tar bort Hybrid Runbook Worker-resurser |
+> | Åtgärd | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes Hybrid Runbook Worker Resources |
 > | Åtgärd | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Läser Hybrid Runbook Worker-resurser |
 > | Åtgärd | Microsoft.Automation/automationAccounts/jobs/output/read | Hämtar utdata för ett jobb |
 > | Åtgärd | Microsoft.Automation/automationAccounts/jobs/read | Hämtar en Azure Automation-jobb |
@@ -540,7 +540,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Ta bort B2C-katalogresurs |
+> | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Ta bort B2C-katalogresursen |
 > | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/read | Visa B2C-katalogresurs |
 > | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/write | Skapa eller uppdatera en B2C-katalogresurs |
 > | Åtgärd | Microsoft.AzureActiveDirectory/operations/read | Läs alla API-åtgärder tillgängliga för resursprovidern Microsoft.AzureActiveDirectory |
@@ -1087,7 +1087,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Compute/locations/capsOperations/read | Hämtar status för en asynkron Caps-åtgärd |
 > | Åtgärd | Microsoft.Compute/locations/diskOperations/read | Hämtar status för en asynkron diskåtgärd |
 > | Åtgärd | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Skapa loggar som visar det totala antalet förfrågningar per tidsintervall som hjälp vid begränsningsdiagnostik. |
-> | Åtgärd | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Skapa loggar som visar sammanställningar av begränsade förfrågningar grupperade efter ResourceName, OperationName eller den tillämpade begränsningsprincipen. |
+> | Åtgärd | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Skapa loggar som visar aggregeringar av begränsade förfrågningar grupperade efter ResourceName, OperationName eller den tillämpade begränsningsprincipen. |
 > | Åtgärd | Microsoft.Compute/locations/operations/read | Hämtar status för en asynkron åtgärd |
 > | Åtgärd | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | Hämta egenskaperna för ett plattformsavbildningserbjudande |
 > | Åtgärd | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | Hämta egenskaperna för en plattformsavbildnings-SKU |
@@ -1570,7 +1570,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataFactory/factories/datasets/delete | Tar bort alla datauppsättningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/datasets/read | Läser alla datauppsättningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/datasets/write | Skapar eller uppdaterar alla datauppsättningar. |
-> | Åtgärd | Microsoft.DataFactory/factories/delete | Tar bort Data Factory. |
+> | Åtgärd | Microsoft.DataFactory/factories/delete | Deletes Data Factory. |
 > | Åtgärd | Microsoft.DataFactory/factories/integrationruntimes/delete | Tar bort alla Integration Runtime. |
 > | Åtgärd | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/read | Läser anslutningsinformation för Integration Runtime. |
 > | Åtgärd | Microsoft.DataFactory/factories/integrationruntimes/getstatus/read | Läser Status för Integration Runtime. |
@@ -3311,8 +3311,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/expressRouteGateways/read | Hämta Express Route-Gateway |
 > | Åtgärd | Microsoft.Network/expressRoutePorts/delete | Tar bort ExpressRoutePorts |
 > | Åtgärd | Microsoft.Network/expressRoutePorts/join/action | Ansluter till ExpressRoutePorts |
-> | Åtgärd | Microsoft.Network/expressRoutePorts/links/read | Hämtar ExpressRouteLink |
-> | Åtgärd | Microsoft.Network/expressRoutePorts/read | Hämtar ExpressRoutePorts |
+> | Åtgärd | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
+> | Åtgärd | Microsoft.Network/expressRoutePorts/read | Gets ExpressRoutePorts |
 > | Åtgärd | Microsoft.Network/expressRoutePorts/write | Skapar eller uppdaterar ExpressRoutePorts |
 > | Åtgärd | Microsoft.Network/expressRoutePortsLocations/read | Hämta Express Route portar platser |
 > | Åtgärd | Microsoft.Network/expressRouteServiceProviders/read | Hämtar Express Route-leverantörer |
@@ -3477,7 +3477,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/routeTables/routes/read | Hämtar en väg-definition |
 > | Åtgärd | Microsoft.Network/routeTables/routes/write | Skapar en väg eller uppdaterar ett befintligt flöde |
 > | Åtgärd | Microsoft.Network/routeTables/write | Skapar en routningstabell eller uppdaterar en befintlig rotue-tabell |
-> | Åtgärd | Microsoft.Network/securegateways/delete | Ta bort säker Gateway |
+> | Åtgärd | Microsoft.Network/securegateways/delete | Delete Secure Gateway |
 > | Åtgärd | Microsoft.Network/securegateways/read | Få säker Gateway |
 > | Åtgärd | Microsoft.Network/securegateways/write | Skapar eller uppdaterar en säker Gateway |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/delete | Tar bort en Tjänstslutpunktsprincip |
@@ -3512,20 +3512,20 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/write | Skapa eller uppdatera en HubVirtualNetworkConnection |
 > | Åtgärd | Microsoft.Network/virtualHubs/read | Hämta en virtuell hubb |
 > | Åtgärd | Microsoft.Network/virtualHubs/write | Skapa eller uppdatera en virtuell hubb |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/Connections/Read | Hämta VirtualNetworkGatewayConnection |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/connections/read | Hämta VirtualNetworkGatewayConnection |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/delete | Tar bort en virtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/generatevpnclientpackage/Action | Skapa VpnClient-paket för virtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/generatevpnprofile/Action | Skapa paket för VpnProfile för VirtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/getadvertisedroutes/Action | Hämtar virtualNetworkGateway annonseras vägar |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/getbgppeerstatus/Action | Hämtar virtualNetworkGateway bgp-peer-status |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/getlearnedroutes/Action | Hämtar virtualnetworkgateway lärt dig vägar |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/getvpnclientconnectionhealth/Action | Hämta Per anslutningsstatusen för Vpn-klienten för VirtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/getvpnclientipsecparameters/Action | Hämta Vpnclient Ipsec parametrar för VirtualNetworkGateway P2S-klient. |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/getvpnprofilepackageurl/Action | Hämtar URL för en profil för förgenererade VPN-klientpaketet |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/generatevpnclientpackage/action | Skapa VpnClient-paket för virtualNetworkGateway |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/generatevpnprofile/action | Skapa paket för VpnProfile för VirtualNetworkGateway |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/getadvertisedroutes/action | Hämtar virtualNetworkGateway annonseras vägar |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/getbgppeerstatus/action | Hämtar virtualNetworkGateway bgp-peer-status |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/getlearnedroutes/action | Hämtar virtualnetworkgateway lärt dig vägar |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Hämta Per anslutningsstatusen för Vpn-klienten för VirtualNetworkGateway |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Hämta Vpnclient Ipsec parametrar för VirtualNetworkGateway P2S-klient. |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Hämtar URL för en profil för förgenererade VPN-klientpaketet |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/read | Hämtar en VirtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/Reset/Action | Återställer en virtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/resetvpnclientsharedkey/Action | Återställa Vpnclient delad nyckel för VirtualNetworkGateway P2S-klient. |
-> | Åtgärd | Microsoft.Network/virtualnetworkgateways/setvpnclientipsecparameters/Action | Ange Vpnclient Ipsec-parametrarna för VirtualNetworkGateway P2S-klient. |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/reset/action | Återställer en virtualNetworkGateway |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | Återställa Vpnclient delad nyckel för VirtualNetworkGateway P2S-klient. |
+> | Åtgärd | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Ange Vpnclient Ipsec-parametrarna för VirtualNetworkGateway P2S-klient. |
 > | Åtgärd | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Listor stöds Vpn-enheter |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/write | Skapar eller uppdaterar en VirtualNetworkGateway |
 > | Åtgärd | Microsoft.Network/virtualNetworks/BastionHosts/action | Hämtar refrences Skyddsmiljö-värd i ett virtuellt nätverk. |
@@ -3560,9 +3560,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/virtualWans/vpnSites/read | Hämtar alla VPN-platser som refererar till ett virtuellt WAN-nätverk. |
 > | Åtgärd | Microsoft.Network/virtualWans/write | Skapa eller uppdatera ett virtuellt WAN-nätverk |
 > | Åtgärd | Microsoft.Network/vpnGateways/delete | Tar bort en VpnGateway. |
-> | Åtgärd | Microsoft.Network/vpngateways/listvpnconnectionshealth/Action | Hämtar anslutningsstatusen för alla eller en delmängd av anslutningar på en VpnGateway |
+> | Åtgärd | microsoft.network/vpngateways/listvpnconnectionshealth/action | Hämtar anslutningsstatusen för alla eller en delmängd av anslutningar på en VpnGateway |
 > | Åtgärd | Microsoft.Network/vpnGateways/read | Hämtar en VpnGateway. |
-> | Åtgärd | Microsoft.Network/vpngateways/Reset/Action | Återställer en VpnGateway |
+> | Åtgärd | microsoft.network/vpngateways/reset/action | Återställer en VpnGateway |
 > | Åtgärd | microsoft.network/vpnGateways/vpnConnections/delete | Tar bort en VpnConnection. |
 > | Åtgärd | microsoft.network/vpnGateways/vpnConnections/read | Hämtar en VpnConnection. |
 > | Åtgärd | microsoft.network/vpnGateways/vpnConnections/write | Placerar en VpnConnection. |
@@ -3669,7 +3669,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.OperationalInsights/linkTargets/read | Visar en lista över befintliga konton som inte är associerade med en Azure-prenumeration. Använd ett kund-id som returneras av den här åtgärden i kund-id-egenskapen för åtgärden Skapa arbetsyta för att länka Azure-prenumerationen till en arbetsyta. |
-> | Åtgärd | Microsoft.operationalinsights/Operations/Read | Visar en lista över alla tillgängliga OperationalInsights Rest API-åtgärder. |
+> | Åtgärd | microsoft.operationalinsights/operations/read | Visar en lista över alla tillgängliga OperationalInsights Rest API-åtgärder. |
 > | Åtgärd | Microsoft.OperationalInsights/register/action | Registrera en prenumeration på en resursprovider. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med den nya motorn. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Hämta sökschema V2. |
@@ -3860,17 +3860,17 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.operationalinsights/Workspaces/rules/Read | Hämta alla aviseringsregler. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Tar bort en sparad sökfråga |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/savedSearches/read | Hämtar en sparad sökfråga |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Results/Read | Hämta sparade sökningar resultat. Inaktuell |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/delete | Ta bort schemalagd sökåtgärder. |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Read | Få schemalagda sökåtgärder. |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Write | Skapa eller uppdatera schemalagda sökåtgärder. |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/delete | Ta bort schemalagda sökningar. |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Read | Få schemalagda sökningar. |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Write | Skapa eller uppdatera schemalagda sökningar. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/results/read | Hämta sparade sökningar resultat. Inaktuell |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | Ta bort schemalagd sökåtgärder. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | Få schemalagda sökåtgärder. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | Skapa eller uppdatera schemalagda sökåtgärder. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | Ta bort schemalagda sökningar. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | Få schemalagda sökningar. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/savedsearches/schedules/write | Skapa eller uppdatera schemalagda sökningar. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/savedSearches/write | Skapar en sparad sökfråga |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/schema/read | Hämtar sökschemat för arbetsytan.  Sökschemat innehåller de visade fälten och deras typer. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
-> | Åtgärd | Microsoft.operationalinsights/Workspaces/Search/Read | Hämta sökresultaten. Föråldrad. |
+> | Åtgärd | microsoft.operationalinsights/workspaces/search/read | Hämta sökresultaten. Föråldrad. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Hämtar de delade nycklarna för arbetsytan. De här nycklarna används för att ansluta Microsoft Operational Insights-agenter till arbetsytan. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Hämtar de delade nycklarna för arbetsytan. De här nycklarna används för att ansluta Microsoft Operational Insights-agenter till arbetsytan. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | Tar bort en lagringskonfiguration. Detta förhindrar Microsoft Operational Insights från att läsa data från storage-kontot. |
@@ -4625,7 +4625,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/databases/operationResults/read | Hämtar status för en databasåtgärd. |
 > | Åtgärd | Microsoft.Sql/servers/databases/operations/cancel/action | Avbryter Azure SQL Database väntande asynkron åtgärd som inte har slutförts ännu. |
 > | Åtgärd | Microsoft.Sql/servers/databases/operations/read | Returnera listan över åtgärder som utförs på databasen |
-> | Åtgärd | Microsoft.Sql/servers/databases/pause/action | Pausa Azure SQL Datawarehouse-databasen |
+> | Åtgärd | Microsoft.Sql/servers/databases/pause/action | Pause Azure SQL Datawarehouse Database |
 > | Åtgärd | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för databaser |
@@ -5047,7 +5047,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.StreamAnalytics/locations/quotas/Read | Läs Stream Analytics-Prenumerationskvot |
 > | Åtgärd | Microsoft.StreamAnalytics/operations/Read | Läs Stream Analytics-åtgärder |
 > | Åtgärd | Microsoft.StreamAnalytics/Register/action | Registrera prenumeration med Stream Analytics-Resursprovider |
-> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Delete | Ta bort Stream Analytics-jobb |
+> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Delete | Delete Stream Analytics Job |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/functions/Delete | Ta bort Stream Analytics-jobbfunktion |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/functions/operationresults/Read | Läs Åtgärdsresultat för Stream Analytics-jobbfunktion |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/functions/Read | Läs Stream Analytics-jobbfunktion |
@@ -5072,12 +5072,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för streamingjobs |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för streamingjobs |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Read | Läs Stream Analytics-jobb |
-> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Start/action | Starta Stream Analytics-jobbet |
-> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Stop/action | Stoppa Stream Analytics-jobb |
+> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Start/action | Start Stream Analytics Job |
+> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Stop/action | Stop Stream Analytics Job |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/transformations/Delete | Ta bort Stream Analytics-Jobbomvandling |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/transformations/Read | Läs Stream Analytics-Jobbomvandling |
 > | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Skriva Stream Analytics-Jobbomvandling |
-> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Write | Skriva Stream Analytics-jobb |
+> | Åtgärd | Microsoft.StreamAnalytics/streamingjobs/Write | Write Stream Analytics Job |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
@@ -5141,44 +5141,44 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/apiacls/Read | Hämta Apiacls för Api Management-konton. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/apiacls/delete | Ta bort Api Management konton API: er Apiacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/apiacls/Read | Hämta Api Management konton API: er Apiacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/apiacls/Write | Uppdatera Api Management konton API: er Apiacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/connectionacls/Read | Hämta Api Management konton API: er Connectionacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/confirmconsentcode/Action | Bekräfta godkännande kod Api Management-konton-API: er anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/connectionacls/delete | Ta bort Api Management-konton API: er anslutningar Connectionacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/connectionacls/Read | Hämta Api Management-konton API: er anslutningar Connectionacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/connectionacls/Write | Uppdatera Api Management-konton API: er anslutningar Connectionacls. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/delete | Ta bort Api Management-konton API: er-anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/getconsentlinks/Action | Hämta Samtyckeslänkar för Api Management-konton API: er-anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/listconnectionkeys/Action | Lista anslutning nycklar Api Management-konton API: er anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/listsecrets/Action | Lista hemligheter Api Management-konton API: er anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/Read | Hämta Api Management-konton API: er-anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Connections/Write | Uppdatera Api Management-konton API: er-anslutningar. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/delete | Ta bort API: er för Api Management-konton. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/localizeddefinitions/delete | Ta bort Api Management API: er för konton lokaliserade definitioner. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/localizeddefinitions/Read | Hämta Api Management API: er för konton lokaliserade definitioner. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/localizeddefinitions/Write | Uppdatera Api Management-konton API: er lokaliserade definitioner. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Read | Hämta API: er för Api Management-konton. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/Apis/Write | Uppdatera API: er för Api Management-konton. |
-> | Åtgärd | Microsoft.Web/apimanagementaccounts/connectionacls/Read | Hämta Connectionacls för Api Management-konton. |
-> | Åtgärd | Microsoft.Web/availablestacks/Read | Hämta tillgängliga stackar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apiacls/read | Hämta Apiacls för Api Management-konton. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/apiacls/delete | Ta bort Api Management konton API: er Apiacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/apiacls/read | Hämta Api Management konton API: er Apiacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/apiacls/write | Uppdatera Api Management konton API: er Apiacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connectionacls/read | Hämta Api Management konton API: er Connectionacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/confirmconsentcode/action | Bekräfta godkännande kod Api Management-konton-API: er anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/delete | Ta bort Api Management-konton API: er anslutningar Connectionacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/read | Hämta Api Management-konton API: er anslutningar Connectionacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/write | Uppdatera Api Management-konton API: er anslutningar Connectionacls. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/delete | Ta bort Api Management-konton API: er-anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/getconsentlinks/action | Hämta Samtyckeslänkar för Api Management-konton API: er-anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/listconnectionkeys/action | Lista anslutning nycklar Api Management-konton API: er anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/listsecrets/action | Lista hemligheter Api Management-konton API: er anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/read | Hämta Api Management-konton API: er-anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/connections/write | Uppdatera Api Management-konton API: er-anslutningar. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/delete | Ta bort API: er för Api Management-konton. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/delete | Ta bort Api Management API: er för konton lokaliserade definitioner. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/read | Hämta Api Management API: er för konton lokaliserade definitioner. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/write | Uppdatera Api Management-konton API: er lokaliserade definitioner. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/read | Hämta API: er för Api Management-konton. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/apis/write | Uppdatera API: er för Api Management-konton. |
+> | Åtgärd | microsoft.web/apimanagementaccounts/connectionacls/read | Hämta Connectionacls för Api Management-konton. |
+> | Åtgärd | microsoft.web/availablestacks/read | Hämta tillgängliga stackar. |
 > | Åtgärd | Microsoft.Web/certificates/Delete | Ta bort ett befintligt certifikat. |
 > | Åtgärd | Microsoft.Web/certificates/Read | Hämta listan över certifikat. |
 > | Åtgärd | Microsoft.Web/certificates/Write | Lägg till ett nytt certifikat eller uppdatera en befintlig. |
-> | Åtgärd | Microsoft.Web/checknameavailability/Read | Kontrollera om resursnamnet är tillgängligt. |
-> | Åtgärd | Microsoft.Web/classicmobileservices/Read | Hämta klassiska mobila tjänster. |
+> | Åtgärd | microsoft.web/checknameavailability/read | Kontrollera om resursnamnet är tillgängligt. |
+> | Åtgärd | microsoft.web/classicmobileservices/read | Hämta klassiska mobila tjänster. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Delete | Tar bort en Gateway för anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Join/Action | Ansluter till en Gateway för anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/ListStatus/Action | Visar status för en Gateway-anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Move/Action | Flyttar en Gateway för anslutning. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Read | Hämta listan över gatewayer för anslutningen. |
 > | Åtgärd | Microsoft.Web/connectionGateways/Write | Skapar eller uppdaterar en Gateway-anslutning. |
-> | Åtgärd | Microsoft.Web/Connections/confirmconsentcode/Action | Bekräfta anslutningar medgivande kod. |
+> | Åtgärd | microsoft.web/connections/confirmconsentcode/action | Bekräfta anslutningar medgivande kod. |
 > | Åtgärd | Microsoft.Web/connections/Delete | Tar bort en anslutning. |
 > | Åtgärd | Microsoft.Web/connections/Join/Action | Ansluter till en anslutning. |
-> | Åtgärd | Microsoft.Web/Connections/listconsentlinks/Action | Lista Samtyckeslänkar för anslutningar. |
+> | Åtgärd | microsoft.web/connections/listconsentlinks/action | Lista Samtyckeslänkar för anslutningar. |
 > | Åtgärd | Microsoft.Web/connections/Move/Action | Flyttar en anslutning. |
 > | Åtgärd | Microsoft.Web/connections/Read | Hämta listan över anslutningar. |
 > | Åtgärd | Microsoft.Web/connections/Write | Skapar eller uppdaterar en anslutning. |
@@ -5190,338 +5190,338 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/customApis/Read | Hämta listan över anpassade API: et. |
 > | Åtgärd | Microsoft.Web/customApis/Write | Skapar eller uppdaterar ett anpassat API. |
 > | Åtgärd | Microsoft.Web/deletedSites/Read | Hämta egenskaperna för en Webbapp som har tagits bort |
-> | Åtgärd | Microsoft.Web/deploymentlocations/Read | Hämta distribution platser. |
+> | Åtgärd | microsoft.web/deploymentlocations/read | Hämta distribution platser. |
 > | Åtgärd | Microsoft.Web/geoRegions/Read | Hämta listan över geografiska regionerna. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/capacities/Read | Hämta som är värd för miljöer kapaciteter. |
+> | Åtgärd | microsoft.web/hostingenvironments/capacities/read | Hämta som är värd för miljöer kapaciteter. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/Delete | Ta bort en App Service Environment |
-> | Åtgärd | Microsoft.Web/hostingenvironments/detectors/Read | Hämta som är värd för miljöer detektorerna. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/Diagnostics/Read | Hämta som är värd för miljöer diagnostik. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/inboundnetworkdependenciesendpoints/Read | Hämta nätverksslutpunkter av alla inkommande beroenden. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/metricdefinitions/Read | Hämta som är värd för definitioner av mätvärden för miljöer. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/multirolepools/metricdefinitions/Read | Hämta som är värd för miljöer definitioner av mätvärden för flera roller pooler. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/multirolepools/Metrics/Read | Hämta som är värd för miljöer flera roller pooler mått. |
+> | Åtgärd | microsoft.web/hostingenvironments/detectors/read | Hämta som är värd för miljöer detektorerna. |
+> | Åtgärd | microsoft.web/hostingenvironments/diagnostics/read | Hämta som är värd för miljöer diagnostik. |
+> | Åtgärd | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | Hämta nätverksslutpunkter av alla inkommande beroenden. |
+> | Åtgärd | microsoft.web/hostingenvironments/metricdefinitions/read | Hämta som är värd för definitioner av mätvärden för miljöer. |
+> | Åtgärd | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Hämta som är värd för miljöer definitioner av mätvärden för flera roller pooler. |
+> | Åtgärd | microsoft.web/hostingenvironments/multirolepools/metrics/read | Hämta som är värd för miljöer flera roller pooler mått. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/multiRolePools/Read | Hämta egenskaperna för en adresspool på klientdelen i en App Service Environment |
-> | Åtgärd | Microsoft.Web/hostingenvironments/multirolepools/skus/Read | Hämta som är värd för miljöer flera roller pooler SKU: er. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/multirolepools/usages/Read | Hämta som är värd för miljöer flera roller pooler användningar. |
+> | Åtgärd | microsoft.web/hostingenvironments/multirolepools/skus/read | Hämta som är värd för miljöer flera roller pooler SKU: er. |
+> | Åtgärd | microsoft.web/hostingenvironments/multirolepools/usages/read | Hämta som är värd för miljöer flera roller pooler användningar. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/multiRolePools/Write | Skapa en ny adresspool på klientdelen i en App Service Environment eller uppdatera en befintlig |
-> | Åtgärd | Microsoft.Web/hostingenvironments/Operations/Read | Hämta som är värd Operations miljöer. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/outboundnetworkdependenciesendpoints/Read | Hämta nätverksslutpunkter alla utgående beroenden. |
+> | Åtgärd | microsoft.web/hostingenvironments/operations/read | Hämta som är värd Operations miljöer. |
+> | Åtgärd | microsoft.web/hostingenvironments/outboundnetworkdependenciesendpoints/read | Hämta nätverksslutpunkter alla utgående beroenden. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/Read | Hämta egenskaperna för en App Service Environment |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/reboot/Action | Starta om alla datorer i en App Service Environment |
-> | Åtgärd | Microsoft.Web/hostingenvironments/Resume/Action | Återuppta värdmiljöer. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/serverfarms/Read | Hämta som är värd för miljöer App Service-planer. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/Sites/Read | Hämta som är värd för Webbappar miljöer. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/suspend/Action | Pausa värdmiljöer. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/usages/Read | Hämta som är värd för miljöer användningar. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/workerpools/metricdefinitions/Read | Hämta som är värd för miljöer Workerpools Måttdefinitioner. |
+> | Åtgärd | microsoft.web/hostingenvironments/resume/action | Återuppta värdmiljöer. |
+> | Åtgärd | microsoft.web/hostingenvironments/serverfarms/read | Hämta som är värd för miljöer App Service-planer. |
+> | Åtgärd | microsoft.web/hostingenvironments/sites/read | Hämta som är värd för Webbappar miljöer. |
+> | Åtgärd | microsoft.web/hostingenvironments/suspend/action | Pausa värdmiljöer. |
+> | Åtgärd | microsoft.web/hostingenvironments/usages/read | Hämta som är värd för miljöer användningar. |
+> | Åtgärd | microsoft.web/hostingenvironments/workerpools/metricdefinitions/read | Hämta som är värd för miljöer Workerpools Måttdefinitioner. |
 > | Åtgärd | Microsoft.Web/hostingenvironments/workerpools/Metrics/Read | Hämta som är värd för miljöer Workerpools mått. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/workerPools/Read | Hämta egenskaperna för en Arbetarpool i en App Service Environment |
-> | Åtgärd | Microsoft.Web/hostingenvironments/workerpools/skus/Read | Hämta som är värd för miljöer Workerpools SKU: er. |
-> | Åtgärd | Microsoft.Web/hostingenvironments/workerpools/usages/Read | Hämta som är värd för miljöer Workerpools användningar. |
+> | Åtgärd | microsoft.web/hostingenvironments/workerpools/skus/read | Hämta som är värd för miljöer Workerpools SKU: er. |
+> | Åtgärd | microsoft.web/hostingenvironments/workerpools/usages/read | Hämta som är värd för miljöer Workerpools användningar. |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/workerPools/Write | Skapa en ny Arbetarpool i en App Service Environment eller uppdatera en befintlig |
 > | Åtgärd | Microsoft.Web/hostingEnvironments/Write | Skapa en ny App Service Environment eller uppdatera befintlig |
-> | Åtgärd | Microsoft.Web/ishostingenvironmentnameavailable/Read | Få om namnet som är värd för miljön är tillgänglig. |
-> | Åtgärd | Microsoft.Web/ishostnameavailable/Read | Kontrollera om värdnamnet är tillgänglig. |
-> | Åtgärd | Microsoft.Web/isusernameavailable/Read | Kontrollera om användarnamnet är tillgängligt. |
+> | Åtgärd | microsoft.web/ishostingenvironmentnameavailable/read | Få om namnet som är värd för miljön är tillgänglig. |
+> | Åtgärd | microsoft.web/ishostnameavailable/read | Kontrollera om värdnamnet är tillgänglig. |
+> | Åtgärd | microsoft.web/isusernameavailable/read | Kontrollera om användarnamnet är tillgängligt. |
 > | Åtgärd | Microsoft.Web/listSitesAssignedToHostName/Read | Hämta namnen på webbplatser tilldelade till värdnamn. |
-> | Åtgärd | Microsoft.Web/Locations/apioperations/Read | Hämta platser API-åtgärder. |
-> | Åtgärd | Microsoft.Web/Locations/connectiongatewayinstallations/Read | Hämta platser anslutningen Gateway-installationer. |
+> | Åtgärd | microsoft.web/locations/apioperations/read | Hämta platser API-åtgärder. |
+> | Åtgärd | microsoft.web/locations/connectiongatewayinstallations/read | Hämta platser anslutningen Gateway-installationer. |
 > | Åtgärd | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | Virtuellt nätverk eller undernät borttagning av meddelande för platser. |
-> | Åtgärd | Microsoft.Web/Locations/extractapidefinitionfromwsdl/Action | Extrahera Api-Definition från WSDL för platser. |
-> | Åtgärd | Microsoft.Web/Locations/listwsdlinterfaces/Action | Visa WSDL-gränssnitt för platser. |
-> | Åtgärd | Microsoft.Web/Locations/managedapis/apioperations/Read | Hämta platser hanterade API-åtgärder. |
+> | Åtgärd | microsoft.web/locations/extractapidefinitionfromwsdl/action | Extrahera Api-Definition från WSDL för platser. |
+> | Åtgärd | microsoft.web/locations/listwsdlinterfaces/action | Visa WSDL-gränssnitt för platser. |
+> | Åtgärd | microsoft.web/locations/managedapis/apioperations/read | Hämta platser hanterade API-åtgärder. |
 > | Åtgärd | Microsoft.Web/locations/managedapis/Join/Action | Ansluter till en hanterad API. |
-> | Åtgärd | Microsoft.Web/Locations/managedapis/Read | Hämta platser hanterade API: er. |
-> | Åtgärd | Microsoft.Web/Operations/Read | Hämta åtgärder. |
-> | Åtgärd | Microsoft.Web/publishingusers/Read | Hämta publicera användare. |
-> | Åtgärd | Microsoft.Web/publishingusers/Write | Uppdatera publicerar användare. |
+> | Åtgärd | microsoft.web/locations/managedapis/read | Hämta platser hanterade API: er. |
+> | Åtgärd | microsoft.web/operations/read | Hämta åtgärder. |
+> | Åtgärd | microsoft.web/publishingusers/read | Hämta publicera användare. |
+> | Åtgärd | microsoft.web/publishingusers/write | Uppdatera publicerar användare. |
 > | Åtgärd | Microsoft.Web/recommendations/Read | Hämta lista över rekommendationer för prenumerationer. |
-> | Åtgärd | Microsoft.Web/register/Action | Registrera resursprovidern för Microsoft.Web för prenumerationen. |
-> | Åtgärd | Microsoft.Web/resourcehealthmetadata/Read | Hämta Resource Health Metadata. |
-> | Åtgärd | Microsoft.Web/serverfarms/Capabilities/Read | Hämta funktioner för App Service-planer. |
+> | Åtgärd | microsoft.web/register/action | Registrera resursprovidern för Microsoft.Web för prenumerationen. |
+> | Åtgärd | microsoft.web/resourcehealthmetadata/read | Get Resource Health Metadata. |
+> | Åtgärd | microsoft.web/serverfarms/capabilities/read | Hämta funktioner för App Service-planer. |
 > | Åtgärd | Microsoft.Web/serverfarms/Delete | Ta bort en befintlig App Service-Plan |
-> | Åtgärd | Microsoft.Web/serverfarms/firstpartyapps/Settings/delete | Ta bort App Service-planer första part appar-inställningarna. |
-> | Åtgärd | Microsoft.Web/serverfarms/firstpartyapps/Settings/Read | Hämta App Service-planer första part appar inställningar. |
-> | Åtgärd | Microsoft.Web/serverfarms/firstpartyapps/Settings/Write | Uppdatera App Service-planer första part appar inställningar. |
-> | Åtgärd | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/delete | Ta bort App Service-planer Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/Read | Hämta App Service-planer Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/Sites/Read | Hämta App Service-planer Hybrid anslutning namnområden reläer Web Apps. |
-> | Åtgärd | Microsoft.Web/serverfarms/hybridconnectionplanlimits/Read | Hämta Plan för App Service-planer Hybrid anslutningsgräns. |
-> | Åtgärd | Microsoft.Web/serverfarms/hybridconnectionrelays/Read | Hämta App Service-planer Hybrid anslutning reläer. |
-> | Åtgärd | Microsoft.Web/serverfarms/metricdefinitions/Read | Hämta Måttdefinitioner för App Service-planer. |
-> | Åtgärd | Microsoft.Web/serverfarms/Metrics/Read | Hämta mått för App Service-planer. |
-> | Åtgärd | Microsoft.Web/serverfarms/operationresults/Read | Hämta Åtgärdsresultat för App Service-planer. |
+> | Åtgärd | microsoft.web/serverfarms/firstpartyapps/settings/delete | Ta bort App Service-planer första part appar-inställningarna. |
+> | Åtgärd | microsoft.web/serverfarms/firstpartyapps/settings/read | Hämta App Service-planer första part appar inställningar. |
+> | Åtgärd | microsoft.web/serverfarms/firstpartyapps/settings/write | Uppdatera App Service-planer första part appar inställningar. |
+> | Åtgärd | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | Ta bort App Service-planer Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | Hämta App Service-planer Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | Hämta App Service-planer Hybrid anslutning namnområden reläer Web Apps. |
+> | Åtgärd | microsoft.web/serverfarms/hybridconnectionplanlimits/read | Hämta Plan för App Service-planer Hybrid anslutningsgräns. |
+> | Åtgärd | microsoft.web/serverfarms/hybridconnectionrelays/read | Hämta App Service-planer Hybrid anslutning reläer. |
+> | Åtgärd | microsoft.web/serverfarms/metricdefinitions/read | Hämta Måttdefinitioner för App Service-planer. |
+> | Åtgärd | microsoft.web/serverfarms/metrics/read | Hämta mått för App Service-planer. |
+> | Åtgärd | microsoft.web/serverfarms/operationresults/read | Hämta Åtgärdsresultat för App Service-planer. |
 > | Åtgärd | Microsoft.Web/serverfarms/Read | Visa egenskaperna för en App Service Plan |
 > | Åtgärd | Microsoft.Web/serverfarms/restartSites/Action | Starta om alla webbprogram i en App Service Plan |
-> | Åtgärd | Microsoft.Web/serverfarms/Sites/Read | Hämta App Service-planer Web Apps. |
-> | Åtgärd | Microsoft.Web/serverfarms/skus/Read | Hämta SKU: er för App Service-planer. |
-> | Åtgärd | Microsoft.Web/serverfarms/usages/Read | Hämta App Service-planer användningar. |
-> | Åtgärd | Microsoft.Web/serverfarms/virtualnetworkconnections/gateways/Write | Uppdatera App Service-planer Vnet-anslutningar Gateways. |
-> | Åtgärd | Microsoft.Web/serverfarms/virtualnetworkconnections/Read | Hämta virtuella nätverksanslutningar för App Service-planer. |
-> | Åtgärd | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/delete | Ta bort vägar för anslutningar i App Service-planer virtuella nätverk. |
-> | Åtgärd | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/Read | Hämta vägar för anslutningar i App Service-planer virtuella nätverk. |
-> | Åtgärd | Microsoft.Web/serverfarms/virtualnetworkconnections/routes/Write | Uppdatera vägar för anslutningar i App Service-planer virtuella nätverk. |
-> | Åtgärd | Microsoft.Web/serverfarms/Workers/reboot/Action | Starta om App Service-planer arbetare. |
+> | Åtgärd | microsoft.web/serverfarms/sites/read | Hämta App Service-planer Web Apps. |
+> | Åtgärd | microsoft.web/serverfarms/skus/read | Hämta SKU: er för App Service-planer. |
+> | Åtgärd | microsoft.web/serverfarms/usages/read | Hämta App Service-planer användningar. |
+> | Åtgärd | microsoft.web/serverfarms/virtualnetworkconnections/gateways/write | Uppdatera App Service-planer Vnet-anslutningar Gateways. |
+> | Åtgärd | microsoft.web/serverfarms/virtualnetworkconnections/read | Hämta virtuella nätverksanslutningar för App Service-planer. |
+> | Åtgärd | microsoft.web/serverfarms/virtualnetworkconnections/routes/delete | Ta bort vägar för anslutningar i App Service-planer virtuella nätverk. |
+> | Åtgärd | microsoft.web/serverfarms/virtualnetworkconnections/routes/read | Hämta vägar för anslutningar i App Service-planer virtuella nätverk. |
+> | Åtgärd | microsoft.web/serverfarms/virtualnetworkconnections/routes/write | Uppdatera vägar för anslutningar i App Service-planer virtuella nätverk. |
+> | Åtgärd | microsoft.web/serverfarms/workers/reboot/action | Starta om App Service-planer arbetare. |
 > | Åtgärd | Microsoft.Web/serverfarms/Write | Skapa en ny App Service-Plan eller uppdatera en befintlig |
-> | Åtgärd | Microsoft.Web/Sites/analyzecustomhostname/Read | Analysera anpassade värdnamnet. |
+> | Åtgärd | microsoft.web/sites/analyzecustomhostname/read | Analysera anpassade värdnamnet. |
 > | Åtgärd | Microsoft.Web/sites/applySlotConfig/Action | Tillämpa web app platskonfigurationen från målplatsen till aktuella webbappen |
 > | Åtgärd | Microsoft.Web/sites/backup/Action | Skapa en ny säkerhetskopia av web app |
-> | Åtgärd | Microsoft.Web/Sites/Backup/Read | Hämta säkerhetskopiering av Webbappar. |
-> | Åtgärd | Microsoft.Web/Sites/Backup/Write | Uppdatera säkerhetskopiering av Webbappar. |
+> | Åtgärd | microsoft.web/sites/backup/read | Hämta säkerhetskopiering av Webbappar. |
+> | Åtgärd | microsoft.web/sites/backup/write | Uppdatera säkerhetskopiering av Webbappar. |
 > | Åtgärd | Microsoft.Web/Sites/Backups/Action | Identifierar en befintlig säkerhetskopia av appen som kan återställas från en blob i Azure storage. |
-> | Åtgärd | Microsoft.Web/Sites/Backups/delete | Ta bort säkerhetskopierade Webbappar. |
+> | Åtgärd | microsoft.web/sites/backups/delete | Ta bort säkerhetskopierade Webbappar. |
 > | Åtgärd | Microsoft.Web/Sites/Backups/List/Action | Lista säkerhetskopierade Webbappar. |
 > | Åtgärd | Microsoft.Web/sites/backups/Read | Hämta egenskaperna för en webbapp-säkerhetskopiering |
 > | Åtgärd | Microsoft.Web/Sites/Backups/Restore/Action | Återställ säkerhetskopierade Webbappar. |
 > | Åtgärd | Microsoft.Web/Sites/Backups/Write | Uppdatera säkerhetskopierade Webbappar. |
-> | Åtgärd | Microsoft.Web/Sites/config/delete | Ta bort appar Webbkonfiguration. |
+> | Åtgärd | microsoft.web/sites/config/delete | Ta bort appar Webbkonfiguration. |
 > | Åtgärd | Microsoft.Web/sites/config/list/Action | Lista över Web App säkerhet känsliga inställningar, till exempel publicering av autentiseringsuppgifter, appinställningar och anslutningssträngar |
 > | Åtgärd | Microsoft.Web/sites/config/Read | Hämta inställningar för Web App |
-> | Åtgärd | Microsoft.Web/Sites/config/Snapshots/Read | Hämta ögonblicksbilder för Web Apps-konfiguration. |
+> | Åtgärd | microsoft.web/sites/config/snapshots/read | Hämta ögonblicksbilder för Web Apps-konfiguration. |
 > | Åtgärd | Microsoft.Web/sites/config/Write | Uppdatera inställningar för Web App |
-> | Åtgärd | Microsoft.Web/Sites/containerlogs/Action | Hämta zippade Behållarloggarna för Webbapp. |
-> | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/delete | Ta bort Webbjobb för Web Apps kontinuerlig. |
-> | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/Read | Få kontinuerlig Webbjobb för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/Start/Action | Starta Webbjobb för Web Apps kontinuerlig. |
-> | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/stop/Action | Stoppa Webbjobb för Web Apps kontinuerlig. |
+> | Åtgärd | microsoft.web/sites/containerlogs/action | Hämta zippade Behållarloggarna för Webbapp. |
+> | Åtgärd | microsoft.web/sites/continuouswebjobs/delete | Ta bort Webbjobb för Web Apps kontinuerlig. |
+> | Åtgärd | microsoft.web/sites/continuouswebjobs/read | Få kontinuerlig Webbjobb för Web Apps. |
+> | Åtgärd | microsoft.web/sites/continuouswebjobs/start/action | Starta Webbjobb för Web Apps kontinuerlig. |
+> | Åtgärd | microsoft.web/sites/continuouswebjobs/stop/action | Stoppa Webbjobb för Web Apps kontinuerlig. |
 > | Åtgärd | Microsoft.Web/sites/Delete | Ta bort en befintlig Webbapp |
-> | Åtgärd | Microsoft.Web/Sites/Deployments/delete | Ta bort Web Apps-distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/Deployments/log/Read | Hämta Web Apps distributioner Log. |
-> | Åtgärd | Microsoft.Web/Sites/Deployments/Read | Hämta Web Apps-distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/Deployments/Write | Web Apps distributioner av uppdatering. |
-> | Åtgärd | Microsoft.Web/Sites/detectors/Read | Hämta detektorer för Web Apps. |
+> | Åtgärd | microsoft.web/sites/deployments/delete | Ta bort Web Apps-distributioner. |
+> | Åtgärd | microsoft.web/sites/deployments/log/read | Hämta Web Apps distributioner Log. |
+> | Åtgärd | microsoft.web/sites/deployments/read | Hämta Web Apps-distributioner. |
+> | Åtgärd | microsoft.web/sites/deployments/write | Web Apps distributioner av uppdatering. |
+> | Åtgärd | microsoft.web/sites/detectors/read | Hämta detektorer för Web Apps. |
 > | Åtgärd | microsoft.web/sites/diagnostics/analyses/execute/Action | Kör Web Apps diagnostik analys. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/analyses/Read | Hämta Web Apps diagnostik analys. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/aspnetcore/Read | Hämta Web Apps diagnostik för ASP.NET Core-app. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/autoheal/Read | Hämta Web Apps diagnostik Autoheal. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/Deployment/Read | Hämta appar diagnostik för webbdistribution. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/Deployments/Read | Hämta Web Apps diagnostik distributioner. |
+> | Åtgärd | microsoft.web/sites/diagnostics/analyses/read | Hämta Web Apps diagnostik analys. |
+> | Åtgärd | microsoft.web/sites/diagnostics/aspnetcore/read | Hämta Web Apps diagnostik för ASP.NET Core-app. |
+> | Åtgärd | microsoft.web/sites/diagnostics/autoheal/read | Hämta Web Apps diagnostik Autoheal. |
+> | Åtgärd | microsoft.web/sites/diagnostics/deployment/read | Hämta appar diagnostik för webbdistribution. |
+> | Åtgärd | microsoft.web/sites/diagnostics/deployments/read | Hämta Web Apps diagnostik distributioner. |
 > | Åtgärd | microsoft.web/sites/diagnostics/detectors/execute/Action | Köra Web Apps diagnostik detektor. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/detectors/Read | Hämta Web Apps diagnostik detektor. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/failedrequestsperuri/Read | Hämta Web Apps diagnostik misslyckade förfrågningar Per Uri. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/frebanalysis/Read | Hämta Web Apps diagnostik FREB analys. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/loganalyzer/Read | Hämta Web Apps diagnostik Log Analyzer. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/Read | Hämta Web Apps diagnostik kategorier. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/runtimeavailability/Read | Få Web Apps diagnostik Runtime tillgänglighet. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/servicehealth/Read | Hämta Tjänstehälsa för Web Apps-diagnostik. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/sitecpuanalysis/Read | Hämta Web Apps diagnostik plats CPU analys. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/sitecrashes/Read | Hämta Web Apps diagnostik plats kraschar. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/sitelatency/Read | Hämta svarstid för Web Apps diagnostik webbplats. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/sitememoryanalysis/Read | Hämta Minnesanalyser för Web Apps diagnostik plats. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/siterestartsettingupdate/Read | Hämta Web Apps diagnostik plats omstart inställningen Update. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/siterestartuserinitiated/Read | Hämta Web Apps diagnostik plats omstart användarinitierad. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/siteswap/Read | Hämta Web Apps diagnostik plats växling. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/ThreadCount/Read | Hämta Trådantalet för Web Apps-diagnostik. |
+> | Åtgärd | microsoft.web/sites/diagnostics/detectors/read | Hämta Web Apps diagnostik detektor. |
+> | Åtgärd | microsoft.web/sites/diagnostics/failedrequestsperuri/read | Hämta Web Apps diagnostik misslyckade förfrågningar Per Uri. |
+> | Åtgärd | microsoft.web/sites/diagnostics/frebanalysis/read | Hämta Web Apps diagnostik FREB analys. |
+> | Åtgärd | microsoft.web/sites/diagnostics/loganalyzer/read | Hämta Web Apps diagnostik Log Analyzer. |
+> | Åtgärd | microsoft.web/sites/diagnostics/read | Hämta Web Apps diagnostik kategorier. |
+> | Åtgärd | microsoft.web/sites/diagnostics/runtimeavailability/read | Få Web Apps diagnostik Runtime tillgänglighet. |
+> | Åtgärd | microsoft.web/sites/diagnostics/servicehealth/read | Hämta Tjänstehälsa för Web Apps-diagnostik. |
+> | Åtgärd | microsoft.web/sites/diagnostics/sitecpuanalysis/read | Hämta Web Apps diagnostik plats CPU analys. |
+> | Åtgärd | microsoft.web/sites/diagnostics/sitecrashes/read | Hämta Web Apps diagnostik plats kraschar. |
+> | Åtgärd | microsoft.web/sites/diagnostics/sitelatency/read | Hämta svarstid för Web Apps diagnostik webbplats. |
+> | Åtgärd | microsoft.web/sites/diagnostics/sitememoryanalysis/read | Hämta Minnesanalyser för Web Apps diagnostik plats. |
+> | Åtgärd | microsoft.web/sites/diagnostics/siterestartsettingupdate/read | Hämta Web Apps diagnostik plats omstart inställningen Update. |
+> | Åtgärd | microsoft.web/sites/diagnostics/siterestartuserinitiated/read | Hämta Web Apps diagnostik plats omstart användarinitierad. |
+> | Åtgärd | microsoft.web/sites/diagnostics/siteswap/read | Hämta Web Apps diagnostik plats växling. |
+> | Åtgärd | microsoft.web/sites/diagnostics/threadcount/read | Hämta Trådantalet för Web Apps-diagnostik. |
 > | Åtgärd | Microsoft.Web/Sites/Diagnostics/workeravailability/Read | Hämta Web Apps diagnostik Workeravailability. |
-> | Åtgärd | Microsoft.Web/Sites/Diagnostics/workerprocessrecycle/Read | Hämta Web Apps diagnostik Worker omarbetning av processen. |
-> | Åtgärd | Microsoft.Web/Sites/domainownershipidentifiers/Read | Få ägarskap identifierare för Web Apps-domän. |
-> | Åtgärd | Microsoft.Web/Sites/domainownershipidentifiers/Write | Uppdatera Web Apps-domän ägarskap identifierare. |
-> | Åtgärd | Microsoft.Web/Sites/Functions/Action | Functions-Webbappar. |
-> | Åtgärd | Microsoft.Web/Sites/Functions/delete | Ta bort Web Apps-funktioner. |
-> | Åtgärd | Microsoft.Web/Sites/Functions/listsecrets/Action | Lista hemligheter Web Apps-funktioner. |
+> | Åtgärd | microsoft.web/sites/diagnostics/workerprocessrecycle/read | Hämta Web Apps diagnostik Worker omarbetning av processen. |
+> | Åtgärd | microsoft.web/sites/domainownershipidentifiers/read | Få ägarskap identifierare för Web Apps-domän. |
+> | Åtgärd | microsoft.web/sites/domainownershipidentifiers/write | Uppdatera Web Apps-domän ägarskap identifierare. |
+> | Åtgärd | microsoft.web/sites/functions/action | Functions-Webbappar. |
+> | Åtgärd | microsoft.web/sites/functions/delete | Ta bort Web Apps-funktioner. |
+> | Åtgärd | microsoft.web/sites/functions/listsecrets/action | Lista hemligheter Web Apps-funktioner. |
 > | Åtgärd | Microsoft.Web/Sites/Functions/masterkey/Read | Hämta Masterkey för Web Apps-funktioner. |
 > | Åtgärd | Microsoft.Web/Sites/Functions/Read | Hämta Web Apps-funktioner. |
 > | Åtgärd | Microsoft.Web/Sites/Functions/token/Read | Hämta Web Apps funktioner Token. |
 > | Åtgärd | Microsoft.Web/Sites/Functions/Write | Uppdatera Web Apps-funktioner. |
-> | Åtgärd | Microsoft.Web/Sites/hostnamebindings/delete | Ta bort Värdnamnsbindningar för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/hostnamebindings/Read | Hämta Värdnamnsbindningar för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/hostnamebindings/Write | Uppdatera Värdnamnsbindningar för Web Apps. |
+> | Åtgärd | microsoft.web/sites/hostnamebindings/delete | Ta bort Värdnamnsbindningar för Web Apps. |
+> | Åtgärd | microsoft.web/sites/hostnamebindings/read | Hämta Värdnamnsbindningar för Web Apps. |
+> | Åtgärd | microsoft.web/sites/hostnamebindings/write | Uppdatera Värdnamnsbindningar för Web Apps. |
 > | Åtgärd | Microsoft.Web/sites/hostruntime/host/_master/read | Hämta Funktionsappens huvudnyckeln för administratörsåtgärder |
 > | Åtgärd | Microsoft.Web/sites/hostruntime/host/action | Utföra Funktionsapp runtime åtgärd som synkronisera utlösare, Lägg till funktioner, anropa funktioner, ta bort funktioner osv. |
 > | Åtgärd | Microsoft.Web/Sites/hybridconnection/delete | Ta bort Hybridanslutningen för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/hybridconnection/Read | Hämta Hybridanslutning för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/hybridconnection/Write | Uppdatera Hybridanslutning för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/delete | Ta bort Web Apps Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/listkeys/Action | Lista nycklar Web Apps Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/sites/hybridconnection/read | Hämta Hybridanslutning för Web Apps. |
+> | Åtgärd | microsoft.web/sites/hybridconnection/write | Uppdatera Hybridanslutning för Web Apps. |
+> | Åtgärd | microsoft.web/sites/hybridconnectionnamespaces/relays/delete | Ta bort Web Apps Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/sites/hybridconnectionnamespaces/relays/listkeys/action | Lista nycklar Web Apps Hybrid anslutning namnområden reläer. |
 > | Åtgärd | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/Read | Hämta Web Apps Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/Write | Uppdatera webb Apps Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/Sites/hybridconnectionrelays/Read | Hämta Web Apps Hybrid anslutning reläer. |
-> | Åtgärd | Microsoft.Web/Sites/instances/Deployments/delete | Ta bort Web Apps instanser distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/instances/Deployments/Read | Hämta Web Apps instanser distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/instances/Extensions/log/Read | Hämta Web Apps instanser tillägg Log. |
-> | Åtgärd | Microsoft.Web/Sites/instances/Extensions/Read | Hämta tillägg för Web Apps instanser. |
-> | Åtgärd | Microsoft.Web/Sites/instances/processes/delete | Ta bort Web Apps instanser processer. |
-> | Åtgärd | Microsoft.Web/Sites/instances/processes/Read | Hämta Web Apps instanser processer. |
+> | Åtgärd | microsoft.web/sites/hybridconnectionnamespaces/relays/write | Uppdatera webb Apps Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/sites/hybridconnectionrelays/read | Hämta Web Apps Hybrid anslutning reläer. |
+> | Åtgärd | microsoft.web/sites/instances/deployments/delete | Ta bort Web Apps instanser distributioner. |
+> | Åtgärd | microsoft.web/sites/instances/deployments/read | Hämta Web Apps instanser distributioner. |
+> | Åtgärd | microsoft.web/sites/instances/extensions/log/read | Hämta Web Apps instanser tillägg Log. |
+> | Åtgärd | microsoft.web/sites/instances/extensions/read | Hämta tillägg för Web Apps instanser. |
+> | Åtgärd | microsoft.web/sites/instances/processes/delete | Ta bort Web Apps instanser processer. |
+> | Åtgärd | microsoft.web/sites/instances/processes/read | Hämta Web Apps instanser processer. |
 > | Åtgärd | Microsoft.Web/Sites/instances/processes/threads/Read | Hämta Web Apps instanser processer trådar. |
-> | Åtgärd | Microsoft.Web/Sites/instances/Read | Hämta instanser för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/listsyncfunctiontriggerstatus/Action | Lista synkronisering funktionen utlösaren Status Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/metricdefinitions/Read | Hämta Måttdefinitioner för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/Metrics/Read | Hämta Web Apps mått. |
-> | Åtgärd | Microsoft.Web/Sites/metricsdefinitions/Read | Hämta Måttdefinitioner för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/migratemysql/Action | Migrera MySql Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/migratemysql/Read | Hämta Web Apps migrera MySql. |
-> | Åtgärd | Microsoft.Web/Sites/networktrace/Action | Nätverket Trace Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/NewPassword/Action | Nytt lösenord Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/operationresults/Read | Hämta Åtgärdsresultat för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/Operations/Read | Hämta åtgärder för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/perfcounters/Read | Få prestandaräknare för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/premieraddons/delete | Ta bort Premier-tillägg för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/premieraddons/Read | Hämta Web Apps Premier-tillägg. |
-> | Åtgärd | Microsoft.Web/Sites/premieraddons/Write | Uppdatera webb Apps Premier-tillägg. |
-> | Åtgärd | Microsoft.Web/Sites/privateaccess/Read | Hämta data om privat plats åtkomst aktivering och auktoriserade virtuella nätverk som har åtkomst till webbplatsen. |
-> | Åtgärd | Microsoft.Web/Sites/processes/Read | Hämta processer för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/publiccertificates/delete | Ta bort Web Apps offentliga certifikat. |
-> | Åtgärd | Microsoft.Web/Sites/publiccertificates/Read | Hämta Web Apps offentliga certifikat. |
-> | Åtgärd | Microsoft.Web/Sites/publiccertificates/Write | Uppdatera webb Apps offentliga certifikat. |
+> | Åtgärd | microsoft.web/sites/instances/read | Hämta instanser för Web Apps. |
+> | Åtgärd | microsoft.web/sites/listsyncfunctiontriggerstatus/action | Lista synkronisering funktionen utlösaren Status Web Apps. |
+> | Åtgärd | microsoft.web/sites/metricdefinitions/read | Hämta Måttdefinitioner för Web Apps. |
+> | Åtgärd | microsoft.web/sites/metrics/read | Hämta Web Apps mått. |
+> | Åtgärd | microsoft.web/sites/metricsdefinitions/read | Hämta Måttdefinitioner för Web Apps. |
+> | Åtgärd | microsoft.web/sites/migratemysql/action | Migrera MySql Web Apps. |
+> | Åtgärd | microsoft.web/sites/migratemysql/read | Hämta Web Apps migrera MySql. |
+> | Åtgärd | microsoft.web/sites/networktrace/action | Nätverket Trace Web Apps. |
+> | Åtgärd | microsoft.web/sites/newpassword/action | Nytt lösenord Web Apps. |
+> | Åtgärd | microsoft.web/sites/operationresults/read | Hämta Åtgärdsresultat för Web Apps. |
+> | Åtgärd | microsoft.web/sites/operations/read | Hämta åtgärder för Web Apps. |
+> | Åtgärd | microsoft.web/sites/perfcounters/read | Få prestandaräknare för Web Apps. |
+> | Åtgärd | microsoft.web/sites/premieraddons/delete | Ta bort Premier-tillägg för Web Apps. |
+> | Åtgärd | microsoft.web/sites/premieraddons/read | Hämta Web Apps Premier-tillägg. |
+> | Åtgärd | microsoft.web/sites/premieraddons/write | Uppdatera webb Apps Premier-tillägg. |
+> | Åtgärd | microsoft.web/sites/privateaccess/read | Hämta data om privat plats åtkomst aktivering och auktoriserade virtuella nätverk som har åtkomst till webbplatsen. |
+> | Åtgärd | microsoft.web/sites/processes/read | Hämta processer för Web Apps. |
+> | Åtgärd | microsoft.web/sites/publiccertificates/delete | Ta bort Web Apps offentliga certifikat. |
+> | Åtgärd | microsoft.web/sites/publiccertificates/read | Hämta Web Apps offentliga certifikat. |
+> | Åtgärd | microsoft.web/sites/publiccertificates/write | Uppdatera webb Apps offentliga certifikat. |
 > | Åtgärd | Microsoft.Web/sites/publish/Action | Publicera en Webbapp |
 > | Åtgärd | Microsoft.Web/sites/publishxml/Action | Hämta Publicera profil-xml för en Webbapp |
-> | Åtgärd | Microsoft.Web/Sites/publishxml/Read | Hämta publicera XML-Webbappar. |
+> | Åtgärd | microsoft.web/sites/publishxml/read | Hämta publicera XML-Webbappar. |
 > | Åtgärd | Microsoft.Web/sites/Read | Hämta egenskaperna för en Webbapp |
-> | Åtgärd | Microsoft.Web/Sites/recommendationhistory/Read | Hämta webbhistorik appar rekommendation. |
-> | Åtgärd | Microsoft.Web/Sites/recommendations/disable/Action | Inaktivera Web Apps rekommendationer. |
+> | Åtgärd | microsoft.web/sites/recommendationhistory/read | Hämta webbhistorik appar rekommendation. |
+> | Åtgärd | microsoft.web/sites/recommendations/disable/action | Inaktivera Web Apps rekommendationer. |
 > | Åtgärd | Microsoft.Web/sites/recommendations/Read | Hämta lista över rekommendationer för webbapp. |
-> | Åtgärd | Microsoft.Web/Sites/Recover/Action | Återställa Web Apps. |
+> | Åtgärd | microsoft.web/sites/recover/action | Återställa Web Apps. |
 > | Åtgärd | Microsoft.Web/sites/resetSlotConfig/Action | Återställ webbappkonfigurationen |
-> | Åtgärd | Microsoft.Web/Sites/resourcehealthmetadata/Read | Hämta Metadata för Web Apps – resurs hälsotillstånd. |
+> | Åtgärd | microsoft.web/sites/resourcehealthmetadata/read | Hämta Metadata för Web Apps – resurs hälsotillstånd. |
 > | Åtgärd | Microsoft.Web/sites/restart/Action | Starta om en Webbapp |
-> | Åtgärd | Microsoft.Web/Sites/Restore/Read | Hämta Web Apps återställning. |
-> | Åtgärd | Microsoft.Web/Sites/Restore/Write | Återställa Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/restorefrombackupblob/Action | Återställa Webbapp från säkerhetskopia av Blob. |
-> | Åtgärd | Microsoft.Web/Sites/restorefromdeletedwebapp/Action | Återställa Webbappar från borttagna App. |
-> | Åtgärd | Microsoft.Web/Sites/restoresnapshot/Action | Återställa Web Apps ögonblicksbilder. |
-> | Åtgärd | Microsoft.Web/Sites/siteextensions/delete | Ta bort Webbplatstillägg för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/siteextensions/Read | Hämta Webbplatstillägg för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/siteextensions/Write | Uppdatera Webbplatstillägg för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/slots/analyzecustomhostname/Read | Hämta Web Apps fack analysera anpassat värdnamn. |
+> | Åtgärd | microsoft.web/sites/restore/read | Hämta Web Apps återställning. |
+> | Åtgärd | microsoft.web/sites/restore/write | Återställa Web Apps. |
+> | Åtgärd | microsoft.web/sites/restorefrombackupblob/action | Återställa Webbapp från säkerhetskopia av Blob. |
+> | Åtgärd | microsoft.web/sites/restorefromdeletedwebapp/action | Återställa Webbappar från borttagna App. |
+> | Åtgärd | microsoft.web/sites/restoresnapshot/action | Återställa Web Apps ögonblicksbilder. |
+> | Åtgärd | microsoft.web/sites/siteextensions/delete | Ta bort Webbplatstillägg för Web Apps. |
+> | Åtgärd | microsoft.web/sites/siteextensions/read | Hämta Webbplatstillägg för Web Apps. |
+> | Åtgärd | microsoft.web/sites/siteextensions/write | Uppdatera Webbplatstillägg för Web Apps. |
+> | Åtgärd | microsoft.web/sites/slots/analyzecustomhostname/read | Hämta Web Apps fack analysera anpassat värdnamn. |
 > | Åtgärd | Microsoft.Web/sites/slots/applySlotConfig/Action | Använda web app platskonfigurationen från målplatsen till aktuell plats. |
 > | Åtgärd | Microsoft.Web/sites/slots/backup/Action | Skapa ny Web App Slot säkerhetskopia. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Backup/Read | Hämta säkerhetskopiering av Webbappar platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Backup/Write | Uppdatera platser säkerhetskopiering av Webbappar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Backups/Action | Upptäck fack säkerhetskopierade Webbappar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Backups/delete | Ta bort säkerhetskopierade Webbappar platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Backups/List/Action | Lista över platser säkerhetskopierade Webbappar. |
+> | Åtgärd | microsoft.web/sites/slots/backup/read | Hämta säkerhetskopiering av Webbappar platser. |
+> | Åtgärd | microsoft.web/sites/slots/backup/write | Uppdatera platser säkerhetskopiering av Webbappar. |
+> | Åtgärd | microsoft.web/sites/slots/backups/action | Upptäck fack säkerhetskopierade Webbappar. |
+> | Åtgärd | microsoft.web/sites/slots/backups/delete | Ta bort säkerhetskopierade Webbappar platser. |
+> | Åtgärd | microsoft.web/sites/slots/backups/list/action | Lista över platser säkerhetskopierade Webbappar. |
 > | Åtgärd | Microsoft.Web/sites/slots/backups/Read | Hämta egenskaperna för en webbappsplatser-säkerhetskopiering |
-> | Åtgärd | Microsoft.Web/Sites/slots/Backups/Restore/Action | Återställ säkerhetskopierade Webbappar platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/config/delete | Ta bort Webbkonfiguration appar platser. |
+> | Åtgärd | microsoft.web/sites/slots/backups/restore/action | Återställ säkerhetskopierade Webbappar platser. |
+> | Åtgärd | microsoft.web/sites/slots/config/delete | Ta bort Webbkonfiguration appar platser. |
 > | Åtgärd | Microsoft.Web/sites/slots/config/list/Action | Lista över Web App Slot security känsliga inställningar, till exempel publicering av autentiseringsuppgifter, appinställningar och anslutningssträngar |
 > | Åtgärd | Microsoft.Web/sites/slots/config/Read | Hämta inställningar för Web App Slot |
 > | Åtgärd | Microsoft.Web/sites/slots/config/Write | Uppdatera inställningar för Web App Slot |
-> | Åtgärd | Microsoft.Web/Sites/slots/containerlogs/Action | Hämta zippade Behållarloggarna för Web App facket. |
-> | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/delete | Ta bort kontinuerlig Webbjobb för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/Read | Få kontinuerlig Webbjobb för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/Start/Action | Starta kontinuerlig Webbjobb för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/stop/Action | Stoppa kontinuerlig Webbjobb för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/containerlogs/action | Hämta zippade Behållarloggarna för Web App facket. |
+> | Åtgärd | microsoft.web/sites/slots/continuouswebjobs/delete | Ta bort kontinuerlig Webbjobb för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/continuouswebjobs/read | Få kontinuerlig Webbjobb för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/continuouswebjobs/start/action | Starta kontinuerlig Webbjobb för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/continuouswebjobs/stop/action | Stoppa kontinuerlig Webbjobb för Web Apps-platser. |
 > | Åtgärd | Microsoft.Web/sites/slots/Delete | Ta bort en befintlig plats för Web App |
-> | Åtgärd | Microsoft.Web/Sites/slots/Deployments/delete | Ta bort Web Apps fack distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Deployments/log/Read | Hämta Web Apps fack distributioner Log. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Deployments/Read | Hämta Web Apps fack distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Deployments/Write | Web Apps fack distributioner av uppdatering. |
-> | Åtgärd | Microsoft.Web/Sites/slots/detectors/Read | Hämta Web Apps fack detektorerna. |
+> | Åtgärd | microsoft.web/sites/slots/deployments/delete | Ta bort Web Apps fack distributioner. |
+> | Åtgärd | microsoft.web/sites/slots/deployments/log/read | Hämta Web Apps fack distributioner Log. |
+> | Åtgärd | microsoft.web/sites/slots/deployments/read | Hämta Web Apps fack distributioner. |
+> | Åtgärd | microsoft.web/sites/slots/deployments/write | Web Apps fack distributioner av uppdatering. |
+> | Åtgärd | microsoft.web/sites/slots/detectors/read | Hämta Web Apps fack detektorerna. |
 > | Åtgärd | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Kör Web Apps fack diagnostik analys. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/analyses/Read | Hämta Web Apps fack diagnostik analys. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/aspnetcore/Read | Hämta Web Apps fack diagnostik för ASP.NET Core-app. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/autoheal/Read | Hämta Web Apps fack diagnostik Autoheal. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/Deployment/Read | Hämta Web Apps fack diagnostik distribution. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/Deployments/Read | Hämta Web Apps fack diagnostik distributioner. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/analyses/read | Hämta Web Apps fack diagnostik analys. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/aspnetcore/read | Hämta Web Apps fack diagnostik för ASP.NET Core-app. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/autoheal/read | Hämta Web Apps fack diagnostik Autoheal. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/deployment/read | Hämta Web Apps fack diagnostik distribution. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/deployments/read | Hämta Web Apps fack diagnostik distributioner. |
 > | Åtgärd | microsoft.web/sites/slots/diagnostics/detectors/execute/Action | Köra Web Apps fack diagnostik detektor. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/detectors/Read | Hämta Web Apps fack diagnostik detektor. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/frebanalysis/Read | Hämta Web Apps fack diagnostik FREB analys. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/loganalyzer/Read | Hämta Web Apps fack diagnostik Log Analyzer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/Read | Hämta Web Apps fack Diagnostics. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/runtimeavailability/Read | Få Web Apps fack diagnostik Runtime tillgänglighet. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/servicehealth/Read | Hämta Tjänstehälsa för Web Apps fack diagnostik. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/sitecpuanalysis/Read | Hämta Web Apps fack diagnostik plats CPU analys. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/sitecrashes/Read | Hämta Web Apps fack diagnostik plats kraschar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/sitelatency/Read | Hämta svarstid för Web Apps fack diagnostik webbplats. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/sitememoryanalysis/Read | Hämta Web Apps fack diagnostik plats Minnesanalyser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/siterestartsettingupdate/Read | Hämta Web Apps fack diagnostik omstart inställningen Webbplatsuppdatering. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/siterestartuserinitiated/Read | Hämta Web Apps fack diagnostik plats omstart användarinitierad. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/siteswap/Read | Hämta Web Apps fack diagnostik plats växling. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/ThreadCount/Read | Hämta Trådantalet för Web Apps fack diagnostik. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/detectors/read | Hämta Web Apps fack diagnostik detektor. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/frebanalysis/read | Hämta Web Apps fack diagnostik FREB analys. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/loganalyzer/read | Hämta Web Apps fack diagnostik Log Analyzer. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/read | Hämta Web Apps fack Diagnostics. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/runtimeavailability/read | Få Web Apps fack diagnostik Runtime tillgänglighet. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/servicehealth/read | Hämta Tjänstehälsa för Web Apps fack diagnostik. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/sitecpuanalysis/read | Hämta Web Apps fack diagnostik plats CPU analys. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/sitecrashes/read | Hämta Web Apps fack diagnostik plats kraschar. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/sitelatency/read | Hämta svarstid för Web Apps fack diagnostik webbplats. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/sitememoryanalysis/read | Hämta Web Apps fack diagnostik plats Minnesanalyser. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/siterestartsettingupdate/read | Hämta Web Apps fack diagnostik omstart inställningen Webbplatsuppdatering. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/siterestartuserinitiated/read | Hämta Web Apps fack diagnostik plats omstart användarinitierad. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/siteswap/read | Hämta Web Apps fack diagnostik plats växling. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/threadcount/read | Hämta Trådantalet för Web Apps fack diagnostik. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/workeravailability/Read | Hämta Web Apps fack diagnostik Workeravailability. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/workerprocessrecycle/Read | Hämta omarbetning av Web Apps fack diagnostik Worker processen. |
-> | Åtgärd | Microsoft.Web/Sites/slots/domainownershipidentifiers/Read | Hämta Web Apps fack domän ägarskap identifierare. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Functions/Read | Hämta Web Apps fack funktioner. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hostnamebindings/delete | Ta bort Web Apps fack Hostname-bindningar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hostnamebindings/Read | Hämta Web Apps fack Hostname-bindningar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hostnamebindings/Write | Uppdatera webb Apps fack Hostname-bindningar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hybridconnection/delete | Ta bort Hybridanslutningen för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hybridconnection/Read | Hämta Hybridanslutning för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hybridconnection/Write | Uppdatera Hybridanslutning för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hybridconnectionnamespaces/relays/delete | Ta bort Web Apps fack Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hybridconnectionnamespaces/relays/Write | Uppdatera webb Apps fack Hybrid anslutning namnområden reläer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/hybridconnectionrelays/Read | Hämta Web Apps fack Hybrid anslutning reläer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/instances/Deployments/Read | Hämta Web Apps fack instanser distributioner. |
-> | Åtgärd | Microsoft.Web/Sites/slots/instances/processes/delete | Ta bort Web Apps fack instanser processer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/instances/processes/Read | Hämta Web Apps fack instanser processer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/instances/Read | Hämta Web Apps fack instanser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/metricdefinitions/Read | Hämta Måttdefinitioner för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Metrics/Read | Få mätvärden från webben appar platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/migratemysql/Read | Hämta Web Apps fack migrera MySql. |
-> | Åtgärd | Microsoft.Web/Sites/slots/networktrace/Action | Nätverket Trace Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/NewPassword/Action | Nytt lösenord Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/operationresults/Read | Hämta Åtgärdsresultat för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Operations/Read | Hämta åtgärder för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/perfcounters/Read | Få prestandaräknare för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/phplogging/Read | Hämta Web Apps fack Phplogging. |
-> | Åtgärd | Microsoft.Web/Sites/slots/premieraddons/delete | Ta bort Web Apps fack Premier-tillägg. |
-> | Åtgärd | Microsoft.Web/Sites/slots/premieraddons/Read | Hämta Web Apps fack Premier-tillägg. |
-> | Åtgärd | Microsoft.Web/Sites/slots/premieraddons/Write | Uppdatera webb Apps fack Premier-tillägg. |
-> | Åtgärd | Microsoft.Web/Sites/slots/publiccertificates/delete | Ta bort Web Apps fack offentliga certifikat. |
-> | Åtgärd | Microsoft.Web/Sites/slots/publiccertificates/Read | Hämta offentliga certifikat för Web Apps-fack. |
-> | Åtgärd | Microsoft.Web/Sites/slots/publiccertificates/Write | Skapa eller uppdatera Web Apps fack offentliga certifikat. |
+> | Åtgärd | microsoft.web/sites/slots/diagnostics/workerprocessrecycle/read | Hämta omarbetning av Web Apps fack diagnostik Worker processen. |
+> | Åtgärd | microsoft.web/sites/slots/domainownershipidentifiers/read | Hämta Web Apps fack domän ägarskap identifierare. |
+> | Åtgärd | microsoft.web/sites/slots/functions/read | Hämta Web Apps fack funktioner. |
+> | Åtgärd | microsoft.web/sites/slots/hostnamebindings/delete | Ta bort Web Apps fack Hostname-bindningar. |
+> | Åtgärd | microsoft.web/sites/slots/hostnamebindings/read | Hämta Web Apps fack Hostname-bindningar. |
+> | Åtgärd | microsoft.web/sites/slots/hostnamebindings/write | Uppdatera webb Apps fack Hostname-bindningar. |
+> | Åtgärd | microsoft.web/sites/slots/hybridconnection/delete | Ta bort Hybridanslutningen för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/hybridconnection/read | Hämta Hybridanslutning för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/hybridconnection/write | Uppdatera Hybridanslutning för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/delete | Ta bort Web Apps fack Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/write | Uppdatera webb Apps fack Hybrid anslutning namnområden reläer. |
+> | Åtgärd | microsoft.web/sites/slots/hybridconnectionrelays/read | Hämta Web Apps fack Hybrid anslutning reläer. |
+> | Åtgärd | microsoft.web/sites/slots/instances/deployments/read | Hämta Web Apps fack instanser distributioner. |
+> | Åtgärd | microsoft.web/sites/slots/instances/processes/delete | Ta bort Web Apps fack instanser processer. |
+> | Åtgärd | microsoft.web/sites/slots/instances/processes/read | Hämta Web Apps fack instanser processer. |
+> | Åtgärd | microsoft.web/sites/slots/instances/read | Hämta Web Apps fack instanser. |
+> | Åtgärd | microsoft.web/sites/slots/metricdefinitions/read | Hämta Måttdefinitioner för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/metrics/read | Få mätvärden från webben appar platser. |
+> | Åtgärd | microsoft.web/sites/slots/migratemysql/read | Hämta Web Apps fack migrera MySql. |
+> | Åtgärd | microsoft.web/sites/slots/networktrace/action | Nätverket Trace Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/newpassword/action | Nytt lösenord Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/operationresults/read | Hämta Åtgärdsresultat för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/operations/read | Hämta åtgärder för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/perfcounters/read | Få prestandaräknare för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/phplogging/read | Hämta Web Apps fack Phplogging. |
+> | Åtgärd | microsoft.web/sites/slots/premieraddons/delete | Ta bort Web Apps fack Premier-tillägg. |
+> | Åtgärd | microsoft.web/sites/slots/premieraddons/read | Hämta Web Apps fack Premier-tillägg. |
+> | Åtgärd | microsoft.web/sites/slots/premieraddons/write | Uppdatera webb Apps fack Premier-tillägg. |
+> | Åtgärd | microsoft.web/sites/slots/publiccertificates/delete | Ta bort Web Apps fack offentliga certifikat. |
+> | Åtgärd | microsoft.web/sites/slots/publiccertificates/read | Hämta offentliga certifikat för Web Apps-fack. |
+> | Åtgärd | microsoft.web/sites/slots/publiccertificates/write | Skapa eller uppdatera Web Apps fack offentliga certifikat. |
 > | Åtgärd | Microsoft.Web/sites/slots/publish/Action | Publicera ett fack för Web App |
 > | Åtgärd | Microsoft.Web/sites/slots/publishxml/Action | Hämta Publicera profil-xml för Web App Slot |
 > | Åtgärd | Microsoft.Web/sites/slots/Read | Hämta egenskaperna för en Web App-distributionsfack |
-> | Åtgärd | Microsoft.Web/Sites/slots/Recover/Action | Återställa Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/recover/action | Återställa Web Apps-platser. |
 > | Åtgärd | Microsoft.Web/sites/slots/resetSlotConfig/Action | Platskonfigurationen för återställning av web app |
-> | Åtgärd | Microsoft.Web/Sites/slots/resourcehealthmetadata/Read | Hämta Metadata för Web Apps fack Resource Health. |
+> | Åtgärd | microsoft.web/sites/slots/resourcehealthmetadata/read | Hämta Metadata för Web Apps fack Resource Health. |
 > | Åtgärd | Microsoft.Web/sites/slots/restart/Action | Starta om ett fack för Web App |
-> | Åtgärd | Microsoft.Web/Sites/slots/Restore/Read | Hämta Web Apps fack återställning. |
-> | Åtgärd | Microsoft.Web/Sites/slots/Restore/Write | Återställa Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/restorefrombackupblob/Action | Återställa Web Apps plats från säkerhetskopia av Blob. |
-> | Åtgärd | Microsoft.Web/Sites/slots/restorefromdeletedwebapp/Action | Återställa Webbappsplatser från borttagna App. |
-> | Åtgärd | Microsoft.Web/Sites/slots/restoresnapshot/Action | Återställa Web Apps fack ögonblicksbilder. |
-> | Åtgärd | Microsoft.Web/Sites/slots/siteextensions/delete | Ta bort Webbplatstillägg för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/siteextensions/Read | Hämta Webbplatstillägg för Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/siteextensions/Write | Uppdatera Webbplatstillägg för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/restore/read | Hämta Web Apps fack återställning. |
+> | Åtgärd | microsoft.web/sites/slots/restore/write | Återställa Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/restorefrombackupblob/action | Återställa Web Apps plats från säkerhetskopia av Blob. |
+> | Åtgärd | microsoft.web/sites/slots/restorefromdeletedwebapp/action | Återställa Webbappsplatser från borttagna App. |
+> | Åtgärd | microsoft.web/sites/slots/restoresnapshot/action | Återställa Web Apps fack ögonblicksbilder. |
+> | Åtgärd | microsoft.web/sites/slots/siteextensions/delete | Ta bort Webbplatstillägg för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/siteextensions/read | Hämta Webbplatstillägg för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/siteextensions/write | Uppdatera Webbplatstillägg för Web Apps platser. |
 > | Åtgärd | Microsoft.Web/sites/slots/slotsdiffs/Action | Hämta konfigurationsavvikelser mellan webbapp och platser |
 > | Åtgärd | Microsoft.Web/sites/slots/slotsswap/Action | Växla distributionsfack för Web App |
-> | Åtgärd | Microsoft.Web/Sites/slots/Snapshots/Read | Hämta Web Apps fack ögonblicksbilder. |
+> | Åtgärd | microsoft.web/sites/slots/snapshots/read | Hämta Web Apps fack ögonblicksbilder. |
 > | Åtgärd | Microsoft.Web/sites/slots/sourcecontrols/Delete | Ta bort konfigurationsinställningar för Web App Slot käll-kontroll |
 > | Åtgärd | Microsoft.Web/sites/slots/sourcecontrols/Read | Hämta Web App Slot källkontroll konfigurationsinställningar |
 > | Åtgärd | Microsoft.Web/sites/slots/sourcecontrols/Write | Uppdatera konfigurationsinställningar för Web App Slot käll-kontroll |
 > | Åtgärd | Microsoft.Web/sites/slots/start/Action | Starta ett fack för Web App |
 > | Åtgärd | Microsoft.Web/sites/slots/stop/Action | Stoppa ett fack för Web App |
-> | Åtgärd | Microsoft.Web/Sites/slots/Sync/Action | Synkronisera Web Apps platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/triggeredwebjobs/delete | Ta bort utlösta WebJobs för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/triggeredwebjobs/Read | Hämta utlösta WebJobs för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/triggeredwebjobs/Run/Action | Kör utlösta WebJobs för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/usages/Read | Hämta Web Apps fack användningar. |
-> | Åtgärd | Microsoft.Web/Sites/slots/virtualnetworkconnections/delete | Ta bort virtuella nätverksanslutningar för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/virtualnetworkconnections/gateways/Write | Uppdatera webb Apps fack virtuella anslutningar Nätverksgatewayer. |
-> | Åtgärd | Microsoft.Web/Sites/slots/virtualnetworkconnections/Read | Hämta virtuella nätverksanslutningar för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/virtualnetworkconnections/Write | Uppdatera virtuella nätverksanslutningar för Web Apps-platser. |
-> | Åtgärd | Microsoft.Web/Sites/slots/webjobs/Read | Hämta WebJobs för Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/sync/action | Synkronisera Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/triggeredwebjobs/delete | Ta bort utlösta WebJobs för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/triggeredwebjobs/read | Hämta utlösta WebJobs för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/triggeredwebjobs/run/action | Kör utlösta WebJobs för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/usages/read | Hämta Web Apps fack användningar. |
+> | Åtgärd | microsoft.web/sites/slots/virtualnetworkconnections/delete | Ta bort virtuella nätverksanslutningar för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/virtualnetworkconnections/gateways/write | Uppdatera webb Apps fack virtuella anslutningar Nätverksgatewayer. |
+> | Åtgärd | microsoft.web/sites/slots/virtualnetworkconnections/read | Hämta virtuella nätverksanslutningar för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/virtualnetworkconnections/write | Uppdatera virtuella nätverksanslutningar för Web Apps-platser. |
+> | Åtgärd | microsoft.web/sites/slots/webjobs/read | Hämta WebJobs för Web Apps platser. |
 > | Åtgärd | Microsoft.Web/sites/slots/Write | Skapa en ny plats för Web App eller uppdatera en befintlig |
 > | Åtgärd | Microsoft.Web/sites/slotsdiffs/Action | Hämta konfigurationsavvikelser mellan webbapp och platser |
 > | Åtgärd | Microsoft.Web/sites/slotsswap/Action | Växla distributionsfack för Web App |
-> | Åtgärd | Microsoft.Web/Sites/Snapshots/Read | Hämta ögonblicksbilder för Web Apps. |
+> | Åtgärd | microsoft.web/sites/snapshots/read | Hämta ögonblicksbilder för Web Apps. |
 > | Åtgärd | Microsoft.Web/sites/sourcecontrols/Delete | Ta bort konfigurationsinställningar för Web App käll-kontroll |
 > | Åtgärd | Microsoft.Web/sites/sourcecontrols/Read | Hämta Web App källkontroll konfigurationsinställningar |
 > | Åtgärd | Microsoft.Web/sites/sourcecontrols/Write | Uppdatera konfigurationsinställningar för Web App käll-kontroll |
 > | Åtgärd | Microsoft.Web/sites/start/Action | Starta en Webbapp |
 > | Åtgärd | Microsoft.Web/sites/stop/Action | Stoppa en Webbapp |
-> | Åtgärd | Microsoft.Web/Sites/Sync/Action | Synkronisera Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/syncfunctiontriggers/Action | Synkronisera Function-utlösare för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/triggeredwebjobs/delete | Ta bort utlösta WebJobs för Web Apps. |
+> | Åtgärd | microsoft.web/sites/sync/action | Synkronisera Web Apps. |
+> | Åtgärd | microsoft.web/sites/syncfunctiontriggers/action | Synkronisera Function-utlösare för Web Apps. |
+> | Åtgärd | microsoft.web/sites/triggeredwebjobs/delete | Ta bort utlösta WebJobs för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/triggeredwebjobs/History/Read | Hämta appar utlösta WebJobs webbhistorik. |
-> | Åtgärd | Microsoft.Web/Sites/triggeredwebjobs/Read | Hämta utlösta WebJobs för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/triggeredwebjobs/Run/Action | Kör utlösta WebJobs för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/usages/Read | Hämta Web Apps användningar. |
-> | Åtgärd | Microsoft.Web/Sites/virtualnetworkconnections/delete | Ta bort virtuella nätverksanslutningar för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/virtualnetworkconnections/gateways/Read | Hämta Web Apps virtuella anslutningar Nätverksgatewayerna. |
-> | Åtgärd | Microsoft.Web/Sites/virtualnetworkconnections/gateways/Write | Uppdatera Web Apps Vnet-anslutningar Gateways. |
-> | Åtgärd | Microsoft.Web/Sites/virtualnetworkconnections/Read | Hämta virtuella nätverksanslutningar för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/virtualnetworkconnections/Write | Uppdatera virtuella nätverksanslutningar för Web Apps. |
-> | Åtgärd | Microsoft.Web/Sites/webjobs/Read | Hämta WebJobs för Web Apps. |
+> | Åtgärd | microsoft.web/sites/triggeredwebjobs/read | Hämta utlösta WebJobs för Web Apps. |
+> | Åtgärd | microsoft.web/sites/triggeredwebjobs/run/action | Kör utlösta WebJobs för Web Apps. |
+> | Åtgärd | microsoft.web/sites/usages/read | Hämta Web Apps användningar. |
+> | Åtgärd | microsoft.web/sites/virtualnetworkconnections/delete | Ta bort virtuella nätverksanslutningar för Web Apps. |
+> | Åtgärd | microsoft.web/sites/virtualnetworkconnections/gateways/read | Hämta Web Apps virtuella anslutningar Nätverksgatewayerna. |
+> | Åtgärd | microsoft.web/sites/virtualnetworkconnections/gateways/write | Uppdatera Web Apps Vnet-anslutningar Gateways. |
+> | Åtgärd | microsoft.web/sites/virtualnetworkconnections/read | Hämta virtuella nätverksanslutningar för Web Apps. |
+> | Åtgärd | microsoft.web/sites/virtualnetworkconnections/write | Uppdatera virtuella nätverksanslutningar för Web Apps. |
+> | Åtgärd | microsoft.web/sites/webjobs/read | Hämta WebJobs för Web Apps. |
 > | Åtgärd | Microsoft.Web/sites/Write | Skapa en ny Webbapp eller uppdatera en befintlig |
-> | Åtgärd | Microsoft.Web/skus/Read | Hämta SKU: er. |
-> | Åtgärd | Microsoft.Web/sourcecontrols/Read | Hämta källan kontroller. |
-> | Åtgärd | Microsoft.Web/sourcecontrols/Write | Uppdatera källa kontroller. |
-> | Åtgärd | Microsoft.Web/unregister/Action | Avregistrera Microsoft.Web resource provider för prenumerationen. |
-> | Åtgärd | Microsoft.Web/Validate/Action | Verifiera. |
-> | Åtgärd | Microsoft.Web/verifyhostingenvironmentvnet/Action | Kontrollera som är värd för miljön Vnet. |
+> | Åtgärd | microsoft.web/skus/read | Hämta SKU: er. |
+> | Åtgärd | microsoft.web/sourcecontrols/read | Hämta källan kontroller. |
+> | Åtgärd | microsoft.web/sourcecontrols/write | Uppdatera källa kontroller. |
+> | Åtgärd | microsoft.web/unregister/action | Avregistrera Microsoft.Web resource provider för prenumerationen. |
+> | Åtgärd | microsoft.web/validate/action | Verifiera. |
+> | Åtgärd | microsoft.web/verifyhostingenvironmentvnet/action | Kontrollera som är värd för miljön Vnet. |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

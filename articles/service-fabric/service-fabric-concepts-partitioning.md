@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 511cd5c8304201fe6dfd101ac95b8f6c72806648
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232268"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261578"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera Service Fabric reliable services
 Den här artikeln innehåller en introduktion till de grundläggande principerna för Azure Service Fabric tillförlitliga tjänster partitioneras. Källkoden som används i artikeln finns också på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -365,7 +365,7 @@ Eftersom du verkligen vill ha en partition per bokstav kan vi använda 0 som nyc
 Hela källkoden för exemplet finns på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services och aktören Förgrena delprocesser
-Service Fabric stöder inte reliable services och därefter reliable actors Förgrena delprocesser. Ett exempel på varför det är inte stöds är [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan inte användas för att registrera ett som inte stöds underprocess och säger upp avtalet token skickas endast till registrerad processer, vilket resulterar i alla typer av problem, till exempel uppgradera fel, när delprocesser inte Stäng när den överordnade processen har tagit emot en token för annullering. 
+Service Fabric stöder inte reliable services och därefter reliable actors Förgrena delprocesser. Ett exempel på varför det är inte stöds är [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan inte användas för att registrera ett som inte stöds underprocess och annulleringstoken skickas endast till registrerad processer, vilket resulterar i alla typer av problem, till exempel uppgradera fel, när delprocesser inte Stäng när den överordnade processen har tagit emot en token för annullering. 
 
 ## <a name="next-steps"></a>Nästa steg
 Information om Service Fabric-begrepp finns i följande:

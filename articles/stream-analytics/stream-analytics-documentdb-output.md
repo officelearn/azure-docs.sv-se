@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106574"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267138"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
 Stream Analytics kan riktas mot [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor för Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskriver några av metodtipsen för att implementera den här konfigurationen.
@@ -58,16 +58,17 @@ För fasta Azure Cosmos DB-samlingar kan Stream Analytics inget sätt att skala 
 Skrivning till flera fast behållare tas ur bruk och är inte den rekommenderade metoden för att skala ut ditt Stream Analytics-jobb. Artikeln [partitionering och skalning i Cosmos DB](../cosmos-db/sql-api-partition-data.md) innehåller ytterligare information.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Cosmos DB-inställningar för JSON-utdata
-Skapar Cosmos DB som utdata i Stream Analytics genererar en uppmaning information som visas nedan. Det här avsnittet innehåller en förklaring av egenskaper-definition.
 
+Skapar Cosmos DB som utdata i Stream Analytics genererar en uppmaning information som visas nedan. Det här avsnittet innehåller en förklaring av egenskaper-definition.
 
 ![documentdb stream analytics utdata skärmen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Fält           | Beskrivning 
--------------   | -------------
-Utdataalias    | Ett alias för att referera dessa utdata i frågan ASA   
-Kontonamn    | Namn eller slutpunkt URI: N för Azure Cosmos DB-konto 
-Kontonyckel     | Den delade åtkomstnyckeln för Azure Cosmos DB-konto
-Databas        | Azure Cosmos DB-databasnamn
-Samlingsnamn | Samlingsnamn för samlingen som ska användas. `MyCollection` är en giltig inmatning för exemplet – en samling som heter `MyCollection` måste finnas.  
-Dokument-id     | Valfri. Kolumnnamnet i utdatahändelserna används som den unika nyckeln åtgärder måste baseras på vilken insert eller update. Om fältet lämnas tomt kommer alla händelser att infogas, där du inte uppdateringen.
+|Fält           | Beskrivning|
+|-------------   | -------------|
+|Utdataalias    | Ett alias till se detta utdata i din ASA-fråga.|
+|Prenumeration    | Välj den Azure-prenumerationen.|
+|Konto-ID      | Namn eller slutpunkten URI: N för Azure Cosmos DB-kontot.|
+|Kontonyckel     | Den delade åtkomstnyckeln för Azure Cosmos DB-kontot.|
+|Databas        | Namnet på Azure Cosmos DB-databasen.|
+|Samlingsnamnsmönster | Samlingsnamn för samlingen som ska användas. `MyCollection` är en giltig inmatning för exemplet – en samling som heter `MyCollection` måste finnas.  |
+|Dokument-id     | Valfri. Kolumnnamnet i utdatahändelserna används som den unika nyckeln åtgärder måste baseras på vilken insert eller update. Om fältet lämnas tomt kommer alla händelser att infogas, där du inte uppdateringen.|

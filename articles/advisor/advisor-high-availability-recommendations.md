@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839525"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305079"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-rekommendationer för hög tillgänglighet
 
@@ -35,20 +35,16 @@ För att ge ditt program redundans rekommenderar vi att du grupperar två eller 
 
 För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar tillgänglighetsuppsättningar som innehåller en enda virtuell dator och att du lägger till en eller flera virtuella datorer till den. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller serviceavtalet för Azure-dator. Du kan välja att skapa en virtuell dator eller lägga till en befintlig virtuell dator i tillgänglighetsuppsättningen.  
 
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Använd Managed Disks för ökad datatillförlitlighet
+Virtuella datorer som finns i en tillgänglighetsuppsättning med diskar som delar antingen lagringskonton eller lagringsskalningsenheter kan inte återhämta sig till enkel lagringsskalningsenhetsfel under avbrott. Advisor ska identifiera dessa tillgänglighetsuppsättningar och rekommenderar att du migrerar till Azure Managed Disks. Se till att diskar på olika virtuella datorer i tillgänglighetsuppsättningen är tillräckligt isolerade för att undvika en enskild felpunkt. 
+
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Att skapa feltolerans för application gateway
+
 För att säkerställa kontinuitet för företag för verksamhetskritiska program som drivs av programgatewayer Advisor identifierar application gateway-instanser som inte är konfigurerade för feltolerans och den föreslår åtgärder som du kan vidta. Advisor identifierar medelstora eller stora enkelinstansprogram gatewayer och den rekommenderar att lägga till minst en mer instans. Den identifierar en eller flera instance små programgatewayer och rekommenderar att du migrerar till medelstora eller stora SKU: er. Advisor rekommenderar dessa åtgärder för att kontrollera att din application gateway-instanser är konfigurerade för att uppfylla de aktuella SLA-krav för dessa resurser.
-
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Förbättra säkerheten och tillförlitligheten för virtuella diskar
-
-Advisor identifierar virtuella datorer med standarddiskar och rekommenderar att du uppgraderar till premium-diskar.
- 
-Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Virtuella diskar som använder premium storage-konton kan du lagra data på SSD (solid-state drive). För bästa prestanda för ditt program rekommenderar vi att du migrerar alla virtuella diskar som kräver hög IOPS till premium storage. 
-
-Om diskarna inte behöver hög IOPS, kan du begränsa kostnaderna genom att underhålla dem. i standard-lagring. Standard storage lagrar diskdata för virtuell dator på hårddiskar (HDD) i stället för SSD-enheter. Du kan välja att migrera dina virtuella datordiskar till premium-diskar. Premium-diskar stöds i de flesta VM SKU: er. Men i vissa fall kan behöva om du vill använda premium disks kan du uppgradera den virtuella datorn SKU: er samt.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Skydda dina data för virtuella datorer tas bort av misstag
 
-Konfigurera säkerhetskopiering av virtuella datorer garanterar tillgängligheten för dina verksamhetskritiska data och ger skydd mot oavsiktlig borttagning eller skadade data.  Advisor identifierar virtuella datorer där säkerhetskopiering inte är aktiverat, och den rekommenderar att aktivera säkerhetskopiering. 
+Konfigurera säkerhetskopiering av virtuella datorer garanterar tillgängligheten för dina verksamhetskritiska data och ger skydd mot oavsiktlig borttagning eller skadade data. Advisor identifierar virtuella datorer där säkerhetskopiering inte är aktiverat, och den rekommenderar att aktivera säkerhetskopiering. 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Kontrollera att du har åtkomst till Azure-molnexperter när du behöver det.
 
@@ -69,6 +65,10 @@ Om en Traffic Manager-profil har konfigurerats för geografisk routning för dir
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Använd mjuk ta bort på ditt Azure Storage-konto för att spara och återställa data i händelse av oavsiktliga överskrivning eller tas bort
 
 Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) på ditt lagringskonto så att ta bort blobbar övergången till ett ej permanent Borttaget tillstånd i stället för att permanent ta bort. När data skrivs över, genereras en ej permanent borttagen ögonblicksbild för att spara tillståndet för över data. Detta gör att du kan återhämta sig vid oavsiktlig borttagning eller skriver över. Advisor identifierar Azure Storage-konton som inte har aktivera mjuk borttagning och föreslår att du aktiverar den.
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Konfigurera din VPN-gateway till aktiv-aktiv för anslutningsåterhämtning
+
+I aktiv-aktiv konfiguration, kommer båda instanserna av en VPN-gateway upprätta S2S VPN-tunnlar till din lokala VPN-enhet. När ett planerat underhåll eller en oplanerad händelse inträffar för en gatewayinstans växlar trafiken till den andra aktiva IPsec-tunneln automatiskt. Azure Advisor ska identifiera VPN-gatewayer som inte har konfigurerats som aktiv-aktiv och föreslår att du konfigurerar dem för hög tillgänglighet.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 

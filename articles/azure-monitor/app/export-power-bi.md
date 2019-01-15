@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a50cb5dc204a209c2b9d899c50ae7def55f4deb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118174"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262599"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -29,7 +29,7 @@ Det finns tre metoder för att exportera Application Insights-data till Power BI
 * [**Power BI nätverkskort**](#power-pi-adapter). Uppsättningen diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
 
 > [!NOTE]
-> Power BI-kortet är nu **inaktuell**. Fördefinierade diagram för den här lösningen är ifyllda av statiska inte går att redigera frågor. Du har inte möjlighet att redigera dessa frågor och beroende på vissa egenskaper hos dina data är det möjligt för anslutning till Power BI ska lyckas, men inga data har fyllts i. Detta beror på exkluderingsvillkor som anges i hårdkodad frågan. Även om den här lösningen kan fortfarande fungera för vissa kunder, på grund av bristande flexibilitet kortets den rekommenderade lösningen är att använda den [ **exportera analysfråga** ](#export-analytics-queries) funktioner.
+> Power BI-kortet är nu **inaktuell**. Fördefinierade diagram för den här lösningen är ifyllda av statiska inte går att redigera frågor. Du har inte möjlighet att redigera dessa frågor och beroende på vissa egenskaper hos dina data är det möjligt för anslutning till Power BI ska lyckas, men inga data har fyllts i. Detta beror på exkluderingsvillkor som anges i hårdkodad frågan. Även om den här lösningen kan fortfarande fungera för vissa kunder, på grund av bristande flexibiliteten i kortet den rekommenderade lösningen är att använda den [ **exportera analysfråga** ](#export-analytics-queries) funktioner.
 
 ## <a name="export-analytics-queries"></a>Exportera analysfrågor
 Den här vägen kan du skriva eventuella Analytics-fråga som du gillar och exportera från användning Trattar och sedan exportera som på en Power BI-instrumentpanel. (Du kan lägga till på instrumentpanelen som skapats av kort.)
@@ -98,7 +98,7 @@ Detta kan inträffa om din uppdateringstoken inte har uppdaterats. Prova de här
 
  Om du har åtkomst och uppdaterar autentiseringsuppgifterna som inte fungerar, öppnar du ett supportärende.
 
-### <a name="bad-gateway-502"></a>Felaktig Gateway (502)
+### <a name="bad-gateway-502"></a>Bad Gateway (502)
 Detta orsakas normalt av en Analytics-fråga som returnerar för mycket data. Försök med ett mindre tidsintervall för frågan. 
 
 Om du minskar den datauppsättning som kommer från analysfråga som inte uppfyller dina krav kan du använda den [API](https://dev.applicationinsights.io/documentation/overview) att hämta en större datauppsättning. Här är hur du konverterar M-Query-export för att använda API: et.

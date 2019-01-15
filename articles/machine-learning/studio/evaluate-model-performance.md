@@ -1,32 +1,14 @@
 ---
-title: Utvärdera modellprestanda – Azure Machine Learning Studio | Microsoft Docs
-description: Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269948"
+Rubrik: Utvärdera modellen prestanda titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning Studio
 
 Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften. Tre vanliga scenarier för övervakad inlärning visas: 
 
-* Regression
+* regression
 * Binär klassificering 
 * multiklass-baserad klassificering
 

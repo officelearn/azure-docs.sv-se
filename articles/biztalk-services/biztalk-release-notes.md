@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253439"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260342"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk Services
 
@@ -35,10 +35,10 @@ Viktig information om Microsoft Azure BizTalk Services innehåller kända proble
 ## <a name="update-history"></a>Uppdateringshistorik
 ### <a name="october-update"></a>Uppdatering oktober
 * Organisationskonton stöds:  
-  * **Scenariot**: du har registrerat en BizTalk Service-distribution med ett Microsoft-konto (t.ex. user@live.com). I det här scenariot kan endast Account användare hantera den BizTalk Service med hjälp av BizTalk Services-portalen. Ett organisationskonto kan inte användas.  
-  * **Scenariot**: du har registrerat en BizTalk Service-distribution med ett organisationskonto i en Azure Active Directory (t.ex. user@fabrikam.com eller user@contoso.com). I det här scenariot kan endast Azure Active Directory-användare inom samma organisation hantera den BizTalk Service med hjälp av BizTalk Services-portalen. Ett Microsoft-konto kan inte användas.  
+  * **Scenario**: Du har registrerat en BizTalk Service-distribution med ett Microsoft-konto (t.ex. user@live.com). I det här scenariot kan endast Account användare hantera den BizTalk Service med hjälp av BizTalk Services-portalen. Ett organisationskonto kan inte användas.  
+  * **Scenario**: Du har registrerat en BizTalk Service-distribution med ett organisationskonto i en Azure Active Directory (t.ex. user@fabrikam.com eller user@contoso.com). I det här scenariot kan endast Azure Active Directory-användare inom samma organisation hantera den BizTalk Service med hjälp av BizTalk Services-portalen. Ett Microsoft-konto kan inte användas.  
 * När du skapar en BizTalk Service kan registrerade du automatiskt i BizTalk Services-portalen.
-  * **Scenariot**: du loggar in på Azure, skapa en BizTalk Service och välj sedan **hantera** för första gången. När BizTalk Services-portalen öppnas registreras automatiskt i BizTalk Service och är redo för dina distributioner.  
+  * **Scenario**: Du loggar in på Azure, skapa en BizTalk Service och välj sedan **hantera** för första gången. När BizTalk Services-portalen öppnas registreras automatiskt i BizTalk Service och är redo för dina distributioner.  
     Se [registrera och uppdatera en BizTalk-tjänst-distribution på BizTalk Services-portalen](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>14 augusti Update
@@ -87,7 +87,7 @@ Spåra händelser fångas upp till EDI-meddelandebehandling och alla samband. Om
 X12 ta emot och skicka inställningar ([skapa en X12 avtalet i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) innehåller information om protokoll-steget.  
 
 ### <a name="update-agreement"></a>Uppdatera avtal
-BizTalk Services-portalen kan du ändra kvalificeraren för en identitet när ett avtal har konfigurerats. Detta kan resultera i egenskaperna för stämmer inte överens. Det finns till exempel ett avtal med ZZ:1234567 och ZZ:7654321 kvalificeraren. Du kan ändra ZZ:1234567 för att vara 01:ChangedValue i Profilinställningar BizTalk Services-portalen. Du öppnar avtalet och 01:ChangedValue visas i stället för ZZ:1234567.
+BizTalk Services-portalen kan du ändra kvalificeraren för en identitet när ett avtal har konfigurerats. Detta kan leda till inkonsekvent egenskaper. Det finns till exempel ett avtal med ZZ:1234567 och ZZ:7654321 kvalificeraren. Du kan ändra ZZ:1234567 för att vara 01:ChangedValue i Profilinställningar BizTalk Services-portalen. Du öppnar avtalet och 01:ChangedValue visas i stället för ZZ:1234567.
 Att ändra kvalificeraren för en identitet, ta bort avtalet, uppdatera **identiteter** i partnerprofil och sedan återskapa avtalet.  
 
 > AZURE. VARNING detta påverkar X12 och AS2.  
@@ -175,16 +175,16 @@ Föreställ dig följande:
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Bryggor använder inte uppdaterade certifikatet även efter att ett certifikat har uppdaterats i arkivet artefakt
 Tänk på följande scenarier:  
 
-**Scenario 1: Använda tumavtryck-baserade certifikat för att skydda meddelandet skickades från en brygga till en tjänstslutpunkt**  
+**Scenario 1: Med tumavtryck-baserade certifikat för att skydda meddelandet skickades från en brygga till en tjänstslutpunkt**  
 Tänk dig ett scenario där du använder tumavtryck-baserade certifikat i BizTalk Service-projektet. Du uppdaterar certifikatet i BizTalk Services-portalen med samma namn men ett annat tumavtryck, men uppdaterar inte BizTalk Service-projekt i enlighet med detta. I ett sådant scenario kan bryggan fortsätta att bearbeta meddelanden eftersom äldre certifikatdata kan det fortfarande finnas i cacheminnet för kanalen. Efter det misslyckas meddelandebehandling.  
 
-**Lösning**: uppdatera certifikatet i BizTalk Service-projekt och distribuera om projektet.  
+**Lösning**: Uppdatera certifikatet i BizTalk Service-projekt och distribuera om projektet.  
 
 **Scenario 2: Använda namnbaserat beteenden för att identifiera certifikat för att skydda meddelandet skickades från en brygga till en tjänstslutpunkt**
 
 Tänk dig ett scenario där du använder-namnbaserat beteenden för att identifiera certifikat i din BizTalk Service-projekt. Du uppdaterar certifikatet i BizTalk Services-portalen men uppdaterar inte BizTalk Service-projekt i enlighet med detta. I ett sådant scenario kan bryggan fortsätta att bearbeta meddelanden eftersom äldre certifikatdata kan det fortfarande finnas i cacheminnet för kanalen. Efter det misslyckas meddelandebehandling.  
 
-**Lösning**: uppdatera certifikatet i BizTalk Service-projekt och distribuera om projektet.  
+**Lösning**: Uppdatera certifikatet i BizTalk Service-projekt och distribuera om projektet.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Bryggor fortsätta att bearbeta meddelanden även om SQL-databasen är offline
 BizTalk Services-bryggor fortsätta att bearbeta meddelanden för ett tag, även om Microsoft Azure SQL Database (som lagras som körs som distribuerade artefakter och pipelines) är offline. Det beror på att BizTalk Services använder den cachelagrade artefakter och bryggkonfigurationen.
@@ -199,24 +199,24 @@ Meddelanden som skickas till en brygga med WCF skalas inte. I stället bör du a
 ### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>UPPGRADERING: Token Provider-fel när du har uppgraderat från förhandsversionen av BizTalk Services till allmän tillgänglighet (GA)
 Det finns ett EDI- eller AS2-avtal med active batchar. När BizTalk Service uppgraderas från förhandsversion till allmänt tillgänglig, kan följande inträffa:
 
-* Fel: Tokenleverantören kunde inte tillhandahålla en säkerhetstoken. Leverantör av säkerhetstoken returnerade meddelandet: fjärrnamnet kunde inte matchas.
+* Fel: Tokenleverantören kunde inte tillhandahålla en säkerhetstoken. Tokenleverantör returnerade meddelandet: Fjärrnamnet kunde inte lösas.
 * Batch-aktiviteterna har avbrutits.
 
-**Lösning**: efter BizTalk-tjänsten uppdateras till allmän tillgänglighet (GA), distribuera om avtalet.  
+**Lösning**: Distribuera om avtalet när BizTalk Service har uppdaterats till allmän tillgänglighet (GA).  
 
 ### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>UPPGRADERING: Verktygslådan visar de gamla brygga ikonerna när du har uppgraderat BizTalk Services SDK
 När du har uppgraderat en tidigare version av BizTalk Services SDK, som hade gamla ikoner som representerar bryggor fortsätter verktygslådan att visa de gamla ikonerna för bryggor. Om du lägger till en brygga designytan för BizTalk Service-projekt, visas på ytan på ikonen Ny.  
 
 **Lösning**. Du kan undvika det här problemet genom att ta bort filer under .tbd <system drive>: \Users\<användare > \AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>UPPGRADERING: BizTalk uppdatering från förhandsversionen av Allmänt kan visa ett felmeddelande om att EDI-funktionen inte är tillgänglig
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>UPPGRADERING: BizTalk-uppdatering från förhandsversionen av Allmänt kan visa ett felmeddelande om att EDI-funktionen inte är tillgänglig
 Om du är inloggad i BizTalk Services-portalen medan BizTalk Services uppgraderas från förhandsversion till allmänt tillgänglig, kan du få följande fel i portal:  
 
 Den här funktionen är inte tillgänglig som en del av den här versionen av Microsoft Azure BizTalk Services. Om du vill använda växla dessa funktioner till en lämplig version.  
 
-**Lösning**: Logga ut från portalen, Stäng och öppna webbläsaren och sedan logga in på portalen.  
+**Upplösning**: Logga ut från portalen, Stäng och öppna webbläsaren och logga sedan in på portalen.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>UPPGRADERING: Nya spårningsdata visas inte när BizTalk Services har uppgraderats till allmän tillgänglighet
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>UPPGRADERING: Spåra nya data visas inte när BizTalk Services har uppgraderats till allmän tillgänglighet
 Anta att ett scenario där du har en XML-brygga som distribuerats på förhandsversionen av BizTalk Services-prenumeration. Du skickar meddelanden till bryggan och motsvarande spårningsdata finns på BizTalk Services-portalen. Nu, om bits för BizTalk Services-portalen och BizTalk Services runtime uppgraderas till allmän tillgänglighet och du skickar ett meddelande till samma bridge-slutpunkt som distribuerats tidigare, spårning av data visas inte för meddelanden som skickas efter uppgraderingen.  
 
 ### <a name="pipelines-versus-bridges"></a>Pipelines och bryggor

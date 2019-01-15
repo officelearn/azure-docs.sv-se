@@ -1,27 +1,8 @@
 ---
-title: Importera data till Machine Learning Studio – Azure | Microsoft Docs
-description: Hur du importerar dina data till Azure Machine Learning Studio från olika datakällor. Lär dig vilka datatyper och dataformat stöds.
-keywords: Importera data, dataformat, datatyper, datakällor, utbildningsdata
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269965"
+Rubrik: Importera data till Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Hur du importerar dina data till Azure Machine Learning Studio från olika datakällor. Lär dig vilka datatyper och dataformat stöds.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247630"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267325"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -262,6 +262,14 @@ Här följer efter installation kända problem för den här build-versionen.
    Felet inträffar om du vill aktivera startdiagnostik på en virtuell dator men ta bort ditt lagringskonto för startdiagnostik. Undvik problemet genom att återskapa lagringskontot med samma namn som du använde tidigare.
 
 - När du skapar en [Dv2-serien VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 virtuella datorer kan du skapa 4, 8, 16 och 32 datadiskar respektive. Skapa VM-fönstret visas dock 8, 16, 32 och 64 datadiskar.
+
+- Poster i Azure Stack kan innehålla oväntat förtroendeingivande; till exempel:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   I det här exemplet är namnet på resursgruppen som ska vara **AndrewRG**. Du kan ignorera den här inkonsekvens.
 
 <!-- 3235634 – IS, ASDK -->
 - Distribuera virtuella datorer med storlekarna som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, anger du suffix som **Standard_A2_v2** (gemener v). Använd inte **Standard_A2_V2** (versaler V). Detta fungerar i globala Azure och är en inkonsekvens i Azure Stack.

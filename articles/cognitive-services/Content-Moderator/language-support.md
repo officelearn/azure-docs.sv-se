@@ -1,21 +1,21 @@
 ---
 title: Stöd för språk - Content Moderator-API
 titleSuffix: Azure Cognitive Services
-description: En lista med naturligt språk som stöds av Content Moderator-API.
+description: Det här är en lista med naturligt språk som har stöd för Content Moderator-API.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276388"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263686"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Språkstöd för Content Moderator-API
 
@@ -28,28 +28,28 @@ ms.locfileid: "52276388"
 | Språkspårning | Olämpligt språk   | OCR    | Autokorrigering     |
 | -------------------- |-------------|--------|---------------------|
 | Arabiska (Romanized)   | Afrikaans   | Arabiska   | Arabiska
-| Balinese | Albanska | Förenklad kinesiska    | Danska
-| Bengali | Amhariska | Traditionell kinesiska     | Nederländska
-| Buginesisk skrift | Arabiska | Tjeckiska                     | Svenska
+| Balinese | Albanska | Kinesiska (förenklad)    | Danska
+| Bengali | Amhariska | Kinesiska (traditionell)     | Nederländska
+| Buginesisk skrift | Arabiska | tjeckiska                     | Svenska
 | Buhid | Armeniska | Danska                     | Finska
 | Carian | Assamesiska | Nederländska                     | Franska
-| Förenklad kinesiska | Azerbajdzjanska | Svenska  | Grekiska (modern)
-| Traditionell kinesiska | Bengali - Bangladesh | Finska  | Italienska
+| Kinesiska (förenklad) | Azerbajdzjansk | Svenska  | Grekiska (modern)
+| Kinesiska (traditionell) | Bengali - Bangladesh | Finska  | Italienska
 | Kyrka (Slaviska) | Bengali - Indien | Franska     | Koreanska
 | Koptiska | Baskiska | Tyska                      | Norska
-| Tjeckiska |  Vitryska | Grekiska (modern)         | Polska
-| Dhivehi | Bosniska - kyrilliska | Ungerska      | Portugisiska
+| tjeckiska |  Vitryska | Grekiska (modern)         | Polska
+| Dhivehi | Bosniska - kyrilliska | ungerska      | Portugisiska
 | Nederländska | Bosniska - Latin | Italienska             | Rumänska
-| Svenska | (Creole) | Bretonska [icke GeoPol] | Japanska  | Ryska
+| Svenska | (Creole) | Breton [non-GeoPol] | Japanska  | Ryska
 | Farsi | Bulgariska | Koreanska                        | Slovakiska
 | Franska | Katalanska | Norska                        | Spanska
 | Tyska | Centralkurdiska | Polska        | Turkiska
 | Grekiska | Cherokesiska | Portugisiska
-| Haitiska | Förenklad kinesiska | Rumänska
+| Haitiska | Kinesiska (förenklad) | Rumänska
 | Hebreiska | Kinesiska (traditionell) - Hongkong SAR | Ryska
 | Hindi | Kinesiska (traditionell) - Taiwan | Serbiska-kyrilliska
 | Hmong | Kroatiska | Serbiska-Latin
-| Ungerska | Tjeckiska | Slovakiska
+| ungerska | tjeckiska | Slovakiska
 | Italienska | Danska | Spanska
 | Japanska | Dari | Svenska
 | Koreanska | Nederländska | Turkiska
@@ -63,40 +63,40 @@ ms.locfileid: "52276388"
 | Mycenaean (grekiska) | Tyska
 | Nko | Grekiska
 | Norska (bokmål) | Gujarati
-| Norska (nynorsk) |  Hausa
+| Norska (nynorsk) |  Haussa
 | Gamla (persiska) | Hebreiska
 | Afghanska | Hindi
-| Polska | Ungerska
+| Polska | ungerska
 | Portugisiska | Isländska
 | Punjabi | Igbo
 | Rejang | Indonesiska
 | Ryska | Inuktitut
 | Santali | Iriska
-| Sasak | Xhosa
-| Saurashtra | Zulu
+| Sasak | isiXhosa
+| Saurashtra | isiZulu
 | Serbiska (kyrillisk) | Italienska
 | Serbiska (latinsk) | Japanska
-| Sinhala | Kannada
+| Singalesiska | Kannada
 | Slovenska | Kazakiska
 | Spanska | Khmer
 | Svenska | Quiché
 | Sylheti | Rwanda
 | Syriska | Kiswahili
 | Tagbanwa | Konkani
-| Pilslut (Nua) | Koreanska
-| Tamashek | Kirgisiska
+| Tai (Nua) | Koreanska
+| Tamashek | Kirgiziska
 | Turkiska | Laotiska
 | Ugaritisk skrift | Lettiska
 | Uzbekiska (kyrillisk) | Litauiska
 | Uzbekiska (latinsk) | Luxemburgiska
 | Vai | Makedonska
 | Yi | Malajiska
-| Zhuang Chuang | Malayalam
+| Zhuang, Chuang | Malayalam
 | | Maltesiska
 | | Maori
 | | Marathi
 | | Mongoliska
-| | Nepali
+| | Nepalesiska
 | | Norska (Bokmål)
 | | Norska (nynorsk)
 | | Odia
@@ -116,22 +116,22 @@ ms.locfileid: "52276388"
 | | Serbiska (kyrillisk, Bosnien och Hercegovina)
 | | Serbiska (latinsk)
 | | Sesotho
-| | Nordsotho
+| | Sesotho sa Leboa
 | | Setswana
 | | Sindhi
-| | Sinhala
+| | Singalesiska
 | | Slovakiska
 | | Slovenska
 | | Spanska
 | | Svenska
 | | Tadzjikiska
-| | Tamilska
-| | Tatar
+| | Tamiliska
+| | Tatariska
 | | Telugu
-| | Thai
-| | Tigrinja
+| | Thailändska
+| | Tigrinya
 | | Turkiska
-| | Turkmen
+| | Turkmeniska
 | | Ukrainska
 | | Urdu
 | | Uiguriska

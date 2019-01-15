@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: f0addcc0b6220bcf877c3cac20f2d1376eb19e61
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191079"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263364"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Så här inaktiverar du övervaka dina virtuella datorer med Azure Monitor för virtuella datorer (förhandsversion)
 
@@ -31,7 +31,7 @@ Azure Monitor för virtuella datorer är beroende av att leverera sin erfarenhet
 * En Log Analytics-arbetsyta som lagrar övervakningsdata som samlas in från virtuella datorer och andra källor.
 * Insamling av prestandaräknare som ställts in på arbetsytan som uppdaterar övervakningskonfigurationen på alla virtuella datorer är anslutna till arbetsytan.
 * Två övervakningslösningar som ställts in på arbetsytan - **InfrastructureInsights** och **ServiceMap**, som uppdatering övervakningskonfigurationen på alla virtuella datorer är anslutna till arbetsytan.
-* Två Azure VM-tillägg, den **MicrosoftMonitoringAgent** och **DepenendencyAgent**, som samlar in och skickar data till arbetsytan.
+* Två Azure VM-tillägg, den **MicrosoftMonitoringAgent** och **DependencyAgent**, som samlar in och skickar data till arbetsytan.
 
 Tänk på följande när du förbereder att inaktivera övervakning av dina virtuella datorer med Azure Monitor för virtuella datorer:
 
@@ -43,7 +43,7 @@ Tänk på följande när du förbereder att inaktivera övervakning av dina virt
 
 ## <a name="complete-removal-of-azure-monitor-for-vms"></a>Slutföra borttagningen av Azure Monitor för virtuella datorer
 
-Följande steg beskriver hur du tar bort Azure Monitor för virtuella datorer om du fortfarande behöver Log Analytics-arbetsytan. Du kommer att ta bort den **InfastructureInsights** och **ServiceMap** lösningar från arbetsytan.  
+Följande steg beskriver hur du tar bort Azure Monitor för virtuella datorer om du fortfarande behöver Log Analytics-arbetsytan. Du kommer att ta bort den **InfrastructureInsights** och **ServiceMap** lösningar från arbetsytan.  
 
 >[!NOTE]
 >Om du använde Tjänstkartan övervakningslösning innan du aktiverar Azure Monitor för virtuella datorer och du fortfarande använder den, ta inte bort lösningen som beskrivs i steg 6 nedan.  

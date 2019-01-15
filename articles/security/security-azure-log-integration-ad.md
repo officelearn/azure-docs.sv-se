@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313249"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304932"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrera Azure Active Directory med granskningsloggar
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD)-granskningshändelser hjälper dig att identif
 
 
 >[!IMPORTANT]
-> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog nedladdningar inaktiveras den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog hämtningar har inaktiverats på den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stegen för att integrera Azure Active Directory-granskningsloggar
 
@@ -73,7 +73,7 @@ Du kan även öppna en [supportförfrågan](../azure-supportability/how-to-creat
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Log Integration finns:
 
-* [Microsoft Azure Log Integration för Azure loggar](https://www.microsoft.com/download/details.aspx?id=53324): den här Download Center sidan ger information om systemkrav och installationsanvisningar för Azure Log Integration.
-* [Introduktion till Azure Log Integration](security-azure-log-integration-overview.md): den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.
-* [Azure Log Integration FAQ](security-azure-log-integration-faq.md): den här artikeln ger svar på frågor om Azure Log Integration.
-* [Nya funktioner för Azure Diagnostics och Azure-granskningsloggar](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): det här blogginlägget ger en introduktion till Azure-granskningsloggar och andra funktioner som hjälper dig att få insyn i driften av dina Azure-resurser.
+* [Microsoft Azure Log Integration för Azure loggar](https://www.microsoft.com/download/details.aspx?id=53324): Den här sidan Download Center ger information om systemkrav och installationsanvisningar för Azure Log Integration.
+* [Introduktion till Azure-Loggintegrering](security-azure-log-integration-overview.md): Den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.
+* [Azure-Loggintegrering vanliga frågor och svar](security-azure-log-integration-faq.md): Den här artikeln får du svar på frågor om Azure Log Integration.
+* [Nya funktioner för Azure Diagnostics och Azure-granskningsloggar](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Det här blogginlägget ger en introduktion till Azure-granskningsloggar och andra funktioner som hjälper dig att få insyn i driften av dina Azure-resurser.

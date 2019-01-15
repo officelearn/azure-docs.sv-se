@@ -1,26 +1,8 @@
 ---
-title: Azure AI-galleriet Solutions – Azure Machine Learning Studio | Microsoft Docs
-description: Upptäck lösningar i Azure AI-galleriet. En lösning ger en rivstart för att snabbt bygga Cortana Intelligence-lösningar från förkonfigurerade lösningar, Referensarkitektur och designmönster.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: 8bfcbac45dd50ebed5491b0411d5f1faa5b5f078
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271342"
+Rubrik: Azure AI-galleriet lösningar titleSuffix: Beskrivning av Azure Machine Learning Studio: Upptäck lösningar i Azure AI-galleriet. En lösning ger en rivstart för att snabbt bygga Cortana Intelligence-lösningar från förkonfigurerade lösningar, Referensarkitektur och designmönster.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/31/2017
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Upptäck lösningar i Azure AI-galleriet
 

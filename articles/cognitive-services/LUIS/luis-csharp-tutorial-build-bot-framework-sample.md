@@ -1,5 +1,5 @@
 ---
-title: Bot - C# -v3
+title: Bot - C# - v3
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4e2feb1f5b0cad9a05f796d160a0a641622d6b59
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c3e142c65cdfe00fb26694063f7733d62882cc0c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189227"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267376"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i C# med Bot Framework 3.x och Azure Web app-robot
 

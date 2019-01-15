@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063921"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303895"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Självstudie för Azure Log Integration: Bearbeta händelser med Azure Key Vault med hjälp av Event Hubs
 
 >[!IMPORTANT]
-> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog nedladdningar inaktiveras den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog hämtningar har inaktiverats på den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Du kan använda Azure Log Integration för att hämta loggade händelser och göra dem tillgängliga för din säkerhet och händelsehantering (SIEM) hanteringssystemet. Den här självstudien visar ett exempel på hur Azure Log Integration kan användas för att bearbeta loggar som skaffas genom Azure Event Hubs.
 
@@ -56,21 +56,21 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
  
 1. Ett system med åtkomst till internet som uppfyller kraven för att installera Azure Log Integration. Systemet kan vara på en tjänst i molnet eller lokala.
 
-1. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installerad. Att installera den:
+1. Azure Log Integration installerad. Att installera den:
 
    a. Använda Fjärrskrivbord för att ansluta till system som nämns i steg 2.   
-   b. Kopiera installationsprogrammet för Azure Log Integration i systemet. Du kan [ladda ned installationsfilerna](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Starta installationsprogrammet och acceptera licensvillkoren för programvara från Microsoft.   
-   d. Om du tillhandahåller telemetriinformation, lämnar du kryssrutan är markerad. Om du inte skulle hellre skicka användningsinformation till Microsoft, avmarkerar du kryssrutan.
-   
+   b. Kopiera installationsprogrammet för Azure Log Integration i systemet. c. Starta installationsprogrammet och acceptera licensvillkoren för programvara från Microsoft.
+
+1. Om du tillhandahåller telemetriinformation, lämnar du kryssrutan är markerad. Om du inte skulle hellre skicka användningsinformation till Microsoft, avmarkerar du kryssrutan.
+
    Läs mer om Azure Log Integration och hur du installerar den [Azure Log Integration med Azure Diagnostisk loggning och vidarebefordran av Windows-händelser](security-azure-log-integration-get-started.md).
 
 1. Den senaste versionen av PowerShell.
- 
+
    Om du har Windows Server 2016 har installerats kommer du ha minst PowerShell 5.0. Om du använder någon annan version av Windows Server, kanske en tidigare version av PowerShell installerad. Du kan kontrollera versionen genom att ange ```get-host``` i ett PowerShell-fönster. Om du inte har PowerShell 5.0 installerat, kan du [ladda ned den](https://www.microsoft.com/download/details.aspx?id=50395).
 
    När du har minst PowerShell 5.0, som du kan fortsätta att installera den senaste versionen:
-   
+
    a. I en PowerShell-fönstret anger du den ```Install-Module Azure``` kommando. Slutför installationsstegen.    
    b. Ange den ```Install-Module AzureRM``` kommando. Slutför installationsstegen.
 

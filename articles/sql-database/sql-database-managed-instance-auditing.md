@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063887"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267274"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanterad instans-granskning
 
@@ -172,9 +172,9 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 - Använd systemfunktionen `sys.fn_get_audit_file` (T-SQL) att returnera granskningsloggdata i tabellformat. Mer information om hur du använder den här funktionen finns i den [sys.fn_get_audit_file dokumentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Med hjälp av ett verktyg som Azure Storage Explorer kan du utforska granskningsloggar. Granskningsloggarna sparas i Azure storage som en samling av blobfiler i en behållare med namnet sqldbauditlogs. Mer information om hierarkin för mappen storage finns namngivningskonventioner och loggformat, i Blob Audit Log Format referens.
+- Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). Granskningsloggarna sparas i Azure storage som en samling av blobfiler i en behållare med namnet sqldbauditlogs. Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
 > Visning av granskningsposter från Azure portal (”granskningsposter”-rutan) är inte tillgänglig för hanterad instans.

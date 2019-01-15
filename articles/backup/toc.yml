@@ -122,8 +122,6 @@ items:
         href: backup-azure-vms-encryption.md
       - name: Aktivera säkerhetskopiering av virtuella datorer när de virtuella datorerna skapas
         href: backup-during-vm-creation.md
-      - name: Funktionen för omedelbar återställning
-        href: backup-instant-restore-capability.md
     - name: Hantera och övervaka virtuella datorer
       items:
       - name: Hantera virtuella Azure-säkerhetskopieringar i Azure Portal
@@ -136,6 +134,8 @@ items:
         href: backup-azure-restore-files-from-vm.md
       - name: Återställa virtuella datorer på Azure Portal
         href: backup-azure-arm-restore-vms.md
+      - name: Funktionen för omedelbar återställning
+        href: backup-instant-restore-capability.md
       - name: Återställa krypterade virtuella datorer
         href: backup-azure-vms-encryption.md
       - name: Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer
@@ -256,9 +256,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 44ab1f24ba3bcae8902d8fa953b09f48630e7822
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4f5d8a19fe45aa493183fd5de027a1ecd159622e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199272"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267495"

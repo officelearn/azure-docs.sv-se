@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420089"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266951"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Konfigurera Tomcat7 på en Linux-dator med Azure
 Apache Tomcat (eller bara Tomcat, också kallades Jakarta Tomcat) är en webbserver med öppen källkod och servletbehållare som har utvecklats av Apache Software Foundation (ASF). Tomcat implementerar Java Servlet och JavaServer sidor (JSP)-specifikationer från Sun Microsystems. Tomcat tillhandahåller en ren Java http-webbservermiljö där du kan köra Java-kod. I den enklaste konfigurationen körs Tomcat i en enda process. Den här processen körs en Java virtual machine (JVM). Varje HTTP-begäran från en webbläsare till Tomcat behandlas som en separat tråd i processen för Tomcat.  
@@ -98,7 +98,7 @@ TCP-port 8080 är standardportarna som Tomcat använder för att lyssna. Om den 
       ![Skärmbild av användargränssnitt som visar Lägg till kommandot, offentlig Port och privat Port][7]
 4. Klicka på **OK** att lägga till slutpunkten till den virtuella datorn.
 
-### <a name="step-2-connect-to-the-image-you-created"></a>Steg 2: Anslut till den avbildning som du skapade
+### <a name="step-2-connect-to-the-image-you-created"></a>Steg 2: Ansluta till den avbildning som du skapade
 Du kan välja valfritt SSH-verktyg för att ansluta till den virtuella datorn. I det här exemplet använder vi PuTTY.  
 
 1. Hämta DNS-namnet på den virtuella datorn från portalen.
@@ -114,7 +114,7 @@ Du kan välja valfritt SSH-verktyg för att ansluta till den virtuella datorn. I
 4. Klicka på den körbara filen Putty.exe efter nedladdningen. Konfigurera alternativen för grundläggande med värdnamn i PuTTY-konfiguration, och portnumret som hämtas från egenskaperna för den virtuella datorn.   
 ![Skärmbild som visar alternativ för namn på och portnummer för värden PuTTY-konfiguration][9]
 
-5. I den vänstra rutan klickar du på **anslutning** > **SSH** > **Auth**, och klicka sedan på **Bläddra** att ange den platsen för filen privateKey.ppk. PrivateKey.ppk-filen innehåller den privata nyckeln som genereras av PuTTYgen tidigare i den ”fas 1: skapa en avbildning” i den här artikeln.  
+5. I den vänstra rutan klickar du på **anslutning** > **SSH** > **Auth**, och klicka sedan på **Bläddra** att ange den platsen för filen privateKey.ppk. PrivateKey.ppk-filen innehåller den privata nyckeln som genereras av PuTTYgen tidigare i den ”fas 1: Skapa en avbildning ”i den här artikeln.  
 ![Skärmbild som visar kataloghierarkin för anslutning och knappen Bläddra][10]
 
 6. Klicka på **Open** (Öppna). Du kan bli aviserad om med en meddelanderuta. Om du har konfigurerat DNS-namn och portnummer korrekt, klickar du på **Ja**.
@@ -123,7 +123,7 @@ Du kan välja valfritt SSH-verktyg för att ansluta till den virtuella datorn. I
 7. Du uppmanas att ange ditt användarnamn.  
 ![Skärmbild som visar var du vill ange ett användarnamn][12]
 
-8. Ange det användarnamn som du använde för att skapa den virtuella datorn i den ”fas 1: skapa en avbildning” tidigare i den här artikeln. Du kommer se något som liknar följande:  
+8. Ange det användarnamn som du använde för att skapa den virtuella datorn i den ”fas 1: Skapa en avbildning ”avsnittet tidigare i den här artikeln. Du kommer se något som liknar följande:  
 ![Skärmbild som visar autentisering-bekräftelse][13]
 
 ## <a name="phase-3-install-software"></a>Fas 3: Installera programvara
@@ -135,16 +135,16 @@ Tomcat är skriven i Java. Se [Azure stöds JDKs](https://aka.ms/azure-jdks) fö
 
 #### <a name="install-azure-supported-jdk"></a>Installera Azure stöds JDK
 
-Följ den `apt-get` Installationsinstruktioner dokumenterade på den [Azul Zulu in för Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) webbplats.
+Följ den `apt-get` Installationsinstruktioner dokumenterade på den [Azul Zulu Enterprise för Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) webbplats.
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Bekräfta att Java-installationen har slutförts
 Du kan använda ett kommando som liknar följande för att testa om med Java runtime environment har installerats korrekt:  
-    Java-version  
+    java -version  
 
-Du bör se ett meddelande som liknar följande: ![lyckade OpenJDK installationen visas][14]
+Du bör se ett meddelande som liknar följande: ![Meddelande om lyckad OpenJDK att installationen][14]
 
 
-### <a name="install-tomcat7"></a>Installera Tomcat7
+### <a name="install-tomcat7"></a>Install Tomcat7
 Använd följande kommando för att installera Tomcat7.  
 
     sudo apt-get install tomcat7  
@@ -212,7 +212,7 @@ När du har anslutit, bör du se något som liknar följande:
 
   * Lyssnarporten för Tomcat är inte samma som den privata porten för den virtuella datorns slutpunkten för Tomcat-trafik.  
 
-     Kontrollera offentlig port och privat port endpoint-inställningar och kontrollera att den privata porten är samma som Tomcat lyssningsport. Se ”fas 1: skapa en avbildning” i den här artikeln för instruktioner om hur du konfigurerar slutpunkter för den virtuella datorn.  
+     Kontrollera offentlig port och privat port endpoint-inställningar och kontrollera att den privata porten är samma som Tomcat lyssningsport. Se ”fas 1: Skapa en avbildning ”i den här artikeln för instruktioner om hur du konfigurerar slutpunkter för den virtuella datorn.  
 
      Öppna /etc/httpd/conf/httpd.conf (Red Hat-utgåvan) eller /etc/tomcat7/server.xml (Debian utgåvan) för att fastställa lyssnarporten för Tomcat. Som standard är Tomcat listen port 8080. Här är ett exempel:  
 

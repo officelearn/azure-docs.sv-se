@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240723"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302722"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
 Lär dig mer om att hantera lagringskonton i Azure Stack för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehoven.
@@ -148,7 +148,7 @@ Du kan också använda PowerShell för att åsidosätta uttryckligen kvarhållni
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ````
 
-Mer information finns i [Azure Stack PowerShell-dokumentationen.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
+Mer information finns i [Azure Stack PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Nästa steg

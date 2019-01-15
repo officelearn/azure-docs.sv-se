@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232506"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263823"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
@@ -37,7 +37,13 @@ import azureml.dataprep as dprep
 dataflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
-Den här funktionen är användbar när filtypen inte uttryckligen är känd. Ett användningsexempel på är en katalog som innehåller hundratals olika typer som ska konverteras till objekt som dataflöde av filer. Gå igenom varje sökväg och anropar `auto_read_file()` kan du enkelt bearbeta filer i katalogen i en lista med objekt som dataflöde.
+Det här är användbart för att automatiskt upptäcka filtyp, kodning och andra parsning argument allt från en lämplig startpunkt. Funktionen utför automatiskt följande som vanligen utförs vid inläsning av avgränsad data:
+
+* Procedurens och ställa in avgränsaren
+* Hoppar över tomma poster överst i filen
+* Procedurens och ange rubrikraden
+
+Du kan också om du vet filen Skriv förbereds i förväg och vill styra hur tolkas uttryckligen fortsätta den här artikeln för att se den speciella funktioner i SDK innehåller följande.
 
 ## <a name="load-text-line-data"></a>Läsa in text raddata
 

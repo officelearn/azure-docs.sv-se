@@ -1,21 +1,21 @@
 ---
 title: Skapa video granskningar med hjälp av .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Så här skapar du video granskar med Content Moderator-SDK för .NET
+description: Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med Content Moderator-SDK med C# att skapa video granskningar.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219048"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262519"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med hjälp av .NET
 
@@ -35,20 +35,19 @@ Den här artikeln förutsätter också att du redan är bekant med Visual Studio
 
 ## <a name="sign-up-for-content-moderator"></a>Registrera dig för Content Moderator
 
-Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
-Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API:n eller SDK:n behöver du en prenumerationsnyckel. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskning-verktyget om inte slutförts i föregående steg
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskningsverktyget om du inte har gjort det i föregående steg
 
-Om du har fått din Content Moderator från Azure-portalen, även [registrera granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/) och skapa en granskningsteam. Du behöver Id-teamet och granskningsverktyget att anropa granska API för att starta ett jobb och visa granskningarna i granskningsverktyget.
+Om du har fått din Content Moderator från Azure-portalen ska du även [registrera dig för ett konto för granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) och skapa ett granskningsteam. Du behöver Id-teamet och granskningsverktyget för att anropa gransknings-API:et för att starta ett jobb och visa granskningarna i granskningsverktyget.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa API: et för granskning för att skapa en granskning
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa gransknings-API:et för att skapa en granskning
 
-När du har slutfört föregående steg, kan det sluta med två Content Moderator-nycklar om du utgick från Azure-portalen. 
+När du har slutfört föregående steg kan det hända att du har två Content Moderator-nycklar om du startade från Azure-portalen. 
 
-Om du planerar att använda Azure-tillhandahållna API-nyckeln i SDK-exempel, följer du stegen som beskrivs i den [med hjälp av Azure-nyckel med granska API: et](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) avsnittet så att dina program kan anropa API: et för granskning och skapa granskningar.
+Om du planerar att använda den Azure-tillhandahållna API-nyckeln i ditt SDK-exempel följer du de steg som beskrivs i avsnittet om att [använda Azure-nyckel med API:et för granskning](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) så att ditt program kan anropa API:et för granskning och skapa granskningar.
 
-Om du använder den kostnadsfria utvärderingsversionen nyckeln som genererats av granskningsverktyget granska verktyget kontot redan vet om nyckeln och därför inga ytterligare åtgärder krävs.
+Om du använder den nyckeln för den kostnadsfria utvärderingsversionen som genererades av granskningsverktyget känner ditt granskningsverktygskonto redan till nyckeln, och därför krävs inga ytterligare steg.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Förbereda din video och video ramar för granskning
 
@@ -71,11 +70,11 @@ För bildrutorna (avbildningar), använder du följande avbildningar:
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
 
 1. Ge projektet namnet **VideoReviews**.
 
-1. Välj det här projektet som enda Startprojekt för lösningen.
+1. Välj det här projektet som det enda startprojektet för lösningen.
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -86,7 +85,7 @@ Installera följande NuGet-paket för TermLists-projektet.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
 Ändra programmet använder enligt följande instruktioner.
 
@@ -100,7 +99,7 @@ Installera följande NuGet-paket för TermLists-projektet.
     using Newtonsoft.Json;
 
 
-### <a name="add-private-properties"></a>Lägga till egenskaper
+### <a name="add-private-properties"></a>Lägga till privata egenskaper
 
 Lägg till följande privata egenskaper till namnområdet VideoReviews, klassen Program.
 
@@ -168,7 +167,7 @@ Lägg till följande metoddefinitionen i namnområdet VideoReviews, klassen Prog
 
 ## <a name="create-a-video-review"></a>Skapa en granskning av video
 
-Skapa en video granskning med **ContentModeratorClient.Reviews.CreateVideoReviews**. Mer information finns i den [API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Skapa en video granskning med **ContentModeratorClient.Reviews.CreateVideoReviews**. Mer information finns i [API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en mimetyp som ska vara ”application/json”. 
@@ -217,13 +216,13 @@ Lägg till följande metoddefinitionen i namnområdet VideoReviews, klassen Prog
     }
 
 > [!NOTE]
-> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning, och om du överskrider gränsen SDK: N genereras ett undantag med en 429 felkod. 
+> Content Moderator-tjänstnyckeln har en gräns för antal begäranden per sekund (RPS). Om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod. 
 >
-> En nyckel för kostnadsfria nivån har en hastighetsbegränsning för en RPS.
+> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
 
 ## <a name="add-video-frames-to-the-video-review"></a>Lägga till bildrutor i videon granskningen
 
-Du kan lägga till bildrutor i en video granskning med **ContentModeratorClient.Reviews.AddVideoFrameUrl** (om din bildrutor finns online) eller **ContentModeratorClient.Reviews.AddVideoFrameStream** () Om din bildrutor finns lokalt). Den här snabbstarten förutsätts det att din bildrutor finns online och så använder **AddVideoFrameUrl**. Mer information finns i den [API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
+Du kan lägga till bildrutor i en video granskning med **ContentModeratorClient.Reviews.AddVideoFrameUrl** (om din bildrutor finns online) eller **ContentModeratorClient.Reviews.AddVideoFrameStream** () Om din bildrutor finns lokalt). Den här snabbstarten förutsätts det att din bildrutor finns online och så använder **AddVideoFrameUrl**. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
 
 **AddVideoFrameUrl** har följande obligatoriska parametrar:
 1. En sträng som innehåller en mimetyp som ska vara ”application/json”.
@@ -237,7 +236,7 @@ Du kan lägga till bildrutor i en video granskning med **ContentModeratorClient.
 - **Metadata**. En IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** är helt enkelt ett nyckel/värde-par. Giltiga nycklar är:
 - **reviewRecommended**. SANT om en mänsklig granskning för video ramen rekommenderas.
 - **adultScore**. Ett värde mellan 0 och 1 som bedömer allvarlighetsgraden för vuxet innehåll i video ramen.
-- **en**. SANT om videon innehåller vuxet innehåll.
+- **a**. SANT om videon innehåller vuxet innehåll.
 - **racyScore**. Ett värde mellan 0 och 1 som bedömer allvarlighetsgraden för olämpligt innehåll i video ramen.
 - **r**. SANT om video ramen innehåller olämpligt innehåll.
 - **ReviewerResultTags**. En IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** är helt enkelt ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera bildrutor.
@@ -373,7 +372,7 @@ Lägg till följande metoddefinitionen i namnområdet VideoReviews, klassen Prog
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Sätter samman allt
+## <a name="putting-it-all-together"></a>Färdigställa allt
 
 Lägg till den **Main** metoddefinitionen namnområde VideoReviews, klassen Program. Stäng i programklassen och VideoReviews-namnområdet.
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e31c957e9ef24079d6917109ec9c5f85928bfbd7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545324"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260983"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -27,7 +27,7 @@ En kombination av resurstypen (tillgänglig i den `resourceId` egenskapen) och `
 |---|---|---|
 | time | Krävs | Tidsstämpel (UTC) för händelsen. |
 | resourceId | Krävs | Resurs-ID för den resurs som genereras av händelsen. För klienttjänster är det av formuläret /tenants/tenant-id/providers/provider-name. |
-| TenantId | Krävs för klient loggar | Klient-ID för Active Directory-klient som den här händelsen är kopplad till. Den här egenskapen används endast för på klientnivå loggar, visas inte i resursnivå loggar. |
+| tenantId | Krävs för klient loggar | Klient-ID för Active Directory-klient som den här händelsen är kopplad till. Den här egenskapen används endast för på klientnivå loggar, visas inte i resursnivå loggar. |
 | operationName | Krävs | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd, är detta Åtgärdsnamnet RBAC (t.ex.) Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Vanligtvis modellerats i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Valfri | Api-versionen som är associerade med åtgärden om operationName har utförts med hjälp av ett API (t.ex.) `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det finns inga API som motsvarar den här åtgärden, representerar versionen version av åtgärden om egenskaper som är associerade med åtgärden ändras i framtiden. |
 | category | Krävs | Loggkategori för händelsen. Kategorin är precisionen som du kan aktivera eller inaktivera loggar på en viss resurs. Egenskaperna som visas i blobben som egenskaper för en händelse är samma inom en viss kategori och resurs loggtyp. Vanliga loggkategorier är ”granskning” ”drift” ”körning” och ”-begäran”. |
@@ -45,7 +45,7 @@ En kombination av resurstypen (tillgänglig i den `resourceId` egenskapen) och `
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Tjänstspecifika scheman för diagnostikloggar för resursen
 Schemat för resursdiagnostikloggar varierar beroende på resursen och log kategori. I listan visas alla tjänster som gör tillgängliga diagnostikloggar och länkar till tjänsten och kategorispecifik schema där det är tillgängligt.
 
-| Tjänst | Schemat och dokument |
+| Tjänst | Schema & Docs |
 | --- | --- |
 | Azure Active Directory | [Översikt över](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Granska loggen schemat](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [logga moduler schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
@@ -96,8 +96,8 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.CognitiveServices/accounts|RequestResponse|Begäran-svarsloggar|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API Server|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
-|Microsoft.ContainerService/managedClusters|kluster-autoskalningen|Kubernetes Cluster Autoscaler|
-|Microsoft.ContainerService/managedClusters|kube-schemaläggare|Kubernetes Scheduler|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Kubernetes Cluster Autoscaler|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes Scheduler|
 |Microsoft.ContainerService/managedClusters|Guard|Autentiseringswebbhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Pipeline-körningar aktivitetsloggen|
@@ -122,8 +122,8 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Devices/IotHubs|DirectMethods|Direkta metoder|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E diagnostik (förhandsversion)|
 |Microsoft.Devices/IotHubs|Konfigurationer|Konfigurationer|
-|Microsoft.Devices /|DeviceOperations|Åtgärder|
-|Microsoft.Devices /|ServiceOperations|Tjänståtgärder|
+|Microsoft.Devices/provisioningServices|DeviceOperations|Åtgärder|
+|Microsoft.Devices/provisioningServices|ServiceOperations|Tjänståtgärder|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
@@ -168,12 +168,12 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.PowerBIDedicated/capacities|Motorn|Motorn|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapportdata|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-jobb|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery-händelser|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery Events|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery replikerade objekt|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery-Replikeringsstatistik|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery-återställningspunkter|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site dataöverföringshastighet Recovery replikering|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Skyddade Azure Site Recovery Dataomsättningen för disken|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
 |Microsoft.Search/searchServices|OperationLogs|Åtgärdsloggar|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Driftloggar|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
@@ -200,12 +200,12 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Sql/managedInstances/databases|Fel|Fel|
 |Microsoft.StreamAnalytics/streamingjobs|Körnings-|Körnings-|
 |Microsoft.StreamAnalytics/streamingjobs|Redigering|Redigering|
-|Microsoft.Web/Sites|FunctionExecutionLogs|Funktionen Körningsloggar|
-|Microsoft.Web/Sites/slots|FunctionExecutionLogs|Funktionen Körningsloggar|
+|microsoft.web/sites|FunctionExecutionLogs|Funktionen Körningsloggar|
+|microsoft.web/sites/slots|FunctionExecutionLogs|Funktionen Körningsloggar|
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Mer information om diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Stream resursdiagnostikloggar till **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
-* [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analysera loggar från Azure storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

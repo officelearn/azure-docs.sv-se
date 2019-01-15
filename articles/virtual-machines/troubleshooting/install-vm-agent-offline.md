@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192064"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259690"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure VM-agenten i offlineläge 
 
@@ -35,6 +35,14 @@ Installera VM-agenten i offlineläge i följande scenarier:
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Så här installerar du VM-agenten i offlineläge
 
 Använd följande steg för att installera VM-agenten i offlineläge.
+
+> [!NOTE]
+> Du kan automatisera processen för att installera VM-agenten i offlineläge.
+> Gör detta genom att använda den [Azure VM Recovery skript](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Om du väljer att använda Azure VM Recovery skript kan du använda följande process:
+> 1. Hoppa över steg 1 genom att använda skripten för att koppla OS-disken på den berörda virtuella datorn till en virtuell dator för återställning.
+> 2. Följ steg 2 – 10 om du vill tillämpa åtgärder.
+> 3. Hoppa över steg 11 med skripten för att återskapa den virtuella datorn.
+> 4. Följ steg 12.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Steg 1: Koppla OS-disken för den virtuella datorn till en annan virtuell dator som en datadisk
 
@@ -72,9 +80,9 @@ Använd följande steg för att installera VM-agenten i offlineläge.
 8.  Använda de befintliga filerna på felsökaren för virtuell dator som en lagringsplats för VM-agentinstallation. Utför följande steg:
 
     1. Exportera följande undernycklar i registret format (.reg) från felsökaren för virtuell dator: 
-        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
-        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
+        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Exportera registernycklarna](./media/install-vm-agent-offline/backup-reg.png)
 

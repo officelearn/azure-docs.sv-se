@@ -1,28 +1,28 @@
 ---
-title: Måttlig bilder med hjälp av anpassade listor med API-konsolen – Content Moderator
+title: Måttlig bilder med anpassade listor och API-konsolen – Content Moderator
 titlesuffix: Azure Content Moderator
-description: Testa anpassade bildlistor i Content Moderator-API-konsolen.
+description: Du kan använda listan Management API i Azure Content Moderator för att skapa anpassade listor över avbildningar.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c42fdb037e1803db8255518f5c7ae7b2abd90c60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219965"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259367"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Måttlig med anpassade bildlistor i API-konsol
 
 Du använder den [listan Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) i Azure Content Moderator för att skapa anpassade listor över avbildningar. Använda anpassade listor med avbildningar med Image Moderering API. Bildmoderering åtgärden utvärderar din avbildning. Om du skapar anpassade listor, jämför åtgärden även den till avbildningar i dina anpassade listor. Du kan använda anpassade listor för att blockera eller tillåta avbildningen.
 
 > [!NOTE]
-> Det finns en maxgräns på **5 bild listor** med varje lista till **inte överstiga 10 000 bilder**.
+> Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 >
 
 Du kan använda listan Management-API för att utföra följande uppgifter:
@@ -33,10 +33,10 @@ Du kan använda listan Management-API för att utföra följande uppgifter:
 - Ta bort avbildningar från en lista.
 - Ta bort en lista.
 - Redigera listinformation.
-- Uppdatera indexet så att ändringarna i listan som ingår i en ny genomsökning.
+- Uppdatera indexet så att ändringar i listan inkluderas i en ny genomsökning.
 
 ## <a name="use-the-api-console"></a>Använd API-konsol
-Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [översikt](overview.md).
+Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [Översikt](overview.md).
 
 ## <a name="refresh-search-index"></a>Uppdatera search-index
 
@@ -121,7 +121,7 @@ Det är enkelt att ta bort en avbildning eller en lista. Du kan använda API: et
 
 - Ta bort en avbildning. (**Bild – ta bort**)
 - Ta bort alla avbildningar i en lista utan att ta bort i listan. (**Bild – ta bort alla avbildningar**)
-- Ta bort en lista och dess innehåll. (**Bildlistor - ta bort**)
+- Ta bort en lista och allt dess innehåll. (**Bildlistor - ta bort**)
 
 Det här exemplet tar bort en enda avbildning:
 

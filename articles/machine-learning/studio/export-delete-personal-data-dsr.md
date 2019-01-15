@@ -1,22 +1,10 @@
 ---
-title: Exportera och ta bort dina data från Machine Learning Studio – Azure | Microsoft Docs
-description: 'I produkten data som lagras av Azure Machine Learning Studio är tillgängliga för export eller tas bort via Azure-portalen och även via autentiserade REST API: er. Dessa data kan nås via Azure sekretess-portalen. Den här artikeln visar hur du gör.'
-services: machine-learning
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-ms.reviewer: jmartens, mldocs
-ms.service: machine-learning
-ms.component: studio
-ms.topic: conceptual
-ms.date: 05/25/2018
-ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276272"
+Rubrik: Exportera och ta bort dina data från Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: I produkten data som lagras av Azure Machine Learning Studio är tillgängliga för export eller tas bort via Azure-portalen och även via autentiserade REST API: er. Dessa data kan nås via Azure sekretess-portalen. Den här artikeln visar hur du gör.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: Konceptuell
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 05/25/2018
 ---
+
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportera och ta bort i produkten användardata från Azure Machine Learning Studio
 
 Du kan ta bort eller export-produktdata som lagras av Azure Machine Learning Studio med hjälp av Azure portal, gränssnittet Studio, PowerShell, och autentiserade REST API: er. Den här artikeln visar hur du gör. 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: a3327c2c6f9684efe0d86b0cf923886f7310e1b0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199792"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261680"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Skicka ett stort antal aktiviteter till ett Batch-jobb
 
@@ -65,7 +65,7 @@ Det kan ta lite tid att lägga till ett stort antal uppgifter i ett jobb – til
 
 Följande C#-kodavsnitt visar inställningar för att konfigurera när du lägger till ett stort antal uppgifter med Batch .NET-API.
 
-För att öka dataflödet för aktiviteten, öka värdet för den [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) egenskapen för den [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Exempel:
+För att öka dataflödet för aktiviteten, öka värdet för den [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) egenskapen för den [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Exempel:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()

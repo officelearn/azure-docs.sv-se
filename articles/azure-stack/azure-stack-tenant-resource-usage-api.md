@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ab5dad550e590cd70f54ad5c8d4727d0f6370190
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5a9859fda2c6cac6acf08c8dcca3a0ce205d2e15
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379720"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302739"
 ---
 # <a name="tenant-resource-usage-api"></a>Klientresursanvändning
 
@@ -28,22 +28,22 @@ En klient kan använda klient-API för att visa användningsdata för klientens 
 Du kan använda Windows PowerShell-cmdleten **Get-UsageAggregates** att hämta användningsdata som i Azure.
 
 ## <a name="api-call"></a>API-anrop
-### <a name="request"></a>Begäran
+### <a name="request"></a>Förfrågan
 Begäran hämtar information om förbrukning för de begärda prenumerationerna och för den begärda tidsramen. Det finns inga begärandetexten.
 
-| **Metoden** | **Begärande-URI** |
+| **Metod** | **Begärande-URI** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| HÄMTA |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argument
-| **Argumentet** | **Beskrivning** |
+| **Argument** | **Beskrivning** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager-slutpunkten för Azure Stack-miljön. Azure Stack-konventionen är att namnet på Azure Resource Manager-slutpunkten är i formatet `https://management.{domain-name}`. Till exempel för development kit domännamnet är local.azurestack.external och Resource Manager-slutpunkten är `https://management.local.azurestack.external`. |
 | *subId* |Prenumerations-ID för den användare som ansvarar för att göra anropet. Du kan använda detta API endast till frågan för användning av en enda prenumeration. Leverantörer kan använda API: T för Provider Resource användning till fråga användning för alla klienter. |
 | *reportedStartTime* |Starttid för frågan. Värdet för *DateTime* ska vara i UTC och i början av timme, till exempel 13:00. För dagliga aggregering, ange ett värde till midnatt i UTC. Formatet är *undantagna* ISO 8601, till exempel 2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z, där kolon hoppas att % 3a och plus hoppas till % 2b så att den är URI: N eget. |
 | *reportedEndTime* |Sluttid för frågan. De begränsningar som gäller för *reportedStartTime* gäller även för det här argumentet. Värdet för *reportedEndTime* får inte vara i framtiden. |
 | *aggregationGranularity* |Valfri parameter som har två diskreta möjliga värden: varje dag och per timme. Eftersom värdena föreslå en returnerar data i daglig kornighet och den andra är upplösningen per timme. Dagliga alternativet är standardinställningen. |
-| *API-versionen* |Version av det protokoll som används för att göra denna begäran. Du måste använda 2015-06-01-preview. |
+| *api-version* |Version av det protokoll som används för att göra denna begäran. Du måste använda 2015-06-01-preview. |
 | *continuationToken* |Token hämtas från det senaste anropet till användning API-providern. Den här token krävs när ett svar är större än 1 000 rader och den fungerar som ett bokmärke för pågår. Om den inte finns data hämtas från början på dagen eller timme, baserat på precisionen skickas in. |
 
 ### <a name="response"></a>Svar
@@ -74,7 +74,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 ```
 
 ### <a name="response-details"></a>Svarsinformation
-| **Argumentet** | **Beskrivning** |
+| **Argument** | **Beskrivning** |
 | --- | --- |
 | *ID* |Unikt ID för aggregering för användning |
 | *Namn* |Namnet på samlingen användning |
@@ -82,9 +82,9 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *Prenumerations-ID* |Prenumerations-ID för Azure-användare |
 | *usageStartTime* |UTC starttid för bucketen användning som tillhör den här aggregeringen användning |
 | *usageEndTime* |Sluttid i UTC för bucketen användning som tillhör den här aggregeringen användning |
-| *instanceData* |Nyckel / värde-par med instansinformation (i ett nytt format):<br>  *resourceUri*: fullständigt kvalificerade resurs-ID, inklusive resursgrupper och instansnamn <br>  *plats*: Region där den här tjänsten kördes <br>  *taggar*: resurstaggar som användaren anger <br>  *additionalInfo*: Mer information om den resurs som förbrukades, till exempel OS-version eller bild-typ |
+| *instanceData* |Nyckel / värde-par med instansinformation (i ett nytt format):<br>  *resourceUri*: Fullständigt kvalificerade resurs-ID, inklusive resursgrupper och instansnamn <br>  *Plats*: Region där den här tjänsten kördes <br>  *Taggar*: Resurstaggar som användaren anger <br>  *additionalInfo*: Mer information om den resurs som förbrukades, till exempel version av Operativsystemet eller avbildning skriver |
 | *Kvantitet* |Mängden resursförbrukning som inträffat under det här tidsintervallet |
-| *MeterId* |Unikt ID för den resurs som förbrukades (kallas även *ResourceID*) |
+| *meterId* |Unikt ID för den resurs som förbrukades (kallas även *ResourceID*) |
 
 
 ## <a name="next-steps"></a>Nästa steg

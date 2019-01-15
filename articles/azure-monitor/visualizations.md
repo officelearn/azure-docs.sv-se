@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 94769ea0ff05565ee11f7c167e28f239ca304d3d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213747"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264418"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera logg- och måttdata som lagras i Azure Monitor.
@@ -35,7 +35,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 - Kombinera data från flera källor, inklusive utdata från [måttutforskaren](../azure-monitor/platform/metrics-charts.md), [Log Analytics-frågor](../azure-monitor/log-query/log-query-overview.md), och [mappar](../azure-monitor/app/app-map.md) och tillgänglighet i Application Insights.
 - Alternativet för personliga eller delade instrumentpaneler. Integrerad med Azure [Rollbaserad autentisering (RBAC)](../role-based-access-control/overview.md).
 - Automatisk uppdatering. Mått-uppdatering är beroende av tidsintervall med minst fem minuter. Loggar uppdatera på en minut.
-- Innehåller parametrar mått instrumentpaneler med tidsstämpel och anpassade parametrar.
+- Parametriserade mått instrumentpaneler med tidsstämpel och anpassade parametrar.
 - Layoutalternativ för flexibel.
 - Helskärmsläge.
 

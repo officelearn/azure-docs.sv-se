@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: d4c5def3cc61c1920ae99d5aa9f97b46cbda0045
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244502"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303592"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Huvudfunktioner och koncept i Azure Stack
 Om du inte har använt Microsoft Azure Stack kan dessa villkor och funktionsbeskrivning vara användbart.
@@ -129,23 +129,13 @@ Azure Queue Storage innehåller molnmeddelandehantering mellan programkomponente
 KeyVault RP ger hantering och granskning av hemligheter som lösenord och certifikat. Exempelvis kan en klient använda KeyVault RP ange administratörers lösenord eller nycklar under distribution av virtuella datorer.
 
 ## <a name="high-availability-for-azure-stack"></a>Hög tillgänglighet för Azure Stack
-*Gäller för: Azure Stack-1802 eller senare versioner*
+För att uppnå hög tillgänglighet för ett system för produktion av flera virtuella datorer i Azure virtuella datorer är placerade i en [tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) som sprider ut dem över flera feldomäner och uppdateringsdomäner. I mindre skala i Azure Stack definieras en feldomän i en tillgänglighetsuppsättning som en nod i skalningsenheten.  
 
-För att uppnå hög tillgänglighet för ett system för produktion av flera virtuella datorer i Azure är virtuella datorer placerade i en tillgänglighetsuppsättning som sprids dem över flera feldomäner och uppdateringsdomäner. På så sätt kan [virtuella datorer som distribueras i tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) är fysiskt isolerade från varandra på separata serverrack att tillåta för återhämtning för fel som visas i följande diagram:
-
-  ![Hög tillgänglighet med Azure Stack](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Tillgänglighetsuppsättningar i Azure Stack
 Infrastrukturen i Azure Stack är redan elastisk vid fel, medför den underliggande tekniken (redundanskluster) fortfarande vissa avbrott för virtuella datorer på en fysisk server som påverkas om det uppstår ett maskinvarufel. Azure Stack har stöd för att ha en tillgänglighetsuppsättning med högst tre feldomäner för att överensstämma med Azure.
 
 - **Feldomäner**. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer att fysiskt isolerade från varandra genom att sprida dem så jämnt som möjligt via flera feldomäner (Azure Stack-noder). Om det finns ett maskinvarufel, kommer virtuella datorer från den misslyckade feldomänen att startas om i andra feldomäner, men om möjligt sparas i separata feldomäner från andra virtuella datorer i samma tillgänglighetsuppsättning. När maskinvaran som är online igen, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet. 
  
 - **Uppdateringsdomäner**. Uppdateringsdomäner är en annan Azure koncept som ger hög tillgänglighet i tillgänglighetsuppsättningar. En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan underhållas på samma gång. Virtuella datorer finns i samma uppdateringsdomän startas tillsammans under planerat underhåll. När klienter skapar virtuella datorer i en tillgänglighetsuppsättning, distribuerar Azure-plattformen automatiskt virtuella datorer mellan dessa uppdateringsdomäner. I Azure Stack, virtuella datorer är live migreras på andra online värdar i klustret innan deras underliggande värden har uppdaterats. Eftersom det inte finns inget klient-avbrott under en värduppdatering av, finns bara funktionen domän i Azure Stack mall kompatibilitet med Azure. 
-
-### <a name="upgrade-scenarios"></a>Uppgraderingsscenarier 
-Virtuella datorer i tillgänglighetsuppsättningar som skapades innan Azure Stack-version 1802 ges ett angivet antal i fel- och uppdateringsdomäner (1 och 1 respektive). För att uppnå hög tillgänglighet för virtuella datorer i dessa befintliga tillgänglighetsuppsättningar, måste du först ta bort de befintliga virtuella datorerna och distribuera dem till en ny tillgänglighetsuppsättning med rätt fel- och domän antal, enligt beskrivningen i [ändra den tillgänglighetsuppsättningen för en virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-VM-skalningsuppsättningar, en tillgänglighetsuppsättning skapas internt med en standard-domän och uppdatera antalet feldomäner (3 och 5 respektive). Alla VM-skalningsuppsättningar som skapats innan 1802 uppdateringen kommer att placeras i en tillgänglighetsuppsättning med fel- och standarddomän räknar (1 och 1 respektive). För att uppdatera dessa VM-skalningsuppsättningsinstanser för att uppnå nyare spridningen, skala ut skalningsuppsättningar för virtuella datorer genom att antalet instanser som fanns före uppdateringen 1802 och ta sedan bort de äldre instanserna av VM-skalningsuppsättningar. 
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 Du kan använda RBAC för att ge systemåtkomst till behöriga användare, grupper och tjänster genom att tilldela dem roller på en prenumeration, resursgrupp eller enskild resurs. Varje roll definierar den åtkomstnivå som en användare, grupp eller tjänst har över Microsoft Azure Stack-resurser.

@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580747"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260143"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -33,29 +33,12 @@ Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar
 
 Integrerade säkerhetslösningar omfattar för närvarande följande:
 
-- Slutpunktsskydd ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Brandvägg för webbaserade program ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) och [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) och [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) och [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > Security Center installerar inte Microsoft Monitoring Agent på virtuella partnerenheter eftersom de flesta säkerhetsleverantörer inte tillåter att externa agenter körs på deras enhet.
->
->
-
-
-| Slutpunktsskydd               | Plattformar                             | Installation av Security Center | Security Center Discovery |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft-programvara mot skadlig kod)                  | Windows Server 2016                   | Nej, inbyggd i OS           | Ja                       |
-| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (Se kommentaren nedan) | Via tillägg                | Ja                       |
-| Trend Micro – Alla versioner         | Windows Server-familjen                 | Nej                           | Ja                       |
-| Symantec v12.1.1100+              | Windows Server-familjen                 | Nej                           | Ja                       |
-| McAfee v10 +                       | Windows Server-familjen                 | Nej                           | Ja                       |
-| Kaspersky                         | Windows Server-familjen                 | Nej                           | Nej                        |
-| Sophos                            | Windows Server-familjen                 | Nej                           | Nej                        |
-
-> [!NOTE]
-> Identifiering av System Center Endpoint Protection (SCEP) på en Windows Server 2008 R2-dator kräver SCEP installeras efter PowerShell 3.0 (eller en övre version).
 >
 >
 
@@ -239,7 +222,7 @@ Här är några Splunk frågor som du kan använda för att hämta aviseringsdat
 |----|----|
 | Alla aviseringar| index = huvudsakliga Microsoft.Security/locations/alerts|
 | Sammanfatta antalet åtgärder efter deras namn| index = huvudsakliga sourcetype = ”amal: säkerhet” \| tabell operationName \| stats antal efter operationName|
-| Få aviseringar information: Tid, namn, status, ID och prenumeration | index = huvudsakliga Microsoft.Security/locations/alerts \| tabell \_tid, properties.eventName, tillstånd, properties.operationId, am_subscriptionId |
+| Få aviseringar information: Tid, namn, status, ID och prenumeration | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Nästa steg

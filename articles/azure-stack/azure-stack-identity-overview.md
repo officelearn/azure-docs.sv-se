@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245692"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306547"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Översikt över identitet för Azure Stack
 
 Azure Stack kräver Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) med Active Directory som en identitetsleverantör. Valet av en provider är ett enstaka beslut som du gör första gången du distribuerar Azure Stack. Koncept och auktorisering information i den här artikeln hjälper dig att välja mellan identitetsleverantörer.
 
-Ditt val av Azure AD eller AD FS kan fastställas med det läge som du distribuerar Azure Stack:
+Ditt val av Azure AD eller AD FS avgörs av det läge som du distribuerar Azure Stack:
 
 - När du distribuerar den i ett anslutet läge kan använda du antingen Azure AD eller AD FS.
 - När du distribuerar det i frånkopplat läge, utan en anslutning till internet, stöds endast AD FS.

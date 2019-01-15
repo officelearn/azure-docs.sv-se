@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 98b1072dc560de79e40fc4f802203459633dda28
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440942"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262973"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Tjänstnivå för Azure SQL Database Premium RS (förhandsversion) tas ur - alternativ för migrering
 
@@ -27,7 +27,7 @@ Följande är mål för migrering och prisalternativ som är lämpligt för Prem
 
 - vCore-tjänstnivåer
 
-  Den **generella** och **affärskritisk** tjänstnivåer i den [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md). Dessa två tjänstnivåer finns i allmänhet tillgänglighet. Den vCore-baserade inköpsmodellen erbjuder även den **hyperskala** tjänstnivå (i allmänt tillgänglig förhandsversion) som kan anpassas efter på begäran till din arbetsbelastning behov med automatisk skalning upp till 100 TB per databas. Tjänstnivån hyperskala ger IO-prestanda som är jämförbar med Premium-tjänstnivån i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) till ett pris som närmare på Premium RS-tjänstnivån.
+  Den **generella** och **affärskritisk** tjänstnivåer i den [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md). Dessa två tjänstnivåer är allmänt tillgängliga. Den vCore-baserade inköpsmodellen erbjuder även den **hyperskala** tjänstnivå (i allmänt tillgänglig förhandsversion) som kan anpassas efter på begäran till din arbetsbelastning behov med automatisk skalning upp till 100 TB per databas. Tjänstnivån hyperskala ger IO-prestanda som är jämförbar med Premium-tjänstnivån i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) till ett pris som närmare på Premium RS-tjänstnivån.
 - Priser för Dev/Test
 
   [Priser för utveckling/testning](https://azure.microsoft.com/pricing/dev-test/) ger besparingar upp till 55% rabatt jämfört med priserna för licensinkluderade med Visual Studio-prenumerationen.

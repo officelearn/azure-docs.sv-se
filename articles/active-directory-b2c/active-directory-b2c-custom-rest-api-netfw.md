@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557299"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304915"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -50,7 +50,7 @@ I den här genomgången kan du utveckla en .NET Framework webb-API som verifiera
 * Använda RESTful-tjänst i användarresan.
 * Skicka inkommande anspråk och läsa dem i din kod.
 * Verifiera användarens förnamn.
-* Skicka tillbaka ett lojalitet tal. 
+* Skicka tillbaka ett lojalitet tal.
 * Lägg till lojalitet numret till en JSON Web Token (JWT).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -77,11 +77,11 @@ Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Steg 2: Förbereda REST API-slutpunkt
 
 ### <a name="step-21-add-data-models"></a>Steg 2.1: Lägg till datamodeller
-Modellerna representerar de inkommande anspråken och utgående anspråk data i dina RESTful-tjänst. Din kod läser indata med deserialisering av inkommande anspråk modellen från en JSON-sträng till ett C#-objekt (din modell). ASP.NET-webb-API deserializes automatiskt utgående anspråk modellen tillbaka till JSON och sedan skriver den serialiserade informationen och i brödtexten för HTTP-svarsmeddelande. 
+Modellerna representerar de inkommande anspråken och utgående anspråk data i dina RESTful-tjänst. Din kod läser indata med deserialisering av inkommande anspråk modellen från en JSON-sträng till ett C#-objekt (din modell). ASP.NET-webb-API deserializes automatiskt utgående anspråk modellen tillbaka till JSON och sedan skriver den serialiserade informationen och i brödtexten för HTTP-svarsmeddelande.
 
 Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
-1. Om Solution Explorer inte redan är öppen väljer **visa** > **Solution Explorer**. 
+1. Om Solution Explorer inte redan är öppen väljer **visa** > **Solution Explorer**.
 2. I Solution Explorer högerklickar du på mappen **Modeller**, välj **Lägg till** och sedan **Klass**.
 
     ![Lägg till modell](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,7 +128,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -241,20 +241,20 @@ Den `loyaltyNumber` anspråk ännu inte har definierats i vår schemat. Lägg ti
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Steg 5: Lägg till en anspråksprovider 
-Varje anspråksprovidern måste ha en eller flera tekniska profiler som avgör de slutpunkter och protokoll som behövs för att kommunicera med anspråksprovidern. 
+## <a name="step-5-add-a-claims-provider"></a>Steg 5: Lägg till en anspråksprovider
+Varje anspråksprovidern måste ha en eller flera tekniska profiler som avgör de slutpunkter och protokoll som behövs för att kommunicera med anspråksprovidern.
 
-En anspråksprovider kan ha flera tekniska profiler för olika anledningar. Flera tekniska profiler kan exempelvis definieras eftersom anspråksprovidern stöder flera protokoll, slutpunkter kan ha olika funktioner eller versioner kan innehålla anspråk som har en mängd olika förtroendenivåer. Det kan vara att frigöra känsliga anspråk i en användarresa men inte i en annan. 
+En anspråksprovider kan ha flera tekniska profiler för olika anledningar. Flera tekniska profiler kan exempelvis definieras eftersom anspråksprovidern stöder flera protokoll, slutpunkter kan ha olika funktioner eller versioner kan innehålla anspråk som har en mängd olika förtroendenivåer. Det kan vara att frigöra känsliga anspråk i en användarresa men inte i en annan.
 
 Följande XML-kodstycke innehåller en anspråk providern nod med två tekniska profiler:
 
-* **Tekniska Id = ”REST-API-SignUp”**: Definierar RESTful-tjänst. 
-   * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider. 
-   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst. 
+* **TechnicalProfile Id="REST-API-SignUp"**: Definierar RESTful-tjänst.
+   * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider.
+   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst.
 
    I det här exemplet innehållet i anspråket `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar skick. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
 
-* **Tekniska Id = ”LocalAccountSignUpWithLogonEmail”**: Lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren.
 
 Leta upp den `<ClaimsProviders>` nod, och Lägg sedan till följande XML-kodstycke under den `<ClaimsProviders>` nod:
 
@@ -329,7 +329,7 @@ När du lägger till nytt anspråk förlitande part-koden ser ut så här:
 
 2. Välj **Identitetsramverk**.
 
-3. Öppna **alla principer**. 
+3. Öppna **alla principer**.
 
 4. Välj **överföra princip**.
 
@@ -354,7 +354,7 @@ När du lägger till nytt anspråk förlitande part-koden ser ut så här:
 
     ![Testa din princip](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  I den **Förnamn** skriver ett namn (andra än ”Test”).  
+4. I den **Förnamn** skriver ett namn (andra än ”Test”).  
     Azure AD B2C registrerar sig användaren och skickar sedan en loyaltyNumber till ditt program. Observera antalet i det här JWT.
 
 ```
@@ -381,7 +381,7 @@ När du lägger till nytt anspråk förlitande part-koden ser ut så här:
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Valfritt) Ladda ned fullständig principfiler och kod
 * När du har slutfört den [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgången ska vi rekommenderar att du skapar ditt scenario genom att använda din egen anpassade principfiler. För referens har vi samlat [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * Du kan hämta den fullständiga koden från [exempel Visual Studio-lösning för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-    
+
 ## <a name="next-steps"></a>Nästa steg
 * [Skydda ditt RESTful-API med grundläggande autentisering (användarnamn och lösenord)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Skydda ditt RESTful-API med klientcertifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

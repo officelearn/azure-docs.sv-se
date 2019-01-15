@@ -1,27 +1,8 @@
 ---
-title: Importera data till Machine Learning Studio från ett annat experiment – Azure | Microsoft Docs
-description: Så här att spara träningsdata i Azure Machine Learning Studio och använda den i ett annat experiment.
-keywords: Importera data, data, datakällor, utbildningsdata
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=deguhath, previous-author=deguhath
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: ea6e813d78cafa4e31ea37afa2675f30bccc5c4f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258090"
+Rubrik: Importera data till Machine Learning Studio från ett annat experiment titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att spara träningsdata i Azure Machine Learning Studio och använda den i ett annat experiment.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=deguhath, previous-author=deguhath ms.date: 03/20/2017
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Importera data till Azure Machine Learning Studio från ett annat experiment
 

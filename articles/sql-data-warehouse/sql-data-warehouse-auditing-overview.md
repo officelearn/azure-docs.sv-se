@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260388"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267444"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -107,7 +107,7 @@ Innan du konfigurerar audit granskning kontrollera om du använder en [”meddel
 
 5. Klicka på den **OK** för att spara information om lagringskonfiguration.
 6. Under **loggning av händelse**, klickar du på **lyckades** och **fel** vill logga alla händelser eller enskilda händelsekategorier.
-7. Om du konfigurerar granskning för en databas, kan du behöva ändra anslutningssträngen för din klient för att se till att datagranskning samlas in korrekt. Kontrollera den [ändra Server FDQN i anslutningssträngen](sql-data-warehouse-auditing-downlevel-clients.md) avsnittet för äldre-klientanslutningar.
+7. Om du konfigurerar granskning för en databas, kan du behöva ändra anslutningssträngen för din klient för att se till att datagranskning samlas in korrekt. Kontrollera den [ändra Server-FQDN i anslutningssträngen](sql-data-warehouse-auditing-downlevel-clients.md) avsnittet för äldre-klientanslutningar.
 8. Klicka på **OK**.
 
 ## <a id="subheading-3"></a>Analysera granskningsloggar och rapporter
@@ -196,7 +196,7 @@ En lista över ”klientversioner” innehåller:
 * JDBC (medan JDBC stöder TDS 7.4, funktion för TDS-omdirigering fullständigt stöds inte)
 * Tedious (för Node.JS)
 
-**Kommentar:** föregående servern FDQN ändring kan vara användbart också för att tillämpa en princip för granskning för SQL Server-nivå utan behov av en konfiguration steg i varje databas (tillfällig lösning).     
+**Kommentar:** Den föregående servern FQDN ändring kan vara användbart också för att tillämpa en princip för granskning för SQL Server-nivå utan att behöva ett konfigurationssteg i varje databas (tillfällig lösning).     
 
 
 

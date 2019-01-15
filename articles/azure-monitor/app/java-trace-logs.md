@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: e1575afde326875558cea437de775515b8606f01
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53980873"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266202"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java spårningsloggar i Application Insights
 Om du använder Logback eller Log4J (version 1.2 eller v2.0) för att analysera och du kan ha spårningsloggarna skickas automatiskt till Application Insights kan du utforska och söka i dem.
@@ -98,7 +98,7 @@ Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
 ```
 
 #### <a name="otherwise-"></a>Eller …
-Följ riktlinjerna för att manuellt installera Application Insights Java SDK, ladda ned den JAR-filen (efter ariving på Maven Central sidan klickar du på ”jar-länk i nedladdningar) för lämpliga loggbilaga och Lägg till hämtade loggbilaga JAR-filen i projektet.
+Följ riktlinjerna för att manuellt installera Application Insights Java SDK, ladda ned den JAR-filen (efter anländer till Maven Central klickar du på ”jar-länken i nedladdningar) för lämpliga loggbilaga och Lägg till hämtade loggbilaga JAR-filen i projektet.
 
 | Loggare | Ladda ned | Bibliotek |
 | --- | --- | --- |
@@ -156,7 +156,7 @@ Application Insights-appenders kan refereras genom alla konfigurerad loggare och
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Utforska dina spårningar i Application Insights-portalen
 Nu när du har konfigurerat ditt projekt för att skicka loggspårningar till Application Insights kan du visa och söka efter dessa spår i Application Insights-portalen i den [Search] [ diagnostic] bladet.
 
-Undantag submited via tangenttryckningar visas på portalen som Undantagstelemetri.
+Undantag som skickats via tangenttryckningar visas på portalen som Undantagstelemetri.
 
 ![Öppna sökning i Application Insights-portalen](./media/java-trace-logs/10-diagnostics.png)
 

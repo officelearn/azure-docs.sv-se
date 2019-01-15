@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 991199747f51f379ee6f3efe8009ab9166c33ac7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 65ab6b62b1da925880b3197036f52407e868ece7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832014"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263603"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Konfigurera hur slutanvändare samtycka till ett program i Azure Active Directory
 Lär dig mer om att konfigurera hur användare godkänna att behörigheter för programmet. Du kan förenkla användarupplevelsen genom att tilldela administratörens godkännande. Den här artikeln innehåller olika sätt du kan konfigurera användarens medgivande. Metoderna som gäller för alla användare i din Azure Active Directory (Azure AD)-klient. 
@@ -26,6 +26,8 @@ Mer information om principer för program finns i [Azure Active Directory-ramver
 ## <a name="prerequisites"></a>Förutsättningar
 
 Bevilja administratörens godkännande måste du logga in som global administratör, programadministratör eller en molnprogramadministratör.
+
+Om du vill begränsa åtkomsten till program, måste du Kräv Användartilldelning och därefter tilldela användare eller grupper till programmet.  Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
 
 ## <a name="grant-admin-consent-to-enterprise-apps-in-the-azure-portal"></a>Bevilja administratörens godkännande till enterprise-appar i Azure portal
 

@@ -1,28 +1,10 @@
 ---
-title: Machine Learning Studio vanliga frågor (FAQ) – Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio: Vanliga frågor och svar som täcker fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering.'
-keywords: introduktion till maskininlärning, förutsägelsemodellering, vad är maskininlärning, machine learning
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091309"
+Rubrik: Machine Learning Studio vanliga frågor (FAQ) titleSuffix: Beskrivning av Azure Machine Learning Studio: 'Azure Machine Learning Studio: Vanliga frågor och svar som täcker fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering ”.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: Konceptuell
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---
-# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio vanliga frågor och svar: Fakturering, funktioner, begränsningar och support
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar för Azure Machine Learning-Studio: Fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
 
 **Har en fråga som du inte kan hitta här?**
@@ -55,8 +37,8 @@ Machine Learning-webbtjänster är ett gränssnitt mellan ett program och en bed
 
 Azure Machine Learning har två typer av webbtjänster:
 
-* RRS (Request-Response Service): En tjänst med korta svarstider och hög skalbarhet som tillhandahåller ett gränssnitt för de tillståndslösa modeller som skapas och distribueras med Machine Learning Studio.
-* BES (Batch Execution Service): En asynkron tjänst som poängsätter en batch med dataposter.
+* Request-Response Service (RR): Med låg fördröjning, mycket skalbar tjänst som tillhandahåller ett gränssnitt för de tillståndslösa modeller som skapas och distribueras med hjälp av Machine Learning Studio.
+* Batch Execution Service (BES): En asynkron tjänst som poängsätter en batch med dataposter.
 
 Du kan använda REST-API:et och komma åt webbtjänsten på flera sätt. Du kan till exempel skriva ett program i C#, R eller Python med exempelkoden som genererades när du distribuerade webbtjänsten.
 
@@ -271,7 +253,7 @@ Om datauppsättningarna är större än några få GB laddar du upp data till Az
 
 **Finns det några begränsningar vad gäller vektorstorlek?**
 
-Rader och kolumner har samma begränsningar som .NET med ett högsta antal heltal på 2 147 483 647.
+Rader och kolumner är var begränsade till .NET-begränsning av Max Int: 2,147,483,647.
 
 **Kan jag justera storleken på den virtuella dator som kör webbtjänsten?**
 
@@ -438,7 +420,7 @@ De nya faktureringsplanerna är tillgängliga i de tre produktionsregioner där 
 
 Ja. Priserna för planer varierar beroende på region. När du distribuerar en webbtjänst till en annan region måste du associera den med en plan som är specifik för den regionen. Mer information finns i [Produkttillgänglighet per region]( https://azure.microsoft.com/regions/services/).
 
-### <a name="new-web-services-overages"></a>De nya webbtjänsterna – överförbrukning
+### <a name="new-web-services-overages"></a>Nya webbtjänster: Överförbrukning
 **Hur kontrollerar jag om jag överskrider webbtjänstanvändningen?**
 
 Du kan visa förbrukningen för alla dina planer på sidan för faktureringsplaner på Azure Machine Learning Web Services-portalen. Logga in på portalen och klicka på menyalternativet för **planer**.
@@ -483,20 +465,20 @@ Azure Machine Learning API-tjänsten debiteras beroende på om det rör sig om e
 
 Följande avgifter beräknas per arbetsyta för din prenumeration.
 
-* Prenumeration på Machine Learning-arbetsyta: Prenumerationen på Machine Learning-arbetsyta är en månadsavgift som ger åtkomst till en Machine Learning Studio-arbetsyta. Prenumerationen krävs för att köra experiment i Studio och för att använda API:er i produktionsmiljön.
-* Experimenttimmar i Studio: Den här mätaren räknar ihop alla beräkningsrelaterade avgifter som ackumuleras när du kör experiment i Machine Learning Studio och API-anrop för produktion i mellanlagringsmiljön.
+* Prenumerationen: Prenumerationen för Machine Learning-arbetsyta är en månadsavgift som ger åtkomst till en Machine Learning Studio-arbetsyta. Prenumerationen krävs för att köra experiment i Studio och för att använda API:er i produktionsmiljön.
+* Experimenttimmar i Studio: Den här mätaren räknar ihop alla beräkningsrelaterade avgifter som ackumuleras av kör experiment i Machine Learning Studio och API-anrop för produktion i mellanlagringsmiljön.
 * Kom åt data genom att ansluta till en lokal server som kör SQL Server i dina modeller för utbildning och bedömning.
 * För de klassiska webbtjänsterna:
   * Beräkningstimmar för produktions-API: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av webbtjänster som körs i produktionsmiljön.
-  * Transaktioner i produktions-API (i tusental): Den här mätaren visar kostnader som ackumuleras per anrop till din webbtjänst i produktionsmiljön.
+  * Produktions-API-transaktioner (i 1000-tal): Den här mätaren visar avgifter som ackumuleras per anrop till produktionswebbtjänsten.
 
 Förutom föregående kostnader räknas avgifter för den valda planen in för den nya Resource Manager-baserade webbtjänsten:
 
-* Standard S1/S2/S3 – API-plan (enheter): Den här mätaren representerar den typ av instans som valts för Resource Manager-baserade webbtjänster.
-* Standard S1/S2/S3 – överförbrukning av API-beräkningstimmar: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av de nya Resource Manager-baserade webbtjänsterna som körs i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S1/S2/S3.
-* Standard S1/S2/S3 – överförbrukning av API-transaktioner (i tusental): Den här mätaren visar avgifter som ackumuleras per anrop till din Resource Manager-baserade webbtjänst i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S3/S1/S2.
-* Inkluderade API-beräkningstimmar: Med Resource Manager-baserade webbtjänster representerar den här mätaren det inkluderade antalet API-beräkningstimmar.
-* Inkluderade API-transaktioner (i 1 000-tal): Med Resource Manager-baserade webbtjänster representerar den här mätaren det inkluderade antalet API-transaktioner.
+* Standard S1/S2/S3-Plan för API (enheter): Den här mätaren representerar typ av instans som valts för Resource Manager-baserade webbtjänster.
+* Standard S1/S2/S3 – överförbrukning API-Beräkningstimmar: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av Resource Manager-baserade webbtjänster som körs i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S1/S2/S3.
+* Standard S1/S2/S3 – överförbrukning av API-transaktioner (i 1 000-tal): Den här mätaren visar avgifter som ackumuleras per anrop till din Resource Manager-baserade webbtjänst i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S3/S1/S2.
+* Inkluderade API-Beräkningstimmar: Med Resource Manager-baserade webbtjänster representerar den här mätaren inkluderade antalet API-beräkningstimmar.
+* Inkluderade API-transaktioner (i 1 000-tal): Med Resource Manager-baserade webbtjänster representerar den här mätaren inkluderade antalet API-transaktioner.
 
 **Hur jag registrerar jag mig för den kostnadsfria Azure Machine Learning-nivån?**
 

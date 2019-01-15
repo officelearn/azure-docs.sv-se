@@ -1,26 +1,7 @@
 ---
-title: Distribuera Studio-arbetsyta med Azure Resource Manager – Azure Machine Learning Studio | Microsoft Docs
-description: Så här distribuerar du en arbetsyta för Azure Machine Learning med hjälp av Azure Resource Manager-mall
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/05/2018
-ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268928"
+Rubrik: Distribuera Studio-arbetsyta med Azure Resource Manager titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här distribuerar du en arbetsyta för Azure Machine Learning med hjälp av tjänster för Azure Resource Manager-mall: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsyta med Azure Resource Manager
 

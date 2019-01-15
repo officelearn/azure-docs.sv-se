@@ -1,27 +1,8 @@
 ---
-title: Översiktsdiagram över funktioner i Machine Learning Studio – Azure | Microsoft Docs
-description: Ett utskrivbart diagram över funktionerna i Azure Machine Learning Studio som visar hur Studio kan användas för att utveckla ett experiment med en förutsägelseanalys och använda det i Azure-molnet.
-keywords: machine learning studio, översiktsdiagram, ladda ner
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-ms.author=haining, previous-author=hning86
-ms.author: garye
-editor: cgronlun
-ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 04/04/2017
-ms.openlocfilehash: ce842d11d47529eca2be894a230b60417cea102f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278023"
+Rubrik: Översiktsdiagram över i titleSuffix för Machine Learning Studio-funktioner: Beskrivning av Azure Machine Learning Studio: Ett utskrivbart diagram över funktionerna i Azure Machine Learning Studio som visar hur Studio kan användas för att utveckla ett experiment med en förutsägelseanalys och använda det i Azure-molnet.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: översikt
+
+author: garyericson ms.author: garye ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 04/04/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Översiktsdiagram över funktioner i Machine Learning Studio
 Diagrammet **Översikt över funktioner i Microsoft Azure Machine Learning Studio** ger en övergripande bild av hur du kan utveckla en förutsägelseanalysmodell i Machine Learning Studio och använda den i Azure-molnet.

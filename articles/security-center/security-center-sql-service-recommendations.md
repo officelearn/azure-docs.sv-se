@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339101"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267036"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda Azure SQL-tjänst och data i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs.  Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.
 
-Den här artikeln belyser rekommendationer som gäller för Azure SQL-tjänst och data. Rekommendationer center för att aktivera granskning för Azure SQL-servrar och databaser, att aktivera kryptering för SQL-databaser och aktivering av kryptering för Azure storage-kontot.  Använd tabellen nedan som referens för att förstå de tillgängliga rekommendationerna för SQL-tjänsten och data och vad var och en gör om du använder den.
+
 ### <a name="monitor-data-security"></a>Övervaka datasäkerhet
 
 När du klickar på **Datasäkerhet** i avsnittet **Skydd** öppnas **Dataresurser** med rekommendationer för SQL och lagring. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
@@ -60,7 +60,6 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 |SQL|15|Aktivera granskning på SQL-databaser|Aktivera granskning för Azure SQL-databaser. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.)|
 |Data lake analytics|15|Aktivera kryptering i vila för Data Lake Analytics|Aktivera transparent datakryptering att skydda data i vila i Data Lake Analytics. Vilande kryptering är transparent, vilket innebär att krypteras Data Lake Analytics automatiskt data före beständig lagring, och dekrypterar data för hämtning. Det finns inga ändringar som krävs i i program och tjänster som interagerar med Data Lake Analytics på grund av krypteringen. Kryptering i vila minimerar risken för dataförlust från fysiska stöld och bidrar även till att uppfylla efterlevnadskrav.|
 |Data lake store|15|Aktivera kryptering i vila för Data Lake Store|Aktivera transparent datakryptering att skydda data i vila i ditt Data Lake Store. Vilande kryptering är transparent, vilket innebär att data före beständig lagring, krypteras automatiskt Data Lake Store och dekrypterar data för hämtning. Du behöver göra några ändringar i program och tjänster som interagerar med Data Lake Store för kryptering. Kryptering i vila minimerar risken för dataförlust från fysiska stöld och bidrar även till att uppfylla efterlevnadskrav.|
-|Lagringskonto|15|Aktivera kryptering för Azure Storage-kontot|Aktivera Azure Storage Service Encryption för vilande data. Storage Service Encryption (SSE) fungerar genom att kryptera data när den skrivs till Azure-lagring och dekrypterar före hämtning. SSE är för närvarande endast tillgänglig för Azure Blob service och kan användas för blockblobbar, sidblobbar och tilläggsblobbar.|
 |Data lake analytics|5|Aktivera diagnostikloggar i Data Lake Analytics|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Data lake store|5|Aktivera diagnostikloggar i Azure Data Lake Store|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |SQL|30|Åtgärda sårbarheter på SQL-databaser|Sårbarhetsbedömning för SQL söker igenom din databas för säkerhetsrisker och visar alla avvikelser från regelverk som felkonfigurationer, onödigt generösa behörigheter och oskyddade känsliga data. Åtgärda sårbarheter upptäcktes kan förbättra din säkerhet datasekretesstandarder för databasen.|

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074010"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264690"
 ---
 # <a name="requirements-by-listing-type"></a>Krav genom att ange typ  
 Teknik- och innehåll kraven varierar i butiken, typ av erbjudande och listtyp. Granska följande specifikationer för att kontrollera efterlevnaden.  
@@ -34,7 +34,7 @@ I följande tabell beskrivs de nödvändiga kraven för att publicera på AppSou
 
 | Krav | Information | Krävs eller rekommenderas |  
 |:--- |:--- |:--- |  
-| ***Azure Active Directory (AD Azure)*** | Din app måste tillåta Azure Active Directory federerad enkel inloggning (Azure AD-federerad enkel inloggning) med medgivande aktiverat.<ul> <li>För mer information om hur du aktiverar Azure AD-federerad enkel inloggning, finns i Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory appen galleriet på sidan finns på [docs.microsoft.com/azure/active-directory/ Active directory-saas-anpassad-appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Krävs |   
+| ***Azure Active Directory (Azure AD)*** | Din app måste tillåta Azure Active Directory federerad enkel inloggning (Azure AD-federerad enkel inloggning) med medgivande aktiverat.<ul> <li>För mer information om hur du aktiverar Azure AD-federerad enkel inloggning, finns i Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory appen galleriet på sidan finns på [docs.microsoft.com/azure/active-directory/ Active directory-saas-anpassad-appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Krävs |   
 | ***Integrering med Microsoft-molntjänster*** | Din app ska integrera med andra Microsoft Cloud-tjänster som Microsoft Power BI, Cortana Intelligence eller Microsoft Azure-tjänster.<ul> <li>Ett exempel på en Microsoft Cloud-tjänst är Sakernas Internet.</li> </ul> | Rekommenderas |  
 | ***Målgrupp*** | Din app måste vara för line-of-business-användare och företagsägare. | Krävs | 
 | ***Programvara som en tjänst (SaaS)-app för företag*** | Din app måste uppfylla följande krav.<ul> <li>En line-of-business SaaS-app</li> <li>Affärsprocess fokuserar</li> <li>Riktade till företagskunder</li> <li>Användarna kan använda sina autentiseringsuppgifter för inloggning, till exempel användarnamn och lösenord</li> </ul> | Krävs |  
@@ -135,7 +135,7 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 |:---        |:---        | :--- |  
 | Azure-appar: Hanterad app | Azure Marketplace | [Krav: Azure Marketplace: Transact: Azure-appar: Hanterad app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
 | Azure-appar: Lösningsmall | Azure Marketplace | [Krav: Azure Marketplace: Transact: Azure-appar: Lösningsmall](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
-| Containrar | Azure Marketplace | [Krav: Azure Marketplace: Transact: Behållare](#requirements-azure-marketplace-transact-container) |  
+| Containrar | Azure Marketplace | [Krav: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS-app  | Azure Marketplace | [Krav: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
 | Virtuell dator | Azure Marketplace | [Krav: Azure Marketplace: Transact: Virtuell dator](#requirements-azure-marketplace-transact-virtual-machine) |  
 
@@ -155,7 +155,7 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 | Krav | Information |  
 |:--- |:--- |  
 | Fakturering och mätning | Ditt erbjudande debiteras med en månatlig fast pris. Användningsbaserad prissättning och användningsbaserad *SANT upp* kan inte användas just nu. |  
-| Annullering | Erbjudandet är avbrytbar av kunden när som helst. |  
+| Annulleringen | Erbjudandet är avbrytbar av kunden när som helst. |  
 | Landningssida för transaktion | Vara värd för en landningssida för Azure anpassade transaktion. Denna sida kan kunderna skapa och hantera ditt SaaS-tjänstkonto. |  
 | SaaS-prenumeration API | Ange en tjänst som interagerar med SaaS-prenumeration för att skapa, uppdatera och ta bort ett användaravtal för kontot och tjänsten. Alla kritiska API-ändringar måste stödjas inom 24 timmar. Alla icke-kritiska API-ändringar uppdateras regelbundet. |  
 

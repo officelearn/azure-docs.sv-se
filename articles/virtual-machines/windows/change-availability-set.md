@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: zarhoads
-ms.openlocfilehash: fbbe6753bd8aa3e43c8a45db5692ce38c18de50c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: df59b3ec7da0c12a17e10790d69e244f9a0d03f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467301"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259538"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell Windows-dator
 Följande steg beskriver hur du ändrar tillgänglighetsuppsättning för en virtuell dator med Azure PowerShell. En virtuell dator kan bara läggas till en tillgänglighetsuppsättning när den skapas. Du kan ändra tillgängligheten ange måste du ta bort och återskapa den virtuella datorn. 
@@ -35,7 +35,7 @@ Följande skript innehåller ett exempel på samla in informationen som krävs, 
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get the details of the VM to be moved to the Availablity Set
+# Get the details of the VM to be moved to the Availability Set
     $originalVM = Get-AzureRmVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName

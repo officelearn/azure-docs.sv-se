@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0b0307d167485712e06966dd36fa94e24ef33aa1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 1e1bc16d32167d62d5f66f64bb383fcceeb79eb5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243264"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267155"
 ---
 # <a name="smart-contract-integration-patterns"></a>Smarta kontrakt integration mönster
 
@@ -180,7 +180,7 @@ I den här modellen där ett meddelande i ett standardformat inte kan skickas di
 
 Ett vanligt scenario för integration är inkludering av telemetridata som hämtats från sensorer i ett smarta kontrakt. Baserat på data från sensorer, kunde smarta kontrakt ta välgrundade åtgärder och ändra tillståndet för kontraktet.
 
-Till exempel om en lastbil leverera medicin hade temperaturen Sväva till 110 grader, det kan påverka effektiviteten i medicinen och kan orsaka problem för en allmän säkerhet om inte har identifierats och tas bort från leveranskedjan. Om en drivrutin accelerated sin bil till 100 miles per timme, kan den resulterande sensorinformation utlösa insurance av hans försäkring providern avbryts. Om bilen var en bil, kan GPS-data indikera när drivrutinen gick utanför ett geografiskt område som omfattas av hans hyresavtal och debiterar en särskilda avgifter.
+Till exempel om en lastbil leverera medicin hade temperaturen Sväva till 110 grader, det kan påverka effektiviteten i medicinen och kan orsaka problem för en allmän säkerhet om inte har identifierats och tas bort från leveranskedjan. Om en drivrutin accelerated sin bil till 100 miles per timme, kan resulterande sensorinformation utlösa en uppsägning av insurance av hans försäkring providern. Om bilen var en bil, kan GPS-data indikera när drivrutinen gick utanför ett geografiskt område som omfattas av hans hyresavtal och debiterar en särskilda avgifter.
 
 Utmaningen är att dessa sensorer som kan leverera data på basis av konstant och det är inte lämpligt att skicka alla dessa data till ett smarta kontrakt. En vanlig metod är att begränsa antalet meddelanden som skickas till blockkedja som du leverera alla meddelanden till en sekundär butik. Exempelvis kan leverera meddelanden som tas emot med endast fast intervall, till exempel en gång i timmen och när en innesluten värdet ligger utanför en överenskommen på intervallet för ett smarta kontrakt. Kontroll av värden som faller utanför toleranser, säkerställer att data som är relevanta för affärslogik kontrakt tas emot och körs. Kontrollera värdet vid tider som bekräftar att fortfarande rapporterar. Alla data skickas till en sekundär reporting butik för att aktivera bredare rapportering, analys och maskininlärning. Vid komma sensoravläsningar för GPS inte kanske är nödvändiga varje minut för ett smarta kontrakt, kan de till exempel ange intressanta data som ska användas i rapporter eller mappning vägar.
 

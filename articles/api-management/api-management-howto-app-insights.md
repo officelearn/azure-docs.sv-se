@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390031"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262769"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hur du integrerar Azure API Management med Azure Application Insights
 
@@ -64,8 +64,10 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
 6. Kontrollera den **aktivera** box.
 7. Välj din bifogade loggaren i den **mål** listrutan.
 8. Indata **100** som **Sampling (%)** och markera den **alltid logga fel** kryssrutan.
-9. Indata **1024** i den **första byten i brödtexten** fält.
-10. Klicka på **Spara**.
+9. Klicka på **Spara**.
+
+> [!WARNING]
+> Åsidosätta standardvärdet **0** i den **första byten i brödtexten** fältet kan avsevärt minska prestandan för dina API: er.
 
 > [!NOTE]
 > Bakom scenen, en [diagnostiska](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entitet med namnet 'applicationinsights' skapas på API-nivå.
@@ -76,8 +78,8 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
 | Mål                         | Azure Application Insights-logg | Anger Azure Application Insights loggaren som ska användas                                                                                                                                                                                                                                                                                           |
 | Sampling (%)                        | decimal                           | Värden mellan 0 och 100 (procent). <br/> Anger vilken procentandel av förfrågningar kommer att loggas till Azure Application Insights. 0% sampling innebär noll förfrågningar loggas, medan sampling med 100% innebär att alla begäranden som loggats. <br/> Den här inställningen används för att minska prestanda följderna av att logga begäranden till Azure Application Insights (se avsnittet nedan). |
 | Alltid logga fel                   | boolesk                           | Om den här inställningen väljs alla fel loggas till Azure Application Insights, oavsett den **Sampling** inställningen.                                                                                                                                                                                                                  |
-| Grundalternativ: rubriker              | lista                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och svar.  Standard: inga rubriker loggas.                                                                                                                                                                                                             |
-| Grundalternativ: Första byten i brödtexten  | heltal                           | Anger hur många första byten i texten som loggas i Azure Application Insights för begäranden och svar.  Standard: brödtext loggas inte.                                                                                                                                                                                              |
+| Grundläggande alternativ: Rubriker              | lista                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och svar.  Standard: inga rubriker loggas.                                                                                                                                                                                                             |
+| Grundläggande alternativ: Första byten i brödtexten  | heltal                           | Anger hur många första byten i texten som loggas i Azure Application Insights för begäranden och svar.  Standard: brödtext loggas inte.                                                                                                                                                                                              |
 | Avancerade alternativ: Frontend-begäran  |                                   | Anger om och hur *klientdel begäranden* loggas till Azure Application Insights. *Frontend-begäran* är en begäran inkommande till Azure API Management-tjänsten.                                                                                                                                                                        |
 | Avancerade alternativ: Frontend-svar |                                   | Anger om och hur *klientdel svar* loggas till Azure Application Insights. *Frontend-svar* är utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |
 | Avancerade alternativ: Backend-begäran   |                                   | Anger om och hur *serverdel begäranden* loggas till Azure Application Insights. *Backend-begäran* är en begäran som utgående från Azure API Management-tjänsten.                                                                                                                                                                        |

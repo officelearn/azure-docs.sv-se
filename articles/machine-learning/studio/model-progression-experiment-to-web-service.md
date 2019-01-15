@@ -1,26 +1,8 @@
 ---
-title: Hur en Machine Learning Studio-modell blir en webbtjänst – Azure | Microsoft Docs
-description: En översikt över hur din Azure Machine Learning model utvecklas från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253875"
+Rubrik: Hur en Machine Learning Studio-modell blir en web service titleSuffix: Beskrivning av Azure Machine Learning Studio: En översikt över hur din Azure Machine Learning model utvecklas från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 03/20/2017
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en produktionsslutpunkt webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:

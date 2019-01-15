@@ -1,23 +1,23 @@
 ---
-title: Bild Moderering - Content Moderator
+title: Image Moderation - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Använda bildmoderering för att ändra olämplig avbildningar
+description: Använd Content Moderator datorstödd bildmoderering och human-i-the-loop granskningsverktyget till måttlig avbildningar för vuxet eller olämpligt innehåll.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 952777af0a233f0233f14c749fe0ebfdeaa8344a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852715"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262939"
 ---
-# <a name="image-moderation"></a>Ändring i avbildning
+# <a name="learn-image-moderation-concepts"></a>Lär dig mer bildmoderering begrepp
 
 Använd Content Moderator datorstödd bildmoderering och [human-i-the-loop granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md) till måttlig avbildningar för vuxet eller olämpligt innehåll. Genomsök bilder för textinnehåll och extrahera texten och spåra ansikten. Du kan matcha avbildningar mot anpassade listor och vidta några ytterligare åtgärder.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155158"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260472"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Vanliga frågor: Azure till Azure replikering
 
@@ -74,10 +74,16 @@ En kraschkonsekvent återställningspunkt representerar data på disken som om d
 
 Idag är kan de flesta program återställas från kraschkonsekventa ögonblicksbilder. En kraschkonsekvent återställningspunkt är vanligtvis tillräckligt för no database operativsystem och program som filservrar, DHCP-servrar och utskriftsservrar.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Vad är frekvensen för kraschkonsekventa recovery point generation?
+Skapar site Recovery en kraschkonsekvent återställningspunkt var femte minut.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Vad är en programkonsekvent återställningspunkt? 
 Programkonsekventa återställningspunkter skapas från programkonsekventa ögonblicksbilder. Programkonsekventa ögonblicksbilder in samma data som kraschkonsekventa ögonblicksbilder, och Lägg till alla data i minnet och alla pågående transaktioner. 
 
 På grund av deras extra innehåll programkonsekventa ögonblicksbilder är den vanligaste och tar den längsta för att utföra. Vi rekommenderar programkonsekventa återställningspunkter för databas-operativsystem och program som SQL Server.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Vad är den lägsta frekvensen för programkonsekventa recovery point generation?
+Skapar site Recovery kan en programkonsekvent återställningspunkt med en minimifrekvens på under timmen.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Hur återställningspunkter genereras och sparas?
 För att förstå hur Site Recovery genererar återställningspunkter, låt oss ta ett exempel på en replikeringsprincip som har en återställningspunkten kvarhållningsperiod på 24 timmar och en frekvens för appkonsekvent ögonblicksbild 1 timme.
@@ -153,6 +159,9 @@ Den **bearbetades senast** alternativet växlar över alla virtuella datorer i p
 
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Om jag replikerar mellan två Azure-regioner, vad händer om min primära region uppstår ett oväntat avbrott?
 Du kan utlösa redundans efter avbrottet. Site Recovery behöver ingen anslutning från den primära regionen att utföra redundansväxlingen.
+
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Vad är en RTO av redundans för en virtuell dator?
+Site Recovery har en [RTO serviceavtalet för 2 timmar](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Men växla i de flesta fall, Site Recovery över virtuella datorer på några minuter. Du kan beräkna RTO genom att gå till redundans jobb som visar tid det tog för att ta fram den virtuella datorn. Planera RTO för återställning, finns under avsnitt. 
 
 ## <a name="recovery-plan"></a>Återställningsplan
 

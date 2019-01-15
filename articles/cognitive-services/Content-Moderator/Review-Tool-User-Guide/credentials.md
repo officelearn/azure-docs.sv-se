@@ -1,22 +1,23 @@
 ---
-title: Autentiseringsuppgifter i Azure Content Moderator | Microsoft Docs
-description: 'Hantera Content Moderator autentiseringsuppgifter som ska användas med API: erna.'
+title: Hantera autentiseringsuppgifter i Azure Content Moderator - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 'Hantera autentiseringsuppgifter för Content Moderator, vilket du kommer behöva använda API: erna.'
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260099"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266153"
 ---
-# <a name="manage-credentials"></a>Hantera autentiseringsuppgifter
+# <a name="manage-content-moderator-service-credentials"></a>Hantera autentiseringsuppgifter för Content Moderator-tjänsten
 
 Dina autentiseringsuppgifter för Content Moderator skapas på följande platser:
 

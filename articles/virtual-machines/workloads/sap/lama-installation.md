@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728233"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262597"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa connector för Azure
 
@@ -58,7 +58,7 @@ Följande SAP-information är relaterade till ämnet för SAP LaMa på Azure:
 
 Läs även den [SAP hjälpa Portal för SAP LaMa](https://help.sap.com/viewer/p/SAP_LANDSCAPE_MANAGEMENT_ENTERPRISE).
 
-## <a name="general-remarks"></a>Allmänt
+## <a name="general-remarks"></a>Allmänna anmärkningar
 
 * Se till att aktivera *automatisk generering av monteringspunkt* i Inställningar -> Inställningar -> motor  
   Om SAP LaMa montering av volymer med SAP anpassningsbar tillägg på en virtuell dator, måste det finnas monteringspunkten om den här inställningen inte är aktiverad.
@@ -99,24 +99,24 @@ Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som 
 Öppna webbplatsen SAP LaMa och gå till infrastrukturen. Gå till fliken molnet chefer och klicka på Lägg till. Välj Microsoft Azure Cloud Adapter och klicka på Nästa. Ange följande information:
 
 * Etikett: Välj ett namn för anslutningsinstansen
-* Användarnamn: Program-ID för tjänstens huvudnamn
-* Lösenord: Nyckel/lösenord för tjänstens huvudnamn
+* Användarnamn: Program-ID för tjänstens huvudkonto
+* Lösenord: Tjänstens huvudnamn nyckel/lösenord
 * URL: Behåll standardvärdet https://management.azure.com/
 * Övervakning av intervall (sekunder): Bör vara minst 300
-* Prenumerations-ID: Azure prenumerations-ID
+* Prenumerations-ID: Azure-prenumerations-ID
 * Azure Active Directory klient-ID: ID för Active Directory-klient
-* Proxyvärd: värdnamnet för proxyservern om SAP LaMa behöver en proxyserver för att ansluta till internet
+* Proxyvärd: Värdnamnet för proxyservern om SAP LaMa behöver en proxyserver för att ansluta till internet
 * Proxyport: TCP-porten för proxyservern
 
 Klicka på Test-konfiguration för att verifiera dina indata. Du bör se
 
-Anslutningen lyckades: anslutning till Microsoft-molnet har upprättats. 7 resursgrupper hittades (endast 10 grupper begärt)
+Anslutningen lyckades: Anslutning till Microsoft-molnet har upprättats. 7 resursgrupper hittades (endast 10 grupper begärt)
 
 längst ned på webbplatsen.
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>Etablera ett nytt anpassningsbar SAP-system
 
-Du kan manuellt distribuera en ny virtuell dator eller Använd en av Azure-mallar i den [snabbstartsmallarna på lagringsplatsen](https://github.com/Azure/azure-quickstart-templates). Den innehåller mallar för [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver-programservrar](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps), och [databasen](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). Du kan också använda dessa mallar för att etablera nya värdarna som en del av en system kopia/klon osv.
+Du kan manuellt distribuera en ny virtuell dator eller Använd en av Azure-mallar i den [snabbstartsmallarna på lagringsplatsen](https://github.com/Azure/azure-quickstart-templates). Den innehåller mallar för [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver-programservrar](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps), och [databasen](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). Du kan också använda dessa mallar för att etablera nya värdarna som en del av en system kopia/klon osv.
 
 Vi rekommenderar att du använder ett separat undernät för alla virtuella datorer som du vill hantera med SAP LaMa och Använd inte dynamiska IP-adresser för att förhindra IP-adress ”stjäla” när du distribuerar nya virtuella datorer och SAP-instanser är oförberedd.
 
@@ -182,45 +182,45 @@ Komponenterna som krävs för att distribuera mallen. Det enklaste sättet att g
 
 Mallarna har följande parametrar:
 
-* sapSystemId: The SAP system-ID. Används för att skapa disklayouten (till exempelusr/sap/\<sapsid >).
+* sapSystemId: SAP system-ID. Används för att skapa disklayouten (till exempelusr/sap/\<sapsid >).
 
-* Datornamn: namnet på den nya virtuella datorn. Den här parametern används också av SAP LaMa. När du använder den här mallen för att etablera en ny virtuell dator som en del av en system-kopia, väntar SAP LaMa tills värden med detta datornamn kan nås.
+* Datornamn: Namnet på den nya virtuella datorn. Den här parametern används också av SAP LaMa. När du använder den här mallen för att etablera en ny virtuell dator som en del av en system-kopia, väntar SAP LaMa tills värden med detta datornamn kan nås.
 
-* osType: typ av operativsystem som du vill distribuera.
+* osType: Typ av operativsystem som du vill distribuera.
 
-* DbType: typ av databasen. Den här parametern används för att avgöra hur många ytterligare IP-konfigurationer måste läggas till och hur disklayouten bör se ut.
+* DbType: Typ av databasen. Den här parametern används för att avgöra hur många ytterligare IP-konfigurationer måste läggas till och hur disklayouten bör se ut.
 
-* sapSystemSize: storleken på SAP-System som du vill distribuera. Den används för att fastställa den virtuella datorn Instanstypen och storleken.
+* sapSystemSize: Storleken på SAP-System som du vill distribuera. Den används för att fastställa den virtuella datorn Instanstypen och storleken.
 
-* adminUsername: användarnamn för den virtuella datorn.
+* adminUsername: Användarnamnet för den virtuella datorn.
 
-* adminPassword: lösenordet för den virtuella datorn. Du kan också ange en offentlig nyckel för SSH.
+* adminPassword: Lösenordet för den virtuella datorn. Du kan också ange en offentlig nyckel för SSH.
 
-* sshKeyData: offentliga SSH-nyckel för de virtuella datorerna. Stöds endast för Linux-operativsystem.
+* sshKeyData: Offentlig SSH-nyckel för virtuella datorer. Stöds endast för Linux-operativsystem.
 
 * subnetId: ID för det undernät som du vill använda.
 
-* deployEmptyTarget: du kan distribuera ett tomt mål om du vill använda den virtuella datorn som mål för en instans flytta eller liknande. I det här fallet kopplas inga ytterligare diskar eller IP-konfigurationer.
+* deployEmptyTarget: Du kan distribuera ett tomt mål om du vill använda den virtuella datorn som mål för en instans flytta eller liknande. I det här fallet kopplas inga ytterligare diskar eller IP-konfigurationer.
 
-* sapcarLocation: platsen för det sapcar program som matchar operativsystemet som du distribuerar. sapcar används för att extrahera arkivet som du anger i andra parametrar.
+* sapcarLocation: Plats för sapcar programmet som matchar det operativsystem som du distribuerar. sapcar används för att extrahera arkivet som du anger i andra parametrar.
 
-* sapHostAgentArchiveLocation: platsen för Värdagenten för SAP-arkivet. SAP Värdagenten distribueras som en del av den här för malldistributionen.
+* sapHostAgentArchiveLocation: Platsen för Värdagenten för SAP-arkivet. SAP Värdagenten distribueras som en del av den här för malldistributionen.
 
-* sapacExtLocation: platsen för SAP anpassningsbar tillägg. SAP-kommentar [2343511] visar den lägsta korrigeringsnivån som krävs för Azure.
+* sapacExtLocation: Platsen för de anpassningsbara SAP-tillägg. SAP-kommentar [2343511] visar den lägsta korrigeringsnivån som krävs för Azure.
 
-* vcRedistLocation: platsen för den VC Runtime som krävs för att installera tillägget för SAP-anpassningsbar. Den här parametern är endast krävs för Windows.
+* vcRedistLocation: Platsen för den VC Runtime som krävs för att installera tillägget för SAP-anpassningsbar. Den här parametern är endast krävs för Windows.
 
-* odbcDriverLocation: platsen för ODBC-drivrutin som du vill installera. Endast Microsoft ODBC-drivrutin för SQL Server stöds.
+* odbcDriverLocation: Platsen för ODBC-drivrutin som du vill installera. Endast Microsoft ODBC-drivrutin för SQL Server stöds.
 
-* sapadmPassword: lösenordet för användaren sapadm.
+* sapadmPassword: Lösenordet för användaren sapadm.
 
-* sapadmId: The Linux användar-ID för användaren sapadm. Krävs inte för Windows.
+* sapadmId: Det användar-ID för Linux för sapadm användaren. Krävs inte för Windows.
 
-* sapsysGid: Linux-ID för gruppen sapsys. Krävs inte för Windows.
+* sapsysGid: Linux grupp-ID i gruppen sapsys. Krävs inte för Windows.
 
-* _artifactsLocation: bas-URI, där artefakter som krävs av den här mallen finns. När mallen distribueras med hjälp av de medföljande skript, används en privat plats i prenumerationen och det här värdet ska skapas automatiskt. Behövs bara om du inte distribuerar mallen från GitHub.
+* _artifactsLocation: Bas-URI, där artefakter som krävs av den här mallen finns. När mallen distribueras med hjälp av de medföljande skript, används en privat plats i prenumerationen och det här värdet ska skapas automatiskt. Behövs bara om du inte distribuerar mallen från GitHub.
 
-* _artifactsLocationSasToken: sasToken som krävs för att komma åt _artifactsLocation. När mallen distribueras med hjälp av de medföljande skript, ska en sasToken skapas automatiskt. Behövs bara om du inte distribuerar mallen från GitHub.
+* _artifactsLocationSasToken: SasToken som krävs för att komma åt _artifactsLocation. När mallen distribueras med hjälp av de medföljande skript, ska en sasToken skapas automatiskt. Behövs bara om du inte distribuerar mallen från GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -360,7 +360,7 @@ Använd *as1-di-0* för den *PROVIDERADRESSER instans värdnamn* i dialogrutan *
 
 * Ett undantag genererades i valideringen av HDB userstore  
   * finns i Loggvisaren  
-    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: undantag i verifieraren med ID 'RuntimeHDBConnectionValidator' (verifiering: 'VALIDATION_HDB_USERSTORE'): Det gick inte att hämta hdbuserstore  
+    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: Undantag i verifieraren med ID 'RuntimeHDBConnectionValidator' (verifiering: 'VALIDATION_HDB_USERSTORE'): Det gick inte att hämta hdbuserstore  
     HANA userstore är inte på rätt plats
   * Lösning  
     Kontrollera att den /usr/sap/AH1/hdbclient/install/installation.ini stämmer
@@ -380,12 +380,12 @@ Använd *as1-di-0* för den *PROVIDERADRESSER instans värdnamn* i dialogrutan *
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Fel och varningar under en System-klon
 
 * Fel uppstod vid försök att registrera agenten instans i steg *Tvingad registrera och starta instans Agent* för application server eller ASCS
-  * Fel uppstod vid försök att registrera instans-agenten. (RemoteException: ”Det gick inte att läsa in instansdata från profilen”\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0 ”: kan inte komma åt profil”\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0 ”: det finns ingen sådan fil eller katalog”.)
+  * Fel uppstod vid försök att registrera instans-agenten. (RemoteException: ”Det gick inte att läsa in instansdata från profilen”\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0 ”:  Det går inte att få åtkomst till profilen ”\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0”: Det finns ingen sådan fil eller katalog ”.)
   * Lösning  
    Se till att resursen sapmnt på ASCS/SCS har fullständig åtkomst för SAP_AS1_GlobalAdmin
 
 * Fel i steget *Start Aktivera skydd för kloning*
-  * Det gick inte att öppna filen ”\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0” orsak: det finns ingen sådan fil eller katalog
+  * Det gick inte att öppna filen ”\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0” orsak: Det finns ingen sådan fil eller katalog
   * Lösning  
     Programservern datorkonto måste ha skrivbehörighet för profilen
 
@@ -409,36 +409,36 @@ Använd *as1-di-0* för den *PROVIDERADRESSER instans värdnamn* i dialogrutan *
     Lägg till ASCS exporterar till ASCS HostAgent profil. Se SAP-kommentar [2628497]
 
 * Funktionen har inte implementerats när hur du flyttar ASCS
-  * Kommandoutdata: exportfs: värden: / usr/sap/AX1: funktionen har inte implementerats
+  * Kommandoutdata: exportfs: värden: / usr/sap/AX1: Funktionen har inte implementerats
   * Lösning  
     Kontrollera att servertjänsten för NFS är aktiverat på den virtuella måldatorn flytta
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Fel och varningar under installationen av programmet Server
 
 * Fel vid körning av SAPinst steg: getProfileDir
-  * Fel: (senaste fel som rapporterats av steget: påträffades ESAPinstException i modulen anrop: verifierare av steg ' | NW_DI | ind | ind | ind | ind | 0 | 0 | NW_GetSidFromProfiles | ind | ind | ind | ind | getSid | 0 | NW_readProfileDir | ind | ind | ind | ind | readProfile | 0 | getProfileDir ”rapporterade ett fel: noden \\\as1-ascs\sapmnt\AS1\SYS\profile finns inte. Starta SAPinst i interaktivt läge för att lösa detta problem)
+  * FEL: (Senaste fel som rapporterats av steget: Fångats ESAPinstException i modulen anrop: Verifieraren steg ' | NW_DI | ind | ind | ind | ind | 0 | 0 | NW_GetSidFromProfiles | ind | ind | ind | ind | getSid | 0 | NW_readProfileDir | ind | ind | ind | ind | readProfile | 0 | getProfileDir ”rapporterade ett fel: Noden \\\as1-ascs\sapmnt\AS1\SYS\profile finns inte. Starta SAPinst i interaktivt läge för att lösa detta problem)
   * Lösning  
     Se till att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i guiden Application Server-Installation
 
 * Fel vid körning av SAPinst steg: askUnicode
-  * Fel: (senaste fel som rapporterats av steget: påträffades ESAPinstException i modulen anrop: verifierare av steg ' | NW_DI | ind | ind | ind | ind | 0 | 0 | NW_GetSidFromProfiles | ind | ind | ind | ind | getSid | 0 | NW_getUnicode | ind | ind | ind | ind | unicode | 0 | askUnicode ”rapporterade ett fel: starta SAPinst i interaktivt läge för att lösa detta problem)
+  * FEL: (Senaste fel som rapporterats av steget: Fångats ESAPinstException i modulen anrop: Verifieraren steg ' | NW_DI | ind | ind | ind | ind | 0 | 0 | NW_GetSidFromProfiles | ind | ind | ind | ind | getSid | 0 | NW_getUnicode | ind | ind | ind | ind | unicode | 0 | askUnicode ”rapporterade ett fel: Starta SAPinst i interaktivt läge för att lösa detta problem)
   * Lösning  
     Om du använder en nyare kernel SAP avgöra SWPM inte om systemet är en unicode-systemet längre med ASCS-meddelandeservern. Se SAP-kommentar [2445033] för mer information.  
     Det här problemet korrigeras i en ny support paket/patch LaMa av SAP.  
     Ange profilparametern OS_UNICODE = uc i standardprofilen för SAP-system för att lösa problemet.
 
 * Fel vid körning av SAPinst steg: dCheckGivenServer
-  * Fel vid körning av SAPinst steg: dCheckGivenServer ”version =” 1.0 ”fel: (senaste fel som rapporterats av steget: \<p > installationen avbröts av användaren. \</p >
+  * Fel vid körning av SAPinst steg: dCheckGivenServer ”version =” 1.0 ”fel: (Senaste fel som rapporterats av steget: \<p > installationen avbröts av användaren. \</p>
   * Lösning  
     Se till att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i guiden Application Server-Installation
 
 * Fel vid körning av SAPinst steg: checkClient
-  * Fel vid körning av SAPinst steg: checkClient ”version =” 1.0 ”fel: (senaste fel som rapporterats av steget: \<p > installationen avbröts av användaren. \</p >)
+  * Fel vid körning av SAPinst steg: checkClient ”version =” 1.0 ”fel: (Senaste fel som rapporterats av steget: \<p > installationen avbröts av användaren. \</p>)
   * Lösning  
     Se till att Microsoft ODBC-drivrutinen för SQL Server är installerat på den virtuella datorn där du vill installera application server
 
 * Fel vid körning av SAPinst steg: copyScripts
-  * Senaste fel som rapporterats av steget: systemanropet misslyckades. INFORMATION: Fel 13 (0x0000000d) (behörighet nekad) i körningen av system anropa fopenU om du med parametern (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), rad (494) i filen (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/ src/syslib/FileSystem/syxxcfstrm2.cpp), Stackspårning:  
+  * Senaste fel som rapporterats av steget: Systemanropet misslyckades. INFORMATION: Fel 13 (0x0000000d) (behörighet nekad) i körningen av system anropa fopenU om du med parametern (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), rad (494) i filen (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib / filesystem/syxxcfstrm2.cpp), Stackspårning:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -456,7 +456,7 @@ Använd *as1-di-0* för den *PROVIDERADRESSER instans värdnamn* i dialogrutan *
     Se till att SWPM körs med en användare som har åtkomst till profilen. Den här användaren kan konfigureras i guiden Application Server-Installation
 
 * Fel vid körning av SAPinst steg: askPasswords
-  * Senaste fel som rapporterats av steget: systemanropet misslyckades. INFORMATION: Fel 5 (0x00000005) (åtkomst nekas.) i körningen av systemanrop 'NetValidatePasswordPolicy' med parametern (...), rad (359) i filen (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), Stackspårning:  
+  * Senaste fel som rapporterats av steget: Systemanropet misslyckades. INFORMATION: Fel 5 (0x00000005) (åtkomst nekas.) i körningen av systemanrop 'NetValidatePasswordPolicy' med parametern (...), rad (359) i filen (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), Stackspårning:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  

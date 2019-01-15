@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e8f80e7d19a961c22b4e1e88556ac165d2558034
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 764088e7f463f0c249f176514d485944d9c9d76e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083129"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264639"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Profil för web apps som körs på en virtuell Azure-dator eller en VM-skalningsuppsättning med Application Insights Profiler
 Du kan också distribuera Application Insights profiler på de här tjänsterna:
@@ -53,7 +53,7 @@ Den här sidan vägleder dig igenom steg som behövs för att hämta Application
 
    Om du vill göra ändringar, det är oftast en fullständig mall-distribution eller en molntjänst baserad publicera via PowerShell-cmdletar eller Visual Studio.  
 
-   Följande powershell-kommandon är en alternativ metod för befintliga virtuella datorer som rör vid endast Azure Diagnostics-tillägget. Du behöver bara lägga till ProfilerSink enligt vad som anges ovan i konfigurationen som returneras av kommandot Get-AzureRmVMDiagnosticsExtension. Sedan skicka uppdaterad konfig till kommandot Set-AzureRmVMDiagnosticsExcension.
+   Följande powershell-kommandon är en alternativ metod för befintliga virtuella datorer som rör vid endast Azure Diagnostics-tillägget. Du behöver bara lägga till ProfilerSink enligt vad som anges ovan i konfigurationen som returneras av kommandot Get-AzureRmVMDiagnosticsExtension. Sedan skicka uppdaterad konfig till kommandot Set-AzureRmVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

@@ -1,6 +1,6 @@
 ---
 title: Ethereum proof of work consortium lösningsmallen
-description: Använd lösningsmallen Etherereum Proof of Work Consortium att distribuera och konfigurera ett flera medlem consortium Ethereum-nätverk
+description: Använd lösningsmallen Ethereum Proof of Work Consortium att distribuera och konfigurera ett flera medlem consortium Ethereum-nätverk
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231805"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260541"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum proof of work consortium lösningsmallen
 
@@ -67,7 +67,7 @@ Den här processen kräver en Azure-prenumeration som har stöd för distributio
 
 När en prenumeration är skyddad, går du till Azure-portalen. Välj **+ skapa en resurs**, Marketplace (se alla), och Sök efter **Ethereum Proof of Work Consortium**.
 
-Malldistributionen vägleder dig genom att konfigurera den första medlemmen fotavtryck i nätverket. Distributionsflödet delas upp i fem steg: Grunderna, Operations Management Suite, distribution regioner, nätverkets storlek och prestanda, Ethereum-inställningar.
+Malldistributionen vägleder dig genom att konfigurera den första medlemmen fotavtryck i nätverket. Distributionsflödet består av fem steg: Grunderna, Operations Management Suite, distribution regioner, nätverkets storlek och prestanda, Ethereum-inställningar.
 
 ### <a name="basics"></a>Grundläggande inställningar
 
@@ -127,10 +127,10 @@ Parameternamn |Beskrivning |Tillåtna värden| Standardvärden
 ---|---|---|---
 Antalet noder för datautvinning|Antalet utvinningsstrukturen noder som har distribuerats per region|2 - 15| 2
 Lagringsprestanda för datautvinning nod|Typ av hanterad disk säkerhetskopiering varje nod distribuerade utvinningsstrukturen.|Standard- eller Premium|Standard
-Utvinning nodstorlek för virtuell dator|VM-storleken som används för datautvinning noder.|Standard A <br />Standard D <br />Standard D-v2 <br />Standard F-serien <br />Standard DS <br />och Standard FS|Standard D1v2
-Antalet noder som belastningsutjämnade transaktion|Antalet noder för transaktionen att etablera som en del av nätverket.|1 – 5| 2
+Utvinning nodstorlek för virtuell dator|VM-storleken som används för datautvinning noder.|Standard A, <br />Standard D <br />Standard D-v2, <br />Standard F-serien <br />Standard DS <br />and Standard FS|Standard D1v2
+Antalet noder som belastningsutjämnade transaktion|Antalet noder för transaktionen att etablera som en del av nätverket.|1 - 5| 2
 Lagringsprestanda för transaktionen nod|Typ av hanterad disk säkerhetskopiering var och en av noderna i distribuerade transaktioner.|Standard- eller Premium|Standard
-Transaktionen nodstorlek för virtuell dator|VM-storleken som används för transaktionen noder.|Standard A <br />Standard D <br />Standard D-v2 <br />Standard F-serien <br />Standard DS <br />och Standard FS|Standard D1v2
+Transaktionen nodstorlek för virtuell dator|VM-storleken som används för transaktionen noder.|Standard A, <br />Standard D <br />Standard D-v2, <br />Standard F-serien <br />Standard DS <br />and Standard FS|Standard D1v2
 
 ### <a name="ethereum-settings"></a>Ethereum-inställningar
 
@@ -141,14 +141,14 @@ Sedan under **Ethereum inställningar**, ange Ethereum-relaterade konfigurations
 Parameternamn |Beskrivning |Tillåtna värden|Standardvärden
 ---|---|---|---
 ConsortiumMember-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. <br /><br />Medlems-ID måste vara unikt inom olika organisationer i samma nätverk. Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner.<br /><br />Anteckna värdet för den här parametern eftersom du kommer att behöva dela den med andra sammanbinder medlemmar.|0 - 255
-Ethereum nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras. Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket. Nätverksåtkomst är begränsad för datautvinning noder, rekommenderar vi ändå med hjälp av ett stort antal för att förhindra kollisioner.|5 – 999,999,999| 10101010
+Ethereum nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras. Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket. Nätverksåtkomst är begränsad för datautvinning noder, rekommenderar vi ändå med hjälp av ett stort antal för att förhindra kollisioner.|5 - 999,999,999| 10101010
 Anpassade genesis block|Alternativet för att automatiskt generera ett genesis block eller ange en anpassad.|Ja/nej| Nej
 Kontolösenord för Ethereum (anpassad genesis block = Nej)|Administratörslösenordet som används för att skydda det Ethereum-konto som har importerats till varje nod. Lösenordet måste innehålla följande: 1 versal bokstav, 1 gemen bokstav och 1 siffra.|minst 12 tecken|Ej tillämpligt
 Ethereum-privata nyckeln (anpassad genesis block = Nej)|Lösenfras som används för att generera den privata nyckeln för ECC som är associerade med Ethereum standardkontot som genereras. En förgenererade privat nyckel behöver inte uttryckligen också skickas.<br /><br />Beakta en lösenfras med tillräckliga slumpmässighet för att säkerställa en stark privat nyckel och utan överlappande med andra medlemmar i consortium. Lösenfrasen måste innehålla minst följande: 1 versal bokstav, 1 gemen bokstav och 1 siffra.<br /><br />Observera att om två medlemmar använda samma lösenfras de konton som skapas kommer att vara samma. Samma lösenfras är användbart om en enda organisation försöker distribuera i flera regioner och vill dela ett enda konto (mynt grundläggande) i alla noder.|minst 12 tecken|Ej tillämpligt
-Genesis block (anpassad genesis block = Yes)|JSON-sträng som representerar anpassade genesis block. Du hittar mer information om formatet för genesis blocket här under anpassade nätverk.<br /><br />Ett Ethereum-konto skapas fortfarande när du anger en anpassad genesis-block. Överväg att ange ett prefunded Ethereum-konto i blocket genesis inte vänta tills datautvinning.|Giltig JSON |Ej tillämpligt
+Genesis block (anpassad genesis block = Yes)|JSON-sträng som representerar anpassade genesis block. Du hittar mer information om formatet för genesis blocket här under anpassade nätverk.<br /><br />Ett Ethereum-konto skapas fortfarande när du anger en anpassad genesis-block. Överväg att ange ett prefunded Ethereum-konto i blocket genesis inte vänta tills datautvinning.|Valid JSON |Ej tillämpligt
 Delad nyckel för anslutningen|En delad nyckel för anslutningen mellan VNET-gatewayer.| minst 12 tecken|Ej tillämpligt
 Consortium Data-URL|Den URL som pekar mot den relevanta consortium konfigurationsdata som tillhandahålls av en annan medlem distribution. <br /><br />Den här informationen tillhandahålls av en redan anslutna medlem som har en distribution. Om du har distribuerat resten av nätverket är URL: en mall för distribution utdata med namnet CONSORTIUM-DATA.||Ej tillämpligt
-VNet-Gateway för att ansluta till|Resurssökväg på VNet-gatewayen som ska anslutas.<br />Den här informationen tillhandahålls av en redan anslutna medlem som har en distribution. Om du har distribuerat resten av nätverket är URL: en i mallutdata för distribution, med namnet CONSORTIUM_MEMBER_GATEWAY_ID. Obs: Samma medlem consortium URL och VNet-Gateway Dataresurs måste användas.||Ej tillämpligt
+VNet-Gateway för att ansluta till|Resurssökväg på VNet-gatewayen som ska anslutas.<br />Den här informationen tillhandahålls av en redan anslutna medlem som har en distribution. Om du har distribuerat resten av nätverket är URL: en i mallutdata för distribution, med namnet CONSORTIUM_MEMBER_GATEWAY_ID. Obs! Samma medlem consortium URL och VNet-Gateway Dataresurs måste användas.||Ej tillämpligt
 Slutpunkten för peer-information registrator|Peer-info slutpunkt som tillhandahålls av en annan medlem distribution|Giltig första medlemmen i consortium-slutpunkt|Ej tillämpligt
 Nyckel för peer-information registrator|Peer primär nyckel från en annan medlem distribution|Giltig primärnyckel för första medlemmen i consortium|Ej tillämpligt
 
@@ -225,13 +225,13 @@ mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 
 Som den första medlemmen (eller medlem anslutna) för consortium måste du ange andra medlemmar några uppgifter så att de kan ansluta till och upprätta anslutningen. Närmare bestämt:
 
-1. **Delade Consortium konfigurationsdata**: det finns en uppsättning data som används för att dirigera Ethereum-anslutning mellan två medlemmar. Nödvändig information, inklusive genesis block, consortium nätverks-ID och bootnoder, skrivs till en fil på noderna transaktion av ledaren eller någon annan distribuerade medlem. Platsen för den här filen finns i mallen distribution utdataparameter med namnet **CONSORTIUM DATA**.
-2. **Peer-Info slutpunkt**: The Peer info registrator slutpunkten att få information för alla noder som är redan ansluten till Ethereum-nätverk från ledande eller distribution av en annan medlem. DB-butiker en uppsättning av information om varje nod som ansluten i nätverket, information, till exempel nodens värdnamn, privat IP-adress osv. Det här är mallen distribution utdataparameter med namnet **PEER_INFO_ENDPOINT**.
-3. **Peer-Info primärnyckel**: The Peer Registratorn primär nyckel används för att få åtkomst till till ledare eller andra medlem Peer primära nyckel. Det här är mallen distribution utdataparameter med namnet **PEER_INFO_PRIMARY_KEY**.
+1. **Delade Consortium konfigurationsdata**: Det finns en uppsättning data som används för att dirigera Ethereum-anslutning mellan två medlemmar. Nödvändig information, inklusive genesis block, consortium nätverks-ID och bootnoder, skrivs till en fil på noderna transaktion av ledaren eller någon annan distribuerade medlem. Platsen för den här filen finns i mallen distribution utdataparameter med namnet **CONSORTIUM DATA**.
+2. **Peer-Info slutpunkt**: Peer info registrator slutpunkten att få information för alla noder som är redan ansluten till Ethereum-nätverk från ledande eller distribution av en annan medlem. DB-butiker en uppsättning av information om varje nod som ansluten i nätverket, information, till exempel nodens värdnamn, privat IP-adress osv. Det här är mallen distribution utdataparameter med namnet **PEER_INFO_ENDPOINT**.
+3. **Peer-Info primärnyckel**: Den primära nyckeln för peer-info Registratorn används för att få åtkomst till till ledare eller andra medlem Peer primära nyckel. Det här är mallen distribution utdataparameter med namnet **PEER_INFO_PRIMARY_KEY**.
 
 
-4. **VNET-Gateway**: varje medlem upprättar en anslutning till hela blockchain-nätverk via en befintlig medlem. För att ansluta virtuella nätverk, behöver du resurssökväg till VNET-Gateway för medlemmen som du ansluter. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
-5. **Delad nyckel**: A före upprättats hemliga mellan två medlemmar i konsortienätverk som upprättar en anslutning. Det här är en alfanumerisk sträng (mellan 1 och 128 tecken) som har kommit överens om utanför ramen för distributionen. (Till exempel **MySharedKeyAbc123**)
+4. **VNET-Gateway**: Varje medlem upprättar en anslutning till hela blockchain-nätverk via en befintlig medlem. För att ansluta virtuella nätverk, behöver du resurssökväg till VNET-Gateway för medlemmen som du ansluter. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
+5. **Delad nyckel**: En i förväg upprättade hemlighet mellan två medlemmar i konsortienätverk som upprättar en anslutning. Det här är en alfanumerisk sträng (mellan 1 och 128 tecken) som har kommit överens om utanför ramen för distributionen. (Till exempel **MySharedKeyAbc123**)
 
 ### <a name="acceptance-of-new-member"></a>Godkännande av ny medlem
 
@@ -261,23 +261,23 @@ Därefter importerar du modulen:
 
 Kör slutligen funktionen med lämpliga indata:
 
-- **MyGatewayResourceId:** resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och utdataparameter för mall för distribution av också heter **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **Anslutningsnamn:** ett namn för dig att identifiera den här Gateway-anslutning.
-- **Delad nyckel:** i förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
+- **MyGatewayResourceId:** Resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och utdataparameter för mall för distribution av också heter **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Anslutningsnamn:** Ett namn för dig att identifiera den här Gateway-anslutning.
+- **Delad nyckel:** I förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < resursens sökväg för den anslutande medlemmen gateway > - ConnectionName myConnection - SharedKey ”MySharedKeyAbc123”
 
-**xPlat CLI: upprätta anslutning**
+**xPlat CLI: Upprätta anslutning**
 
 Ladda ned Azure CLI-skript och spara den lokalt. Platsen för Azure CLI-skript har angetts i mallparametern för distribution med namnet **par-GATEWAY-AZURE-CLI-skript**.
 
 Kör skriptet med lämpliga indata:
 
-- **MyGatewayResourceId:** resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och mallparameter för distribution av deras distribution som också kallas **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **Anslutningsnamn:** ett namn för dig att identifiera den här Gateway-anslutning.
-- **Delad nyckel:** i förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
+- **MyGatewayResourceId:** Resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och mallparameter för distribution av deras distribution som också kallas **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Anslutningsnamn:** Ett namn för dig att identifiera den här Gateway-anslutning.
+- **Delad nyckel:** I förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
 - **Plats:** Azure-regionen där din resurs för gatewayen distribueras.
 
 ``` powershell

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7e5f72ca637cb657369a3b384aee666e0935b9d0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103782"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263557"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -44,9 +44,7 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 
 Du kan replikera och återställa virtuella datorer mellan alla två regioner inom samma geografiska kluster. Geografisk kluster definieras att hålla datafördröjning och datasuveränitet i åtanke.
 
->[!NOTE]
->Om du inte kan se en region inom ett geografiskt kluster under replikering och sedan kontrollera att din prenumeration har behörighet att skapa virtuella datorer i den regionen. Om inte än stöd begär ”typ av problem”-prenumeration.
->
+
 **Geografisk kluster** | **Azure-regioner**
 -- | --
 Sydamerika | Kanada, östra, Kanada, centrala, södra centrala USA, USA, västra centrala, USA, östra, USA, östra 2, västra USA, västra USA 2, centrala USA, norra centrala USA
@@ -59,9 +57,13 @@ Kina | Kina, östra, Kina, norra, North2 för Kina, östra 2 Kina
 
 >[!NOTE]
 >
-> För regionen södra Brasilien, kan du replikera och redundansväxla till något av följande: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner.
->
-> Det bör noteras att Site Recovery har bara aktiverat södra Brasilien som ska användas som en källregionen från där virtuella datorer kan skyddas. Det kan inte användas som en DR för mål-region för alla Azure-regioner som södra centrala USA. Anledningen svarstid som observerats på grund av geografiska avståndet rekommenderar vi att du väljer alla andra America region än södra Brasilien.
+> - För **södra Brasilien** region, som du kan replikera och redundansväxla till något av följande: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner. Det bör noteras att Site Recovery har bara aktiverat södra Brasilien som ska användas som en källregionen från där virtuella datorer kan skyddas. Den **kan inte användas som en DR för mål-region** för alla Azure-regioner som södra centrala USA. Anledningen svarstid som observerats på grund av geografiska avståndet rekommenderar vi att du väljer alla andra America region än södra Brasilien.
+> 
+> - Om du är **kunde inte finns i en region** där du vill att **att skapa ett valv** Kontrollera din prenumeration har behörighet att skapa resurser i den regionen. Exempel: Om du inte kan skapa valv i Frankrike, södra sedan har din prenumeration inte åtkomst till Frankrike, södra region. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”whitlelist prenumerationen för XXX Azure-region”
+> 
+> - Om du är **kunde inte finns i en region** inom ett geografiskt kluster **under replikering** Kontrollera din prenumeration har behörighet att skapa virtuella datorer i den regionen. Exempel: Om du försöker skydda virtuella datorer mellan Frankrike, centrala och Frankrike, södra och inte ser Frankrike, södra under regionen nedrullningsbara din prenumeration har åtkomst till distribuera virtuell dator i den regionen. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”whitlelist prenumerationen för XXX Azure-region”
+> - Du kan inte välja regioner över geografiska kluster som nämns ovan.
+
 
 ## <a name="cache-storage"></a>Cachelagring
 
@@ -90,16 +92,16 @@ Windows Server 2008 R2 | Med SP1 eller senare
 
 **Operativsystem** | **Detaljer**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
-CentOS | 6.5, 6.6, 6.7, 6.8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS Server | [Stöds kernel-versioner](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS Server | [Stöds kernel-version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och logga in och cloud-init-paketet för att konfigurera virtuella datorer, kan ha lösenordsbaserad inloggning inaktiverad på redundans (beroende på cloudinit-konfiguration). Lösenordsbaserad inloggning kan återaktiveras på den virtuella datorn genom att återställa lösenordet från stödet > Felsökning > menyn Inställningar (på den redundansväxlade virtuella datorn i Azure-portalen.
 Debian 7 | [Stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3. [(Stöds kernel-versioner)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1,SP2,SP3. [(Stöds kernel-versioner)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Uppgradering av datorer som replikeras från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats, måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4 och 7.5 <br/><br/> Köra antingen kompatibel Red Hat-kernel eller Unbreakable Enterprise Kernel version 3 (UEK3).
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Köra antingen kompatibel Red Hat-kernel eller Unbreakable Enterprise Kernel version 3 (UEK3).
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ubuntu kernel-versioner som stöds för Azure-datorer
@@ -131,10 +133,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.21 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.138-94.39-default |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer - Linux system/gäst fillagring
@@ -225,7 +227,7 @@ Nätverkskort | Högsta antal som stöds för en viss Azure VM-storlek | Nätver
 Internet-lastbalanserare | Stöds | Associera förkonfigurerade belastningsutjämnaren med hjälp av en Azure Automation-skript i en återställningsplan.
 Den interna belastningsutjämnaren | Stöds | Associera förkonfigurerade belastningsutjämnaren med hjälp av en Azure Automation-skript i en återställningsplan.
 Offentlig IP-adress | Stöds | Koppla en befintlig offentlig IP-adress till nätverkskortet. Eller skapa en offentlig IP-adress och associera den med nätverkskortet med hjälp av en Azure Automation-skript i en återställningsplan.
-NSG på nätverkskortet | Stöds | Associera NSG med nätverkskortet med hjälp av en Azure Automation-skript i en återställningsplan.
+NSG on NIC | Stöds | Associera NSG med nätverkskortet med hjälp av en Azure Automation-skript i en återställningsplan.
 NSG på undernätet | Stöds | Koppla NSG: N med undernätet med hjälp av en Azure Automation-skript i en återställningsplan.
 Reserverad (statiska) IP-adress | Stöds | Om nätverkskortet på den Virtuella källdatorn har en statisk IP-adress och målundernätet har den samma IP-adressen som är tillgängliga, den är tilldelad till den redundansväxlade virtuella datorn.<br/><br/> Om målundernätet inte har den samma IP-adressen som är tillgängliga, är en av de tillgängliga IP-adresserna i undernätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och nätmask i **replikerade objekt** > **inställningar** > **beräkning och nätverk**  >  **Nätverksgränssnitt**.
 Dynamisk IP-adress | Stöds | Om nätverkskortet på källan har dynamiska IP-adresser, är nätverkskortet på den redundansväxlade virtuella datorn också dynamiskt som standard.<br/><br/> Du kan ändra detta till en fast IP-adress om det behövs.

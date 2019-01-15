@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103000"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266595"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -29,10 +29,10 @@ Blockchain Workbench kan du distribuera en blockchain-redovisning tillsammans me
 
 * 1 event Grid-ämne
 * 1 Service Bus Namespace
-* 1 application Insights
+* 1 Application Insights
 * 1 SQL-databas (Standard S0)
 * 2 app Services (Standard)
-* 2 azure-Nyckelvalv
+* 2 Azure Key Vaults
 * 2 azure Storage-konton (Standard LRS)
 * 2 VM-skalningsuppsättningar (för systemhälsoverifierarens- och arbetsroller noder)
 * 2 virtuella nätverk (inklusive belastningsutjämnaren nätverkssäkerhetsgrupp och offentlig IP-adress för varje virtuellt nätverk)
@@ -240,7 +240,7 @@ Därefter måste du ändra manifest för att använda programroller i Azure AD f
     > [!IMPORTANT]
     > Värdet **administratör** krävs för att identifiera Blockchain Workbench administratörer.
 
-4. I manifestet, också ändra den **Oauth2AllowImplictFlow** värde att **SANT**.
+4. I manifestet, också ändra den **Oauth2AllowImplicitFlow** värde att **SANT**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

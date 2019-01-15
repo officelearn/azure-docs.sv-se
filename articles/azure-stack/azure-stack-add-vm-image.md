@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/07/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119738"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306088"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -93,16 +93,16 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
   ````
 
   Den **Lägg till AzsPlatformimage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
-  - **utgivare**  
+  - **publisher**  
     Exempel: `Canonical`  
     Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **erbjudande**  
+  - **offer**  
     Exempel: `UbuntuServer`  
     Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
   - **sku**  
     Exempel: `14.04.3-LTS`  
     Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **Version**  
+  - **version**  
     Exempel: `1.0.0`  
     Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
   - **osType**  
@@ -144,7 +144,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
   # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+  $GraphAudience = "<GraphAudience endpoint for your environment>"
 
   # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
   Add-AzureRMEnvironment `
@@ -197,16 +197,16 @@ När du behöver inte längre den avbildning av virtuell dator som du laddade up
     -version "<version>" `
   ````
   Den **Remove-AzsPlatformImage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
-  - **utgivare**  
+  - **publisher**  
     Exempel: `Canonical`  
     Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **erbjudande**  
+  - **offer**  
     Exempel: `UbuntuServer`  
     Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
   - **sku**  
     Exempel: `14.04.3-LTS`  
     Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **Version**  
+  - **version**  
     Exempel: `1.0.0`  
     Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
     

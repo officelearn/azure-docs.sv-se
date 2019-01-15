@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 33607043e9b462c4611106c72192f41f1d56c0b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078005"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305918"
 ---
 # <a name="grow-your-business-with-appsource"></a>Låt företaget växa med AppSource  
 Använd AppSource när du kontaktar företagskunder att hitta, prova och få line-of-business-programvara som en tjänst (SaaS)-appar och implementeringstjänster hjälper Driv affärsresultat och minska tiden till värde.  
@@ -67,7 +67,7 @@ Kvaliteten på app publikationen och åtagande att kundcentrerade begäran gener
 Följande checklista beskriver Metodtips för marknadsföring och resurser för att överväga vid skapandet av erbjudanden som ska publiceras på AppSource:  
 *   **Tänk på Microsoft Trademark & varumärke riktlinjer.**  
     När döpa appen och hänvisar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster, efter den Microsoft Trademark och riktlinjer för varumärken samt riktlinjer för olika produkter.  
-    *   Mer information om Microsofts varumärken och anpassning på webbplatsen Microsoft Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Mer information om Microsofts varumärken och anpassning på webbplatsen Microsoft Trademark och riktlinjer för varumärken sidan finns på [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).
 *   **Aktivera get det nu kan du uppleva, erbjudande om kostnadsfri utvärderingsversion, eller testa enheten upplevelse för din app.**  
     Företagsanvändare vill testa din app direkt.  
 *   **Skapa ett starkt värdeförslag.**  
@@ -104,7 +104,7 @@ I tabellerna nedan redogör för varje steg i att fylla i ditt erbjudande-lista.
 
 | Inställningen för erbjudandet | Bästa praxis | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Namn** | **Namnge ditt erbjudande**<br />Det är ett viktiga beslut för att välja ett namn för din app. Förmånen-baserade namn är effektivare än beskrivande namn. Appnamnet på din ska kommunicera core value-kunder får. Inklusive sökord i din app rubrik kan också hjälpa din app att rangordna högre i sökresultat. Följ den Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft, programvara, produkter och tjänster.<ul> <li>Mer information om Microsofts varumärken och anpassning på webbplatsen Microsoft Trademark och riktlinjer för varumärken sidan finns på [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Namn** | **Namnge ditt erbjudande**<br />Det är ett viktiga beslut för att välja ett namn för din app. Förmånen-baserade namn är effektivare än beskrivande namn. Appnamnet på din ska kommunicera core value-kunder får. Inklusive sökord i din app rubrik kan också hjälpa din app att rangordna högre i sökresultat. Följ den Microsoft Trademark och riktlinjer för varumärken samt relevanta produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft, programvara, produkter och tjänster.<ul> <li>Mer information om Microsofts varumärken och anpassning på webbplatsen Microsoft Trademark och riktlinjer för varumärken sidan finns på [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).</li> </ul> |
 
 **Storefront-information – erbjudandeinformation**  
 

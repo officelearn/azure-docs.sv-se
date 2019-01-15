@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ecbd555809799619d61a7ff33911b7f28dcb3005
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232540"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262718"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: skillnader och överväganden
 
@@ -40,11 +40,11 @@ Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att 
 |Bild          | Stöd för anpassade avbildningar |Stöds inte än|
 |Alternativ för säkerhetskopiering |Stöd för Azure Backup-tjänsten |Stöds inte än |
 |Alternativen för katastrofåterställning |Stöd för Azure Site Recovery |Stöds inte än|
-|Disktyper     |Premium SSD, Standard SSD (förhandsversion) och Standard-Hårddisk |Premium SSD, Standard-Hårddisk |
+|Disktyper     |Premium SSD, Standard SSD (förhandsversion) och Standard-Hårddisk |Premium SSD, Standard HDD |
 |Premium-diskar  |Stöds fullt ut |Kan tillhandahållas, men ingen prestandagräns eller garanterar  |
-|Premium-diskar IOPs  |Beror på diskstorleken  |2300 IOPs per disk |
+|Premium disks IOPs  |Beror på diskstorleken  |2300 IOPs per disk |
 |Dataflöde för Premium-diskar |Beror på diskstorleken |145 MB/sekund per disk |
-|Diskstorlek  |Azure Premium-Disk: P4 (32 GiB) till P80 (32 TiB)<br>Azure Standard SSD-Disk: E10 (128 GiB) till E80 (32 TiB)<br>Azure Standard HDD Disk: S4 (32 GiB) till S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GB<br>M20: 512 GiB<br>M30: 1024 giB |
+|Diskstorlek  |Azure Premium Disk: P4 (32 GiB) till P80 (32 TiB)<br>Azure Standard SSD-Disk: E10 (128 GiB) till E80 (32 TiB)<br>Azure Standard HDD Disk: S4 (32 GiB) till S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GB<br>M20: 512 GiB<br>M30: 1024 giB |
 |Diskar kopiering av ögonblicksbild|Ta en ögonblicksbild Azure hanterade diskar är anslutna till en aktiv virtuell dator som stöds|Stöds inte än |
 |Diskar prestanda analytiska |Aggregera mått och per disk-mått som stöds |Stöds inte än |
 |Migrering      |Innehåller verktyg för att migrera från befintliga ohanterade virtuella Azure Resource Manager-datorer utan att behöva återskapa den virtuella datorn  |Stöds inte än |
@@ -72,7 +72,7 @@ Efter att ha tillämpat 1808 uppdatera eller senare, måste du utföra följande
 - Om en prenumeration skapades före uppdateringen 1808, följer du stegen nedan för att uppdatera prenumerationen. Annars kan misslyckas distribuera virtuella datorer i den här prenumerationen med felmeddelandet ”internt fel i Diskhanteraren”.
    1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
    2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
-- Följ dessa steg om du använder en miljö med flera organisationer, be din molnoperator (maj i din organisation eller från Service Provider) att konfigurera om var och en av dina gäst-kataloger [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Annars kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med felmeddelandet ”internt fel i Diskhanteraren”.
+- Om du använder en miljö med flera organisationer, be din molnoperator (kan vara i din organisation eller från Service Provider) att konfigurera om var och en av dina gäst-kataloger följa dessa steg på [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Annars kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med den gästkatalogen med felmeddelandet ”internt fel i Diskhanteraren”.
 
 
 ## <a name="next-steps"></a>Nästa steg

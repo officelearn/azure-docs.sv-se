@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384691"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265898"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalering av Metadata med tidsgräns i liveuppspelning
 
@@ -45,7 +45,7 @@ Nyckeln orden ”måste”, är ”måste inte”, ”obligatoriskt”, ”skall
 | Ursprung            | Tjänsten Azure Media-direktuppspelning                                                                                                                                                                                                |
 | Kanalmottagare      | Azure Media Live Direktuppspelningstjänst                                                                                                                                                                                           |
 | HLS               | Apple HTTP Live Streaming-protokollet                                                                                                                                                                                               |
-| STRECK              | Dynamisk anpassningsbar strömning via HTTP                                                                                                                                                                                             |
+| DASH              | Dynamisk anpassningsbar strömning via HTTP                                                                                                                                                                                             |
 | Jämn            | Smidig strömningsprotokoll                                                                                                                                                                                                        |
 | MPEG2-TS          | Strömmar för MPEG-2 Transport                                                                                                                                                                                                         |
 | RTMP              | I realtid Multimedia-protokollet                                                                                                                                                                                                    |
@@ -89,7 +89,7 @@ För RTMP enkelt läge stöder Media Services ett enda AMF stack-meddelande som 
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 säger upp avtalet och uppdateringar
+#### <a name="211-cancellation-and-updates"></a>2.1.1 annullering och uppdateringar
 
 Meddelanden kan har avbrutits eller uppdateras genom att skicka flera meddelanden med samma presentation tid och -ID. Presentation-tid och ID identifiera unikt händelsen och det sista meddelandet som togs emot för en specifik presentation tid som uppfyller före distributionen begränsningar är meddelandet som agerar på. Den uppdaterade händelsen ersätter alla tidigare mottagna meddelanden. Före distributionen begränsningen är fyra sekunder. Meddelanden som tas emot minst fyra sekunder innan presentation W3wp.
 
@@ -157,7 +157,7 @@ Rutan MediaDataBox (mdat) måste ha följande format:
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 säger upp avtalet och uppdateringar
+### <a name="224-cancellation-and-updates"></a>2.2.4 annullering och uppdateringar
 Meddelanden kan har avbrutits eller uppdateras genom att skicka flera meddelanden med samma presentation tid och -ID.  Presentation-tid och ID identifiera unikt händelsen. Det sista meddelandet som togs emot för en specifik presentation tid, som uppfyller före distributionen begränsningar är meddelandet som agerar på. Uppdaterade meddelandet ersätter alla tidigare mottagna meddelanden.  Före distributionen begränsningen är fyra sekunder. Meddelanden som tas emot minst fyra sekunder innan presentation W3wp. 
 
 
@@ -400,7 +400,7 @@ Smooth Streaming mata in kräver att Media Data Box (mdat) måste innehålla den
 
 **[LIVE FMP4]**  [Specifikation för azure Media Services fragmenterad MP4 Live-inmatning](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]**  ISO/IEC 14496-12: Grundläggande media för en del 12 ISO-formatet, fjärde utgåvan 2012-07-15.
+**[ISO-14496-12]** ISO/IEC 14496-12: Grundläggande media för en del 12 ISO-formatet, fjärde utgåvan 2012-07-15.
 
 **[RTMP]**  [”Adobes i realtid meddelandeprotokoll”, 21 December 2012](https://www.adobe.com/devnet/rtmp.html) 
 

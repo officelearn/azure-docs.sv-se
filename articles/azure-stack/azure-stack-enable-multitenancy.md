@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240179"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263976"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Flera innehavare i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan konfigurera Azure Stack för att hantera användare från flera Azure Active Directory (Azure AD)-klienter kan använda tjänster i Azure Stack. Tänk dig följande scenario:
 
@@ -133,7 +133,7 @@ Om du inte längre vill att flera klienter i Azure Stack kan du inaktivera multi
 2. Som tjänstadministratör i Azure Stack (du i det här scenariot) kör *avregistrera AzSGuestDirectoryTenant*. 
 
     ``` PowerShell  
-    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory

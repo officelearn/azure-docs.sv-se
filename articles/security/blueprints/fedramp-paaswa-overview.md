@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 50a49a8bcb6bec6c177823ea61cc340da6876357
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9bfd748e6b10106587e3fce64e15d7f1f6d50e59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602094"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261595"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram för FedRAMP
 
@@ -53,9 +53,9 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 Följande avsnitt beskriver elementen distribution och implementering.
 
-**Med Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ger kunder möjlighet att arbeta med resurserna i lösningen som en grupp. Kunder kan distribuera, uppdatera eller ta bort alla resurser för lösningen i en enda, samordnad åtgärd. Kunder använder en mall för distributionen mallen kan användas för olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper kunder att hantera sina resurser efter distributionen.
+**Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ger kunder möjlighet att arbeta med resurserna i lösningen som en grupp. Kunder kan distribuera, uppdatera eller ta bort alla resurser för lösningen i en enda, samordnad åtgärd. Kunder använder en mall för distributionen mallen kan användas för olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper kunder att hantera sina resurser efter distributionen.
 
-**App Service-miljö v2**: Den [Azure App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/intro) är en funktion i App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av App Service-program i hög skala.
+**App Service Environment v2**: Den [Azure App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/intro) är en funktion i App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av App Service-program i hög skala.
 
 Ase-miljöer är isolerade för att endast köra en enda kunds program och de distribueras alltid till ett virtuellt nätverk. Kunderna har detaljerad kontroll över både inkommande och utgående programnätverkstrafik och programmen kan upprätta säkra höghastighetsanslutningar över virtuella nätverk till lokala företagsresurser.
 
@@ -132,7 +132,7 @@ Följande tekniker hanteringsfunktioner identitet i Azure-miljön:
 - Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs.
 
 **Application Gateway** arkitekturen minskar risken för säkerhetsproblem med en Programgateway med brandväggen för webbaserade program och OWASP-regeluppsättning aktiverat. Ytterligare funktioner är följande:
-- [Slutpunkt till slutpunkt-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Inaktivera [TLS v1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)
@@ -165,7 +165,7 @@ Dessutom kan ingår följande övervakningslösningar som en del av den här ark
 
 Dataflödesdiagram för denna Referensarkitektur är tillgängligt för [hämta](https://aka.ms/fedrampPaaSWebAppDFD) eller finns nedan. Den här modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du gör ändringar.
 
-![PaaS-webbprogram för FedRAMP hotmodell](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton för FedRAMP hotmodell")
+![PaaS-webbprogram för FedRAMP hotmodell](images/fedramp-paaswa-threat-model.png?raw=true "PaaS webbprogram för FedRAMP hotmodell")
 
 ## <a name="compliance-documentation"></a>Dokumentation om efterlevnad
 Den [Azure säkerhet och efterlevnad skissen - FedRAMP hög kundens ansvar matrisen](https://aka.ms/blueprinthighcrm) visar en lista över alla säkerhetskontroller som krävs av FedRAMP High-baslinje. Matrisen anger om implementeringen av varje kontroll ansvarar för Microsoft, kunden, eller delas mellan två.

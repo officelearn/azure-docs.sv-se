@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727098"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306462"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Säkerhetspositionen för Azure Stack-infrastruktur
 
@@ -70,7 +71,7 @@ Alla komponenter i Azure Stack (Hyper-V-värdar och virtuella datorer) är skydd
 Definitioner och motor antivirusuppdateringar tillämpas i anslutna scenarier, flera gånger per dag. Program mot skadlig kod uppdateringar tillämpas i frånkopplade lösningar, som en del av den månatliga Azure Stack uppdateringar. Mer information finns i [uppdatera Windows Defender Antivirus på Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Begränsad administrationsmodell
-Administration i Azure Stack kontrolleras med hjälp av tre startpunkter, var och en med ett visst syfte: 
+Administration i Azure Stack styrs via tre startpunkter, var och en med ett visst syfte: 
 1. Den [Administratörsportalen](azure-stack-manage-portals.md) tillhandahåller en peka och klicka för dagliga hanteringsåtgärder.
 2. Azure Resource Manager visar alla hanteringsåtgärder för Administratörsportalen via ett REST-API som används av PowerShell och Azure CLI. 
 3. För specifika på låg nivå, till exempel data center integration eller stöd för scenarier, Azure Stack Exponerar en PowerShell-slutpunkt som anropas [privilegierad slutpunkt](azure-stack-privileged-endpoint.md). Den här slutpunkten visar endast en godkänd uppsättning cmdlets och granskas kraftigt.

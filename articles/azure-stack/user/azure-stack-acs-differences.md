@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717882"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305765"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: Skillnader och överväganden
 
@@ -110,7 +111,7 @@ Azure Stack-storage stöder följande klientbibliotek:
 | C++            | Från 2.4.0 till 3.1.0           | NuGet-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
 | PHP            | Från 0.15.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installera via Composer (se detaljer nedan)                                                                                                                                                                                                                  | Anslutningsinställningar för sträng      |
 | Python         | Från 0.30.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Instans tjänstedeklaration |
-| Ruby           | Från 0.12.1 till 1.0.1          | RubyGems paket:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Kö: https://rubygems.org/gems/azure-storage-queue/<br>Tabell: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |
+| Ruby           | Från 0.12.1 till 1.0.1          | RubyGems package:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Kö: https://rubygems.org/gems/azure-storage-queue/<br>Tabell: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Log Analytics för tjänsteleverantörer | Microsoft Docs
-description: Log Analytics kan hjälpa att Managed Service Providers (MSP), stora företag oberoende programvara-leverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur.
+description: Log Analytics kan hjälpa att Managed Service Providers (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340546"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264790"
 ---
 # <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
 Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
@@ -63,7 +63,7 @@ Nackdelarna med den här arkitekturen är:
 * Det kan vara svårt att dela data mellan kunder när de infogas i en enda arbetsyta. Metoden endast bra att göra detta är att använda datorns fullständigt kvalificerade domännamnet (FQDN) eller via Azure-prenumeration-ID. 
 * Alla data från alla kunder kommer att lagras i samma region med en enda faktura och samma inställningar för kvarhållning och konfiguration.
 * Azure-infrastrukturen och PaaS-tjänster som Azure Diagnostics och Azure-granskningsloggarna måste arbetsytan för att vara i samma klient som resursen, så de inte kan skicka loggarna till arbetsytan central.
-* Alla VM-agenter från alla kunder autentiseras till arbetsytan cental samma arbetsyte-ID och nyckel. Det finns ingen metod för att blockera loggar från en viss kund utan att störa andra kunder.
+* Alla VM-agenter från alla kunder autentiseras till arbetsytan centrala samma arbetsyte-ID och nyckel. Det finns ingen metod för att blockera loggar från en viss kund utan att störa andra kunder.
 
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Hybrid - loggar lagras i arbetsytan finns i kundens klient och vissa av dem hämtas till en central plats.

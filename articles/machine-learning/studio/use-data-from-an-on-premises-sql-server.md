@@ -1,26 +1,8 @@
 ---
-title: En lokal SQLServer – Azure Machine Learning Studio | Microsoft Docs
-description: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2017
-ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269299"
+Rubrik: En lokal SQL Server-titleSuffix: Beskrivning av Azure Machine Learning Studio: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning Studio.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/13/2017
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio med hjälp av en lokal SQL Server-databas
 

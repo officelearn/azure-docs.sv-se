@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261748"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267002"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper att skydda hybridsäkerhetskopieringar som använder Azure Backup
 Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan vara kostsamma när det gäller både pengar och data. För att skydda mot sådana attacker, ger Azure Backup nu säkerhetsfunktioner för att skydda hybridsäkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av ett Azure Recovery Services-agenten och Azure Backup Server. Dessa funktioner:
@@ -26,7 +26,7 @@ Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrå
 > Säkerhetsfunktioner bör inte aktiveras om du använder infrastruktur som en tjänst (IaaS)-säkerhetskopiering. De här funktionerna finns ännu inte för IaaS VM-säkerhetskopiering, så att aktivera dem inte har någon effekt. Säkerhetsfunktioner ska aktiveras bara om du använder: <br/>
 >  * **Azure Backup-agenten**. Minst agentversion 2.0.9052. När du har aktiverat dessa funktioner, bör du uppgradera till den agentversionen som ska utföra kritiska åtgärder. <br/>
 >  * **Azure Backup Server**. Minsta Azure Backup-agentversionen 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
->  * **System Center Data Protection Manager**. Minsta Azure Backup-agentversionen 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller Data Protection Manager 2016 UR2. <br/> 
+>  * **System Center Data Protection Manager**. Minsta Azure Backup-agentversionen 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller Data Protection Manager 2016 UR2. <br/>
 
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Säkerhetskopiering behåller raderade säkerhetskopieringsdata för ytterligare
 
 För **Azure Recovery Services-agenten** användare:
 
-1. Om den dator där säkerhetskopior händer är fortfarande tillgängliga använder [återställa data på samma dator](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) i Azure Recovery Services att komma tillrätta med de gamla återställningspunkterna.
+1. Om datorn där säkerhetskopior händer är fortfarande tillgänglig, skydda borttagna datakällorna igen och använder den [återställa data på samma dator](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) i Azure Recovery Services att komma tillrätta med de gamla återställningspunkterna.
 2. Om den här datorn inte är tillgänglig använder [Återställ till en annan dator](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) du använder en annan Azure Recovery Services-dator för att hämta dessa data.
 
 För **Azure Backup Server** användare:
@@ -83,7 +83,7 @@ Som en del av att lägga till ett extra lager av autentisering för kritiska åt
 
 > [!NOTE]
 
-> För närvarande säkerhetskoden stöds inte för **stoppa skydd med borttagningsdata** för DPM och MABS. 
+> För närvarande säkerhetskoden stöds inte för **stoppa skydd med borttagningsdata** för DPM och MABS.
 
 Att ta emot den här PIN-kod:
 
@@ -109,7 +109,7 @@ Säkerhetsfunktioner som nämns i den här artikeln har funktioner för skydd mo
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
 | Ändring av |Det gick inte att ändra säkerhetskopieringsprincipen. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak:**<br/>Det här felet är när säkerhetsinställningar har aktiverats, försök att minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du har en version som inte stöds (versioner som stöds anges i första anteckna den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ange kvarhållningsperiod ovanför den minsta Kvarhållningsintervall angiven tidsperiod (sju dagar för varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) relaterade uppdateringar att fortsätta med principen. Du kan också är önskad metod att uppdatera backup-agenten, Azure Backup Server och/eller DPM UR utnyttja alla säkerhetsuppdateringar. |
-| Ändra lösenfras |Säkerhetskoden är felaktig. (ID: 100130) Ange rätt SÄKERHETSKOD för att slutföra den här åtgärden. |**Orsak:**<br/> Det här felet kommer när du anger ogiltiga eller utgångna SÄKERHETSKODEN under kritiska åtgärd (t.ex. Ändra lösenfras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange giltiga SÄKERHETSKODEN för att slutföra åtgärden. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
+| Ändra lösenfras |Säkerhetskoden är felaktig. (ID: 100130) Ange rätt SÄKERHETSKOD för att slutföra åtgärden. |**Orsak:**<br/> Det här felet kommer när du anger ogiltiga eller utgångna SÄKERHETSKODEN under kritiska åtgärd (t.ex. Ändra lösenfras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange giltiga SÄKERHETSKODEN för att slutföra åtgärden. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
 | Ändra lösenfras |Åtgärden kunde inte utföras. ID: 120002 |**Orsak:**<br/>Det här felet kommer när säkerhetsinställningar har aktiverats, försök att ändra lösenfras och du har en version som inte stöds (giltigt versioner som anges i första anteckna den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösenfras måste du först uppdatera backup-agenten till minimiversion minsta 2.0.9052, Azure Backup server till minsta update 1, och/eller att DPM ska minsta DPM 2012 R2 UR12 eller DPM 2016 UR2 (download länkarna nedan), och ange sedan giltig säkerhets-PIN. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
 
 ## <a name="next-steps"></a>Nästa steg

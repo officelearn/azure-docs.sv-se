@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: bddb72f2b76d6e652dd26f2e383b7d06fded881b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395465"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265761"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska Azure-Resursanvändning med hjälp av REST-API
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-Den `{subscriptionGuid}` parametern krävs och bör innehålla ett prenumerations-ID som kan läsas med hjälp av autentiseringsuppgifter provieed i API-token. den `{reportName}`
+Den `{subscriptionGuid}` parametern krävs och bör innehålla ett prenumerations-ID som kan läsas med de autentiseringsuppgifter som angavs i API-token. den `{reportName}`
 
 Följande huvuden krävs: 
 
@@ -146,7 +146,7 @@ Den `Resource` dimensionen kan du rapportera kostnaderna för specifika resurser
 
 ### <a name="changing-timeframes"></a>Ändra tidsramar
 
-Ange den `timeframe` definitionen för att `Custom` att ställa in ett tidsintervall utanför veckan på hittills inbyggda i alternativ för datum och månad.
+Ange den `timeframe` definitionen för att `Custom` att ange ett tidsintervall utanför veckan till datum och månad till datum inbyggda alternativ.
 
 ```json
 "timeframe": "Custom",

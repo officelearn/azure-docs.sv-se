@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007067"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261306"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säker poäng i Azure Security Center
 
 
 Med så många tjänster som erbjuder säkerhetsfördelarna, är det ofta svårt att veta vilka steg du ska vidta först att skydda och förstärka din arbetsbelastning. Azure säker poängen går igenom din säkerhetsrekommendationer och prioriterar dem åt dig, så att du vet vilka rekommendationer för att utföra först. Detta hjälper dig att hitta de mest allvarliga säkerhetsriskerna, så att du kan prioritera undersökningen. Säker poängen är ett verktyg som hjälper dig att bedöma din arbetsbelastning säkerhetsposition.
-
-![Skydda score instrumentpanel](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>Skydda poängberäkningen
 
@@ -43,11 +41,25 @@ Om du vill kontrollera vilka rekommendationer påverka säker poängen mest, du 
 
 Visa dina övergripande säker poäng:
 
-1. I Azure-instrumentpanelen klickar du på **Security Center** och klicka sedan på **rekommendationer**.
-2. Överst ser du säkra poäng, som representerar poäng per principer per valda prenumerationen. 
-2. I tabellen nedan som visar en lista över rekommendationer, du kan se att det för varje rekommendation finns en kolumn som representerar den **skyddar score påverkan**. Det här talet anger hur mycket den totala säkra dina poäng förbättras om du följer rekommendationerna. Till exempel på skärmen nedan om du **åtgärda sårbarheter i behållaren säkerhetskonfigurationer**, säker resultatet kommer att ökas med 35 punkter.
+1. I Azure-instrumentpanelen klickar du på **Security Center** och klicka sedan på **säker poäng**.
+2. Överst ser du Secure bedöma viktiga funktioner:
+   - Den **övergripande skyddar score** representerar poäng per principer per vald prenumeration
+   - **Skydda poäng efter kategori** visar vilka resurser behöver mest åtgärdas
+   - **Främsta rekommendationer av säker poäng inverkan** tillhandahåller en lista över rekommendationer som förbättrar dina säker poäng mest om du åtgärda dem.
+ 
+   ![säker poäng](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. Du kan se var och en av dina prenumerationer och den övergripande säker poängen för varje i tabellen nedan.
+
+   > [!NOTE]
+   > Summan av den säkra poängen för varje prenumeration är inte lika med den övergripande säker poängen. Säker poängen är en beräkning som baserat på förhållandet mellan din felfria resurser och din totala resurserna per rekommendation, inte en summa av säker poäng för dina prenumerationer. 
+   >
+4. Klicka på **visa rekommendationer** att se rekommendationer för prenumerationen som du kan reparera för att förbättra dina säker poäng.
+4. I listan över rekommendationer kan du se att det för varje rekommendation finns en kolumn som representerar den **skyddar score påverkan**. Det här talet anger hur mycket den totala säkra dina poäng förbättras om du följer rekommendationerna. Till exempel på skärmen nedan om du **åtgärda sårbarheter i behållaren säkerhetskonfigurationer**, säker resultatet kommer att ökas med 35 punkter.
 
    ![säker poäng](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## <a name="individual-secure-score"></a>Enskilda säker poäng
 
@@ -60,6 +72,12 @@ Den **rekommendation inverkan** gör att du vet hur mycket säker poäng förbä
 Rekommendationen visar vilka hot arbetsbelastningen utsätts för om åtgärdssteg inte utförs.
 
 ![enskilda rekommendation säker poäng](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln visar dig hur du kan förbättra din säkerhet hållning med hjälp av **säker poäng** i Azure Security Center. Mer information om Security Center finns:

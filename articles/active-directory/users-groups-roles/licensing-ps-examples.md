@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9e0e1a70926127389101c79121ffab03e411f56a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210439"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265157"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-exempel för gruppbaserad licensiering i Azure AD
 
@@ -32,11 +32,11 @@ Alla funktioner för gruppbaserad licensiering är tillgänglig via den [Azure-p
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Visa produktlicenser tilldelas en grupp
 Den [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan användas för att hämta gruppobjekt och kontrollera den *licenser* egenskapen: visas en lista med alla produktlicenser som tilldelats gruppen.
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-Resultat:
+Utdata:
 ```
 SkuPartNumber
 -------------
@@ -52,7 +52,7 @@ Använd följande för att få samma data från Microsoft Graph
 ```
 GET https://graph.microsoft.com/beta/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
 ```
-Resultat:
+Utdata:
 ```
 HTTP/1.1 200 OK
 {
@@ -78,18 +78,18 @@ HTTP/1.1 200 OK
 ## <a name="get-all-groups-with-licenses"></a>Hämta alla grupper med licenser
 
 Du hittar alla grupper med en licens som tilldelas genom att köra följande kommando:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 Mer information kan visas om vilka produkter är tilldelade:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-Resultat:
+Utdata:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -102,7 +102,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ## <a name="get-statistics-for-groups-with-licenses"></a>Få statistik för grupper med licenser
 Du kan rapportera grundläggande statistik för grupper med licenser. I exemplet nedan visar skriptet Totalt antal, antal användare med licenser som redan har tilldelats av gruppen och antal användare för vilka licenser inte gick att tilldela av gruppen.
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -144,7 +144,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-Resultat:
+Utdata:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -160,10 +160,10 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## <a name="get-all-groups-with-license-errors"></a>Hämta alla grupper med licens-fel
 Hitta grupper som innehåller vissa användare för vilka licenser inte kunde tilldelas:
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-Resultat:
+Utdata:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -173,7 +173,7 @@ Använd följande för att få samma data från Microsoft Graph
 ```
 GET https://graph.microsoft.com/beta/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
-Resultat:
+Utdata:
 ```
 HTTP/1.1 200 OK
 {
@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 
 Med en grupp som innehåller vissa licens-relaterade fel kan du nu visa en lista med alla användare som påverkas av felen. En användare kan ha fel från andra grupper för. Men i det här exemplet vi begränsar resultaten enbart för fel som är relevanta för gruppen i fråga genom att markera den **ReferencedObjectId** egenskapen för varje **IndirectLicenseError** transaktionen på användaren.
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -209,7 +209,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -217,7 +217,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-Resultat:
+Utdata:
 ```
 ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
@@ -227,7 +227,7 @@ Använd följande för att få samma data från Microsoft Graph
 ```
 GET https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
-Resultat:
+Utdata:
 ```
 HTTP/1.1 200 OK
 {
@@ -252,7 +252,7 @@ Följande skript kan användas för att hämta alla användare som har licens fe
 > [!NOTE]
 > Det här skriptet räknar upp alla användare i klienten, vilket inte kanske är optimala för stora klienter.
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -265,7 +265,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-Resultat:
+Utdata:
 
 ```
 UserName         UserId                               GroupId                              LicenseError
@@ -278,7 +278,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 Här är en annan version av det skript som söker bara igenom grupper som innehåller licens-fel. Det kan vara mer optimerade för scenarier där du förväntar dig att ha några grupper med problem.
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -296,7 +296,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 Det är möjligt att kontrollera om en viss licens tilldelas från en grupp eller om den är tilldelad direkt för ett användarobjekt.
 
 De två funktionerna för exemplet nedan kan användas för att analysera typ av uppgift på en enskild användare:
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -358,7 +358,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 Det här skriptet körs dessa funktioner på varje användare i klienten, med hjälp av SKU-ID som indata – i det här exemplet vi är intresserade av licensen för *Enterprise Mobility + Security*, som i våra klient representeras med ID  *Contoso:EMS*:
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -370,7 +370,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-Resultat:
+Utdata:
 ```
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
 --------                             -----       ---------------- -----------------
@@ -383,7 +383,7 @@ Diagrammet har inte ett enkelt sätt att visa resultatet, men det kan ses från 
 ```
 GET https://graph.microsoft.com/beta/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
-Resultat:
+Utdata:
 ```
 HTTP/1.1 200 OK
 {
@@ -436,7 +436,7 @@ Syftet med det här skriptet är att ta bort onödiga direkt licenser från anv�
 > [!NOTE]
 > Det är viktigt att först verifiera att direkt licenser som ska tas bort inte aktiverar fler service funktioner än ärvda licenser. I annat fall kan tar du bort direkt licensen inaktivera åtkomst till tjänster och data för användare. För närvarande går det inte att kontrollera via PowerShell vilka tjänster är aktiverade via ärvda licenser vs direkt. I skriptet anger vi den lägsta nivån av tjänster som vi vet har ärvts från grupper och kontrollera mot att för att se till att användare inte oväntat förlorar åtkomst till tjänster.
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly
@@ -597,7 +597,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 #END: executing the script
 ```
 
-Resultat:
+Utdata:
 ```
 UserId                               OperationResult                                                                                
 ------                               ---------------                                                                                

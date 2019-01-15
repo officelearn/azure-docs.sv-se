@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9eb3cc029e60acd18fc6611ca14817488a2d983
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956728"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266561"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Felsöka din distribution till Kubernetes i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
 > Kubernetes på Azure Stack är en förhandsversion.
@@ -45,10 +45,10 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 1. Samla in indataparametrar från marketplace-objekt.
 
     Ange de värden som du behöver ställa in Kubernetes-kluster, inklusive:
-    -  **Användarnamnet**: användarnamn för Linux-datorer som ingår i Kubernetes-kluster och DVM.
-    -  **Offentlig SSH-nyckel**: den nyckel som används för godkännande av alla Linux-datorer som har skapats som en del av Kubernetes-kluster och DVM.
-    -  **Tjänsten princip**: ID som används av providern för Kubernetes Azure-molnet. Klient-ID som identifieras som program-ID när du skapade tjänstens huvudnamn. 
-    -  **Klienthemlighet**: de nycklar som du skapade när du har skapat tjänstens huvudnamn.
+    -  **Användarnamnet**: Användarnamn för Linux-datorer som ingår i Kubernetes-kluster och DVM.
+    -  **Offentlig SSH-nyckel**: Den nyckel som används för godkännande av alla Linux-datorer som har skapats som en del av Kubernetes-kluster och DVM.
+    -  **Tjänsten princip**: Det ID som används av providern för Kubernetes Azure-molnet. Klient-ID som identifieras som program-ID när du skapade tjänstens huvudnamn. 
+    -  **Klienthemlighet**: De nyckel du skapade när du skapade tjänstens huvudnamn.
 
 2. Skapa VM-distribution och tillägget för anpassat skript.
     -  Skapa distribution Linux VM med hjälp av Linux-avbildning marketplace **Ubuntu Server 16.04-LTS**.
@@ -90,7 +90,7 @@ Du kan samla in loggar på de virtuella datorerna som har stöd för Kubernetes-
 3.  Granska dina filer för virtuell dator skapas. Du kanske har haft följande problem:  
     - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du skapade.  
     - Skapa en virtuell dator kan ha utlöses ett internt fel eller utlöses ett fel när skapades. Ett antal faktorer kan orsaka sådana fel, inklusive kapacitetsbegränsningar för Azure Stack-prenumerationen.
-    - Se till att det fullständigt kvalificerade domännamnet (fullständigt domännamn) för den virtuella datorn börjar med en duplicerad prefix.
+    - Se till att det fullständigt kvalificerade domännamnet (FQDN) för den virtuella datorn börjar med en duplicerad prefix.
 4.  Om den virtuella datorn är **OK**, sedan utvärderar DVM. Om DVM har ett felmeddelande visas:
 
     - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du skapade.  
@@ -153,10 +153,10 @@ Om du vill hämta loggar, gör du följande:
 4. Granska parametrarna och ange värden baserat på din miljö.
     | Parameter           | Beskrivning                                                                                                      | Exempel                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,--identity-fil | RSA filen för privat nyckel att ansluta den Kubernetes-Virtuellt huvuddatorn. Nyckeln måste börja med `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
-    | h-,--värd          | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u,--användare          | Användarnamn för Kubernetes-kluster huvudservern VM. Du kan ange det här namnet när du konfigurerar marketplace-objekt.                                                                    | azureuser                                                                     |
-    | -d,--vmdhost       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -i, --identity-file | RSA filen för privat nyckel att ansluta den Kubernetes-Virtuellt huvuddatorn. Nyckeln måste börja med `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
+    | -h, --host          | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | Användarnamn för Kubernetes-kluster huvudservern VM. Du kan ange det här namnet när du konfigurerar marketplace-objekt.                                                                    | azureuser                                                                     |
+    | -d, --vmdhost       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
    När du lägger till parametervärden kan det se ut ungefär som följande kod:
 

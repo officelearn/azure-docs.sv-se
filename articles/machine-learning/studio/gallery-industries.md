@@ -1,26 +1,8 @@
 ---
-title: Azure AI-galleriet branschlösningar – Azure Machine Learning Studio | Microsoft Docs
-description: Avsnittet branscher i Azure AI-galleriet innehåller olika resurser som är specifika för sådana branscher som detaljhandel, tillverkning, bank och healthcare.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-editor: cgronlun
-ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.custom: previous-ms.author=garye, previous-author=garyericson
-ms.author: amlstudiodocs
-ms.openlocfilehash: 4f9495027c7027f659f877930b6aabc72b361ae8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269336"
+Rubrik: Azure AI-galleriet branschspecifika lösningar titleSuffix: Beskrivning av Azure Machine Learning Studio: Avsnittet branscher i Azure AI-galleriet innehåller olika resurser som är specifika för sådana branscher som detaljhandel, tillverkning, bank och healthcare.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=garye, previous-author=garyericson ms.date: 03/31/2017
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Upptäck branschspecifika lösningar i Azure AI-galleriet
 

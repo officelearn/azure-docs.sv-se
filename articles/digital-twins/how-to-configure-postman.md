@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
-ms.openlocfilehash: a5d0b6abdee44bdd1e174fa2c8551fbeac768e5d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232642"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259282"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för Azure Digital Twins
 
@@ -102,7 +102,7 @@ Konfigurera Postman för att göra en autentiserad HTTP multipart POST-begäran 
 
 1. Serialisera data för icke-text till filer. JSON-data sparas som en JSON-fil.
 1. Under den **brödtext** fliken, lägga till varje fil genom att tilldela en **nyckel** namn, välja `file` eller `text`.
-1. Välj filen via den **Välj fil** knappen.
+1. Markera varje fil via den **Välj fil** knappen.
 
    ![Postman-klient, exempel][5]
 

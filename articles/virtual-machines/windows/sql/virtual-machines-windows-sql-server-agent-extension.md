@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: jroth
-ms.openlocfilehash: 5ffee3bb5cbeff4e2222307e2a1afb4691ae93d5
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3d2873d83274e4f9bfd8aee7668162237083f452
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053048"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303062"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 ```
 
 > [!IMPORTANT]
-> Om tillägget inte redan är installerat installerar tillägget startar om SQL Server-tjänsten.
+> Om tillägget inte redan är installerat installerar tillägget startar om SQL Server-tjänsten. Uppdaterar SQL IaaS-tillägget dock inte om SQL Server-tjänsten. 
 
 > [!NOTE]
 > SQL Server IaaS Agent-tillägget stöds bara på [galleriavbildningar för SQL Server-VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betala per användning eller bring-your-own-license). Det stöds inte om du manuellt installera SQL Server på en OS-endast Windows Server-dator eller om du distribuerar en anpassad SQL Server VM-VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men du får inte konfigurationsinställningarna för SQL Server i Azure-portalen. Vi rekommenderar dock starkt att i stället installera en SQL Server-VM-avbildning för galleriet och sedan anpassa den.

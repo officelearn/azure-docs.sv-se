@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250219"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302977"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
@@ -29,18 +29,25 @@ Arbetsflödet innehåller följande steg:
 1. **Registrera en bild** som kombinationer av en modell med ett bedömningsskript och beroenden i en bärbar behållare 
 1. **Distribuera** bilden som en webbtjänst i molnet eller edge-enheter
 1. **Övervaka och samla in data**
+1. **Uppdatera** en distribution som du använder en ny avbildning.
 
 Varje steg kan utföras separat eller som en del av en enskild distribution-kommando. Dessutom kan du integrera distribution i en **CI/CD-arbetsflöde** enligt beskrivningen i den här bilden.
 
 [ ![”Azure Machine Learning kontinuerlig integrering/kontinuerlig distribution (CI/CD) cykel'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-
 ## <a name="step-1-register-model"></a>Steg 1: Registrera modellen
 
-Modellen registret håller reda på alla modeller i din arbetsyta för Azure Machine Learning-tjänsten.
-Modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller.
+Modellen kan du lagra och version dina modeller i Azure-molnet, på din arbetsyta. Modellen registret gör det enkelt att ordna och Håll koll på dina tränade modeller.
+ 
+Registrerade modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning-tjänsten har stöd för modeller som lagras med valfri modell som kan läsas in med hjälp av Python 3. 
 
 Du kan inte ta bort modeller som används av en avbildning.
+
+Mer information finns i avsnittet registrera modellen i [distribuera modeller](how-to-deploy-and-where.md#registermodel).
+
+Ett exempel med att registrera en modell som lagras i pickle-format finns i [självstudien: Träna en modell för klassificering av bild](tutorial-deploy-models-with-aml.md).
+
+Information om hur du använder ONNX-modeller finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
 
 ## <a name="step-2-register-image"></a>Steg 2: Registrera bild
 
@@ -58,6 +65,8 @@ Azure Machine Learning stöder de populäraste ramverken, men i allmänhet valfr
 När din arbetsyta skapades, så användes andra flera andra Azure-resurser av arbetsytan.
 Alla objekt som används för att skapa avbildningen lagras i Azure storage-kontot i din arbetsyta. Avbildningen skapas och lagras i Azure Container Registry. Du kan ange ytterligare metadatataggar när du skapar avbildningen, som lagras också som bild-registret och kan efterfrågas för att hitta din avbildning.
 
+Mer information finns i Konfigurera och registrera bilddelen av [distribuera modeller](how-to-deploy-and-where.md#configureimage).
+
 ## <a name="step-3-deploy-image"></a>Steg 3: Distribuera avbildningen
 
 Du kan distribuera registrerade avbildningar till molnet eller edge-enheter. Distributionsprocessen skapar alla resurser som behövs för att övervaka, belastningsutjämna och Autoskala din modell. Åtkomst till distribuerade tjänster kan skyddas med certifikatbaserad autentisering genom att tillhandahålla säkerhet-tillgångar under distributionen. Du kan också uppgradera en befintlig distribution om du vill använda en avbildning av en nyare.
@@ -66,7 +75,7 @@ Webbtjänstdistributioner är också sökbara. Du kan exempelvis söka efter all
 
 [ ![Inferensjobb mål](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
-Du kan distribuera dina avbildningar för följande [distributionskanaler](how-to-deploy-and-where.md) i molnet:
+Du kan distribuera dina avbildningar till följande distribution i molnet:
 
 * Azure Container-instans
 * Azure Kubernetes Service
@@ -75,17 +84,27 @@ Du kan distribuera dina avbildningar för följande [distributionskanaler](how-t
 
 När tjänsten har distribuerats inferensjobb-begäran är automatiskt Utjämning av nätverksbelastning och klustret skalas för att uppfylla eventuella toppar på begäran. [Telemetri om din tjänst kan läsas in](how-to-enable-app-insights.md) i Azure Application Insights-tjänsten som är associerade med din arbetsyta.
 
+Mer information finns i avsnittet distribuera i [distribuera modeller](how-to-deploy-and-where.md#deploy).
+
 ## <a name="step-4-monitor-models-and-collect-data"></a>Steg 4: Övervaka modeller och samla in data
 
 Ett SDK för modellen loggning och data capture är tillgänglig så att du kan övervaka indata, utdata och andra relevanta data från din modell. Data lagras som en blob i Azure Storage-kontot för arbetsytan.
 
 Om du vill använda SDK: N med din modell importerar du SDK till din bedömnings program eller skript. Du kan sedan använda SDK: N för att logga data, till exempel parametrar, resultat eller indatainformation.
 
-Om du vill [Aktivera insamling av modelldata](how-to-enable-data-collection.md) varje gång du distribuerar avbildningen information som krävs för att avbilda data, till exempel autentiseringsuppgifterna som din personliga blob store etableras automatiskt.
+Om du vill aktivera insamling av modelldata varje gång du distribuerar avbildningen kan etableras automatiskt de information som krävs för att avbilda data, till exempel autentiseringsuppgifterna som din personliga blob store.
 
 > [!Important]
 > Microsoft kan inte se data som samlas in från din modell. Data skickas direkt till Azure storage-kontot för arbetsytan.
 
+Mer information finns i [hur du aktiverar insamling av modelldata](how-to-enable-data-collection.md).
+
+## <a name="step-5-update-the-deployment"></a>Steg 5: Uppdatera distributionen
+
+Uppdateringar i din modell registreras inte automatiskt. På samma sätt kan uppdateras registrera en ny avbildning inte automatiskt distributioner som har skapats från en tidigare version av avbildningen. I stället måste du manuellt registrera modellen, registrera avbildningen och sedan uppdatera modellen. Mer information finns i uppdatera avsnittet [distribuera modeller](how-to-deploy-and-where.md#update).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning-tjänsten.
+
+Lär dig hur du skapar klienten program och tjänster som [Använd en modell som distribueras som en webbtjänst](how-to-consume-web-service.md).

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 85400269be13295161aaff5936a6ae8c7d503b34
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245879"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305323"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
@@ -41,7 +41,7 @@ Med mönstret geo-distribuerad kan din app sträcker sig över regioner. Du kan 
 
 #### <a name="scalability-considerations"></a>Skalbarhetsöverväganden
 
-Lösningen skapar du med den här självstudien är inte för skalbarhet. Om används i kombination med andra Azure och lokala tekniker och lösningar kan du hantera skalbarhetskraven. Information om hur du skapar en lösning för hyrbid med automatisk skalning via traffic manager finns i [skapa molnöverskridande skalning lösningar med Azure](azure-stack-solution-cloud-burst.md).
+Lösningen skapar du med den här självstudien är inte för skalbarhet. Om används i kombination med andra Azure och lokala tekniker och lösningar kan du hantera skalbarhetskraven. Information om hur du skapar en hybridlösning med automatisk skalning via traffic manager finns i [skapa molnöverskridande skalning lösningar med Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Överväganden för tillgänglighet
 
@@ -93,7 +93,7 @@ En Azure-prenumeration och Azure Stack-installation krävs.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>Hämta en anpassad domän och konfigurera DNS
 
-Uppdatera DNS-zon filen foCreate webbappar och publishr domänen. Azure AD kan sedan Verifiera ägarskapet för det anpassade domännamnet. Använd [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) för Azure/Office 365/extern DNS-poster i Azure, eller lägga till DNS-posten på [en annan DNS-registrator](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Uppdatera DNS-zonfilen för domänen. Azure AD kan sedan Verifiera ägarskapet för det anpassade domännamnet. Använd [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) för Azure/Office 365/extern DNS-poster i Azure, eller lägga till DNS-posten på [en annan DNS-registrator](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Registrera en anpassad domän med en offentlig registrator.
 
@@ -273,7 +273,7 @@ Uppdatera DNS-zonfilen för domänen. Azure AD ska verifiera ägarskapet för de
 
 -   Uppdatera DNS-zonfilen för domänen genom att lägga till DNS-posten som tillhandahålls av Azure AD.
 
-Till exempel om du vill lägga till DNS-poster fornorthwindcloud.comand www.northwindcloud.com, konfigurera DNS-inställningarna för rotdomänen för thenorthwindcloud.com.
+Till exempel om du vill lägga till DNS-poster för northwindcloud.com och www.northwindcloud.com, konfigurera DNS-inställningarna för rotdomänen northwindcloud.com.
 
 > [!Note]  
 >  Ett domännamn kan köpas med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
@@ -302,7 +302,7 @@ Skärmbilden nedan är ett exempel på en sida med DNS-poster:
 
 2.  Lägg till en CNAME-post för att mappa en underdomän till appens Standardvärdnamn.
 
-  Lägg till en CNAME-post som mappar namewwwto www.northwindcloud.comdomain exempelvis < app\_namn >. azurewebsites.net.
+  Lägga till en CNAME-post som mappar namnet för domänexemplet www.northwindcloud.com < app\_namn >. azurewebsites.net.
 
 När du lagt till CNAME ser sidan för DNS-poster ut som i följande exempel:
 
@@ -549,7 +549,7 @@ På sidan web app väljer **SL inställningar**. I **Endast HTTPS** väljer du *
 
 När åtgärden är klar, går du till någon av de HTTP-webbadresser som pekar på appen. Exempel:
 
--   http://<app_name>.azurewebsites.NET
+-   http://<app_name>.azurewebsites.net
 -   http://northwindcloud.com
 -   <http://www.northwindcloud.com>
 

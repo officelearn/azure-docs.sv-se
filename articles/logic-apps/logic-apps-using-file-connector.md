@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 08/25/2018
-ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/13/2019
+ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232553"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264334"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
 Med anslutningsappen för filsystem och Azure Logic Apps kan du kan skapa automatiserade uppgifter och arbetsflöden som skapar och hanterar filer på en lokal fil delar, till exempel:  
 
-- Skapa, hämta, lägga till, uppdatera och ta bort filer
+- Skapa, hämta, lägga till, uppdatera och ta bort filer.
 - Lista filer i mappar eller rotmappar.
 - Hämta filinnehåll och metadata.
 
@@ -28,13 +28,17 @@ Den här artikeln visar hur du kan ansluta till ett lokalt filsystem som beskriv
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+Om du vill följa exemplet behöver du följande objekt:
+
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
 * Innan du kan ansluta logikappar till lokala system, till exempel filservern för system, måste du [installera och konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du ange om du vill använda din gatewayinstallationen när du skapar filen system-anslutning från din logikapp.
 
-* En [Drobox konto](https://www.dropbox.com/) och dina autentiseringsuppgifter
+* En [Drobox konto](https://www.dropbox.com/) och autentiseringsuppgifterna för ditt konto. Dina autentiseringsuppgifter för DropBox är nödvändiga för att skapa en anslutning mellan din logikapp och Drobox-konto. 
 
-  Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt konto för Drobox. 
+* Dina autentiseringsuppgifter för datorn där du vill ha åtkomst till filsystemet. Till exempel om du installerar datagateway på samma dator som filsystem, måste du autentiseringsuppgifter för datorn. 
+
+* Ett e-postkonto från en leverantör som stöds av Logic Apps, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något. 
 
 * Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md). I det här exemplet behöver du en tom logikapp.
 
@@ -44,7 +48,7 @@ Den här artikeln visar hur du kan ansluta till ett lokalt filsystem som beskriv
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-1. I sökrutan anger du ”dropbox” som filter. Välj den här utlösaren från listan över utlösare: **när en fil skapas** 
+1. I sökrutan anger du ”dropbox” som filter. Välj den här utlösaren från listan över utlösare: **När en fil skapas** 
 
    ![Välj Dropbox-utlösare](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -56,7 +60,7 @@ Den här artikeln visar hur du kan ansluta till ett lokalt filsystem som beskriv
 
 ## <a name="add-actions"></a>Lägga till åtgärder
 
-1. Under utlösaren väljer **nästa steg**. I sökrutan anger du ”file system” som filter. Välj den här åtgärden från åtgärdslistan över: **skapa fil - filsystem**
+1. Under utlösaren väljer **nästa steg**. I sökrutan anger du ”file system” som filter. Välj den här åtgärden från åtgärdslistan över: **Skapa fil - filsystem**
 
    ![Hitta anslutningsappen för filsystem](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -66,12 +70,12 @@ Den här artikeln visar hur du kan ansluta till ett lokalt filsystem som beskriv
 
    | Egenskap  | Krävs | Värde | Beskrivning | 
    | -------- | -------- | ----- | ----------- | 
-   | **Anslutningsnamn** | Ja | <*Anslutningens namn*> | Du ett namn för anslutningen | 
-   | **Rotmapp för vyer** | Ja | <*rot mappnamn*> | Rotmapp för ditt filsystem, till exempel en lokal mapp på datorn där den lokala datagatewayen har installerats eller mappen för en nätverksresurs som datorn kan komma åt. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är huvudsakliga överordnad mapp, som används för relativa sökvägar för alla filrelaterade åtgärder. | 
+   | **Anslutningsnamn** | Ja | <*connection-name*> | Du ett namn för anslutningen | 
+   | **Rotmapp för vyer** | Ja | <*root-folder-name*> | Rotmappen för ditt filsystem, till exempel, om du har installerat din lokala datagateway, till exempel en lokal mapp på den dator där den lokala datagatewayen är installerad, eller mappen för en nätverksresurs som datorn kan komma åt. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är huvudsakliga överordnad mapp, som används för relativa sökvägar för alla filrelaterade åtgärder. | 
    | **Autentiseringstyp** | Nej | <*autentiseringstyp*> | Vilken typ av autentisering som ditt filsystem använder, till exempel **Windows** | 
-   | **Användarnamn** | Ja | <*domän*>\\<*användarnamn*> | Användarnamn för din tidigare installerade datagateway | 
-   | **Lösenord** | Ja | <*ditt lösenord*> | Lösenordet för din tidigare installerade datagateway | 
-   | **Gateway** | Ja | <*installerade gatewaynamn*> | Namn för din tidigare installerade gateway | 
+   | **Användarnamn** | Ja | <*domain*>\\<*username*> | Användarnamn för den dator där du har ditt filsystem | 
+   | **Lösenord** | Ja | <*ditt lösenord*> | Lösenordet för den dator där du har ditt filsystem | 
+   | **Gateway** | Ja | <*installed-gateway-name*> | Namn för din tidigare installerade gateway | 
    ||| 
 
 1. När du är klar väljer du **Skapa**. 

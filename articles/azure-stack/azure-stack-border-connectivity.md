@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 51f9d2dbc8a0aef6dc84e76755a71eeb73149192
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021092"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262752"
 ---
 # <a name="border-connectivity"></a>Kantlinje anslutning 
 Nätverksplanering integration är en viktig nödvändig komponent för lyckad distribution av integrerade Azure Stack-system, åtgärden och hantering. Planera för kantlinje anslutning börjar genom att välja huruvida du använder dynamisk routning med BGP (border gateway protocol) eller inte. Detta kräver att tilldela en 16-bitars BGP autonomt systemnummer (offentliga eller privata) eller med statisk routning, där en statisk standardväg tilldelas till enheter kantlinje.
@@ -29,7 +29,7 @@ Nätverksplanering integration är en viktig nödvändig komponent för lyckad d
 > Överst växlar rack (TOR) kräver Layer 3 överordnade länkar med Point-to-Point IP-adresser (/ 30 nätverk) konfigurerats på de fysiska gränssnitt. Det går inte för att använda Layer-2 överordnade länkar med TOR-växlar som stöder Azure Stack-åtgärder. 
 
 ## <a name="bgp-routing"></a>BGP-Routning
-Med hjälp av ett dynamiskt routningprotokoll som BGP garanterar att datorn alltid är medveten om ändringar i nätverket och underlättar administration. För enhaced säkerhet, kan ett lösenord anges för BGP-peering mellan TOR och kantlinje. 
+Med hjälp av ett dynamiskt routningprotokoll som BGP garanterar att datorn alltid är medveten om ändringar i nätverket och underlättar administration. För ökad säkerhet, kan ett lösenord anges för BGP-peering mellan TOR och kantlinje. 
 
 I följande diagram visas annonsering av den privata IP-Adressen utrymme på TOR-växeln blockeras med hjälp av en Prefixlistan. Prefixlistan nekar annons för det privata nätverket och det används som en väg karta på anslutningen mellan TOR och kantlinjen.
 

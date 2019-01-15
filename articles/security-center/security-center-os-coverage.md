@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608842"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265472"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -74,10 +74,10 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 |Miljö|Azure|Icke-Azure|Azure|Icke-Azure|
 |VMBA hotidentifieringsaviseringar|✔|✔|✔ (på versioner som stöds)|✔|
 |Nätverksbaserade hotidentifieringsaviseringar|✔|X|✔|X|
-|Windows Defender ATP-integrering *|✔ (på versioner som stöds)|✔|X|X|
+|Windows Defender ATP-integrering|✔ (på versioner som stöds)|✔|X|X|
 |Saknade uppdateringar|✔|✔|✔|✔|
 |Säkerhetskonfigurationer|✔|✔|✔|✔|
-|Program mot skadlig kod|✔|✔|X|X|
+|Slutpunktsskydd|✔|✔|X|X|
 |JIT VM-åtkomst|✔|X|✔|X|
 |Anpassningsbara programkontroller|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 |Nätverkskarta|✔|X|✔|X|
 |Anpassningsbar nätverkskontroller|✔|X|✔|X|
 
-\* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
 
+### <a name="supported-endpoint-protection-solutions"></a>Stöds slutpunktsskyddslösningar
+
+I följande tabell innehåller en matris med:
+ - Om du kan använda Azure Security Center för att installera varje lösning för dig.
+ - Som endpoint protection lösningar Security Center kan identifiera. Om någon av följande lösningar för endpoint protection upptäcks rekommenderar Security Center inte installera något.
+
+| Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
+|------|------|-----|-----|
+| Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
+| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (Se kommentaren nedan) | Via tillägg | Ja |
+| Trend Micro – Alla versioner | Windows Server-familjen  | Nej | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
+| Kaspersky| Windows Server-familjen  | Nej | Nej  |
+| Sophos| Windows Server-familjen  | Nej | Nej  |
+
+> [!NOTE]
+> - Identifiering av System Center Endpoint Protection (SCEP) på en Windows Server 2008 R2-dator kräver SCEP installeras efter PowerShell 3.0 (eller en övre version).
+>
+>
 
 ## <a name="supported-paas-features"></a>PaaS-funktioner som stöds 
 
@@ -97,8 +116,8 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 |Tjänst|Rekommendationer|Hotidentifiering|
 |----|----|----|
 |SQL|✔| ✔|
-|PostGreSQL *|✔| ✔|
-|MySQL *|✔| ✔|
+|PostGreSQL*|✔| ✔|
+|MySQL*|✔| ✔|
 |Azure Blob storage-konton *|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
@@ -109,6 +128,8 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast cloud service
 |Prenumeration|✔| ✔|
 
 \* Dessa funktioner stöds för närvarande i offentlig förhandsversion. 
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

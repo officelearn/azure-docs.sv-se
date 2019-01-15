@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833694"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261561"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -68,7 +68,7 @@ Sök efter **Microsoft.Media** och **Microsoft.EventGrid**. Om inte i tillstånd
 
     ![ansluta Video Indexer till Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. Välj en Azure-region från platser som stöds: västra USA 2, Norra Europa eller Asien.
+4. Välj en Azure-region från platser som stöds: Västra USA 2, Norra Europa eller Asien.
 5. Under **Azure Media Services-konto**, Välj något av följande alternativ:
 
     * Om du vill skapa ett nytt Media Services-konto, Välj **Skapa ny resursgrupp**. Ange ett namn för resursgruppen.
@@ -97,6 +97,9 @@ Sök efter **Microsoft.Media** och **Microsoft.EventGrid**. Om inte i tillstånd
 ## <a name="connect-to-azure-manually-advanced-option"></a>Ansluta till Azure manuellt (Avancerat alternativ)
 
 Om det gick inte att ansluta till Azure, kan du försöka att felsöka problemet genom att ansluta manuellt.
+
+> [!NOTE]
+> Vi rekommenderar starkt att du har följande tre konton i samma region: Video Indexer-konto som du ansluter med Media Services-kontot, samt Azure storage-kontot som är anslutna till samma Media Services-kontot.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Skapa och konfigurera ett Media Services-konto
 

@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 2e3cec4564c509cd225a9bcd43185f6f5b344e8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 473fb95de5da4a14c81d0fa3a5aafa33302d9ab2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833470"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258687"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Etablera disklagring för virtuella datorer i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Den här artikeln beskriver hur du etablerar disklagring för virtuella datorer med hjälp av Azure Stack-portalen eller med hjälp av PowerShell.
 
@@ -79,7 +79,7 @@ Varje ohanterad disk som du lägger till ska placeras i en separat behållare.
     ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
 4.  I den **bifoga ny disk** väljer **plats**. Platsen är som standard samma behållare som innehåller OS-disken.      
-    ![Exempel: Set diskplatsen](media/azure-stack-manage-vm-disks/disk-location.png)
+    ![Exempel: Ange diskplatsen](media/azure-stack-manage-vm-disks/disk-location.png)
 
 5.  Välj den **lagringskonto** att använda. Välj sedan den **behållare** där du vill att datadisken. Från den **behållare** kan du skapa en ny behållare om du vill. Du kan sedan ändra platsen för den nya disken till en egen behållare. När du använder en separat behållare för varje disk kan distribuera du placeringen av datadisken som kan förbättra prestanda. Välj **Välj** Spara valet.     
     ![Exempel: Välj en behållare](media/azure-stack-manage-vm-disks/select-container.png)
@@ -105,7 +105,7 @@ Varje ohanterad disk som du lägger till ska placeras i en separat behållare.
   ![Exempel: Välj en virtuell dator i instrumentpanelen](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 4.  På sidan för den virtuella datorn, väljer **diskar** > **bifoga befintlig**.   
-  ![Exempel: Koppla en befintlig disk](media/azure-stack-manage-vm-disks/attach-disks2.png)
+  ![Exempel: Bifoga en befintlig disk](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
 5.  I den **bifoga befintlig disk** väljer **VHD-filen**. Den **lagringskonton** öppnas.    
   ![Exempel: Välj en VHD-fil](media/azure-stack-manage-vm-disks/select-vhd.png)
@@ -114,10 +114,10 @@ Varje ohanterad disk som du lägger till ska placeras i en separat behållare.
   ![Exempel: Välj en behållare](media/azure-stack-manage-vm-disks/select-container2.png)
 
 7.  Under **bifoga befintlig disk**, den markerade filen finns under **VHD-filen**. Uppdatera den **vara värd för cachelagring** inställning på disken och välj sedan **OK** att spara den nya diskkonfigurationen för den virtuella datorn.    
-  ![Exempel: Koppla VHD-filen](media/azure-stack-manage-vm-disks/attach-vhd.png)
+  ![Exempel: Bifoga VHD-filen](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  När Azure Stack skapar disken och kopplar den till den virtuella datorn, den nya disken visas i den virtuella datorns diskinställningarna under **Datadiskar**.   
-  ![Exempel: Slutför disken attach](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
+  ![Exempel: Fullständig bifoga disken](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Använd PowerShell för att lägga till flera ohanterade diskar till en virtuell dator
@@ -129,45 +129,45 @@ Den **Add-AzureRmVMDataDisk** cmdlet lägger till en datadisk till en virtuell d
 I följande exempel används PowerShell-kommandon för att skapa en virtuell dator med tre datadiskarna, var och en placeras i en annan behållare.
 
 Det första kommandot skapar en VM-objekt och lagrar den i den *$VirtualMachine* variabeln. Kommandot tilldelar namn och storlek för den virtuella datorn.
-  ```
+  ```powershell
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
 Följande tre kommandon tilldelar sökvägar för tre datadiskarna till de *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, och *$DataDiskVhdUri03* variabler. Definiera en annan sökväg i URL: en för att distribuera diskarna till olika behållare.     
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 De sista tre kommandona lägga till datadiskar i den virtuella datorn lagras i *$VirtualMachine*. Varje kommando anger namn, plats och ytterligare egenskaper för disken. URI för varje disk lagras i *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, och *$DataDiskVhdUri03*.
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                   -VhdUri $DataDiskVhdUri01 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                  -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                  -VhdUri $DataDiskVhdUri02 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                   -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
 Använd följande PowerShell-kommandon för att lägga till Operativsystemets disk- och konfiguration till den virtuella datorn och starta sedan den nya virtuella datorn.
-  ```
+  ```powershell
   #set variables
   $rgName = "myResourceGroup"
   $location = "local"
@@ -192,7 +192,7 @@ Använd följande PowerShell-kommandon för att lägga till Operativsystemets di
   $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
       -AllocationMethod Dynamic
 
-  # Create a network security group cnfiguration
+  # Create a network security group configuration
   $nsgName = "myNsg"
   $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
       -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -218,34 +218,34 @@ Använd följande PowerShell-kommandon för att lägga till Operativsystemets di
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Lägga till datadiskar i en befintlig virtuell dator
 I följande exempel används PowerShell-kommandon för att lägga till tre datadiskar till en befintlig virtuell dator.
 Det första kommandot hämtar den virtuella datorn med namnet VirtualMachine med hjälp av den **Get-AzureRmVM** cmdlet. Kommandot lagrar den virtuella datorn i den *$VirtualMachine* variabeln.
-  ```
+  ```powershell
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
 Följande tre kommandon tilldelar sökvägar för tre datadiskarna till $DataDiskVhdUri01 och $DataDiskVhdUri02 $DataDiskVhdUri03 variabler.  Olika sökvägar i vhduri visar olika behållare för disk-placering.
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 
   Följande tre kommandon lägga till datadiskar i den virtuella datorn lagras i den *$VirtualMachine* variabeln. Varje kommando anger namn, plats och ytterligare egenskaper för disken. URI för varje disk lagras i *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, och *$DataDiskVhdUri03*.
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
                         -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
                         -VhdUri $DataDiskVhdUri02 -LUN 1 `
                         -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                         -VhdUri $DataDiskVhdUri03 -LUN 2 `
                         -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
@@ -253,7 +253,7 @@ Följande tre kommandon tilldelar sökvägar för tre datadiskarna till $DataDis
 
 
   Det slutliga kommandot uppdaterar tillståndet för den virtuella datorn lagras i *$VirtualMachine* i -*ResourceGroupName*.
-  ```
+  ```powershell
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
 <!-- Pending scripts  

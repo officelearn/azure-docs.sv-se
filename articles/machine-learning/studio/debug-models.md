@@ -1,34 +1,17 @@
 ---
-title: Felsöka din modell - Azure Machine Learning Studio | Microsoft Docs
-description: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268894"
+Rubrik: Felsöka din modell titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning Studio.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Felsöka din modell i Azure Machine Learning Studio
 
-Den här artikeln beskrivs möjliga orsaker varför något av följande två fel kan uppstå när du kör en modell:
+När du kör en modell kan stöta du på följande fel:
 
 * den [Träningsmodell] [ train-model] modulen genererar ett fel 
 * den [Poängmodell] [ score-model] modulen ger felaktiga resultat 
 
+Den här artikeln beskrivs möjliga orsaker till att de här felen.
 
 
 ## <a name="train-model-module-produces-an-error"></a>Träna modell genererar ett fel
@@ -59,15 +42,15 @@ Den [Poängmodell] [ score-model] modulen kräver två indata:
 1. En tränad utdata från den [Träningsmodell] [ train-model] modulen.
 2. En arbetsflödesbaserad datauppsättning som skiljer sig från den datauppsättning som används för att träna modellen.
 
-Det är möjligt att även om försöket lyckas, den [Poängmodell] [ score-model] modulen ger felaktiga resultat. Flera scenarier kan orsaka detta ske:
+Det är möjligt att även om försöket lyckas, den [Poängmodell] [ score-model] modulen ger felaktiga resultat. Flera scenarier kan orsaka det här problemet att detta inträffar:
 
 1. Om den angivna etiketten är kategoriska och en regressionsmodellen ska tränas på data, felaktig utdata skulle genereras av den [Poängmodell] [ score-model] modulen. Det beror på att regression kräver en kontinuerlig svar-variabel. I så fall skulle det vara lämpligare att använda en modell för klassificering. 
 
-2. Om en klassificering tränas på en datauppsättning med flyttal i kolumnen etikett, på samma sätt kan det ge oönskade resultat. Det beror på att klassificering kräver en diskret svar-variabel som endast tillåter värden som intervall för över en begränsad och vanligtvis något liten mängd av klasser.
+2. Om en klassificering tränas på en datauppsättning med flyttal i kolumnen etikett, på samma sätt kan det ge oönskade resultat. Det beror på att klassificering kräver en diskret svar-variabel som endast tillåter värden som intervall för över en begränsad och små, uppsättning klasser.
 
 3. Om bedömnings datauppsättningen inte innehåller alla funktioner som används för att öva med modellen, de [Poängmodell] [ score-model] genererar ett fel.
 
-4. Om en rad i bedömnings datauppsättningen innehåller saknade värden eller ett oändligt värde för någon av dess funktioner i [Poängmodell] [ score-model] kommer inte producerar några utdata som motsvarar den raden.
+4. Om en rad i bedömnings datauppsättningen innehåller saknade värden eller ett oändligt värde för någon av dess funktioner i [Poängmodell] [ score-model] inte producerar några utdata som motsvarar den raden.
 
 5. Den [Poängmodell] [ score-model] kan ge identiska utdata för alla rader i bedömnings datauppsättningen. Detta kan inträffa, till exempel vid klassificering med hjälp av beslut skogar om det minsta antalet prover per lövnod väljs vara fler än antalet utbildning exempel tillgängliga.
 

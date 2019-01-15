@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198770"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265421"
 ---
 # <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
 
@@ -55,6 +55,10 @@ Om du vill ta ögonblicksbilder när appar körs, tar Azure Backup appkonsekvent
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Kör den nedanstående kommando från (som administratör) kommandotolk, ange registernyckeln ovan:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Virtuella Linux-datorer**: För att säkerställa att din virtuella Linux-datorer är appkonsekvent när Azure Backup tar en ögonblicksbild, kan du använda Linux-ramverk för förskript och efterskript. Du kan skriva egna skript för att säkerställa konsekvens när du tar en ögonblicksbild för virtuell dator.
     -  Azure Backup anropar bara före och efter skript som har skrivits av dig.
     - Om förskript och efterskript köras, märker Azure Backup återställningspunkten som programkonsekventa. Du är slutgiltigt ansvariga för konsekvens för programmet när du använder anpassade skript.
@@ -65,7 +69,7 @@ Om du vill ta ögonblicksbilder när appar körs, tar Azure Backup appkonsekvent
 
 I följande tabell beskrivs olika typer av konsekvens.
 
-**ögonblicksbild** | **VSS-baserade** | **Detaljer** | **Återställning**
+**ögonblicksbild** | **VSS-based** | **Detaljer** | **Recovery**
 --- | --- | --- | ---
 **Programkonsekvent** | Ja (endast Windows) | Programkonsekvent säkerhetskopiering avbilda minne innehåll och väntande i/o-åtgärder. Appkonsekventa ögonblicksbilder använda VSS-skrivaren (eller före/efter-skript för Linux) som ser till att AppData konsekvens innan en säkerhetskopiering sker. | När du återställer med en programkonsekvent ögonblicksbild startas den virtuella datorn. Det finns inga skadade data eller dataförlust. Apparna starta i ett konsekvent tillstånd.
 **Filsystemkonsekvent** | Ja (endast Windows) |  Programkonsekventa säkerhetskopior av filen ger programkonsekventa säkerhetskopior av diskfiler genom att ta en ögonblicksbild av alla filer på samma gång.<br/><br/> Azure Backup-återställningspunkter är konsekvent för filen:<br/><br/> -Linux virtuella datorer säkerhetskopior som inte har före/efter-skript eller som har skript som misslyckades.<br/><br/> -Windows VM-säkerhetskopieringar där VSS misslyckades. | När du återställer med en filkonsekventa ögonblicksbilder, den virtuella datorn startas. Det finns inga skadade data eller dataförlust. Appar måste implementera sina egna ”åtgärds-”-mekanism för att se till att återställda data är konsekventa.

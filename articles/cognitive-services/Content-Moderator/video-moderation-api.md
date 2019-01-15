@@ -1,5 +1,5 @@
 ---
-title: Analysera video innehåll för stötande material iC#
+title: Analysera video innehåll för stötande material i C# -Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Hur du analyserar videoinnehåll för olika stötande material med innehåll Moderator SDK för .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008291"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265523"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material iC#
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att ko
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-- En utgåva av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
+- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
@@ -55,18 +55,18 @@ Azure Media Services Explorer är ett användarvänligt frontend för AMS. Du ka
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
 1. I Visual Studio skapar du en ny **konsolapp (.NET Framework)** projektet och ge den namnet **VideoModeration**. 
-1. Om det finns andra projekt i din lösning, väljer du den här kopian som enda startup-projekt.
-1. Hämta NuGet-paket som krävs. Högerklicka på projektet i Solution Explorer och välj **hantera NuGet-paket**; Sök efter och installera följande paket:
+1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
     - windowsazure.mediaservices
-    - windowsazure.mediaservices.Extensions
+    - windowsazure.mediaservices.extensions
 
 ## <a name="add-video-moderation-code"></a>Lägg till kod för videomoderering
 
-Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för att implementera ett grundläggande innehållsmoderering scenario.
+Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för att implementera ett grundläggande innehållsmodereringsscenario.
 
 ### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Lägg till följande `using` uttryck överst i din _Program.cs_ fil.
+Lägg till följande `using`-instruktioner överst i _Program.cs_-filen.
 
 ```csharp
 using System;
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Konfigurera resurs-referenser
 
-Lägg till följande statiska fält i den **programmet** klassen i _Program.cs_. De här fälten hålla informationen behövs för att ansluta till AMS-prenumeration. Fyll dem med de värden som du fick i stegen ovan. Observera att `CLIENT_ID` är den **program-ID** värdet för din Azure AD-app och `CLIENT_SECRET` är värdet för den ”VideoModKey” som du skapade för den appen.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten hålla informationen behövs för att ansluta till AMS-prenumeration. Fyll dem med de värden som du fick i stegen ovan. Observera att `CLIENT_ID` är den **program-ID** värdet för din Azure AD-app och `CLIENT_SECRET` är värdet för den ”VideoModKey” som du skapade för den appen.
 
 ```csharp
 // declare constants and globals

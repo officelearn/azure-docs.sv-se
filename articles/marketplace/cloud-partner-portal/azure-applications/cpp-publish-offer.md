@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cfcb33f9586033db9f4197a341227365d43601cc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232727"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262922"
 ---
 # <a name="publish-azure-application-offer"></a>Publicera erbjudande för Azure-program
 
@@ -33,7 +33,7 @@ I följande diagram visas de viktigaste stegen i publiceringsprocessen i ett erb
 
 I följande tabell listar och beskriver hur publicering och ger en Uppskattad tidsåtgång för att slutföra varje steg.  Tider beräkningar i ”dagar” definieras som arbetsdagar utesluta helger och semestrar.
 
-|  **Publiceringen**           | **tid**    | **Beskrivning**                                                            |
+|  **Publiceringen**           | **Time**    | **Beskrivning**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Verifiera förutsättningar         | < 15 min    | Ger information och erbjuder inställningarna verifieras.                        |
 | Verifiera inställningar som har påverkat intäkter | < 15 min  |      |
@@ -70,7 +70,7 @@ Utgivare måste beviljas rätt behörighet för om du vill visa VSTS-objekt som 
 1. Samla in följande information:
     - Ditt namn på utgivare och -ID
     - Erbjudandetyp (Azure app), erbjuder namnet och SKU-ID
-    - Pull-begäran länka, till exempel `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/jfrog/pullrequest/<number>`.  Den här URL: en kan hämtas från meddelandet eller adressen till sidan 401-svar.
+    - Pull-begäran länka till exempel: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Den här URL: en kan hämtas från meddelandet eller adressen till sidan 401-svar.
     - E-postadresserna för personerna från organisationen publishing som du vill bevilja åtkomst till.  Dessa bör inkludera ägare-adresser som du angav när du registrerar en utgivare på partnerportalen i molnet.
 2. Skapa ett supportärende.  I namnlisten i Cloud Partner Portal, väljer du den **hjälpa** knappen och välj sedan **Support** på menyn.  Du default web browser bör starta och gå till Microsoft support incident sidan Ny.  (Du kan behöva logga in först.)
 3. Ange den **problemtyp** som **marketplace onboarding** och **kategori** som **problem med anslutningen**och välj sedan **Start begäran**.
@@ -78,7 +78,7 @@ Utgivare måste beviljas rätt behörighet för om du vill visa VSTS-objekt som 
     ![Stöd för biljett kategori](./media/support-incident1.png)
 
 4. I **steg 1 av 2** , ange din kontaktinformation och välj **Fortsätt**.
-5. I **steg 2 av 2** anger en incidentrubrik och ange den information du samlade in i det första steget (ovan).  Läsa och godkänna avtalet och välj sedan **skicka**.
+5. I **steg 2 av 2** anger du ett incidentrubrik (till exempel `Request VSTS access`) och ange den information du samlade in i det första steget (ovan).  Läsa och godkänna avtalet och välj sedan **skicka**.
 
 Om incidentskapande, visas en bekräftelsesida.  Bekräftelseinformationen för din referens sparas.  Microsoft-supporten ska svara på din förfrågan inom ett par arbetsdagar.
 

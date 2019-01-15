@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104224"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262616"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -112,7 +112,7 @@ Anslutningskontrollen verifieras genom att ansluta till en lista över webbadres
 **URL** | **Detaljer**  | **Kontrollen av förutsättningar**
 --- | --- | ---
 *.portal.azure.com | Gäller för Azure-Global. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
-*. portal.azure.us | Gäller endast för Azure Government. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
+*.portal.azure.us | Gäller endast för Azure Government. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er som är valfritt.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du måste installera modulen manuellt.
 
 
@@ -126,12 +126,9 @@ Anslutningskontrollen verifieras genom att ansluta till en lista över webbadres
 
 Insamlaren ansluter till vCenter-servern och frågar om VM-metadata och prestandaräknare. Här är vad du behöver för anslutningen.
 
-- Endast versioner vCenter Server 5.5, 6.0 och 6.5.
+- Endast versioner vCenter Server 5.5, 6.0, 6.5 och 6.7.
 - Du behöver ett skrivskyddat konto med behörigheterna som sammanfattas nedan för identifiering. Endast datacenter som är tillgängliga med kontot kan användas för identifiering.
 - Som standard kan du ansluta till vCenter-servern med ett fullständigt domännamn eller IP-adress. VCenter-servern lyssnar på en annan port ska du ansluta till den med hjälp av formuläret *IPAddress:Port_Number* eller *FQDN:Port_Number*.
-- Om du vill samla in prestandadata för lagring och nätverk, statistikinställningarna för vCenter-Server måste vara inställd på nivå tre.
-- Om kompatibilitetsnivå är lägre än tre, identifiering fungerar men prestandadata samlas inte in. Räknare kan samlas in, men andra anges till noll.
-- Om prestandadata för lagring och nätverk samlas inte in, är rekommendationer för storlek baserat prestandadata för CPU och minne och på konfigurationsdata för disk och nätverkskort.
 - Insamlaren ska ha nätverket åtkomst till vCenter-servern.
 
 #### <a name="account-permissions"></a>Behörigheterna
@@ -223,14 +220,14 @@ Insamlingsprogrammet identifierar följande konfigurationsmetadata för varje vi
 
 **Räknaren** |  **Påverkan på utvärdering**
 --- | ---
-CPU.Usage.Average | Rekommenderad storlek och kostnad  
-Mem.Usage.Average | Rekommenderad storlek och kostnad  
+cpu.usage.average | Rekommenderad storlek och kostnad  
+mem.usage.average | Rekommenderad storlek och kostnad  
 virtualDisk.read.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.write.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.numberReadAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.numberWriteAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-NET.Received.Average | Beräknar storlek på virtuell dator                          
-NET.Transmitted.Average | Beräknar storlek på virtuell dator     
+net.received.average | Beräknar storlek på virtuell dator                          
+net.transmitted.average | Beräknar storlek på virtuell dator     
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce276b5fcedecc53c379d41de55080bf61e2386e
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243669"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263008"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatisera Azure Stack-verifiering med PowerShell
 
@@ -72,7 +72,7 @@ I den här självstudien får du lära dig hur du skapar ett skript som:
 
     | Parameter | Beskrivning |
     | --- | --- |
-    | VaaSUserld | Ditt VaaS användar-ID. |
+    | VaaSUserId | Ditt VaaS användar-ID. |
     | VaaSUserPassword | Lösenordet VaaS. |
     | VaaSAccountTenantId | Klientorganisationens VaaS GUID. |
     | VaaSSolutionName | Namnet på VaaS lösningen som skickar testet körs. |
@@ -92,4 +92,4 @@ I den här självstudien får du lära dig hur du skapar ett skript som:
 Mer information om PowerShell på Azure Stack, granska de senaste modulerna.
 
 > [!div class="nextstepaction"]
-> [Azure Stack-modulen](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)
+> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)

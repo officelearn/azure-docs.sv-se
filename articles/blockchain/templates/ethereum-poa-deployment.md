@@ -1,6 +1,6 @@
 ---
 title: Ethereum Proof-of-Authority Consortium - Azure
-description: Använda Etherereum Proof-of-Authority Consortium-lösning för att distribuera och konfigurera ett flera medlem consortium Ethereum-nätverk
+description: Använda Ethereum Proof-of-Authority Consortium-lösning för att distribuera och konfigurera ett flera medlem consortium Ethereum-nätverk
 services: azure-blockchain
 keywords: ''
 author: CodyBorn
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974054"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260388"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -36,7 +36,7 @@ Med en handfull användarindata och en enda musklick distribution via Azure-port
 
 -   **Verifieraren** – en dator som är associerade med ett Ethereum-konto som deltar i konsensus uppdrag av en administratör.
 
-### <a name="proof-of-authority"></a>Proof of authority
+### <a name="proof-of-authority"></a>Proof-of-authority
 
 För dig som är nya för blockchain-communityn, är versionen av den här lösningen en fantastisk möjlighet att lära dig om tekniken på ett enkelt och konfigurerbara sätt på Azure. Proof of work är en mekanism för Sybil motstånd som utnyttjar beräkning kostnader för att reglera själva nätverket och Tillåt fair deltagande. Detta fungerar bra i anonym, öppna blockchain nätverk där tävling för kryptovalutor främjar säkerhet i nätverket. I privat/consortium nätverk har den underliggande Ether men inget värde. Ett alternativt protokoll proof-of-authority, är mer lämpliga för permissioned nätverk där alla konsensus-deltagare är kända och välkända. Utan att du behöver för utvinning är Proof-of-authority effektivare utan att försämra Byzantine feltolerans.
 
@@ -273,11 +273,11 @@ En detaljerad beskrivning av varje parameter visas nedan:
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
 Consortium medlems-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. När det gäller ett privat nätverk måste medlems-ID vara unikt inom olika organisationer i samma nätverk.  Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner. Anteckna värdet för den här parametern eftersom du kommer att behöva dela den med andra sammanbinder medlemmar att se till att det finns inga kollision.|0-255|Ej tillämpligt
-Nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras.  Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket.|5 – 999,999,999|10101010
+Nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras.  Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket.|5 - 999,999,999|10101010
 Administratören Ethereum-adress|Ethereum kontoadress som används för att delta i PoA styrning.  Vi rekommenderar att du använder MetaMask för att generera en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0 x|Ej tillämpligt
 Avancerade alternativ|Avancerade alternativ för Ethereum-inställningar|Aktivera eller inaktivera|Inaktivera
 Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP-adress
-Blockera Gas gränsen (avancerade alternativ = Enable)|Startar block gas gränsen på nätverket|Numerisk|50,000,00
+Block Gas Limit (Advanced Options = Enable)|Startar block gas gränsen på nätverket|Numerisk|50,000,00
 Reseal Blockeringsperiod (sek)|Frekvensen som tomt block skapas när det finns inga transaktioner i nätverket. Tätare har snabbare avveckling överföring men ökade lagringskostnader.|Numerisk|15
 Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning i en permissioned lista över Ethereum-konton.|Kontraktet bytecode|Ej tillämpligt
 

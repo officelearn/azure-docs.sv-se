@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: b5d931225edce92590b9c2b7f28ad39630362e6d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213832"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306394"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -79,6 +79,14 @@ En Synkroniseringsgrupp har följande egenskaper:
 -   **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konfliktlösning, *Hub wins* eller *medlem wins*.
     -   Om du väljer *Hub wins*, ändringar i navet alltid över ändringar i medlemmen.
     -   Om du väljer *medlem wins*, ändringar i medlem Skriv över ändringar i hubben. Om det finns mer än en medlem, beror det slutliga värdet på vilka medlem synkroniseras först.
+
+## <a name="compare-data-sync-with-transactional-replication"></a>Jämför Data Sync med Transaktionsreplikering
+
+| | Datasynkronisering | Transaktionsreplikering |
+|---|---|---|
+| Fördelar | -Aktiv-aktiv-stöd<br/>Dubbelriktad kommunikation mellan lokala och Azure SQL Database | – Lägre fördröjning<br/>-Transaktionell konsekvens<br/>-Återanvända befintliga topologi efter migreringen |
+| Nackdelar | – 5 minuter eller mer fördröjning<br/>– Ingen transaktionell konsekvens<br/>-Högre prestandapåverkan | -Det går inte att publicera från Azure SQL Database enkel databas<br/>-Hög underhållskostnad |
+| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Kom igång med SQL-datasynkronisering
 

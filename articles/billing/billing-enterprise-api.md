@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: d2021873b36a55bd36cf500eff168fe7311d944c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 1319c44dab465ec2d1fa5ead99e7f3cba8965850
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579438"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265642"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över Reporting API: er för företagskunder
 API: erna Reporting aktivera Enterprise Azure-kunder att hämta programmässigt förbrukning och faktureringsinformation till önskade data analysis-verktyg. Företagskunder har registrerat en [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure för att göra den förhandlade monetära åtaganden och få åtkomst till anpassad prissättning för Azure-resurser.
@@ -58,7 +58,7 @@ Etags returneras i svaret på alla ovanstående API. En ändring i Etag anger da
 |401| Behörighet saknas| API-nyckel som inte finns, är ogiltig, upphört att gälla osv.|
 |404| Ej tillgänglig| Rapportslutpunkt hittades inte|
 |400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA siffror osv.|
-|500| Serverfel| Unexoected fel vid bearbetning av begäran| 
+|500| Serverfel| Oväntat fel vid bearbetning av begäran| 
 
 
 

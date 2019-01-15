@@ -1,26 +1,8 @@
 ---
-title: Azure AI - galleriet i Azure Machine Learning Studio | Microsoft Docs
-description: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: c9acd902eb536bbd252f0aca6d162ff92d9e6e00
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270968"
+Rubrik: Azure AI-galleriet titleSuffix: Beskrivning av Azure Machine Learning Studio: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/31/2017
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och Upptäck resurser i Azure AI-galleriet
 

@@ -1,26 +1,8 @@
 ---
-title: Träna om Machine Learning Studio-modeller via programmering – Azure | Microsoft Docs
-description: Lär dig hur du programmässigt tränar en modell med hjälp av C# och Machine Learning Batch Execution service.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257401"
+Rubrik: Omtrimning Machine Learning Studio-modeller via programmering titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du programmässigt tränar en modell med hjälp av C# och Machine Learning Batch Execution service.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Programmatisk omtrimning av Azure Machine Learning Studio-modeller
 I den här genomgången får du lära dig hur du programmässigt omtrimning av en Azure Machine Learning Studio web service med hjälp av C# och Machine Learning Batch Execution service.

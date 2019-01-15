@@ -1,6 +1,6 @@
 ---
 title: Problem med att lägga till en icke-galleriprogram | Microsoft Docs
-description: Förstå de vanliga problem personer står inför när du lägger till anpassade icke-galleriprogram
+description: Förstå vanliga problem personer ansikte när du lägger till anpassade icke-galleriprogram
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 290e68e8367570bee3497a039f98d140a8d3ffe1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 56cf9837bf67187f71eb94e73b516b613b8d6c6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423634"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259894"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problem med att lägga till en icke-galleriprogram
 

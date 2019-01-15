@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 0680140d9f4f4e77b5029c30c37f4c531652c6f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119126"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262497"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantering och underhåll av Log Analytics-agenten för Windows och Linux
 
@@ -175,7 +175,7 @@ Använd någon av följande procedurer för att avinstallera Windows eller Linux
 Den hämta filen för agenten är ett fristående installationsprogram som skapats med IExpress. Installationsprogrammet för agenten och filerna som ingår i paketet och måste extraheras för att kunna återställas med hjälp av kommandoraden som visas i följande exempel.
 
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
-2. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `extract MMASetup-<platform>.exe` och du blir ombedd du sökvägen till filerna ska extraheras. Du kan också ange sökvägen genom att skicka argument `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Läs mer på kommandoraden switchar som stöds av IExpress [kommandoradsväxlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan det exemplet så att den passar dina behov.
+2. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `extract MMASetup-<platform>.exe` och du blir ombedd du sökvägen till filerna ska extraheras. Du kan också ange sökvägen genom att skicka argument `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Mer information om kommandoradsväxlar som stöds av IExpress finns [kommandoradsväxlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan det exemplet så att den passar dina behov.
 3. I Kommandotolken, Skriv `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
 ### <a name="linux-agent"></a>Linux-agenten

@@ -1,27 +1,8 @@
 ---
-title: Snabbstartssjälvstudier R-språket för Machine Learning Studio – Azure | Microsoft Docs
-description: Använd den här programming R-självstudiekursen för att komma igång snabbt med R-språket med Azure Machine Learning Studio för att skapa en lösning för prognostisering.
-keywords: Snabbstart, r-språket, r-programspråket, r-programmeringsspråket självstudien
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278669"
+Rubrik: Snabbstartssjälvstudier R språk titleSuffix: Beskrivning av Azure Machine Learning Studio: Använd den här programming R-självstudiekursen för att komma igång snabbt med R-språket med Azure Machine Learning Studio för att skapa en lösning för prognostisering.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Snabbstartssjälvstudier R-programmeringsspråket för Azure Machine Learning Studio
 

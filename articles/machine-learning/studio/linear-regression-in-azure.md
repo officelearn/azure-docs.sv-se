@@ -1,27 +1,7 @@
 ---
-title: Använda linjär regression i Machine Learning Studio – Azure | Microsoft Docs
-description: En jämförelse av linjära regressionsmodeller i Excel och Azure Machine Learning Studio
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276687"
+Rubrik: Använda linjär regression i Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: En jämförelse av linjära regressionsmodeller i Excel och Azure Machine Learning Studio-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Använda linjär regression i Azure Machine Learning Studio
 > *Kate Baroni* och *Ben Boatman* är enterprise lösningsarkitekter i Microsoft Data Insights Center sökfunktion. I den här artikeln beskrivs de upplevelsen migrera en befintlig regression analysis suite till en molnbaserad lösning som använder Azure Machine Learning. 

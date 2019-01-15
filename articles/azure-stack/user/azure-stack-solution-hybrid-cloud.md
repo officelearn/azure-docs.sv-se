@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245216"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267410"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Självstudier: Distribuera en lösning för hybridmoln med Azure och Azure Stack
 
@@ -77,7 +77,7 @@ Innan du börjar den här självstudien måste du kontrollera att du uppfylla f�
 
 2. På den **instrumentpanelen**väljer **Marketplace**.
 
-    ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. I **Marketplace**väljer **Compute**, och välj sedan **mer**. Under **mer**väljer den **kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Windows Server** bild.
 
@@ -208,7 +208,7 @@ Genom att konfigurera DNS för program i molnet, kan användare komma åt den gl
 
 Den här självstudien använder Azure DNS hanterar DNS. (App Service-domäner fungerar inte.)
 
-### <a name="create-subdomains"></a>Skapa underdomäner
+### <a name="create-subdomains"></a>Create subdomains
 
 Eftersom Traffic Manager är beroende av DNS-CNAME-poster, behövs en underdomän för att dirigera trafik korrekt till slutpunkter. Läs mer om DNS-poster och domänmappning [mappa domäner med Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name)
 

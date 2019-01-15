@@ -1,27 +1,8 @@
 ---
-title: Importera data till Machine Learning Studio från online-datakällor – Azure | Microsoft Docs
-description: Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
-keywords: Importera data, dataformat, datatyper, datakällor, utbildningsdata
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: a81765620b31af8a23d70d35cf8f86fc4b8e0033
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256102"
+Rubrik: Importera data till Machine Learning Studio från online-datakällor titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importera data till Azure Machine Learning Studio från online-datakällor 
 Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
@@ -62,7 +43,7 @@ Azure Machine Learning **importdata** modulen stöder följande datakällor:
 
 | Datakälla | Beskrivning | Parametrar |
 | --- | --- | --- |
-| Webbadress till via HTTP |Läser data i fil med kommaavgränsade värden (CSV), tabbavgränsade värden (TVS), Attributrelation filformatet (ARFF) och Support Vector datorer (SVM lätt)-format, från valfri webbtjänst-URL som använder HTTP |<b>URL: EN</b>: Anger det fullständiga namnet på filen, inklusive webbplatsens URL och filnamn, med alla tillägg. <br/><br/><b>Dataformatet</b>: Anger en av format som stöds: CSV, TVS, ARFF eller SVM ljus. Om data har en rubrikrad, används den tilldelas kolumnnamn. |
+| Webbadress till via HTTP |Läser data i fil med kommaavgränsade värden (CSV), tabbavgränsade värden (TVS), Attributrelation filformatet (ARFF) och Support Vector datorer (SVM lätt)-format, från valfri webbtjänst-URL som använder HTTP |<b>URL</b>: Anger det fullständiga namnet på filen, inklusive webbplatsens URL och filnamn, med alla tillägg. <br/><br/><b>Dataformatet</b>: Anger en av format som stöds: CSV, TVS, ARFF eller SVM ljus. Om data har en rubrikrad, används den tilldelas kolumnnamn. |
 | Hadoop/HDFS |Läser data från distribuerad lagring i Hadoop. Du anger de data du vill genom att använda HiveQL, ett SQL-liknande frågespråk. HiveQL kan också användas för att sammanställa data och utföra filtrering innan du lägger till data till Machine Learning Studio. |<b>Hive databasfråga</b>: Anger Hive-fråga som används för att generera data.<br/><br/><b>HCatalog server URI </b> : Ange namnet på klustret i formatet  *&lt;klusternamnet&gt;. azurehdinsight.net.*<br/><br/><b>Hadoop-användarkontonamnet</b>: Anger Hadoop-användarkontonamnet används för att etablera klustret.<br/><br/><b>Hadoop lösenord</b> : Anger de autentiseringsuppgifter som används vid etableringen av klustret. Mer information finns i [skapa Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-provision-clusters.md).<br/><br/><b>Platsen för utdata</b>: Anger om data lagras i ett Hadoop distributed file system (HDFS) eller i Azure. <br/><ul>Om du lagrar utdata för i HDFS kan du ange URI för HDFS-servern. (Glöm inte att använda HDInsight-klustrets namn utan prefixet HTTPS://). <br/><br/>Om du lagrar dina utdata i Azure måste du ange Azure storage-kontonamn, åtkomstnyckel för lagring och namnet på lagringsbehållaren.</ul> |
 | SQL-databas |Läser data som lagras i en Azure SQL-databas eller i en SQL Server-databas som körs på virtuella Azure-datorer. |<b>Namn på databasserver</b>: Anger namnet på den server där databasen körs.<br/><ul>Ange servernamnet som genereras när det gäller Azure SQL Database. Har normalt formatet  *&lt;generated_identifier&gt;. database.windows.net.* <br/><br/>Vid en SQL-servern i en Azure virtuell dator anger *tcp:&lt;DNS-namn på virtuell dator&gt;, 1433*</ul><br/><b>Databasnamnet </b>: Anger namnet på databasen på servern. <br/><br/><b>Server användarkontonamn</b>: Anger ett användarnamn för ett konto som har åtkomstbehörighet för databasen. <br/><br/><b>Server lösenord</b>: Anger lösenordet för användarkontot.<br/><br/><b>Databasfråga</b>: Ange ett SQL-uttryck som beskriver de data som du vill läsa. |
 | Lokal SQL-databas |Läser data som lagras i en lokal SQL-databas. |<b>Datagateway</b>: Anger namnet på Data Management Gateway installerad på en dator där den kan komma åt SQL Server-databasen. Information om hur du konfigurerar gatewayen finns i [utför avancerad analys med Azure Machine Learning med hjälp av data från en lokal SQLServer](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Namn på databasserver</b>: Anger namnet på den server där databasen körs.<br/><br/><b>Databasnamnet </b>: Anger namnet på databasen på servern. <br/><br/><b>Server användarkontonamn</b>: Anger ett användarnamn för ett konto som har åtkomstbehörighet för databasen. <br/><br/><b>Användarnamn och lösenord</b>: Klicka på <b>ange värden</b> att ange dina Databasautentiseringsuppgifter. Du kan använda Windows-integrerad autentisering eller SQL Server-autentisering beroende på hur din lokala SQL Server är konfigurerat.<br/><br/><b>Databasfråga</b>: Ange ett SQL-uttryck som beskriver de data som du vill läsa. |

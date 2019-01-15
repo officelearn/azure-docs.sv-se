@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bcd752f14f5d43c8cb8f686534e016690c7c40
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 85c284c2a0e49d7fa20c0ec342878ffdf9d47387
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198073"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261170"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 Den här artikeln berättar om hur du använder Azure VM Backup för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och hemlighet inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (Nyckelkrypteringsnyckel) och en hemlighet (BitLocker-krypteringsnyckel) för den återställda virtuella datorn.
@@ -62,7 +62,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 
 ## <a name="restore-secret"></a>Återställa hemlighet
 
-Om din Azure virtuell dator utan Azure AD är krypterad med BEK endast (för både Windows och Linux-datorer), generera hemliga namn och värde via kommandona som anges ovan och skicka om du vill ange hemlig cmdlet för att placera hemlighet (BEK) tillbaka i nyckelvalvet.
+Använd JSON-fil som genererats ovan för att hämta hemliga namn och värde och skicka om du vill ange hemlig cmdlet för att placera hemlighet (BEK) tillbaka i nyckelvalvet. Använd dessa cmdletar om din **virtuell dator har krypterats med BEK och KEK**.
 
 **Använd dessa cmdletar om din virtuella Windows-dator har krypterats med BEK och KEK.**
 
@@ -84,7 +84,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Om din Azure-VM med AD **krypterats med BEK endast**, generera hemliga blob-fil från JSON-filen och skicka om du vill återställa hemliga cmdlet om du vill placera hemlighet (BEK) tillbaka i nyckelvalvet.
+Använd JSON-fil som genererats ovan för att hämta hemliga namn och värde och skicka om du vill ange hemlig cmdlet för att placera hemlighet (BEK) tillbaka i nyckelvalvet. Använd dessa cmdletar om din **virtuell dator har krypterats med BEK** endast.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'

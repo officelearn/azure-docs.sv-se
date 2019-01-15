@@ -1,26 +1,8 @@
 ---
-title: Omtrimma en klassisk webbtjänst - Azure Machine Learning Studio | Microsoft Docs
-description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning programmässigt.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554766"
+Rubrik: Omtrimma en klassisk web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning programmässigt.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 04/19/2017
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Omtrimma en klassisk Azure Machine Learning Studio-webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standardinställningen bedömningsslutpunkten. Standardslutpunkterna hålls synkroniserade med den ursprungliga träningen och bedömning experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten, måste du lägga till en ny slutpunkt för webbtjänsten.

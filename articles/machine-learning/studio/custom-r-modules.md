@@ -1,26 +1,7 @@
 ---
-title: Definiera anpassade R-moduler – Azure Machine Learning Studio | Microsoft Docs
-description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 11/29/2017
-ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277938"
+Rubrik: Definiera anpassade R-moduler titleSuffix: Beskrivning av Azure Machine Learning Studio: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 
@@ -158,7 +139,7 @@ Inkommande portar kan du skicka data till din R-funktion och en arbetsyta. Den *
 Den **id** attribut som hör till var **DataTable** indataporten måste ha ett unikt värde och det här värdet måste matcha dess motsvarande med namnet parameter i din R-funktion.
 Valfritt **DataTable** portar som inte skickas som indata i ett experiment har värdet **NULL** skickades till funktionen för R och valfritt zip portar ignoreras om indata inte är ansluten. Den **isOptional** attributet är valfritt för både den **DataTable** och **Zip** typer och är *FALSKT* som standard.
 
-**ZIP:** Anpassade moduler kan acceptera en zip-fil som indata. Denna indata är packat upp i arbetskatalogen R på din funktion
+**Zip:** Anpassade moduler kan acceptera en zip-fil som indata. Denna indata är packat upp i arbetskatalogen R på din funktion
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>

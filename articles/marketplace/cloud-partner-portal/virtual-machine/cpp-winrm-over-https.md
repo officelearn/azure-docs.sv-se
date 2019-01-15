@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b2c0dbfbf474cccdf2d1253b77869c59fd449591
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214563"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265132"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
 
 Det här avsnittet beskrivs hur du konfigurerar en Azure-värdbaserade, Windows-baserad virtuell dator så att den kan hanteras och distribueras via en fjärranslutning med PowerShell.  Om du vill aktivera PowerShell-fjärrkommunikation, måste den Virtuella måldatorn exponera en Windows Remote Management (WinRM) HTTPS-slutpunkt.  Mer information om PowerShell-fjärrkommunikation finns i [köra fjärrkommandon](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  Läs mer om WinRM [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Om du har skapat en virtuell dator med någon av ”klassiska” Azure metoder – Azure Service Manager-portalen eller den inaktuella [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))– och sedan konfigureras automatiskt med en WinRM-slutpunkt.  Men om du skapar en virtuell dator med hjälp av någon av följande ”modern” Aure närmar sig och sedan den virtuella datorn kommer *inte* konfigureras för WinRM via HTTPS.  
+Om du har skapat en virtuell dator med någon av ”klassiska” Azure metoder – Azure Service Manager-portalen eller den inaktuella [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))– och sedan konfigureras automatiskt med en WinRM-slutpunkt.  Men om du skapar en virtuell dator med hjälp av någon av följande ”modern” Azure närmar sig sedan den virtuella datorn kommer *inte* konfigureras för WinRM via HTTPS.  
 
 - Med hjälp av den [Azure-portalen](https://portal.azure.com/), vanligtvis från en godkänd basen som beskrivs i avsnittet [skapa en Azure-kompatibel VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Med hjälp av Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

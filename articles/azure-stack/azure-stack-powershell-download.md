@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 5b90ebc554738c89816cf88f8984ffab01c87d4d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 398a33e3f2f16cd694e77224dbd26324fe332fa1
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451328"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306411"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Ladda ned Azure Stack-verktyg från GitHub
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 **Verktyg för AzureStack** är en [GitHub-lagringsplatsen](https://github.com/Azure/AzureStack-Tools) som är värd för PowerShell-moduler för att hantera och distribuera resurser till Azure Stack. Om du planerar att upprätta en VPN-anslutning, kan du hämta dessa PowerShell-moduler till Azure Stack Development Kit eller till en extern Windows-baserad klient. För att få dessa verktyg kan du klona GitHub-databasen eller ladda ned den **AzureStack verktyg** mapp genom att köra följande skript:
 

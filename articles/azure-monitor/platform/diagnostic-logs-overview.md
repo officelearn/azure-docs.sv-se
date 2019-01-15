@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 88cd6bac85a8f255c33c1834485b8f90a04b8ee4
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104989"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305391"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -234,5 +234,5 @@ Att lägga till en diagnostikinställning öppnar vyn diagnostikinställningar, 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Stream resursdiagnostikloggar till **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
-* [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
 * [Analysera loggar från Azure storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

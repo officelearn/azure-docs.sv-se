@@ -1,6 +1,6 @@
 ---
 title: Validera en säkerhetskopiering i Azure Stack med hjälp av ASDK | Microsoft Docs
-description: Hur du verifierar ett med hjälp av ASDK säkerhetskopiering i Azure Stack integerated system.
+description: Hur du validerar en säkerhetskopiering för Azure Stack-integrerade system som med hjälp av ASDK.
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12d5c2448bc6a5241f6aa4e283acdf9c5a0f602a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961475"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265659"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Använd ASDK för att validera en säkerhetskopiering i Azure Stack
 När du distribuerar Azure Stack och etablera användarresurser, till exempel erbjudanden, planer, kvoter och prenumerationer, bör du [Aktivera säkerhetskopiering av Azure Stack-infrastruktur](../azure-stack-backup-enable-backup-console.md). Schemaläggning och körning av infrastruktur för regelbundna säkerhetskopieringar säkerställer att infrastrukturen hanteringsdata inte går förlorad om det finns ett oåterkalleligt maskinvaru- eller tjänstfel.
 
 > [!TIP]
-> Vi rekommenderar att du [köra en säkerhetskopiering på begäran](../azure-stack-backup-back-up-azure-stack.md) innan du påbörjar den här proceduren för att säkerställa att du har en kopia av den senaste infrastrcuture datan som är tillgänglig. Se till att samla in säkerhetskopie-ID efter att säkerhetskopieringen har slutförts. Detta ID måste utföras under molnåterställning. 
+> Vi rekommenderar att du [köra en säkerhetskopiering på begäran](../azure-stack-backup-back-up-azure-stack.md) innan du påbörjar den här proceduren för att säkerställa att du har en kopia av den senaste tillgängliga informationen i infrastrukturen. Se till att samla in säkerhetskopie-ID efter att säkerhetskopieringen har slutförts. Detta ID måste utföras under molnåterställning. 
 
 Säkerhetskopieringar i Azure Stack-infrastruktur innehåller viktig information om ditt moln som kan återställas under omdistribution av Azure Stack. Du kan använda ASDK för att verifiera dessa säkerhetskopior utan att påverka ditt moln för produktion. 
 

@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 928c7921ce184f5f17916c3b9e182ce3754b0115
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064482"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306275"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Loggintegrering vanliga frågor och svar
 
 Den här artikeln får du svar på vanliga frågor och svar (FAQ) om Azure Log Integration.
 
 >[!IMPORTANT]
-> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog nedladdningar inaktiveras den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Funktionen Azure Log integration upphör att gälla genom 06/01/2019. AzLog hämtningar har inaktiverats på den 27 juni 2018. För information om vad du gör Flytta framåt granska inlägget [Använd Azure monitor för att integrera med SIEM-verktyg](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure Log Integration är en tjänst i Windows-operativsystemet som du kan använda för att integrera dina lokala säkerheten och händelsehantering (SIEM) hanteringssystem loggarna från dina Azure-resurser. Den här integreringen ger en enhetlig instrumentpanel för alla dina tillgångar, lokalt eller i molnet. Du kan sedan aggregera, korrelera, analysera och varna för säkerhetshändelser som är associerade med dina program.
 
@@ -49,7 +49,7 @@ Kör kommandot **AzLog källistan**.
 
 När det gäller granskningsloggar som placeras i den **AzureResourcemanagerJson** kataloger, prenumerations-ID är i loggfilens namn. Detta gäller även för loggar i den **AzureSecurityCenterJson** mapp. Exempel:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Azure Active Directory med granskningsloggar innehåller klient-ID som en del av namnet.
 

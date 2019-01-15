@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036247"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264622"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versioner som stöds av profiler i Azure Stack
 
@@ -26,9 +26,9 @@ Du hittar resursprovidern och versionsnummer för varje API-profil som används 
 
 API-profilen använder tre namngivningskonventioner:
 
- - **senaste**
- - **åååå-mm-dd-hybrid**
- - **åååå-mm-dd-profil**
+ - **latest**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 En förklaring av API-profiler och version frisläppningstakt för Azure Stack finns i [hantera API-versionsprofiler i Azure Stack](azure-stack-version-profiles.md).
 
@@ -37,11 +37,11 @@ En förklaring av API-profiler och version frisläppningstakt för Azure Stack f
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Översikt över 2018-03-01-hybrid
 
-| Resursprovider | API-versionen |
+| Resursprovider | Api-version |
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-03-30 |
 | Microsoft.Network | 2017-10-01<br>VPN-Gateway kommer att 2017-03-01 |
-| Microsoft.Storage (Dataplanet) | 2017-04-17 |
+| Microsoft.Storage (Data Plane) | 2017-04-17 |
 | Microsoft.Storage (kontrollplanet) | 2016-01-01 |
 | Microsoft. Webb | 2016-08-01<br>vilket är senast (från och med nu) i Azure |
 | Microsoft.KeyVault | 2016-10-01 (ändra inte) |
@@ -59,11 +59,11 @@ Läs mer en lista över versioner för varje resurstyp för leverantörer i API-
 
 ## <a name="overview-of-2018-03-01-hybrid"></a>Översikt över 2018-03-01-hybrid
 
-| Resursprovider | API-versionen |
+| Resursprovider | Api-version |
 |------------------------------------------------|------------------------------|
 | Microsoft.Compute | 2016-03-30 |
 | Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (Dataplanet) | 2015-04-05  |
+| Microsoft.Storage (Data Plane) | 2015-04-05  |
 | Microsoft.Storage (kontrollplanet) | 2016-01-01   |
 | Microsoft.Websites | 2016-01-01 |
 | Microsoft.KeyVault | 2016-10-01<br>(Ändra inte) |
@@ -118,7 +118,7 @@ Azure Compute-API: erna får du programmeringsbaserad åtkomst till virtuella da
 | Platser/operations | 2016-03-30 |
 | Platser/utgivare | 2016-03-30 |
 | Platser/användningar | 2016-03-30 |
-| Platser/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Åtgärder | 2016-03-30 |
 | Virtuella datorer | 2016-03-30 |
 | Virtuella datorer /-tillägg | 2016-03-30 |
@@ -176,7 +176,7 @@ Samtalsresultat åtgärder är en representation av listan över tillgängliga n
 | Lastbalanserare | 2015-06-15 |
 | Lokal nätverksgateway | 2015-06-15 |
 | Platser | 2016-04-01 |
-| Platsen/operationResults | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
 | Platser/operations | 2016-04-01 |
 | Platser/användningar | 2016-04-01 |
 | Nätverksgränssnitt | 2015-06-15 |
@@ -197,7 +197,7 @@ Azure Resource Manager kan du distribuera och hantera infrastrukturen för dina 
 | Kontrollera resursnamnet | 2016-09-01 |
 | Delegerade providrar | 2015-01-01 |
 | Delegerade providrar/erbjudanden | 2015-01-01 |
-| DelegatedProviders/erbjudanden/estimatePrice | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Distributioner | 2016-09-01 |
 | Distributioner/operations | 2016-09-01 |
 | Metadata för tillägg | 2015-01-01 |
@@ -216,7 +216,7 @@ Azure Resource Manager kan du distribuera och hantera infrastrukturen för dina 
 | Prenumerationer/resourceGroups/resurser | 2016-09-01 |
 | Prenumerationer/resurser | 2016-09-01 |
 | Prenumerationer/tagNames | 2016-09-01 |
-| Prenumerationer/tagNames/tagValues | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Klienter | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
@@ -229,7 +229,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Platser | 2016-01-01 |
 | Platser/kvoter | 2016-01-01 |
 | Åtgärder | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Användningar | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Information om 2018-03-01-hybrid
@@ -256,7 +256,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Platser/operations | 2016-03-30 |
 | Platser/utgivare | 2016-03-30 |
 | Platser/användningar | 2016-03-30 |
-| Platser/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Åtgärder | 2016-03-30 |
 | Virtuella datorer | 2016-03-30 |
 | Virtuella datorer /-tillägg | 2016-03-30 |
@@ -275,7 +275,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Lastbalanserare | 2015-06-15 |
 | Lokal nätverksgateway | 2015-06-15 |
 | Platser | 2016-04-01 |
-| Platsen/operationResults | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
 | Platser/operations | 2016-04-01 |
 | Platser/användningar | 2016-04-01 |
 | Nätverksgränssnitt | 2015-06-15 |
@@ -294,7 +294,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Kontrollera resursnamnet | 2016-09-01 |
 | Delegerade providrar | 2015-01-01 |
 | Delegerade providrar/erbjudanden | 2015-01-01 |
-| DelegatedProviders/erbjudanden/estimatePrice | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Distributioner | 2016-09-01 |
 | Distributioner/operations | 2016-09-01 |
 | Metadata för tillägg | 2015-01-01 |
@@ -312,8 +312,8 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Prenumerationerna/resursgrupperna | 2016-09-01 |
 | Prenumerationer/resourceGroups/resurser | 2016-09-01 |
 | Prenumerationer/resurser | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
-| Prenumerationer/tagNames/tagValues | 2016-09-01 |
+| Prenumerationer/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Klienter | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
@@ -324,7 +324,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Platser | 2016-01-01 |
 | Platser/kvoter | 2016-01-01 |
 | Åtgärder | 2016-01-01 |
-| storageAccounts | 2016-01-01 |
+| StorageAccounts | 2016-01-01 |
 | Användningar | 2016-01-01 |
 
 ## <a name="next-steps"></a>Nästa steg

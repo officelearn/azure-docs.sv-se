@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341063"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265625"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetri
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack-telemetri överför systemdata automatiskt till Microsoft via användarupplevelsen är ansluten. Microsoft teams använda de data som Azure Stack-telemetri som samlar in för att förbättra kundupplevelsen. Dessa data används också för säkerhet, hälsa, kvalitet och prestandaanalys.
 
@@ -33,7 +33,7 @@ För Azure Stack-operatör, telemetri kan ge värdefulla insikter om enterprise-
 > [!NOTE]
 > Du kan också konfigurera Azure Stack för att vidarebefordra användningsinformation till Azure för fakturering. Detta krävs för flera noder Azure Stack-kunder som väljer att betala som du-användning fakturering. Användningsrapport styrs oberoende från telemetri och krävs inte för flera noder kunder som väljer att modellen kapacitet eller Azure Stack Development Kit användare. Dessa scenarier kan användningsrapportering kan stängas av [med hjälp av registrering skriptet](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-Azure Stack-telemetri baseras på den anslutna användarupplevelsen för Windows Server 2016 och telemetri komponenten, som använder den [för Windows ETW (Event Tracing)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging-teknik för att samla in och lagra händelser och data. Azure Stack-komponenter använder samma teknik för att publicera händelser och data som samlas in genom att använda offentliga operativsystemet händelseloggning och spårning av API: er. Exempel på de här Azure Stack-komponenterna är dessa providers: nätverksresurs, lagringsresurs, övervakning av resursen och resursuppdatering. Komponenten ansluten användarupplevelse och telemetri krypterar data med hjälp av SSL och använder certifikat fästa kan överföra data via HTTPS till Microsoft Data Management-tjänsten.
+Azure Stack-telemetri baseras på den anslutna användarupplevelsen för Windows Server 2016 och telemetri komponenten, som använder den [för Windows ETW (Event Tracing)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging-teknik för att samla in och lagra händelser och data. Azure Stack-komponenter använder samma teknik för att publicera händelser och data som samlas in genom att använda offentliga operativsystemet händelseloggning och spårning av API: er. Exempel på de här Azure Stack-komponenterna är dessa providers: Nätverks-resurs, lagringsresurs, övervakning av resursen och att uppdatera resursen. Komponenten ansluten användarupplevelse och telemetri krypterar data med hjälp av SSL och använder certifikat fästa kan överföra data via HTTPS till Microsoft Data Management-tjänsten.
 
 > [!IMPORTANT]
 > Om du vill aktivera telemetridataflöde måste port 443 (HTTPS) vara öppna i nätverket. Komponenten ansluten användarupplevelse och telemetri som ansluter till Microsoft Data Management-tjänsten på https://v10.vortex-win.data.microsoft.com. Komponenten ansluten användarupplevelse och telemetri som också ansluter till https://settings-win.data.microsoft.com att hämta konfigurationsinformation.
@@ -112,7 +112,7 @@ Du kan använda Windows-Registereditorn för att manuellt ange telemetrinivån p
 Innan du distribuerar Azure Stack på development kit värden, startar i CloudBuilder.vhdx och kör följande skript i ett upphöjt PowerShell-fönster:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

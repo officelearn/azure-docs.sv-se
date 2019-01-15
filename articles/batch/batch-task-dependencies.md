@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865241"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266662"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa aktivitetssamband för att köra uppgifter som är beroende av andra aktiviteter
 
@@ -123,7 +123,7 @@ Om du vill skapa beroendet, ange först och sista aktivitets-ID: N i intervallet
 > [!IMPORTANT]
 > När du använder aktiviteten ID-intervall för dina beroenden, markerade endast aktiviteter med ID: N som representerar heltalsvärden som intervallet. Så intervallet `1..10` väljer uppgifter `3` och `7`, men inte `5flamingoes`. 
 > 
-> Inledande nollor inte är signifikant vid utvärdering av intervallet beroenden, så uppgifter med sträng identifierare `4`, `04` och `004` blir alla *inom* intervallet och de alla behandlas som uppgiften `4`, så att den första mallen för att slutföra att uppfylla beroendet.
+> Inledande nollor inte har betydelse vid utvärdering av intervallet beroenden, så uppgifter med sträng identifierare `4`, `04` och `004` blir alla *inom* intervallet och de alla behandlas som uppgiften `4`, så att den första mallen för att slutföra att uppfylla beroendet.
 > 
 > Varje aktivitet i intervallet måste uppfylla beroende, antingen genom att slutförs eller om du har slutfört med fel som är mappad till en beroende åtgärder som angetts som **Satisfy**. Se den [beroende åtgärder](#dependency-actions) information.
 >

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228817"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262140"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, undantag som fångats och metoden körningstider i Java-webbappar
 
@@ -34,7 +34,7 @@ Om du har [instrumenterats Java-webbapp med Application Insights][java], du kan 
 Om du vill använda Java-agenten måste installera du den på din server. Web apps måste vara utrustade med det [Application Insights Java SDK][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installera Application Insights-agenten för Java
-1. På datorn som du kör din Java-server, [ladda ned agenten](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Kontrollera att för att hämta samma verson av Java-agenten som Application Insights Java SDK core och webb-paket.
+1. På datorn som du kör din Java-server, [ladda ned agenten](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Kontrollera att för att hämta samma version av Java-agenten som Application Insights Java SDK core och webb-paket.
 2. Redigera startskriptet application server och Lägg till följande JVM:
    
     `javaagent:`*fullständig sökväg till agenten JAR-filen*

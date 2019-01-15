@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616205"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264113"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -100,7 +100,7 @@ Om det inte går att hämta dina prenumerationer när du har loggat in kan du pr
 Om det inte går att ta bort ett anslutna konto eller en resurs för lagring via Användargränssnittet, kan du manuellt ta bort alla anslutna resurser genom att ta bort följande mappar:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
@@ -172,7 +172,7 @@ Följ dessa steg om du av misstag ansluten med hjälp av en ogiltig SAS-URL och 
 ## <a name="linux-dependencies"></a>Linux-beroenden
 
 Du kan behöva installera några beroenden manuellt för Linux-distributioner än Ubuntu 16.04. I allmänhet krävs följande paket:
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * Uppdaterade GCC

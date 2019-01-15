@@ -12,19 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
+ms.date: 1/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1948cee033ecb8b50fdd75513a07766490568600
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3c2da9830a8ddbce842d959ba086bf4eb30d5fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337265"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258772"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhetskontaktuppgifter i Azure Security Center
 Azure Security Center rekommenderar att du anger kontaktuppgifter för din Azure-prenumeration om du inte redan har gjort. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför väljer säkerhetsövervakning för Azure-nätverk och infrastruktur och tar emot threat intelligence och missbruk klagomål från tredje part.
 
-Ett e-postmeddelande skickas på den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Resursgrupper inom en prenumeration ärver inställningarna.
+Ett e-postmeddelande skickas på den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Resursgrupper inom en prenumeration ärver inställningarna. 
+
+E-postavisering meddelanden skickas:
+- Endast för varningar med hög angelägenhetsgrad
+- Till en enda e-postmottagare per typ av avisering per dag  
+- Mer än 3 e-postmeddelanden skickas till en enda mottagare i en dag
+- Varje e-postmeddelandet innehåller en enda avisering, inte en sammanställning av aviseringar
+ 
+Till exempel om ett e-postmeddelande har redan skickats meddela dig om en RDP-attack, får du inte en annan e-postmeddelande om en RDP-attack på samma dag, även om en ny avisering utlöses. 
+ 
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det är alltså inte en steg-för-steg-guide.

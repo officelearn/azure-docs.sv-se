@@ -1,7 +1,7 @@
 ---
-title: API - referens för Content Moderator
+title: API reference - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 'Lär dig mer om innehållsmoderering och granska API: er för Content Moderator.'
+description: 'Lär dig mer om olika innehållsmoderering och granska API: er för Content Moderator.'
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a64b2f7ce54d5ace26ad18c0ca1a9facb66245e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229755"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266970"
 ---
 # <a name="content-moderator-api-reference"></a>API-referens för Content Moderator
 
-Du kommer igång med Azure Content Moderator API: er på följande sätt: (Se även [hantera autentiseringsuppgifter](review-tool-user-guide/credentials.md).)
+Du Kom igång med Azure Content Moderator API: er på följande sätt: (Se även [hantera autentiseringsuppgifter](review-tool-user-guide/credentials.md).)
 
 - I Azure-portalen [prenumerera på API: er för Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Registrera dig för den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/). Se [snabbstarten](quick-start.md).
+- Registrera dig för den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/). Se [försök Content Moderator på webben](quick-start.md).
 
 ## <a name="moderation-apis"></a>API:er för moderering
 

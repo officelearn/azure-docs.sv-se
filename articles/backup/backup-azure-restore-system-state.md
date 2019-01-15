@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Återställa systemtillståndet till Windows Server'
+title: 'Azure Backup: Återställa systemtillstånd på en Windows-Server'
 description: Steg för steg förklaring för återställning av systemtillståndet i Windows Server från en säkerhetskopia i Azure.
 services: backup
 author: saurabhsensharma
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230792"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266492"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa systemtillståndet till Windows Server
 
@@ -157,7 +157,7 @@ När du har återställt systemtillstånd som filer med Azure Recovery Services-
 
 10. Platsen för den återställning av systemtillståndet, Välj **ursprungsplatsen**, och klicka på **nästa**.
 
-11. Läs mer om bekräftelse och kontrollera inställningarna för omstart, klicka **återställa** till applly återställda systemtillståndet filer.
+11. Läs mer om bekräftelse och kontrollera inställningarna för omstart, klicka **återställa** att tillämpa de återställda filerna i systemtillståndet.
 
     ![Starta återställningen systemtillståndsfiler](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 

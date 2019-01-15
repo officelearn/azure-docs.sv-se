@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726298"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305459"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begäranden till Azure Cognitive Services
 
@@ -35,7 +35,7 @@ Nu ska vi se snabbt autentiseringshuvuden som är tillgängliga för användning
 | Huvud | Beskrivning |
 |--------|-------------|
 | OCP-Apim-Subscription-Key | Använd den här rubriken om du vill autentisera med en prenumerationsnyckel för en specifik tjänst eller en prenumerationsnyckel som flera tjänster. |
-| OCP-Apim-prenumeration-Region | Den här rubriken är endast krävs när du använder en prenumerationsnyckel som flera tjänster med den [Translator Text API](./Translator/reference/v3-0-reference.md). Använd den här rubriken anger prenumeration region. |
+| Ocp-Apim-Subscription-Region | Den här rubriken är endast krävs när du använder en prenumerationsnyckel som flera tjänster med den [Translator Text API](./Translator/reference/v3-0-reference.md). Använd den här rubriken anger prenumeration region. |
 | Auktorisering | Använd den här rubriken om du använder en autentiseringstoken. I följande avsnitt beskrivs stegen för att utföra en tokenutbytet. Det angivna värdet följer det här formatet: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Autentisera med en prenumerationsnyckel som en tjänst
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+Följande videoklipp visar hur du använder en Cognitive Services-nyckel. 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autentisera med en flera tjänster prenumerationsnyckel
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Det här alternativet använder också en prenumeration för att autentisera begäranden. Den största skillnaden är att en prenumerationsnyckel inte är kopplat till en specifik tjänst, i stället en enda nyckel kan användas för att autentisera begäranden för flera Cognitive Services. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) för information om regional tillgänglighet, funktioner som stöds och priser.
 
 Prenumerationsnyckeln har angetts i varje begäran som den `Ocp-Apim-Subscription-Key` rubrik.
+
+[![Flera tjänster prenumeration viktiga demonstration för Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Regioner som stöds
 

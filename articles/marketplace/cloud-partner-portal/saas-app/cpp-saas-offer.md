@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa1b043f94897e752f3aa6b638995d3c2aa1eae5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197458"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263636"
 ---
 # <a name="azure-saas-application-offer"></a>Azure SaaS-program-erbjudande
 
@@ -49,7 +49,7 @@ Det här avsnittet beskriver elementen för att publicera ett SaaS-erbjudande oc
 
 - [Förutsättningar](./cpp-prerequisites.md) – visar en lista över tekniska och affärsmässiga krav innan du skapar eller publicera ett SaaS-erbjudande. 
 - [Skapa erbjudandet](./cpp-create-offer.md) -anges de steg som krävs för att skapa en ny SaaS-erbjudande post med hjälp av Cloud Partner Portal. 
-- [Publicera erbjudandet](./cpp-publish-offer.md) -Exlains hur du skickar in erbjudande för publicering på Azure Marketplace. 
+- [Publicera erbjudandet](./cpp-publish-offer.md) -förklarar hur du skickar in erbjudande för publicering på Azure Marketplace. 
 
 ## <a name="saas-publishing-process"></a>SaaS publiceringsprocessen 
 

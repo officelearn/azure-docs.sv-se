@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 529a79fbc7b70ba6ea6a07a0ab6c523a193387a2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1513ea1c212d526b7fe2659855d4a80eabc9949b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326244"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261714"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst-OS mått till arkivet som Azure Monitor-mått med en Azure Resource Manager-mall för en Windows VM-skalningsuppsättning
 
@@ -42,10 +42,10 @@ För det här exemplet kan du använda ett offentligt tillgängligt [exempelmall
 
 Ladda ned och spara filerna lokalt. 
 
-###  <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy.parameters.json
+###  <a name="modify-azuredeployparametersjson"></a>Modify azuredeploy.parameters.json
 Öppna den **azuredeploy.parameters.json** fil:  
  
-- Ange en **vmSKU** du vill distribuera. Vi rekommenderar Standard_D2_v3. 
+- Ange en **vmSKU** du vill distribuera. We recommend Standard_D2_v3. 
 - Ange en **windowsOSVersion** du vill använda för din skalningsuppsättning för virtuell dator. Vi rekommenderar att 2016-Datacenter. 
 - Namn på VM-skalningsuppsättningen resurs som ska distribueras med hjälp av en **vmssName** egenskapen. Ett exempel är **VMSS-WAD-TEST**.    
 - Ange hur många virtuella datorer du vill köra på VM-skalningsuppsättning med hjälp av den **instanceCount** egenskapen.
@@ -89,7 +89,7 @@ Följande kod från MSI-tillägget lägger till diagnostiktillägget och konfigu
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed identites for Azure resources   
+            // Managed identities for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: raynew
-ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877175"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262735"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -36,7 +36,7 @@ Azure Backup Server skyddar följande arbetsbelastningar i Azure Stack-datorer.
 | Halvårskanal för Windows Server halvstrukturerade – Datacenter/Enterprise/Standard | Volymer, filer, mappar |
 | Windows Server 2016 – Datacenter/Enterprise/Standard | Volymer, filer, mappar |
 | Windows Server 2012 R2 – Datacenter/Enterprise/Standard | Volymer, filer, mappar |
-| Windows Server 2012 – Datacenter/Entprise/Standard | Volymer, filer, mappar |
+| Windows Server 2012 – Datacenter/Enterprise/Standard | Volymer, filer, mappar |
 | Windows Server 2008 R2 – Datacenter/Enterprise/Standard | Volymer, filer, mappar |
 | SQL Server 2016 | Databas |
 | SQL Server 2014 | Databas |
@@ -90,7 +90,7 @@ Den virtuella datorn i Azure Backup Server måste vara ansluten till en domän. 
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Med hjälp av en virtuell IaaS-dator i Azure Stack
 
-När du väljer en server för Azure Backup Server, börja med en Windows Server 2012 R2 Datacenter- eller Windows Server 2016 Datacenter galleri-avbildning. I artikeln [skapa din första Windows-dator i Azure-portalen](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommendera virtuella datorn. Rekommenderade minimikraven för den server-datorn (VM) ska vara: Standard A2 med två kärnor och 3,5 GB RAM-minne.
+När du väljer en server för Azure Backup Server, börja med en Windows Server 2012 R2 Datacenter- eller Windows Server 2016 Datacenter galleri-avbildning. I artikeln [skapa din första Windows-dator i Azure-portalen](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommendera virtuella datorn. Rekommenderade minimikraven för den server-datorn (VM) ska se ut: Standard a2 med två kärnor och 3,5 GB RAM-minne.
 
 Skydda arbetsbelastningar med Azure Backup Server har många nyanser. I artikeln [Install DPM as Azure-datorer](https://technet.microsoft.com/library/jj852163.aspx), bidrar till att klargöra dessa olika delarna. Läs den här artikeln helt innan du distribuerar datorn.
 
@@ -141,7 +141,7 @@ Det finns två sätt att hämta installationsprogrammet för Azure Backup Server
 
     Menyn säkerhetskopiering öppnas.
 
-    ![Backup-mål-standard-öppnas](./media/backup-mabs-install-azure-stack/getting-started-menu.png)
+    ![Backup-goals-default-opened](./media/backup-mabs-install-azure-stack/getting-started-menu.png)
 
 6. På menyn backup från den **var körs din arbetsbelastning** menyn och välj **lokala**. Från den **vad vill du säkerhetskopiera?** nedrullningsbara menyn och välj de arbetsbelastningar du vill skydda med hjälp av Azure Backup Server. Om du inte vet vilka arbetsbelastningar och välj Välj **Hyper-V-datorer** och klicka sedan på **förbereda infrastrukturen**.
 

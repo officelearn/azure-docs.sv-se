@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230551"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261238"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -98,7 +98,7 @@ Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att 
 
 1. Kontrollera om Azure Migrate Collector OVA-filen laddas ned korrekt genom att kontrollera hash-värdet. Se [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) för att kontrollera hash-värdet. Om hash-värdet inte matchar, hämta OVA-filen igen och försöker distribuera igen.
 2. Om det fortfarande inte fungerar, och du använder VMware vSphere-klienten för att distribuera OVT, provar du att distribuera den via vSphere-webbklienten. Om det fortfarande inte, försök att använda olika webbläsare.
-3. Om du använder vSphere-webbklienten och försök att distribuera den på vCenter Server 6.5, försöker distribuera ova-filen direkt på ESXi-värden genom att följa de stegen nedan:
+3. Om du använder vSphere-webbklienten och försök att distribuera den på vCenter Server 6.5 eller 6.7, försöker distribuera ova-filen direkt på ESXi-värden genom att följa de stegen nedan:
   - Ansluta till ESXi-värden direkt (i stället för vCenter-Server) med hjälp av webbklienten (https:// <*vara värd för IP-adress*> /ui)
   - Gå till startsidan > inventering
   - Klicka på fil > Distribuera OVF-mall > Gå till ova-filen och slutföra distributionen
@@ -156,7 +156,7 @@ Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-in
 2. Om du redan har den senaste versionen av insamlaren kan manuellt installera [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) och kontrollera om problemet är löst.
 3. Om ovanstående inte löser problemet, navigera till mappen C:\Program Files\ProfilerService och ta bort VMware.dll och VimService65.dll filer finns i mappen och starta sedan om Azure Migrate Collector-tjänsten i Windows-tjänster hanterar (Öppna ” Kör ”och Skriv” services.msc ”för att öppna Windows Service Manager).
 
-### <a name="error-unabletoconnecttoserver"></a>Felet UnableToConnectToServer
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
 Det går inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av felet: Det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
 
@@ -176,7 +176,7 @@ Om du vill skydda Azure Migrate-installation, måste du undanta följande mappar
 - Mapp som innehåller binärfilerna för Azure Migrate-tjänsten. Undanta alla undermappar.
   %ProgramFiles%\ProfilerService  
 - Azure Migrate Web hemsidan. Undanta alla undermappar.
-  %SystemDrive%\Inetpub\Wwwroot
+  %SystemDrive%\inetpub\wwwroot
 - Lokal Cache för databasen och loggfiler. Azure migrate ha RW åtkomst till den här mappen.
   %SystemDrive%\Profiler
 
@@ -195,7 +195,7 @@ För Windows VM:
 2. Gå till den **Azure Log Analytics (OMS)** i popup-MMA egenskaperna
 3. Se till att den **Status** för arbetsytan är grönt.
 4. Om statusen inte är grön, försök att ta bort arbetsytan och lägga till den igen till MMA.
-        ![MMA-Status](./media/troubleshooting-general/mma-status.png)
+        ![MMA Status](./media/troubleshooting-general/mma-status.png)
 
 Se till att installationskommandon för MMA och beroendeagenter agent hade har utförts för Linux VM.
 
@@ -221,7 +221,7 @@ Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/mig
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Felsökning av problem med Azure-beredskap
 
-**Problemet** | **Åtgärda**
+**Problemet** | **Fix**
 --- | ---
 Starttypen stöds inte | Azure stöder inte virtuella datorer med EFI-starttyp. Vi rekommenderar att konvertera starttyp till BIOS innan du kör en migrering. <br/><br/>Du kan använda [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) göra migrering av sådana virtuella datorer som den konverterar starttyp för den virtuella datorn till BIOS under migreringen.
 Villkorligt stött Windows OS | Operativsystemet har upphört att supportperioden och behöver en anpassad stöder avtal (CSA) för [stöd i Azure](https://aka.ms/WSosstatement), Överväg att uppgradera Operativsystemet innan du migrerar till Azure.

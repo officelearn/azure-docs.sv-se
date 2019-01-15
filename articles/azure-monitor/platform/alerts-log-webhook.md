@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 26c98a87b736132eb50cddffd06c1173d205c34d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720313"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265438"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -48,7 +48,7 @@ Webhooks är en URL och en nyttolast som formaterats i JSON som är data som ski
 | Intervall för sökning |#searchinterval |Tidsperioden för aviseringen regeln för format -: mm: ss. |
 | Sök efter intervall StartTime |#searchintervalstarttimeutc |Starttid för frågan i UTC, format - mm/dd/åååå hh: mm: ss AM/PM... 
 | SearchQuery |#searchquery |Logga sökfråga används av regeln. |
-| SearchResults |”IncludeSearchResults”: true|Poster som returneras av frågan som en JSON-tabell, begränsad till de första 1 000 posterna. Om ”IncludeSearchResults”: true läggs till i anpassade JSON webhook-definition som en översta egenskap. |
+| SearchResults |"IncludeSearchResults": true|Poster som returneras av frågan som en JSON-tabell, begränsad till de första 1 000 posterna. Om ”IncludeSearchResults”: true läggs till i anpassade JSON webhook-definition som en översta egenskap. |
 | WorkspaceID |#workspaceid |ID för Log Analytics-arbetsytan. |
 | Program-ID:t |#applicationid |ID för Application Insights app. |
 | Prenumerations-ID:t |#subscriptionid |ID för din Azure-prenumeration som används med Application Insights. 
@@ -198,7 +198,7 @@ Följande är ett exempel på en nyttolast för en anpassad webhook-åtgärd fö
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [Loggaviseringar i Azure-aviseringar ](alerts-unified-log.md)
-- Förstå [managaing loggaviseringar i Azure](alerts-log.md)
+- Förstå [hantera loggaviseringar i Azure](alerts-log.md)
 - Skapa och hantera [åtgärdsgrupper i Azure](action-groups.md)
 - Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
 - Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

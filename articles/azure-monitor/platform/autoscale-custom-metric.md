@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 224756785d5609cf40bc0f62ff76a1ba44206b1b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2aa0b152a4fd50e8023df00ec5dd59d1b2a6e6b0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389074"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262242"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Komma igång med automatisk skalning med anpassat mått i Azure
 Den här artikeln beskriver hur du skalar din resurs genom ett anpassat mått i Azure-portalen.
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du har en webbapp med application insights h
 > Obs! Stegen nedan använder en app service-plan som är associerade med en webbapp som har konfigurerats appinsikter.
 - Observera att det aktuella instansantalet är 1 i bladet skala inställningen för resursen. Klicka på Aktivera automatisk skalning.
   ![Skalinställningen för ny webbapp][5]
-- Ange ett namn för skalinställningen och klicka på ”Lägg till en regel”. Observera regeln skalningsalternativ som öppnas som en kontext-rutan på höger sida. Som standard anger alternativ för skalning din instansantalet med 1 om CPU-percetage på resursen överskrider 70%. Ändra måttkälla längst upp till ”Application Insights”, Välj app insights-resurs i listrutan ”resurs” och välj sedan den anpassade mått baserat på vilket du vill skala.
+- Ange ett namn för skalinställningen och klicka på ”Lägg till en regel”. Observera regeln skalningsalternativ som öppnas som en kontext-rutan på höger sida. Som standard anger alternativ för skalning din instansantalet med 1 om CPU-procent på resursen överskrider 70%. Ändra måttkälla längst upp till ”Application Insights”, Välj app insights-resurs i listrutan ”resurs” och välj sedan den anpassade mått baserat på vilket du vill skala.
   ![Skala med anpassat mått][6]
 - Ett liknande sätt steget ovan, lägga till en skala-regel som ska skalas i och minska skalningsantalet med 1 om anpassat mått som ligger under ett tröskelvärde.
   ![Skala baserat på cpu][7]

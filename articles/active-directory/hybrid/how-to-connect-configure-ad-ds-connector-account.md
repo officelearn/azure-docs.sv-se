@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809887"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304048"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
-En ny PowerShell-modul med namnet [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) introducerades i version 1.1.880.0 (släpptes i augusti 2018) som innehåller en uppsättning cmdletar för att hjälpa dig att konfigurera Active Directory-behörighet för din Azure AD Anslut distribution. 
+PowerShell-modulen med namnet [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) introducerades i version 1.1.880.0 (släpptes i augusti 2018) som innehåller en uppsättning cmdletar för att hjälpa dig att konfigurera Active Directory-behörighet för din Azure AD Anslut distribution. 
 
 ## <a name="overview"></a>Översikt 
 Följande PowerShell-cmdletar kan användas för att konfigurera Active Directory-behörigheter för AD DS-anslutningskontot för varje funktion som du låtsas att aktivera i Azure AD Connect. För att förhindra problem bör du förbereda Active Directory-behörigheter i förväg när du vill installera Azure AD Connect med ett konto för anpassad domän för att ansluta till din skog. Den här modulen ADSyncConfig kan också användas för att konfigurera behörigheter när Azure AD Connect har distribuerats.
@@ -119,7 +119,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAcco
 ```
 
 
-eller; 
+Eller; 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -140,14 +140,14 @@ Denna cmdlet kommer att ange följande behörigheter:
 |Tillåt |Kontot för AD DS-koppling |Läsa alla egenskaper |Underordnade kontakt-objekt| 
 
  
-### <a name="configure-ms-ds-consistency-guid-permissions"></a>Konfigurera behörigheter för MS-DS-konsekvens-Guid 
+### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configure MS-DS-Consistency-Guid Permissions 
 Om du vill ange behörigheter för AD DS-anslutningskontot när du använder attributet ms-Ds-konsekvens-Guid som källfästpunktsattribut (även kallat ”Låt Azure hantera källfästpunkten åt mig”-alternativet), kör du: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
-eller; 
+Eller; 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -157,7 +157,7 @@ Denna cmdlet kommer att ange följande behörigheter:
 
 |Typ |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
-|Tillåt|Kontot för AD DS-koppling|Läs/Skriv-egenskapen|MS-DS-konsekvens-Guid|Underordnade objekt|
+|Tillåt|Kontot för AD DS-koppling|Läs/Skriv-egenskapen|MS-DS-Consistency-Guid|Underordnade objekt|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Behörigheter för synkronisering av Lösenordshash 
 Om du vill ange behörigheter för AD DS-anslutningskontot när du använder synkronisering av Lösenordshash, kör du: 
@@ -167,7 +167,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnec
 ```
 
 
-eller; 
+Eller; 
 
 ``` powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonParameters>] 
@@ -188,7 +188,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConne
 ```
 
 
-eller;
+Eller;
 
 ``` powershell
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -207,7 +207,7 @@ Om du vill ange behörigheter för AD DS-anslutningskontot när du använder til
 ``` powershell
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
-eller; 
+Eller; 
 
 ``` powershell
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
@@ -229,7 +229,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnecto
 ```
 
 
-eller; 
+Eller; 
 
 ``` powershell
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -253,7 +253,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -
 ```
 
 
-eller; 
+Eller; 
 
 ``` powershell
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -280,7 +280,7 @@ Till exempel:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 Denna cmdlet kommer att ange följande behörigheter: 

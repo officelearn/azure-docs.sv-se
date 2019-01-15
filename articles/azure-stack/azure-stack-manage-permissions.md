@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: ab61e1f892f46ad36df741b7a72afcfcbaa0ed87
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 26ce7139b856fc2f8d7d2cad549b3dd3c0f5e406
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376943"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304694"
 ---
 # <a name="manage-role-based-access-control"></a>Hantera rollbaserad åtkomstkontroll
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 En användare i Azure Stack kan vara en läsare, ägare eller deltagare för varje instans av en prenumeration, resursgrupp eller tjänsten. Användare A kan exempelvis läsare åtkomstbehörighet till en prenumeration men har ägarbehörighet för virtuell dator sju.
 

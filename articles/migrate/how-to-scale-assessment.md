@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260726"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262225"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -19,7 +19,7 @@ Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln besk
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0 eller 6.5. Du måste även en ESXi-värd som kör version 5.0 eller senare för att distribuera den Virtuella insamlardatorn.
+- **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0, 6.5 eller 6.7. Du måste även en ESXi-värd som kör version 5.0 eller senare för att distribuera den Virtuella insamlardatorn.
 - **vCenter-kontot**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter-servern. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
 - **Behörigheter**: I vCenter-servern behöver du behörighet att skapa en virtuell dator genom att importera en fil i OVA-formatet.
 - **Inställningar för statistik**: Det här kravet gäller endast för den [enstaka identifiering modellen](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) som är nu föråldrat. För identifiering av enstaka modellen ska statistikinställningarna för vCenter-servern vara inställd på nivå 3 innan du påbörjar distributionen. Statistik är att vara satt till 3 för varje dag, vecka och månad datainsamlingen. Om kompatibilitetsnivå är lägre än 3 för någon av de tre datainsamlingen, fungerar utvärderingen, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer som baseras på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
@@ -134,13 +134,13 @@ Om du har flera projekt kan behöva du hämta insamlingsprogrammet bara en gång
     > [!NOTE]
     > Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.
 
-    **Direkt:** Med kontinuerlig discovery-enheten när identifieringen är slutföra (tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
+    **Omedelbar tillfredsställelse:** Tack vare installationen för kontinuerlig identifiering kan du omedelbart skapa utvärderingar när identifieringen är klar (det klar några timmar beroende på antalet virtuella datorer). Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
     Observera att installationen bara samlar in prestandadata kontinuerligt, den identifierar inte någon konfigurationsändring i den lokala miljön (dvs. tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
-    - Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): För att återspegla dessa ändringar i Azure-portalen, kan du stoppar identifieringen av programmet och sedan starta det igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+    - Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): Om du vill återspegla dessa ändringar på Azure-portalen kan du stoppa identifieringen från installationen och sedan starta den igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
-    - Borttagning av virtuella datorer: Borttagning av virtuella datorer återspeglas inte på grund av det sätt som är utformad för installationen, även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+    - Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 3. I **kopiera projektautentiseringsuppgifterna**, kopiera-ID och nyckel för projektet. Du behöver dem när du konfigurerar insamlaren.
 
@@ -286,14 +286,14 @@ Insamlaren samlar in följande prestandaräknare för varje virtuell dator från
 
 **Räknaren** |  **Påverkan på utvärdering**
 --- | ---
-CPU.Usage.Average | Rekommenderad storlek och kostnad  
-Mem.Usage.Average | Rekommenderad storlek och kostnad  
+cpu.usage.average | Rekommenderad storlek och kostnad  
+mem.usage.average | Rekommenderad storlek och kostnad  
 virtualDisk.read.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.write.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.numberReadAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.numberWriteAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-NET.Received.Average | Beräknar storlek på virtuell dator                          
-NET.Transmitted.Average | Beräknar storlek på virtuell dator     
+net.received.average | Beräknar storlek på virtuell dator                          
+net.transmitted.average | Beräknar storlek på virtuell dator     
 
 > [!WARNING]
 > Enstaka identifieringsmetod som förlitat sig på vCenter serverns statistik inställningar för insamling av prestandadata är nu föråldrad.

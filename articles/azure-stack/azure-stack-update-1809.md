@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244706"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263330"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -79,7 +79,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 - Infrastruktur-säkerhetskopieringstjänsten flyttas från den [infrastruktur för offentliga nätverk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) till den [offentliga VIP-nätverket](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Kunder måste se till att tjänsten har åtkomst till lagringsplatsen för säkerhetskopian från det offentliga VIP-nätverket.  
 
 > [!IMPORTANT]  
-> Om du har en brandvägg som inte tillåter anslutningar från det offentliga VIP-nätverket till filservern innebär ändringen infrastruktur säkerhetskopieringar att misslyckas med ”fel 53 inte gick att hitta nätverkssökvägen”. Det här är en viktig ändring som har ingen rimlig lösning. Baserat på feedback från kunder, återgår Microsoft den här ändringen i en snabbkorrigering. Granska den [efter uppdatering i avsnittet steg](#post-update-steps) för mer information om tillgängliga snabbkorrigeringar för 1809. När snabbkorrigeringen är tillgänglig kan du se till att använda den när du har uppdaterat till 1809 endast om din nätverksprinciper inte tillåter det offentliga VIP-nätverket att få åtkomst till resurser i infrastrukturen. i 1811, kommer den här ändringen tillämpas på alla system. Om du har installerat snabbkorrigeringen i 1809, det finns ingen ytterligare åtgärd krävs.  
+> Om du har en brandvägg som inte tillåter anslutningar från det offentliga VIP-nätverket till filservern innebär ändringen infrastruktur säkerhetskopieringar att misslyckas med ”fel 53 inte gick att hitta nätverkssökvägen”. Det här är en viktig ändring som har ingen rimlig lösning. Baserat på feedback från kunder, återgår Microsoft den här ändringen i en snabbkorrigering. Granska den [efter uppdatering i avsnittet steg](#post-update-steps) för mer information om tillgängliga snabbkorrigeringar för 1809. När snabbkorrigeringen är tillgänglig, se till att använda den när du har uppdaterat till 1809 endast om din nätverksprinciper inte tillåter det offentliga VIP-nätverket för åtkomst till resurser i infrastrukturen. i 1811, kommer den här ändringen tillämpas på alla system. Om du har installerat snabbkorrigeringen i 1809, det finns ingen ytterligare åtgärd krävs.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vanliga säkerhetsproblem och exponeringar
 

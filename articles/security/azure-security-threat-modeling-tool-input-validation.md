@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: da2e742f0dde0cb4b98bfb107d18eca779d10021
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234603"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266932"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Security ram: Indatavalidering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -27,7 +27,7 @@ ms.locfileid: "51234603"
 | **Webbprogram** | <ul><li>[Inaktivera XSLT-skript för alla transformeringar med obetrodda formatmallar](#disable-xslt)</li><li>[Se till att alla sidor som kan innehålla användare kontrolleras innehåll innebär att inga automatiska MIME-kontroll](#out-sniffing)</li><li>[Förstärka eller inaktivera XML-entitet upplösning](#xml-resolution)</li><li>[Program som använder http.sys utföra verifiering av URL-auktorisering](#app-verification)</li><li>[Kontrollera att lämpliga kontroller är uppfyllda när du tar emot filer från användare](#controls-users)</li><li>[Se till att typen safe parametrar används i webbprogram för dataåtkomst](#typesafe)</li><li>[Använda separata modellklasser för bindning eller bindningsfilter listor för att förhindra MVC drivrutiner för masslagring tilldelning säkerhetsproblem](#binding-mvc)</li><li>[Koda obetrodda webbutdata innan rendering](#rendering)</li><li>[Utföra verifiering av indata och filtrering på alla strängtyp modellegenskaper](#typemodel)</li><li>[Gemensamt ska tillämpas på formulärfält som godkänner alla tecken, t.ex., textredigeraren](#richtext)</li><li>[Tilldela inte DOM-element till mottagare som inte har inbyggd kodning](#inbuilt-encode)</li><li>[Kontrollera att alla omdirigeringar i programmet är stängd eller för att göra på ett säkert sätt](#redirect-safe)</li><li>[Implementera verifiering av indata på alla typ strängparametrar accepteras av kontrollantmetoder](#string-method)</li><li>[Ange tidsgränsen för övre gräns för reguljärt uttryck som används för att förhindra DoS på grund av felaktiga reguljära uttryck](#dos-expression)</li><li>[Undvik att använda Html.Raw i Razor-vyer](#html-razor)</li></ul> | 
 | **Databas** | <ul><li>[Använd inte dynamiska frågor i lagrade procedurer](#stored-proc)</li></ul> |
 | **Webb-API** | <ul><li>[Se till att modellen verifieras webb-API-metoder](#validation-api)</li><li>[Implementera verifiering av indata på alla typ strängparametrar accepteras av webb-API-metoder](#string-api)</li><li>[Se till att typen safe parametrar används i webb-API för dataåtkomst](#typesafe-api)</li></ul> | 
-| **Azure Document DB** | <ul><li>[Använda SQL-frågor för innehåller parametrar för Azure Cosmos DB](#sql-docdb)</li></ul> | 
+| **Azure Document DB** | <ul><li>[Använda parametriserade SQL-frågor för Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[WCF-indata verifiering via schemabindning](#schema-binding)</li><li>[Indata WCF - verifiering via parametern Inspectors](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Inaktivera XSLT-skript för alla transformeringar med obetrodda formatmallar
@@ -38,8 +38,8 @@ ms.locfileid: "51234603"
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [XSLT-Security](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript egenskap](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Steg** | XSLT har stöd för skript i formatmallar med hjälp av den `<msxml:script>` element. På så sätt kan anpassade funktioner som ska användas i en XSLT-transformation. Skriptet har körts under kontexten för hur du utför transformering. XSLT-skriptet måste inaktiveras när du är i en miljö som inte är betrodd för att förhindra att ej betrodd kod körs. *Om du använder .NET:* XSLT-skript är inaktiverade som standard, men du måste se till att det inte uttryckligen aktiveras via den `XsltSettings.EnableScript` egenskapen.|
+| **Referenser**              | [XSLT Security](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript Property](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
+| **Steg** | XSLT har stöd för skript i formatmallar med hjälp av den `<msxml:script>` element. På så sätt kan anpassade funktioner som ska användas i en XSLT-transformation. Skriptet har körts under kontexten för hur du utför transformering. XSLT-skriptet måste inaktiveras när du är i en miljö som inte är betrodd för att förhindra att ej betrodd kod körs. *Om du använder .NET:* XSLT-skript är inaktiverade som standard. men du måste se till att det inte uttryckligen aktiveras via den `XsltSettings.EnableScript` egenskapen.|
 
 ### <a name="example"></a>Exempel 
 
@@ -356,7 +356,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | MVC5 MVC6 |
+| **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Metadata-attribut](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [offentliga nyckel Security säkerhetsproblem och minskning](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [fullständig handbok för lagringsenheter tilldelning i ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [komma igång med EF med hjälp av MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
 | **Steg** | <ul><li>**När ska jag för att leta efter över bokföring sårbarheter? -** Över bokföring säkerhetsproblem kan uppstå helst du binda modellklasser från användarindata. Ramverk som MVC kan representera användardata i anpassad .NET-klasser, inklusive vanlig gamla CLR-objekt (POCOs). MVC fyller automatiskt dessa modellklasser med data från begäran, vilket ger en lämplig representation för att hantera indata från användaren. När dessa klasser innehålla egenskaper som inte ska ställas in av användaren, kan programmet vara utsatt för overpostingattacker, som tillåter användarkontroll av data som programmet aldrig avsett. Som bindningen för MVC-modellen, databasen åtkomst till tekniker, till exempel Objektrelationer/Mappningskomponenter som Entity Framework ofta även support via POCO-objekt som representerar databasdata. Dessa data modellklasser ger samma bekvämlighet i hanterar databasdata precis MVC med indata från användaren. Eftersom både MVC och databasen har stöd för liknande modeller som POCO objekt verkar det enkelt att återanvända samma klasser för båda. Den här metoden misslyckas att bevara problemseparering och det är ett vanligt område där oönskade egenskaper exponeras för modell-bindningen, aktiverar över bokföring attacker.</li><li>**Varför bör inte jag använda min ofiltrerade databasen modellklasser som parametrar till min MVC-åtgärder? -** Eftersom MVC-modellen bindningen ska bindas till något som. Även om data inte visas i vyn, en obehörig användare kan skicka en HTTP-begäran med dessa data som ingår och MVC Binder gladeligen det eftersom åtgärden säger att databasklass är formen på data som den ska acceptera för indata från användaren.</li><li>**Varför bör jag bryr dig om den form som används för modellen bindning? -** Med hjälp av ASP.NET MVC-modellen bindning med breda modeller exponerar ett program till overpostingattacker. Överdrivet bokföring kan göra att angripare ändra programdata utöver vilka utvecklaren avsedd, till exempel åsidosätta priset för ett objekt eller behörighet för ett konto. Program ska använda åtgärden-specifika bindning modeller (eller specifika tillåtna filter egenskapslistor) Ange en explicit kontrakt för vilka obetrodda indata för att tillåta via modellen bindning.</li><li>**Är att ha en separat bindning modeller bara duplicera koden? -** Nej, det är bara några inkapsling av problem. Om du återanvänder databasmodeller i åtgärdsmetoder, innebär det att en egenskap (eller underordnade egenskapen) i den klass som kan ställas in av användaren i en HTTP-begäran. Om så är du inte vill MVC att göra, behöver du en filterlista eller formen separat klass för att visa MVC vilka data som kan komma från användarindata i stället.</li><li>**Om jag har en separat bindning modeller för indata från användaren, måste jag Duplicera alla mina anteckning dataattribut? -** Inte nödvändigtvis. Du kan använda MetadataTypeAttribute på modellklass för databasen för att länka till metadata i en modellklass för bindningen. Observera bara att den typ som refererar till MetadataTypeAttribute måste vara en delmängd av typen refererande (det kan ha färre egenskaper, men inte mer).</li><li>**Flytta data fram och tillbaka mellan användarens indata modeller och databasen är omständigt. Kan jag bara kopiera över alla egenskaper använda reflektion? -** Ja. De enda egenskaper som visas i bindningen modeller är de som du har fastställt att vara säker för indata från användaren. Det finns ingen säkerhet anledning som förhindrar att använda reflektion för att kopiera över alla egenskaper som finns i vanliga mellan dessa två modeller.</li><li>**Vad händer om [binda (exkludera = ”â€¦”)]. Kan jag använda som i stället för att separat bindning modeller? -** Den här metoden rekommenderas inte. Med hjälp av [binda (exkludera = ”â€¦”)] innebär att alla nya egenskapen kan bindas till som standard. När en ny egenskap läggs till, det är ett extra steg för att komma ihåg att skydda saker istället för att ha design vara säkert som standard. Beroende på utvecklaren är kontrollerar den här listan varje gång en egenskap läggs riskfyllda.</li><li>**Är [binda (inkludera = ”â€¦”)] användbara för att redigera åtgärder? -** Nej. [Bindning (inkludera = ”â€¦”)] är endast tillgänglig för INSERT-format (lägga till nya data). Använd en annan metod, som att ha en separat bindning modeller eller skicka en lista med tillåtna egenskaper till UpdateModel eller TryUpdateModel för UPDATE-format (ändra befintliga data). Lägga till en [binda (inkludera = ”â€¦”)]-attributet på en redigeringsåtgärd innebär att MVC skapar en objektinstans och ange bara de listade egenskaperna, lämnar du alla andra standardinställningarna. När data bevaras ersätter den helt befintliga entiteten, när du återställer värdena för alla utelämnade egenskaper till sina standardinställningar. Om exempelvis IsAdmin utelämnades från en [binda (inkludera = ”â€¦”)]-attributet på en Redigera åtgärd, alla användare vars namn har redigerats via den här åtgärden skulle återställas till IsAdmin = false (alla redigerade användare förlorar Administratörsstatus). Om du vill förhindra att uppdateringar till vissa egenskaper, använda en av de andra metoderna ovan. Observera att vissa versioner av MVC-tooling generera controller klasser med [binda (inkludera = ”â€¦”)] redigera åtgärder och innebär att ta bort en egenskap från listan för att överdrivet bokföring attacker. Dock enligt beskrivningen ovan, denna metod fungerar inte som avsett och i stället återställs alla data i utelämnade egenskaper till sina standardvärden.</li><li>**För att skapa åtgärder, finns det några varningar med [binda (inkludera = ”â€¦”)] i stället för en separat bindning modeller? -** Ja. Den här metoden fungerar först inte redigera scenarier som kräver underhåll av två olika metoder för hur du minimerar alla över bokföring sårbarheter. Andra, separat bindning modeller tillse åtskillnad mellan för frågor mellan den form som används för indata från användare och den form som används för persistence, något [binda (inkludera = ”â€¦”)] påverkas inte. Observera att det tredje [binda (inkludera = ”â€¦”)] kan endast hantera översta egenskaper. Du kan inte tillåta endast delar av underordnade egenskaper (till exempel ”Details.Name”) i attributet. Slutligen och kanske använder viktigast av allt [binda (inkludera = ”â€¦”)] lägger till ytterligare ett steg som måste registreras när klassen används för modellbindning. Om en ny åtgärdsmetod Binder till dataklassen direkt och glömmer att inkludera en [binda (inkludera = ”â€¦”)] attribut, kan det bli sårbart för overpostingattacker, så den [binda (inkludera = ”â€¦”)] metod är mindre säker som standard. Om du använder [binda (inkludera = ”â€¦”)], var alltid noga för att komma ihåg att ange det varje gång din dataklasser visas som åtgärden metodparametrar.</li><li>**För att skapa åtgärder, vad händer om att den [binda (inkludera = ”â€¦”)]-attributet på klassen modellen? Inte den här metoden att undvika att behöva komma ihåg placera attributet på varje åtgärdsmetod? -** Den här metoden fungerar i vissa fall. Med hjälp av [binda (inkludera = ”â€¦”)] på modelltypen sig själv (inte på åtgärdsparametrar med den här klassen) undvika att behöva komma ihåg att ta den [binda (inkludera = ”â€¦”)]-attributet på varje åtgärdsmetod. Använda attribut direkt på klassen effektivt skapar en separat ytan på den här klassen för modellen bindning. Den här metoden kan dock endast för en modell bindning form per modellklass. Om en åtgärdsmetod måste tillåta modellen bindningen för ett fält (till exempel en administrativ åtgärd som uppdaterar användarroller) och andra åtgärder behöver förhindra att modellen bindning av det här fältet, fungerar inte den här metoden. Varje klass kan bara ha en modell bindning form. Om olika åtgärder behöver annan modell bindning former, de behöver för att representera formerna separat med hjälp av antingen separata modellen bindning klasser eller olika [binda (inkludera = ”â€¦”)] attribut på åtgärdsmetoder.</li><li>**Vad bindning modeller? Är de samma sak som visa modeller? -** Här är två relaterade begrepp. Termen bindning modellen refererar till en modellklass som används i parameterlistan för en åtgärd (den form som skickas från MVC-modellen bindningen till metoden åtgärd). Termen vymodell refererar till en modellklass som skickas från en åtgärdsmetod en vy. Med hjälp av en vy-specifika modellen är en vanlig metod för att skicka data från en åtgärdsmetod till en vy. Ofta formen passar också för modellen bindningen och vymodell termen kan användas för att referera samma modell på båda platser. För att vara exakt, kommunicerar med den här proceduren specifikt information om hur du binder modeller, fokusera på formen som skickas till åtgärden, vilket är det som är viktigt för tilldelning av drivrutiner för masslagring.</li></ul>| 
@@ -367,7 +367,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk, Web Forms, MVC5, MVC6 |
+| **Tillämpliga tekniker** | Generic, Web Forms, MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Hur du förhindrar Cross site scripting i ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx), [skriptattacker](http://cwe.mitre.org/data/definitions/79.html), [XSS (Cross Site Scripting) förebyggande facit blad](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
 | **Steg** | Cross site scripting (ofta förkortat som XSS) är en angreppsvinkel för online-tjänster eller program/komponenter som förbrukar indata från webben. XSS-problem kan en angripare att köra skript på en annan användares dator via ett sårbara webbprogram. Skadliga skript kan användas för att stjäla cookies och manipulera annars en offrets dator via JavaScript. XSS förhindras genom att verifiera indata från användaren, att se till att den är felfritt och kodning innan den återges på en webbsida. Verifiering av indata och utdatakodning kan göras med hjälp av bibliotek för skydd av webbprogram. För förvaltad kod (C\#, VB.net osv), använda en eller flera lämpliga kodning metoder från biblioteket Web Protection (skydd mot XSS), beroende på kontext där indata från användaren hämtar begäranden som visas:| 
@@ -392,7 +392,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Allmän och MVC5, MVC6 |
+| **Tillämpliga tekniker** | Generic, MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Att lägga till verifiering](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [verifierar modelldata i ett MVC-program](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [riktlinjer för dina ASP.NET MVC-program](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Steg** | <p>Alla indataparametrarna som måste verifieras innan de används i programmet så att programmet skyddas mot skadliga användarindata. Verifiera de indatavärden som med reguljära uttryck verifieringar på serversidan med en strategi för verifiering av listan över godkända. Unsanitized användarindata / parametrarna som skickades till metoder som kan orsaka kod inmatning.</p><p>För webbprogram innehålla startpunkter även formulärfält, frågesträngar, cookies, HTTP-huvuden och webbtjänstparametrar.</p><p>Följande kontroller för verifiering av indata måste utföras när modellen bindning:</p><ul><li>Modellegenskaper ska förses med reguljärt uttryck anteckning för att acceptera tillåtna tecken och tillåtna</li><li>Kontrollantmetoder bör utföra ModelState giltighet</li></ul>|
@@ -447,7 +447,7 @@ Använd inte `innerHtml`; i stället använda `innerText`. På samma sätt, i st
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Allmän och MVC5, MVC6 |
+| **Tillämpliga tekniker** | Generic, MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Verifiera modelldata i ett MVC-program](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [riktlinjer för dina ASP.NET MVC-program](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Steg** | Verifiering av indata med reguljära uttryck ska göras för metoder som bara godkänner primitiv typ och inte modeller som argument. Här bör Regex.IsMatch användas tillsammans med ett giltigt regex-mönster. Om indata inte matchar det angivna reguljära uttrycket, kontroll ska inte gå vidare och en förvarning om verifieringsfel ska visas.| 
@@ -458,7 +458,7 @@ Använd inte `innerHtml`; i stället använda `innerText`. På samma sätt, i st
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk, Web Forms, MVC5, MVC6  |
+| **Tillämpliga tekniker** | Generic, Web Forms, MVC5, MVC6  |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [DefaultRegexMatchTimeout egenskap ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Steg** | För att säkerställa DOS-attacker mot felaktigt ange skapade reguljära uttryck som orsakar långa slipper tidsgränsen för global standard. Om tid det tar längre tid än den angivna övre gränsen, returnerade den ett undantagsfel om Timeout. Om ingenting har konfigurerats, är tidsgränsen oändliga.| 
@@ -476,7 +476,7 @@ Till exempel genererar följande konfiguration en RegexMatchTimeoutException om 
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | MVC5 MVC6 |
+| **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
 | Steg | ASP.Net-webbsidor (Razor) utföra automatisk HTML-kodningen. Alla strängar som skrivits ut av inbäddad kod nuggets (@ block) är automatiskt HTML-kodad. Men när `HtmlHelper.Raw` -metoden har anropats, returnerar den kod som inte är HTML-kodat. Om `Html.Raw()` helper-metod som används, den kringgår det automatiska skyddet för kodning som Razor tillhandahåller.|
@@ -561,7 +561,7 @@ AS
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | MVC5 MVC6 |
+| **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Modellvalidering i ASP.NET webb-API ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Steg** | När en klient skickar data till ett webb-API, är det obligatoriskt att validera data innan du gör någon bearbetning. Använd data anteckningar för ASP.NET Web API: er som acceptera modeller som indata, på modeller för att ange valideringsregler för egenskaperna för modellen.|
@@ -618,7 +618,7 @@ namespace MyApi.Controllers
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Allmän och MVC 5, MVC 6 |
+| **Tillämpliga tekniker** | Generic, MVC 5, MVC 6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Verifiera modelldata i ett MVC-program](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [riktlinjer för dina ASP.NET MVC-program](https://msdn.microsoft.com/magazine/dd942822.aspx) |
 | **Steg** | Verifiering av indata med reguljära uttryck ska göras för metoder som bara godkänner primitiv typ och inte modeller som argument. Här bör Regex.IsMatch användas tillsammans med ett giltigt regex-mönster. Om indata inte matchar det angivna reguljära uttrycket, kontroll ska inte gå vidare och en förvarning om verifieringsfel ska visas.|
@@ -653,7 +653,7 @@ myCommand.Fill(userDataset);
 ```
 I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om data inte stämmer överens med typen eller längd som anges av parametern, utlöser SqlParameter klassen ett undantag. 
 
-## <a id="sql-docdb"></a>Använda SQL-frågor för innehåller parametrar för Cosmos DB
+## <a id="sql-docdb"></a>Använda parametriserade SQL-frågor för Cosmos DB
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
@@ -670,7 +670,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk NET Framework 3 |
+| **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
 | **Steg** | <p>Brist på verifiering leder till annan typ inmatningsangrepp.</p><p>Verifiering av meddelandet representerar en försvarslinje i skydd av WCF-program. Med den här metoden kan validera du meddelanden med scheman för att skydda WCF-tjänståtgärder mot angrepp genom att en falsk klient. Validera alla meddelanden som tas emot av klienten att skydda klienten mot angrepp av skadlig-tjänsten. Meddelandet verifiering gör det möjligt att verifiera meddelanden när åtgärder som förbrukar meddelandet kontrakt eller data avtal, som inte kan utföras med hjälp av parametern-verifiering. Meddelande-verifiering kan du skapa validering av logik i scheman, vilket ger mer flexibilitet och minska utvecklingstiden. Scheman kan återanvändas i olika program i organisationen, skapa standarder för datarepresentation. Dessutom kan meddelandet verifiering du skydda åtgärder när de använder mer komplexa datatyper som involverar kontrakt som representerar affärslogik.</p><p>Om du vill utföra verifiering av meddelandet skapa du först ett schema som representerar driften av din tjänst och de datatyper som används av dessa åtgärder. Du kan sedan skapa en .NET-klass som implementerar en anpassad klient meddelande inspector och anpassade dispatcher meddelande inspector för att verifiera de meddelanden som skickats/tagits emot till och från tjänsten. Nu ska implementera du en anpassad slutpunkt för att aktivera meddelandet autentiserades på både klienten och tjänsten. Slutligen kan du implementera en anpassad konfigurationselementet om klassen som gör det möjligt att exponera det utökade anpassa slutpunktsfunktionaliteter i konfigurationsfilen för tjänsten eller klienten ”</p>|
@@ -681,7 +681,7 @@ I ovanstående kodexempel får inte indatavärdet vara längre än 11 tecken. Om
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk NET Framework 3 |
+| **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
 | **Steg** | <p>Verifiering av indata och data representerar en viktig försvarslinje i skydd av WCF-program. Du bör verifiera alla parametrar som visas i WCF-tjänståtgärder tjänsten skyddas från angrepp av en falsk klient. Däremot bör du också kontrollera alla returvärden som tagits emot av klienten för att skydda den mot angrepp av skadlig-tjänsten</p><p>WCF innehåller olika punkter som gör det möjligt att anpassa beteendet för WCF-runtime genom att skapa anpassade tillägg. Meddelande-kontroller och parametern Inspectors är två utökningsbarhet mekanismer som används för att få bättre kontroll över de data som skickas mellan en klient och en tjänst. Du bör använda parametern-kontroller för verifiering av indata och använder meddelande inspectors endast när du behöver granska hela meddelandet flödar in och ut ur en tjänst.</p><p>Om du vill utföra verifiering av indata måste du skapa en .NET-klass och implementera en anpassad parameter inspector för att kunna verifiera parametrar på åtgärder i din tjänst. Du kommer sedan att implementera en anpassad slutpunkt beteende om du vill aktivera validering av både klienten och tjänsten. Slutligen implementerar du en anpassad konfigurationselement på den klass som gör att du kan exponera det utökade anpassa slutpunktsfunktionaliteter i konfigurationsfilen för tjänsten eller klienten</p>|

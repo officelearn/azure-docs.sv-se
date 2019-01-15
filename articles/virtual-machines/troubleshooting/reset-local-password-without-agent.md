@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412796"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267053"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa lokala Windows-lösenord för Azure VM offline
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) angivna Azure-gästagenten är installerad. Den här metoden är det primära sättet att återställa ett lösenord för en Azure-dator. Om du får problem med Azure-gästagenten svarar inte eller inte kunde installeras när du har överfört en anpassad avbildning, kan du manuellt kan du återställer en Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt kontolösenord genom att koppla den virtuella käll-OS-disken till en annan virtuell dator. Stegen som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
 
 > [!WARNING]
-> Bara använda den här processen som en sista utväg. Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) första.
+> Använd endast den här processen som en sista utväg. Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) första.
 > 
 > 
 
@@ -37,6 +37,19 @@ Grundläggande stegen för att utföra en lokal återställning av lösenord fö
 * Koppla bort den Virtuella datorns OS-disken från Virtuellt felsökningsdatorn.
 * Använd en Resource Manager-mall för att skapa en virtuell dator med hjälp av den ursprungliga virtuella hårddisken.
 * När den nya virtuella datorn startas, uppdatera lösenordet för den nödvändiga användaren konfigurationsfiler som du skapar.
+
+> [!NOTE]
+> Du kan automatisera följande processer:
+>
+> - Skapa Virtuellt felsökningsdatorn
+> - Koppla OS-disken
+> - Återskapa den ursprungliga virtuella datorn
+> 
+> Gör detta genom att använda den [Azure VM Recovery skript](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Om du väljer att använda Azure VM Recovery skript använder du följande process i avsnittet ”detaljerade steg”:
+> 1. Hoppa över steg 1 och 2 genom att använda skripten för att koppla OS-disken på den berörda virtuella datorn till en virtuell dator för återställning.
+> 2. Följ steg 3 – 6 för att tillämpa åtgärder.
+> 3. Hoppa över steg 7 – 9 genom att använda skripten för att återskapa den virtuella datorn.
+> 4. Följ steg 10 och 11.
 
 ## <a name="detailed-steps"></a>Detaljerade steg
 
@@ -112,7 +125,7 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Skapa FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     Du måste uppfylla krav på komplexitet konfigurerat lösenord för den virtuella datorn när du definierar det nya lösenordet.
 7. Koppla från disken från datorn för felsökning i Azure-portalen:
@@ -133,7 +146,7 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
      ![Kopiera disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Skapa en virtuell dator från den Virtuella källdatorns OS-disken:
    
-   Använd [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) att skapa en virtuell dator från en specialiserad virtuell Hårddisk. Klicka på den `Deploy to Azure` knappen för att öppna Azure portal med mallbaserade informationen som fyllts i åt dig.
+   * Använd [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) att skapa en virtuell dator från en specialiserad virtuell Hårddisk. Klicka på den `Deploy to Azure` knappen för att öppna Azure portal med mallbaserade informationen som fyllts i åt dig.
    * Om du vill behålla de tidigare inställningarna för den virtuella datorn, väljer *redigera mallen* att tillhandahålla ditt befintligt virtuellt nätverk, undernät, nätverkskort eller offentlig IP-adress.
    * I den `OSDISKVHDURI` parametern textruta, klistra in URI för källan VHD hämta i föregående steg:
      
@@ -141,11 +154,11 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
 10. När den nya virtuella datorn körs, ansluta till den virtuella datorn med hjälp av fjärrskrivbord med det nya lösenordet du angav i den `FixAzureVM.cmd` skript.
 11. Ta bort följande filer att rensa miljön från din fjärrsession till den nya virtuella datorn:
     
-    * Från %windir%\System32
+    * From %windir%\System32
       * remove FixAzureVM.cmd
     * Från %windir%\System32\GroupPolicy\Machine\
       * ta bort scripts.ini
-    * Från %windir%\System32\GroupPolicy
+    * From %windir%\System32\GroupPolicy
       * ta bort gpt.ini (om gpt.ini fanns före och du bytt namn till gpt.ini.bak, Byt namn på bak-filen tillbaka till gpt.ini)
 
 ## <a name="next-steps"></a>Nästa steg

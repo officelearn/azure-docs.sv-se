@@ -1,26 +1,8 @@
 ---
-title: Azure AI-galleriet anpassade moduler – Azure Machine Learning Studio | Microsoft Docs
-description: Upptäck anpassade machine learning-moduler i Azure AI-galleriet. Anpassade moduler utöka funktionerna hos Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/14/2017
-ms.openlocfilehash: 92067a93a1f67711df0312f4daf484a577ff14d1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273211"
+Rubrik: Azure AI-galleriet anpassade moduler titleSuffix: Beskrivning av Azure Machine Learning Studio: Upptäck anpassade machine learning-moduler i Azure AI-galleriet. Anpassade moduler utöka funktionerna hos Azure Machine Learning Studio.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/14/2017
 ---
 # <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: Identifiera anpassade machine learning-moduler i Azure AI-galleriet
 

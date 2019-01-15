@@ -1,6 +1,6 @@
 ---
 title: Azure-fakturering och kostnaden scenario för hantering av budget | Microsoft Docs
-description: Lär dig hur du använder Azure automatation för att Stäng av virtuella datorer baserat på specifika budgetgränser.
+description: Lär dig hur du använder Azure automation för att stänga av virtuella datorer baserat på specifika budgetgränser.
 services: billing
 documentationcenter: ''
 author: Erikre
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0c67b100b0d44b539a37a8ea54954d58bba38cb5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094821"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267206"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
@@ -116,7 +116,7 @@ Logikappen utför flera åtgärder. I följande lista ger en övergripande upps�
 
 Följande steg krävs för att skapa den logikapp som utför stegen ovan:
 
-1.  I den [Azure-portalen](https://portal.azure.com/)väljer **skapa en resurs** > **integrering** > **Logikapp**.
+1.  På [Azure-portalen](https://portal.azure.com/) väljer du **Skapa en resurs** > **Integrering** > **Logikapp**.
     
     ![Azure - Välj logikappresursen](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
 2.  I den **skapa en logikapp** bladet ger information måste du skapa din logikapp, Välj **fäst på instrumentpanelen**, och klicka på **skapa**. 
@@ -132,7 +132,7 @@ Varje logikapp måste börja med en utlösare som utlöses när en specifik hän
 1.  Under **mallar** av den **Logic Apps Designer** bladet välj **tom Logikapp**.
 2.  Lägg till en [utlösaren](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) genom att ange ”http-begäran” i den **Logic Apps Designer** sökrutan för att söka efter och välja utlösare med namnet **begär – när en HTTP-begäran tas emot**.
     
-    ![Azure - logikapp – Http-utlösare](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png) 
+    ![Azure - Logic app - Http trigger](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png) 
 3.  Välj **nytt steg** > **Lägg till en åtgärd**. 
     
     ![Azure - nytt steg – Lägg till en åtgärd](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png) 
@@ -208,7 +208,7 @@ Använda en villkorlig instruktion för att kontrollera om tröskelvärdet har u
         
     Du behöver så att Logikappen att komma åt din e-post-information.
     
-    ![Azure - logikapp – åtkomst meddelande](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png) 
+    ![Azure - Logic app - Access notice](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png) 
         
 21. Lägg till den **till**, **ämne**, och **brödtext** texten för e-postmeddelande som informerar mottagaren om att de valfria virtuella datorerna har stängts av. Använd den **BudgetName** och **NotificationThresholdAmount** dynamiskt innehåll för att fylla i fälten ämne och brödtext.
     

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249378"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262379"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -35,12 +35,12 @@ Den här artikeln förutsätter att du redan har installerat en SUSE- eller open
 * Konfigurera inte swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlingsfil på temporär disk.  Mer information om detta finns i stegen nedan.
 * Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB före omvandlingen. Se [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.
 
-## <a name="use-suse-studio"></a>Använd SUSE Studio
+## <a name="use-suse-studio"></a>Use SUSE Studio
 [SUSE Studio](http://www.susestudio.com) kan enkelt skapa och hantera dina SLES och openSUSE avbildningar för Azure och Hyper-V. Det här är den rekommenderade metoden för att anpassa dina egna SLES och openSUSE-avbildningar.
 
 Som ett alternativ till att skapa en egen virtuell Hårddisk, SUSE publicerar även BYOS (ta med din egen prenumeration) avbildningar för SLES på [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Förbereda SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Prepare SUSE Linux Enterprise Server 11 SP4
 1. I den mittersta rutan av Hyper-V Manager väljer du den virtuella datorn.
 2. Klicka på **Connect** att öppna fönstret för den virtuella datorn.
 3. Registrera din SUSE Linux Enterprise-system så att den kan hämta uppdateringar och installera paket.
@@ -49,7 +49,7 @@ Som ett alternativ till att skapa en egen virtuell Hårddisk, SUSE publicerar ä
         # sudo zypper update
 5. Installera Azure Linux Agent från SLES-lagringsplatsen:
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. Kontrollera om waagent är inställd på ”on” i chkconfig och om inte, aktiverar du det för autostart:
    
         # sudo chkconfig waagent on
@@ -132,7 +132,7 @@ Som ett alternativ till att skapa en egen virtuell Hårddisk, SUSE publicerar ä
         # sudo zypper install WALinuxAgent
 6. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Gör detta genom att öppna ”/ boot/grub/menu.lst” i en textredigerare och se till att standardkernel innehåller följande parametrar:
    
-     konsolen = ttyS0 earlyprintk = ttyS0 rootdelay = 300
+     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
    Det säkerställer att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Dessutom ta bort följande parametrar från i kernel boot line om de finns:
    
@@ -140,7 +140,7 @@ Som ett alternativ till att skapa en egen virtuell Hårddisk, SUSE publicerar ä
 7. Det är rekommenderat att redigera filen ”/ etc/sysconfig/nätverk/dhcp” och ändra den `DHCLIENT_SET_HOSTNAME` parametern för följande:
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Viktigt:** i ”/ etc/sudoers”, kommentera ut eller ta bort följande rader om de finns:
+8. **Viktigt!** I ”/ etc/sudoers”, kommentera ut eller ta bort följande rader om de finns:
    
      Som standard targetpw # be om lösenordet för målanvändaren d.v.s. rot alla ALL=(ALL) alla # varning! Använd endast detta tillsammans med ”standardvärden targetpw'!
 9. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas.  Detta är vanligtvis standardinställningen.

@@ -1,44 +1,44 @@
 ---
 title: Moderera text med anpassad termlistor - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Testa anpassad termlistor i Content Moderator-API-konsolen.
+description: Använd listan Management-API för att skapa anpassade listor av termer som du använder med Moderering av Text-API.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 99df9fda2cc56f169a61ec215a976de28fc13d27
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fea671df0609b9c4dca9eaae99d1bfe667616837
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220286"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259435"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Måttlig med anpassade termlistor i API-konsol
 
-Global standardlistan med villkor i Azure Content Moderator räcker för de flesta moderering behov. Du kan dock behöva mallarnas termer som är specifika för din organisation. Du kanske exempelvis vill konkurrent taggnamn för vidare undersökning. 
+Den standardmässiga globala listan med termer i Azure Content Moderator räcker för de flesta modereringsbehov. Du kan dock behöva kontrollera termer som är specifika för din organisation. Till exempel vill du kanske tagga namn på konkurrenter för vidare granskning. 
 
 Använd den [listan Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) att skapa anpassade listor av termer som du använder med Moderering av Text-API. Den **Text - skärmen** åtgärden söker igenom din text med avseende på svordomar och jämför också texten mot anpassade och delade svartlistor.
 
 > [!NOTE]
-> Det finns en maxgräns på **5 termen visar en lista över** med varje lista till **inte överstiga 10 000 villkoren**.
+> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
 >
 
 Du kan använda listan Management-API för att utföra följande uppgifter:
 - Skapa en lista.
-- Lägga till villkor i en lista.
-- Skärmen villkor mot villkoren i en lista.
-- Ta bort villkor från en lista.
+- Lägga till termer i en lista.
+- Kontrollera termer mot termer i en lista.
+- Ta bort termer från en lista.
 - Ta bort en lista.
 - Redigera listinformation.
-- Uppdatera indexet så att ändringarna i listan som ingår i en ny genomsökning.
+- Uppdatera indexet så att ändringar i listan inkluderas i en ny genomsökning.
 
 ## <a name="use-the-api-console"></a>Använd API-konsol
 
-Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den här nyckeln finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [översikt](overview.md).
+Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den här nyckeln finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [Översikt](overview.md).
 
 ## <a name="refresh-search-index"></a>Uppdatera search-index
 
@@ -119,13 +119,13 @@ När du gör ändringar i en termlista, måste du uppdatera dess index för änd
  
 13. Lägg till några flera villkor. Nu när du har skapat en anpassad lista med termer [genomsöka text](try-text-api.md) med hjälp av anpassade termen-listan. 
 
-## <a name="delete-terms-and-lists"></a>Ta bort villkor och listor
+## <a name="delete-terms-and-lists"></a>Ta bort termer och listor
 
 Det är enkelt att ta bort en term eller en lista. Du kan använda API: et för att utföra följande uppgifter:
 
 - Ta bort en term. (**Term – ta bort**)
-- Ta bort alla villkor i en lista utan att ta bort i listan. (**Term – ta bort alla villkor**)
-- Ta bort en lista och dess innehåll. (**Termlistor - ta bort**)
+- Ta bort alla termer i en lista utan att ta bort listan. (**Term – ta bort alla villkor**)
+- Ta bort en lista och allt dess innehåll. (**Termlistor - ta bort**)
 
 Det här exemplet tar bort en enskild term.
 

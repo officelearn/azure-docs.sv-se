@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871350"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261510"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -67,7 +67,7 @@ Klicka på panelerna (utom Backup Storage) för att öppna menyn associerade. I 
 
 ![Aviseringar om säkerhetskopiering menyn filtreras för viktiga aviseringar](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Backup Alerts-menyn, i bilden ovan, filtreras efter: Status är aktiv, allvarlighetsgrad är kritiskt och föregående 24 timmar.
+Backup Alerts-menyn, i bilden ovan, filtreras efter: Statusen är aktiv, allvarlighetsgrad är kritiskt och föregående 24 timmar.
 
 ## <a name="manage-backup-alerts"></a>Hantera aviseringar för säkerhetskopiering
 
@@ -85,8 +85,8 @@ Backup aviseringslistan visar den valda informationen för de filtrerade aviseri
 
 | Aviseringsnivå | Händelser som genererar aviseringar |
 | ----------- | ----------- |
-| Kritisk | Du får viktiga aviseringar när: säkerhetskopiering jobb misslyckas återställningsjobb misslyckas och när du stoppar skyddet på en server, men behålla data.|
-| Varning | Du får varning aviseringar när: säkerhetskopiering jobben har slutförts med varningar, till exempel när färre än 100 filer säkerhetskopieras inte på grund av problem med skador, eller när det är större än 1 000 000 filer har säkerhetskopierat). |
+| Kritisk | Du får viktiga aviseringar när: Säkerhetskopieringsjobb misslyckas, återställningsjobb misslyckas och när du stoppar skyddet på en server, men behålla data.|
+| Varning | Du får varning aviseringar när: Säkerhetskopieringsjobb Slutför med varningar, till exempel när färre än 100 filer säkerhetskopieras inte på grund av problem med skador, eller när det är större än 1 000 000 filer har säkerhetskopierat). |
 | Information | för närvarande används inga informationsaviseringar. |
 
 ### <a name="viewing-alert-details"></a>Visa aviseringsinformation
@@ -237,7 +237,7 @@ Du kan visa Status för alla eller en. Du kan inte välja två eller tre status.
 * Pågår
 * Misslyckad
 * Avbrutna
-* Har slutförts med varningar
+* Slutfört med varningar
 
 #### <a name="start-time"></a>Starttid
 
@@ -247,11 +247,11 @@ Dag och tid som frågan börjar. Standardvärdet är en 24-timmarsperiod.
 
 Den dag och tid när frågan slutar.
 
-### <a name="export-jobs"></a>Export-jobb
+### <a name="export-jobs"></a>Exportera jobb
 
 Använd **exportera jobb** att skapa ett kalkylblad som innehåller alla jobb menyn uppgifter. Kalkylbladet har ett blad som innehåller en sammanfattning av alla jobb och enskilda ark för varje jobb.
 
-Om du vill exportera jobb informationen till ett kalkylblad, klickar du på **exportera jobb**. Tjänsten skapar en speadsheet med namnet på valvet och datum, men du kan ändra namnet.
+Om du vill exportera jobb informationen till ett kalkylblad, klickar du på **exportera jobb**. Tjänsten skapar ett kalkylblad med namnet på valvet och datum, men du kan ändra namnet.
 
 ## <a name="monitor-backup-usage"></a>Övervaka säkerhetskopiering användning
 
@@ -281,9 +281,9 @@ S3. Ja. I följande situationer skickas inte meddelanden.
 
 ## <a name="troubleshooting-monitoring-issues"></a>Felsökning av problem med övervakning
 
-**Problem:** jobb och/eller varningar från Azure Backup-agenten inte visas i portalen.
+**Problem:** Jobb och/eller varningar från Azure Backup-agenten visas inte i portalen.
 
-**Felsökning:** processen, ```OBRecoveryServicesManagementAgent```, skickar jobbet och avisering data till Azure Backup-tjänsten. Ibland den här processen kan fastna eller avstängning.
+**Felsökningssteg:** Processen ```OBRecoveryServicesManagementAgent```, skickar jobbet och avisering data till Azure Backup-tjänsten. Ibland den här processen kan fastna eller avstängning.
 
 1. Kontrollera att processen inte körs, att öppna **Aktivitetshanteraren**, och kontrollera ```OBRecoveryServicesManagementAgent``` körs.
 

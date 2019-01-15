@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: e6f284b2a3483b21901dc4ad26bff83b8fcd8848
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f2d3c40352d60d3cc7366aca6f38a8255a7a629
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843027"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302399"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över kör en FreeBSD-dator i Azure.
@@ -42,7 +42,6 @@ För framtida versioner av FreeBSD är strategin att hålla dig uppdaterad och t
 Distribuera en FreeBSD virtuell dator är enkelt att använda en avbildning från Azure Marketplace från Azure portal:
 
 - [FreeBSD 10.4 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-- [FreeBSD 11.1 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 - [FreeBSD 11.2 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Skapa en FreeBSD virtuell dator via Azure CLI på FreeBSD
@@ -134,4 +133,4 @@ Du kan också hämta ett rot-gränssnitt med hjälp av `sudo -s`.
 Den [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) versionen 2.2.2 har en [känt problem](https://github.com/Azure/WALinuxAgent/pull/517) som orsakar felet etablera för FreeBSD VM på Azure. Korrigeringen samlades in av [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 och senare versioner. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Gå till [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) att skapa en FreeBSD-VM.
+* Gå till [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) att skapa en FreeBSD-VM.

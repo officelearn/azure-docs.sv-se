@@ -1,25 +1,8 @@
 ---
-title: Azure Batch-tjänsten för Machine Learning Studio-jobb | Microsoft Docs
-description: Översikt över Azure Batch-tjänster för Machine Learning-jobb. Batchbearbetning för IP-Pool kan du skapa pooler där du kan skicka batch-jobb.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275201"
+Rubrik: Azure Batch-tjänsten för Machine Learning Studio jobb titleSuffix: Beskrivning av Azure Machine Learning Studio: Översikt över Azure Batch-tjänster för Machine Learning-jobb. Batchbearbetning för IP-Pool kan du skapa pooler där du kan skicka batch-jobb.
+tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+
+Författare: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, tidigare title = ”dedikerad kapacitet för batch-körningen service-jobb – Azure Machine Learning Studio | Microsoft Docs ms.date: 04/19/2017
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Batch-tjänsten för Azure Machine Learning Studio-jobb
 

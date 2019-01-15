@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339340"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259972"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -28,12 +28,15 @@ Den här artikeln förklarar hur säkerhetsprinciper har konfigurerats och hur d
 
 Anvisningar om hur du anger principer med hjälp av PowerShell finns i [snabbstarten: Skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Azure RM PowerShell-modulen](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> Security Center igång dess integrering med Azure Policy. Befintliga kunder kommer att migreras automatiskt till det nya inbyggda initiativet i Azure Policy, i stället för föregående säkerhetsprinciper i Security Center. Den här ändringen påverkar inte dina resurser eller miljö utom förekomst av det nya initiativet i Azure Policy.
+
 ## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
 En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Policy. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 Dina säkerhetsprinciper innehåller säkerhetsrekommendationer som du får i Azure Security Center. Du kan övervaka efterlevnad med dem för att hjälpa dig att upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig finns i listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md).
+
+När du aktiverar Security Center, visas säkerhetsprincipen som är inbyggd i Security Center i Azure Policy som en inbyggd initiativ under kategorin Security Center. Den inbyggda intitiative tilldelas automatiskt till alla Security Center registrerad prenumerationer (kostnadsfri eller Standard-nivå). Inbyggda initiativet innehåller endast granskningsprinciper. 
 
 
 ### <a name="management-groups"></a>Hanteringsgrupper
@@ -57,8 +60,6 @@ En Azure-princip består av följande komponenter:
 - En **initiativ** är en samling av principer.
 - En **tilldelning** är program till ett initiativ eller en princip för ett visst område (hanteringsgruppen, prenumeration eller resursgrupp).
 
-En resurs utvärderas mot de principer den tilldelats och får en efterlevnadsgrad utifrån antalet principer som gäller för resursen.
-
 ## <a name="view-security-policies"></a>Visa säkerhetsprinciper
 
 Visa dina säkerhetsprinciper i Security Center:
@@ -76,12 +77,9 @@ Visa dina säkerhetsprinciper i Security Center:
   Tabellens kolumner:
 
  - **Principinitiativsuppgift** – Security Center [inbyggda principer](security-center-policy-definitions.md) och initiativ som har tilldelats en prenumerations- eller grupp.
- - **Efterlevnad** – övergripande kompatibilitetspoäng för en hanteringsgrupp, en prenumeration eller en arbetsyta. Efterlevnadsgraden är det viktade medelvärdet av tilldelningarna. Viktade medelvärdesfaktorer är antalet principer i en enda tilldelning och antalet resurser som omfattas av tilldelningen.
-
- Om din prenumeration till exempel innehåller två virtuella datorer som är tilldelade ett initiativ med fem principer har prenumerationen 10 utvärderingar. Om en av de virtuella datorerna inte uppfyller två av principerna är den totala efterlevnadsgraden 80 % för din prenumerations tilldelning.
-
  - **Täckning** – identifierar prisnivån kostnadsfri eller Standard som hanteringsgruppen, prenumeration eller arbetsyta körs på.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
  - **Inställningar för** – prenumerationer har länken **redigera inställningar för**. Att välja **redigera inställningar för** låter dig uppdatera ditt [Security Center-inställningar](security-center-policies-overview.md) för varje prenumerations- eller grupp.
+ - **Säker poäng** – [säker poäng](security-center-secure-score.md) ger ett mått på hur säker din arbetsbelastning säkerhetsposition och hjälper dig att prioritera rekommendationer för förbättring.
 
 2. Välj den prenumeration eller hanteringsgrupp grupp vars principer som du vill visa.
 
@@ -214,7 +212,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |Säkerhetskonfigurationer |Övervaka OS-säkerhetsproblem i Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Slutpunktsskydd |Övervaka saknad Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
 |Diskkryptering |Övervaka okrypterade Virtuella Datordiskar i Azure Security Center |diskEncryptionMonitoringEffect|
-|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuell dator i Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
 |Brandvägg för webbaserade program |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverksslutpunkter i Azure Security Center| |
 

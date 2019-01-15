@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2018
-ms.openlocfilehash: 4598c0ab02e7dcbb8fbc963a2939ab6f812832db
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/15/2019
+ms.openlocfilehash: cab1e47d6d0b40fab881d7948381b6294f52546d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713450"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303385"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL Database med Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2016 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
@@ -61,7 +61,7 @@ Du kan skapa ny instans av Azure Database Migration Service med hjälp av den `N
 - *Namn på Azure-resursgrupp*. Du kan använda [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) kommando för att skapa Azure-resursgrupp som tidigare visas och ange dess namn som en parameter.
 - *Tjänstnamnet*. Sträng som motsvarar det önskade unikt tjänstnamnet för Azure Database Migration Service 
 - *Plats*. Anger platsen för tjänsten. Ange en plats för Azure data center, till exempel USA, västra eller Sydostasien
-- *SKU*. Den här parametern motsvarar DMS Sku-namnet. För närvarande stöds Sku-namnet är *GeneralPurpose_4vCores*.
+- *Sku*. Den här parametern motsvarar DMS Sku-namnet. För närvarande stöds Sku-namnet är *GeneralPurpose_4vCores*.
 - *Virtuella undernät-ID*. Du kan använda cmdleten [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) att skapa ett undernät. 
 
 I följande exempel skapas en tjänst med namnet *MyDMS* i resursgruppen *MyDMSResourceGroup* finns i den *USA, östra* region med hjälp av ett virtuellt nätverk med namnet  *MyVNET* och undernät som kallas *MySubnet*.
@@ -204,6 +204,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## <a name="deleting-the-dms-instance"></a>Tar bort DMS-instans
+När migreringen är klar, kan du ta bort Azure DMS-instans:
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## <a name="next-steps"></a>Nästa steg

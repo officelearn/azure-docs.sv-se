@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620140"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261187"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v2.0-slutpunkten
 
@@ -145,7 +145,7 @@ Om din app kräver åtkomst till begränsat scope för organisationer, bör du b
 
 Om programmet begär Privilegierade delegerade behörigheter och en administratör ger dessa behörigheter via medgivande adminslutpunkten, godkänns medgivande för alla användare i klienten.
 
-Om programmet begär behörigheter för programmet och en administratör beviljar följande behörigheter via administratören godkänna endpoint, görs inte det här beviljandet för en viss användares räkning. I stället klientprogrammet beviljas behörigheter *direkt*. Dessa typer av behörigheter som vanligtvis endast används av daemon servies och andra icke-interaktiva program som körs i bakgrunden.
+Om programmet begär behörigheter för programmet och en administratör beviljar följande behörigheter via administratören godkänna endpoint, görs inte det här beviljandet för en viss användares räkning. I stället klientprogrammet beviljas behörigheter *direkt*. Dessa typer av behörigheter som vanligtvis endast används av daemon-tjänster och andra icke-interaktiva program som körs i bakgrunden.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Med hjälp av administratören medgivande slutpunkt
 
@@ -254,4 +254,4 @@ Läs mer om OAuth 2.0-protokollet och hur du hämtar åtkomsttoken, den [protoko
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du eller ditt programs användare ser ett oväntat fel under medgivande, hittar du i den här artikeln felsökningsstegen: [ett oväntat fel inträffade när du utför medgivande till ett program](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Om du eller ditt programs användare ser ett oväntat fel under medgivande, hittar du i den här artikeln för felsökning: [Ett oväntat fel inträffade när du utför medgivande till ett program](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

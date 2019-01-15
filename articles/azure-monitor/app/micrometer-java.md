@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 95a76cd46a86f70213ca381df4d52463666ace8d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108456"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259614"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Hur du använder mikrometer med Azure Application Insights Java SDK
 Mikrometer övervakning mått programmått för JVM-baserade program kod och hjälper dig att exportera data till dina favorit övervakningssystem. Den här artikeln får du lära dig att använda mikrometer med Application Insights för både Spring Boot och Spring Boot-program.
@@ -27,7 +27,7 @@ Lägg till följande beroenden till pom.xml eller build.gradle-fil:
 * [Application Insights spring boot-starter-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA eller senare
 * Mikrometer Azure registret 1.1.0 eller senare
 * [Mikrometer Spring äldre](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 eller senare (den här backportar autoconfig koden inom ramen för Spring).
-* [ApplicationInsights resurs](../../azure-monitor/app/create-new-resource.md )
+* [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
 
 Steg
 
@@ -89,27 +89,27 @@ Standard mått:
 *    Konfigureras automatiskt mått för Tomcat, JVM, Logback mått, Log4J mätvärden, drifttid mått, Processor mått, FileDescriptorMetrics.
 *    Till exempel om netflix hystrix finns på klassökvägen få vi dessa mått samt. 
 *    Följande mått kan vara tillgängliga genom att lägga till respektive beans. 
-        - CacheMetrics (CaffineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
         - OkHttp3 mått 
-        - Kafka-mått 
+        - Kafka Metrics 
 
  
 
 Hur du stänger av automatisk mått samling: 
  
 - JVM-mått: 
-    - Management.Metrics.binders.JVM.Enabled=False 
+    - management.metrics.binders.jvm.enabled=false 
 - Logback mått: 
-    - Management.Metrics.binders.logback.Enabled=False
+    - management.metrics.binders.logback.enabled=false
 - Drifttid mått: 
-    - Management.Metrics.binders.uptime.Enabled=False 
+    - management.metrics.binders.uptime.enabled=false 
 - Processor mått:
-    -  Management.Metrics.binders.processor.Enabled=False 
+    -  management.metrics.binders.processor.enabled=false 
 - FileDescriptorMetrics:
-    - Management.Metrics.binders.Files.Enabled=False 
+    - management.metrics.binders.files.enabled=false 
 - Hystrix mått om biblioteket på klassökvägen: 
     - Management.Metrics.binders.hystrix.Enabled=False 
 - AspectJ mått om biblioteket på klassökvägen: 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804556"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264010"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Stöd för språk och din region för den nyhetssökning i Bing
 
@@ -40,27 +40,27 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Australien|Svenska|SV-Australien|
 |Kanada|Svenska|en CA: N|
 |Storbritannien|Svenska|en-GB|
-|Indonesien|Svenska|SV-ID|
+|Indonesien|Svenska|en-ID|
 |Irland|Svenska|en IE|
 |Indien|Svenska|en Indien|
-|Malaysia|Svenska|en min|
+|Malaysia|Svenska|en-MY|
 |Nya Zeeland|Svenska|en NZ|
-|Filippinerna|Svenska|en f|
-|Singapore|Svenska|en SG|
-|USA|Svenska|sv-SE|
+|Filippinerna|Svenska|en-PH|
+|Singapore|Svenska|en-SG|
+|USA|Svenska|en-US|
 |Svenska|Allmänt|en WW|
-|Svenska|Allmänt|en XA|
+|Svenska|Allmänt|en-XA|
 |Sydafrika|Svenska|en ZA|
-|Argentina|Spanska|ES AR|
-|Chile|Spanska|ES – CL|
+|Argentina|Spanska|es-AR|
+|Chile|Spanska|es-CL|
 |Spanien|Spanska|es-ES|
 |Mexiko|Spanska|es-MX|
-|USA|Spanska|ES-USA|
-|Spanska|Allmänt|ES-XL|
+|USA|Spanska|es-US|
+|Spanska|Allmänt|es-XL|
 |Finland|Finska|fi-FI|  
-|Frankrike|Franska|fr-vara|
+|Frankrike|Franska|fr-BE|
 |Kanada|Franska|fr-CA|
-|Belgien|Nederländska|NL-vara|
+|Belgien|Nederländska|nl-BE|
 |Schweiz|Franska|fr CH|
 |Frankrike|Franska|fr-FR|  
 |Italien|Italienska|IT-IT|
@@ -86,11 +86,11 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Tyskland|Tyska|de-DE|
 |Australien|Svenska|SV-Australien|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
+|USA|Svenska|en-US|
 |Svenska|Allmänt|en WW|
-|Chile|Spanska|ES – CL|
+|Chile|Spanska|es-CL|
 |Mexiko|Spanska|es-MX|
-|USA|Spanska|ES-USA|
+|USA|Spanska|es-US|
 |Finland|Finska|fi-FI|  
 |Kanada|Franska|fr-CA|
 |Frankrike|Franska|fr-FR|  
@@ -108,7 +108,7 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Tyskland|Tyska|de-DE|
 |Australien|Svenska|SV-Australien|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
+|USA|Svenska|en-US|
 |Kanada|Svenska|en CA: N|
 |Indien|Svenska|en Indien|
 |Frankrike|Franska|fr-FR|
@@ -124,28 +124,28 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 
 |Land/region|Landskod|  
 |---------------------|------------------|  
-|Argentina|KUNDRESKONTRA|  
-|Australien|AUSTRALIEN|  
+|Argentina|AR|  
+|Australien|AU|  
 |Österrike|AT|  
-|Belgien|VARA|  
+|Belgien|BE|  
 |Brasilien|BR|  
 |Kanada|CA|  
 |Chile|CL|  
 |Danmark|DK|  
 |Finland|FI|  
 |Frankrike|FR|  
-|Tyskland|TYSKLAND|  
+|Tyskland|DE|  
 |Hongkong SAR|HK|  
-|Indien|INDIEN|  
+|Indien|IN|  
 |Indonesien|ID|  
 |Italien|IT|  
 |Japan|JP|  
-|Korea|KOREA|  
-|Malaysia|MIN|  
+|Korea|KR|  
+|Malaysia|MY|  
 |Mexiko|MX|  
 |Nederländerna|NL|  
 |Nya Zeeland|NZ|  
-|Norge|NEJ|  
+|Norge|NO|  
 |Folkrepubliken Kina|CN|  
 |Polen|PL|  
 |Portugal|PT|  

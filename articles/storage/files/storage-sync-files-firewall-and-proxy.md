@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333361"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259826"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -86,7 +86,7 @@ Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar:
 
       net stop filesyncsvc
 
-      Obs: Tjänsten Storage Sync-agenten (filesyncsvc) ska starta automatiskt när den stoppats.
+      Obs! Storage Sync-agenten (filesyncsvc)-tjänsten ska starta automatiskt när den stoppats.
 
 ## <a name="firewall"></a>Brandvägg
 Port 443 måste vara öppna utgående som nämns i föregående avsnitt. Baserat på principer i ditt datacenter, gren eller din region kan kan ytterligare begränsa trafik via den här porten till vissa domäner vara önskade eller krävs.
@@ -100,7 +100,7 @@ I följande tabell beskrivs domänerna som krävs för kommunikation:
 | **Azure Active Directory** | https://graph.windows.net/ | Som en del av att distribuera Azure File Sync, skapas ett huvudnamn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för detta. Den här huvudnamn används för att delegera en minimal uppsättning rättigheter till Azure File Sync-tjänsten. Användaren som utför installationen av Azure File Sync måste vara en autentiserad användare med behörighet för ägare av prenumerationen. |
 | **Azure Storage** | &ast;.core.windows.net | När servern hämtar en fil, utför servern sedan den dataförflyttning mer effektivt när man talar direkt till Azure-filresursen i Lagringskontot. Servern har en SAS-nyckel som endast tillåter för åtkomst till resursen för filen. |
 | **Azure File Sync** | &ast;.one.microsoft.com | Efter den inledande serverregistrering servern tar emot en regional URL för Azure File Sync-tjänstinstansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med hantering av dess sync-instans. |
-| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | När Azure File Sync-agenten har installerats, används PKI-URL: en för att ladda ned mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresurs. OCSP-URL: en används för att kontrollera status för ett certifikat. |
+| **Microsoft PKI** | http://ocsp.msocsp.com | När Azure File Sync-agenten har installerats, används PKI-URL: en för att ladda ned mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresurs. OCSP-URL: en används för att kontrollera status för ett certifikat. |
 
 > [!Important]
 > När så att trafik kan &ast;. one.microsoft.com, trafik till mer än bara synkroniseringstjänsten går från servern. Det finns många fler Microsoft-tjänster som är tillgängliga under underdomäner.
@@ -130,10 +130,10 @@ För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din A
 
 - Om du använder globalt redundant (GRS)-lagringskonton kan du aktivera tre URL: er.
 
-**Exempel:** du distribuerar en tjänst för lagringssynkronisering i `"West US"` och registrera servern med den. URL: er så att servern kan kommunicera till för det här fallet är:
+**Exempel:** Du distribuerar en tjänst för lagringssynkronisering i `"West US"` och registrera servern med den. URL: er så att servern kan kommunicera till för det här fallet är:
 
-> - https://kailani.one.microsoft.com (primära slutpunkten: USA, västra)
-> - https://kailani1.one.microsoft.com (parad region för redundans: östra USA)
+> - https://kailani.one.microsoft.com (primära slutpunkten: Västra USA)
+> - https://kailani1.one.microsoft.com (parad region för redundans: Östra USA)
 > - https://tm-kailani.one.microsoft.com (identifierings-URL för den primära regionen)
 
 ## <a name="summary-and-risk-limitation"></a>Sammanfattning och risk begränsning

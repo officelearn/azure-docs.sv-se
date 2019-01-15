@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960542"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264062"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!note]  
 > Kubernetes på Azure Stack är en förhandsversion.
@@ -46,7 +46,7 @@ Skapa en plan, ett erbjudande och en prenumeration för Kubernetes Marketplace-o
 
 1. Välj **översikt** på bladet erbjudandet.
 
-1. Välj **ändra tillståndet**. Välj **offentliga**.
+1. Välj **ändra tillståndet**. Välj **Offentligt**.
 
 1. Välj **+ skapa en resurs** > **erbjudanden och planer** > **prenumeration** att skapa en ny prenumeration.
 
@@ -75,8 +75,8 @@ Lägg till följande Ubuntu Server bild Marketplace:
 1. Välj den senaste versionen av servern. Kontrollera den fullständiga versionen och se till att du har den senaste versionen:
     - **Publisher**: Canonical
     - **Erbjuder**: UbuntuServer
-    - **Version**: 16.04.201806120
-    - **SKU**: 16.04 LTS
+    - **Version**: 16.04.201806120 (eller senare)
+    - **SKU**: 16.04-LTS
 
 1. Välj **ladda ned.**
 
@@ -93,12 +93,12 @@ Lägg till Kubernetes från Marketplace:
 1. Ange `Custom Script for Linux`.
 
 1. Väljer du skriptet med följande profil:
-    - **Erbjuder**: anpassat skript för Linux 2.0
-    - **Version**: 2.0.6
+    - **Erbjuder**: Anpassat skript för Linux 2.0
+    - **Version**: 2.0.6 (eller senare)
     - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > Mer än en version av anpassat skript för Linux kan anges. Du behöver att lägga till den version som matchar. Kubernetes kräver den exakta versionen av objektet.
+    > Mer än en version av anpassat skript för Linux kan anges. Du behöver att lägga till den senaste versionen av objektet.
 
 1. Välj **ladda ned.**
 
@@ -149,7 +149,5 @@ Ta bort Kubernetes-objekt:
 ## <a name="next-steps"></a>Nästa steg
 
 [Distribuera ett Kubernetes till Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-
-
 
 [Översikt över erbjudna tjänster i Azure Stack](azure-stack-offer-services-overview.md)

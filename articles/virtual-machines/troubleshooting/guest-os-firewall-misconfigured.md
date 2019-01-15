@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137845"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262293"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM OS gästbrandvägg är felkonfigurerad
 
@@ -51,11 +51,11 @@ Följande regler kan redigeras för att antingen ge åtkomst till den virtuella 
 
 *   Fjärrskrivbord (TCP-In): Det här är standard regeln som tillhandahåller primär åtkomst till den virtuella datorn genom att tillåta RDP i Azure.
 
-*   Windows Remote Management (HTTP-In): Den här regeln kan du ansluta till den virtuella datorn med hjälp av PowerShell., i Azure, den här typen av åtkomst kan du använda skript aspekt av remote skript och felsökning.
+*   Windows Remote Management (HTTP-In): Den här regeln gör det möjligt att ansluta till den virtuella datorn med hjälp av PowerShell., i Azure, den här typen av åtkomst kan du använda skript aspekt av remote skript och felsökning.
 
-*   Fil- och skrivardelning (SMB-In): den här regeln gör det möjligt för åtkomst till nätverksresurser som ett alternativ för felsökning.
+*   Fil- och skrivardelning (SMB-In): Regeln möjliggör åtkomst till nätverksresurser som ett alternativ för felsökning.
 
-*   Fil- och skrivardelning (ekobegäran - ICMPv4-In): den här regeln kan du pinga den virtuella datorn.
+*   Fil- och skrivardelning (ekobegäran - ICMPv4-In): Regeln gör det möjligt för dig att pinga den virtuella datorn.
 
 Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtkomst-instans.
 
@@ -68,7 +68,7 @@ Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtko
 *   Fråga med hjälp av lokal Port som används i programmet:
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   Fråga med hjälp av den lokala IP-adressen som används i programmet:

@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352956"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264758"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använda geo-återställning för att återställa en SaaS-program med flera klienter från säkerhetskopior av databasen
 
@@ -114,7 +114,7 @@ I den här uppgiften ska starta du en process för att synkronisera konfiguratio
 
 3. Ange följande:
 
-    $DemoScenario = 1: starta ett bakgrundsjobb som synkroniserar klientservern och konfigurationsinformation för lagringspool i katalogen.
+    $DemoScenario = 1: Starta ett bakgrundsjobb som synkroniserar klientservern och konfigurationsinformation för lagringspool i katalogen.
 
 4. Om du vill köra skriptet synkronisering, tryck på F5. 
 
@@ -209,7 +209,7 @@ Du kan etablera nya klienter i återställningsregionen även innan klientdataba
 
 1. Ange följande egenskap i ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skriptet i PowerShell ISE:
 
-    $DemoScenario = 3: etablera en ny klient i återställningsregionen.
+    $DemoScenario = 3: Etablera en ny klient i återställningsregionen.
 
 2. Tryck på F5 för att köra skriptet.
 
@@ -262,7 +262,7 @@ I den här uppgiften ska uppdatera du en av de återställda klientdatabaserna. 
 
 2. Ange följande värde i ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skriptet i PowerShell ISE:
 
-    $DemoScenario = 4: ta bort en händelse från en klient i återställningsregionen.
+    $DemoScenario = 4: Ta bort en händelse från en klient i återställningsregionen.
 
 3. Tryck på F5 för att köra skriptet.
 
@@ -320,7 +320,7 @@ Om du har följt självstudierna reaktiverar Fabrikam Jazzklubb och skogskornell
   
 1. I PowerShell ISE i ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skript, kontrollerar du att synkroniseringen för katalogen fortfarande körs i en PowerShell-instans. Om det behövs kan du starta om den genom att ange:
 
-    $DemoScenario = 1: starta synkroniseringen klientservern, pooler och konfigurationsinformation för databasen i katalogen.
+    $DemoScenario = 1: Starta synkroniseringen klientservern, pooler och konfigurationsinformation för databasen i katalogen.
 
     Tryck på F5 för att köra skriptet.
 
@@ -352,7 +352,7 @@ När hemtransport är klar, är det säkert att ta bort resurser i återställni
 
 1. I PowerShell ISE i ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skriptet, ange:
     
-    $DemoScenario = 6: ta bort föråldrade resurser från regionen som recovery.
+    $DemoScenario = 6: Ta bort föråldrade resurser från regionen som recovery.
 
 2. Tryck på F5 för att köra skriptet.
 

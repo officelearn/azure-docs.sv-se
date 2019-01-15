@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011648"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261901"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure säkerhetsprinciper som övervakas av Azure Security Center
-Den här artikeln innehåller en lista över Azure principdefinitioner som kan övervakas i Security Center.
+Den här artikeln innehåller en lista över Azure principdefinitioner som kan övervakas i Security Center. Mer information om säkerhetsprinciper finns [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
 
 ## <a name="available-security-policies"></a>Tillgängliga säkerhetsprinciper
 
@@ -58,30 +58,30 @@ För att förstå de inbyggda principer som övervakas av Security Center finns 
 |Granska aktivering av diagnostikloggar i App Services|Granska aktiverar diagnostikloggar i appen. På så sätt kan du återskapa aktivitet spår undersökning om en säkerhetsincident inträffar eller nätverket komprometteras.| 
 |Granska status för transparent datakryptering|Granska status för transparent datakryptering för SQL-databaser.| 
 |Granska granskningsinställningar på SQL-servernivå|Granskar förekomsten av SQL-granskning på servernivå.| 
-|[Förhandsversion]: Övervaka okrypterad SQL-databas i Azure Security Center|Okrypterade SQL-servrar eller databaser kommer att övervakas av Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka okrypterade SQL-databas i Azure Security Center|Okrypterade SQL-servrar eller databaser kommer att övervakas av Azure Security Center som rekommendationer.| 
 |[Förhandsversion]: Övervaka ogranskad SQL-databas i Azure Security Center|SQL-servrar och databaser som inte har SQL-granskning aktiverat kommer att övervakas av Azure Security Center som rekommendationer.| 
 |[Förhandsversion]: Övervaka systemuppdateringar som saknas i Azure Security Center|Säkerhetssystemuppdateringar på dina servrar kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Granska blobkryptering som saknas för lagringskonton|Den här principen granskar lagringskonton utan blobbkryptering. Det gäller bara Microsoft.Storage-resurstyper, inte andra lagringsprovidrar. Nätverket Just In Time-åtkomst kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka möjlig just-in-time-nätverksåtkomst (JIT) i Azure Security Center|Nätverket bara i tid JIT-åtkomst kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka möjlig lista över tillåtna program i Azure Security Center|Lista över tillåtna program konfigurationer kommer att övervakas av Azure Security Center.| 
+|[Förhandsversion]: Granska blobbkryptering som saknas för lagringskonton|Den här principen granskar lagringskonton utan blobbkryptering. Det gäller bara Microsoft.Storage-resurstyper, inte andra lagringsprovidrar. Nätverket Just In Time-åtkomst kommer att övervakas av Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka möjliga precis i tid JIT-nätverksåtkomst i Azure Security Center|Nätverket bara i tid JIT-åtkomst kommer att övervakas av Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka möjliga tillåtna appar i Azure Security Center|Lista över tillåtna program konfigurationer kommer att övervakas av Azure Security Center.| 
 |[Förhandsversion]: Övervaka tillåten åtkomst till nätverk i Azure Security Center|Nätverkssäkerhetsgrupper med alltför Tillåtande regler kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka säkerhetsrisker i operativsystem i Azure Security Center|Servrar som inte uppfyller den inställda baslinjen kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka nätverksslutpunkter som saknas i Azure Security Center|Servrar utan en installerad Endpoint Protection agent kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka okrypterade virtuella datordiskar i Azure Security Center|Datorer utan diskkryptering övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka säkerhetsrisker i virtuell dator i Azure Security Center|Övervakar säkerhetsrisker som upptäcks av en lösning för sårbarhetsbedömning och virtuella datorer utan lösning för sårbarhetsbedömning i Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka OS-säkerhetsproblem i Azure Security Center|Servrar som inte uppfyller den inställda baslinjen kommer att övervakas av Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka saknad Endpoint Protection i Azure Security Center|Servrar utan en installerad Endpoint Protection agent kommer att övervakas av Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka okrypterade Virtuella Datordiskar i Azure Security Center|Datorer utan diskkryptering övervakas av Azure Security Center som rekommendationer.| 
+|[Förhandsversion]: Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center|Övervakar säkerhetsrisker som upptäcks av en lösning för sårbarhetsbedömning och virtuella datorer utan lösning för sårbarhetsbedömning i Azure Security Center som rekommendationer.| 
 |[Förhandsversion]: Övervaka oskyddat webbprogram i Azure Security Center|Webbprogram som saknar en brandvägg för webbaserade program kommer att övervakas av Azure Security Center som rekommendationer.| 
 |[Förhandsversion]: Övervaka oskyddade nätverksslutpunkter i Azure Security Center|Nätverksslutpunkter som saknar en nästa generations brandväggsskydd kommer att övervakas av Azure Security Center som rekommendationer.| 
-|[Förhandsversion]: Övervaka SQL-sårbarhetsbedömningsresultat i Azure Security Center|Övervaka sårbarhetsbedömningsresultat och rekommendationer för att reparera säkerhetsrisker i databaser.| 
-|[Förhandsversion]: Granska högsta antal ägare av en prenumeration|Du rekommenderas att utse upp till 3 prenumerationsägare för att minska risken för brott av obehörig ägare.| 
-|[Förhandsversion]: Granska lägsta antal ägare av en prenumeration|Vi rekommenderar att du anger mer än en prenumerationsägare, så att flera har administratörsåtkomst.| 
-|[Förhandsversion]: Granska konton med ägarbehörighet som inte är MFA-aktiverade i en prenumeration|Multifaktorautentisering (MFA) måste vara aktiverat för alla prenumerationskonton med ägarbehörighet för att undvika obehörig användning av konton eller resurser.| 
-|[Förhandsversion]: Granska konton med skrivbehörighet som inte är MFA-aktiverade i en prenumeration|Multifaktorautentisering (MFA) måste vara aktiverat för alla prenumerationskonton med skrivbehörighet för att undvika obehörig användning av konton eller resurser.| 
-|[Förhandsversion]: Granska konton med läsbehörighet som inte är MFA-aktiverade i en prenumeration|Multifaktorautentisering (MFA) måste vara aktiverat för alla prenumerationskonton med läsbehörighet för att undvika obehörig användning av konton eller resurser.| 
-|[Förhandsversion]: Granska inaktuella konton med skrivbehörighet i en prenumeration|Tas bör bort inaktuella konton med ägarbehörigheter från prenumerationen. Inaktuella konton är konton som har blockerats från att logga in.| 
-|[Förhandsversion]: Granska inaktuella konton i en prenumeration|Du bör ta bort inaktuella konton från dina prenumerationer. Inaktuella konton är konton som har blockerats från att logga in.| 
-|[Förhandsversion]: Granska externa konton med ägarbehörighet i en prenumeration|Externa konton med ägarbehörighet bör tas bort från prenumerationen för att undvika oövervakad åtkomst.| 
-|[Förhandsversion]: Granska externa konton med skrivbehörighet i en prenumeration|Du måste ta bort externa konton med skrivprivilegier från din prenumeration så att du kan förhindra oövervakad åtkomst.| 
-|[Förhandsversion]: Granska externa konton med läsbehörighet i en prenumeration|Du måste ta bort externa konton med läsprivilegier från din prenumerationen så att du kan förhindra oövervakad åtkomst.| 
+|[Förhandsversion]: Övervaka SQL sårbarhetsbedömning resulterar i Azure Security Center|Övervaka sårbarhetsbedömningsresultat och rekommendationer för att reparera säkerhetsrisker i databaser.| 
+|[Förhandsversion]: Granska högsta antalet ägare för en prenumeration|Du rekommenderas att utse upp till 3 prenumerationsägare för att minska risken för brott av obehörig ägare.| 
+|[Förhandsversion]: Granska minsta antalet ägare för prenumeration|Vi rekommenderar att du anger mer än en prenumerationsägare, så att flera har administratörsåtkomst.| 
+|[Förhandsversion]: Granska konton med ägarbehörigheter som inte är MFA är aktiverat på en prenumeration|Multifaktorautentisering (MFA) måste vara aktiverat för alla prenumerationskonton med ägarbehörighet för att undvika obehörig användning av konton eller resurser.| 
+|[Förhandsversion]: Granska konton med skrivbehörigheter som inte är MFA är aktiverat på en prenumeration|Multifaktorautentisering (MFA) måste vara aktiverat för alla prenumerationskonton med skrivbehörighet för att undvika obehörig användning av konton eller resurser.| 
+|[Förhandsversion]: Granska konton med läsbehörigheter som inte är MFA är aktiverat på en prenumeration|Multifaktorautentisering (MFA) måste vara aktiverat för alla prenumerationskonton med läsbehörighet för att undvika obehörig användning av konton eller resurser.| 
+|[Förhandsversion]: Granska inaktuella konton med ägarbehörigheter för en prenumeration|Tas bör bort inaktuella konton med ägarbehörigheter från prenumerationen. Inaktuella konton är konton som har blockerats från att logga in.| 
+|[Förhandsversion]: Granska inaktuella konton på en prenumeration|Du bör ta bort inaktuella konton från dina prenumerationer. Inaktuella konton är konton som har blockerats från att logga in.| 
+|[Förhandsversion]: Granska externa konton med ägarbehörigheter för en prenumeration|Externa konton med ägarbehörighet bör tas bort från prenumerationen för att undvika oövervakad åtkomst.| 
+|[Förhandsversion]: Granska externa konton med skrivbehörigheter för en prenumeration|Du måste ta bort externa konton med skrivprivilegier från din prenumeration så att du kan förhindra oövervakad åtkomst.| 
+|[Förhandsversion]: Granska externa konton med läsbehörigheter för en prenumeration|Du måste ta bort externa konton med läsprivilegier från din prenumerationen så att du kan förhindra oövervakad åtkomst.| 
 
 
 
@@ -89,11 +89,11 @@ För att förstå de inbyggda principer som övervakas av Security Center finns 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande artiklar kan du lära dig mer om Security Center:
 
-* [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md): Här får du lära dig att planera och vad du behöver tänka på när det gäller design när du ska börja använda Azure Security Center.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azure Security Center planerings- och bruksanvisning](security-center-planning-and-operations-guide.md): Lär dig hur du planerar och designaspekter om Azure Security Center.
+* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
+* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Lär dig att hantera och åtgärda säkerhetsaviseringar.
+* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
+* [Vanliga frågor om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
+* [Azures Säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
 Mer information om Azure Policy finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)

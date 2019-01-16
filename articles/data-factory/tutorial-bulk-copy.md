@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c15c79e90b69fd72ed6b8968d35be95da50f838b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090941"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023880"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -108,7 +107,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
         ```
 
     * När du ska skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+    * Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
@@ -116,7 +115,7 @@ I den här självstudien skapar du tre länkade tjänster för käll-, mottagar-
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Skapa den länkade tjänsten för Azure SQL Database-källan
 
-1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll: (skapa mappen ADFv2TutorialBulkCopy om den inte redan finns.)
+1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll: (Skapa mappen ADFv2TutorialBulkCopy om den inte redan finns.)
 
     > [!IMPORTANT]
     > Ersätt &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; och &lt;password&gt; med värdena för din Azure SQL Database innan du sparar filen.
@@ -138,7 +137,7 @@ I den här självstudien skapar du tre länkade tjänster för käll-, mottagar-
 
 2. I **Azure PowerShell** växlar du till mappen **ADFv2TutorialBulkCopy**.
 
-3. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten **AzureSqlDatabaseLinkedService**. 
+3. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -175,7 +174,7 @@ I den här självstudien skapar du tre länkade tjänster för käll-, mottagar-
     }
     ```
 
-2. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten **AzureSqlDWLinkedService**.
+2. Så här skapa den länkade tjänsten: **AzureSqlDWLinkedService** kör cmdleten **Set-AzureRmDataFactoryV2LinkedService**.
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -214,7 +213,7 @@ I den här självstudien använder du Azure Blob Storage som ett mellanlagringsu
     }
     ```
 
-2. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten **AzureStorageLinkedService**.
+2. Så här skapa den länkade tjänsten: **AzureStorageLinkedService**, kör cmdleten **Set-AzureRmDataFactoryV2LinkedService**.
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -253,7 +252,7 @@ I den här självstudien skapar du datauppsättningar för källa och mottagare 
     }
     ```
 
-2. Kör cmdleten **Set-AzureRmDataFactoryV2Dataset** för att skapa datauppsättningen **AzureSqlDatabaseDataset**.
+2. Så här skapar du datamängden: **AzureSqlDatabaseDataset** kör cmdleten **Set-AzureRmDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -271,7 +270,7 @@ I den här självstudien skapar du datauppsättningar för källa och mottagare 
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Skapa en datauppsättning för SQL Data Warehouse-mottagaren
 
-1. Skapa en JSON-fil med namnet **AzureSqlDWDataset.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll: ”tableName” anges som en parameter, senare skickar kopieringsaktiviteten som refererar till den här datauppsättningen det faktiska värdet till datauppsättningen.
+1. Skapa en JSON-fil med namnet **AzureSqlDWDataset.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll: ”TableName” anges som en parameter. Senare skickar den kopieringsaktivitet som refererar till den här datamängden det faktiska värdet till datamängden.
 
     ```json
     {
@@ -297,7 +296,7 @@ I den här självstudien skapar du datauppsättningar för källa och mottagare 
     }
     ```
 
-2. Kör cmdleten **Set-AzureRmDataFactoryV2Dataset** för att skapa datauppsättningen **AzureSqlDWDataset**.
+2. Så här skapar du datamängden: **AzureSqlDWDataset**, kör cmdleten **Set-AzureRmDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -389,7 +388,7 @@ Den här pipelinen tar en lista med tabeller som en parameter. För varje tabell
     }
     ```
 
-2. Kör cmdleten **Set-AzureRmDataFactoryV2Pipeline** för att skapa pipelinen **SQLServerToBlobPipeline**.
+2. Så här skapar du pipelinen: **IterateAndCopySQLTables**, kör cmdleten **Set-AzureRmDataFactoryV2Pipeline**.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -465,7 +464,7 @@ Den här pipelinen utför två steg:
     }
     ```
 
-2. Kör cmdleten **Set-AzureRmDataFactoryV2Pipeline** för att skapa pipelinen **GetTableListAndTriggerCopyData**.
+2. Så här skapar du pipelinen: **GetTableListAndTriggerCopyData**, kör cmdleten **Set-AzureRmDataFactoryV2Pipeline**.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"

@@ -1,231 +1,204 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med sköter Lösenordshanteraren & digitala Vault | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och sköter Lösenordshanteraren & digitala valvet.
+title: 'Självstudier: Azure Active Directory-integrering med Keeper Password Manager & Digital Vault | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Keeper Password Manager & Digital Vault.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e1a98f6a-2dae-4734-bdbf-4fba742a61d2
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2017
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: dee9b81b6830244dec6860da0618d20c7f062ac2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 4e96e2387797ed11768de9cd0b75261dfb89c674
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430363"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065519"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Självstudier: Azure Active Directory-integrering med sköter Lösenordshanteraren & digitala valv
+# <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Självstudier: Azure Active Directory-integrering med Keeper Password Manager & Digital Vault
 
-I den här självstudien får du lära dig hur du integrerar sköter Lösenordshanteraren & digitala valvet med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Keeper Password Manager & Digital Vault med Azure Active Directory (AD Azure).
+Genom att integrera Keeper Password Manager & Digital Vault med Azure AD får du följande fördelar:
 
-Integrera sköter Lösenordshanteraren & digitala valvet med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Keeper Password Manager & Digital Vault.
+* Du kan göra så att dina användare automatiskt loggas in på Keeper Password Manager & Digital Vault (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till sköter Lösenordshanteraren & digitala valv
-- Du kan aktivera användarna att automatiskt få loggat in på sköter Lösenordshanteraren & digitala valv (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Keeper Password Manager & Digital Vault behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med sköter Lösenordshanteraren & digitala valv, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En sköter Lösenordshanteraren & digitala Vault enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Keeper Password Manager & Digital Vault-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Lägga till sköter Lösenordshanteraren digitala valvet från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Lägga till sköter Lösenordshanteraren digitala valvet från galleriet
-För att konfigurera integrering av sköter Lösenordshanteraren & digitala valv i Azure AD, som du behöver lägga till sköter Lösenordshanteraren & digitala valvet från galleriet i din lista över hanterade SaaS-appar.
+* Keeper Password Manager & Digital Vault stöder **IDP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till sköter Lösenordshanteraren & digitala valvet från galleriet:**
+* Keeper Password Manager & Digital Vault stöder **just in time**-användaretablering
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Lägga till Keeper Password Manager & Digital Vault från galleriet
 
-    ![Active Directory][1]
+För att konfigurera integreringen av Keeper Password Manager & Digital Vault till Azure AD behöver du lägga till Keeper Password Manager & Digital Vault från galleriet till listan över hanterade SaaS-appar.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+**Lägg till Keeper Password Manager & Digital Vault från galleriet genom att utföra följande steg:**
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][3]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. I sökrutan skriver **sköter Lösenordshanteraren & digitala Vault**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Skapa en Azure AD-användare för testning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_search.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. I resultatpanelen väljer **sköter Lösenordshanteraren & digitala Vault**, och klicka sedan på **Lägg till** för att lägga till programmet.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Skapa en Azure AD-användare för testning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_addfromgallery.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med sköter Lösenordshanteraren & digitala Vault baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du **Keeper Password Manager & Digital Vault**, väljer **Keeper Password Manager & Digital Vault** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i sköter Lösenordshanteraren & digitala valvet är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i sköter Lösenordshanteraren & digitala valvet upprättas.
+     ![Keeper Password Manager & Digital Vault i resultatlistan](common/search-new-app.png)
 
-I sköter Lösenordshanteraren & digitala valv, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med sköter Lösenordshanteraren & digitala valv, måste du utföra följande byggblock:
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med Keeper Password Manager & Digital Vault baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Keeper Password Manager & Digital Vault upprättas.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare sköter Lösenordshanteraren & digitala Vault](#creating-a-keeperpasswordmanager-test-user)**  – du har en motsvarighet för Britta Simon i sköter Lösenordshanteraren & digitala valvet som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+För att konfigurera och testa enkel inloggning för Azure AD med Keeper Password Manager & Digital Vault behöver du slutföra följande byggstenar:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Keeper Password Manager & Digital Vault](#configure-keeper-password-manager-&-digital-vault-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Keeper Password Manager & Digital Vault-testanvändare](#create-keeper-password-manager--digital-vault-test-user)** – för att ha en motsvarighet för Britta Simon i Keeper Password Manager & Digital Vault som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program som sköter Lösenordshanteraren & digitala valvet.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med sköter Lösenordshanteraren & digitala valv:**
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. I Azure-portalen på den **sköter Lösenordshanteraren & digitala Vault** program integration-sidan klickar du på **enkel inloggning**.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Keeper Password Manager & Digital Vault:
 
-    ![Konfigurera enkel inloggning][4]
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Keeper Password Manager & Digital Vault**-programintegrering och väljer **Enkel inloggning**.
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_samlbase.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **sköter Lösenordshanteraren & digitala Vault domän och URL: er** avsnittet, utför följande steg:
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    c. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://{SSO CONNECT SERVER}/sso-connect`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [sköter Lösenordshanteraren & digitala Vault-klienten supportteam](https://keepersecurity.com/contact.html) att hämta dessa värden. 
+    ![Keeper Password Manager & Digital Vault-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
-    ![Konfigurera enkel inloggning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_certificate.png) 
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://{SSO CONNECT SERVER}/sso-connect`
 
-1. Klicka på **spara** knappen.
+    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
 
-    ![Konfigurera enkel inloggning](./media/keeperpasswordmanager-tutorial/tutorial_general_400.png)
-    
-1. På den **sköter Lösenordshanteraren & konfiguration av digitalt Vault** klickar du på **konfigurera sköter Lösenordshanteraren & digitala Vault** att öppna **konfigurera inloggning** fönstret. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för Keeper Password Manager & Digital Vault-klienten](https://keepersecurity.com/contact.html). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och sparar den på datorn.
 
-1. Att konfigurera enkel inloggning på **sköter Lösenordshanteraren & konfiguration av digitalt Vault** sida, följer du instruktionerna som anges i [sköter supportguide](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. I avsnittet **Konfigurera Keeper Password Manager & Digital Vault** kopierar du lämpliga URL:er efter behov.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-![Skapa en Azure AD-användare][100]
+    a. Inloggnings-URL
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    b. Azure AD-identifierare
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    c. Utloggnings-URL
 
-    ![Skapa en Azure AD-användare för testning](./media/keeperpasswordmanager-tutorial/create_aaduser_01.png) 
+### <a name="configure-keeper-password-manager--digital-vault-single-sign-on"></a>Konfigurera enkel inloggning för Keeper Password Manager & Digital Vault
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/keeperpasswordmanager-tutorial/create_aaduser_02.png) 
+Konfigurera enkel inloggning på sidan om **Keeper Password Manager & Digital Vault-konfiguration** genom att följa anvisningarna i [supportguiden för Keeper](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/keeperpasswordmanager-tutorial/create_aaduser_03.png) 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/keeperpasswordmanager-tutorial/create_aaduser_04.png) 
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+2. Välj **Ny användare** överst på skärmen.
+
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-keeper-password-manager--digital-vault-test-user"></a>Skapa en testanvändare sköter Lösenordshanteraren & digitala valv
 
-Om du vill aktivera Azure AD-användare att logga in på sköter Lösenordshanteraren & digitala valv, måste de etableras till sköter Lösenordshanteraren & digitala valv. Programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt. Du kan kontakta [sköter Support](https://keepersecurity.com/contact.html), om du vill konfigurera användare manuellt.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Keeper Password Manager & Digital Vault.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till sköter Lösenordshanteraren & digitala valvet.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Keeper Password Manager & Digital Vault**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon sköter Lösenordshanteraren & digitala valv, utför du följande steg:**
+2. I programlistan väljer du **Keeper Password Manager & Digital Vault**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Keeper Password Manager & Digital Vault-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **sköter Lösenordshanteraren & digitala Vault**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/keeperpasswordmanager-tutorial/tutorial_keeper_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-keeper-password-manager--digital-vault-test-user"></a>Skapa Keeper Password Manager & Digital Vault-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+För att göra det möjligt för Azure AD-användare att logga in på Keeper Password Manager & Digital Vault måste de etableras i Keeper Password Manager & Digital Vault. Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. Du kan kontakta [Keeper-supporten](https://keepersecurity.com/contact.html) om du vill konfigurera användare manuellt.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-Du bör få inloggningssidan i sköter Lösenordshanteraren & digitala Vault programmet när du klickar på panelen sköter Lösenordshanteraren & digitala valv i åtkomstpanelen. Efter lyckad autentisering bör du få i programmet. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Keeper Password Manager & Digital Vault-panelen i åtkomstpanelen bör du automatiskt loggas in på Keeper Password Manager & Digital Vault som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/keeperpasswordmanager-tutorial/tutorial_general_01.png
-[2]: ./media/keeperpasswordmanager-tutorial/tutorial_general_02.png
-[3]: ./media/keeperpasswordmanager-tutorial/tutorial_general_03.png
-[4]: ./media/keeperpasswordmanager-tutorial/tutorial_general_04.png
-
-[100]: ./media/keeperpasswordmanager-tutorial/tutorial_general_100.png
-
-[200]: ./media/keeperpasswordmanager-tutorial/tutorial_general_200.png
-[201]: ./media/keeperpasswordmanager-tutorial/tutorial_general_201.png
-[202]: ./media/keeperpasswordmanager-tutorial/tutorial_general_202.png
-[203]: ./media/keeperpasswordmanager-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

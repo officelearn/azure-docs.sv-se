@@ -1,224 +1,200 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SAML 1.1 Token aktiverat LOB-appen | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAML 1.1 Token aktiverat LOB-App.
+title: 'Självstudier: Azure Active Directory-integrering med SAML 1.1-tokenaktiverad LOB App | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAML 1.1-tokenaktiverad LOB App.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ced1d88d-0e48-40d5-9aea-ef991cd9d270
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: edabc09f820093d088ec0b8ed1222fb26c800bee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 32fa6f7c13180179a49c656763e58d1b915fb607
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426436"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064669"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Självstudier: Azure Active Directory-integrering med SAML 1.1 Token aktiverat LOB-App
+# <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Självstudier: Azure Active Directory-integrering med SAML 1.1-tokenaktiverad LOB App
 
-I den här självstudien får du lära dig hur du integrerar SAML 1.1 Token-aktiverade LOB-App med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera en SAML 1.1-token-aktiverad LOB App med Azure Active Directory (AD Azure).
+Genom att integrera en SAML 1.1-token-aktiverad LOB App med Azure AD får du följande fördelar:
 
-Integrera SAML 1.1 Token ger aktiverade LOB-App med Azure AD dig följande fördelar:
+* Du kan styra i Azure AD som har åtkomst till SAML 1.1-tokenaktiverad LOB App.
+* Du kan göra så att dina användare automatiskt loggas in på en SAML 1.1-tokenaktiverad LOB App (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till SAML 1.1 Token aktiverat LOB-App.
-- Du kan ge användarna får automatiskt loggat in på SAML 1.1 Token aktiverat LOB-App (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med en SAML 1.1-token aktiverad LOB App behöver du följande objekt:
 
-Att konfigurera Azure AD-integrering med SAML 1.1 Token aktiverad LOB-App, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SAML 1.1-Token aktiverat LOB-App enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Prenumeration på SAML 1.1-tokenaktiverad LOB App med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SAML 1.1 Token aktiverat LOB-App från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>Att lägga till SAML 1.1 Token aktiverat LOB-App från galleriet
-Om du vill konfigurera integreringen av SAML 1.1 Token aktiverad LOB-App till Azure AD, du måste lägga till SAML 1.1 Token-aktiverade LOB-App från galleriet i din lista över hanterade SaaS-appar.
+* SAML 1.1-tokenaktiverad LOB App stöder **SP**-initierad SSO
 
-**Om du vill lägga till SAML 1.1 Token aktiverat LOB-App från galleriet, utför du följande steg:**
+## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>Lägga till SAML 1.1-tokenaktiverad LOB App från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av SAML 1.1-tokenaktiverad LOB App till Azure AD måste du lägga till SAML 1.1-tokenaktiverad LOB App från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Om du vill lägga till SAML 1.1-tokenaktiverad LOB App från galleriet utför du följande steg:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **SAML 1.1 Token aktiverat LOB-App**väljer **SAML 1.1 Token aktiverat LOB-App** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![SAML 1.1 Token aktiverat LOB-App i listan med resultat](./media/saml-tutorial/tutorial_saml_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAML 1.1 Token aktiverade LOB-App utifrån en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du  **SAML 1.1-tokenaktiverad LOB App**, väljer  **SAML 1.1-tokenaktiverad LOB App** från resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vilka motsvarande användaren i SAML 1.1 Token aktiverade LOB-appen är att en användare i Azure AD. Med andra ord aktiverat en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SAML 1.1 Token LOB-App behöver etableras.
+     ![SAML 1.1-tokenaktiverad LOB App i resultatlistan](common/search-new-app.png)
 
-Konfigurera och testa Azure AD enkel inloggning med SAML 1.1 Token aktiverad LOB-App, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en SAML 1.1-Token aktiverat LOB-App testanvändare](#create-a-saml-11-token-enabled-lob-app-test-user)**  – du har en motsvarighet för Britta Simon i SAML 1.1 Token aktiverat LOB-App som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med SAML 1.1-tokenaktiverad LOB App baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SAML 1.1-tokenaktiverad LOB App upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+För att konfigurera och testa enkel inloggning för Azure AD med en SAML 1.1-token-aktiverad LOB App behöver du slutföra följande byggstenar:
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din SAML 1.1 Token-aktiverat program för LOB-App.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för en SAML 1.1-token-aktiverad LOB App](#configure-saml-11-token-enabled-lob-app-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare för SAML 1.1-tokenaktiverad LOB App](#create-saml-11-token-enabled-lob-app-test-user)**   – du har en motsvarighet till Britta Simon i SAML 1.1-tokenaktiverad LOB App som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Om du vill konfigurera Azure AD enkel inloggning med SAML 1.1 Token aktiverad LOB-App, utför följande steg:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **SAML 1.1 Token aktiverat LOB-App** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+För att konfigurera Azure AD enkel inloggning med SAML 1.1-tokenaktiverad LOB App behöver du följande objekt:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/saml-tutorial/tutorial_saml_samlbase.png)
+1. I [Azure-portalen](https://portal.azure.com/), på programintegreringssidan **SAML 1.1-tokenaktiverad LOB App**, markerar du **Enkel inloggning**.
 
-1. På den **SAML 1.1 Token aktiverat LOB-App-domän och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![SAML 1.1 Token aktiverat LOB-App-domän och URL: er enkel inloggning för information](./media/saml-tutorial/tutorial_saml_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://your-app-url`
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    b. I den **identifierare (entitets-ID)** textrutan anger du ett URL med hjälp av följande mönster: `https://your-app-url`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Ersätt värdena med specifika URL: er.  
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Länk för hämtning av certifikat](./media/saml-tutorial/tutorial_saml_certificate.png) 
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-1. Klicka på **spara** knappen.
+    ![Information om SAML 1.1-tokenaktiverad LOB App-domän och URL:er för enkel inloggning](common/sp-identifier.png)
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/saml-tutorial/tutorial_general_400.png)
-    
-1. På den **SAML 1.1 Token aktiverat LOB-Appkonfiguration** klickar du på **konfigurera SAML 1.1 Token aktiverat LOB-App** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://your-app-url`
 
-    ![SAML 1.1 Token aktiverat LOB-Appkonfiguration](./media/saml-tutorial/tutorial_saml_configure.png) 
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://your-app-url`
 
-1. Att konfigurera enkel inloggning på **SAML 1.1 Token aktiverat LOB-App** sida, som du behöver skicka de hämtade **certifikat (Base64), URL: en för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** till Application support-teamet. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta supportteamet för SAML 1.1-tokenaktiverad LOB App-klienten för hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+6. I avsnittet **Set up SAML 1.1 Token enabled LOB App** (Konfigurera SAML 1.1-tokenaktiverad LOB App) kopierar du lämpliga URL:er enligt dina behov.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    a. Inloggnings-URL
 
-    ![Azure Active Directory-knappen](./media/saml-tutorial/create_aaduser_01.png)
+    b. Azure AD-identifierare
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    c. Utloggnings-URL
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/saml-tutorial/create_aaduser_02.png)
+### <a name="configure-saml-11-token-enabled-lob-app-single-sign-on"></a>Konfigurera SAML 1.1-tokenaktiverad LOB App med enkel inloggning aktiverat
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+För att kunna konfigurera enkel inloggning på **SAML 1.1-tokenaktiverad LOB App**-sidan måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till SAML 1.1-tokenaktiverad LOB App-supporten. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![Knappen Lägg till](./media/saml-tutorial/create_aaduser_03.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. I den **användaren** dialogrutan utför följande steg:
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Dialogrutan användare](./media/saml-tutorial/create_aaduser_04.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+2. Välj **Ny användare** överst på skärmen.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-saml-11-token-enabled-lob-app-test-user"></a>Skapa en SAML 1.1-Token aktiverat testanvändare för LOB-App
 
-I det här avsnittet skapar du en användare som kallas Britta Simon SAML 1.1 Token aktiverat LOB-App. Arbeta med program stöder teamet för att skapa användare på programsidan. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till SAML 1.1-tokenaktiverad LOB App.
 
-I det här avsnittet ska du aktivera Britta Simon du använder Azure för enkel inloggning genom att bevilja åtkomst till SAML 1.1 Token-aktiverade LOB-App.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **SAML 1.1-tokenaktiverad LOB App**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon SAML 1.1 Token aktiverad LOB-App, utför följande steg:**
+2. I programlistan skriver och markerar du **SAML 1.1-tokenaktiverad LOB App**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![SAML 1.1-tokenaktiverad LOB App i listan med program](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **SAML 1.1 Token aktiverat LOB-App**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![SAML 1.1-Token aktiverat LOB-App-länk i listan med program](./media/saml-tutorial/tutorial_saml_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-saml-11-token-enabled-lob-app-test-user"></a>Skapa SAML 1.1-tokenaktiverad LOB App-aktiverad testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i en SAML 1.1-token-aktiverad LOB App. Arbeta med SAML 1.1-tokenaktiverad LOB App-supportteamet för att lägga till användare i SAML 1.1-tokenaktiverad LOB App-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på SAML 1.1-Token aktiverad LOB-App-panelen i åtkomstpanelen, bör du få automatiskt loggat in på ditt SAML 1.1 Token-aktiverat program för LOB-App.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen SAML 1.1-tokenaktiverad LOB App i åtkomstpanelen bör du loggas in automatiskt till den SAML 1.1-tokenaktiverad LOB App som du ställer in enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/saml-tutorial/tutorial_general_01.png
-[2]: ./media/saml-tutorial/tutorial_general_02.png
-[3]: ./media/saml-tutorial/tutorial_general_03.png
-[4]: ./media/saml-tutorial/tutorial_general_04.png
-
-[100]: ./media/saml-tutorial/tutorial_general_100.png
-
-[200]: ./media/saml-tutorial/tutorial_general_200.png
-[201]: ./media/saml-tutorial/tutorial_general_201.png
-[202]: ./media/saml-tutorial/tutorial_general_202.png
-[203]: ./media/saml-tutorial/tutorial_general_203.png

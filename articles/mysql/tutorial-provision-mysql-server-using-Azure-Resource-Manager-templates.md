@@ -8,23 +8,23 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004085"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061048"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Självstudier: Etablera en Azure Database for MySQL-server med Azure Resource Manager-mallar
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudier: Etablera en Azure Database for MySQL-server med Azure Resource Manager-mallar
 
 [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/api/mysql/) låter DevOps-tekniker automatisera och integrera etablering, konfiguration och drift för hanterade MySQL-servrar och databaser i Azure.  API:et låter dig skapa, uppräkna, hantera och ta bort MySQL-servrar och databaser på Azure Database for MySQL-tjänsten.
 
-Azure Resource Manager-mallar utnyttjar underliggande REST API för att deklarera och programmera de Azure-resurser som krävs för distributioner i skala, vilket överensstämmer konceptet infrastruktur som en kod. Mallen parameteriserar Azure-resursens namn, SKU, nätverk, brandväggskonfiguration och inställningar, vilket låter den skapas en gång och användas flera gånger.  Azure Resource Manager-mallar kan enkelt skapas med [Azure-portalen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) eller [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). De möjliggör programpaketering, standardisering och distributionsautomatisering som kan integreras i DevOps CI/CD-pipelinen.  Om du till exempel snabbt vill distribuera en Webbapp med en Azure Database for MySQL-serverdel så kan du utföra distributionen från början till slut med den här [Snabbstartsmallen](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) från GitHub-galleriet.
+Azure Resource Manager utnyttjar det underliggande REST-API:et för att deklarera och programmera de Azure-resurser som krävs för distributioner i skala, vilket överensstämmer med konceptet om ”infrastruktur som kod”. Mallen parameteriserar Azure-resursens namn, SKU, nätverk, brandväggskonfiguration och inställningar, vilket låter den skapas en gång och användas flera gånger.  Azure Resource Manager-mallar kan enkelt skapas med [Azure-portalen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) eller [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). De möjliggör programpaketering, standardisering och distributionsautomatisering som kan integreras i DevOps CI/CD-pipelinen.  Om du till exempel snabbt vill distribuera en Webbapp med en Azure Database for MySQL-serverdel så kan du utföra distributionen från början till slut med den här [Snabbstartsmallen](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) från GitHub-galleriet.
 
-I den här självstudien så kommer du att använda Azure Resource Manager-mallar och andra verktyg för att lära dig:
+I den här självstudien ska du använda Azure Resource Manager-mallar och andra verktyg för att lära dig:
 
 > [!div class="checklist"]
-> * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med Azure Resource Manager-mallar
+> * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
 > * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
@@ -32,7 +32,7 @@ I den här självstudien så kommer du att använda Azure Resource Manager-malla
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
 
-Om du vill hämta JSON-mallen för en Azure Database for MySQL-server, går du till Microsoft.DBforMySQL-serverns mallreferens(https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Nedan visas JSON-exempelmallen som kan användas för att skapa en ny server som kör Azure Database for MySQL med VNet-tjänstslutpunkt.
+JSON-mallreferensen för en Azure Database for MySQL-server finns under mallreferensen för [Microsoft.DBforMySQL-servrar](/azure/templates/microsoft.dbformysql/servers). Nedan visas JSON-exempelmallen som kan användas för att skapa en ny server som kör Azure Database for MySQL med VNet-tjänstslutpunkt.
 ```json
 {
   "apiVersion": "2017-12-01",

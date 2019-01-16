@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946552"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120299"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Snabbstart: Skydda ett webb-API med Azure Active Directory
 
@@ -106,7 +106,7 @@ Mer information om de enskilda konfigurationsinställningarna finns i dokumentat
 
 ### <a name="implement-the-server"></a>Implementera servern
 
-Modulen [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) har två autentiseringsstrategier: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) och [ägartoken](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy). Den server som implementeras i den här artikeln använder strategin med ägartoken för att skydda API-slutpunkten.
+Modulen [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) har två autentiseringsstrategier: strategierna [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) och [ägartoken](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy). Den server som implementeras i den här artikeln använder strategin med ägartoken för att skydda API-slutpunkten.
 
 ### <a name="step-1-import-dependencies"></a>Steg 1: Importera beroenden
 
@@ -166,7 +166,7 @@ passport.use(authenticationStrategy);
 Med autentiseringsstrategin definierad kan du nu konfigurera Restify-servern med några grundläggande inställningar och ställa in den att använda Passport för säkerhet.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
@@ -221,7 +221,7 @@ Om du har konfigurerat servern korrekt bör svaret likna följande:
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ Om du har konfigurerat servern korrekt bör den svara med statusen `Unauthorized
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

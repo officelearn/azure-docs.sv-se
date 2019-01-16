@@ -6,27 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229619"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158048"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>Vad är Azure Data Box Disk? (Förhandsversion)
+# <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
 Med Microsoft Azure Data Box Disk-lösningen kan du skicka terabyte med lokala data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Den säkra dataöverföringen görs snabbare eftersom 1 till 5 SSD-diskar (solid state-hårddisk) levereras till dig. Dessa krypterade diskar på 8 TB skickas till ditt datacenter via regionalt flyg. 
 
 Du kan snabbt konfigurera, ansluta och låsa upp diskarna via Data Box-tjänsten i Azure-portalen. Kopiera dina data till diskar och skicka tillbaka diskarna till Azure. I Azure-datacentret laddas dina data automatiskt upp från enheter till molnet med en snabb, privat nätverksöverföringslänk.
-
-
-> [!IMPORTANT]
-> - Data Box Disk är tillgänglig som en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
-> - Du behöver registrera dig för den här tjänsten. Om du vill registrera dig går du till [Preview-portalen](https://aka.ms/azuredataboxfromdiskdocs).
-> - Under förhandsversionen kan Data Box Disk levereras till kunder i USA och EU. Mer information finns i [Regional tillgänglighet](#region-availability).
 
 ## <a name="use-cases"></a>Användningsfall
 
@@ -95,7 +89,7 @@ Mer information finns i [Säkerhet och dataskydd i Azure Data Box Disk](data-box
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Under förhandsversionen kan Data Box Disk överföra data till följande Azure-regioner:
+Data Box Disk kan för närvarande överföra data till följande Azure-regioner:
 
 
 |Azure-region  |Azure-region  |
@@ -112,7 +106,7 @@ Under förhandsversionen kan Data Box Disk överföra data till följande Azure-
 
 ## <a name="pricing"></a>Prissättning
 
-Mer information om priser finns på [sidan med priser för förhandsversion](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Nästa steg
 

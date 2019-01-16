@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654112"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064703"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. Event Hubs kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här snabbstarten ska du skapa en händelsehubb, ansluta till den från Azure Data Explorer och se hur data flödar genom systemet.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här snabbstarten ska du skapa en händelsehubb, ansluta till den från Azure Data Explorer och se hur data flödar genom systemet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -25,7 +25,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 * [Ett testkluster och en databas](create-cluster-database-portal.md)
 
-* [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb
+* [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb. Ladda ned exempelprogrammet till datorn.
 
 * [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I den här snabbstarten ska du skapa exempeldata och skicka dem till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
 
-1. Använd följande knapp för att starta distributionen. Vi rekommenderar att du öppnar länken i en annan flik eller ett annat fönster så att du kan följa resten av stegen i den här artikeln.
+1. Skapa en händelsehubb genom att använda följande knapp för att starta distributionen. Högerklicka och välj länken **Öppna i nytt fönster** i en annan flik eller ett annat fönster så att du kan följa resten av stegen i den här artikeln.
 
     [![Distribuera till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -79,7 +79,7 @@ Nu ska du skapa en tabell i Azure Data Explorer som Event Hubs skickar data till
 
     ![Frågeprogramlänk](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Kopiera följande kommando till fönstret och välj **Kör**.
+1. Kopiera följande kommando till fönstret och välj **Kör** för att skapa den tabell (TestTable) som tar emot insamlade data.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -87,12 +87,11 @@ Nu ska du skapa en tabell i Azure Data Explorer som Event Hubs skickar data till
 
     ![Kör genereringsfråga](media/ingest-data-event-hub/run-create-query.png)
 
-1. Kopiera följande kommando till fönstret och välj **Kör**.
+1. Kopiera följande kommando till fönstret och välj **Kör** för att mappa inkommande JSON-data till kolumnnamnen och datatyperna i tabellen (TestTable).
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Det här kommandot mappar inkommande JSON-data till kolumnnamnen och datatyperna för tabellen (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Ansluta till händelsehubben
 
@@ -112,13 +111,23 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
 
     ![Händelsehubbanslutning](media/ingest-data-event-hub/event-hub-connection.png)
 
+    Datakälla:
+
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Namn på dataanslutning | *test-hub-connection* | Namnet på anslutningen som du vill skapa i Azure Data Explorer.|
     | Namnområde för händelsehubb | Ett unikt namnområdesnamn | Namnet som du valde tidigare, som identifierar ditt namnområde. |
     | Händelsehubb | *test-hub* | Händelsehubben som du skapade. |
     | Konsumentgrupp | *test-group* | Konsumentgruppen som definierades i hubben som du skapade. |
-    | Måltabell | Låt **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerad. | Det finns två alternativ för routning: *statisk* och *dynamisk*. För den här snabbstartsguiden använder du statisk routning (standardinställning), där du anger tabellnamnet, filformatet och mappningen. Du kan även använda dynamisk routning, där dina data innehåller den nödvändiga routningsinformationen. |
+    | | |
+
+    Måltabell:
+
+    Det finns två alternativ för routning: *statisk* och *dynamisk*. För den här snabbstartsguiden använder du statisk routning (standardinställning), där du anger tabellnamnet, filformatet och mappningen. Låt därför **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerat.
+    Du kan även använda dynamisk routning, där dina data innehåller den nödvändiga routningsinformationen.
+
+     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
+    |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
     | Dataformat | *JSON* | JSON- och CSV-format stöds. |
     | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
@@ -138,7 +147,7 @@ När du kör den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet
 
 ## <a name="generate-sample-data"></a>Generera exempeldata
 
-Nu när Azure-datautforskaren och händelsehubben har anslutits använder du den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som du laddade ned för att generera data.
+Använd den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som du laddade ned för att generera data.
 
 1. Öppna exempelapplösningen i Visual Studio.
 
@@ -162,8 +171,6 @@ Med appen som genererar data kan du nu se flödet av dessa data från händelseh
 
     ![Graf för händelsehubb](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Gå tillbaka till exempelappen och stoppa den när den når meddelande 99.
-
 1. För att kontrollera hur många meddelanden som nått databasen hittills kör du följande fråga i testdatabasen.
 
     ```Kusto
@@ -171,15 +178,18 @@ Med appen som genererar data kan du nu se flödet av dessa data från händelseh
     | count
     ```
 
-1. Kör följande fråga för att se innehållet i meddelandena.
+1. Kör följande fråga för att se innehållet i meddelandena:
 
     ```Kusto
     TestTable
     ```
 
-    Resultatet bör se ut så här.
+    Resultatuppsättningen bör se ut så här:
 
     ![Meddelanderesultat](media/ingest-data-event-hub/message-result-set.png)
+
+    > [!NOTE]
+    > ADX har en sammansättningsprincip (batchbearbetning) för datainmatning som är utformad för att optimera inmatningsprocessen. Principen är konfigurerad till 5 minuter, så det kan förekomma en fördröjning.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

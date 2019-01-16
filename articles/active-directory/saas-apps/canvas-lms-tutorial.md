@@ -1,292 +1,265 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med arbetsytan Lms | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LMS-arbetsytan.
+title: 'Självstudier: Azure Active Directory-integrering med Canvas | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsytor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/08/2017
+ms.topic: tutorial
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: af2c997f0842da751eb93f0788a7402fc7d144ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 7612dc441d53f168e4472320c2de1e4431e65e95
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433297"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065434"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Självstudier: Azure Active Directory-integration med LMS-arbetsytan
+# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Självstudier: Azure Active Directory-integrering med Canvas
 
-Lär dig hur du integrerar arbetsytan med Azure Active Directory (AD Azure) i den här självstudien.
+Lär dig hur du integrerar Canvas med Azure Active Directory (AD Azure) i den här självstudien.
+Integreringen av Canvas med Azure AD medför följande fördelar:
 
-Integrera arbetsytan med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Canvas från Azure AD.
+* Du kan konfigurera inställningar så att dina användare loggas in automatiskt i Canvas (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till arbetsytan
-- Du kan aktivera användarna att automatiskt få loggat in på arbetsytan (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Canvas behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med arbetsytor, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En arbetsyta enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Canvas-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till arbetsytan från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-canvas-from-the-gallery"></a>Att lägga till arbetsytan från galleriet
-För att konfigurera integrering av arbetsytor i Azure AD, som du behöver lägga till arbetsytan från galleriet i din lista över hanterade SaaS-appar.
+* Canvas stöder **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till arbetsytan från galleriet:**
+## <a name="adding-canvas-from-the-gallery"></a>Lägga till Canvas från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Canvas i Azure AD måste du lägga till Canvas från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till Canvas från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **arbetsytan**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/canvas-lms-tutorial/tutorial_canvaslms_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **arbetsytan**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
+4. I sökrutan skriver du **Canvas**, väljer **Canvas** från resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med arbetsytor baserat på en testanvändare som kallas ”Britta Simon”.
+     ![Canvas i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i arbetsytan till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i arbetsytan upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I arbetsytan, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Canvas baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Canvas upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med arbetsyta, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning i Azure AD med Canvas måste du utföra följande uppgifter:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en arbetsyta testanvändare](#creating-a-canvas-test-user)**  – du har en motsvarighet för Britta Simon i arbetsytan som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Canvas](#configure-canvas-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Canvas-testanvändare](#create-canvas-test-user)**  – för att skapa en motsvarighet till Britta Simon i Canvas som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för arbetsytan.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med arbetsyta:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Canvas:
 
-1. I Azure-portalen på den **arbetsytan** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Canvas** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **arbetsytan domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.instructure.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan skriver du värdet med följande mönster: `https://<tenant-name>.instructure.com/saml2`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [arbetsytan klienten supportteamet](https://community.canvaslms.com/community/help) att hämta dessa värden. 
- 
-1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
+    ![Information om enkel inloggning med Canvas-domäner och -URL:er](common/sp-identifier.png)
 
-    ![Konfigurera enkel inloggning](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<tenant-name>.instructure.com`
 
-1. Klicka på **spara** knappen.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<tenant-name>.instructure.com/saml2`
 
-    ![Konfigurera enkel inloggning](./media/canvas-lms-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Canvas kundsupport](https://community.canvaslms.com/community/help) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **arbetsytan Configuration** klickar du på **konfigurera arbetsytan** att öppna **konfigurera inloggning** fönster. Kopiera den **ändra lösenord URL, URL: en för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+5. Öppna dialogrutan **SAML-signeringscertifikat** genom att klicka på **Redigera** i avsnittet **SAML-signeringscertifikat**.
 
-    ![Konfigurera enkel inloggning](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
- 
-1. I ett annat webbläsarfönster logga du in på din arbetsyta företagets webbplats som administratör.
+    ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-1. Gå till **kurser \> hanterade konton \> Microsoft**.
-   
-    ![Arbetsytan](./media/canvas-lms-tutorial/IC775990.png "arbetsytan")
+6. Kopiera **Tumavtryck** i avsnittet **SAML-signeringscertifikat** och spara det på datorn.
 
-1. I navigeringsfönstret till vänster, Välj **autentisering**, och klicka sedan på **Lägg till ny SAML-konfiguration**.
-   
-    ![Autentisering](./media/canvas-lms-tutorial/IC775991.png "autentisering")
+    ![Kopiera värdet för Tumavtryck](common/copy-thumbprint.png)
 
-1. Utför följande steg på sidan aktuella integrering:
-   
-    ![Aktuell Integration](./media/canvas-lms-tutorial/IC775992.png "aktuella integrering")
+7. I avsnittet **Konfigurera Canvas** kopierar du lämpliga URL:er baserat på dina behov.
 
-    a. I **IdP entitets-ID** textrutan klistra in värdet för **SAML entitets-ID** som du har kopierat från Azure-portalen.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    b. I **Log på URL: en** textrutan klistra in värdet för **SAML inloggnings-tjänst-URL för enkel** som du har kopierat från Azure-portalen.
+    a. Inloggnings-URL
 
-    c. I **Log URL: en** textrutan klistra in värdet för **URL: en för utloggning** som du har kopierat från Azure-portalen.
+    b. Azure AD-identifierare
 
-    d. I **ändra lösenord-länk** textrutan klistra in värdet för **ändra lösenord URL** som du har kopierat från Azure-portalen. 
+    c. Utloggnings-URL
 
-    e. I **certifikat fingeravtryck** textrutan klistra in den **tumavtryck** värdet för certifikat som du har kopierat från Azure-portalen.      
-        
-    f. Från den **inloggning attributet** väljer **NameID**.
+### <a name="configure-canvas-single-sign-on"></a>Konfigurera enkel inloggning för Canvas
 
-    g. Från den **identifierare Format** väljer **e-postadress**.
+1. Öppna ett nytt webbläsarfönster och logga in på din Canvas-företagswebbplats som administratör.
 
-    h. Klicka på **spara autentiseringsinställningar**.
+2. Gå till **Kurser \> Hanterade konton \> Microsoft**.
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+3. Välj **Autentisering** i navigeringsfönstret till vänster och klicka sedan på **Lägg till ny SAML-konfiguration**.
 
-![Skapa en Azure AD-användare][100]
+    ![Autentisering](./media/canvas-lms-tutorial/ic775991.png "Autentisering")
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+4. Utför följande steg på sidan Aktuell integration:
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    ![Aktuell integration](./media/canvas-lms-tutorial/ic775992.png "Aktuell integration")
 
-    ![Skapa en Azure AD-användare för testning](./media/canvas-lms-tutorial/create_aaduser_01.png) 
+    a. I textrutan **IdP Entity ID** (Entitets-ID för IdP) klistrar du in värdet för **Azure Ad-identifieraren**, som du har kopierat från Azure-portalen.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/canvas-lms-tutorial/create_aaduser_02.png) 
+    b. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/canvas-lms-tutorial/create_aaduser_03.png) 
+    c. I textrutan för **utloggnings-URL** klistrar du in värdet för **utloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/canvas-lms-tutorial/create_aaduser_04.png) 
+    d. I textrutan för **länken för lösenordsändring** klistrar du in värdet för **URL:en för lösenordsändring** som du har kopierat från Azure-portalen.
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    e. I textrutan **Fingeravtryck för certifikat** klistrar du in **tumavtrycksvärdet** för certifikatet som du har kopierat från Azure-portalen.
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
+    f. I listan med **attribut för inloggning** väljer du **NameID**.
 
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    g. Välj **emailAddress** i listan med **format för identifierare**.
+
+    h. Klicka på **Spara autentiseringsinställningar**.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+
+2. Välj **Ny användare** överst på skärmen.
+
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-canvas-test-user"></a>Skapa en testanvändare för arbetsytan
 
-Om du vill aktivera Azure AD-användare att logga in på arbetsytan, måste de etableras i arbetsytan.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Om arbetsytan och är etableringen av användare en manuell aktivitet.
+I det här avsnittet ska du göra så att Britta Simon kan använda enkel inloggning med Azure genom att ge åtkomst till Canvas.
+
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Canvas**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. Välj **Canvas** i listan med program.
+
+    ![Canvas-länken i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-canvas-test-user"></a>Skapa Canvas-testanvändare
+
+För att Azure AD-användare ska kunna logga in i Canvas måste de vara etablerade i Canvas. När det gäller Canvas är etableringen av användare en manuell åtgärd.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på din **arbetsytan** klient.
+1. Logga in i din **Canvas**-klientorganisation.
 
-1. Gå till **kurser \> hanterade konton \> Microsoft**.
-   
-   ![Arbetsytan](./media/canvas-lms-tutorial/IC775990.png "arbetsytan")
+2. Gå till **Kurser \> Hanterade konton \> Microsoft**.
 
-1. Klicka på **användare**.
-   
-   ![Användare](./media/canvas-lms-tutorial/IC775995.png "användare")
+   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
 
-1. Klicka på **Lägg till ny användare**.
-   
-   ![Användare](./media/canvas-lms-tutorial/IC775996.png "användare")
+3. Klicka på **Användare**.
 
-1. Utför följande steg på bladet Lägg till en ny användare dialogrutan sida:
-   
-   ![Lägg till användare](./media/canvas-lms-tutorial/IC775997.png "lägga till användare")
-   
-   a. I den **fullständigt namn** textrutan anger du namnet på användaren som **BrittaSimon**.
+   ![Användare](./media/canvas-lms-tutorial/ic775995.png "Användare")
 
-   b. I den **e-post** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com**.
+4. Klicka på **Lägg till ny användare**.
 
-   c. I den **inloggning** textrutan Ange användarens Azure AD e-postadress som **brittasimon@contoso.com**.
+   ![Användare](./media/canvas-lms-tutorial/ic775996.png "Användare")
 
-   d. Välj **e-användaren om det här kontot skapas**.
+5. Utför följande steg i dialogrutan Lägg till en ny användare:
 
-   e. Klicka på **lägga till användare**.
+   ![Lägg till användare](./media/canvas-lms-tutorial/ic775997.png "Lägg till användare")
 
->[!NOTE]
->Du kan använda arbetsytan användaren-konto skapas verktyg från någon annan eller API: er som tillhandahålls av arbetsytan att etablera AAD-användarkonton.
+   a. I textrutan **Fullständigt namn** anger du namnet på användaren, t.ex. **BrittaSimon**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+   b. I textrutan **E-post** anger du e-postadressen för användaren, t.ex. **brittasimon@contoso.com**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till arbetsytan.
+   c. I textrutan **Inloggning** anger du användarens e-postadress för Azure AD, t.ex. **brittasimon@contoso.com**.
 
-![Tilldela användare][200] 
+   d. Välj alternativet för att **meddela användaren via e-post när kontot skapats**.
 
-**Om du vill tilldela arbetsytan Britta Simon utför du följande steg:**
+   e. Klicka på **Lägg till användare**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+> [!NOTE]
+> Du kan etablera ADD-användarkonton med hjälp av andra verktyg eller API:er för generering av Canvas-användarkonton som tillhandahålls av Canvas.
 
-    ![Tilldela användare][201] 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-1. I listan med program väljer **arbetsytan**.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-    ![Konfigurera enkel inloggning](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen arbetsytor i åtkomstpanelen du bör få automatiskt loggat in på programmets arbetsyta.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på Canvas-panelen på åtkomstpanelen så bör du loggas in automatiskt i Canvas-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/canvas-lms-tutorial/tutorial_general_01.png
-[2]: ./media/canvas-lms-tutorial/tutorial_general_02.png
-[3]: ./media/canvas-lms-tutorial/tutorial_general_03.png
-[4]: ./media/canvas-lms-tutorial/tutorial_general_04.png
-
-[100]: ./media/canvas-lms-tutorial/tutorial_general_100.png
-
-[200]: ./media/canvas-lms-tutorial/tutorial_general_200.png
-[201]: ./media/canvas-lms-tutorial/tutorial_general_201.png
-[202]: ./media/canvas-lms-tutorial/tutorial_general_202.png
-[203]: ./media/canvas-lms-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

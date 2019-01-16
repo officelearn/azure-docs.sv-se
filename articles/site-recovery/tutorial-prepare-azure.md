@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973527"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159017"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
@@ -68,11 +68,12 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-1. I Azure-portalen markerar du **Skapa en resurs** > **Storage** > **Backup och Site Recovery (OMS)**.
-2. I **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
-3. I **Resursgruppen** använder vi **contosoRG**.
-4. I **Plats**. Använder vi **Västeuropa**.
-5. För att snabbt komma åt valvet från instrumentpanelen väljer du **Fäst på instrumentpanelen** > **Skapa**.
+1. I Azure-portalen klickar du på **+Skapa en resurs** och söker i Marketplace efter **Recovery services**.
+2. Klicka på **Backup och Site Recovery (OMS)**. På sidan Backup och Site Recovery klickar du på **Skapa**. 
+1. I **Recovery Services-valv** > **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
+2. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
+3. I **Plats** väljer du den region där valvet ska finnas. Använder vi **Västeuropa**.
+4. För att snabbt komma åt valvet från instrumentpanelen väljer du **Fäst på instrumentpanelen** > **Skapa**.
 
    ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
 

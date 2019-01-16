@@ -1,33 +1,33 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med UNIFI | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och UNIFI.
+title: 'Självstudier: Azure Active Directory-integrering med Pavaso Digital Close | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Pavaso Digital Close.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: e1f49ee4-d2d4-4a82-9baf-0587ca1f20f6
+ms.assetid: 23d83f82-39c3-4fc2-88c9-f8074cc44d43
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: c5b237c87817af8ff84cefe6bab79956c426b28d
+ms.openlocfilehash: d07e203203b4edd1bd62be084f245825371559b1
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063719"
+ms.locfileid: "54067556"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Självstudier: Azure Active Directory-integrering med UNIFI
+# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Självstudier: Azure Active Directory-integrering med Pavaso Digital Close
 
-I den här självstudien får du lära dig hur du integrerar UNIFI med Azure Active Directory (AD Azure).
-Integreringen av UNIFI med Azure AD medför följande fördelar:
+I den här självstudien lär du dig att integrera Pavaso Digital Close med Azure Active Directory (AD Azure).
+Genom att integrera Pavaso Digital Close med Azure AD får du följande fördelar:
 
-* Du kan styra vem som har åtkomst till UNIFI från Azure AD.
-* Du kan konfigurera inställningar så att dina användare automatiskt loggas in i UNIFI (enkel inloggning) med sina Azure AD-konton.
+* Du kan i Azure AD styra vem som har åtkomst till Pavaso Digital Close.
+* Du kan göra så att dina användare automatiskt loggas in på Pavaso Digital Close (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,23 +35,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med UNIFI behöver du följande:
+För att konfigurera Azure AD-integrering med Pavaso Digital Close behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* En UNIFI-prenumeration med enkel inloggning aktiverat
+* Pavaso Digital Close-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* UNIFI stöder **SP- och IDP**-initierad enkel inloggning
-* UNIFI stöder **automatisk användaretablering**
+* Pavaso Digital Close stöder **IDP**-initierad enkel inloggning
 
-## <a name="adding-unifi-from-the-gallery"></a>Lägga till UNIFI från galleriet
+## <a name="adding-pavaso-digital-close-from-the-gallery"></a>Lägga till Pavaso Digital Close från galleriet
 
-För att konfigurera integreringen av UNIFI med Azure AD måste du lägga till UNIFI från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av Pavaso Digital Close till Azure AD behöver du lägga till Pavaso Digital Close från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till UNIFI från galleriet:**
+**Lägg till Pavaso Digital Close från galleriet genom att utföra följande steg:**
 
 1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -65,31 +64,31 @@ För att konfigurera integreringen av UNIFI med Azure AD måste du lägga till U
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **UNIFI**, väljer **UNIFI** från resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Pavaso Digital Close**, väljer **Pavaso Digital Close** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-     ![UNIFI i resultatlistan](common/search-new-app.png)
+     ![Pavaso Digital Close i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med UNIFI baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i UNIFI upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med [programnamn] baserat på en testanvändare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i [Programnamn] upprättas.
 
-För att konfigurera och testa enkel inloggning i Azure AD med UNIFI måste du utföra följande uppgifter:
+För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] behöver du utföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för UNIFI](#configure-unifi-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för Pavaso Digital Close](#configure-pavaso-digital-close-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa UNIFI-testanvändare](#create-unifi-test-user)** – för att skapa en motsvarighet till Britta Simon i UNIFI som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa Pavaso Digital Close-testanvändare](#create-pavaso-digital-close-test-user)** – för att ha en motsvarighet för Britta Simon i Pavaso Digital Close som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning i Azure AD med UNIFI:
+Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra följande steg:
 
-1. Välj **Enkel inloggning** på sidan för programintegrering av **UNIFI** på [Azure-portalen](https://portal.azure.com/).
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Pavaso Digital Close**-programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,21 +102,26 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med UNIFI
 
 4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Information om enkel inloggning med UNIFI-domäner och -URL:er](common/idp-identifier.png)
+    ![Pavaso Digital Close-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
-    I textrutan **Identifierare** skriver du URL:en: `INVIEWlabs`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.pavaso.com/AuthServices`
+
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.pavaso.com/AuthServices/Acs`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://app.discoverunifi.com/login`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.pavaso.com`.
 
-    ![image](common/both-preintegrated-signon.png)
+    ![Pavaso Digital Close-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Hämta dessa värden genom att kontakta [supportteamet för Pavaso Digital Close-klienten](mailto:support@pavaso.com). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-7. I avsnittet **Konfigurera UNIFI** kopierar du lämpliga URL:er baserat på dina behov.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+7. I avsnittet **Konfigurera Pavaso Digital Close** kopierar du lämpliga URL:er efter behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -127,29 +131,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med UNIFI
 
     c. Utloggnings-URL
 
-### <a name="configure-unifi-single-sign-on"></a>Konfigurera enkel inloggning för UNIFI
+### <a name="configure-pavaso-digital-close-single-sign-on"></a>Konfigurera enkel inloggning för Pavaso Digital Close
 
-1. Öppna ett nytt webbläsarfönster och logga in på din **UNIFI**-företagswebbplats som administratör.
-
-2. Klicka på **Användare**.
-
-    ![Konfigurera enkel inloggning](./media/unifi-tutorial/app1.png)
-
-3. Klicka på **Lägg till ny identitetsprovider**.
-
-    ![Konfigurera enkel inloggning](./media/unifi-tutorial/app2.png)
-
-4. Utför följande steg i avsnittet **Lägg till identitetsprovider**:
-
-    ![Konfigurera enkel inloggning](./media/unifi-tutorial/app3.png) 
-
-    a. Skriv namnet på identitetsprovidern i textrutan **Providernamn**.
-
-    b. I textrutan för **provider-URL** klistrar du in värdet för **Inloggnings-URL**, som du har kopierat från Azure-portalen.
-
-    c. Öppna certifikatet som du laddade ned från Azure-portalen i Anteckningar. Ta bort taggen **---BEGIN CERTIFICATE---** och **---END CERTIFICATE---** och klistra sedan in resten av innehållet i textrutan **Certifikat**.
-
-    d. Markera kryssrutan **Är standardprovider**.
+För att konfigurera enkel inloggning på **Pavaso Digital Close**-sidan behöver du skicka det nedladdade **Federation Metadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Pavaso Digital Close](mailto:support@pavaso.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -178,15 +162,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till UNIFI.
+I det här avsnittet ser du till att Britta Simon ska kunna använda enkel inloggning i Azure genom att bevilja åtkomst till Pavaso Digital Close.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **UNIFI**.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Pavaso Digital Close**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **UNIFI** i programlistan.
+2. I programlistan väljer du **Pavaso Digital Close**.
 
-    ![UNIFI-länken i listan med program](common/all-applications.png)
+    ![Pavaso Digital Close-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -202,15 +186,15 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-unifi-test-user"></a>Skapa UNIFI-testanvändare
+### <a name="create-pavaso-digital-close-test-user"></a>Skapa Pavaso Digital Close-testanvändare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon. **UNIFI** har stöd för automatisk användaretablering, vilket betyder att inga manuella steg krävs. Användare skapas automatiskt efter en lyckad autentisering från Azure AD.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Pavaso Digital Close. Kontakta [supportteamet för Pavaso Digital Close](mailto:support@pavaso.com) för att lägga till användare i Pavaso Digital Close-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på UNIFI-panelen på åtkomstpanelen bör du automatiskt loggas in i UNIFI-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Pavaso Digital Close-panelen i åtkomstpanelen bör du automatiskt loggas in på Pavaso Digital Close som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -219,4 +203,3 @@ När du klickar på UNIFI-panelen på åtkomstpanelen bör du automatiskt loggas
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

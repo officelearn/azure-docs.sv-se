@@ -3,54 +3,54 @@ title: Snabbstart – Dirigera webbtrafik med Azure Application Gateway – Azur
 description: Lär dig hur du använder Azure PowerShell till att skapa en programgateway med Azure Application Gateway som dirigerar webbtrafik till virtuella datorer i en serverdelspool.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: azurepowershell
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 95b806eaabaf0ba93b1e8b6823340e82842b0f1c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cb5a6a21cd6d33316e0560d7641bee99b2102373
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38591393"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159833"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure PowerShell
 
-Med Azure Application Gateway kan du dirigera programwebbtrafiken till specifika resurser genom att tilldela lyssnare till portar, skapa regler och att lägga till resurser i en serverdelspool.
-
-I den här snabbstarten visas hur du använder Azure Portal till att snabbt skapa programgatewayen med två virtuella datorer i serverdelspoolen. Sedan testar du den och kontrollerar att den fungerar korrekt.
+I den här snabbstarten visas hur du använder Azure-portalen till att snabbt skapa en programgateway med två virtuella datorer i serverdelspoolen. Sedan testar du den och kontrollerar att den fungerar korrekt. Med Azure Application Gateway kan du dirigera programmets webbtrafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och att lägga till resurser i en serverdelspool.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+## <a name="run-azure-powershell-locally"></a>Köra Azure PowerShell lokalt
+
+Om du väljer att installera och använda Azure PowerShell lokalt behöver du ha version 3.6 eller senare av Azure PowerShell-modulen för den här självstudien. 
+
+1. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+2. Skapa en anslutning med Azure genom att köra `Login-AzureRmAccount`.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Du måste alltid skapa resurser i en resursgrupp. Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+I Azure allokerar du relaterade resurser till en resursgrupp. Skapa en resursgrupp med hjälp av cmdleten [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) enligt följande: 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## <a name="create-network-resources"></a>Skapa nätverksresurser 
+## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Du måste skapa ett virtuellt nätverk för att programgatewayen ska kunna kommunicera med andra resurser. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. 
+Skapa ett virtuellt nätverk så att programgatewayen kan kommunicera med andra resurser. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelsservrarna. Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.
 
-Skapa undernätskonfigurationerna med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa det virtuella nätverket med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) och undernätskonfigurationerna. Skapa slutligen den offentliga IP-adressen med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
+1. Skapa undernätskonfigurationerna genom att anropa [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
+2. Skapa det virtuella nätverket med undernätskonfigurationerna genom att anropa [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork).
+3. Skapa den offentliga IP-adressen genom att anropa [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
 
 ```azurepowershell-interactive
-$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.1.0/24
-$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.2.0/24
 New-AzureRmVirtualNetwork `
@@ -58,7 +58,7 @@ New-AzureRmVirtualNetwork `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
-  -Subnet $backendSubnetConfig, $agSubnetConfig
+  -Subnet $agSubnetConfig, $backendSubnetConfig
 New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -67,16 +67,19 @@ New-AzureRmPublicIpAddress `
 ```
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet skapar du två virtuella datorer som ska användas som serverdelsservrar för programgatewayen. 
-
-Du installerar även IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
+I det här exemplet skapar du två virtuella datorer för Azure som ska användas som serverdelsservrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att verifiera att Azure har skapat programgatewayen.
 
 ### <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
 
-Skapa ett nätverksgränssnitt med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Skapa en virtuell datorkonfiguration med [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). När du kör följande kommandon måste du ange autentiseringsuppgifter. Ange *azureuser* som användarnamn och *Azure123456!* som lösenord. Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+1. Skapa ett nätverksgränssnitt med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). 
+2. Skapa en virtuell datorkonfiguration med [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig).
+3. Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
+När du kör följande kodexempel för att skapa virtuella datorer uppmanas du av Azure att ange autentiseringsuppgifter. Ange *azureuser* som användarnamn och *Azure123456!* som lösenord:
+    
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork myVNet -Name myBackendSubnet
 $cred = Get-Credential
 for ($i=1; $i -le 2; $i++)
 {
@@ -84,25 +87,25 @@ for ($i=1; $i -le 2; $i++)
     -Name myNic$i `
     -ResourceGroupName myResourceGroupAG `
     -Location EastUS `
-    -SubnetId $vnet.Subnets[1].Id
+    -SubnetId $subnet.Id
   $vm = New-AzureRmVMConfig `
     -VMName myVM$i `
-    -VMSize Standard_DS2
-  $vm = Set-AzureRmVMOperatingSystem `
+    -VMSize Standard_DS2_v2
+  Set-AzureRmVMOperatingSystem `
     -VM $vm `
     -Windows `
     -ComputerName myVM$i `
     -Credential $cred
-  $vm = Set-AzureRmVMSourceImage `
+  Set-AzureRmVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer `
     -Skus 2016-Datacenter `
     -Version latest
-  $vm = Add-AzureRmVMNetworkInterface `
+  Add-AzureRmVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  $vm = Set-AzureRmVMBootDiagnostics `
+  Set-AzureRmVMBootDiagnostics `
     -VM $vm `
     -Disable
   New-AzureRmVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -122,12 +125,14 @@ for ($i=1; $i -le 2; $i++)
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
-Använd [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) till att skapa konfigurationen som associerar undernätet du skapade tidigare med programgatewayen. Använd [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) till att skapa konfigurationen som tilldelar den offentliga IP-adressen du också skapade tidigare till programgatewayen. Använd [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) till att ange att port 80 ska användas för åtkomst till programgatewayen.
+1. Använd [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) till att skapa konfigurationen som associerar det undernät som du skapade tidigare med programgatewayen. 
+2. Använd [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) till att skapa konfigurationen som tilldelar den offentliga IP-adress som du tidigare skapade till programgatewayen. 
+3. Använd [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) till att ange port 80 för åtkomst till programgatewayen.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$pip = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
-$subnet=$vnet.Subnets[0]
+$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork myVNet -Name myAGSubnet
+$pip    = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
@@ -141,7 +146,8 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Skapa serverdelspoolen
 
-Använd [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) till att skapa serverdelspoolen för programgatewayen. Konfigurera inställningar för serverdelspoolen med [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+1. Använd [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) till att skapa serverdelspoolen för programgatewayen. 
+2. Konfigurera inställningarna för serverdelspoolen med [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
 $address1 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -159,7 +165,10 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listener-and-add-a-rule"></a>Skapa lyssnaren och lägga till en regel
 
-Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. Skapa en lyssnare med [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener). Använd den konfiguration och port för klientdelen du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Använd [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) till att skapa en regel med namnet *rule1*.
+Azure kräver att en lyssnare aktiverar programgatewayen för korrekt dirigering av trafiken till serverdelspoolen. Azure kräver även en regel för att lyssnaren ska veta vilken serverdelspool som ska användas för inkommande trafik. 
+
+1. Skapa en lyssnare med hjälp av [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener). Använd den konfiguration och den port för klientdelen som du skapade tidigare. 
+2. Använd [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) till att skapa en regel med namnet *rule1*. 
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzureRmApplicationGatewayHttpListener `
@@ -177,7 +186,10 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Nu när du har skapat de nödvändiga stödresurserna använder du [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) till att ange parametrar för programgatewayen. Skapa sedan gatewayen med [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+Nu när du har skapat de nödvändiga stödresurserna skapar du programgatewayen:
+
+1. Använd [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) för att ange parametrar för programgatewayen.
+2. Använd [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) för att skapa programgatewayen.
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -200,7 +212,10 @@ New-AzureRmApplicationGateway `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du behöver inte installera IIS för att skapa programgatewayen men du har installerat det i den här snabbstarten för att verifiera om programgatewayen har skapats. Använd [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
+
+1. Kör [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att hämta den offentliga IP-adressen för programgatewayen. 
+2. Kopiera och klistra in den offentliga IP-adressen i webbläsarens adressfält. När du uppdaterar webbläsaren bör du se namnet på den virtuella datorn.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -208,11 +223,12 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Testa programgatewayen](./media/quick-create-powershell/application-gateway-iistest.png)
 
-Du bör se namnet på den andra virtuella datorn när du uppdaterar webbläsaren.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Utforska först de resurser som har skapats med programgatewayen. När du inte behöver dem längre kan du använda kommandot [az group delete](/powershell/module/azurerm.resources/remove-azurermresourcegroup) till att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
+När du inte längre behöver de resurser som du skapade med programgatewayen kan du ta bort resursgruppen. När du tar bort resursgruppen tas även programgatewayen och alla dess relaterade resurser bort. 
+
+Om du vill ta bort resursgruppen anropar du cmdleten [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) enligt följande:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG

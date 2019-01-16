@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998990"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015280"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -26,9 +26,9 @@ I den här snabbstarten skapar du din första berikningspipeline i [Azure Portal
 
 > [!div class="checklist"]
 > * Börja med exempeldata i Azure Blob Storage
-> * Konfigurera [guiden Importera data](search-import-data-portal.md) för kognitiv indexering och berikning 
+> * Konfigurera guiden [**Importera data**](search-import-data-portal.md) för kognitiv indexering och berikning 
 > * Kör guiden (en entitetskunskap upptäcker personer, platser och organisationer)
-> * Använd [Sökutforskaren](search-explorer.md) för att fråga berikade data
+> * Använd [**Sökutforskaren**](search-explorer.md) för att köra frågor mot berikade data
 
 ## <a name="supported-regions"></a> Regioner som stöds
 
@@ -98,9 +98,9 @@ Berikningspipelinen hämtar data från Azure-datakällor som stöds av [Azure Se
 
 1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. 
 
-1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, logga in i Storage Explorer och skapa en container. Ange offentlig åtkomst till **Container**. Mer information finns i [”skapa en container”](../storage/blobs/storage-unstructured-search.md#create-a-container) i självstudiekursen Sök ostrukturerade data.
+1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, öppna sidorna för blob-tjänster och skapa en container. I containern anger du den offentliga åtkomstnivån till **Container**. Mer information finns i [avsnittet ”Skapa en container”](../storage/blobs/storage-unstructured-search.md#create-a-container) i självstudien om att *söka i ostrukturerade data*.
 
-1. I containern klickar du på **Ladda upp** för att ladda upp exempelfilerna.
+1. I den container du skapade klickar du på **Ladda upp** för att ladda upp de exempelfiler som du laddade ned i ett tidigare steg.
 
   ![Källfiler i Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 

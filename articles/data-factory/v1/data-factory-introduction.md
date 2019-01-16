@@ -1,6 +1,6 @@
 ---
 title: Introduktion till Data Factory, en dataintegreringstjänst | Microsoft Docs
-description: 'Detta är vad Azure Data Factory är: en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data.'
+description: 'Läs om vad Azure Data Factory är: En tjänst för integrering av molndata som samordnar och automatiserar förflyttning och omvandling av data.'
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,17 +9,16 @@ ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087179"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014938"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +119,7 @@ Länkade tjänster används i två syften i Data Factory:
 
 ### <a name="relationship-between-data-factory-entities"></a>Förhållande mellan Data Factory-enheter
 
-![Diagram: Data Factory, en molnbaserad dataintegreringstjänst – nyckelbegrepp](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagram: Data Factory, en tjänst för integrering av molndata – nyckelbegrepp](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 För närvarande kan du skapa datafabriker i regionerna USA, västra; USA, östra och Europa, norra. Dock kan en datafabrik använda datalager och beräkningstjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster.

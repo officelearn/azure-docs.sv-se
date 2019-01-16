@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277751"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077665"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -86,7 +86,11 @@ Normalt kan du förvänta dig att se data eller meddelanden för förbrukade res
 
 ![Daglig vy som visar exempel på dagliga kostnader för den aktuella månaden](./media/quick-acm-cost-analysis/daily-view.png)
 
-Du kan **gruppera efter** för att välja en gruppkategori och ändra data som visas i diagrammet med total area längst upp. Med gruppering kan du snabbt se hur dina utgifter kategoriseras efter gemensamma resurs- och användningsegenskaper såsom resursgrupp eller resurstaggar. Om du vill gruppera efter taggar väljer du den taggnyckel du vill gruppera efter så visas kostnaderna uppdelade efter varje värde för den taggen, med ett extra segment för resurser som inte har den taggen tillämpad. Observera att Cost Management endast stöder resurstaggar från det datum då taggarna tillämpades direkt på resursen. Resursgrupptaggar stöds inte i nuläget. Här är en vy över Azure-tjänstkostnaderna för en vy över föregående månad.
+Du kan **gruppera efter** för att välja en gruppkategori och ändra data som visas i diagrammet med total area längst upp. Med gruppering kan du snabbt se hur dina utgifter kategoriseras efter gemensamma resurs- och användningsegenskaper såsom resursgrupp eller resurstaggar. Du grupperar efter taggar genom att välja den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje värde för den taggen, med ett extra segment för resurser som inte har den taggen tillämpad.
+
+De flesta [Azure-resurser stöder taggning](../azure-resource-manager/tag-support.md), men vissa taggar är inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Cost Management stöder endast resurstaggar från det datum då taggarna tillämpas direkt på resursen.
+
+Här är en vy över Azure-tjänstkostnaderna för en vy över föregående månad.
 
 ![Grupperad daglig ackumulerad vy som visar exempel på kostnader för Azure-tjänster för den senaste månaden](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -96,9 +100,9 @@ Pivotdiagram under huvuddiagram visar olika grupperingar för att ge dig en bred
 
 I föregående bild visas resursgruppnamn. Du kan gruppera efter tagg för att visa totala kostnader per tagg, men det finns inte stöd för att visa alla taggar per resurs eller resursgrupp i någon av vyerna för kostnadsanalys.
 
-När du grupperar kostnader efter ett specifikt attribut visas de tio viktigaste kostnadsfaktorerna från högsta till lägsta. Om det finns fler än tio grupper visas de nio viktigaste grupperna plus gruppen **Others** (Övriga), där alla övriga grupper ingår. När du grupperar efter taggar kan det även hända att du ser en **Otaggad** grupp för kostnader som inte har taggnyckeln tillämpad. **Otaggad** är alltid är sist även om det finns fler otaggade kostnader än taggade kostnader. Om det finns minst 10 taggvärden ingår otaggade kostnader i **Andra**.
+När du grupperar kostnader efter ett specifikt attribut visas de tio viktigaste kostnadsfaktorerna från högsta till lägsta. Om det finns fler än tio grupper visas de nio viktigaste kostnadsfaktorerna. Det visas även en grupp som heter **Andra**, som omfattar alla de återstående grupperna tillsammans. När du grupperar efter taggar kan det även hända att du ser en **Otaggad** grupp för kostnader som inte har taggnyckeln tillämpad. **Otaggad** är alltid är sist även om det finns fler otaggade kostnader än taggade kostnader. Om det finns minst tio taggvärden ingår otaggade kostnader i **Andra**.
 
-*Klassiska* virtuella datorer (Azure Service Management eller ASM), nätverk och lagringsresurser delar inte detaljerad faktureringsinformation. De slås samman som **klassiska tjänster** när du grupperar kostnader.
+*Klassiska* virtuella datorer (Azure Service Management eller ASM), nätverk och lagringsresurser delar inte detaljerad faktureringsinformation. De slås samman som **klassiska tjänster** när kostnader grupperas.
 
 
 ## <a name="download-cost-analysis-data"></a>Ladda ned kostnadsanalysdata

@@ -5,99 +5,117 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 16e23f77509d2402f765981b39a30e08a2309f68
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999606"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156535"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
-Med Azure Application Gateway kan du dirigera programmets webbtrafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och att lägga till resurser i en serverdelspool.
-
-I den här snabbstarten visas hur du använder Azure Portal till att snabbt skapa programgatewayen med två virtuella datorer i serverdelspoolen. Sedan testar du den och kontrollerar att den fungerar korrekt.
+I den här snabbstarten visas hur du använder Azure Portal till att snabbt skapa programgatewayen med två virtuella datorer i serverdelspoolen. Sedan testar du den och kontrollerar att den fungerar korrekt. Med Azure Application Gateway kan du dirigera programmets webbtrafik till specifika resurser genom att: tilldela lyssnare till portar, skapa regler och lägga till resurser i en serverdelspool.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com)
+Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
+För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Klicka på **Nätverk** och sedan på **Application Gateway** i listan Aktuella.
+1. Välj **Skapa en resurs** på den vänstra menyn på Azure-portalen. Fönstret **Nytt** visas.
 
-### <a name="basics"></a>Grundläggande inställningar
+2. Välj **Nätverk** och välj sedan **Programgateway** i listan **Aktuella**.
 
-1. Ange följande värden för programgatewayen:
+### <a name="basics-page"></a>Sidan Grundläggande inställningar
 
-    - *myAppGateway* – Namnet på programgatewayen.
-    - *myResourceGroupAG* – Den nya resursgruppen.
+1. På sidan **Grundläggande inställningar** anger du dessa värden för följande inställningar för programgatewayen:
+
+    - **Namn**: Ange *myAppGateway* som namn på programgatewayen.
+    - **Resursgrupp**: Välj **myResourceGroupAG** som resursgrupp. Om den inte finns väljer du **Skapa ny** för att skapa den.
 
     ![Skapa en ny programgateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-2. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+2. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.
 
-### <a name="settings"></a>Inställningar
+### <a name="settings-page"></a>Sidan Inställningar
 
-1. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
+1. Välj **Välj ett virtuellt nätverk** under **Undernätskonfiguration** på sidan **Inställningar**.
 
-    - *myVnet* – Det virtuella nätverkets namn.
-    - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
-    - *myBackendSubnet* – Undernätsnamnet.
-    - *10.0.0.0/24* – Undernätets adressintervall.
+2. Välj **Skapa nytt** på sidan **Välj virtuellt nätverk** och ange sedan värden för följande inställningar för virtuella nätverk:
+
+    - **Namn**: Ange *myVnet* som namn på det virtuella nätverket.
+
+    - **Adressutrymme**: Ange *10.0.0.0/16* som adressutrymme för det virtuella nätverket.
+
+    - **Namn på undernät**: Ange *myBackendSubnet* som namn på undernätet.<br>Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.
+
+    - **Adressintervall för undernätet**: Ange *10.0.0.0/24* som adressintervall för undernätet.
 
     ![Skapa det virtuella nätverket](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-6. Gå tillbaka till sidan Inställningar genom att klicka på **OK**.
-7. Under **Frontend-IP-konfiguration** kontrollerar du att **IP-adresstyp** är inställt på **offentlig**, och under **Offentlig IP-adress** ser du till att **Skapa ny** har valts. Skriv in *myAGPublicIPAddress* som namn för offentlig IP-adress. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+3. Välj **OK** för att återgå till sidan **Inställningar**.
 
-### <a name="summary"></a>Sammanfattning
+4. Kontrollera att **IP-adresstyp** är inställd på **Offentlig** under **IP-konfiguration för klientdel**. Kontrollera att **Skapa ny** har valts under **Offentlig IP-adress**. 
 
-Granska inställningarna på sammanfattningssidan och klicka sedan på **OK** för att skapa det virtuella nätverket, den offentliga IP-adressen och programgatewayen. Det kan ta flera minuter att skapa programgatewayen. Vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
+5. Ange *myAGPublicIPAddress* som den offentliga IP-adressens namn. 
+
+6. Godkänn standardvärdena för de andra inställningarna och välj sedan **OK**.
+
+### <a name="summary-page"></a>Sammanfattningssida
+
+Granska inställningarna på **sammanfattningssidan** och välj sedan **OK** för att skapa det virtuella nätverket, den offentliga IP-adressen och programgatewayen. Det kan ta flera minuter för Azure att skapa programgatewayen. Vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
 ## <a name="add-a-subnet"></a>Lägga till ett undernät
 
-1. Klicka på **Alla resurser** i den vänstra menyn och klicka sedan på **myVNet** i resurslistan.
-2. Klicka på **Undernät** och sedan på **+ Undernät**.
+Lägg till ett undernät i det virtuella nätverket som du skapade genom att följa dessa steg:
+
+1. Välj **Alla resurser** på den vänstra menyn på Azure-portalen, ange *myVNet* i sökrutan och välj sedan **myVNet** i sökresultatet.
+
+2. Välj **Undernät** på den vänstra menyn och välj sedan **+ Undernät**. 
 
     ![Skapa undernät](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-3. Ange *myBackendSubnet* som namn på undernätet och klicka sedan på **OK**.
+3. Från sidan **Lägg till undernät** anger du *myBackendSubnet* som **namn** på undernätet och väljer sedan **OK**.
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet skapar du två virtuella datorer som används som serverdelsservrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
+I det här exemplet skapar du två virtuella datorer som Azure använder som backend-servrar för programgatewayen. Du kan också installera IIS på de virtuella datorerna för att kontrollera att Azure har skapat programgatewayen.
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. Klicka på **Skapa en resurs** i Azure Portal.
-2. Klicka på **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
-3. Ange följande värden för den virtuella datorn:
+1. Välj **Skapa en resurs** på Azure-portalen. Fönstret **Nytt** visas.
 
-    - *myResourceGroupAG* för resursgruppen.
-    - *myVM* – Namnet på den virtuella datorn.
-    - *azureuser* – för administratörens användarnamn.
-    - *Azure123456!* som lösenord.
+2. Välj **Beräkning** och sedan **Windows Server 2016 Datacenter** i listan **Aktuella**. Sidan **Skapa en virtuell dator** visas.
 
-   Acceptera övriga standardvärden och klicka på **Nästa: Diskar**.
-4. Acceptera standardvärdena för diskar och klicka på **Nästa: Nätverk**.
-5. Kontrollera att **myVNet** har valts för det virtuella nätverket och att undernätet är **myBackendSubnet**.
-6. Acceptera övriga standardvärden och klicka på **Nästa: Hantering**.
-7. Klicka på **Av** för att inaktivera startdiagnostik. Acceptera de andra standardvärdena och klicka på **Granska + skapa**.
-8. Granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
-9. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.
+3. Ange dessa värden på fliken **Grundläggande inställningar** för följande inställningar för virtuella datorer:
+
+    - **Resursgrupp**: Välj **myResourceGroupAG** som namn på resursgruppen.
+    - **Namn på virtuell dator**: Ange *myVM* som namn på den virtuella datorn.
+    - **Användarnamn**: Ange *azureuser* som administratörens användarnamn.
+    - **Lösenord**: Ange *Azure123456!* som administratörslösenord.
+
+4. Acceptera de övriga standardinställningarna och välj sedan **Nästa: Diskar**.  
+
+5. Acceptera standardinställningarna på fliken **Diskar** och välj sedan **Nästa: Nätverk**.
+
+6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Acceptera de övriga standardinställningarna och välj sedan **Nästa: Hantering**.
+
+8. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
+
+9. Gå igenom inställningarna på fliken **Granska + skapa** och åtgärda eventuella verifieringsfel och välj sedan **Skapa**.
+
+10. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.
 
 ### <a name="install-iis"></a>Installera IIS
 
-1. Öppna det interaktiva gränssnittet och kontrollera att det är inställt på **PowerShell**.
+1. Öppna [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Det gör du genom att först välja **Cloud Shell** i det övre navigeringsfältet på Azure-portalen och sedan välja **PowerShell** i listrutan. 
 
     ![Installera anpassat tillägg](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -115,24 +133,31 @@ I det här exemplet skapar du två virtuella datorer som används som serverdels
       -Location EastUS
     ```
 
-3. Skapa en andra virtuell dator och installera IIS med hjälp av de steg som du just har slutfört. Ange *myVM2* som namn och VMName i Set-AzureRmVMExtension.
+3. Skapa en andra virtuell dator och installera IIS genom att följa stegen som du utförde tidigare. Använd *myVM2* som namn på den virtuella datorn och för inställningen **VMName** i **Set-AzureRmVMExtension**-cmdleten.
 
 ### <a name="add-backend-servers"></a>Lägga till serverdelsservrar
 
-1. Klicka på **Alla resurser** och sedan på **myAppGateway**.
-4. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGatewayBackendPool**.
-5. Under **Mål** klickar du på **IP-adress eller FQDN** och väljer **Virtuell dator**.
-6. Under **Virtuell dator** lägger du till de virtuella datorerna myVM och myVM2 samt deras tillhörande nätverksgränssnitt.
+1. Välj **Alla resurser** och välj sedan **myAppGateway**.
+
+2. Välj **Serverdelspooler** på den vänstra menyn. Azure skapade automatiskt en standardpool, **appGatewayBackendPool**, när du skapade programgatewayen. 
+
+3. Välj **appGatewayBackendPool**.
+
+4. Välj **Virtuell dator** i listrutan under **Mål**.
+
+5. Under **VIRTUELL DATOR** och **NÄTVERKSGRÄNSSNITT** väljer du de virtuella datorerna **myVM** och **myVM2** och deras associerade nätverksgränssnitt i listrutorna.
 
     ![Lägga till serverdelsservrar](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. Klicka på **Spara**.
+6. Välj **Spara**.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-1. Leta reda på den offentliga IP-adressen för programgatewayen på skärmen Översikt. Klicka på **Alla resurser** och sedan på **myAGPublicIPAddress**.
+1. Leta reda på den offentliga IP-adressen för programgatewayen på skärmen **Översikt**.
 
     ![Registrera programgatewayens offentliga IP-adress](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
+
+    Du kan också välja **Alla resurser**, ange *myAGPublicIPAddress* i sökrutan och sedan välja den i sökresultatet. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
@@ -140,7 +165,13 @@ I det här exemplet skapar du två virtuella datorer som används som serverdels
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte behöver dem längre tar du bort resursgruppen, programgatewayen och alla relaterade resurser. Gör detta genom att markera den resursgrupp som innehåller programgatewayen och sedan klicka på **Ta bort**.
+När du inte längre behöver de resurser som du skapade med programgatewayen kan du ta bort resursgruppen. När du tar bort resursgruppen tas även programgatewayen och alla dess relaterade resurser bort. 
+
+Så här tar du bort resursgruppen:
+1. Välj **Resursgrupper** på den vänstra menyn på Azure-portalen.
+2. På sidan **Resursgrupper** söker du efter och väljer **myResourceGroupAG**.
+3. Välj **Ta bort resursgrupp** på sidan **Resursgrupp**.
+4. Ange *myResourceGroupAG* för **Skriv resursgruppens namn** och välj sedan **Ta bort**
 
 ## <a name="next-steps"></a>Nästa steg
 

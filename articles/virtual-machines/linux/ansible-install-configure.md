@@ -3,17 +3,17 @@ title: Installera Ansible på virtuella Azure-datorer
 description: Lär dig hur du installerar och konfigurerar Ansible för att hantera Azure-resurser på Ubuntu, CentOS och SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: b714470cd12bb7a0cd2d2a00b4f09467726f505d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987058"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078056"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Installera Ansible på virtuella Azure-datorer
 
@@ -25,7 +25,7 @@ Med Ansible kan du automatisera distributionen och konfigurationen av resurser i
 
 - **Åtkomst till Linux eller en virtuell Linux-dator** – om du inte har en Linux-dator skapar du en [virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Observera värdena för **appId**, **displayName**, **password** (lösenord) och **tenant** (klientorganisation).
+- **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Observera värdena för **appId**, **displayName**, **password** (lösenord) och **tenant** (klientorganisation).
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Installera Ansible på en virtuell Linux-dator för Azure
 

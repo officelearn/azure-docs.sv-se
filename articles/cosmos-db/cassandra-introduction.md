@@ -1,20 +1,19 @@
 ---
 title: Introduktion till Cassandra-API:et för Azure Cosmos DB
 description: Läs hur du kan använda Azure Cosmos DB för att lyfta och skifta befintliga program och skapa nya program med Cassandra-API:t med hjälp av de Cassandra-drivrutiner och CQL som du redan är bekant med.
-services: cosmos-db
 author: kanshiG
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 79c131be14de05e84eb21d6d53eefd1aa224df16
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9d948164177b7acd2df722078ae590f409c8e795
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835028"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036519"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduktion till Cassandra-API:et för Azure Cosmos DB
 
@@ -24,7 +23,7 @@ Cassandra-API:t låter dig interagera med data som lagras i Azure Cosmos DB med 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Vad är fördelen med att använda Apache Cassandra API:t för Azure Cosmos DB?
 
-**Ingen åtgärdshantering**: Som en fullständigt hanterad molntjänst eliminerar Cassandra-API:et för Azure Cosmos DB det tidskrävande arbetet med att hantera och övervaka en mängd olika inställningar i operativsystem, JVM och yaml-filer och deras interaktioner. Azure Cosmos DB erbjuder övervakning av dataflödet, svarstider, lagring, tillgänglighet och konfigurerbara aviseringar.
+**Hantering utan åtgärder**: Som en fullständigt hanterad molntjänst eliminerar Cassandra-API:et för Azure Cosmos DB det tidskrävande arbetet med att hantera och övervaka en mängd olika inställningar i operativsystem, JVM och yaml-filer samt deras interaktioner. Azure Cosmos DB erbjuder övervakning av dataflödet, svarstider, lagring, tillgänglighet och konfigurerbara aviseringar.
 
 **Prestandahantering**: Azure Cosmos DB tillhandahåller läsningar och skrivningar med garanterat korta svarstider inom den 99:e percentilen, backade av serviceavtalen. Användarna behöver inte bekymra sig om driftsomkostnader för att säkerställa höga prestanda och snabba läsningar och skrivningar. Det innebär att användarna inte behöver lösa schemaläggningsproblem, hantera tombstones eller skapa bloomfilter och repliker manuellt. Med Azure Cosmos DB slipper du ägna tid åt dessa problem så att du kan fokusera på programlogiken.
 
@@ -34,7 +33,7 @@ Cassandra-API:t låter dig interagera med data som lagras i Azure Cosmos DB med 
 
 **Global distribution och tillgänglighet**: Med Azure Cosmos DB kan du distribuera data över alla Azure-regioner globalt och tillhandahålla data lokalt med snabb dataåtkomst och hög tillgänglighet. Azure Cosmos DB erbjuder 99,99 % hög tillgänglighet inom en region och 99,999 % läs- och skrivtillgänglighet i flera regioner utan ytterligare driftkostnader. Läs mer i artikeln [Distribuera data globalt](distribute-data-globally.md). 
 
-**Val av konsekvensnivåer:** Azure Cosmos DB låter dig välja mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Dessa konsekvensnivåer är stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Dessa väldefinierade, praktiska och intuitiva konsekvensnivåer hjälper utvecklare att göra exakta avvägningarna mellan konsekvens, tillgänglighet och svarstider. Läs mer i artikeln om [konsekvensnivåer](consistency-levels.md). 
+**Val av konsekvensnivåer:** Med Azure Cosmos DB kan du välja mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Dessa konsekvensnivåer är stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Dessa väldefinierade, praktiska och intuitiva konsekvensnivåer hjälper utvecklare att göra exakta avvägningarna mellan konsekvens, tillgänglighet och svarstider. Läs mer i artikeln om [konsekvensnivåer](consistency-levels.md). 
 
 **Enterprise-klass**: Azure Cosmos DB erbjuder [kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter) så att användare kan använda plattformen på ett säkert sätt. Azure Cosmos DB erbjuder även kryptering i vila och i rörelse, IP-brandvägg och granskningsloggar för kontrollplansaktiviteter.
 

@@ -1,342 +1,303 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med SAML SSO för antal samverkande resolution GmbH | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAML SSO för antal samverkande resolution GmbH.
+title: 'Självstudier: Azure Active Directory-integrering med SAML SSO for Confluence by resolution GmbH | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAML SSO for Confluence by resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/18/2017
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: c1a1126026f3d2618a0669e4bd69a84cc1c6c54c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 46c4389d92dfdaed9abdbe383b56708a3e8b5a73
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431631"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064618"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integration med SAML SSO för antal samverkande resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO for Confluence by resolution GmbH
 
-I den här självstudien får du lära dig hur du integrerar SAML SSO för antal samverkande resolution GmbH med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig hur du integrerar SAML SSO for Confluence by resolution GmbH med Azure Active Directory (Azure AD).
+Integreringen av SAML SSO for Confluence by resolution GmbH med Azure AD medför följande fördelar:
 
-Integrera SAML SSO för antal samverkande resolution GmbH med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till SAML SSO for Confluence by resolution GmbH från Azure AD.
+* Du kan konfigurera inställningar så att dina användare loggas in automatiskt till Confluence by resolution GmbH (enkel inloggning) med deras Azure Active Directory-konton (Azure AD).
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till SAML SSO för antal samverkande resolution GmbH
-- Du kan aktivera användarna att automatiskt få loggat in på SAML SSO för antal samverkande resolution GmbH (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med SAML SSO for Confluence by resolution GmbH behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med SAML SSO för antal samverkande resolution GmbH, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SAML SSO för växer samman av upplösning GmbH, enkel inloggning på aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En SAML SSO for Confluence by resolution GmbH-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SAML SSO för växer samman med upplösning GmbH från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-saml-sso-for-confluence-by-resolution-gmbh-from-the-gallery"></a>Att lägga till SAML SSO för växer samman med upplösning GmbH från galleriet
+* SAML SSO for Confluence by resolution GmbH stöder **SP**- och **IDP**-initierad enkel inloggning
 
-För att konfigurera integrering av SAML SSO för antal samverkande resolution GmbH i Azure AD, som du behöver lägga till SAML SSO för antal samverkande resolution GmbH från galleriet i din lista över hanterade SaaS-appar.
+## <a name="adding-saml-sso-for-confluence-by-resolution-gmbh-from-the-gallery"></a>Lägga till SAML SSO for Confluence by resolution GmbH från galleriet
 
-**Om du vill lägga till SAML SSO för antal samverkande resolution GmbH från galleriet, utför du följande steg:**
+För att konfigurera integreringen av SAML SSO for Confluence by resolution GmbH med Azure AD måste du lägga till SAML SSO for Confluence by resolution GmbH från galleriet i din lista över hanterade SaaS-appar.
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+**Utför följande steg för att lägga till SAML SSO for Confluence by resolution GmbH från galleriet:**
 
-    ![Active Directory][1]
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Program][3]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. I sökrutan skriver **SAML SSO för antal samverkande resolution GmbH**.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Skapa en Azure AD-användare för testning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-1. I resultatpanelen väljer **SAML SSO för antal samverkande resolution GmbH**, och klicka sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **SAML SSO for Confluence by resolution GmbH** i sökrutan, välj **SAML SSO for Confluence by resolution GmbH** från resultatpanelen och klicka på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
+     ![SAML SSO for Confluence by resolution GmbH i resultatlistan](common/search-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAML SSO för antal samverkande resolution GmbH baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med SAML SSO for Confluence by resolution GmbH baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SAML SSO for Confluence by resolution GmbH upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vilka motsvarande användaren i SAML SSO för antal samverkande resolution GmbH är att en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren i SAML SSO för antal samverkande resolution GmbH måste upprättas.
+För att konfigurera och testa enkel inloggning i Azure AD med SAML SSO for Confluence by resolution GmbH måste du utföra följande uppgifter:
 
-I SAML SSO för antal samverkande resolution GmbH, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för SAML SSO for Confluence by resolution GmbH](#configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa SAML SSO for Confluence by resolution GmbH-testanvändare](#create-saml-sso-for-confluence-by-resolution-gmbh-test-user)** – för att skapa en motsvarighet till Britta Simon i SAML SSO for Confluence by resolution GmbH som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SAML SSO för antal samverkande resolution GmbH, måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en SAML SSO för växer samman av lösning GmbH testanvändare](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  – du har en motsvarighet för Britta Simon i SAML SSO för antal samverkande resolution GmbH som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML SSO for Confluence by resolution GmbH:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din SAML SSO för antal samverkande resolution GmbH program.
+1. Välj [Enkel inloggning](https://portal.azure.com/) på sidan för programintegrering med **SAML SSO for Confluence by resolution GmbH** på **Azure-portalen**.
 
-**Om du vill konfigurera Azure AD enkel inloggning med SAML SSO för antal samverkande resolution GmbH, utför du följande steg:**
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **SAML SSO för antal samverkande resolution GmbH** program integration-sidan klickar du på **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **SAML SSO växer samman resolution GmbH domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
+4. Utför följande steg i avsnittet **Grundläggande SAML-konfiguration** om du vill konfigurera programmet i **IDP**-initierat läge:
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
+    ![Information om enkel inloggning med SAML SSO for Confluence by resolution GmbH-domäner och -URL:er](common/idp-intiated.png)
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
 
-1. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge:
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
+    c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i SP-initierat läge:
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [SAML SSO för antal samverkande resolution GmbH klienten supportteam](https://www.resolution.de/go/support) att hämta dessa värden. 
+    ![Information om enkel inloggning med SAML SSO for Confluence by resolution GmbH-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för SAML SSO for Confluence by resolution GmbH](https://www.resolution.de/go/support) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på **spara** knappen.
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/tutorial_general_400.png)    
-    
-1. Logga in på i ett annat webbläsarfönster din **SAML SSO för växer samman av lösning GmbH administrationsportalen** som administratör.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Hovra över kugghjulet och klicka på den **tillägg**.
+### <a name="configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on"></a>Konfigurera enkel inloggning för SAML SSO for Confluence by resolution GmbH
+
+1. Öppna ett nytt webbläsarfönster och logga in på **administrationsportalen för SAML SSO for Confluence by resolution GmbH** som administratör.
+
+2. Hovra över kugghjulet och klicka på **Tillägg**.
     
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon1.png)
 
-1. Du omdirigeras till sidan för administratörsåtkomst. Ange lösenordet och klicka på **Bekräfta** knappen.
+3. Du omdirigeras till sidan för administratörsåtkomst. Ange lösenordet och klicka på **Bekräfta**.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon2.png)
 
-1. Under **ATLASSIANS MARKETPLACE** fliken **hitta nya tillägg**. 
+4. Klicka på **Hitta nya tillägg** under fliken **ATLASSIAN MARKETPLACE**. 
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon.png)
 
-1. Sök **SAML enkel inloggning (SSO) för antal samverkande** och klicka på **installera** knappen för att installera den nya SAML-plugin-programmet.
+5. Sök efter **SAML Single Sign On (SSO) for Confluence** och klicka på **Installera** för att installera det nya SAML-plugin-programmet.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon7.png)
 
-1. Installationen av plugin-programmet startas. Klicka på **Stäng**.
+6. Installationen av plugin-programmet startar. Klicka på **Stäng**.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon8.png)
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon9.png)
 
-1.  Klicka på **Hantera**.
+7.  Klicka på **Hantera**.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon10.png)
     
-1. Klicka på **konfigurera** att konfigurera nya plugin-programmet.
+8. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon11.png)
 
-1. Den här nya plugin-program även finns under **användare och säkerhet** fliken.
+9. Det nya plugin-programmet visas även under fliken **Användare och säkerhet**.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon3.png)
     
-1. På **SAML SingleSignOn plugin-programmet Configuration** klickar du på **lägga till nya IDP: N** knappen för att konfigurera inställningarna för identitetsprovidern.
+10. Klicka på **Lägg till ny IdP** på **konfigurationssidan för plugin-programmet SAML SingleSignOn** för att konfigurera inställningarna för identitetsprovidern.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon4.png)
 
-1. På **väljer SAML-identitetsprovider** utför följande steg:
+11. Utför följande steg på sidan **Välj din SAML-identitetsprovider**:
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5a.png)
  
-    a. Ange **Azure AD** som typ av IDP: N.
+    a. Ange **Azure AD** som IdP-typ.
     
-    b. Lägg till **namn** identitetsleverantörens (t.ex Azure AD).
+    b. Lägg till ett **namn** för identitetsprovidern (t.ex. Azure AD).
     
-    c. Lägg till **beskrivning** identitetsleverantörens (t.ex Azure AD).
+    c. Lägg till en **beskrivning** av identitetsprovidern (t.ex. Azure AD).
     
     d. Klicka på **Nästa**.
     
-1. På **identitet providerkonfigurationen** klickar du på **nästa** knappen.
+12. Klicka på knappen **Nästa** på **konfigurationssidan för identitetsprovidern**.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5b.png)
 
-1. På **importera SAML IdP Metadata** utför följande steg:
+13. Utför följande steg på sidan **Importera SAML IdP-metadata**:
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5c.png)
 
-    a. Klicka på **Läs in fil** knappen och välj Metadata-XML-fil som du hämtade i steg 5.
+    a. Klicka på **Läs in fil** och välj XML-filen med metadata som du hämtade i steg 5.
 
-    b. Klicka på **Import** knappen.
+    b. Klicka på **Importera**.
     
-    c. Vänta en kort stund tills importen lyckas.
+    c. Vänta en kort stund tills importen slutförts.
     
-    d. Klicka på **nästa** knappen.
+    d. Klicka på **Nästa**.
     
-1. På **användar-ID-attribut och omvandling** klickar du på **nästa** knappen.
+14. Klicka på **Nästa** på sidan för **attribut för användar-ID och transformering**.
 
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5d.png)
     
-1. På **skapa användare och uppdatera** klickar du på **Spara & nästa** att spara inställningarna.    
+15. Spara inställningarna genom att klicka på **Spara och Nästa** på sidan för **användargenerering och uppdatering**.   
     
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon6a.png)
     
-1. På **testa dina inställningar** klickar du på **hoppa över testet och konfigurera manuellt** att hoppa över användare testet just nu. Detta kommer att utföras i nästa avsnitt och kräver en del inställningar i Azure-portalen. 
+16. Hoppa över användartestningen så länge genom att klicka på **Hoppa över test och konfigurera manuellt** på sidan **Testa dina inställningar**. Du ska köra testningen i nästa avsnitt, vilket kräver ytterligare några inställningar på Azure-portalen. 
     
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon6b.png)
     
-1. I dialogrutan-läsning apprearing **hoppar över testning innebär...** , klickar du på **OK**.
+17. Klicka på **OK** i dialogrutan med texten **Skipping the test means...** (Om du hoppar över testet ...).
     
     ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon6c.png)
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/samlssoconfluence-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/samlssoconfluence-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/samlssoconfluence-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/samlssoconfluence-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user"></a>Skapa en SAML SSO för växer samman av lösning GmbH testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på SAML SSO för antal samverkande resolution GmbH, måste de etablerats i SAML SSO för växer samman av lösning GmbH.  
-I SAML SSO för antal samverkande resolution GmbH är etablering en manuell aktivitet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att ge åtkomst till SAML SSO for Confluence by resolution GmbH.
+
+1. Välj **Företagsprogram** på Azure-portalen, välj **Alla program** och välj sedan **SAML SSO for Confluence by resolution GmbH**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. Skriv och välj **SAML SSO for Confluence by resolution GmbH** i programlistan.
+
+    ![SAML SSO for Confluence by resolution GmbH-länken i listan över program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-saml-sso-for-confluence-by-resolution-gmbh-test-user"></a>Skapa SAML SSO for Confluence by resolution GmbH-testanvändare
+
+För att Azure AD-användare ska kunna logga in i SAML SSO for Confluence by resolution GmbH måste de vara etablerade i SAML SSO for Confluence by resolution GmbH.  
+I SAML SSO for Confluence by resolution GmbH är etableringen en manuell åtgärd.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på din SAML SSO för växer samman av lösning GmbH företagets plats som administratör.
+1. Logga in på din SAML SSO for Confluence by resolution GmbH-företagswebbplats som administratör.
 
-1. Hovra över kugghjulet och klicka på den **Användarhantering**.
+2. Hovra över kugghjulet och klicka på **Användarhantering**.
 
-    ![Lägg till medarbetare](./media/samlssoconfluence-tutorial/user1.png) 
+    ![Lägga till medarbetare](./media/samlssoconfluence-tutorial/user1.png) 
 
-1. Under avsnittet för användare, klickar du på **lägga till användare** fliken. På den **”Lägg till en användare”** dialogrutan utför följande steg:
+3. Klicka på fliken **Lägg till användare** under avsnittet Användare. Utför följande steg i dialogrutan **Lägg till en användare**:
 
-    ![Lägg till medarbetare](./media/samlssoconfluence-tutorial/user2.png) 
+    ![Lägga till medarbetare](./media/samlssoconfluence-tutorial/user2.png) 
 
-    a. I den **användarnamn** textrutan Skriv e-postadress för användaren som Britta Simon.
+    a. Skriv e-postadressen för användaren, t.ex. Britta Simon, i textrutan **Användarnamn**.
 
-    b. I den **fullständigt namn** textrutan skriver du det fullständiga namnet på användaren som Britta Simon.
+    b. Skriv det fullständiga namnet för användaren, t.ex. Britta Simon, i textrutan **Fullständigt namn**.
 
-    c. I den **e-post** textrutan typ e-postadressen för användaren som Brittasimon@contoso.com.
+    c. Skriv e-postadressen för användaren i textrutan **E-post**, t.ex. Brittasimon@contoso.com.
 
-    d. I den **lösenord** textrutan skriver du lösenordet för Britta Simon.
+    d. Skriv lösenordet för Britta Simon i textrutan **Lösenord**.
 
-    e. Klicka på **Bekräfta lösenord** ange lösenordet igen.
+    e. Klicka på **Bekräfta lösenord** för att ange lösenordet igen.
     
-    f. Klicka på **Lägg till** knappen.    
+    f. Klicka på **Lägg till**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SAML SSO för antal samverkande resolution GmbH.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela användare][200] 
-
-**Om du vill tilldela SAML SSO för antal samverkande Britta Simon resolution GmbH, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **SAML SSO för antal samverkande resolution GmbH**.
-
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på SAML SSO för växer samman av lösning GmbH panel i åtkomstpanelen du bör få automatiskt loggat in på ditt SAML SSO för antal samverkande resolution GmbH program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen för SAML SSO for Confluence by resolution GmbH på åtkomstpanelen bör du loggas in automatiskt i SAML SSO for Confluence by resolution GmbH-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/samlssoconfluence-tutorial/tutorial_general_01.png
-[2]: ./media/samlssoconfluence-tutorial/tutorial_general_02.png
-[3]: ./media/samlssoconfluence-tutorial/tutorial_general_03.png
-[4]: ./media/samlssoconfluence-tutorial/tutorial_general_04.png
-
-[100]: ./media/samlssoconfluence-tutorial/tutorial_general_100.png
-
-[200]: ./media/samlssoconfluence-tutorial/tutorial_general_200.png
-[201]: ./media/samlssoconfluence-tutorial/tutorial_general_201.png
-[202]: ./media/samlssoconfluence-tutorial/tutorial_general_202.png
-[203]: ./media/samlssoconfluence-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

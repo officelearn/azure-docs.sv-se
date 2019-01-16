@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd5f9567c92201b4dfa08c74574df97fa8c91ae2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074000"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065570"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Registrera dig för Azure Active Directory Premium
 Du kan köpa och associera Azure Active Directory (Azure AD) Premium till din Azure-prenumeration. Om du behöver skapa en ny Azure-prenumeration måste du även aktivera din licensieringsplan och åtkomst till Azure AD-tjänsten.
@@ -66,7 +66,7 @@ Om du har registrerat dig med hjälp av en ny Azure AD-licensieringsplan måste 
    
     ![Logga in](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **Logga in.** Välj den här länken om du har en befintlig klient, och logga sedan in med ditt befintliga administratörskonto. Du måste vara en global administratör på den klient där licenserna aktiveras.
+    - **Logga in.** Välj den här länken om du har en befintlig klient, och logga sedan in med ditt befintliga administratörskonto. Du måste vara global administratör i den klientorganisation där licenserna aktiveras.
 
     - **Registrera dig.** Välj den här länken om du vill öppna sidan **Skapa kontoprofil** och skapa en ny Azure AD-klientorganisation för din licensieringsplan.
 

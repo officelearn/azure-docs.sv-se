@@ -3,17 +3,17 @@ title: Distribuera program till skalningsuppsättningar för virtuella datorer i
 description: Läs om hur du använder Ansible för att konfigurera en skalningsuppsättning för virtuell dator och distribuera program på skalningsuppsättningen i Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408382"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156552"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuera program till skalningsuppsättningar för virtuella datorer i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan distribuera program till Azure med Ansible. I den här artikeln får du se hur du distribuerar ett Java-program till en Azure VM-skalningsuppsättning (VMSS).  
@@ -150,7 +150,7 @@ Följande avsnitt i en Ansible-spelbok installerar JRE (Java Runtime Environment
 Du kan spara den föregående Ansible-exempelspelboken som `vmss-setup-deploy.yml` eller [ladda ned hela exempelspelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Om du vill använda ssh-anslutningstypen med lösenord måste du installera sshpass-programmet. 
-  - För Ubunto 16.04 kör du kommandot `apt-get install sshpass`.
+  - För Ubuntu 16.04 kör du kommandot `apt-get install sshpass`.
   - För CentOS 7.4 kör du kommandot `yum install sshpass`.
 
 Du kanske ser ett fel i stil med **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host** (Det går inte att använda ett SSH-lösenord istället för en nyckel eftersom värdnyckelkontroll är aktiverat och sshpass inte stöder det Lägg till värdens fingeravtryck till filen known_hosts för att hantera värden). Om du ser det här felet kan du inaktivera värdnyckelkontroll genom att lägga till följande rad till antingen filen `/etc/ansible/ansible.cfg` eller `~/.ansible.cfg`:

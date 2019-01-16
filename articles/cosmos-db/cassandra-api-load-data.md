@@ -1,22 +1,22 @@
 ---
-title: 'Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program'
+title: 'Självstudier: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program'
 description: Den här självstudien beskriver hur du läser in exempelanvändardata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program.
 author: kanshiG
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: fad6d34a3d3712a036e0275717754f75d5314aae
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 68baffea86ce5c877217ec05d477288b71830a42
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863661"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037437"
 ---
-# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudier: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
 
 Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett konto för Cassandra-API:et i Azure Cosmos DB för att lagra och hantera nyckel/värde-data. Den här självstudien beskriver hur du läser in exempelanvändardata i ett konto för Cassandra-API:et i Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och läser in användardata såsom användar-ID, användarnamn och användarens stad. 
 

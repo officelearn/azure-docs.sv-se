@@ -4,17 +4,17 @@ description: Lär dig hur du installerar och använder tillägget Azure Terrafor
 services: terraform
 ms.service: terraform
 keywords: terraform, azure, devops, visual studio code, extension
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353058"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074588"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installera och använda tillägget Azure Terraform i Visual Studio Code
 
@@ -22,12 +22,12 @@ Tillägget Microsoft Azure Terraform i Visual Studio Code hjälper utvecklare at
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]
-> * Använder Terraform för att automatisera och förenkla etableringen av Azure-tjänster.
-> * Installerar och använder tillägget Microsoft Terraform i Visual Studio Code för Azure-tjänster.
-> * Använder Visual Studio Code för att skriva, planera och köra Terraform-planer.
+> * använder Terraform för att automatisera och förenkla etableringen av Azure-tjänster
+> * installerar och använder tillägget Microsoft Terraform i Visual Studio Code för Azure-tjänster
+> * använder Visual Studio Code för att skriva, planera och köra Terraform-planer.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Terraform**: [Installera och konfigurera Terraform](/azure/virtual-machines/linux/terraform-install-configure).
 
@@ -138,7 +138,7 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
     ![Filen main.tf](media/terraform-vscode-extension/tf-main-tf.png)
 
-1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Init**.
+1. Från menyraden väljer du **Visa > Kommandopalett... > Azure Terraform: Init**.
 
 1. När bekräftelsen visas väljer du **OK**.
 
@@ -173,7 +173,7 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
 Tidigare i den här självstudien installerade du GraphViz. Terraform kan använda GraphViz för att generera en visuell representation av en konfiguration eller körning. Azure Terraform-tillägget i Visual Studio Code implementerar den här funktionen via kommandot *visualize*.
 
-- Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: visualize**.
+- Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Visualisera**.
 
     ![Visualisera planen](media/terraform-vscode-extension/tf-graph.png)
 
@@ -270,7 +270,7 @@ Innan du kan börja använda Terraform-kommandona inifrån Visual Studio Code m�
 
 ### <a name="module-test-lint"></a>Modultest: *lint*
 
-1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Execute Test** (Kör test).
+1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Kör test**.
 
 1. Från listan med alternativ för testtyp väljer du **lint**.
 
@@ -289,7 +289,7 @@ Efter en liten stund visas en lista i terminalfönstret liknande den i det här 
 
 ### <a name="module-test-end-to-end"></a>Modultest: *end-to-end*
 
-1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Execute Test** (Kör test).
+1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Kör test**.
 
 1. Från listan med alternativ för testtyp väljer du **end to end**.
 

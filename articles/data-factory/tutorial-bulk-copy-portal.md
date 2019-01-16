@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e7c134881cbf8745a4e4ef9102a418f7d47a6f8c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43098036"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020021"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -93,7 +92,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
          
       Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 1. Välj **V2** för **versionen**.
-1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 1. Välj **fäst till instrumentpanelen**.     
 1. Klicka på **Skapa**.
 1. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
@@ -208,7 +207,7 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
     ![Byggare för datauppsättningsparametern](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>Skapa pipelines
-I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
+I den här självstudien skapar du två pipelines: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
 
 Pipelinen **GetTableListAndTriggerCopyData** utför två steg:
 
@@ -400,7 +399,7 @@ Gå till pipelinen **GetTableListAndTriggerCopyData**, klicka på **Utlösare** 
         ]
     }
     ```    
-1. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på länken **Pipeliner** högst upp. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) (den första länken i kolumnen **Åtgärder**) för pipelinen **IterateAndCopySQLTables**. Du bör se utdata som på följande avbildning: Lägg märke till att det finns en **kopieringsaktivitetskörning** för varje tabell i **sökningsaktivitetens** utdata. 
+1. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på länken **Pipeliner** högst upp. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) (den första länken i kolumnen **Åtgärder**) för pipelinen **IterateAndCopySQLTables**. Du bör se utdata som dem i följande bild: Observera att det finns en körning av **kopieringsaktiviteten** för varje tabell i utdataresultatet för **uppslagsaktiviteten**. 
 
     ![Aktivitetskörningar](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 1. Bekräfta att data har kopierats till SQL Data Warehouse-målet du använde i den här självstudien. 

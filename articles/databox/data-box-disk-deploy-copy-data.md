@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913830"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155209"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudie: Kopiera data till en Azure Data Box-disk och verifiera
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudier: Kopiera data till Azure Data Box Disk och verifiera
 
 Den här självstudien beskriver hur du kopierar data från värddatorn och genererar kontrollsummor för att kontrollera dataintegriteten.
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
-- Du har slutfört [självstudien Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+- Du har slutfört självstudien [: Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Diskarna låses upp och ansluts till en klientdator.
 - Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
 - Se till att rätt lagringstyp för dina data matchar [lagringstyper som stöds](data-box-disk-system-requirements.md#supported-storage-types).
@@ -148,19 +148,32 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     C:\Users>
     ```
  
+    Du kan optimera prestanda med hjälp av följande robocopy-parametrar när du kopierar data.
+
+    |    Plattform    |    Främst små filer < 512 KB                           |    Främst medelstora filer 512 KB–1 MB                      |    Främst stora filer > 1 MB                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    4 Robocopy-sessioner* <br> 16 trådar per session    |    2 Robocopy-sessioner* <br> 16 trådar per session    |    2 Robocopy-sessioner* <br> 16 trådar per session    |  |
     
-7. Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned loggfilerna för felsökning. Loggfilerna finns på den plats som anges i robobopy-kommandot.
+    **En enskild Robocopy-session kan omfatta upp till högst 7 000 kataloger och 150 miljoner filer.*
+    
+    >[!NOTE]
+    > De parametrar som föreslås ovan baseras på den miljö som används vid intern testning.
+    
+    Mer information om Robocopy-kommandon finns i [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy och några exempel).
+
+6. Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned loggfilerna för felsökning. Loggfilerna finns på den plats som anges i robobopy-kommandot.
  
-
-
 > [!IMPORTANT]
 > - Det är ditt ansvar att se till att du kopierar data till mappar som matchar lämpligt dataformat. Kopiera exempelvis blockblobdata till mappen för blockblobobjekt. Om dataformatet inte matchar mappen (lagringstyp) misslyckas datauppladdningen till Azure i ett senare skede.
-> -  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box Disk-gränser](data-box-disk-limits.md). 
+> -  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box Disk-gränser](data-box-disk-limits.md).
 > - Om data som laddas upp av Data Box Disk samtidigt överförs av andra program utanför Data Box Disk, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 
 ### <a name="split-and-copy-data-to-disks"></a>Dela upp och kopiera data till diskar
 
 Den här valfria proceduren kan användas när du använder flera diskar och har en stor datamängd som måste delas upp och kopieras på alla diskarna. Med verktyget Data Box Split Copy kan du dela upp och kopiera data på en Windows-dator.
+
+>[!IMPORTANT]
+> Verktyget Data Box Split Copy verifierar också dina data. Om du använder Data Box Split Copy för att kopiera data kan du hoppa över [verifieringssteget](#validate-data).
 
 1. Se till att verktyget Data Box Split Copy har laddats ned och extraherats i en lokal mapp. Verktyget laddades ned när du ladda ned Data Box Disk-verktygen för Windows.
 2. Öppna Utforskaren. Anteckna datakällans enhet och enhetsbokstäver som tilldelats till Data Box Disk. 
@@ -176,26 +189,26 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 
          ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Gå till den mapp där programvaran har extraherats. Leta redan på filen SampleConfig.json-i den mappen. Det här är en skrivskyddad fil som du kan ändra och spara.
+4. Gå till den mapp där programvaran har extraherats. Leta upp filen `SampleConfig.json` i den mappen. Det här är en skrivskyddad fil som du kan ändra och spara.
 
    ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Ändra filen SampleConfig.json.
+5. Ändra filen `SampleConfig.json`.
  
     - Ange ett jobbnamn. Det skapar en mapp på Data Box Disk och blir så småningom containern på Azure Storage-kontot som associeras med dessa diskar. Jobbnamnet måste följa namngivningskonventionerna för Azure-containrar. 
-    - Ange en källsökväg och notera sökvägsformatet i SampleConfigFile.json. 
+    - Ange en källsökväg och notera sökvägsformatet i `SampleConfigFile.json`. 
     - Ange enhetsbokstäverna som motsvarar måldiskarna. Data tas från källsökvägen och kopieras över flera diskar.
-    - Ange en sökväg för loggfilerna. Som standard skickas den till den aktuella katalogen där .exe finns.
+    - Ange en sökväg för loggfilerna. Som standard skickas den till den aktuella katalogen där `.exe` finns.
 
      ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. Verifiera formatet genom att gå till JSONlint. Spara filen som ConfigFile.json. 
+6. Verifiera filformatet genom att gå till `JSONlint`. Spara filen som `ConfigFile.json`. 
 
      ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Öppna ett kommandotolksfönster. 
 
-8. Kör DataBoxDiskSplitCopy.exe. Typ
+8. Kör `DataBoxDiskSplitCopy.exe`. Typ
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -214,7 +227,7 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
     ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    Om du undersöker innehållet på enhet n: vidare ser du att två undermappar har skapats som motsvarar blockblob- och sidblob-formatdata.
+    Om du undersöker innehållet på enhet `n:` vidare ser du att två undermappar har skapats som motsvarar blockblob- och sidblob-formatdata.
     
      ![Dela upp och kopiera data ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -222,15 +235,14 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+När datakopieringen är klar kan du fortsätta att verifiera dina data. Om du använde Split Copy-verktyget hoppar du över verifieringen (det här verktyget utför även en verifiering) och går vidare till nästa självstudie.
 
-När datakopieringen är klar är nästa steg att verifiera data. 
 
+## <a name="validate-data"></a>Verifiera data
 
-## <a name="validate-data"></a>Verifiera data 
+Om du inte använde Split Copy-verktyget för att kopiera data måste du verifiera dina data. Verifiera data med hjälp av följande steg.
 
-Verifiera data med hjälp av följande steg.
-
-1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet. 
+1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet.
     
     ![Utdata för Data Box Disk-valideringsverktyget](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -240,7 +252,7 @@ Verifiera data med hjälp av följande steg.
 
     > [!TIP]
     > - Återställ verktyget mellan de två körningarna.
-    > - Använd alternativ 1 för att validera de filer som bara hanterar en stor datamängd som innehåller små filer (~KB). I dessa fal kan genereringen av kontrollsumma ta mycket lång tid och prestanda kan vara mycket långsamma.
+    > - Använd alternativ 1 om du hanterar stora datamängder som innehåller små filer (~ kB). Det här alternativet validerar bara filerna eftersom genereringen av kontrollsummor kan ta mycket lång tid och prestanda kan vara mycket långsamma.
 
 3. Om du använder flera diskar kör du kommandot för varje disk.
 
@@ -256,4 +268,3 @@ Gå vidare till nästa självstudie och lär dig hur du returnerar Data Box-disk
 
 > [!div class="nextstepaction"]
 > [Skicka tillbaka din Azure Data Box till Microsoft](./data-box-disk-deploy-picked-up.md)
-

@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001795"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121557"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
 
@@ -48,7 +48,7 @@ Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är beg
 
 Avsnitten i tjänstinstrumentpanelen visar hur många index, indexerare och datakällor som du redan har. 
 
-![Listor med index, indexerare och datakällor][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![En lista över index, indexerare och datakällor](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Skapa ett index och läsa in data
 
@@ -124,9 +124,13 @@ Det kan ta några minuter för portalen att uppdatera sidan men du borde se den 
 
 ## <a name="view-the-index"></a>Visa indexet
 
-Panelen **Index** visar en lista över befintliga index, inklusive indexet *realestate-us-sample* som du just skapade i guiden.
+Den överordnade tjänstsidan innehåller länkar till de resurser som skapats i Azure Search-tjänsten.  Om du vill visa det index som du precis skapat klickar du på **Index** i listan över länkar. 
 
-Från den här listan kan du se indexschemat och du kan också lägga till nya fält, men du kan inte ändra befintliga fält. Eftersom de befintliga fälten har en fysisk representation i Azure Search kan de inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden så skapar du ett nytt index och tar bort det ursprungliga.
+   ![Indexlista på instrumentpanelen för tjänster](media/search-get-started-portal/indexes-list.png)
+
+I den här listan kan du klicka på indexet *realestate-us-sample* som du precis skapat och visa indexschemat. Du kan också lägga till nya fält. 
+
+Fliken **Fält** visar indexschemat. Rulla till slutet av listan för att ange ett nytt fält. Oftast kan du inte ändra befintliga fält. Eftersom de befintliga fälten har en fysisk representation i Azure Search kan de inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden så skapar du ett nytt index och tar bort det ursprungliga.
 
    ![exempel på indexdefinition](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Andra konstruktioner, t.ex. bedömningsprofiler och CORS-alternativ, kan läggas
 ## <a name="query-index"></a> Fråga med Sökutforskaren
 
 Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av den inbyggda frågesidan [**Sökutforskaren**](search-explorer.md). Den innehåller en sökruta så att du kan testa godtyckliga frågesträngar.
+
+**Sökutforskaren** kan endast hantera [REST-API-förfrågningar](https://docs.microsoft.com/rest/api/searchservice/search-documents), men stöder syntax för både [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig Lucene-frågeparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), samt alla tillgängliga sökparametrar i åtgärder med [REST-API:et för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > Följande steg demonstreras 6 minuter och 8 sekunder in i [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -150,11 +156,9 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
    ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. Skriv in frågesträngarna nedan i sökfältet och klicka på **Sök**.
+3. Klistra in frågesträngarna nedan i sökfältet och klicka på **Sök**.
 
-    > [!NOTE]
-    > **Sökutforskaren** kan endast hantera [REST API-begäranden](https://docs.microsoft.com/rest/api/searchservice/search-documents). Den accepterar syntax från både [enkel frågeparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig frågeparser (Lucene)](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) samt alla tillgängliga sökparametrar i [dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-    >
+   ![Frågesträng och sökknapp](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>Exempelfrågor
 

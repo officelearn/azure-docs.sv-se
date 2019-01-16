@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341056"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038168"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Skapa din första beständiga funktion i C\#
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du använder Visual Studio 2017-verkty
 
 För att slutföra den här självstudien behöver du:
 
-* Installera [Visual Studio 2017](https://azure.microsoft.com/downloads/) och kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
+* Installera [Visual Studio 2017](https://azure.microsoft.com/downloads/). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
 
 * Kontrollera att du har de [senaste Azure Functions-verktygen](../functions-develop-vs.md#check-your-tools-version).
 
@@ -40,7 +40,7 @@ För att slutföra den här självstudien behöver du:
 
 ## <a name="create-a-function-app-project"></a>Skapa ett funktionsapprojekt
 
-Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
+Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
 1. Välj **Nytt** > **Projekt** från **Arkiv**-menyn i Visual Studio.
 
@@ -58,11 +58,11 @@ Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan pub
     | **Mall** | Tom | Detta skapar en tom funktionsapp. |
     | **Lagringskonto**  | Lagringsemulator | Det krävs ett lagringskonto för tillståndshanteringen för den beständiga funktionen. |
 
-4. Skapa ett tomt funktionsprojekt genom att klicka på **OK**.
+4. Skapa ett tomt funktionsprojekt genom att klicka på **OK**. Det här projektet har grundläggande konfigurationsfiler som behövs för att köra dina funktioner.
 
 ## <a name="add-functions-to-the-app"></a>Lägga till funktioner i appen
 
-Visual Studio skapar ett tomt funktionsappsprojekt.  Det innehåller de grundläggande konfigurationsfiler som behövs för en app, men innehåller ännu inte några funktioner.  Vi måste lägga till en mall för beständiga funktioner i projektet.
+Följande steg använder en mall för att skapa varaktig funktionskod.
 
 1. Högerklicka på projektet i Visual Studio och välj **Lägg till** > **Ny Azure-funktion**.
 
@@ -74,11 +74,13 @@ Visual Studio skapar ett tomt funktionsappsprojekt.  Det innehåller de grundlä
 
     ![Välja mall för beständig](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-En ny beständig funktion läggs till i appen.  Öppna den nya filen för att visa innehållet.  Det här beständiga funktionen är ett enkelt funktionslänkningsexempel.  
+En ny beständig funktion läggs till i appen.  Öppna den nya .cs-filen för att visa innehållet. Det här beständiga funktionen är ett enkelt funktionslänkningsexempel med följande metoder:  
 
-* Metoden `RunOrchestrator` är associerad med orkestreringsfunktionen.  Den här funktionen startar, skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan.  Den funktion som den anropar är metoden `SayHello` (som standard heter den `<NameOfFile>_Hello`).
-* Funktionen `SayHello` kommer att returnera ett ”hello”.
-* Metoden `HttpStart` beskriver den funktion som startar instanser av orkestreringen.  Den är associerad med en [HTTP-utlösare](../functions-bindings-http-webhook.md) som startar en ny instans av orkestreraren och returnerar ett statuskontrollsvar.
+| Metod | FunctionName | Beskrivning |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | Hanterar varaktig orkestrering. I det här fallet startar orkestreringen, den skapar en lista och lägger till resultatet av tre funktionsanrop i listan.  När de tre funktionsanropen har slutförts returnerar den listan. |
+| **`SayHello`** | `<file-name>_Hello` | Funktionen returnerar ett ”hello”. Det här är den funktion som innehåller affärslogiken som orkestreras. |
+| **`HttpStart`** | `<file-name>_HttpStart` | En [HTTP-utlöst funktion](../functions-bindings-http-webhook.md) som startar en instans av orkestreraren och returnerar ett statuskontrollsvar. |
 
 Nu när du har skapat ditt funktionsprojekt och en beständig funktion kan du testa den på en lokal dator.
 
@@ -143,4 +145,4 @@ Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera pr
 Du har använt Visual Studio för att skapa och publicera en beständig C#-funktionsapp.
 
 > [!div class="nextstepaction"]
-> [Läs mer om vanliga mönster för beständiga funktioner.](durable-functions-overview.md)
+> [Läs mer om vanliga mönster för beständiga funktioner.](durable-functions-concepts.md)

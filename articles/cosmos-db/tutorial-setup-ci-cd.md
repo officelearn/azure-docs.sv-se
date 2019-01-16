@@ -1,19 +1,18 @@
 ---
 title: Konfigurera CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift
 description: Självstudiekurs om hur du skapar bygg och släpp-arbetsflöden i Azure DevOps med hjälp Azure Cosmos DB-emulatorns build-uppgift
-services: cosmos-db
-keywords: Azure Cosmos DB-emulatorn
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: sngun
+ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810652"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053712"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -66,7 +65,7 @@ I den här självstudiekursen lägger du till uppgiften i början för att se ti
 
 Nu kan konfigurerar vi våra tester för att använda emulatorn. Emulatorns build-uppgift exporterar en miljövariabel – CosmosDbEmulator.Endpoint – som uppgifter längre in i bygg-pipeline kan utfärda begäranden mot. 
 
-I den här självstudiekursen använder vi [Visual Studio Test-uppgiften](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) för att köra enhetstester konfigurerade via en **.runsettings**-fil. Mer information om konfiguration av enhetstester finns i [dokumentationen](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+I den här självstudiekursen använder vi [Visual Studio Test-uppgiften](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) för att köra enhetstester konfigurerade via en **.runsettings**-fil. Mer information om konfiguration av enhetstester finns i [dokumentationen](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). Det fullständiga kodexemplet för det Todo-program som du använder i det här dokumentet finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Nedan är ett exempel på en **.runsettings**-fil som definierar parametrar som ska skickas till ett programs enhetstester. Observera att `authKey`-variabeln som används är den [välkända nyckeln](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) för emulatorn. Denna `authKey` är nyckeln som förväntas av emulatorns build-uppgift och ska definieras i **.runsettings**-filen.
 

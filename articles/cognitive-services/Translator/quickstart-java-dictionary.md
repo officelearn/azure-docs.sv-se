@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hämta alternativa översättningar, Java – Translator Text API'
+title: 'Snabbstart: Slå upp ord med en tvåspråkig ordlista, Java – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att hämta alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Java och Translator Text API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 2c5517b470e46423631f6a63a24ceccf5de0a919
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 001aa2a813816562cdc5e95a00b858d8958a6756
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888848"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157827"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-java"></a>Snabbstart: Använda Translator Text API för att hämta alternativa översättningar med Java
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Java
 
 I den här snabbstarten lär du dig att hämta alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Java och Translator Text API.
 

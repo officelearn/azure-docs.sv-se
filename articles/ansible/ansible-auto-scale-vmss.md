@@ -3,17 +3,17 @@ title: Skala en VM-skalningsuppsättning automatiskt i Azure med Ansible
 description: Lär dig att använda Ansible för att skala en VM-skalningsuppsättning med autoskalning i Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: c6678d6df3a695d3a0471e5779bc3af4b6ba6c84
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411169"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157062"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Skala en VM-skalningsuppsättning automatiskt i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina VM-skalningsuppsättningar (VMSS) i Azure på samma sätt som för alla andra Azure-resurser. 

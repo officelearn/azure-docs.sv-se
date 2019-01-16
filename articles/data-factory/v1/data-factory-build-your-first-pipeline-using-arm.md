@@ -10,39 +10,38 @@ ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c0bb15dceed7bc4d0c335e129f810c88622ebadd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106870"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043710"
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
+# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
  
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Läs [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md) (Snabbstart: Skapa en datafabrik med Azure Data Factory) om du använder den aktuella versionen av Data Factory-tjänsten.
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du läsa [Snabbstart: Skapa en datafabrik med hjälp av Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 I den här artikeln får du lära dig hur du använder en Azure Resource Manager-mall för att skapa din första Azure-datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan.
 
-Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivitet**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
+Pipelinen i den här självstudien har en aktivitet: **HDInsight Hive-aktivitet**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
 
 > [!NOTE]
-> Datapipelinen i den här självstudien transformerar indata för att generera utdata. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
+> Datapipelinen i den här självstudien transformerar indata för att generera utdata. En självstudie om hur du kopierar data med hjälp av Azure Data Factory finns i [Självstudie: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Pipeline i den här självstudiekursen har en aktivitet: HDInsight Hive-aktivitet. En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory). 
+> Pipelinen i den här självstudien har endast en aktivitet av typen: HDInsightHive. En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory). 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
@@ -60,7 +59,7 @@ Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivi
 
 En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det finns två typer av aktiviteter: [dataflyttningsaktiviteter](data-factory-data-movement-activities.md) och [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md). I den här självstudien får du skapa en pipeline i en aktivitet (Hive-aktivitet).
 
-Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att definiera Data Factory-entiteter så att du snabbt kan gå igenom självstudien och testa mallen. Om du vill förstå hur varje Data Factory-entitet definieras kan du läsa avsnittet [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template).
+Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att definiera Data Factory-entiteter så att du snabbt kan gå igenom självstudien och testa mallen. Om du vill förstå hur varje Data Factory-entitet definieras kan du läsa avsnittet [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template). Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i avsnittet om [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json-template"></a>Data Factory JSON-mall
 Resource Manager-mallen på den högsta nivån för att definiera en datafabrik är: 
@@ -262,7 +261,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted
 ```
 
 > [!NOTE]
-> Du hittar ytterligare ett exempel på en Resource Manager-mall för att skapa en Azure-datafabrik i [Självstudier: skapa en pipeline med kopieringsaktivitet via en Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
+> Ett till exempel på en Resource Manager-mall som du kan använda för att skapa en Azure-datafabrik finns i [Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av en Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
 > 
 > 
 
@@ -616,7 +615,7 @@ Här är ett exempel på en Resource Manager-mall för att skapa en logisk gatew
     ]
 }
 ```
-Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway med namnet GatewayUsingARM. 
+Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway med namnet: GatewayUsingARM. 
 
 ## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |

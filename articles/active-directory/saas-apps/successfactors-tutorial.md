@@ -4,117 +4,107 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2018
+ms.topic: tutorial
+ms.date: 1/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 467db4046c0600142338dcfa39e136f45255caba
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: MT
+ms.openlocfilehash: 4ac9837389d681aadabd280bd6f74884a5a15ba3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976757"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Självstudier: Azure Active Directory-integrering med SuccessFactors
 
-I den här självstudien får du lära dig hur du integrerar SuccessFactors med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera SuccessFactors med Azure Active Directory (AD Azure).
+Genom att integrera SuccessFactors med Azure AD får du följande fördelar:
 
-Integrera SuccessFactors med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till SuccessFactors.
+* Du kan göra så att dina användare automatiskt loggas in på SuccessFactors (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till SuccessFactors.
-- Du kan aktivera användarna att automatiskt få loggat in på SuccessFactors (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med SuccessFactors behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med SuccessFactors, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SuccessFactors enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* SuccessFactors-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till SuccessFactors från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* SuccessFactors stöder **IDP**-initierad enkel inloggning
 
-## <a name="adding-successfactors-from-the-gallery"></a>Att lägga till SuccessFactors från galleriet
+## <a name="adding-successfactors-from-the-gallery"></a>Lägga till SuccessFactors från galleriet
 
-För att konfigurera integrering av SuccessFactors i Azure AD, som du behöver lägga till SuccessFactors från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av SuccessFactors till Azure AD behöver du lägga till SuccessFactors från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till SuccessFactors från galleriet:**
+**Lägg till SuccessFactors från galleriet genom att utföra följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **SuccessFactors**väljer **SuccessFactors** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **SuccessFactors**, väljer **SuccessFactors** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![SuccessFactors i resultatlistan](./media/successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
+     ![SuccessFactors i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SuccessFactors baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med SuccessFactors baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SuccessFactors upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i SuccessFactors är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i SuccessFactors upprättas.
+För att konfigurera och testa enkel inloggning för Azure AD med SuccessFactors behöver du slutföra följande byggstenar:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SuccessFactors, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för SuccessFactors](#configure-successfactors-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa SuccessFactors-testanvändare](#create-successfactors-test-user)** – för att ha en motsvarighet för Britta Simon i SuccessFactors som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare SuccessFactors](#creating-a-successfactors-test-user)**  – du har en motsvarighet för Britta Simon i SuccessFactors som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt SuccessFactors program.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med SuccessFactors:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med SuccessFactors:**
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **SuccessFactors**-programintegrering och väljer **Enkel inloggning**.
 
-1. I Azure-portalen på den **SuccessFactors** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera länk för enkel inloggning][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](common/tutorial_general_301.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
-
-    ![Konfigurera enkel inloggning](common/editconfigure.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![SuccessFactors domän och URL: er med enkel inloggning för information](./media/successfactors-tutorial/tutorial_successfactors_url.png)
+    ![SuccessFactors-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -122,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.successfactors.eu/<companyname>`|
     | `https://<companyname>.sapsf.eu`|
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    b. I textrutan **Identifierare** anger du en URL med följande mönster:
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -135,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://www.successfactors.cn`|
     | `https://www.successfactors.cn/<companyname>`|
 
-    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    c. I textrutan **Svars-URL** anger du en URL med följande mönster:
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -148,169 +138,164 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.sapsf.eu/<companyname>`|
     | `https://<companyname>.sapsf.cn`|
     | `https://<companyname>.sapsf.cn/<companyname>`|
-         
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [SuccessFactors klienten supportteamet](https://www.successfactors.com/content/ssf-site/en/support.html) att hämta dessa värden. 
 
-5. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Base64)** och spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för SuccessFactors-klienten](https://www.successfactors.com/content/ssf-site/en/support.html).
 
-    ![Länk för nedladdning av certifikatet](./media/successfactors-tutorial/tutorial_successfactors_certificate.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-6. På den **konfigurera SuccessFactors** avsnittet, kopiera den lämpliga URL enligt dina behov.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+
+6. I avsnittet **Konfigurera SuccessFactors** kopierar du lämpliga URL:er efter behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
     a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-    ![SuccessFactors konfiguration](common/configuresection.png)
+### <a name="configure-successfactors-single-sign-on"></a>Konfigurera enkel inloggning för SuccessFactors
 
-7. Logga in på i ett annat webbläsarfönster din **SuccessFactors administrationsportalen** som administratör.
-    
-8. Besök **programsäkerhet** och **enkel inloggning på funktionen**. 
+1. I ett annat webbläsarfönster loggar du in på din **SuccessFactors-administratörsportal** som administratör.
 
-9. Placera något värde i den **återställa Token** och klicka på **spara Token** att aktivera SAML SSO.
-   
-    ![Konfigurera enkel inloggning på app-sida][11]
+2. Gå till **Application Security** (Programsäkerhet) och sedan till **funktionen för enkel inloggning**.
+
+3. Placera valfritt värde i **Reset Token** (Återställ token) och klicka på **Save Token** (Spara Token) för att aktivera enkel inloggning med SAML.
+
+    ![Konfigurera enkel inloggning på appsidan][11]
+
+    > [!NOTE]
+    > Det här värdet används som på/av-växel. Om ett värde sparas är enkel inloggning med SAML PÅ. Om ett tomt värde sparas är enkel inloggning med SAML AV.
+
+4. Gå till skärmbilden nedan och utför följande åtgärder:
+
+    ![Konfigurera enkel inloggning på appsidan][12]
+  
+    a. Markera alternativknappen **SAML v2 SSO** (Enkel inloggning med SAML v2)
+  
+    b. Ange **SAML Asserting Party Name** (Namn på försäkrande part för SAML) (till exempel SAML-utfärdare plus företagsnamn).
+
+    c. I textrutan **Issuer URL** (Utfärdar-URL) klistrar du in värdet för den **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+
+    d. Välj **Assertion** (Försäkran) för **Require Mandatory Signature** (Kräv obligatorisk signatur).
+
+    e. Välj **Enabled** (Aktiverad) för **Enable SAML Flag** (Aktivera SAML-flagga).
+
+    f. Välj **No** (Nej) för **Login Request Signature(SF Generated/SP/RP)** (Signatur för inloggningsbegäran (SF-genererad/SP/RP)).
+
+    g. Välj **Browser/Post Profile** (Webbläsar-/postprofil) för **SAML Profile** (SAML-profil).
+
+    h. Välj **No** (Nej) för **Enforce Certificate Valid Period** (Tillämpa giltighetsperiod för certifikat).
+
+    i. Kopiera innehållet i den nedladdade certifikatfilen från Azure-portalen och klistra in det i textrutan **SAML Verifying Certificate** (Verifieringscertifikat för SAML).
 
     > [!NOTE] 
-    > Det här värdet används som på/av-omkopplare. Om ett värde sparas, har SAML SSO värdet ON. Om ett tomt värde sparas har SAML SSO värdet OFF.
+    > Certifikatinnehållet måste ha starttaggar och sluttaggar för certifikat.
 
-10. Inbyggt i skärmbilden nedan och utför följande åtgärder:
-   
-    ![Konfigurera enkel inloggning på app-sida][12]
-   
-    a. Välj den **SAML v2 SSO** alternativknapp
-   
-    b. Ange den **SAML bevisar partens namn**(till exempel SAML utfärdare + företagsnamn).
-   
-    c. I den **utfärdar-URL** textrutan klistra in den **Azure AD-identifierare** värde som du har kopierat från Azure-portalen.
-   
-    d. Välj **Assertion** som **kräver obligatorisk signatur**.
-   
-    e. Välj **aktiverat** som **aktivera SAML-flaggan**.
-   
-    f. Välj **nr** som **inloggning begära signatur (SF genereras/SP/RP)**.
-   
-    g. Välj **webbläsaren/Post-profilen** som **SAML-profilen**.
-   
-    h. Välj **nr** som **framtvinga giltighetsperioden för certifikatet**.
-   
-    i. Kopiera innehållet i filen nedladdade certifikatet från Azure-portalen och klistra in den i den **verifiera SAML-certifikatet** textrutan.
+5. Gå till SAML-V2 och utför sedan följande steg:
 
-    > [!NOTE] 
-    > Certifikatinnehåll måste ha starttaggar certifikat- och slutdatum certifikat.
+    ![Konfigurera enkel inloggning på appsidan][13]
 
-11. Gå till SAML-V2 och utför sedan följande steg:
-   
-    ![Konfigurera enkel inloggning på app-sida][13]
-   
-    a. Välj **Ja** som **stöder SP-initierat globala utloggning**.
-   
-    b. I den **globala Utloggning (LogoutRequest mål)** textrutan klistra in den **URL: en för utloggning** värde som du har kopierat utgör Azure-portalen.
-   
-    c. Välj **nr** som **kräver sp måste kryptera alla NameID-element**.
-   
-    d. Välj **Ospecificerad** som **NameID-Format**.
-   
-    e. Välj **Ja** som **aktivera sp initierade inloggning (AuthnRequest)**.
-   
-    f. I den **sändningsbegäranden som utfärdare för hela företaget** textrutan klistra in **SAML enkel inloggning för tjänst-URL** värde som du har kopierat från Azure-portalen.
+    a. Välj **Yes** (Ja) för **Support SP-initiated Global Logout** (Stöd SP-initierad global utloggning).
 
-12. Utför de här stegen om du vill se användarnamnen inloggningen inte skiftlägeskänsligt.
-   
+    b. I textrutan **Global Logout Service URL (LogoutRequest destination)** (Tjänst-URL för global utloggning (LogoutRequest-destination)) klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
+
+    c. Välj **No** (Nej) för **Require sp must encrypt all NameID element** (Kräv att SP krypterar alla NameID-element).
+
+    d. Välj **unspecified** (ospecificerad) för **NameID Format** (NameID-format).
+
+    e. Välj **Ja** för **Enable sp initiated login (AuthnRequest)** (Aktivera SP-initierad inloggning (AuthnRequest)).
+
+    f. I textrutan **Send request as Company-Wide issuer** (Skicka begäran som företagsomfattande utfärdare) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
+
+6. Utför de här stegen om du göra användarnamnen för inloggning skiftlägeskänsliga.
+
     ![Konfigurera enkel inloggning][29]
-    
-    a. Besök **Företagsinställningar**(nästan längst ned).
-   
-    b. Markera kryssrutan nära **aktivera icke skiftlägeskänslig användarnamn**.
-   
-    c.Click **spara**.
-   
-    > [!NOTE] 
-    > Om du försöker aktivera det här alternativet kontrollerar systemet om skapas ett dublettnamn i SAML-inloggning. Till exempel om kunden har användarnamn Användare1 och user1. Tar bort skiftlägeskänslighet gör dessa dubbletter. Systemet får du ett felmeddelande och aktivera inte funktionen. Kunden måste ändra något av användarnamnen så att de stavas olika.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    a. Gå till **Company Settings** (Företagsinställningar) (nästan längst ned).
+
+    b. Markera kryssrutan nära **Enable Non-Case-Sensitive Username** (Aktivera ej skiftlägeskänsligt användarnamn).
+
+    c. Klicka på **Spara**.
+
+    > [!NOTE]
+    > Om du försöker aktivera detta så kontrollerar systemet om det skapa ett duplicerat SAML-inloggningsnamn. Ett exempel kan vara om kunden har användarnamnen User1 och user1. Om skiftlägeskänslighet tas bort blir dessa namn dubbletter. Systemet visar ett felmeddelande och aktiverar inte funktionen. Kunden måste ändra något av användarnamnen så att de stavas olika.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Skapa en Azure AD-användare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](common/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
     b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
+    d. Klicka på **Skapa**.
 
-### <a name="creating-a-successfactors-test-user"></a>Skapa en SuccessFactors testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Om du vill aktivera Azure AD-användare att logga in på SuccessFactors, måste de etableras i SuccessFactors.  
-När det gäller SuccessFactors är etablering en manuell aktivitet.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till SuccessFactors.
 
-För att få användare som skapats i SuccessFactors kan du behöva kontakta den [SuccessFactors supportteam](https://www.successfactors.com/content/ssf-site/en/support.html).
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **SuccessFactors**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SuccessFactors.
+2. I programlistan väljer du **SuccessFactors**.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
+    ![SuccessFactors-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201]
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **SuccessFactors**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/successfactors-tutorial/tutorial_successfactors_app.png)
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+### <a name="create-successfactors-test-user"></a>Skapa SuccessFactors-testanvändare
 
-6. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+För att göra det möjligt för Azure AD-användare att logga in på SuccessFactors måste de etableras i SuccessFactors. När det gäller SuccessFactors är etablering en manuell aktivitet.
 
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+För att skapa användare i SuccessFactors behöver du kontakta [SuccessFactors-supportteamet](https://www.successfactors.com/content/ssf-site/en/support.html).
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-När du klickar på panelen SuccessFactors i åtkomstpanelen du bör få automatiskt loggat in på ditt SuccessFactors program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på SuccessFactors-panelen i åtkomstpanelen bör du automatiskt loggas in på SuccessFactors som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
-
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
 [11]: ./media/successfactors-tutorial/tutorial_successfactors_07.png
 [12]: ./media/successfactors-tutorial/tutorial_successfactors_08.png
 [13]: ./media/successfactors-tutorial/tutorial_successfactors_09.png

@@ -15,16 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/13/2018
 ms.author: jdial
-ms.openlocfilehash: af0affc549afd8b63fe0d566fac198de054554c1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a16feffea6ac64423398b995499f0e6a60182636
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528995"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039596"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Azure Resource Manager-exempelmallar för virtuella nätverk
 
 Följande tabell innehåller länkar till Azure Resource Manager-exempelmallar. Du kan distribuera mallar med Azure [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), Azure [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller Azure [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Information om hur du skapar egna mallar finns i [Skapa din första mall](../azure-resource-manager/resource-manager-create-first-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Den JSON-syntax och de egenskaper som ska användas i mallar finns i avsnittet om [Microsoft.Network-resurstyper](/azure/templates/microsoft.network/allversions).
 
 
 | | |

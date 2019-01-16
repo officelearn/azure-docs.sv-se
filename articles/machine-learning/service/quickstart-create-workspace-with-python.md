@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999058"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106570"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Snabbstart: Kom igång med Azure Machine Learning med hjälp av Python-SDK:n
 
@@ -76,7 +76,7 @@ Innan du installerar SDK:n rekommenderar vi att du skapar en isolerad Python-mil
 
 I den aktiverade conda-miljön installerar du SDK:n. Den här koden installerar kärnkomponenter för Machine Learning-SDK. Den installerar även en Jupyter Notebook-server i conda-miljön. Installationen tar några minuter att slutföra beroende på datorns konfiguration.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 Du kan använda ytterligare nyckelord för att installera andra komponenter i SDK:n:
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-Använd istället följande installationskommandot i Azure Databricks-miljön:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+I Azure Databricks-miljön följer du [Databricks-installationsstegen](how-to-configure-environment.md#azure-databricks
+) i stället.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 Spara informationen om arbetsytan i en konfigurationsfil i den aktuella katalogen. Den här filen kallas *aml_config\config.json*.  
 
-Den här konfigurationsfilen för arbetsyta gör det enkelt att läsa in samma arbetsyta senare. Du kan läsa in den med andra notebooks och skript i samma katalog eller en underkatalog. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-API-anropet `write_config()` skapar konfigurationsfilen i den aktuella katalogen. Filen *config.json* innehåller följande skript:
+API-anropet `write_config()` skapar konfigurationsfilen i den aktuella katalogen. Filen *config.json* innehåller följande:
 
 ```json
 {
@@ -156,6 +147,12 @@ API-anropet `write_config()` skapar konfigurationsfilen i den aktuella katalogen
     "workspace_name": "myworkspace"
 }
 ```
+
+Den här konfigurationsfilen för arbetsyta gör det enkelt att läsa in samma arbetsyta senare. Du kan läsa in den med andra notebooks och skript i samma katalog eller en underkatalog. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>Använda arbetsytan
 
@@ -190,7 +187,7 @@ För att kunna använda koden med Machine Learning-självstudierna behöver du y
 
 1. Stäng din notebook i webbläsaren.
 1. Stoppa Jupyter Notebook-servern genom att välja Ctrl+C i kommandoradsfönstret.
-1. Installera ytterligare paket.
+1. Installera ytterligare paket.  Om du inte har installerat `azureml-sdk[automl]` ovan gör du det nu.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

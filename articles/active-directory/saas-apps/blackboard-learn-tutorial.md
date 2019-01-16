@@ -1,251 +1,229 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med svart tavla Läs | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och lär dig svart tavla.
+title: 'Självstudier: Azure Active Directory-integrering med Blackboard Learn | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Blackboard Learn.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/19/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b7e7a84059f8393e8f900733602e32ca3ad833b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423665"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063564"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Självstudier: Azure Active Directory-integration med svart tavla Läs
+# <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Självstudier: Azure Active Directory-integrering med Blackboard Learn
 
-I den här självstudien får du lära dig hur du integrerar svart tavla Lär dig med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Blackboard Learn med Azure Active Directory (AD Azure).
+Genom att integrera Blackboard Learn med Azure AD får du följande fördelar:
 
-Integrera svart tavla Lär dig med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Blackboard Learn.
+* Du kan göra så att dina användare automatiskt loggas in på Blackboard Learn (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till svart tavla Läs
-- Du kan aktivera användarna att automatiskt få loggat in på svart tavla Läs (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Blackboard Learn behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med svart tavla Lär dig, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En svart tavla Läs enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Blackboard Learn-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till svart tavla Läs från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-blackboard-learn-from-the-gallery"></a>Att lägga till svart tavla Läs från galleriet
-För att konfigurera integrering av svart tavla Lär dig i Azure AD, som du behöver lägga till svart tavla Läs från galleriet i din lista över hanterade SaaS-appar.
+* Blackboard Learn stöder **SP**-initierad enkel inloggning
+* Blackboard Learn stöder **just-in-time**-användaretablering
 
-**Om du vill lägga till svart tavla Läs från galleriet, utför du följande steg:**
+## <a name="adding-blackboard-learn-from-the-gallery"></a>Lägga till Blackboard Learn från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Blackboard Learn till Azure AD behöver du lägga till Blackboard Learn från galleriet till listan över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Lägg till Blackboard Learn från galleriet genom att utföra följande steg:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+
+    ![Knappen Nytt program](common/add-new-app.png)
+
+4. I sökrutan skriver du **Blackboard Learn**, väljer **Blackboard Learn** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+
+     ![Blackboard Learn i resultatlistan](common/search-new-app.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med Blackboard Learn baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Blackboard Learn upprättas.
+
+För att konfigurera och testa enkel inloggning för Azure AD med Blackboard Learn behöver du slutföra följande byggstenar:
+
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Blackboard Learn](#configure-blackboard-learn-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Skapa Blackboard Learn-testanvändare](#create-blackboard-learn-test-user)** – för att ha en motsvarighet för Britta Simon i Blackboard Learn som är länkad till en Azure AD-representation av användaren.
+5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Blackboard Learn:
+
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Blackboard Learn**-programintegrering och väljer **Enkel inloggning**.
+
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Blackboard Learn-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.blackboard.com/`
+
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.blackboard.com/auth-saml/saml/SSO/entity-id/SAML_AD`
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Hämta dessa värden genom att kontakta [supportteamet för Blackboard Learn-klienten](https://www.blackboard.com/support/index.aspx). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+5. Blackboard Learn-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+
+    ![image](common/edit-attribute.png)
+
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden och utför följande steg. Vi har mappat Userprincipalname som det unika användarattributet här, men du kan mappa det till det lämpliga värdet, som unikt särskiljer användaren i organisationen och som mappar till användarnamnfältet för Blackboard Learn.
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    | Namn | Källattribut|
+    | ---------------| --------------- |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 
-    ![Program][3]
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-1. I sökrutan skriver **svart tavla Läs**.
+    ![image](common/new-save-attribute.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_search.png)
+    ![image](common/new-attribute-details.png)
 
-1. I resultatpanelen väljer **svart tavla Läs**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    ![Skapa en Azure AD-användare för testning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_addfromgallery.png)
+    c. Lämna **Namnrymd** tom.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med svart tavla Läs baserat på en testanvändare som kallas ”Britta Simon”.
+    d. Välj Källa som **Attribut**.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i svart tavla lära dig är att en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i svart tavla Läs upprättas.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i svart tavla Läs.
+    f. Klicka på **Ok**
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med svart tavla Läs, måste du utföra följande byggblock:
+    g. Klicka på **Spara**.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en svart tavla Läs testanvändare](#creating-a-blackboard-learn-test-user)**  – du har en motsvarighet för Britta Simon i svart tavla Läs som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt svart tavla Läs program.
+6. I avsnittet **Konfigurera Blackboard Learn** kopierar du lämpliga URL:er efter behov.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med svart tavla Läs:**
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. I Azure-portalen på den **svart tavla Läs** program integration-sidan klickar du på **enkel inloggning**.
+    a. Inloggnings-URL
 
-    ![Konfigurera enkel inloggning][4]
+    b. Azure AD-identifierare
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_samlbase.png)
+    c. Utloggnings-URL
 
-1. På den **svart tavla Läs domän och URL: er** avsnittet, utför följande steg:
+### <a name="configure-blackboard-learn-single-sign-on"></a>Konfigurera enkel inloggning för Blackboard Learn
 
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_url.png)
+För att konfigurera enkel inloggning på **Blackboard Learn**-sidan behöver du skicka det nedladdade **Federation Metadata-XML** och **Azure AD-identifieraren** till [Blackboard Learn-supporten](https://www.blackboard.com/support/index.aspx).
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.blackboard.com/`
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.blackboard.com/auth-saml/saml/SSO/entity-id/SAML_AD`
-    
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [svart tavla Läs klienten supportteamet](https://www.blackboard.com/support/index.aspx) att hämta dessa värden. 
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Svart tavla Läs program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet.
- Följande skärmbild visar ett exempel på hur den.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_attribute.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **användarattribut** avsnittet på **enkel inloggning** dialogrutan Konfigurera SAML-tokenattribut som visas i bilden och utför följande steg. Vi har mappat Userprincipalname som det unika användarattributet här men kan du mappa den till lämpligt värde som särskiljer unikt användare i organisationen och som mappar till svart tavla Läs användarnamnfältet.
-           
-    | Attributnamn | Attributvärde |   
-    | ---------------| ----------------|
-    | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 |User.userPrincipalName |
+2. Välj **Ny användare** överst på skärmen.
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_attribute_04.png)
-    
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_attribute_05.png)
+3. Genomför följande steg i Användaregenskaper.
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
-    
-    d. Klicka på **OK**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_certificate.png)
-
-1. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_general_400.png)
-
-1. På den **svart tavla Läs Configuration** klickar du på **konfigurera svart tavla Läs** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet.**
-
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_configure.png) 
-
-1. Att konfigurera enkel inloggning på **svart tavla Läs** sida, som du behöver skicka de hämtade **XML-Metadata för** och **SAML entitets-ID** till [svart tavla Läs stöd för](https://www.blackboard.com/support/index.aspx).
-
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
-
-![Skapa en Azure AD-användare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
-
-    ![Skapa en Azure AD-användare för testning](./media/blackboard-learn-tutorial/create_aaduser_01.png) 
-
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/blackboard-learn-tutorial/create_aaduser_02.png) 
-
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/blackboard-learn-tutorial/create_aaduser_03.png) 
-
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/blackboard-learn-tutorial/create_aaduser_04.png) 
-
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** för Britta Simon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-blackboard-learn-test-user"></a>Skapa en svart tavla Läs testanvändare
-I det här avsnittet skapar du en användare som kallas Britta Simon i svart tavla Läs. 
 
-Svart tavla Läs program stöder just-in-time användaretablering. Se till att du har konfigurerat anspråk enligt beskrivningen i avsnittet  **[konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till svart tavla Läs.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Blackboard Learn.
 
-![Tilldela användare][200] 
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Blackboard Learn**.
 
-**Om du vill tilldela Britta Simon svart tavla mer, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I programlistan väljer du **Blackboard Learn**.
 
-    ![Tilldela användare][201] 
+    ![Blackboard Learn-länken i programlistan](common/all-applications.png)
 
-1. I listan med program väljer **svart tavla Läs**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Konfigurera enkel inloggning](./media/blackboard-learn-tutorial/tutorial_blackboardlearn_app.png) 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Tilldela användare][202] 
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-blackboard-learn-test-user"></a>Skapa Blackboard Learn-testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapar du en användare med namnet Britta Simon i Blackboard Learn. Blackboard Learn-programmet har stöd för just in time-användaretablering. Se till att du har konfigurerat anspråken enligt beskrivningen i avsnittet om att **[konfigurera enkel inloggning med Azure AD](#configuring-azure-ad-single-sign-on)**
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-När du klickar på panelen svart tavla Läs i åtkomstpanelen du bör få automatiskt loggat in på ditt svart tavla Läs program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på Blackboard Learn-panelen i åtkomstpanelen bör du automatiskt loggas in på Blackboard Learn som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/blackboard-learn-tutorial/tutorial_general_01.png
-[2]: ./media/blackboard-learn-tutorial/tutorial_general_02.png
-[3]: ./media/blackboard-learn-tutorial/tutorial_general_03.png
-[4]: ./media/blackboard-learn-tutorial/tutorial_general_04.png
-
-[100]: ./media/blackboard-learn-tutorial/tutorial_general_100.png
-
-[200]: ./media/blackboard-learn-tutorial/tutorial_general_200.png
-[201]: ./media/blackboard-learn-tutorial/tutorial_general_201.png
-[202]: ./media/blackboard-learn-tutorial/tutorial_general_202.png
-[203]: ./media/blackboard-learn-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

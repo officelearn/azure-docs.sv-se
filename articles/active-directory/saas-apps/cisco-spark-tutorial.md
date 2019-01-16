@@ -5,279 +5,259 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bebc8d674d7448ea0ce6a1f11b7ae80335df9cdc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 493ba5853173c34fbd58236c1a2dd2b28dc59a90
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431706"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Självstudier: Azure Active Directory-integrering med Cisco Spark
 
 Lär dig hur du integrerar Cisco Spark med Azure Active Directory (AD Azure) i den här självstudien.
+När du integrerar Cisco Spark med Azure AD får du följande fördelar:
 
-Integrera Cisco Spark med Azure AD ger dig följande fördelar:
+* I Azure AD kan du styra vem som har åtkomst till Cisco Spark.
+* Du kan göra så att dina användare automatiskt loggas in på Cisco Spark (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Cisco Spark
-- Du kan aktivera användarna att automatiskt få loggat in på Cisco Spark (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Cisco Spark behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Cisco Spark, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Cisco Spark enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Cisco Spark-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Cisco Spark från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Att lägga till Cisco Spark från galleriet
-För att konfigurera integrering av Cisco Spark i Azure AD, som du behöver lägga till Cisco Spark från galleriet i din lista över hanterade SaaS-appar.
+* Cisco Spark har stöd för **SP**-initierad enkel inloggning
+
+## <a name="adding-cisco-spark-from-the-gallery"></a>Lägga till Cisco Spark från galleriet
+
+För att konfigurera integrering av Cisco Spark i Azure AD måste du lägga till Cisco Spark från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Cisco Spark från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+
+    ![Knappen Nytt program](common/add-new-app.png)
+
+4. I sökrutan skriver du **Cisco Spark**, väljer **Cisco Spark** på resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
+
+     ![Cisco Spark i resultatlistan](common/search-new-app.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Cisco Spark baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Cisco Spark upprättas.
+
+Konfigurera och testa enkel inloggning med Azure AD med Cisco Spark genom att slutföra följande byggblock:
+
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Cisco Spark](#configure-cisco-spark-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Cisco Spark-testanvändare](#create-cisco-spark-test-user)** – för att ha en motsvarighet till Britta Simon i Cisco Spark som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cisco Spark:
+
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Cisco Spark**-programintegrering och väljer **Enkel inloggning**.
+
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Information om enkel inloggning med Cisco Spark-domänen och URL:er](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** anger du en URL: `https://web.ciscospark.com/#/signin`
+
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://idbroker.webex.com/<companyname>`
+
+    > [!NOTE]
+    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [Cisco Spark-supporten](https://support.ciscospark.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+5. Cisco Spark-programmet förväntar ett visst format för SAML-försäkran. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+
+    ![image](common/edit-attribute.png)
+
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    | Namn |  Källattribut|
+    | ---------------|--------- |
+    | uid | user.userprincipalname |
 
-    ![Program][3]
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-1. I sökrutan skriver **Cisco Spark**.
+    ![image](common/new-save-attribute.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/cisco-spark-tutorial/tutorial_ciscospark_search.png)
+    ![image](common/new-attribute-details.png)
 
-1. I resultatpanelen väljer **Cisco Spark**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    ![Skapa en Azure AD-användare för testning](./media/cisco-spark-tutorial/tutorial_ciscospark_addfromgallery.png)
+    c. Lämna **Namnrymd** tom.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Cisco Spark baserat på en testanvändare som kallas ”Britta Simon”.
+    d. Välj Källa som **Attribut**.
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Cisco Spark till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Cisco Spark upprättas.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-I Cisco Spark, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+    f. Klicka på **Ok**
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Cisco Spark, måste du utföra följande byggblock:
+    g. Klicka på **Spara**.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Cisco Spark](#creating-a-cisco-spark-test-user)**  – du har en motsvarighet för Britta Simon i Cisco Spark som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Cisco Spark-program.
+8. I avsnittet **om att konfigurera Cisco Spark** kopierar du lämpliga URL:er enligt dina behov.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco Spark:**
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. I Azure-portalen på den **Cisco Spark** program integration-sidan klickar du på **enkel inloggning**.
+    a. Inloggnings-URL
 
-    ![Konfigurera enkel inloggning][4]
+    b. Azure AD-identifierare
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_ciscospark_samlbase.png)
+    c. Utloggnings-URL
 
-1. På den **Cisco Spark domän och URL: er** avsnittet, utför följande steg:
+### <a name="configure-cisco-spark-single-sign-on"></a>Konfigurera enkel inloggning för Cisco Spark
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_ciscospark_url.png)
+1. Logga in i [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Ciscos samarbetshantering i molnet) med dina autentiseringsuppgifter som administratör.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://web.ciscospark.com/#/signin`
+2. Välj **Settings** (Inställningar) och klicka på **Modify** (Ändra) under **Authentication** (Autentisering).
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://idbroker.webex.com/<companyname>`
-
-    > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska ID: T. Kontakta [Cisco Spark klienten supportteamet](https://support.ciscospark.com/) att hämta det här värdet. 
- 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_ciscospark_certificate.png) 
-
-1. Cisco Spark-programmet förväntar sig SAML-intyg innehålla specifika attribut. Konfigurera följande attribut för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
-    
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_ciscospark_07.png) 
-
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-    
-    | Attributnamn  | Attributvärde |
-    | --------------- | -------------------- |    
-    |   UID    | User.userPrincipalName |   
-
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
-
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_attribute_04.png)
-
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_attribute_05.png)
-    
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
-    
-    d. Klicka på **OK**.
-
-1. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_general_400.png)
-
-1. Logga in på [Cisco Molnhantering samarbete](https://admin.ciscospark.com/) med din fullständiga administratörsautentiseringsuppgifter.
-
-1. Välj **inställningar** och under den **autentisering** klickar du på **ändra**.
-   
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
-    
-1. Välj **integrera en identitetsprovider med 3 part. (Avancerat)**  och gå till nästa sida.
+  
+3. Välj **Integrate a 3rd-party identity provider. (Avancerat)** (Integrera en tredjeparts identitetsprovider. (Avancerat)) och gå till nästa skärm.
 
-1. På den **importera Idp Metadata** sidan antingen dra och släpp Azure AD-metadatafil till sidan eller Använd filalternativet för webbläsare för att leta upp och ladda upp metadatafilen Azure AD. Välj **kräver certifikat som signerats av en certifikatutfärdare i Metadata (säkrare)** och klicka på **nästa**. 
-    
+4. På sidan **Import Idp Metadata** (Importera ldp-metadata) kan du antingen dra och släppa Azure AD-metadatafilen på sidan eller använda filbläddraren för att hitta och ladda upp Azure AD-metadatafilen. Välj sedan **Require certificate signed by a certificate authority in Metadata** (Kräv signerat certifikat av certifikatutfärdare i metadata (säkrare) och klicka på **Next** (Nästa).
+
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
 
-1. Välj **SSO Testanslutningen**, och när en ny webbläsarflik öppnas autentisera med Azure AD genom att logga in.
+5. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
 
-1. Gå tillbaka till den **Cisco samarbete Molnhantering** flik i webbläsaren. Om testet lyckades, väljer **det här testet lyckades. Aktivera enkel inloggning för alternativet** och klicka på **nästa**.
+6. Gå tillbaka till webbläsarfliken **Cisco Cloud Collaboration Management** (Ciscos samarbetshantering i molnet). Om testet lyckades väljer du **This test was successful. Enable Single Sign-On option** (Testet lyckades. Aktivera alternativet för enkel inloggning) och klickar på **Next** (Nästa).
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/cisco-spark-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/cisco-spark-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/cisco-spark-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/cisco-spark-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-cisco-spark-test-user"></a>Skapa en testanvändare Cisco Spark
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Cisco Spark. I det här avsnittet skapar du en användare som kallas Britta Simon i Cisco Spark.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-1. Gå till den [Cisco Molnhantering samarbete](https://admin.ciscospark.com/) med din fullständiga administratörsautentiseringsuppgifter.
+I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att bevilja åtkomst till Cisco Spark.
 
-1. Klicka på **användare** och sedan **hantera användare**.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Cisco Spark**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. Välj **Cisco Spark** i listan över program.
+
+    ![Cisco Spark-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-cisco-spark-test-user"></a>Skapa en testanvändare i Cisco Spark
+
+I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Spark. I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Spark.
+
+1. Logga in på [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Ciscos samarbetshantering i molnet) med dina autentiseringsuppgifter som administratör.
+
+2. Klicka på **Users** (Användare) och sedan på **Manage Users** (Hantera användare).
    
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
 
-1. I den **hantera användare** väljer **manuellt lägga till eller ändra användare** och klicka på **nästa**.
+3. I rutan **Manage Users** (Hantera användare) väljer du **Manually add or modify users** (Ändra eller lägga till användare manuellt) och klickar på **Next** (Nästa).
 
-1. Välj **namn och e-postadress**. Sedan fylla i textrutan på följande sätt:
-   
+4. Välj alternativet **Name and Email address** (Namn och e-postadress). Fyll sedan i textrutan så här:
+
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
-    
-    a. I den **Förnamn** textrutan typ **Britta**. 
-    
-    b. I den **efternamn** textrutan typ **Simon**.
-    
-    c. I den **e-postadress** textrutan typ **britta.simon@contoso.com**.
 
-1. Klicka på plustecknet för att lägga till Britta Simon. Klicka sedan på **Nästa**.
+    a. I textrutan för **förnamn** skriver du förnamnet på användaren: **Britta**.
 
-1. I den **Lägg till tjänster för användare** fönstret klickar du på **spara** och sedan **Slutför**.
+    b. I textrutan för **efternamn** skriver du efternamnet: **Simon**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    c. I textrutan för **e-postadress** skriver du användarens e-postadress: **britta.simon@contoso.com**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Cisco Spark.
+5. Klicka på plustecknet för att lägga till Britta Simon. Klicka sedan på **Nästa**.
 
-![Tilldela användare][200] 
+6. I rutan **Add Services for Users** (Lägg till tjänster för användare) klickar du på **Save** (Spara) och sedan på **Finish** (Slutför).
 
-**Om du vill tilldela Britta Simon Cisco Spark, utför du följande steg:**
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **Cisco Spark**.
-
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial_ciscospark_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Målet med det här avsnittet är att testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Cisco Spark i åtkomstpanelen du bör få automatiskt loggat in på ditt Cisco Spark-program.
+När du klickar på Cisco Spark-panelen i åtkomstpanelen bör du automatiskt loggas in på Cisco Spark som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/cisco-spark-tutorial/tutorial_general_01.png
-[2]: ./media/cisco-spark-tutorial/tutorial_general_02.png
-[3]: ./media/cisco-spark-tutorial/tutorial_general_03.png
-[4]: ./media/cisco-spark-tutorial/tutorial_general_04.png
-[10]: ./media/cisco-spark-tutorial/tutorial_general_060.png
-[100]: ./media/cisco-spark-tutorial/tutorial_general_100.png
-
-[200]: ./media/cisco-spark-tutorial/tutorial_general_200.png
-[201]: ./media/cisco-spark-tutorial/tutorial_general_201.png
-[202]: ./media/cisco-spark-tutorial/tutorial_general_202.png
-[203]: ./media/cisco-spark-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,302 +1,260 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SAP Business objektet Cloud | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Business objektet molnet.
+title: 'Självstudier: Azure Active Directory-integrering med SAP Business Object Cloud | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Business Object Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: 18adc7728ffd0b4faf2e63e7c5d3be0da7dd651c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041746"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065128"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Självstudier: Azure Active Directory-integrering med SAP Business objektet Cloud
+# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Självstudier: Azure Active Directory-integrering med SAP Business Object Cloud
 
-I den här självstudien får du lära dig hur du integrerar SAP Business objektet Cloud med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar SAP Business Object Cloud med Azure Active Directory (Azure AD).
+Genom att integrera SAP Business Object Cloud med Azure AD får du följande fördelar:
 
-När du integrerar SAP Business objektet Cloud med Azure AD får du följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till SAP Business Object Cloud.
+* Du kan göra så att dina användare automatiskt loggas in på SAP Business Object Cloud (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra vem som har åtkomst till SAP Business objektet moln i Azure AD.
-- Du kan logga in automatiskt dina användare till SAP Business objektet moln med hjälp av enkel inloggning och en användares Azure AD-konto.
-- Du kan hantera dina konton i en, central plats, Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Läs mer om programvara som en tjänst (SaaS) app-integrering med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med SAP Business Object Cloud behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med SAP Business objektet Cloud, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SAP Business objektet molnet, med enkel inloggning aktiverat
-
-> [!NOTE]
-> Om du testar stegen i den här självstudien, rekommenderar vi att du inte testa dem i en produktionsmiljö.
-
-Rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [skaffa en månads kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* SAP Business Object Cloud-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. 
 
-Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Lägg till molnet för SAP Business objekt från galleriet.
-2. Konfigurera och testa Azure AD enkel inloggning.
+* SAP Business Object Cloud stöder **IDP**-initierad enkel inloggning
 
-## <a name="add-sap-business-object-cloud-from-the-gallery"></a>Lägg till molnet för SAP Business objekt från galleriet
-Om du vill konfigurera integreringen av SAP Business objektet Cloud med Azure AD i galleriet, lägger du till SAP Business objektet molnet i din lista över hanterade SaaS-appar.
+## <a name="adding-sap-business-object-cloud-from-the-gallery"></a>Lägga till SAP Business Object Cloud från galleriet
 
-Lägga till molnet för SAP Business objekt från galleriet:
+För att konfigurera integreringen av SAP Business Object Cloud till Azure AD behöver du lägga till SAP Business Object Cloud från galleriet till listan över hanterade SaaS-appar.
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra menyn väljer du **Azure Active Directory**. 
+**Lägg till SAP Business Object Cloud från galleriet genom att utföra följande steg:**
 
-    ![Azure Active Directory-knappen][1]
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-2. Välj **företagsprogram**, och välj sedan **alla program**.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Sidan för Enterprise-program][2]
-    
-3. Om du vill lägga till ett nytt program, Välj **nytt program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Knappen Nytt program][3]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-4. I sökrutan anger **SAP Business objektet Cloud**.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Sökrutan](./media/sapboc-tutorial/tutorial_sapboc_search.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-5. I resultatpanelen väljer **SAP Business objektet Cloud**, och välj sedan **Lägg till**.
+4. I sökrutan skriver du **SAP Business Object Cloud**, väljer **SAP Business Object Cloud** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![SAP Business objektet Cloud i resultatlistan](./media/sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
+     ![SAP Business Object Cloud i resultatlistan](common/search-new-app.png)
 
-##  <a name="set-up-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAP Business objektet molnet baserat på en användare med namnet *Britta Simon*.
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med SAP Business Object Cloud baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SAP Business Object Cloud upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD veta Azure AD-användare för motsvarighet i SAP Business objektet molnet. En länk förhållandet mellan en Azure AD-användare och relaterade användaren i SAP Business objektet Cloud etableras.
+För att konfigurera och testa enkel inloggning för Azure AD med SAP Business Object Cloud behöver du slutföra följande byggstenar:
 
-Att upprätta länken-relationen i SAP Business objektet molnet för **användarnamn**, tilldela värdet för den **användarnamn** i Azure AD.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för SAP Business Object Cloud](#configure-sap-business-object-cloud-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa SAP Business Object Cloud-testanvändare](#create-sap-business-object-cloud-test-user)** – för att ha en motsvarighet för Britta Simon i SAP Business Object Cloud som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SAP Business objektet Cloud, utför du följande uppgifter:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. [Konfigurera Azure AD enkel inloggning](#set-up-azure-ad-single-sign-on). Ställer in en användare ska använda den här funktionen.
-2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user). Testerna Azure AD enkel inloggning med användaren Britta Simon.
-3. [Skapa en testanvändare för SAP Business objektet Cloud](#create-an-sap-business-object-cloud-test-user). Skapar en motsvarighet för Britta Simon i SAP Business objekt-moln som är länkad till en Azure AD-representation av användaren.
-4. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user). Ställer in Britta Simon att använda Azure AD enkel inloggning.
-5. [Testa enkel inloggning](#test-single-sign-on). Kontrollerar att konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="set-up-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAP Business Object Cloud:
 
-I det här avsnittet ska aktivera du Azure AD enkel inloggning i Azure-portalen. Sedan kan ställa du in enkel inloggning i ditt SAP Business objektet molnprogram.
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **SAP Business Object Cloud**-programintegrering och väljer **Enkel inloggning**.
 
-Så här skapar Azure AD enkel inloggning med SAP Business objektet Cloud:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **SAP Business objektet Cloud** application integration markerar **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Välj enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-2. På den **enkel inloggning** sidan för **läge**väljer **SAML-baserad inloggning**.
- 
-    ![Välj SAML-baserad inloggning](./media/sapboc-tutorial/tutorial_sapboc_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. Under **SAP Business objektet molnet domän och URL: er**, gör du följande:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    1. I den **inloggnings-URL** anger en URL som har följande mönster: 
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![SAP Business Object Cloud-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    2. I den **identifierare** anger en URL som har följande mönster:
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
     | `<sub-domain>.sapanalytics.cloud` |
 
-    ![SAP Business objektet molnet domän och URL: er sida URL: er](./media/sapboc-tutorial/tutorial_sapboc_url.png)
- 
     > [!NOTE] 
-    > Värdena i dessa URL: er är bara exempel. Uppdatera värden med de faktiska inloggnings-URL och URL-identifierare. För att få inloggnings-URL: en kan kontakta den [SAP Business objektet Cloud klienten supportteamet](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Du kan hämta ID-URL genom att ladda ned molnmetadata för SAP Business objekt från administratörskonsolen. Detta förklaras senare under kursen. 
+    > Värdena i dessa URL:er är bara exempel. Uppdatera värden med de faktisk inloggnings-URL och identifierar-URL. Hämta inloggnings-URL genom att kontakta [supportteamet för SAP Business Object Cloud-klienten](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Du kan hämta identifierar-URL genom att ladda ned SAP Business Object Cloud-metadata från administratörskonsolen. Detta beskrivs senare i självstudien.
 
-4. Under **SAML-signeringscertifikat**väljer **XML-Metadata för**. Spara sedan metadatafilen på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Välj XML-Metadata](./media/sapboc-tutorial/tutorial_sapboc_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-5. Välj **Spara**.
+### <a name="configure-sap-business-object-cloud-single-sign-on"></a>Konfigurera enkel inloggning för SAP Business Object Cloud
 
-    ![Klicka på Spara](./media/sapboc-tutorial/tutorial_general_400.png)
+1. I ett annat webbläsarfönster loggar du in på din SAP Business Object Cloud-företagsplats som administratör.
 
-6. I ett annat webbläsarfönster, loggar du in din SAP Business objektet Cloud företagets webbplats som administratör.
-
-7. Välj **menyn** > **System** > **Administration**.
+2. Välj **Meny** > **System** > **Administration**.
     
-    ![Välj menyn och sedan systemet och Administration](./media/sapboc-tutorial/config1.png)
+    ![Välj Meny, sedan System och därefter Administration](./media/sapboc-tutorial/config1.png)
 
-8. På den **Security** fliken den **redigera** (pennikonen).
+3. På fliken **Säkerhet** väljer du ikonen **Redigera** (pennan).
     
-    ![Välj redigeringsikonen på fliken Säkerhet](./media/sapboc-tutorial/config2.png)  
+    ![På fliken Säkerhet väljer du ikonen Redigera](./media/sapboc-tutorial/config2.png)  
 
-9. För **autentiseringsmetod**väljer **SAML enkel inloggning (SSO)**.
+4. För **Autentiseringsmetod** väljer du **SAML Single Sign-On (SSO)** (Enkel inloggning (SSO) med SAML).
 
-    ![Välj SAML enkel inloggning för den aktuella autentiseringsmetoden](./media/sapboc-tutorial/config3.png)  
+    ![Välja enkel inloggning med SAML som autentiseringsmetod](./media/sapboc-tutorial/config3.png)  
 
-10. För att hämta metadata för service provider (steg 1), Välj **hämta**. I metadatafilen, söka och kopiera den **entityID** värde. I Azure-portalen under **SAP Business objektet molnet domän och URL: er**, klistra in värdet i den **identifierare** box.
+5. Ladda ned metadata för tjänstleverantör (steg 1) genom att välja **Ladda ned**. I metadatafilen letar du upp och kopierar värdet för **entityID**. I dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen klistrar du in värdet i rutan **Identifierare**.
 
     ![Kopiera och klistra in värdet för entityID](./media/sapboc-tutorial/config4.png)  
 
-11. Ladda upp service provider metadata (steg 2) i filen som du hämtade från Azure-portalen under **överför identitetsprovider metadata**väljer **överför**.  
+6. Ladda upp metadata för tjänstleverantör (steg 2) i den fil som du laddade ned från Azure-portalen genom att gå till **Upload Identity Provider metadata** (Ladda upp metadata för tjänstleverantör) och välja **Ladda upp**.  
 
-    ![Under överför identitetsprovider metadata, väljer du ladda upp](./media/sapboc-tutorial/config5.png)
+    ![Under Upload Identity Provider metadata (Ladda upp metadata för tjänstleverantör) väljer du Ladda upp](./media/sapboc-tutorial/config5.png)
 
-12. I den **användarattribut** väljer användarattribut (steg3) som du vill använda för din implementering. Det här användarattributet mappar till identitetsleverantören. Om du vill ange ett anpassat attribut på användarens sida, använda den **mappning av anpassade SAML** alternativet. Du kan också välja antingen **e-post** eller **ANVÄNDAR-ID** som användarattributet. I vårt exempel har vi valt **e-post** har mappats vi identifierare användaranspråk med den **userprincipalname** attribut i den **användarattribut** avsnitt i Azure portalen. Detta ger en unik användare email, som skickas till molnprogrammet för SAP Business objekt i varje lyckade SAML-svar.
+7. I listan **Användarattribut** väljer du det användarattribut (steg 3) som du vill använda för implementeringen. Det här användarattributet mappar till identitetsprovidern. Du ange ett anpassat attribut på användarens sida genom att använda alternativet **Custom SAML Mapping** (Anpassad SAML-mappning). Eller så kan du välja antingen **Email** (E-post) eller **USER ID** (Användar-ID) som användarattribut. I vårt exempel valde vi **Email** (E-post) eftersom vi mappade anspråket för användar-ID med attributet **userprincipalname** i avsnittet **Användarattribut och anspråk** i Azure-portalen. Detta ger en unik användar-e-post, som skickas till SAP Business Object Cloud-programmet i varje lyckat SAML-svar.
 
-    ![Välj användarattribut](./media/sapboc-tutorial/config6.png)
+    ![Välja användarattribut](./media/sapboc-tutorial/config6.png)
 
-13. Att verifiera kontot med identitetsleverantör (steg 4), i den **inloggning autentiseringsuppgifter (e-post)** anger användarens e-postadress. Välj **verifiera kontot**. Systemet lägger till autentiseringsuppgifter till användarkontot.
+8. Verifiera kontot med identitetsprovidern (steg 4) genom att gå till rutan **Login Credential (Email)** (Autentiseringsuppgifter (e-post)) och ange användarens e-postadress. Välj sedan **Verify Account** (Verifiera konto). Systemet lägger till autentiseringsuppgifter till användarkontot.
 
-    ![Ange e-postadress och välj verifiera konto](./media/sapboc-tutorial/config7.png)
+    ![Ange e-postadress och välj Verify Account (Verifiera konto)](./media/sapboc-tutorial/config7.png)
 
-14. Välj den **spara** ikon.
+9. Välj ikonen **Spara**.
 
-    ![Spara ikon](./media/sapboc-tutorial/save.png)
+    ![Ikonen Spara](./media/sapboc-tutorial/save.png)
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in din app! När du har lagt till appen genom att välja **Active Directory** > **företagsprogram**väljer den **enkel inloggning** fliken. Du kan komma åt embedded-dokumentation i den **Configuration** avsnittet längst ned på sidan. Mer information finns i [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-Skapa en testanvändare i Azure AD:
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. Azure-portalen på den vänstra menyn, Välj **Azure Active Directory**.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/sapboc-tutorial/create_aaduser_01.png) 
+2. Välj **Ny användare** överst på skärmen.
 
-2. Om du vill visa en lista över användare, Välj **användare och grupper**, och välj sedan **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/sapboc-tutorial/create_aaduser_02.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-3. Öppna den **användaren** dialogrutan **Lägg till**.
- 
-    ![Skapa en Azure AD-användare för testning](./media/sapboc-tutorial/create_aaduser_03.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-4. I den **användaren** dialogrutan rutan, gör du följande:
- 
-    1. I den **namn** anger **BrittaSimon**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    2. I den **användarnamn** anger du e-postadressen för användaren Britta Simon.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    3. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    4. Välj **Skapa**.
+    d. Klicka på **Skapa**.
 
-        ![Dialogrutan användare](./media/sapboc-tutorial/create_aaduser_04.png) 
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-    ![Skapa en Azure AD-användare][100]
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till SAP Business Object Cloud.
 
-### <a name="create-an-sap-business-object-cloud-test-user"></a>Skapa en SAP Business objektet Cloud testanvändare
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **SAP Business Object Cloud**.
 
-Azure AD-användare måste etableras i SAP Business objektet molnet innan de kan logga in till SAP Business objektet moln. I SAP Business objektet Cloud är etablering en manuell aktivitet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-Att etablera ett användarkonto:
+2. I programlistan väljer du **SAP Business Object Cloud**.
 
-1. Logga in till SAP Business objektet Cloud företagets platsen som en administratör.
+    ![SAP Business Object Cloud-länken i programlistan](common/all-applications.png)
 
-2. Välj **menyn** > **Security** > **användare**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Lägg till medarbetare](./media/sapboc-tutorial/user1.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-3. På den **användare** att lägga till information om nya användare, väljer du **+**. 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Lägg till sidan användare](./media/sapboc-tutorial/user4.png)
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    Utför följande steg:
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    1. I den **ANVÄNDAR-ID** anger användar-ID för användaren som **Britta**.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    2. I den **Förnamn** anger det första namnet för användaren som **Britta**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    3. I den **efternamn** anger efternamn för användaren som **Simon**.
+### <a name="create-sap-business-object-cloud-test-user"></a>Skapa SAP Business Object Cloud-testanvändare
 
-    4. I den **VISNINGSNAMN** anger det fullständiga namnet på användaren som **Britta Simon**.
+Azure AD-användare måste etableras i SAP Business Object Cloud innan de kan logga in på SAP Business Object Cloud. När det gäller SAP Business Object Cloud är etablering en manuell aktivitet.
 
-    5. I den **e** anger e-postadressen för användaren som **brittasimon@contoso.com**.
+Så här etablerar du ett användarkonto:
 
-    6. På den **Välj roller** , väljer rätt roll för användaren och välj sedan **OK**.
+1. Logga in på din SAP Business Object Cloud-företagsplats som administratör.
 
-      ![Välj roll](./media/sapboc-tutorial/user3.png)
+2. Välj **Meny** > **Säkerhet** > **Användare**.
 
-    7. Välj den **spara** ikon.    
+    ![Lägga till medarbetare](./media/sapboc-tutorial/user1.png)
 
+3. På sidan **Användare** lägger du till nya användaruppgifter genom att välja **+**. 
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    ![Sidan Lägg till användare](./media/sapboc-tutorial/user4.png)
 
-I det här avsnittet ska låta du användare Britta Simon att använda Azure AD enkel inloggning genom att bevilja användarkontoåtkomst till SAP Business objektet Cloud.
+    Utför sedan följande steg:
 
-Så här tilldelar Britta Simon till SAP Business objektet moln:
+    a. I rutan **USER ID** (Användar-ID) anger du användar-ID för användaren: **Britta**.
 
-1. Öppna vyn program i Azure-portalen och sedan gå till vyn directory. Välj **företagsprogram**, och välj sedan **alla program**.
+    b. I rutan **FIRST NAME** (Förnamn) anger du förnamn för användaren: **Britta**.
 
-    ![Tilldela användare][201] 
+    c. I rutan **LAST NAME** (Efternamn) anger du efternamn för användaren: **Simon**.
 
-2. I listan med program väljer **SAP Business objektet Cloud**.
+    d. I rutan **DISPLAY NAME** (Visningsnamn) anger du fullständigt namn för användaren: **Britta Simon**.
 
-    ![Konfigurera enkel inloggning](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
+    e. I rutan **E-MAIL** (E-postadress) anger du användarens e-postadress: **brittasimon@contoso.com**.
 
-3. I den vänstra menyn väljer du **användare och grupper**.
+    f. På sidan **Select Roles** (Välj roller) väljer du rätt roll för användaren och väljer sedan **OK**.
 
-    ![Välj användare och grupper][202] 
+      ![Välja en roll](./media/sapboc-tutorial/user3.png)
 
-4. Välj **Lägg till**. Klicka på den **Lägg till tilldelning** väljer **användare och grupper**.
+    g. Välj ikonen **Spara**.    
 
-    ![Sidan Lägg till tilldelning][203]
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-5. På den **användare och grupper** sidan i listan över användare väljer **Britta Simon**.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-6. På den **användare och grupper** väljer **Välj**.
-
-7. På den **Lägg till tilldelning** väljer **tilldela**.
-
-![Tilldela rollen][200] 
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du väljer panelen SAP Business objektet Cloud i åtkomstpanelen, bör du vara automatiskt inloggad på ditt SAP Business objektet molnprogram.
-
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på SAP Business Object Cloud-panelen i åtkomstpanelen bör du automatiskt loggas in på SAP Business Object Cloud som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/sapboc-tutorial/tutorial_general_01.png
-[2]: ./media/sapboc-tutorial/tutorial_general_02.png
-[3]: ./media/sapboc-tutorial/tutorial_general_03.png
-[4]: ./media/sapboc-tutorial/tutorial_general_04.png
-
-[100]: ./media/sapboc-tutorial/tutorial_general_100.png
-
-[200]: ./media/sapboc-tutorial/tutorial_general_200.png
-[201]: ./media/sapboc-tutorial/tutorial_general_201.png
-[202]: ./media/sapboc-tutorial/tutorial_general_202.png
-[203]: ./media/sapboc-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

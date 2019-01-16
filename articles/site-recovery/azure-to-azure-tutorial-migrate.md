@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dc27e49cc67a902bb45b1d889bb61b1f4b3aab83
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2ce9c486dee3f26d23db5da67abfea4701f85796
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788777"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040482"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -83,7 +83,7 @@ Kontrollera att alla de senaste rotcertifikaten finns på de virtuella Azure-dat
 Skapa valvet i valfri region, utom i källregionen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
-2. Klicka på **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
+2. Klicka på **Skapa en resurs** > **Hanteringsverktyg** > **Backup och Site Recovery**.
 3. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp med namnet **ContosoRG**.
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794438"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103527"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -43,7 +43,7 @@ För att slutföra den här självstudien behöver du:
 Skapa valvet i valfri region, utom i källregionen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
-2. Klicka på **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
+2. Klicka på **Skapa en resurs** > **Hanteringsverktyg** > **Backup och Site Recovery**.
 3. I **Namn** anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
@@ -172,7 +172,8 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 5. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. för att göra virtuella datorer till en del av en replikeringsgrupp. Klicka sedan på **OK**.
 
-    - Alla maskiner i en replikeringsgrupp har delade kraschkonsekventa och appkonsekventa återställningspunkter när de redundansväxlas. Aktivering av konsekvens för flera virtuella datorer kan påverka prestandan och ska bara användas om datorer kör samma arbetsbelastning och konsekvens mellan flera datorer krävs.
+    - Alla maskiner i en replikeringsgrupp har delade kraschkonsekventa och appkonsekventa återställningspunkter när de redundansväxlas. Aktivering av konsekvens för flera virtuella datorer kan påverka prestandan (eftersom det är processorintensivt) och ska bara användas om datorer kör samma arbetsbelastning och konsekvens mellan flera datorer krävs.
+    - Du kan som mest välja att ha 16 virtuella datorer i en replikeringsgrupp.
     - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Se till att det inte finns någon brandvägg som blockerar den interna kommunikationen mellan de virtuella datorerna på port 20004. Om du vill att virtuella datorer med Linux ska vara med i en replikeringsgrupp måste du se till att du manuellt öppnar för utgående trafik på port 20004 enligt riktlinjerna för den specifika Linux-versionen.
 
 ### <a name="configure-encryption-settings"></a>Konfigurera krypteringsinställningar

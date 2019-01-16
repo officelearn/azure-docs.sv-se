@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fe134591a979569048072877632260ea9728b4fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653908"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159765"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
@@ -110,7 +110,7 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 I den här snabbstarten använde du Maven för att skapa en Java-app, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Mer information om hur du hanterar Java-program i App Service för Linux finns i nedanstående självstudier och instruktionsartiklar.
 
-- [Självstudie: Distribuera en Java-företagsapp med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Självstudier: Distribuera en Java-företagsapp med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 - [Konfigurera en Tomcat-datakälla](app-service-linux-java.md#connecting-to-data-sources)
 - [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Konfigurera verktyg för övervakning av programprestanda](how-to-java-apm-monitoring.md)

@@ -1,85 +1,93 @@
 ---
 title: Använda program i Azure Blockchain Workbench
-description: Hur du använder programmet tjänstekontrakt i Azure Blockchain Workbench.
+description: Självstudie om hur du använder programkontrakt i Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fe6f164882ffce7bf22ec0c0b94107abcf6a20e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: MT
+ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243492"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107080"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>Använda program i Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudier: Använda program i Azure Blockchain Workbench
 
-Du kan använda Blockchain Workbench för att skapa och utföra åtgärder på kontrakt. Du kan också visa information om till exempel status och transaktion historik-kontrakt.
+Du kan använda Blockchain Workbench för att skapa och utföra åtgärder med kontrakt. Du kan också visa information om kontrakt, till exempel status och transaktionshistorik.
 
-## <a name="prerequisites"></a>Förutsättningar
+Du lär dig följande:
 
-* En Blockchain Workbench-distribution. Mer information finns i [Azure Blockchain Workbench distribution](deploy.md) mer information om distribution
-* En distribuerad blockchain-program i Blockchain Workbench. Se [skapa ett blockchain-program i Azure Blockchain Workbench](create-app.md)
+> [!div class="checklist"]
+> * Skapa ett nytt kontrakt
+> * Utföra åtgärder med ett kontrakt
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+* En Blockchain Workbench-distribution. Mer information om distributioner finns i avsnittet om [Azure Blockchain Workbench-distributioner](deploy.md)
+* Ett distribuerat blockkedjeprogram i Blockchain Workbench. Mer information finns i avsnittet om hur du [skapar ett blockkedjeprogram i Azure Blockchain Workbench](create-app.md)
 
 [Öppna Blockchain Workbench](deploy.md#blockchain-workbench-web-url) i webbläsaren.
 
 ![Blockchain Workbench](./media/use/workbench.png)
 
-Du måste logga in som medlem i Blockchain Workbench. Om det finns inga program i listan, är du medlem i Blockchain Workbench men inte medlem i alla program. Blockchain Workbench-administratör kan tilldela medlemmar till program.
+Du måste logga in som medlem i Blockchain Workbench. Om inga program visas i listan är du medlem i Blockchain Workbench men inte i något program. Blockchain Workbench-administratören kan tilldela medlemmar till program.
 
 ## <a name="create-new-contract"></a>Skapa nytt kontrakt 
 
-Om du vill skapa ett nytt kontrakt, du måste vara en medlem som angetts som ett kontrakt **initierare**. Läs om definiera programroller och initierare för kontraktet [arbetsflöden i configuration-översikt](configuration.md#workflows). Information om hur du tilldelar medlemmar till roller för programmet finns i [lägga till en medlem i program](manage-users.md#add-member-to-application).
+För att skapa ett nytt kontrakt måste du vara en medlem som definierats som **kontraktinitierare**. Information om hur du definierar programroller och initierare för kontraktet finns i [Arbetsflöden i konfigurationsöversikten](configuration.md#workflows). Information om hur du tilldelar medlemmar till programroller finns i avsnittet om hur du [lägger till en medlem i ett program](manage-users.md#add-member-to-application).
 
-1. Välj panelen program som innehåller det kontrakt som du vill skapa i Blockchain Workbench program i. En lista över aktiva kontrakt visas.
+1. I avsnittet för Blockchain Workbench-program väljer du programpanelen som innehåller det kontrakt som du vill skapa. En lista över aktiva kontrakt visas.
 
-2. Om du vill skapa ett nytt kontrakt, Välj **nytt kontrakt**.
+2. Om du vill skapa ett nytt kontrakt väljer du **Nytt kontrakt**.
 
-    ![Knapp för ny kontrakt](./media/use/contract-list.png)
+    ![Knappen Nytt kontrakt](./media/use/contract-list.png)
 
-3. Den **nytt kontrakt** egenskapsruta visas. Ange värden för inledande parametrar. Välj **Skapa**.
+3. Rutan **Nytt kontrakt** visas. Ange de ursprungliga parametervärdena. Välj **Skapa**.
 
-    ![Nya kontrakt rutan](./media/use/new-contract.png)
+    ![Rutan Nytt kontrakt](./media/use/new-contract.png)
 
-    Nyligen skapade kontraktet visas i listan med de andra aktiva kontrakt.
+    Det nya kontraktet visas i listan med de andra aktiva kontrakten.
 
-    ![Aktiva kontrakt lista](./media/use/active-contracts.png)
+    ![Lista över aktiva kontrakt](./media/use/active-contracts.png)
 
-## <a name="take-action-on-contract"></a>Vidta åtgärder för kontrakt
+## <a name="take-action-on-contract"></a>Utföra åtgärder med kontrakt
 
-Beroende på tillståndet är kontraktet, medlemmar kan vidta åtgärder för att övergå till nästa steg i kontraktet. Åtgärder definieras som [övergångar](configuration.md#transitions) inom en [tillstånd](configuration.md#states). Medlemmar som hör till en tillåtna program eller en instans roll för övergången kan vidta åtgärder. 
+Beroende på kontraktets tillstånd kan medlemmarna utföra åtgärder för att övergå till nästa kontrakttillstånd. Åtgärder definieras som [övergångar](configuration.md#transitions) inom ett [tillstånd](configuration.md#states). Medlemmar som hör till ett tillåtet program eller en instansroll för övergången kan utföra åtgärder. 
 
-1. Välj panelen program som innehåller avtal att vidta åtgärder i Blockchain Workbench program i.
+1. I avsnittet för Blockchain Workbench-program väljer du programpanelen som innehåller det kontrakt som du vill utföra åtgärder med.
 2. Välj kontraktet i listan. Information om kontraktet visas i olika avsnitt. 
 
-    ![Kontraktsinformation](./media/use/contract-details.png)
+    ![Kontraktinformation](./media/use/contract-details.png)
 
     | Section  | Beskrivning  |
     |---------|---------|
-    | Status | Visar aktuell status i kontraktet faser |
+    | Status | Visar den aktuella statusen i kontraktfaserna |
     | Information | De aktuella värdena för kontraktet |
     | Åtgärd | Information om den senaste åtgärden |
-    | Aktivitet | Transaktionshistoriken kontraktets |
+    | Aktivitet | Kontraktets transaktionshistorik |
     
-3. I den **åtgärd** väljer **vidta åtgärder**.
+3. I avsnittet **Åtgärd** väljer du **Vidta åtgärd**.
 
-4. Information om det aktuella tillståndet för kontraktet visas i en ruta. Välj den åtgärd du vill ta i listrutan. 
+4. Informationen om kontraktets aktuella tillstånd visas i en ruta. Välj den åtgärd du vill utföra i listrutan. 
 
     ![Välj åtgärd](./media/use/choose-action.png)
 
-5. Välj **vidta åtgärder** att initiera åtgärden.
-6. Om parametrar krävs för åtgärden, anger du värden för åtgärden.
+5. Välj **Vidta åtgärd** för att initiera åtgärden.
+6. Om parametrar krävs för åtgärden anger du värdena för åtgärden.
 
     ![Vidta åtgärd](./media/use/take-action.png)
 
-7. Välj **vidta åtgärder** att köra åtgärden.
+7. Välj **Vidta åtgärd** för att köra åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så här felsöker du Azure Blockchain Workbench](troubleshooting.md)
+> [Versionshantering för Azure Blockchain Workbench-program](version-app.md)

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115084"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077258"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudier: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:et för ASP.NET Core med hjälp av Kestrel
 
 Den här självstudiekursen är den tredje delen i en serie.  Du får lära dig att aktivera HTTPS i en ASP.NET Core-tjänst som körs på Service Fabric. När du är färdig har du ett röstningsprogram med en HTTPS-aktiverad webbklientdel i ASP.NET Core som lyssnar på port 443. Om du inte vill skapa röstningsprogrammet manuellt i [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-deploy-app-to-party-cluster.md) kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) till det färdiga programmet.
 
@@ -54,10 +54,10 @@ Innan du börjar den här självstudien:
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Hämta ett certifikat eller skapa ett självsignerat utvecklingscertifikat
 
-För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority). För utveckling och testning kan du skapa och använda ett självsignerat certifikat. i SDK:t för Service Fabric finns skriptet *CertSetup.ps1* som skapar ett självsignerat certifikat och importerar det till certifikatlagret i `Cert:\LocalMachine\My`. Öppna en kommandotolk som administratör och kör följande kommando för att skapa ett certifikat med ämnet ”CN = localhost”:
+För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority). För utveckling och testning kan du skapa och använda ett självsignerat certifikat. i SDK:t för Service Fabric finns skriptet *CertSetup.ps1* som skapar ett självsignerat certifikat och importerar det till certifikatlagret i `Cert:\LocalMachine\My`. Öppna en kommandotolk som administratör och kör följande kommando för att skapa ett certifikat med ämnet ”CN = mytestcert”:
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 Om du redan har en PFX-certifikatfil kör du följande för att importera certifikatet till certifikatlagret i `Cert:\LocalMachine\My`:
@@ -158,7 +158,7 @@ serviceContext =>
         }))
 ```
 
-Lägg även till följande metod så att Kestrel kan hitta certifikatet i `Cert:\LocalMachine\My`-lagret med hjälp av ämnet.  Ersätt ”&lt;your_CN_value&gt;” med ”localhost” om du har skapat ett självsignerat certifikat med föregående PowerShell-kommando. Använd annars CN för ditt certifikat.
+Lägg även till följande metod så att Kestrel kan hitta certifikatet i `Cert:\LocalMachine\My`-lagret med hjälp av ämnet.  Ersätt ”&lt;your_CN_value&gt;” med ”mytestcert” om du har skapat ett självsignerat certifikat med föregående PowerShell-kommando. Använd annars CN för ditt certifikat.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -238,7 +238,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 Öppna Solution Explorer, högerklicka på **VotingWeb**, välj **Lägg till**->**Nytt objekt** och lägg till en ny fil med namnet ”SetCertAccess.ps1”.  Redigera filen *SetCertAccess.ps1* och lägg till följande skript:
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -349,7 +349,7 @@ Spara alla filer och tryck på F5 för att köra programmet lokalt.  När progra
 
 Innan du distribuerar programmet till Azure ska du installera certifikatet i `Cert:\LocalMachine\My`-lagret för de fjärranslutna klusternoderna.  När klientwebbtjänsten startar på en klusternod kommer startskriptet att leta upp certifikatet och konfigurera åtkomstbehörigheter.
 
-Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och gå till **Personligt**>**Certifikat**.  Högerklicka på certifikatet *localhost* och välj **Alla aktiviteter**>**Exportera**.
+Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och gå till **Personligt**>**Certifikat**.  Högerklicka på certifikatet *mytestcert* och välj **Alla aktiviteter**>**Exportera**.
 
 ![Exportera certifikatet][image4]
 

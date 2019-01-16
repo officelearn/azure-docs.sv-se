@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787451"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064125"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
 Du kan felsöka problem och fel vid användning av säkerhetskopiering av Azure-filresurser med hjälp av informationen i följande tabeller.
@@ -36,7 +36,7 @@ Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [z
 ## <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
 Följande tabell används för att konfigurera säkerhetskopieringen:
 
-| Konfigurera säkerhetskopiering | Lösningstips |
+| Felmeddelanden | Lösningstips |
 | ------------------ | ----------------------------- |
 | Jag kunde inte hitta mitt lagringskonto när jag skulle konfigurera säkerhetskopiering för en Azure-filresurs | <ul><li>Vänta tills identifieringen har slutförts. <li>Kontrollera om någon filresurs i lagringskontot redan skyddas med ett annat Recovery Services-valv. **Obs!** Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. <li>Kontrollera att filresursen inte finns i något av de lagringskonton som inte stöds.|
 | Fel i Portal anger att identifieringen av lagringskonton misslyckades. | Om din prenumeration är CSP-aktiverad (partner) kan du ignorera felet. Kontakta support om prenumerationen inte är CSP-aktiverad och dina lagringskonton inte kan identifieras.|
@@ -64,6 +64,14 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 | Återställningsåtgärden misslyckades eftersom målfilresursen är full. | Öka storlekskvoten för målfilresursen så att återställningsdata får plats och prova sedan åtgärden igen. |
 | Återställningsåtgärden misslyckades eftersom ett fel uppstod när de förberedande återställningsåtgärderna på filsynkroniseringstjänstens resurser associerades med målfilresursen. | Försök igen senare och kontakta Microsofts support om problemet kvarstår. |
 | En eller flera filer kunde inte återställas. Mer information finns i listan med filer som misslyckats på den sökväg som anges ovan. | <ul> <li> Orsakerna till återställningsfel visas i filen (sökvägen finns i Jobbinformation). Åtgärda orsakerna och prova att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att de filer som misslyckas inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |
+
+
+## <a name="modify-policy"></a>Ändra princip
+| Felmeddelanden | Lösningstips |
+| ------------------ | ----------------------------- |
+| En annan ”Konfigurera skydd”-åtgärd pågår för det här objektet. | Vänta tills den föregående ”Ändra princip”-åtgärden är klar och försök igen efter en stund.|
+| En annan åtgärd körs på det valda objektet. | Vänta tills den andra pågående åtgärden är klar och försök igen efter en stund |
+
 
 ## <a name="see-also"></a>Se även
 Mer information om hur du säkerhetskopierar Azure-filresurser finns i:

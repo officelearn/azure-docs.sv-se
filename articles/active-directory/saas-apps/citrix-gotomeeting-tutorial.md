@@ -1,242 +1,221 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med GoToMeeting | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med GoToMeeting | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/02/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: b62b3b7f9f3bfd55237ed4d894954a0bde48e7fc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: f1632ffa6bf4f0896fe4155b9a3fe938d0e672fc
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043728"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065026"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Självstudier: Azure Active Directory-integration med GoToMeeting
+# <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Självstudier: Azure Active Directory-integrering med GoToMeeting
 
-I den här självstudien får du lära dig hur du integrerar GoToMeeting med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera GoToMeeting med Azure Active Directory (AD Azure).
+Genom att integrera GoToMeeting med Azure AD får du följande fördelar:
 
-Integrera GoToMeeting med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till GoToMeeting.
+* Du kan göra så att dina användare automatiskt loggas in på GoToMeeting (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till GoToMeeting.
-- Du kan aktivera användarna att automatiskt få loggat in på GoToMeeting (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med GoToMeeting behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med GoToMeeting, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- Ett GoToMeeting enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* GoToMeeting-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till GoToMeeting från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-gotomeeting-from-the-gallery"></a>Att lägga till GoToMeeting från galleriet
-För att konfigurera integrering av GoToMeeting i Azure AD, som du behöver lägga till GoToMeeting från galleriet i din lista över hanterade SaaS-appar.
+* GoToMeeting stöder **IDP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till GoToMeeting från galleriet:**
+## <a name="adding-gotomeeting-from-the-gallery"></a>Lägga till GoToMeeting från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av GoToMeeting till Azure AD behöver du lägga till GoToMeeting från galleriet till listan över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Lägg till GoToMeeting från galleriet genom att utföra följande steg:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-4. I sökrutan skriver **GoToMeeting**väljer **GoToMeeting** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![GoToMeeting i resultatlistan](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med GoToMeeting baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du **GoToMeeting**, väljer **GoToMeeting** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i GoToMeeting är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i GoToMeeting upprättas.
+     ![GoToMeeting i resultatlistan](common/search-new-app.png)
 
-I GoToMeeting, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med GoToMeeting, måste du utföra följande byggblock:
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med GoToMeeting baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i GoToMeeting upprättas.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare GoToMeeting](#create-a-gotomeeting-test-user)**  – du har en motsvarighet för Britta Simon i GoToMeeting som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+För att konfigurera och testa enkel inloggning för Azure AD med GoToMeeting behöver du slutföra följande byggstenar:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för GoToMeeting](#configure-gotomeeting-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa GoToMeeting-testanvändare](#create-gotomeeting-test-user)** – för att ha en motsvarighet för Britta Simon i GoToMeeting som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt GoToMeeting-program.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med GoToMeeting:**
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. I Azure-portalen på den **GoToMeeting** program integration-sidan klickar du på **enkel inloggning**.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med GoToMeeting:
 
-    ![Konfigurera enkel inloggning för länken][4]
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **GoToMeeting**-programintegrering och väljer **Enkel inloggning**.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-3. På den **GoToMeeting domän och URL: er** avsnittet, utför följande steg:
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![GoToMeeting domän och URL: er med enkel inloggning för information](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    I den **identifierare** textrutan anger du URL: `https://authentication.logmeininc.com/saml/sp`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-4. Klicka på **visa avancerade URL-konfigurationen** och konfigurera den nedan URL: er
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    **Inloggnings-URL** (Håll detta tomt)
-    
-    **Svars-URL**: `https://authentication.logmeininc.com/saml/acs`
-    
-    **RelayState**:
-    
-    - Använd för GoToMeeting App `https://global.gotomeeting.com`
-    
-    - GoToTraining, använda `https://global.gototraining.com`
-    
-    - GoToWebinar, använda `https://global.gotowebinar.com` 
-    
-    - GoToAssist, använda `https://app.gotoassist.com`
-    
-5. Klicka på **spara** knappen.
+4. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/citrix-gotomeeting-tutorial/tutorial_general_400.png)
+    ![GoToMeeting-domän och information om URL:er för enkel inloggning](common/both-allurls.png)
 
-6. I ett annat webbläsarfönster, logga in på din [GoToMeeting organisation Center](https://organization.logmeininc.com/). Du uppmanas att bekräfta att IDP: N har uppdaterats
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://authentication.logmeininc.com/saml/sp`
 
-7. Aktivera kryssrutan ”min identitetsprovidern har uppdaterats med den nya domänen”. Klicka på **klar** när du är klar.
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://authentication.logmeininc.com/saml/acs`
 
+    c. Klicka på **ange ytterligare URL:er** och konfigurera nedanstående URL:er
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. **Inloggnings-URL** (behåll detta tomt)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    e. I textrutan **RelayState** skriver du en URL med följande mönster:
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    - För GoToMeeting-appen använder du `https://global.gotomeeting.com`
 
-   ![Skapa en Azure AD-testanvändare][100]
+    - För GoToTraining använder du `https://global.gototraining.com`
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    - För GoToWebinar använder du `https://global.gotowebinar.com` 
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    - För GoToAssist använder du `https://app.gotoassist.com`
 
-    ![Azure Active Directory-knappen](./media/citrix-gotomeeting-tutorial/create_aaduser_01.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för GoToMeeting-klienten](https://go.microsoft.com/fwlink/?linkid=845985). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/citrix-gotomeeting-tutorial/create_aaduser_02.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+6. I avsnittet **Konfigurera GoToMeeting** kopierar du lämpliga URL:er efter behov.
 
-    ![Knappen Lägg till](./media/citrix-gotomeeting-tutorial/create_aaduser_03.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+    a. Inloggnings-URL
 
-    ![Dialogrutan användare](./media/citrix-gotomeeting-tutorial/create_aaduser_04.png)
+    b. Azure AD-identifierare
 
-    a. I den **namn** skriver **BrittaSimon**.
+    c. Utloggnings-URL
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+### <a name="configure-gotomeeting-single-sign-on"></a>Konfigurera enkel inloggning för GoToMeeting
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+1. I ett annat webbläsarfönster loggar du in på ditt [GoToMeeting-organisationscenter](https://organization.logmeininc.com/). Du uppmanas att bekräfta att IdP har uppdaterats.
+
+2. Markera kryssrutan ”My Identity Provider has been updated with the new domain” (Min identitetsprovider har uppdaterats med den nya domänen). Klicka på **Klar** när du är klar.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+
+2. Välj **Ny användare** överst på skärmen.
+
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-gotomeeting-test-user"></a>Skapa ett GoToMeeting testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i GoToMeeting. GoToMeeting stöder just-in-time-etablering, som är aktiverat som standard.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Det finns inga uppgift åt dig i det här avsnittet. Om en användare inte redan finns i GoToMeeting, skapas en ny när du försöker komma åt GoToMeeting.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till GoToMeeting.
+
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **GoToMeeting**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan väljer du **GoToMeeting**.
+
+    ![GoToMeeting-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-gotomeeting-test-user"></a>Skapa GoToMeeting-testanvändare
+
+I det här avsnittet skapas en användare som heter Britta Simon i GoToMeeting. GoToMeeting stöder just-in-time-etablering, vilket är aktiverat som standard.
+
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns en användare i GoToMeeting skapas en ny när du försöker komma åt GoToMeeting.
 
 > [!NOTE]
-> Om du vill skapa en användare manuellt, kontakta [GoToMeeting supportteamet](https://support.logmeininc.com/gotomeeting).
+> Om du behöver skapa en användare manuellt kontaktar du [supportteamet för GoToMeeting](https://support.logmeininc.com/gotomeeting).
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till GoToMeeting.
-
-![Tilldela rollen][200] 
-
-**Om du vill tilldela Britta Simon GoToMeeting, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-2. I listan med program väljer **GoToMeeting**.
-
-    ![Länken GoToMeeting i listan med program](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_app.png)  
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen GoToMeeting i åtkomstpanelen du bör få automatiskt loggat in på ditt GoToMeeting-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på GoToMeeting-panelen i åtkomstpanelen bör du automatiskt loggas in på GoToMeeting som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/gotomeeting-tutorial/tutorial_general_01.png
-[2]: ./media/gotomeeting-tutorial/tutorial_general_02.png
-[3]: ./media/gotomeeting-tutorial/tutorial_general_03.png
-[4]: ./media/gotomeeting-tutorial/tutorial_general_04.png
-
-[100]: ./media/gotomeeting-tutorial/tutorial_general_100.png
-
-[200]: ./media/gotomeeting-tutorial/tutorial_general_200.png
-[201]: ./media/gotomeeting-tutorial/tutorial_general_201.png
-[202]: ./media/gotomeeting-tutorial/tutorial_general_202.png
-[203]: ./media/gotomeeting-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

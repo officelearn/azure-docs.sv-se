@@ -10,37 +10,36 @@ ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3dc27b35f35f3aaa649b03777ff13d385561673
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732234"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020718"
 ---
-# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudie: skapa din första datafabrik med Azure-portalen
+# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudier: Skapa din första datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Läs [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md) (Snabbstart: Skapa en datafabrik med Data Factory) om du använder den aktuella versionen av Data Factory-tjänsten.
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder den aktuella versionen av Data Factory-tjänsten bör du läsa [Snabbstart: Skapa en datafabrik med hjälp av Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 I den här artikeln får du lära dig hur du använder [Azure Portal](https://portal.azure.com/) till att skapa din första datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan. 
 
 Pipelinen i den här självstudien har en aktivitet: en Azure HDInsight Hive-aktivitet. Aktiviteten kör ett Hive-skript i ett HDInsight-kluster som omvandlar indata till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
 
 > [!NOTE]
-> Datapipelinen i den här självstudien transformerar indata för att generera utdata. En självstudiekurs om hur du kopierar data med Data Factory finns i [Tutorial: Copy data from Azure Blob Storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Azure Blob Storage till Azure SQL Database).
+> Datapipelinen i den här självstudien transformerar indata för att generera utdata. En självstudie om hur du kopierar data med hjälp av Data Factory finns i [Självstudie: Kopiera data från Azure Blob-lagring till Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och körning i Data Factory).
 
@@ -65,7 +64,7 @@ Gör så här för att skapa en datafabrik:
    ![Bladet Ny datafabrik](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > Namnet på datafabriken måste vara globalt unikt. Om du får felet ”Datafabriksnamnet GetStartedDF är inte tillgängligt” ändrar du namnet på datafabriken. Du kan till exempel använda dittnamnGetStartedDF och skapa datafabriken igen. Mer information om namngivningsregler finns i [Data Factory: namngivningsregler](data-factory-naming-rules.md).
+   > Namnet på datafabriken måste vara globalt unikt. Om du får felet ”Datafabriksnamnet GetStartedDF är inte tillgängligt” ändrar du namnet på datafabriken. Du kan till exempel använda dittnamnGetStartedDF och skapa datafabriken igen. Mer information om namngivningsregler finns i [Data Factory: Namngivningsregler](data-factory-naming-rules.md).
    >
    > Namnet på datafabriken kan registreras som ett DNS-namn i framtiden och kan då bli synligt offentligt.
    >
@@ -327,7 +326,7 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
 
     Egenskaperna **start** och **end** för pipelinen anger den aktiva perioden för pipelinen.
 
-    I JSON för aktiviteten anger du att Hive-skriptet körs i den beräkning som anges av **linkedServiceName**: **HDInsightOnDemandLinkedService**.
+    I JSON-aktiviteten anger du att Hive-skriptet körs i den beräkning som angetts av **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
    > Mer information om de JSON-egenskaper som används i exemplet finns i avsnittet om Pipeline-JSON i [Pipelines and activities in Data Factory](data-factory-create-pipelines.md) (Pipeliner och aktiviteter i Data Factory).
@@ -434,7 +433,7 @@ I den här självstudien skapade du en datafabrik som bearbetar data genom att k
 * Skapa en pipeline med en HDInsight Hive-aktivitet.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript i ett HDInsight-kluster på begäran. Du kan lära dig hur du använder en kopieringsaktivitet till att kopiera data från bloblagring till en SQL-databas i [Självstudie: kopiera data från bloblagring till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript i ett HDInsight-kluster på begäran. Information om hur du använder en kopieringsaktivitet för att kopiera data från Blob Storage till en SQL-databas finns i [Självstudie: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |

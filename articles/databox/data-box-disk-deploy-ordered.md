@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567459"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156179"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Självstudie: Beställa Azure Data Box Disk (förhandsversion)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudier: Beställa en Azure Data Box Disk
 
 Azure Data Box Disk är en hybridmolnlösning. Via den kan du importera lokala data till Azure på ett snabbt, enkelt och tillförlitligt sätt. Du överför data till SSD-diskar som tillhandahålls av Microsoft och skickar sedan tillbaka diskarna. Dessa data överförs sedan till Azure.
 
 I den här självstudien beskriver vi hur du kan beställa Azure Data Box-diskar. I den här självstudien lär du dig:
 
 > [!div class="checklist"]
-> * Registrera dig för Data Box Disk
 > * Beställa Data Box-diskar
 > * Spåra beställningen
 > * Avbryta beställningen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-> [!IMPORTANT]
-> - Data Box Disk är tillgängligt som förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
-> - Under förhandsversionsfasen kan Data Box Disk levereras till kunder i USA, västra och norra Europa, Kanada och Australien. Mer information finns i [Regional tillgänglighet](data-box-disk-overview.md#region-availability).
+Innan du distribuerar slutför du följande konfigurationskrav för Data Box-tjänsten och Data Box Disk.
 
-## <a name="sign-up"></a>Registrera dig
+### <a name="for-service"></a>För tjänsten
 
-Data Box Disk är en förhandsversion och du behöver registrera dig för tjänsten. Registrera dig för Data Box-tjänsten via följande steg:
+Innan du börjar ska du kontrollera att:
+- Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
+- Kontrollera att den prenumeration du använder för Data Box-tjänsten är någon av följande typer:
+    - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-beställning.
 
-1. Logga in på Azure-portalen på: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Välj vilken prenumeration du vill aktivera för förhandsversionen. Svara på frågor om datamängden, var de finns och dataöverföringsfrekvens. Klicka på **Registrera mig!**.
-3. När du är registrerad och aktiverad för förhandsversionen kan du beställa du Data Box-diskar.
+### <a name="for-device"></a>För enheten
+
+Innan du börjar ska du kontrollera att:
+- Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
+    - Köra ett [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Ha en annan[programvara som krävs](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerad om det är en Windows-klient.  
 
 ## <a name="order-data-box-disk"></a>Beställa Data Box Disk
 
@@ -97,7 +102,7 @@ Utför följande steg på [Azure-portalen](https://aka.ms/azuredataboxfromdiskdo
  
 ## <a name="track-the-order"></a>Spåra beställningen
 
-När du har skapat beställningen kan du spåra statusen för ordern via Azure-förhandsportalen. Öppna beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar jobbet i tillståndet **Ordered** (beställt). 
+När du har skapat beställningen kan du spåra statusen för ordern via Azure-portalen. Öppna beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar jobbet i tillståndet **Ordered** (beställt). 
 
 ![Data Box Disk-status beställd](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ När diskförberedelserna är klara visar portalen ordningen i tillståndet **Pr
 
 Microsoft förbereder sedan diskarna och skickar dem via en regional leverantör. Du får ett spårningsnummer när diskarna har skickats. Portalen visar ordningen för statusen **Dispatched** (Skickad).
 
-
-
 ## <a name="cancel-the-order"></a>Avbryta beställningen
 
-Om du vill avbryta beställningen öppnar du Azure-förhandsgranskningsportalen, navigerar till **Overview** och klickar på **Cancel** (Översikt > Avbryt) i kommandofältet. 
+Om du vill avbryta beställningen öppnar du Azure-portalen, navigerar till **Översikt** och klickar på **Avbryt** i kommandofältet. 
 
 Du kan bara avbryta beställningen medan den bearbetas inför leveransen. När beställningen har bearbetats går det inte att avbryta den. 
 
 ![Avbryta beställning](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-Om du vill ta bort en avbruten beställning navigerar du till **Översikt** och klickar på **Ta bort** i kommandofältet. 
+Om du vill ta bort en avbruten beställning navigerar du till **Översikt** och klickar på **Ta bort** i kommandofältet.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -129,7 +132,6 @@ Om du vill ta bort en avbruten beställning navigerar du till **Översikt** och 
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Registrera dig för Data Box Disk
 > * Beställa Data Box Disk
 > * Spåra beställningen
 > * Avbryta beställningen

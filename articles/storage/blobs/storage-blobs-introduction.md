@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7628260efff34b52ca7d4bd4c35cce279d5474b3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 516ce9d9a6fcc73b543c7db584afebf71c2293ca
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965418"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065009"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
 
@@ -33,7 +33,7 @@ Följande diagram visar relationen mellan de här resurserna.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 
-På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller ditt unika kontonamn. Kombinationen av kontonamnet och Azure Storage-tjänstens slutpunkt bildar slutpunkterna för ditt lagringskonto.
+På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller ditt unika kontonamn. Kombinationen av kontonamnet och Azure Storage-blobslutpunkten utgör basadressen för objekten i ditt lagringskonto.
 
 Om ditt lagringskonto till exempel heter *mystorageaccount*, kommer standardslutpunkterna för blobblagringen att vara:
 
@@ -56,7 +56,7 @@ Azure Storage har stöd för tre typer av blobbar:
 
 * I **blockblobbar** lagras text och binära data, upp till ungefär 4,7 TB. Blockblobbar består av datablock som kan hanteras individuellt.
 * **Bilageblobbar** består av block, precis som blockblobbarna, men de är optimerade för bilageåtgärder. Tilläggsblobbar passar utmärkt för åtgärder som att logga data från virtuella datorer.
-* I **sidblobbar** lagras filer med slumpmässig åtkomst med en storlek på upp till 8 TB. Sidblobbar lagrar virtuella hårddiskfiler (VHD) som fungerar som diskar för virtuella Azure-datorer. Mer information om sidblobbar finns i (../articles/storage/blobs/storage-blob-pageblob-overview.md)
+* I **sidblobbar** lagras filer med slumpmässig åtkomst med en storlek på upp till 8 TB. Sidblobbar lagrar virtuella hårddiskfiler (VHD) som fungerar som diskar för virtuella Azure-datorer. Mer information om sidblobar finns [översikten av Azure-sidblobar](storage-blob-pageblob-overview.md)
 
 Mer information om de olika typerna av blobbar finns i [Förstå blockblobbar, sidblobbar och bilageblobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

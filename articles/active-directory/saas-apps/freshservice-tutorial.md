@@ -1,279 +1,258 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Freshservice | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Freshservice | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Freshservice.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/16/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: eb848ede258d8d25d4734664bd500235f34359e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 1254941e8b5673e772ae70fc538f62ed14a13ef1
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440668"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062833"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Självstudier: Azure Active Directory-integration med Freshservice
+# <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Självstudier: Azure Active Directory-integrering med Freshservice
 
-I den här självstudien får du lära dig hur du integrerar Freshservice med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Freshservice med Azure Active Directory (AD Azure).
+Genom att integrera Freshservice med Azure AD får du följande fördelar:
 
-Integrera Freshservice med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Freshservice.
+* Du kan göra så att dina användare automatiskt loggas in på Freshservice (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Freshservice
-- Du kan aktivera användarna att automatiskt få loggat in på Freshservice (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Freshservice behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Freshservice, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Freshservice enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Freshservice-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Freshservice från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-freshservice-from-the-gallery"></a>Att lägga till Freshservice från galleriet
-För att konfigurera integrering av Freshservice i Azure AD, som du behöver lägga till Freshservice från galleriet i din lista över hanterade SaaS-appar.
+* Freshservice stöder **IDP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till Freshservice från galleriet:**
+## <a name="adding-freshservice-from-the-gallery"></a>Lägga till Freshservice från galleriet
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Freshservice till Azure AD behöver du lägga till Freshservice från galleriet till listan över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Lägg till Freshservice från galleriet genom att utföra följande steg:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **Freshservice**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/freshservice-tutorial/tutorial_freshservice_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **Freshservice**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
+4. I sökrutan skriver du **RedBrick Health**, väljer **RedBrick Health** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Freshservice baserat på en testanvändare som kallas ”Britta Simon”.
+     ![Freshservice i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Freshservice är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Freshservice upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I Freshservice, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med Freshservice baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Freshservice upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Freshservice, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning för Azure AD med Freshservice behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Freshservice](#creating-a-freshservice-test-user)**  – du har en motsvarighet för Britta Simon i Freshservice som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Freshservice](#configure-freshservice-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Freshservice-testanvändare](#create-freshservice-test-user)** – för att ha en motsvarighet för Britta Simon i Freshservice som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Freshservice.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Freshservice:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Freshservice:
 
-1. I Azure-portalen på den **Freshservice** program integration-sidan klickar du på **enkel inloggning**.
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Freshservice**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Freshservice domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/freshservice-tutorial/tutorial_freshservice_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<democompany>.freshservice.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<democompany>.freshservice.com`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Freshservice klienten supportteamet](https://support.freshservice.com/) att hämta dessa värden. 
- 
-1. På den **SAML-signeringscertifikat** avsnittet, kopiera **TUMAVTRYCK** värdet för certifikatet.
+    ![Freshservice-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    ![Konfigurera enkel inloggning](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<democompany>.freshservice.com`
 
-1. Klicka på **spara** knappen.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<democompany>.freshservice.com`
 
-    ![Konfigurera enkel inloggning](./media/freshservice-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Hämta dessa värden genom att kontakta [supportteamet för Freshservice-klienten](https://support.freshservice.com/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **Freshservice Configuration** klickar du på **konfigurera Freshservice** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+5. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
-    ![Konfigurera enkel inloggning](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
+    ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-1. I ett annat webbläsarfönster logga du in på webbplatsen Freshservice företag som administratör.
+6. I avsnittet **SAML-signeringscertifikat** kopierar du **Tumavtryck** och sparar det på datorn.
 
-1. Klicka på menyn längst upp **Admin**.
-   
-    ![Administratören](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
 
-1. I den **kundportalen**, klickar du på **Security**.
-   
-    ![Security](./media/freshservice-tutorial/ic790815.png "säkerhet")
+7. I avsnittet **Konfigurera Freshservice** kopierar du lämpliga URL:er efter behov.
 
-1. I den **Security** avsnittet, utför följande steg:
-   
-    ![Enkel inloggning](./media/freshservice-tutorial/ic790816.png "enkel inloggning")
-   
-    a. Växeln **enkel inloggning**.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-freshservice-single-sign-on"></a>Konfigurera enkel inloggning för Freshservice
+
+1. I ett annat webbläsarfönster loggar du in på din Freshservice-företagsplats som administratör.
+
+2. På menyn längst upp klickar du på **Admin**.
+
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+
+3. I **kundportalen** klickar du på **Säkerhet**.
+
+    ![Säkerhet](./media/freshservice-tutorial/ic790815.png "Säkerhet")
+
+4. I avsnittet **Säkerhet** utför du följande steg:
+
+    ![Enkel inloggning](./media/freshservice-tutorial/ic790816.png "Enkel inloggning")
+
+    a. Växla **Enkel inloggning**.
 
     b. Välj **SAML SSO**.
 
-    c. I den **inloggnings-URL för SAML** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+    c. I textrutan för **inloggnings-URL för SAML** klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    d. I den **URL för utloggning** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+    d. I textrutan för **utloggnings-URL:en** klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    e. I **Security certifikat fingeravtryck** textrutan klistra in den **TUMAVTRYCK** värdet för certifikat som du har kopierat från Azure-portalen.
+    e. I textrutan **Security Certificate Fingerprint** (Fingeravtryck för säkerhetscertifikat) klistrar du in värdet för det **THUMBPRINT** (Tumavtryck) för certifikatet som du har kopierat från Azure-portalen.
 
     f. Klicka på **Spara**
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-![Skapa en Azure AD-användare][100]
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/freshservice-tutorial/create_aaduser_01.png) 
+2. Välj **Ny användare** överst på skärmen.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/freshservice-tutorial/create_aaduser_02.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/freshservice-tutorial/create_aaduser_03.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/freshservice-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-freshservice-test-user"></a>Skapa en Freshservice testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på FreshService, måste de etableras i FreshService. När det gäller FreshService är etablering en manuell aktivitet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Freshservice.
+
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Freshservice**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan väljer du **Freshservice**.
+
+    ![Freshservice-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-freshservice-test-user"></a>Skapa Freshservice-testanvändare
+
+För att göra det möjligt för Azure AD-användare att logga in på FreshService måste de etableras i FreshService. När det gäller FreshService är etablering en manuell aktivitet.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på din **FreshService** företagets plats som administratör.
+1. Logga in på din **FreshService**-företagsplats som administratör.
 
-1. Klicka på menyn längst upp **Admin**.
-   
-    ![Administratören](./media/freshservice-tutorial/ic790814.png "Admin")
+2. På menyn längst upp klickar du på **Admin**.
 
-1. I den **Användarhantering** klickar du på **beställare**.
-   
-    ![Beställare](./media/freshservice-tutorial/ic790818.png "beställare")
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
-1. Klicka på **nya beställaren**.
-   
-    ![Ny beställare](./media/freshservice-tutorial/ic790819.png "nya beställare")
+3. I avsnittet **Användarhantering** klickar du på **Beställare**.
 
-1. I den **nya beställaren** avsnittet, utför följande steg:
-   
-    ![Ny beställaren](./media/freshservice-tutorial/ic790820.png "nya beställare")   
+    ![Beställare](./media/freshservice-tutorial/ic790818.png "Beställare")
 
-    a. Ange den **Förnamn** och **e-post** attribut för ett giltigt Azure Active Directory-konto som du vill etablera till relaterade textrutor.
+4. Klicka på **Ny beställare**.
+
+    ![Nya beställare](./media/freshservice-tutorial/ic790819.png "Nya beställare")
+
+5. I avsnittet **Ny beställare** utför du följande steg:
+
+    ![Ny beställare](./media/freshservice-tutorial/ic790820.png "Ny beställare")  
+
+    a. Ange attributen **Förnamn** och **E-post** för ett giltigt Azure Active Directory-konto som du vill etablera i de relaterade textrutorna.
 
     b. Klicka på **Spara**.
-   
-    >[!NOTE]
-    >Azure Active Directory-kontoinnehavare hämtar ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktiv
+
+    > [!NOTE]
+    > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt
     >  
 
->[!NOTE]
->Du kan använda alla andra FreshService användare konto verktyg för att skapa eller API: er som tillhandahålls av FreshService att etablera AAD-användarkonton.
->  
+> [!NOTE]
+> Du kan använda andra verktyg eller API:er för FreshService-kontoskapande som tillhandahålls av FreshService för att etablera AAD-användarkonton.
 
-![Tilldela användare][200] 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-**Om du vill tilldela Britta Simon Freshservice, utför du följande steg:**
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **Freshservice**.
-
-    ![Konfigurera enkel inloggning](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Freshservice i åtkomstpanelen du bör få automatiskt loggat in på programmets Freshservice.
+När du klickar på Freshservice-panelen i åtkomstpanelen bör du automatiskt loggas in på Freshservice som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/freshservice-tutorial/tutorial_general_01.png
-[2]: ./media/freshservice-tutorial/tutorial_general_02.png
-[3]: ./media/freshservice-tutorial/tutorial_general_03.png
-[4]: ./media/freshservice-tutorial/tutorial_general_04.png
-
-[100]: ./media/freshservice-tutorial/tutorial_general_100.png
-
-[200]: ./media/freshservice-tutorial/tutorial_general_200.png
-[201]: ./media/freshservice-tutorial/tutorial_general_201.png
-[202]: ./media/freshservice-tutorial/tutorial_general_202.png
-[203]: ./media/freshservice-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 62ea3e3ee13ee52462e1c93ac34e98ae179d251c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053933"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
@@ -45,13 +45,13 @@ Molnresurser:
 Utvecklingsresurser:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
+* [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Node.js och npm](https://nodejs.org). npm-paketet distribueras med Node.js, vilket innebär att npm installeras automatiskt på din dator när du laddar ned Node.js.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-I den här självstudien använder du Azure IoT Edge-tillägget för Visual Studio Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
+I den här självstudien använder du Azure IoT-verktyg för Visual Studio Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
 Du kan använda valfritt Docker-kompatibelt register för att lagra dina containeravbildningar. Två populära Docker-registertjänster är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
 
@@ -77,7 +77,7 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
 7. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kan använda dessa värden senare i självstudien för att ge åtkomst till containerregistret. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT Edge-modulen
-Följande steg visar hur du skapar en IoT Edge Node.js-modul med Visual Studio Code och Azure IoT Edge-tillägget.
+Följande steg visar hur du skapar en IoT Edge Node.js-modul med Visual Studio Code och Azure IoT-verktyg.
 
 ### <a name="create-a-new-solution"></a>Skapa en ny lösning
 
@@ -180,15 +180,21 @@ Exempelkod ingår i alla mallar. Koden simulerar sensordata från **tempSensor**
     });
     ```
 
-9. Spara filen.
+9. Spara filen app.js.
 
-10. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. 
+10. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i detta fall **tempSensor** och **NodeModule**, och talar om för IoT Edge-hubben hur meddelanden ska dirigeras mellan dem. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
 
-   Den här filen instruerar `$edgeAgent` om att distribuera två moduler: **tempSensor** som simulerar enhetsdata och **NodeModule**. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **NodeModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** eller **windows-amd64** om det är arkitekturen för din IoT Edge-enhet. Läs mer om distributionsmanifest i avsnittet om att [förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md). 
+   1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **NodeModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** eller **windows-amd64** om det är arkitekturen för din IoT Edge-enhet. 
 
-   Den här filen innehåller även autentiseringsuppgifter för registret. Ditt användarnamn och lösenord är ifyllda med platshållare i mallfilen. När du skapar distributionsmanifestet uppdateras fälten med de värden du lade till i **.env**. 
+      ![Uppdatera modulavbildningsplattformen](./media/tutorial-node-module/image-platform.png)
 
-12. Lägg till NodeModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen: 
+   2. Kontrollera att mallen har rätt modulnamn, inte standardnamnet **SampleModule** som du ändrade när du skapade IoT Edge-lösningen.
+
+   3. Avsnittet **registryCredentials** lagrar dina autentiseringsuppgifter för Docker-registret så att IoT Edge-agenten kan hämta modulavbildningen. Själva användarnamns- och lösenordsparen lagras i .env-filen, som ignoreras av Git. Lägg till dina autentiseringsuppgifter i .env-filen om du inte redan har gjort det.  
+
+   4. Mer information om distributionsmanifest finns i [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md) (Lär dig hur du distribuerar moduler och upprättar vägar i IoT Edge).
+
+11. Lägg till NodeModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen: 
 
    ```json
        "NodeModule": {
@@ -200,7 +206,7 @@ Exempelkod ingår i alla mallar. Koden simulerar sensordata från **tempSensor**
 
    ![Lägga till modultvilling till distributionsmall](./media/tutorial-node-module/module-twin.png)
 
-13. Spara filen.
+12. Spara filen deployment.template.json.
 
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning

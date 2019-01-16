@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 01/09/2019
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 196435a8bd260c7f1679c06127610aeee29c0fe3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3f863d0d5d0a7ee30ff7cfdfd55f0b656d487ed0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843531"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242367"
 ---
-| Mobila och interna appar | Webbappar och webb-API:er | Integrera direkt med protokoll |
+| Mobila och interna appar | Webbappar och ensidesapplikationer | Webb-API:er |
 | --- | --- | --- |
-| [Lägga till inloggning till ett iOS-program](../articles/active-directory/develop/tutorial-v2-ios.md) | [Lägga till inloggning till ett JavaScript-ensidesprogram (SPA, Single Page Application)](../articles/active-directory/develop/tutorial-v2-javascript-spa.md) |[Registrera ett program](../articles/active-directory/develop/quickstart-v2-register-an-app.md) |
-| [Lägga till inloggning till ett Android-program](../articles/active-directory/develop/tutorial-v2-android.md) | [Lägga till inloggning till ett ASP.NET-program](../articles/active-directory/develop/tutorial-v2-asp-webapp.md) |[Mobila program med OAuth 2.0-protokollet](../articles/active-directory/develop/v2-oauth2-auth-code-flow.md) |
-| [Lägga till inloggning till ett Windows Desktop-program](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  [Lägga till inloggning till ett ASP.NET Core-webbprogram](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [Webbprogram med OpenID Connect-protokollet](../articles/active-directory/develop/v2-protocols-oidc.md) |
-| [Lägga till inloggning till ett Xamarin-program för flera plattformar](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| [Lägga till inloggning till ett Node.js-webbprogram](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) |[JavaScript-ensidesprogram (SPA) med OpenID Connect-protokollet](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) |
-|  | [Skydda ett webb-API för ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet) | [Daemonprogram med OAuth 2.0-klientautentiseringsuppgiftsflödet](../articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md) |
-|  | [Skydda ett webb-API för ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) | |
+|<img width="40" role="presentation" alt="iOS" src="../articles/active-directory/develop/media/index/logo_ios.svg" data-linktype="relative-path" /><br/>[Logga in och förvärva en token från en iOS-app](../articles/active-directory/develop/quickstart-v2-ios.md) | <img width="40" role="presentation" alt="JavaScript" src="../articles/active-directory/develop/media/index/logo_js.svg"/><br/>[Logga in och förvärva en token från en JavaScript-ensidesapplikation](../articles/active-directory/develop/quickstart-v2-javascript.md) |<img width="40" role="presentation" alt="ASP.NET Web API" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/> [Skydda ett webb-API för ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)  |
+|<img width="40" role="presentation" alt="Android" src="../articles/active-directory/develop/media/index/logo_android.svg" /><br/>[Logga in och förvärva en token från en Android-app](../articles/active-directory/develop/quickstart-v2-android.md) | <img width="40" role="presentation" alt="ASP.NET" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/>[Lägga till inloggning till ett ASP.NET-program](../articles/active-directory/develop/quickstart-v2-aspnet-webapp.md) |<img width="40" role="presentation" alt="ASP.NET Core Web API" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/>[Skydda ett webb-API för ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) |
+|<img width="40" role="presentation" alt="Windows Desktop" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/>[Logga in och förvärva en token från en Windows Desktop-app](../articles/active-directory/develop/quickstart-v2-windows-desktop.md) | <img width="40" role="presentation" alt=".NET Core" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Lägga till inloggning till ett ASP.NET Core-webbprogram](../articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md) | |
+|<img width="40" role="presentation" alt="Xamarin" src="../articles/active-directory/develop/media/index/logo_xamarin.svg" /><br/> [Lägga till inloggning till ett Xamarin-program för flera plattformar](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| <img width="40" role="presentation" alt="Node.js" src="../articles/active-directory/develop/media/index/logo_nodejs.svg" /><br/>[Lägga till inloggning till ett Node.js-webbprogram](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+|<img width="40" role="presentation" alt="Universal Windows Platform" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/> [Logga in och förvärva en token från en UWP-app](../articles/active-directory/develop/quickstart-v2-uwp.md)| | |
+|<img width="40" role="presentation" alt=".NET Core Daemon" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [Förvärva en token från en icke-interaktiv .NET Core-app](../articles/active-directory/develop/quickstart-v2-netcore-daemon.md)| | |

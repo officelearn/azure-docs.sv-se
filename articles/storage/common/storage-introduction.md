@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963257"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065553"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -22,7 +22,7 @@ Azure Storage är Microsofts molntjänstlagringslösning för moderna datalagrin
 - **Pålitlig och mycket tillgänglig.** Redundans garanterar att dina data är säkra i händelse av tillfälliga maskinvarufel. Du kan också välja att replikera data i datacenter eller geografiska regioner för ytterligare skydd mot lokala allvarliga händelser eller naturkatastrofer. Data som replikeras på det här sättet förblir mycket tillgängliga vid ett oväntat avbrott. 
 - **Skydda.** Alla data som skrivs till Azure Storage krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
 - **Skalbar.** Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program. 
-- **Hanterad.** Microsoft Azure tar hand om underhåll och hanterar kritiska problem åt dig.
+- **Hanterad.** Microsoft Azure hanterar maskinvaruunderhåll, uppdateringar och kritiska problem åt dig.
 - **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller SDK:er för Azure Storage på många olika språk – .NET, Java, Node.js, Python, PHP, Ruby, Go med flera – samt en mogen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
 
 ## <a name="azure-storage-services"></a>Azure Storage-tjänster
@@ -89,30 +89,9 @@ Azure Storage omfattar även hanterade och ohanterade diskfunktioner som använd
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
-I den här tabellen visas de olika typerna av lagringskonton och vilka objekt som kan användas med var och en.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Typ av lagringskonto**|**Allmän Standard**|**Allmän Premium**|**Blob Storage, frekvent och lågfrekvent åtkomstnivå**|
-|-----|-----|-----|-----|
-|**Tjänster som stöds**| Blob-, fil-, kö- och tabelltjänster | Blob-tjänst | Blob-tjänst|
-|**Typer av blobbar som stöds**|Blockblobbar, sidblobbar och tilläggsblobbar | Sidblobbar | Blockblobbar och tilläggsblobbar|
-
-### <a name="general-purpose-storage-accounts"></a>Allmänna lagringskonton
-
-Det finns två typer av allmänna lagringskonton.
-
-#### <a name="standard-storage"></a>Standard Storage
-
-De vanligaste lagringskontona är standardlagringskonton, som kan användas för alla typer av data. För standardlagringskonton används magnetiska media för att lagra data.
-
-#### <a name="premium-storage"></a>Premium Storage
-
-Premium Storage ger högpresterande lagring för sidblobbar, som främst används för VHD-filer. För Premium Storage-konton används SSD för att lagra data. Microsoft rekommenderar att du använder Premium Storage för alla dina virtuella datorer.
-
-### <a name="blob-storage-accounts"></a>Blob Storage-konton
-
-Blob Storage-kontot är ett specialanpassat lagringskonto som används för att lagra blockblobbar och tilläggsblobbar. Du kan inte lagra sidblobbar i dessa konton, och därför kan du inte lagra VHD-filer. Med dessa konton kan du ange en frekvent eller lågfrekvent åtkomstnivå – nivån kan ändras när som helst.
-
-Frekvent åtkomstnivå används för filer som används ofta – du betalar en högre kostnad för lagring, men kostnaden för åtkomst till blobbarna är mycket lägre. För blobbar som lagras i lågfrekvent åtkomstnivå betalar du en högre kostnad för åtkomst till blobbarna, men kostnaden för lagring är mycket lägre.
+Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md). 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Åtkomst till dina blobbar, filer och köer
 
@@ -161,16 +140,7 @@ Information om haveriberedskap finns i [Vad du gör om ett avbrott i Azure Stora
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
 
-Du kan använda kommandoradsverktyget AzCopy för att kopiera blob- och fildata inom ditt lagringskonto eller mellan lagringskonton. Läs någon av följande artiklar om du behöver hjälp:
-
-* [Överföra data med AzCopy för Windows](storage-use-azcopy.md)
-* [Överföra data med AzCopy för Linux](storage-use-azcopy-linux.md)
-
-AzCopy är byggt ovanpå [biblioteket för Azure-dataflyttningar](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), som för närvarande är tillgängligt som en förhandsversion.
-
-Azure Import/Export-tjänsten kan användas för att importera eller exportera stora mängder blob-data till eller från ditt lagringskonto. Du förbereder och skickar flera hårddiskar per post till ett Azure-datacenter, där de överför data till/från hårddiskarna och skickar tillbaka hårddiskarna till dig. Mer information om tjänsten Import/Export finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](../storage-import-export-service.md).
-
-Om du vill ha ett snabbt, prisvärt och tillförlitligt sätt att importera stora mängder blobdata till ditt lagringskonto kan du använda Azure Data Box Disk. Microsoft kan leverera upp till 5 krypterade SSD-diskar med en kapacitet på 40 TB till ditt datacenter via regionala speditörer. Du kan snabbt konfigurera diskarna, kopiera data till diskarna via USB och sedan skicka tillbaka diskarna till Azure. I Azure-datacentret laddas dina data automatiskt upp från diskarna till molnet. Mer information om den här lösningen finns i [översikten över Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Du kan flytta data till eller från Azure Storage på flera olika sätt. Vilket alternativ du väljer beror på storleken på datauppsättningen och din nätverksbandbredd. Mer information finns i [Välja en Azure-lösning för dataöverföring](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Prissättning
 

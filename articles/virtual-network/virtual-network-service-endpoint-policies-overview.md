@@ -3,24 +3,20 @@ title: Principer för tjänstslutpunkter för virtuella Azure-nätverk | Microso
 description: Lär dig hur du filtrerar virtuell nätverkstrafik till Azure-tjänstresurser med hjälp av tjänstslutpunktsprinciper
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433301"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051319"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuella nätverk (förhandsversion)
 
@@ -123,7 +119,7 @@ Principer för tjänstslutpunkter för virtuella nätverk ger följande fördela
      - Azure Application Gateway (Classic)
      - Azure VPN Gateway (Classic)
 
-- Azure Storage: klassiska lagringskonton stöds inte i slutpunktsprinciper. Principer nekar åtkomst till alla klassiska lagringskonton som standard. Om ditt program behöver åtkomst till Azure Resource Manager och klassiska lagringskonton bör slutpunktsprinciper inte användas för den här trafiken. 
+- Azure Storage: Klassiska lagringskonton stöds inte i slutpunktsprinciper. Principer nekar åtkomst till alla klassiska lagringskonton som standard. Om ditt program behöver åtkomst till Azure Resource Manager och klassiska lagringskonton bör slutpunktsprinciper inte användas för den här trafiken. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>NSG:er med tjänstslutpunktsprinciper
 - Som standard tillåter NSG:er utgående Internettrafik, inklusive trafik i virtuella nätverk, till Azure-tjänster.
@@ -147,10 +143,10 @@ Principer för tjänstslutpunkter för virtuella nätverk ger följande fördela
 ## <a name="scenarios"></a>Scenarier
 
 - **Peer-kopplade, anslutna eller flera virtuella nätverk**: Om du vill filtrera trafik i peer-kopplade virtuella nätverk ska slutpunktsprinciper tillämpas individuellt på dessa virtuella nätverk.
-- **Filtrering av Internettrafik med nätverksutrustning eller Azure Firewall**: filtrera Azure-tjänsttrafik med principer över slutpunkter och filtrera resten av Internet- eller Azure-trafiken via utrustning eller Azure Firewall. 
-- **Filtrera trafik på Azure-tjänster som distribueras till virtuella nätverk**: under förhandsversionen stöds inte tjänstslutpunktsprinciper för hanterade Azure-tjänster som distribueras i det virtuella nätverket. 
+- **Filtrering av Internettrafik med nätverksutrustning eller Azure Firewall**: Filtrera Azure-tjänsttrafik med principer över slutpunkter och filtrera resten av Internet- eller Azure-trafiken via utrustning eller Azure Firewall. 
+- **Filtrering av trafik på Azure-tjänster som distribueras i virtuella nätverk**: Under förhandsversionen stöds inte tjänstslutpunktsprinciper för hanterade Azure-tjänster som distribueras i det virtuella nätverket. 
  Se [begränsningar](#Limitations) för specifika tjänster.
-- **Filtrera trafik till Azure-tjänster från lokala**: tjänstslutpunktsprinciper tillämpas endast på trafiken från undernät som är associerade med principerna. För att tillåta åtkomst till specifika Azure-tjänstresurser från en lokal plats ska trafik filtreras med hjälp av virtuella nätverksinstallationer eller brandväggar.
+- **Filtrering av trafik till Azure-tjänster från lokal plats**: Tjänstslutpunktsprinciper tillämpas endast på trafiken från undernät som är associerade med principerna. För att tillåta åtkomst till specifika Azure-tjänstresurser från en lokal plats ska trafik filtreras med hjälp av virtuella nätverksinstallationer eller brandväggar.
 
 ## <a name="logging-and-troubleshooting"></a>Loggning och felsökning
 Det finns ingen centraliserad loggning för tjänstslutpunktsprinciper. Se [loggning för tjänstslutpunkter](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) för diagnostikloggar för tjänsten.

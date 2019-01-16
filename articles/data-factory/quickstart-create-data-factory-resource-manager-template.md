@@ -9,23 +9,22 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620497"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042741"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Aktuell version](quickstart-create-data-factory-resource-manager-template.md) 
 
-I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Azure Resource Manager-mall. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark). 
+I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Azure Resource Manager-mall. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. En självstudie om hur du **transformerar** data med hjälp av Azure Data Factory finns i [Självstudie: Transformera data med Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
@@ -39,6 +38,8 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 Se [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar i allmänhet. 
 
 Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att definiera Data Factory-entiteter så att du snabbt kan gå igenom självstudien och testa mallen. Om du vill förstå hur varje Data Factory-entitet definieras kan du läsa avsnittet [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template).
+
+Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>Data Factory JSON 
 Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial** med följande innehåll:
@@ -268,7 +269,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 
 > [!IMPORTANT]
 > - Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey** i den här parameterfilen. Du har skapat adftutorial-containern och laddat upp exempelfilen (emp.txt) till indatamappen i denna Azure Blob Storage. 
-> - Ange ett globalt unikt namn för datafabriken för parametern **dataFactoryName**. Till exempel: ARMTutorialFactoryJohnDoe11282017. 
+> - Ange ett globalt unikt namn för datafabriken för parametern **dataFactoryName**. Exempel: ARMTutorialFactoryJohnDoe11282017. 
 > - För **triggerStartTime** anger du aktuell dag i formatet: `2017-11-28T00:00:00`.
 > - För **triggerEndTime** anger du nästa dag i formatet: `2017-11-29T00:00:00`. Du kan också kontrollera aktuell UTC-tid och ange nästa timma eller nästa två timmar som sluttid. Om UTC-tiden exempelvis nu är 1:32 anger du `2017-11-29:03:00:00` som sluttid. I det här fallet kör utlösaren pipelinen två gånger (vid 02:00 och 3:00).
 
@@ -440,11 +441,11 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     ![Övervaka pipelinekörning](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > Du ser att pipelines endast körs hel timme (till exempel: 4, 5, 6 osv.). Klicka på **Uppdatera** i verktygsfältet för att uppdatera listan när tiden når nästa timma. 
+    > Du ser att pipelines endast körs vid hel timme (till exempel: 04.00, 05.00, 06.00 osv.). Klicka på **Uppdatera** i verktygsfältet för att uppdatera listan när tiden når nästa timma. 
 5. Klicka på länken i kolumnerna **Åtgärder**. 
 
     ![Länk för pipelineåtgärder](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: kopiera. Därför kan du se en körning för den aktiviteten. 
+6. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: Kopiera. Därför kan du se en körning för den aktiviteten. 
 
     ![Aktivitetskörningar](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 1. Klicka på länken under **utdatakolumnen**. Du ser utdata från kopieringsåtgärden i ett **utdatafönster**. Klicka på maximeringsknappen om du vill visa fullständiga utdata. Du kan stänga det maximerade utdatafönstret eller stänga det. 

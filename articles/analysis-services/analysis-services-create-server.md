@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000156"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186744"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
@@ -31,7 +31,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
 
 ## <a name="create-a-server"></a>Skapa en server
 
-1. Klicka på **+ Skapa en resurs** > **Data + analys** > **Analysis Services**.
+1. Klicka på **+ Skapa en resurs** > **Analys** > **Analysis Services**.
 
     ![Portalen](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -42,9 +42,9 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
    * **Resursgrupp**: Skapa en ny resursgrupp eller välj en som du redan har. Resursgrupper är utformade för att hjälpa dig hantera en samling Azure-resurser. Mer information finns i [resursgrupper](../azure-resource-manager/resource-group-overview.md).
    * **Plats**: Den här Azure-datacenterplatsen är värd för servern. Välj en plats närmast din största användarbas.
    * **Prisnivå**: Välj en prisnivå. Om du testar och vill installera exempelmodelldatabasen väljer du den kostnadsfria **D1**-nivån. Mer information finns i [Priser för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
-    * **Administratör**: Som standard blir det här det konto som du loggas in med. Du kan välja ett annat konto från din Azure Active Directory.
-    * **Inställning för lagring av säkerhetskopior**: Valfri. Om du redan har ett [lagringskonto](../storage/common/storage-introduction.md) kan du ange det som standard för modelldatabasens säkerhetskopia. Du kan även ange inställningar för [säkerhetskopia och återställning](analysis-services-backup.md) senare.
-    * **Upphörande av lagringsnyckel**: Valfri. Ange en upphörandeperiod för lagringsnyckeln.
+   * **Administratör**: Som standard blir det här det konto som du loggas in med. Du kan välja ett annat konto från din Azure Active Directory.
+   * **Inställning för lagring av säkerhetskopior**: Valfri. Om du redan har ett [lagringskonto](../storage/common/storage-introduction.md) kan du ange det som standard för modelldatabasens säkerhetskopia. Du kan även ange inställningar för [säkerhetskopia och återställning](analysis-services-backup.md) senare.
+   * **Upphörande av lagringsnyckel**: Valfri. Ange en upphörandeperiod för lagringsnyckeln.
 
 Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar.
 
@@ -61,4 +61,4 @@ I den här snabbstarten har du lärt dig hur du skapar en server i Azure-prenume
 > [!div class="nextstepaction"]
 > [Snabbstart: Konfigurera serverbrandväggen – portalen](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
-> [Självstudie: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)
+> [Självstudie: Lägg till en exempelmodell på servern](analysis-services-create-sample-model.md)

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.date: 01/02/2019
+ms.author: assafi
+ms.openlocfilehash: 7c26117c9c36b3004df0d85b1a739fcebd9a1e4e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283969"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119415"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av C#
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
+Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
 
 
 ## <a name="install-the-nuget-sdk-package"></a>Installera NuGet SDK-paketet
@@ -47,9 +47,9 @@ Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analyt
 
 
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Anropa API för textanalys med hjälp av SDK
-1. Ersätt Program.cs med koden nedan. Det här programmet demonstrerar funktionerna i API för textanalys i 3 avsnitt (språkextrahering, nyckelfrasextrahering och sentimentanalys).
+1. Ersätt Program.cs med koden nedan. Det här programmet demonstrerar funktionerna i API för textanalys i tre avsnitt (språkextrahering, nyckelfrasextrahering och sentimentanalys).
 1. Ersätt `Ocp-Apim-Subscription-Key`-huvudvärdet med en giltig åtkomstnyckel för din prenumeration.
-1. Ersätt platsen i `Endpoint` med den slutpunkt som du har registrerat dig för. Du hittar slutpunkten på Azure-portalresursen. Slutpunkten vanligtvis börjar med ”https://[region].api.cognitive.microsoft.com” och här tar du bara med protokollet och värdnamnet.
+1. Ersätt platsen i `Endpoint` med den slutpunkt som du har registrerat dig för. Du hittar slutpunkten under resursen på Azure-portalen. Slutpunkten börjar vanligtvis med ”https://[region].api.cognitive.microsoft.com”, och här innehåller den endast protokollet och värdnamnet.
 1. Kör programmet.
 
 ```csharp
@@ -68,13 +68,14 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
-        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
+        private const string SubscriptionKey = ""; //Insert your Text Anaytics subscription key
+
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -104,7 +105,7 @@ namespace ConsoleApp1
             // Printing language results.
             foreach (var document in result.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
+                Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
             }
 
             // Getting key-phrases
@@ -122,13 +123,13 @@ namespace ConsoleApp1
             // Printing keyphrases
             foreach (var document in result2.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Key phrases:");
 
                 foreach (string keyphrase in document.KeyPhrases)
                 {
-                    Console.WriteLine("\t\t" + keyphrase);
+                    Console.WriteLine($"\t\t{keyphrase}");
                 }
             }
 
@@ -149,14 +150,14 @@ namespace ConsoleApp1
             // Printing sentiment results
             foreach (var document in result3.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
+                Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
             }
 
 
             // Identify entities
             Console.WriteLine("\n\n===== ENTITIES ======");
 
-            EntitiesBatchResult result4 = client.EntitiesAsync(
+            EntitiesBatchResultV2dot1 result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -166,13 +167,13 @@ namespace ConsoleApp1
             // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Entities:");
 
-                foreach (EntityRecord entity in document.Entities)
+                foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
-                    Console.WriteLine("\t\t" + entity.Name);
+                    Console.WriteLine($"\t\t{entity.Name}\t\t{entity.WikipediaUrl}\t\t{entity.Type}\t\t{entity.SubType}");
                 }
             }
 
@@ -187,8 +188,7 @@ namespace ConsoleApp1
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se även
 
- [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)
+ [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)
 

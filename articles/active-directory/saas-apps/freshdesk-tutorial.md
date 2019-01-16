@@ -1,292 +1,288 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med FreshDesk | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med FreshDesk | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FreshDesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/02/2018
+ms.topic: tutorial
+ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: b5968b83fc9beb481e2ad2c0cd44d2c284747fa1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: MT
+ms.openlocfilehash: bdfe06c52a6fd4afa513821923581cd28713d872
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010821"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063075"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudier: Azure Active Directory-integration med FreshDesk
+# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudier: Azure Active Directory-integrering med FreshDesk
 
-I den här självstudien får du lära dig hur du integrerar FreshDesk med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera FreshDesk med Azure Active Directory (AD Azure).
+Genom att integrera FreshDesk med Azure AD får du följande fördelar:
 
-Integrera FreshDesk med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till FreshDesk.
+* Du kan göra så att dina användare automatiskt loggas in på FreshDesk (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till FreshDesk.
-- Du kan aktivera användarna att automatiskt få loggat in på FreshDesk (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med FreshDesk behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med FreshDesk, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En FreshDesk enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* FreshDesk-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till FreshDesk från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* FreshDesk stöder **IDP**-initierad enkel inloggning
 
-## <a name="adding-freshdesk-from-the-gallery"></a>Att lägga till FreshDesk från galleriet
+## <a name="adding-freshdesk-from-the-gallery"></a>Lägga till FreshDesk från galleriet
 
-För att konfigurera integrering av FreshDesk i Azure AD, som du behöver lägga till FreshDesk från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av FreshDesk till Azure AD behöver du lägga till FreshDesk från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till FreshDesk från galleriet:**
+**Lägg till FreshDesk från galleriet genom att utföra följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **FreshDesk**väljer **FreshDesk** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **FreshDesk**, väljer **FreshDesk** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![FreshDesk i resultatlistan](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
+     ![FreshDesk i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med FreshDesk baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med FreshDesk baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i FreshDesk upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i FreshDesk är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i FreshDesk upprättas.
+För att konfigurera och testa enkel inloggning för Azure AD med FreshDesk behöver du slutföra följande byggstenar:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med FreshDesk, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för FreshDesk](#configure-freshdesk-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa FreshDesk-testanvändare](#create-freshdesk-test-user)** – för att ha en motsvarighet för Britta Simon i FreshDesk som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare FreshDesk](#creating-a-freshdesk-test-user)**  – du har en motsvarighet för Britta Simon i FreshDesk som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt FreshDesk-program.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med FreshDesk:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med FreshDesk:**
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **FreshDesk**-programintegrering och väljer **Enkel inloggning**.
 
-1. I Azure-portalen på den **FreshDesk** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera enkel inloggning för länken][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](common/tutorial_general_301.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](common/editconfigure.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+    ![FreshDesk-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    ![FreshDesk domän och URL: er med enkel inloggning för information](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<tenant-name>.freshdesk.com` eller något annat värde som Freshdesk har föreslagit.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.freshdesk.com` eller ett annat värde som har föreslagits Freshdesk.
-
-    b. I den **identifierare (entitets-ID)** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.freshdesk.com` eller ett annat värde som har föreslagits Freshdesk.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<tenant-name>.freshdesk.com` eller något annat värde så Freshdesk har föreslagit.
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [FreshDesk klienten supportteamet](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Hämta dessa värden genom att kontakta [supportteamet för FreshDesk-klienten](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. FreshDesk-program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men **FreshDesk** förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller Använd rätt attribut-värde baserat på konfigurationen för din organisation.
+5. FreshDesk-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men FreshDesk förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration. 
 
-    ![image](./media/freshdesk-tutorial/i4-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. I den **användaranspråk** avsnittet på den **användarattribut och anspråk** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
     
-    a. Klicka på **redigeringsikonen** att öppna den **hantera användaranspråk** dialogrutan.
+    | Namn | Källattribut |
+    | ---------------| --------------- |
+    | Unik användaridentifierare | user.mail |
 
-    ![image](./media/freshdesk-tutorial/i2-attribute.png)
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](./media/freshdesk-tutorial/i3-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    b. Från den **källattribut** väljer **user.mail**.
+    ![image](common/new-attribute-details.png)
 
-    c. Klicka på **Spara**.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-7. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Base64)** och spara certifikatfilen på datorn.
+    c. Lämna **Namnrymd** tom.
 
-    ![Länk för hämtning av certifikat](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
+    d. Välj Källa som **Attribut**.
 
-8. Öppna **kommandotolk** och kör följande kommandon:
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    a. Ange `certutil.exe -dump FreshDesk.cer` värdet i Kommandotolken.
+    f. Klicka på **Ok**
+
+    g. Klicka på **Spara**.
+
+7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+
+8. Öppna **kommandotolken** och kör följande kommandon:
+
+    a. Ange värdet `certutil.exe -dump FreshDesk.cer` i kommandotolken.
 
     > [!NOTE]
-    > Här **FreshDesk.cer** är det certifikat som du har hämtat från Azure-portalen.
+    > Här är **FreshDesk.cer** det certifikat som du har laddat ned från Azure-portalen.
 
-    b. Kopiera den **Cert Hash(sha256)** värde och klistra in den i anteckningar. 
+    b. Kopiera värdet **Cert Hash(sha256)** och klistra in det i Anteckningar. 
 
-9. På den **konfigurera FreshDesk** avsnittet, kopiera den lämpliga URL enligt dina behov.
+9. I avsnittet **Konfigurera FreshDesk** kopierar du lämpliga URL:er efter behov.
 
-    a. Inloggningswebbadress
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    b. Microsoft Azure Active Directory-identifierare
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-    ![FreshDesk-konfiguration](common/configuresection.png)
+### <a name="configure-freshdesk-single-sign-on"></a>Konfigurera enkel inloggning för FreshDesk
 
-10. Logga in på webbplatsen Freshdesk företag som en administratör i ett annat webbläsarfönster.
+1. I ett annat webbläsarfönster loggar du in på din Freshdesk-företagsplats som administratör.
 
-11. Välj den **inställningsikonen** och i den **Security** avsnittet, utför följande steg:
+2. Välj **ikonen Inställningar**. I avsnittet **Säkerhet** utför du följande steg:
 
-    ![Enkel inloggning](./media/freshdesk-tutorial/IC776770.png "enkel inloggning")
+    ![Enkel inloggning](./media/freshdesk-tutorial/IC776770.png "Enkel inloggning")
   
-    a. För **enkel inloggning (SSO)** väljer **på**.
+    a. För **Enkel inloggning (SSO)** väljer du **På**.
 
     b. Välj **SAML SSO**.
 
-    c. I den **inloggnings-URL för SAML** textrutan klistra in **inloggnings-URL** värde, som du har kopierat från Azure-portalen.
+    c. I textrutan **SAML Login URL** (Inloggnings-URL för SAML) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    d. I den **URL för utloggning** textrutan klistra in **URL för utloggning** värde, som du har kopierat från Azure-portalen.
+    d. I textrutan **Utloggnings-URL** klistrar du värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    e. I den **Security certifikat fingeravtryck** textrutan klistra in **Cert Hash(sha256)** värde som du fått tidigare.
+    e. I textrutan **Security Certificate Fingerprint** (Fingeravtryck för säkerhetscertifikat) klistrar du in värdet för den **Cert Hash(sha256)** som du hämtade tidigare.
   
     f. Klicka på **Spara**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Skapa en Azure AD-användare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](common/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
+    d. Klicka på **Skapa**.
 
-### <a name="creating-a-freshdesk-test-user"></a>Skapa en FreshDesk testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-För att aktivera Azure AD-användare att logga in på FreshDesk, måste de etableras i FreshDesk.  
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till FreshDesk.
+
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **FreshDesk**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan skriver du in och väljer **FreshDesk**.
+
+    ![FreshDesk-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-freshdesk-test-user"></a>Skapa Freshdesk-testanvändare
+
+För att göra det möjligt för Azure AD-användare att logga in på FreshDesk måste de etableras i FreshDesk.  
 När det gäller FreshDesk är etablering en manuell aktivitet.
 
-**Utför följande steg för att tillhandahålla en användarkonton:**
+**Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på din **Freshdesk** klient.
+1. Logga in på **Freshdesk**-klientorganisationen.
 
-2. Klicka på menyn längst upp **Admin**.
+2. På menyn längst upp klickar du på **Admin**.
 
-    ![Administratören](./media/freshdesk-tutorial/IC776772.png "Admin")
+    ![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
 
-3. I den **allmänna inställningar** fliken **agenter**.
+3. På fliken **Allmänna inställningar** klickar du på **Agenter**.
   
-    ![Agenter](./media/freshdesk-tutorial/IC776773.png "agenter")
+    ![Agenter](./media/freshdesk-tutorial/IC776773.png "Agenter")
 
-4. Klicka på **ny Agent**.
+4. Klicka på **Ny Agent**.
 
-    ![Ny Agent](./media/freshdesk-tutorial/IC776774.png "ny Agent")
+    ![Ny Agent](./media/freshdesk-tutorial/IC776774.png "Ny Agent")
 
-5. I dialogrutan agentinformation utför du följande steg:
+5. I dialogrutan Agentinformation utför du följande steg:
 
-    ![Agentinformation](./media/freshdesk-tutorial/IC776775.png "agentinformation")
+    ![Agentinformation](./media/freshdesk-tutorial/IC776775.png "Agentinformation")
 
-    a. I den **e-post** textrutan Ange Azure AD-e-postadress för Azure AD-konto som du vill etablera.
+    a. I textrutan **E-post** skriver du in Azure AD-e-postadressen för det Azure AD-konto som du vill etablera.
 
-    b. I den **fullständigt namn** textrutan skriver du namnet på Azure AD-konto som du vill etablera.
+    b. I textrutan **Fullständigt namn** skriver du in namnet på det Azure AD-konto som du vill etablera.
 
-    c. I den **rubrik** textrutan skriver du namnet på Azure AD-konto som du vill etablera.
+    c. I textrutan **Rubrik** skriver du in rubriken för det Azure AD-konto som du vill etablera.
 
     d. Klicka på **Spara**.
 
     >[!NOTE]
-    >Azure AD-kontoinnehavare får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det aktiveras.
+    >Azure AD-kontoinnehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det aktiveras.
     >
     >[!NOTE]
-    >Du kan använda alla andra Freshdesk användare konto verktyg för att skapa eller API: er som tillhandahålls av Freshdesk att etablera AAD-användarkonton till FreshDesk.
+    >Du kan använda andra verktyg eller API:er för Freshdesk-kontoskapande som tillhandahålls av Freshdesk för att etablera AAD-användarkonton till Freshdesk.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till FreshDesk.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
-
-    ![Tilldela användare][201]
-
-2. I listan med program väljer **FreshDesk**.
-
-    ![Konfigurera enkel inloggning](./media/freshdesk-tutorial/tutorial_freshdesk_app.png)
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
-
-6. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen FreshDesk i åtkomstpanelen du bör få automatiskt loggat in på ditt FreshDesk-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på FreshDesk-panelen i åtkomstpanelen bör du automatiskt loggas in på FreshDesk som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png

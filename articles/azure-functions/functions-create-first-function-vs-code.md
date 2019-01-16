@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633766"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104530"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Skapa din första funktion med Visual Studio Code
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du använder [Azure Functions-tillägg
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Tillägget stöder för närvarande C#-, JavaScript- och Java-funktioner. Stegen i den här artikeln kan variera beroende på ditt val av språk för Azure Functions-projektet. Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
+För närvarande har tillägget fullständigt stöd för C#-, JavaScript- och Java-funktioner. Python stöds för närvarande som en förhandsversion. Stegen i den här artikeln kan variera beroende på ditt val av språk för Azure Functions-projektet. Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -55,7 +55,7 @@ För att slutföra den här snabbstarten behöver du:
 
 ## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöst funktion
 
-1. Välj ikonen Skapa funktion i **Azure: Funktioner**.
+1. I **Azure: Functions** väljer du ikonen Skapa funktion.
 
     ![Skapa en funktion](./media/functions-create-first-function-vs-code/create-function.png)
 
@@ -93,7 +93,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
     ![Svar för funktion-localhost i webbläsaren](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. Tryck på SKIFT+F1 för att stoppa felsökningen.
+1. Tryck på SKIFT+F5 för att stoppa felsökningen.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 

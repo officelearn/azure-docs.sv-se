@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258771"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156809"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Snabbstart: Utför en nyhetssökning med SDK för nyhetssökning i Bing för C#
 
@@ -35,14 +35,14 @@ När du installerar [NuGet SDK-paketet för nyhetssökning](https://www.nuget.or
 * Newtonsoft.Json
 
 ## <a name="news-search-client"></a>Klient för nyhetssökning
-För att skapa en instans av `NewsSearchAPI`-klienten lägger du till med hjälp av direktiv:
+För att skapa en instans av `NewsSearchClient` lägger du till med hjälp av direktiv:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
 Instansiera sedan klienten:
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -56,7 +56,7 @@ Parsa de nyheter som returneras i resultaten från den föregående frågan:
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -64,7 +64,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -88,7 +88,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,7 +141,7 @@ namespace NewsSrchSDK
 ## <a name="recent-news-freshness-and-sortby-parameters"></a>De senaste nyheterna, parametrarna freshness och sortBy
 Följande kod söker i de senaste nyheterna om ”Artificial Intelligence” (artificiell intelligens) med parametrarna `freshness` och `sortBy`. Den verifierar antalet resultat och skriver ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time` och `name` av källan för det första nyhetsresultatet.
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -184,7 +184,7 @@ Följande kod söker i de senaste nyheterna om ”Artificial Intelligence” (ar
 ## <a name="category-news-safe-search"></a>Kategorinyheter, säker sökning
 Följande kod söker efter kategorinyheter för film och TV-underhållning med säker sökning.  Den verifierar antalet resultat och skriver ut `category`, `name`, `url`, `description`, `published time` och `name` för källan för det första nyhetsresultatet.
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -226,7 +226,7 @@ Följande kod söker efter kategorinyheter för film och TV-underhållning med s
 ## <a name="trending-topics"></a>Trendande ämnen
 Följande kod söker efter nyheter med trändande ämnen i Bing. Den verifierar antalet resultat och skriver ut `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` och `image.Url` för det första nyhetsresultatet.
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

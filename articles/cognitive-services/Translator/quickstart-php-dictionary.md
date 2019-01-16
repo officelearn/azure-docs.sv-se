@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hitta alternativa översättningar, PHP – Translator Text-API'
+title: Slå upp ord med en tvåspråkig ordlista, PHP – Translator Text API
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med PHP.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649790"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156892"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Snabbstart: Hitta alternativa översättningar med Translator Text REST API (PHP)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av PHP
 
 I den här snabbstarten hittar du information om möjliga alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Translator Text-API:et.
 

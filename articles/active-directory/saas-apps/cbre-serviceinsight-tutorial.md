@@ -1,33 +1,33 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Pluralsight | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Pluralsight.
+title: 'Självstudier: Azure Active Directory-integrering med CBRE ServiceInsight | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och CBRE ServiceInsight.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
+ms.assetid: 31d7cedf-2b70-4fa4-9b05-80066d2e8bfd
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ad56baa6ba7aff07823a9f818fc7997411eda8a
+ms.openlocfilehash: cddd20f24ed8719e3d9b228dd2014bb894a3f141
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064346"
+ms.locfileid: "54067517"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Självstudier: Azure Active Directory-integrering med Pluralsight
+# <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Självstudier: Azure Active Directory-integrering med CBRE ServiceInsight
 
-I den här självstudien får du lära dig hur du integrerar Pluralsight med Azure Active Directory (AD Azure).
-När du integrerar Pluralsight med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar CBRE ServiceInsight med Azure Active Directory (AD Azure).
+Integreringen av CBRE ServiceInsight med Azure AD medför följande fördelar:
 
-* Du kan styra vem som har åtkomst till Pluralsight i Azure AD.
-* Du kan göra så att dina användare loggas in automatiskt på Pluralsight (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra vem som har åtkomst till CBRE ServiceInsight från Azure AD.
+* Du kan konfigurera inställningar så att dina användare automatiskt loggas in i CBRE ServiceInsight (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,23 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med Pluralsight behöver du följande:
+För att konfigurera Azure AD-integrering med CBRE ServiceInsight behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Pluralsight-prenumeration med enkel inloggning aktiverat
+* En CBRE ServiceInsight-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Pluralsight har stöd för **SP**-initierad enkel inloggning
+* CBRE ServiceInsight stöder **SP**-initierad enkel inloggning
+* CBRE ServiceInsight stöder **JIT**-användaretablering (Just-In-Time)
 
-## <a name="adding-pluralsight-from-the-gallery"></a>Lägga till Pluralsight från galleriet
+## <a name="adding-cbre-serviceinsight-from-the-gallery"></a>Lägga till CBRE ServiceInsight från galleriet
 
-För att konfigurera integreringen av Pluralsight i Azure AD måste du lägga till Pluralsight från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av CBRE ServiceInsight i Azure AD måste du lägga till CBRE ServiceInsight från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Pluralsight från galleriet:**
+**Utför följande steg för att lägga till CBRE ServiceInsight från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -64,31 +65,31 @@ För att konfigurera integreringen av Pluralsight i Azure AD måste du lägga ti
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Pluralsight**, väljer **Pluralsight** i resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **CBRE ServiceInsight**, väljer **CBRE ServiceInsight** från resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
 
-     ![Pluralsight i resultatlistan](common/search-new-app.png)
+     ![CBRE ServiceInsight i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Pluralsight baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Pluralsight upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med CBRE ServiceInsight baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i CBRE ServiceInsight upprättas.
 
-Konfigurera och testa enkel inloggning med Azure AD med Pluralsight genom att slutföra följande byggblock:
+För att konfigurera och testa enkel inloggning i Azure AD med CBRE ServiceInsight måste du utföra följande uppgifter:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Pluralsight](#configure-pluralsight-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för CBRE ServiceInsight](#configure-cbre-serviceinsight-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa en Pluralsight-testanvändare](#create-pluralsight-test-user)**  – för att ha en motsvarighet för Britta Simon i Pluralsight som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa CBRE ServiceInsight-testanvändare](#create-cbre-serviceinsight-test-user)** – för att skapa en motsvarighet till Britta Simon i CBRE ServiceInsight som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg om du vill konfigurera enkel inloggning med Azure AD med Pluralsight:
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med CBRE ServiceInsight:
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Pluralsight**-programintegrering och väljer **Enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **CBRE ServiceInsight** på [Azure-portalen](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -102,31 +103,23 @@ Utför följande steg om du vill konfigurera enkel inloggning med Azure AD med P
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning med Pluralsight-domänen och URL:er](common/sp-identifier-reply.png)
+    ![Information om enkel inloggning med CBRE ServiceInsight-domäner och -URL:er](common/sp-signonurl.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<instancename>.pluralsight.com/sso/<companyname>`
-
-    b. I textrutan **Identifierare** skriver du in en URL: `www.pluralsight.com`
-
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://adfs4.mainstreamsasp.com/adfs/ls/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med en faktisk inloggnings-URL och svars-URL. Kontakta [Pluralsight-supporten](mailto:support@pluralsight.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [CBRE ServiceInsight-kundsupporten](mailto:SISupport@cbre.com) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Pluralsight-programmet förväntar ett visst format för SAML-försäkran. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+5. CBRE ServiceInsight-programmet förväntar sig att SAML-försäkran har ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
-    >[!NOTE]
-    >Du kan också lägga till attributet ”**Unikt ID**” med ett lämpligt värde som EmployeeID eller något annat som passar för din organisation. Observera att detta inte är det obligatoriska attributet, men att du kan lägga till det för att identifiera unika användare.
-
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
-    
-    | Namn | Källattribut|
-    | --------------- | --------- |
-    | Förnamn  | user.givenname  |
-    | Efternamn  | user.surname  |
-    | E-post  | user.mail  |
+
+    | Namn |  Källattribut|
+    | ------------ | --------- |
+    | SSOCallerPhone | user.telephonenumber |
+    | | |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -146,15 +139,15 @@ Utför följande steg om du vill konfigurera enkel inloggning med Azure AD med P
 
     g. Klicka på **Spara**.
 
-7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+7. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-pluralsight-single-sign-on"></a>Konfigurera enkel inloggning för Pluralsight
+### <a name="configure-cbre-serviceinsight-single-sign-on"></a>Konfigurera enkel inloggning för CBRE ServiceInsight
 
-För att konfigurera enkel inloggning på **Pluralsight**-sidan behöver du skicka nedladdade **XML-federationsmetadata** från Azure-portalen till [Pluralsight-supporten](mailto:support@pluralsight.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **CBRE ServiceInsight**-sidan måste du skicka **URL:en för appfederationsmetadata** till [CBRE ServiceInsight-supportteamet](mailto:SISupport@cbre.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
@@ -181,15 +174,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Pluralsight.
+I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till CBRE ServiceInsight.
 
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Pluralsight**.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **CBRE ServiceInsight**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan över program skriver och väljer du **Pluralsight**.
+2. Välj **CBRE ServiceInsight** i listan med program.
 
-    ![Pluralsight-länken i programlistan](common/all-applications.png)
+    ![CBRE ServiceInsight-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -205,15 +198,15 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-pluralsight-test-user"></a>Skapa testanvändare i Pluralsight
+### <a name="create-cbre-serviceinsight-test-user"></a>Skapa CBRE ServiceInsight-testanvändare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i Pluralsight. Kontakta [Pluralsight-supporten](mailto:support@pluralsight.com) för att få hjälp med att lägga till användare i Pluralsight-kontot.  Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapas en användare med namnet Britta Simon i CBRE ServiceInsight. CBRE ServiceInsight stöder JIT-etablering (Just-In-Time), som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i CBRE ServiceInsight skapas en ny när du försöker komma åt CBRE ServiceInsight.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Pluralsight-panelen i åtkomstpanelen bör du automatiskt loggas in på Pluralsight som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för CBRE ServiceInsight på åtkomstpanelen bör du loggas in automatiskt i CBRE ServiceInsight-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -222,4 +215,3 @@ När du klickar på Pluralsight-panelen i åtkomstpanelen bör du automatiskt lo
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

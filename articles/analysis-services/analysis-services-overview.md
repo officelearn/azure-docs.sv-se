@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544693"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189487"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -132,9 +132,9 @@ Totalkostnad beror på ett antal faktorer, exempelvis din valda region, nivå, f
 
 ## <a name="built-on-sql-server-analysis-services"></a>Bygger på SQL Server Analysis Services
 
-Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services stöder tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1200 eller högre. Tabellmodeller är relationsbaserade modelleringskonstruktioner (modeller, tabeller, kolumner), som uttrycks i objektdefinitioner för tabellmetadata i TMSL-kod (Tabular Model Scripting Language) och TOM-kod (Tabular Object Model). Partitioner, perspektiv, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds*. Flerdimensionella modeller och PowerPivot för Sharepoint stöds *inte* i Azure Analysis Services.
+Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services stöder tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1200 eller högre. Tabellmodeller är relationsbaserade modelleringskonstruktioner (modeller, tabeller, kolumner), som uttrycks i objektdefinitioner för tabellmetadata i TMSL-kod (Tabular Model Scripting Language) och TOM-kod (Tabular Object Model). Partitioner, perspektiv, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds*. Flerdimensionella modeller och PowerPivot för SharePoint stöds *inte* i Azure Analysis Services.
 
-Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänstprinciper får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
+Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänsthuvudnamn får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
 
 DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i en enskild SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns vissa begränsningar, till exempel begränsade datakälltyper, DAX-formelbegränsningar, och vissa avancerade funktioner för datamodeller stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
 
@@ -176,7 +176,7 @@ Tabellmodeller på alla kompatibilitetsnivåer har stöd för säkerhet på radn
 
 Tabellmodeller på kompatibilitetsnivån 1400 stöder säkerhet på objektnivå, vilket inkluderar säkerhet på tabellnivå och säkerhet på kolumnnivå. Säkerhet på objektnivå anges i JSON-baserad metadata i Model.bim-filen med hjälp av TMSL eller TOM. Läs mer i [Säkerhet på objektnivå](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security).
 
-### <a name="automation-through-service-principles"></a>Automation via tjänstens huvudnamn
+### <a name="automation-through-service-principals"></a>Automation via tjänsthuvudnamn
 
 Tjänstens huvudnamn är en programresurs för Azure Active Directory som du skapar i din klient för att utföra obevakade åtgärder på resurs- och tjänstnivå. Tjänstens huvudnamn används med Azure Automation, obevakat läge i PowerShell, anpassade klientprogram och webbprogram för att automatisera vanliga uppgifter som datauppdatering, skala upp/ned och pausa/återuppta. Behörigheter tilldelas till tjänstens huvudnamn via rollmedlemskap. Läs mer i [Automatisering med tjänstens huvudnamn](analysis-services-service-principal.md).
 

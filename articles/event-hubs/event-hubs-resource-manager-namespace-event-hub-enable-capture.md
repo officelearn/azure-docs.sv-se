@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 36764b661d88f034b306251f76d47d72298308dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140004"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054834"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder en Azure Resource Manager-mall som skap
 
 Den här artikeln visar även hur du anger att händelser ska samlas in i Azure Storage Blobs eller en Azure Data Lake Store, utifrån det mål som du väljer.
 
-Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Den JSON-syntax och de egenskaper som ska användas i en mall finns i avsnittet om [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventhub/allversions).
 
 Mer information om mönster och praxis för namnkonventioner för Azure-resurser finns i [Azure Resources Naming Conventions][Azure Resources naming conventions] (Namnkonventioner för Azure-resurser).
 

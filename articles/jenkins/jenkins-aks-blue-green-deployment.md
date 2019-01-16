@@ -3,17 +3,17 @@ title: Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och
 description: Lär dig att distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, kontinuerlig leverans, cd
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387401"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073891"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
 
@@ -31,11 +31,11 @@ I den här självstudien utför du följande åtgärder:
 > * Skapa och kör ett Jenkins-jobb
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-- [GitHub-konto](https://github.com): du behöver ett GitHub-konto för att kunna klona lagringsplatsexemplet.
-- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
-- [Chocolatey](https://chocolatey.org): en pakethanterare som du använder för att installera kubectl.
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): ett kommandoradsgränssnitt som du använder för att köra kommandon mot Kubernetes-kluster.
-- [jq](https://stedolan.github.io/jq/download/): en enkel JSON-processor på kommandoraden.
+- [GitHub-konto](https://github.com) : Du behöver ett GitHub-konto för att klona exempellagringsplatsen.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : Du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
+- [Chocolatey](https://chocolatey.org): En pakethanterare som du använder för att installera kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Ett kommandoradsgränssnitt som du använder för att köra kommandon mot Kubernetes-kluster.
+- [jq](https://stedolan.github.io/jq/download/): En enkel kommandoradsbaserad JSON-processor.
 
 ## <a name="clone-the-sample-app-from-github"></a>Klona exempelappen från GitHub
 
@@ -259,7 +259,7 @@ I det här avsnittet lär du dig att förbereda Jenkins-servern för kompilering
 
 ## <a name="run-the-job"></a>Kör jobbet
 
-1. Kontrollera att du kan köra projektet i din lokala miljö. Gör så här: [Kör projektet på den lokala datorn](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Kontrollera att du kan köra projektet i din lokala miljö. Så här gör du: [Kör projektet på den lokala datorn](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Kör Jenkins-jobbet. Första gången du kör jobbet distribuerar Jenkins todo-appen till den blå miljön, det vill säga den inaktiva standardmiljön. 
 

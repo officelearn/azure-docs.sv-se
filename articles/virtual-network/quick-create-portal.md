@@ -1,14 +1,12 @@
 ---
-title: Skapa ett virtuellt nätverk – snabbstart – Azure Portal | Microsoft Docs
+title: Skapa ett virtuellt nätverk – Snabbstart – Azure-portalen
+titlesuffix: Azure Virtual Network
 description: I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Med ett virtuellt nätverk kan Azure-resurser, till exempel virtuella datorer, kommunicera privat med varandra och med Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: d627d54686cb40714e9e8574ceae56a8900cb45e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269473"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020837"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snabbstart: Skapa ett virtuellt nätverk med Azure Portal
 
@@ -36,7 +33,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Välj **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk** längst upp till vänster på skärmen.
+1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
@@ -70,17 +67,17 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | **INSTANSINFORMATION** |  |
     | Namn på virtuell dator | Ange *myVm1*. |
     | Region | Välj **USA, östra**. |
-    | Alternativ för tillgänglighet | Lämna standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Bild | Lämna standardinställningen **Windows Server 2016 Datacenter**. |
-    | Storlek | Lämna standardinställningen **Standard DS1 v2**. |
+    | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
+    | Bild | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
+    | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användarnamn. |
     | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
-    | Offentliga inkommande portar | Lämna standardinställningen **Ingen**. |
+    | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
     | **SPARA PENGAR** |  |
-    | Har du redan en Windows-licens? | Lämna standardinställningen **Nej**. |
+    | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
 
 1. Välj **Nästa: Diskar**.
 
@@ -90,7 +87,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Virtuellt nätverk | Lämna standardinställningen **myVirtualNetwork**. |
+    | Virtuellt nätverk | Lämna kvar standardinställningen **myVirtualNetwork**. |
     | Undernät | Lämna standardinställningen **myVirtualSubnet (10.1.0.0/24)**. |
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Nätverkssäkerhetsport | Välj **Tillåt valda portar**. |
@@ -98,16 +95,16 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
 1. Välj **Nästa: Hantering**.
 
-1. I **Skapa en virtuell dator – Hantering** för **Diagnostiklagringskonto** väljer du **Skapa ny**.
+1. I **Skapa en virtuell dator – Hantering** går du till **Diagnostiklagringskonto** och väljer **Skapa nytt**.
 
 1. I **Skapa lagringskonto** anger eller väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *myvmstorageaccount*. |
-    | Typ av konto | Lämna standardinställningen **Lagring (generell användning v1)**. |
-    | Prestanda | Lämna standardinställningen **Standard**. |
-    | Replikering | Lämna standardinställningen **Lokalt redundant lagring (LRS)**. |
+    | Typ av konto | Lämna kvar standardinställningen **Lagring (generell användning v1)**. |
+    | Prestanda | Lämna kvar standardinställningen **Standard**. |
+    | Replikering | Lämna kvar standardinställningen **Lokalt redundant lagring (LRS)**. |
 
 1. Välj **OK**
 
@@ -159,7 +156,7 @@ När du har skapat *myVm1* ansluter du till den via internet.
 
 ## <a name="communicate-between-vms"></a>Kommunicera mellan virtuella datorer
 
-1. På fjärrskrivbordet på *myVm1* öppnar du PowerShell.
+1. Öppna PowerShell på fjärrskrivbordet på *myVm1*.
 
 1. Ange `ping myVm2`.
 

@@ -4,17 +4,17 @@ description: Lär dig hur du skapar en grundläggande Terraform-mall i Azure med
 services: terraform
 ms.service: terraform
 keywords: terraform, utvecklar, virtuell dator, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284343"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074557"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
 
@@ -28,11 +28,11 @@ I den här artikeln får du lära dig hur du använder Yeoman-modulgeneratorn f�
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- **Visual Studio-kod**: Vi kommer att använda [Visual Studio-kod](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) för att undersöka filer som skapats av Yeoman-generatorn. Du kan dock använda valfri kodredigerare.
+- **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- **Visual Studio Code**: Vi kommer att använda [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) för att undersöka filer som skapats av Yeoman-generatorn. Du kan dock använda valfri kodredigerare.
 - **Terraform**: Du behöver en [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure )-installation för att köra den modul som skapas av Yeoman.
 - **Docker**: Vi kommer att använda [Docker](https://www.docker.com/get-started) för att köra den modul som skapas av Yeoman-generatorn. (Om du vill kan du kan använda Ruby i stället för Docker för att köra exempelmodulen.)
-- **Programmeringsspråket Go**: Du behöver en [Go](https://golang.org/)-installation eftersom de testfall som genereras av Yeoman skrivs i Go.
+- **Programmeringsspråket Go**: Du behöver en [Go](https://golang.org/)-installation eftersom de testfall som genereras av Yeoman är skrivna i Go.
 
 >[!NOTE]
 >De flesta av procedurerna i den här självstudien omfattar kommandoradsposter. Stegen som beskrivs här gäller för alla operativsystem och kommandoradsverktyg. I våra exempel har vi valt att använda PowerShell för lokal miljö och Git Bash för Cloud Shell-miljö.
@@ -140,7 +140,7 @@ Definierar vad modulen matar ut. Här är det värdet som returneras av **random
 
 Definierar stegen för att skapa versionen. Dessa steg omfattar:
 
-- **version**: Verifierar formateringen av main.tf-filen.
+- **build**: Verifierar formateringen av main.tf-filen.
 - **enhet**: Den genererade modulstommen innehåller inte kod för ett enhetstest. Om du vill ange ett enhetstestscenario, lägger du till den koden här.
 - **e2e**: Kör ett heltäckande test av modulen.
 
@@ -149,7 +149,7 @@ Definierar stegen för att skapa versionen. Dessa steg omfattar:
 - Testfall skrivs i Go.
 - Alla koder i test är heltäckande tester.
 - Heltäckande tester försöker använda Terraform för att tillhandahålla alla objekt som definierats under **fixture** och jämför sedan resultatet i **template_output.go**-koden med de fördefinierade förväntade värdena.
-- **Gopkg.lock** och **Gopkg.toml**: Definiera dina beroenden. 
+- **Gopkg.lock** och **Gopkg.toml**: Definiera beroendena. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Testa din nya Terraform-modul med hjälp av en Docker-fil
 
@@ -248,16 +248,16 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
 1. Nu har Cloud Shell redan konfigurerat GOPATH i miljövariablerna åt dig. Ange `go env` om du vill se sökvägen.
 
-1. Skapa $GOPATH-mappen, om det inte redan finns en: ange `mkdir ~/go`.
+1. Skapa $GOPATH-mappen om det inte redan finns en sådan: Ange `mkdir ~/go`.
 
-1. Skapa en mapp i $GOPATH-mappen: ange `mkdir ~/go/src`. Den här mappen används för att lagra och organisera olika projektmappar du skapar, till exempel mappen <namn_på_modulen> som vi skapar i nästa steg.
+1. Skapa en mapp i $GOPATH-mappen: Ange `mkdir ~/go/src`. Den här mappen används för att lagra och organisera olika projektmappar du skapar, till exempel mappen <namn_på_modulen> som vi skapar i nästa steg.
 
-1. Skapa en mapp som ska innehålla Terraform-modulen: ange `mkdir ~/go/src/<your-module-name>`.
+1. Skapa en mapp som ska innehålla Terraform-modulen: Ange `mkdir ~/go/src/<your-module-name>`.
 
     >[!NOTE]
     >I det här exemplet väljer vi `my-module-name` som mappnamn.
 
-1. Navigera till modulmappen: ange `cd ~/go/src/<your-module-name>`
+1. Navigera till modulmappen: Ange `cd ~/go/src/<your-module-name>`
 
 ### <a name="create-and-test-your-terraform-module"></a>Skapa och testa Terraform-modulen
 

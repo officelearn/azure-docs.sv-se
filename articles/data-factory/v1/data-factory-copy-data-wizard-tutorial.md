@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa en pipeline med Copy Wizard | Microsoft Docs'
+title: 'Självstudier: Skapa en pipeline med kopieringsguiden | Microsoft Docs'
 description: I de här självstudierna skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet, med hjälp av guiden Kopiera som stöds av Data Factory
 services: data-factory
 documentationcenter: ''
@@ -9,19 +9,18 @@ ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095382"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025767"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av Data Factory-kopieringsguiden
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
@@ -64,7 +63,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
       - Välj **Använd befintlig** och välj en befintlig resursgrupp.
       - Välj **Skapa nytt** och ange ett namn för en resursgrupp.
           
-        Vissa av stegen i den här självstudien förutsätter att du använder namnet: **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../../azure-resource-manager/resource-group-overview.md).
+        Några av stegen i den här självstudien förutsätter att du använder följande namn: **ADFTutorialResourceGroup** för resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../../azure-resource-manager/resource-group-overview.md).
    4. Välj **plats** för datafabriken.
    5. Välj kryssrutan **PIN-kod för instrumentpanelen** längst ned på bladet.  
    6. Klicka på **Skapa**.

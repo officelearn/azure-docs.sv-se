@@ -1,12 +1,10 @@
 ---
-title: Azure Virtual Network-tjänstslutpunkter | Microsoft Docs
+title: Tjänstslutpunkter för virtuella Azure-nätverk
+titlesuffix: Azure Virtual Network
 description: Lär dig hur du aktiverar direktåtkomst till Azure-resurser från ett virtuellt nätverk med tjänstslutpunkter.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: acb5897825a2a7762869d3ad961dfcdcb87071b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540562"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190603"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -60,7 +58,7 @@ Tjänstslutpunkter har följande fördelar:
 
 - Funktionen är bara tillgänglig för virtuella nätverk som distribuerats med Azure Resource Manager-distributionsmodellen.
 - Slutpunkter aktiveras i undernät som konfigurerats i virtuella Azure-nätverk. Slutpunkter kan inte användas för trafik från ditt lokala nätverk till Azure-tjänster. Mer information finns i [Skydda Azure-tjänståtkomst från lokala nätverk](#securing-azure-services-to-virtual-networks).
-- För Azure SQL gäller en tjänstslutpunkt bara för Azure-tjänsttrafik i regionen för det virtuella nätverket. I syfte att ge stöd för RA-GRS- och GRS-trafik för Azure Storage så utökas slutpunkter även med de hopparade regioner där det virtuella nätverket är distribuerat. Lär dig mer om [parade Azure-regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- För Azure SQL gäller en tjänstslutpunkt bara för Azure-tjänsttrafik i regionen för det virtuella nätverket. För Azure Storage och ADLS Gen 1, i syfte att stödja RA-GRS- och GRS-trafik, utökas slutpunkterna även att omfatta hopparade regioner där det virtuella nätverket är distribuerat. Lär dig mer om [parade Azure-regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Skydda Azure-tjänster i virtuella nätverk
 

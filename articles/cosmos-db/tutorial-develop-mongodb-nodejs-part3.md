@@ -4,18 +4,19 @@ titleSuffix: Azure Cosmos DB
 description: Del 3 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 462d0ea036ee50a3eea6812d87772bba9559125c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788590"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158711"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa användargränssnittet med Angular
 
@@ -416,7 +417,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
 
 2. Gå tillbaka till **heroes.components.ts** i Visual Studio Code. Observera att `HeroService` på raden `constructor(private heroService: HeroService) {}` (rad 13) har en röd understrykning. Klicka på `HeroService` så visas glödlampan till vänster om kodblocket. Klicka på glödlampan och sedan på **Importera HeroService från ”./hero.service ”** eller till **Importera HeroService från ”/app/hero.service”.**
 
-    När du klickar på glödlampan infogas en ny rad med kod på rad 2. Om rad 2 refererar till mappen /app/hero.service ändrar du den så att den refererar till hero-filen från den lokala mappen (./hero.serivce). Rad 2 bör se ut så här:
+    När du klickar på glödlampan infogas en ny rad med kod på rad 2. Om rad 2 refererar till mappen /app/hero.service ändrar du den så att den refererar till hero-filen från den lokala mappen (./hero.service). Rad 2 bör se ut så här:
     
     ```javascript
     import { HeroService } from "./hero.service"

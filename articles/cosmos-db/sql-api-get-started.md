@@ -1,23 +1,21 @@
 ---
-title: 'Azure Cosmos DB: Självstudiekurs för att komma igång med SQL API:et'
+title: 'Azure Cosmos DB: Självstudie om att komma igång med SQL API'
 description: En självstudiekurs som beskriver hur du skapar en onlinedatabas och ett C#-konsolprogram som använder SQL API:et.
-keywords: självstudier för nosql, onlinedatabas, c#-konsolprogram
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867537"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043455"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Självstudiekurs för att komma igång med SQL API:et
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Självstudie om att komma igång med SQL API
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-get-started.md)
@@ -367,7 +365,7 @@ Grattis! Du har skapat två Azure Cosmos DB-dokument.
 
 ![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
+## <a id="Query"></a>Steg 7: Köra frågor mot Azure Cosmos DB-resurser
 Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Nedanstående exempelkod visar olika frågor – med både Azure Cosmos DB SQL-syntax och LINQ – som du kan köra mot dokumenten som infogades i föregående steg.
 
 Kopiera och klistra in metoden **ExecuteSimpleQuery** efter metoden **CreateFamilyDocumentIfNotExists**.
@@ -495,7 +493,7 @@ Kör appen genom att trycka på **F5**.
 
 Grattis! Du har tagit bort en Azure Cosmos DB-databas.
 
-## <a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
+## <a id="Run"></a>Steg 11: Köra C#-konsolappen i dess helhet!
 Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge.
 
 Du bör nu se utdata från din app för att komma igång i ett konsolfönster. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
@@ -538,7 +536,7 @@ Då är det bara att bygga den, så är du på väg!
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Behöver du en mer komplex ASP.NET MVC-självstudiekurs? Läs mer i [Självstudiekurs om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB](sql-api-dotnet-application.md).
+* Behöver du en mer komplex ASP.NET MVC-självstudiekurs? Se [Självstudie om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB](sql-api-dotnet-application.md).
 * Vill du testa skalning och prestanda med Azure Cosmos DB? Mer information finns i avsnittet om hur du [testar prestanda och skalning med Azure Cosmos DB](performance-testing.md)
 * Lär dig hur du [övervakar förfrågningar, användning och lagring för Azure Cosmos DB](monitor-accounts.md).
 * Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).

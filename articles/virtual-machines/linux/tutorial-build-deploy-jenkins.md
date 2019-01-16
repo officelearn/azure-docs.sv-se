@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: CI/CD från Jenkins till virtuella Azure-datorer med Azure DevOps Services | Microsoft Docs'
 description: I dessa självstudier får du lära dig hur du med hjälp av Jenkins kan konfigurera kontinuerlig integration (CI) och kontinuerlig distribution (CD) för en Node.js-app till virtuella Azure-datorer från versionshanteringen i Visual Studio Team Services eller Microsoft Team Foundation Server
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388507"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074775"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
 
@@ -68,7 +68,7 @@ Skapa en förgrening av den här appen och anteckna platsen (URL) för användni
 
 ## <a name="configure-jenkins-plug-ins"></a>Konfigurera plugin-programmet för Jenkins
 
-Först måste du konfigurera två Jenkins plugin-program: **NodeJS** och **VS Team Services Continuous Deployment**.
+Först måste du konfigurera två Jenkins-plugin-program: **NodeJS** och **VS Team Services Continuous Deployment**.
 
 1. Öppna ditt Jenkins-konto och välj **Hantera Jenkins**.
 2. På sidan **Hantera Jenkins** väljer du **Hantera plugin-program**.
@@ -164,7 +164,7 @@ Så här skapar du en versionspipeline i Azure Pipelines:
 
 1. Välj **+ Release** (+ Version) och sedan **Create Release** (Skapa version).
 2. Välj den version du slutförde i den markerade listrutan och välj **Queue** (Kö).
-3. Välj versionslänken i popup-meddelandet. Till exempel: "Release **Release-1** has been created." (Version Version-1 har skapats).
+3. Välj versionslänken i popup-meddelandet. Exempel: ”Release **Release-1** har skapats”.
 4. Öppna fliken med **loggar** för att se på utmatningen av versionen.
 5. Öppna URL-adressen till en av de servrar som du lagt till i din distributionsgrupp i en webbläsare. Ange till exempel **http://{din-server-ip-adress}**.
 6. Gå till källagringsplatsen i Git och ändra innehållet i rubriken **h1** för filen app/views/index.jade.

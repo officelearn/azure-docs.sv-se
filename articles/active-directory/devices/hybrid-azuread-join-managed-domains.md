@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Hybrid Azure Active Directory-anslutningsenheter | Microsoft Docs
-description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
+title: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner | Microsoft Docs
+description: Konfigurera Azure Active Directory-hybridanslutning för hanterade domäner.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b87bc4387b7e979aaf3b79a42b81baecc530a8aa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435437"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105142"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
 På liknande sätt som en användare blir en enhet till en identitet som du vill skydda och också använda för att skydda dina resurser, alltid och överallt. Det kan du göra genom att överföra enheternas identiteter till Azure Active Directory på något av följande sätt:
 

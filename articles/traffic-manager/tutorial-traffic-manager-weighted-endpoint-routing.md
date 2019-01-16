@@ -1,5 +1,5 @@
 ---
-title: Dirigera trafik till viktade slutpunkter med hjälp av Azure Traffic Manager | Microsoft Docs
+title: Självstudie – Dirigera trafik till viktade slutpunkter – Azure Traffic Manager
 description: Den här artikeln beskriver hur du dirigerar trafik till viktade slutpunkter med Traffic Manager.
 services: traffic-manager
 author: KumudD
@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158830"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055021"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudie: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudier: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager 
 
 Den här självstudien beskriver hur du använder Azure Traffic Manager till att styra routningen av användartrafik mellan slutpunkter med hjälp av routningsmetoden Viktat. I den här routningsmetoden tilldelar du vikter till varje slutpunkt i Traffic Manager-profilkonfigurationen. Sedan dirigeras användartrafiken baserat på vikt som tilldelats varje slutpunkt. Vikten är ett heltal mellan 1 och 1000. Ju högre viktningsvärde som tilldelas till en slutpunkt desto högre prioritet har det.
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill se hur Traffic Manager fungerar distribuerar du följande för den här självstudien:
-- Två instanser av grundläggande webbplatser i olika Azure-regioner – USA, östra och Europa, västra.
+- Två instanser av grundläggande webbplatser som körs i olika Azure-regioner: USA, östra och Europa, västra.
 - Två virtuella testdatorer för att testa Traffic Manager: en i USA, östra och den andra vi Europa, västra. De virtuella testdatorerna används till att illustrera hur Traffic Manager dirigerar användartrafik som har högre vikt tilldelad till sin slutpunkt.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 

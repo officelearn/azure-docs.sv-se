@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 44b47a595c422f62cae13fb1aeb582e0c15787d6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 181addbcf4d0cfd51e74a24677de63f66e6fec1d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973510"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190534"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -179,7 +179,9 @@ Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure Portal för att skicka en IoT Edge-modul som ska köras på enheten utan att några ändringar behövs göras i själva enheten. I det här fallet skapar modulen som du överförde de miljödata som du använder i självstudierna.
+I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure-portalen för att distribuera en IoT Edge-modul som ska köras på enheten utan att några ändringar krävs på själva enheten. 
+
+I det här fallet skapar den modul som du distribuerade exempeldata som du kan använda för testning. Modulen för en simulerad temperatursensor genererar miljödata som du kan använda för testning. Den simulerade sensorn övervakar både en dator och miljön runt datorn. Den här sensorn kan till exempel finnas i ett serverrum, på fabriksgolvet eller på en vindturbin. Meddelandet innehåller rumstemperatur och fuktighet, maskintemperatur och tryck samt en tidsstämpel. I IoT Edge-självstudierna används de data som skapas av den här modulen som testdata för analyser.
 
 Öppna kommandotolken på IoT Edge-enheten igen eller använd SSH-anslutningen från Azure CLI. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
 
@@ -199,8 +201,6 @@ Visa de meddelanden som skickas från temperatursensor-modulen:
    >IoT Edge-kommandon är skiftlägeskänsliga när det gäller modulnamnen.
 
    ![Visa data från modulen](./media/quickstart-linux/iotedge-logs.png)
-
-Temperatursensor-modulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är  **använder transport Mqtt_Tcp_Only**. Försök stoppa modulen och låta Edge-agenten starta om den. Du kan stoppa den med kommandot `sudo docker stop SimulatedTemperatureSensor`.
 
 Du kan även se när meddelandena tas emot av din IoT-hubb med hjälp av [Azure IoT Hub-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (tidigare Azure IoT Toolkit-tillägget). 
 
@@ -226,20 +226,6 @@ Ta bort IoT Edge-körningen.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Ta bort de containrar som skapades på enheten av IoT Edge-körningen. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Ta bort körmiljön för containern.

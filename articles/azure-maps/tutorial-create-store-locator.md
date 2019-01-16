@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317916"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189770"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
 
@@ -109,7 +109,7 @@ För att skapa projektet använder du [Visual Studio](https://visualstudio.micro
 
 Lägg till kod till *index.html* för att skapa användargränssnittet:
 
-1. Lägg till följande `meta`-taggar till `head` i *index.html*. Taggarna definierar teckenuppsättningen (UTF-8), meddelar Internet Explorer och Edge att de ska använda de senaste versionerna av webbläsaren och anger ett visningsområde som fungerar bra för dynamiska layouter.
+1. Lägg till följande `meta`-taggar till `head` i *index.html*. Taggarna definierar teckenuppsättningen (UTF-8), meddelar Internet Explorer och Microsoft Edge att de ska använda de senaste versionerna av webbläsaren och anger ett visningsområde som fungerar bra för dynamiska layouter.
 
     ```HTML
     <meta charset="utf-8" /> 

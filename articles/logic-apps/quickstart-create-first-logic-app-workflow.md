@@ -1,6 +1,6 @@
 ---
-title: Skapa och automatisera ditt första arbetsflöde – Azure Logic Apps | Microsoft Docs
-description: Snabbstart för hur du skapar ditt första logikprogram som automatiserar uppgifter, processer och arbetsflöden med Azure Logic Apps. Skapa logikprogram för systemintegrering och EAI-lösningar (Enterprise Application Integration) för systemet och molntjänsterna
+title: Snabbstart – Skapa och automatisera ditt första arbetsflöde – Azure Logic Apps | Microsoft Docs
+description: Skapa din första logikapp som automatiserar uppgifter, processer och arbetsflöden med Azure Logic Apps. Skapa logikprogram för systemintegrering och EAI-lösningar (Enterprise Application Integration) för systemet och molntjänsterna
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233692"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065196"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure-portalen
 
 I den här snabbstarten beskrivs hur du bygger ditt första automatiserade arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). I den här artikeln skapar du en logikapp som regelbundet kontrollerar om det finns nya objekt via en webbplats RRS-feed. Om det finns ett nytt objekt skickar logikappen ett e-postmeddelande för vart och ett. När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
@@ -38,7 +38,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
    ![Skapa en logikapp](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **Fäst på instrumentpanelen** > **Skapa**.
+3. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **Skapa**.
 
    ![Tillhandahålla information om logikappar](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -63,7 +63,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
 1. På designern anger du ”rss” i sökrutan. Välj den här utlösaren: **RSS – När ett flödesobjekt publiceras**
 
-   ![Välj utlösaren:”RSS – När ett flödesobjekt publiceras”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Välj utlösare: ”RSS – När ett flödesobjekt publiceras”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. Ange den här informationen för utlösaren som det visas och beskrivs: 
 
@@ -91,13 +91,13 @@ Logikappen har nu lanserats men gör inget annat än att kontrollera RSS-flödet
 
 Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) som skickar e-postmeddelande när ett nytt objekt visas i RSS-flödet. 
 
-1. Under utlösaren **När ett flödesobjekt publiceras** väljer du **+ Nytt steg** > **Lägg till en åtgärd**.
+1. Under utlösaren **När ett flödesobjekt publiceras** väljer du **Nytt steg**.
 
    ![Lägga till en åtgärd](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Under **Välj en åtgärd**, anger du skicka ett e-postmeddelande som filter. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören. 
+2. Under **Välj en åtgärd** anger du ”skicka ett e-postmeddelande” i sökrutan. Under sökrutan väljer du **Alla**. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören. 
 
-   ![Välj den här åtgärden: "Office 365 Outlook - Send an email" (Office 365 Outlook – Skicka ett e-postmeddelande)](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Välj den här åtgärden: ”Office 365 Outlook – Skicka ett e-postmeddelande”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Om du vill filtrera åtgärdslistan till ett specifikt program eller en tjänst kan du välja det programmet eller den tjänsten först:
 

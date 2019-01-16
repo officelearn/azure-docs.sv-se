@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753956"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188478"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: Automatisera storleksändring av överförda bilder med Event Grid
 
@@ -27,7 +27,7 @@ Den här självstudien är del två i en serie med Storage-självstudier. Den by
 
 Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen för storleksändring i en befintlig app för uppladdning av bilder.
 
-![Publicerad webbapp i webbläsaren Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Publicerad webbapp i webbläsaren Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 I den här guiden får du lära dig att:
 
@@ -170,8 +170,8 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     | **Typ av prenumerant** |  genereras automatiskt |  Fördefinieras som Web Hook. |
     | **Slutpunkt för prenumerant** | genereras automatiskt | Använd den slutpunktsadress som genereras åt dig. | 
     | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. | 
-
-4. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser `imageresizerfunc` när en blob läggs till i containern *images*. Funktionen återställer bildstorleken och lägger till dem i containern med *miniatyrer*.
+4. *Valfritt:* Om du vill skapa ytterligare containrar i samma bloblagring för andra ändamål i framtiden kan du använda **funktionerna för ämnesfiltrering** på fliken **Filter**. Då får du mer detaljerad styrning för blobhändelser, och kan se till att din funktionsapp endast anropas när blobar läggs till i **avbildningscontainern**. 
+5. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser `imageresizerfunc` när en blob läggs till i containern *images*. Funktionen återställer bildstorleken och lägger till dem i containern med *miniatyrer*.
 
 Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen för storleksändring i exempelwebbappen. 
 
@@ -183,7 +183,7 @@ Klicka på regionen **Upload photos** (Ladda upp foton) för att välja och ladd
 
 Observera att en kopia av uppladdade bilden visas i karusellen **Generated thumbnails** (Genererade miniatyrer) när den uppladdade bilden försvinner. Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
 
-![Publicerad webbapp i webbläsaren Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Publicerad webbapp i webbläsaren Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 

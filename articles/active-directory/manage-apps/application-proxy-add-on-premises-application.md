@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716018"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120741"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -25,10 +25,10 @@ Azure Active Directory (Azure AD) innehåller en programproxytjänst som gör at
 I den här självstudien:
 
 > [!div class="checklist"]
-> * Öppnar portar för utgående trafik och ger åtkomst till specifika webbadresser
-> * Installerar anslutningsprogrammet på din Windows-server och registrerar den med programproxy
-> * Verifierar att anslutningsprogrammet installerats och registrerats på rätt sätt
-> * Lägger till ett lokalt program till Azure AD-klientorganisationen
+> * Öppnar portar för utgående trafik och ger åtkomst till specifika webbadresser.
+> * Installerar anslutningsprogrammet på din Windows-server och registrerar den med Programproxy.
+> * Verifierar att anslutningsprogrammet installerats och registrerats på rätt sätt.
+> * Lägger till ett lokalt program till Azure AD-klientorganisationen.
 > * Verifierar att en testanvändare kan logga in på programmet med hjälp av ett Azure AD-konto.
 
 ## <a name="before-you-begin"></a>Innan du börjar

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Hitta alternativa översättningar, Go – Translator Text API'
+title: 'Snabbstart: Slå upp ord med en tvåspråkig ordlista, Go – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000596"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158575"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Snabbstart: Använda Translator Text API för att hämta alternativa översättningar med Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Go
 
 I den här snabbstarten lär du dig att hitta alternativa översättningar och användningsexempel för en angiven text med hjälp av Go och Translator Text REST API.
 
@@ -234,7 +234,7 @@ Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](ht
 
 ## <a name="see-also"></a>Se även
 
-Lär dig att använda Translator Text API till att:
+Lär dig att använda Translator Text API för att:
 
 * [Översätta text](quickstart-go-translate.md)
 * [Translitterera text](quickstart-go-transliterate.md)

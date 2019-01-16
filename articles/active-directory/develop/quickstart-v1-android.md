@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311073"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158881"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -127,7 +127,7 @@ All konfiguration för det här kodexemplet finns i filen ***src/main/java/com/a
 
 1. Gå till [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) för att få mer information om biblioteksmekanismerna och hur du konfigurerar nya scenarier och funktioner.
 2. I inbyggda scenarier använder appen en inbäddad Webview och kommer inte att lämna appen. `Redirect URI` kan vara vad som helst.
-3. Upptäcker du problem eller har förfrågningar? Du kan skapa ett ärende eller publicera på Stackoverflow med taggen `azure-active-directory`.
+3. Upptäcker du problem eller har förfrågningar? Du kan skapa ett ärende eller ett inlägg på Stack Overflow med taggen `azure-active-directory`.
 
 ### <a name="cross-app-sso"></a>Enkel inloggning mellan appar
 

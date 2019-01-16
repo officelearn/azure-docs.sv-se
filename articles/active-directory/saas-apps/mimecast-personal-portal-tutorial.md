@@ -1,114 +1,110 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Mimecast personliga Portal | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mimecast personliga Portal.
+title: 'Självstudier: Azure Active Directory-integrering med Mimecast Personal Portal | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mimecast Personal Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/24/2018
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: dbc9b3f4d32dec44b695ef90f1dce4e88000b2b7
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850456"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065672"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Självstudier: Azure Active Directory-integrering med Mimecast personliga Portal
+# <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Självstudier: Azure Active Directory-integrering med Mimecast Personal Portal
 
-I den här självstudien får du lära dig hur du integrerar Mimecast personliga Portal med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Mimecast Personal Portal med Azure Active Directory (Azure AD).
+Integreringen av Mimecast Personal Portal med Azure AD medför följande fördelar:
 
-Integrera Mimecast personliga Portal med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Mimecast Personal Portal från Azure AD.
+* Du kan konfigurera inställningar så att dina användare kan logga in automatiskt i Mimecast Personal Portal (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till personliga Mimecast-portalen.
-- Du kan aktivera användarna att automatiskt få loggat in på Mimecast personliga Portal (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Mimecast Personal Portal behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Mimecast personliga Portal, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Mimecast personliga Portal enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Mimecast Personal Portal-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Mimecast personliga portalen från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>Att lägga till Mimecast personliga portalen från galleriet
-Om du vill konfigurera integreringen av Mimecast personliga Portal till Azure AD, som du behöver lägga till Mimecast personliga portalen från galleriet i din lista över hanterade SaaS-appar.
+* Mimecast Personal Portal har stöd för **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till Mimecast personliga portalen från galleriet:**
+## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>Lägga till Mimecast Personal Portal från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Mimecast Personal Portal med Azure AD måste du lägga till Mimecast Personal Portal från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Mimecast Personal Portal från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **Mimecast personliga Portal**väljer **Mimecast personliga Portal** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Mimecast personliga Portal i resultatlistan](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Mimecast personliga Portal baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du **Mimecast Personal Portal**, väljer **Mimecast Personal Portal** från resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i Mimecast personliga Portal är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Mimecast personliga Portal upprättas.
+     ![Mimecast Personal Portal i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med personliga Mimecast-portalen, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Mimecast personliga Portal](#create-a-mimecast-personal-portal-test-user)**  – du har en motsvarighet för Britta Simon i Mimecast personliga Portal som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Mimecast Personal Portal baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Mimecast Personal Portal upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+För att konfigurera och testa enkel inloggning i Azure AD med Mimecast Personal Portal måste du utföra följande uppgifter:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för personliga Mimecast-portalen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Mimecast Personal Portal](#configure-mimecast-personal-portal-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Mimecast Personal Portal-testanvändare](#create-mimecast-personal-portal-test-user)**  – för att skapa en motsvarighet till Britta Simon i Mimecast Personal Portal som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med personliga Mimecast-portalen:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **Mimecast personliga Portal** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimecast Personal Portal:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_samlbase.png)
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Mimecast Personal Portal** på [Azure-portalen](https://portal.azure.com/).
 
-1. På den **Mimecast personliga Portal domän och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Mimecast personliga Portal domän och URL: er med enkel inloggning för information](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL: 
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Information om enkel inloggning med Mimecast Personal Portal-domäner och -URL:er](common/sp-identifier-reply.png)
+
+    a. I rutan **Inloggnings-URL** anger du en URL: 
 
     | Region  |  Värde | 
     | --------------- | --------------- | 
@@ -116,9 +112,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | USA   | `https://us-api.mimecast.com/login/saml`|
     | Sydafrika    | `https://za-api.mimecast.com/login/saml`|
     | Australien       | `https://au-api.mimecast.com/login/saml`|
-    | Öppet hav        | `https://jer-api.mimecast.com/login/saml`|
+    | Till havs        | `https://jer-api.mimecast.com/login/saml`|
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    b. I textrutan **Identifierare** anger du en URL med följande mönster:
 
     | Region  |  Värde | 
     | --------------- | --------------- |
@@ -126,9 +122,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | USA   | `https://us-api.mimecast.com/sso/<accountcode>`|    
     | Sydafrika    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Australien       | `https://au-api.mimecast.com/sso/<accountcode>`|
-    | Öppet hav        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+    | Till havs        | `https://jer-api.mimecast.com/sso/<accountcode>`|
 
-    c. I den **svars-URL** textrutan anger du ett URL: 
+    c. I textrutan **Svars-URL** anger du en URL: 
 
     | Region  |  Värde | 
     | --------------- | --------------- | 
@@ -136,183 +132,162 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | USA   | `https://us-api.mimecast.com/login/saml`|
     | Sydafrika    | `https://za-api.mimecast.com/login/saml`|
     | Australien       | `https://au-api.mimecast.com/login/saml`|
-    | Öppet hav        | `https://jer-api.mimecast.com/login/saml`|
-    
-    > [!NOTE] 
-    > ID-värde är inte verkliga. Uppdatera värdet med det faktiska ID: T. Kontakta [Mimecast personliga Portal klienten supportteamet](https://www.mimecast.com/customer-success/technical-support/) att hämta värdet. 
+    | Till havs        | `https://jer-api.mimecast.com/login/saml`|
 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Identifierarvärdet är inte verkligt. Uppdatera värdet med den faktiska identifieraren. Kontakta [supportteamet för Mimecast Personal Portal-klienten](https://www.mimecast.com/customer-success/technical-support/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Länk för hämtning av certifikat](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_certificate.png) 
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-1. Klicka på **spara** knappen.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/mimecast-personal-portal-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Mimecast Personal Portal** kopierar du lämpliga URL:er baserat på dina behov.
 
-1. På den **Mimecast personliga Portal Configuration** klickar du på **konfigurera Mimecast personliga Portal** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    ![Mimecast personliga Portalkonfiguration](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_configure.png) 
+    a. Inloggnings-URL
 
-1. Logga in på din personliga Mimecast-Portal som administratör i ett annat webbläsarfönster.
+    b. Azure AD-identifierare
 
-1. Gå till **Services \> program**.
+    c. Utloggnings-URL
+
+### <a name="configure-mimecast-personal-portal-single-sign-on"></a>Konfigurera Mimecast Personal Portal-prenumeration med enkel inloggning
+
+1. Öppna ett nytt webbläsarfönster och logga in i Mimecast Personal Portal som administratör.
+
+2. Gå till **Tjänster \> Program**.
    
-    ![Program](./media/mimecast-personal-portal-tutorial/ic794998.png "program")
+    ![Program](./media/mimecast-personal-portal-tutorial/ic794998.png "Program")
 
-1. Klicka på **autentisering profiler**.
+3. Klicka på **Autentiseringsprofiler**.
    
-    ![Autentisering profiler](./media/mimecast-personal-portal-tutorial/ic794999.png "autentisering profiler")
+    ![Autentiseringsprofiler](./media/mimecast-personal-portal-tutorial/ic794999.png "Autentiseringsprofiler")
 
-1. Klicka på **ny autentisering profil**.
+4. Klicka på **Ny autentiseringsprofil**.
    
-    ![Ny autentisering profil](./media/mimecast-personal-portal-tutorial/ic795000.png "ny autentisering-profil")
+    ![Ny autentiseringsprofil](./media/mimecast-personal-portal-tutorial/ic795000.png "Ny autentiseringsprofil")
 
-1. I den **autentisering profil** avsnittet, utför följande steg:
+5. Utför följande steg i avsnittet **Autentiseringsprofil**:
    
-    ![Autentisering profil](./media/mimecast-personal-portal-tutorial/ic795001.png "autentisering profil")
+    ![Autentiseringsprofil](./media/mimecast-personal-portal-tutorial/ic795001.png "Autentiseringsprofil")
    
-    a. I den **beskrivning** textrutan anger du ett namn för din konfiguration.
+    a. Ange ett namn för din konfiguration i textrutan **Beskrivning**.
    
-    b. Välj **framtvinga SAML-autentisering för Mimecast personliga Portal**.
+    b. Välj **Enforce SAML Authentication for Mimecast Personal Portal** (Kräv SAML-autentisering för Mimecast Personal Portal).
    
-    c. Som **Provider**väljer **Azure Active Directory**.
+    c. Som **Provider** väljer du **Azure Active Directory**.
    
-    d. I **utfärdar-URL** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
+    d. I textrutan **Utfärdar-URL** klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
    
-    e. I **inloggnings-URL** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+    e. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
    
-    f. I **URL för utloggning** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+    f. I textrutan för **utloggnings-URL** klistrar du in värdet för **utloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-    g. Öppna din **Base64-** kodade certifikatet i anteckningar som hämtats från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **identitetscertifikat Provider (Metadata)** textrutan.
+    g. Öppna ditt **base-64-kodade certifikat** som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in det i textrutan **Identity Provider Certificate (Metadata)** (Certifikat för identitetsprovider, metadata).
 
-    h. Välj **tillåta enkel inloggning på**.
+    h. Välj **Tillåt enkel inloggning**.
    
     i. Klicka på **Spara**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/mimecast-personal-portal-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/mimecast-personal-portal-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/mimecast-personal-portal-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/mimecast-personal-portal-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-mimecast-personal-portal-test-user"></a>Skapa en testanvändare Mimecast personliga Portal
 
-För att aktivera Azure AD-användare att logga in på Mimecast personliga portalen, måste de etableras i Mimecast personliga Portal. När det gäller Mimecast personliga Portal är etablering en manuell aktivitet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till Mimecast Personal Portal.
+
+1. Välj **Företagsprogram** på Azure-portalen, välj **Alla program** och sedan **Mimecast Personal Portal**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. Skriv och välj **Mimecast Personal Portal** i programlistan.
+
+    ![Mimecast Personal Portal-länken i listan över program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-mimecast-personal-portal-test-user"></a>Skapa Mimecast Personal Portal-testanvändare
+
+För att Azure AD-användare ska kunna logga in i Mimecast Personal Portal måste de vara etablerade i Mimecast Personal Portal. När det gäller Mimecast Personal Portal är etableringen en manuell åtgärd.
 
 Du måste registrera en domän innan du kan skapa användare.
 
-**Utför följande steg för att konfigurera användaretablering:**
+**Utför följande steg för att konfigurera användarförsörjning:**
 
-1. Logga in på din **Mimecast personliga Portal** som administratör.
+1. Logga in i **Mimecast Personal Portal** som administratör.
 
-1. Gå till **kataloger \> interna**.
+2. Gå till **Kataloger \> Internt**.
    
-    ![Kataloger](./media/mimecast-personal-portal-tutorial/ic795003.png "kataloger")
+    ![Kataloger](./media/mimecast-personal-portal-tutorial/ic795003.png "Kataloger")
 
-1. Klicka på **registrera ny domän**.
+3. Klicka på **Registrera ny domän**.
    
-    ![Registrera ny domän](./media/mimecast-personal-portal-tutorial/ic795004.png "registrera ny domän")
+    ![Registrera ny domän](./media/mimecast-personal-portal-tutorial/ic795004.png "Registrera ny domän")
 
-1. När du har skapat den nya domänen, klickar du på **nya adressen**.
+4. När den nya domänen har skapats klickar du på **Ny adress**.
    
-    ![Ny adress](./media/mimecast-personal-portal-tutorial/ic795005.png "ny adress")
+    ![Ny adress](./media/mimecast-personal-portal-tutorial/ic795005.png "Ny adress")
 
-1. I dialogrutan Ny adress utför du följande steg på en giltig Azure AD-konto som du vill etablera:
+5. I dialogrutan Ny adress utför du följande steg på ett giltigt Azure AD-konto som du vill etablera:
    
-    ![Spara](./media/mimecast-personal-portal-tutorial/ic795006.png "spara")
+    ![Spara](./media/mimecast-personal-portal-tutorial/ic795006.png "Spara")
    
-    a. I den **e-postadress** textrutan typ **e-postadress** användaren **BrittaSimon@contoso.com**.
+    a. I textrutan för **E-postadress** skriver du användarens **e-postadress** med formatet **BrittaSimon@contoso.com**.
     
-    b. I den **globalt namn** textrutan skriver den **användarnamn** som **BrittaSimon**.
+    b. I textrutan **Globalt namn** anger du **användarnamnet** till **BrittaSimon**.
 
-    c. I den **lösenord**, och **Bekräfta lösenord** textrutor, skriver den **lösenord** för användaren.
+    c. I textrutorna **Lösenord** och **Bekräfta lösenord** skriver du användarens **Lösenord**.
    
     b. Klicka på **Spara**.
 
 >[!NOTE]
->Du kan använda andra verktyg för Mimecast personliga Portal användare konto att skapa eller API: er som tillhandahålls av Mimecast personliga Portal för att etablera användarkonton i Azure AD.
+>Du kan etablera Azure AD-användarkonton med hjälp av andra API:er eller genereringsverktyg för Mimecast Personal Portal-användarkonton som är tillgängliga för Mimecast Personal Portal.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till personliga Mimecast-portalen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela rollen][200] 
-
-**Om du vill tilldela Britta Simon Mimecast personliga Portal, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **Mimecast personliga Portal**.
-
-    ![Mimecast personliga Portal-länken i programlistan](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_app.png)  
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202]
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Mimecast personliga Portal i åtkomstpanelen du bör få automatiskt loggat in på ditt Mimecast personliga Portal-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen för Mimecast Personal Portal på åtkomstpanelen bör du loggas in automatiskt i Mimecast Personal Portal-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/mimecast-personal-portal-tutorial/tutorial_general_01.png
-[2]: ./media/mimecast-personal-portal-tutorial/tutorial_general_02.png
-[3]: ./media/mimecast-personal-portal-tutorial/tutorial_general_03.png
-[4]: ./media/mimecast-personal-portal-tutorial/tutorial_general_04.png
-
-[100]: ./media/mimecast-personal-portal-tutorial/tutorial_general_100.png
-
-[200]: ./media/mimecast-personal-portal-tutorial/tutorial_general_200.png
-[201]: ./media/mimecast-personal-portal-tutorial/tutorial_general_201.png
-[202]: ./media/mimecast-personal-portal-tutorial/tutorial_general_202.png
-[203]: ./media/mimecast-personal-portal-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

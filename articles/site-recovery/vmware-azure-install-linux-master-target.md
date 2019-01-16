@@ -1,17 +1,19 @@
 ---
 title: Installera en Linux-huvudmålserver för återställning efter fel på en lokal plats | Microsoft Docs
 description: Lär dig hur du konfigurerar en Linux-huvudmålserver för återställning efter fel på en lokal plats under haveriberedskap för virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.author: mayg
+ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974393"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321433"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -39,7 +41,7 @@ Skicka kommentarer eller frågor i slutet av den här artikeln eller på den [Az
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Ändra storlek på riktlinjer för att skapa huvudmålservern
 
 Skapa Huvudmålet i enlighet med följande riktlinjer för storlek:
-- **RAM-MINNE**: 6 GB eller mer
+- **RAM**: 6 GB eller mer
 - **Storlek på operativsystemdisk**: 100 GB eller mer (för att installera OS)
 - **Ytterligare storleken för kvarhållningsenhet**: 1 TB
 - **CPU-kärnor**: 4 kärnor eller mer
@@ -349,7 +351,7 @@ Du kan nu se att den **Version** fält har det lägre versionsnumret för Huvudm
 * Huvudmålet ska inte ha några ögonblicksbilder på den virtuella datorn. Om det finns ögonblicksbilder, misslyckas återställning efter fel.
 
 * På grund av vissa anpassade konfigurationer för NIC, nätverksgränssnittet är inaktiverat under starten och huvudmålservern agenten kan inte initiera. Kontrollera att följande egenskaper är korrekt inställda. Kontrollera de här egenskaperna i Ethernet kortet filens /etc/sysconfig/network-scripts/ifcfg-eth *.
-    * BOOTPROTO = dhcp
+    * BOOTPROTO=dhcp
     * ONBOOT = Ja
 
 

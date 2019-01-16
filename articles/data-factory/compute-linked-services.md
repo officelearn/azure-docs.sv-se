@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873839"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321950"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
@@ -27,18 +27,18 @@ Följande tabell innehåller en lista över de beräkningsmiljöer som stöds av
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ett eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Anpassad](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: Batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQLServer](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
-| [Azure Databricks](#azure-databricks-linked-service)         | [Anteckningsboken](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
+| [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 
-## <a name="on-demand-compute-environment"></a>På begäran beräkningsmiljö
+## <a name="on-demand-hdinsight-compute-environment"></a>På begäran HDInsight compute-miljö
 I den här typen av konfiguration kan hanteras helt datormiljön av Azure Data Factory-tjänsten. Den skapas automatiskt av Data Factory-tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan skapa en länkad tjänst för beräkningsmiljö för på begäran, konfigurera den och styra detaljerade inställningar för jobbkörning, klusterhantering och start av åtgärder.
 
 > [!NOTE]
-> På begäran-konfiguration stöds för närvarande endast för Azure HDInsight-kluster.
+> På begäran-konfiguration stöds för närvarande endast för Azure HDInsight-kluster. Azure Databricks har även stöd för på begäran-jobb med hjälp av jobbet kluster, se [Azure databricks-länkad tjänst](#azure-databricks-linked-service) för mer information.
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight på begäran länkad tjänst
 Azure Data Factory-tjänsten kan automatiskt skapa ett kluster för HDInsight på begäran för att bearbeta data. Klustret skapas i samma region som lagringskontot (linkedServiceName-egenskapen i JSON) som är associerade med klustret. Lagringskontot måste vara ett allmänt Azure storage-standardkonto. 
@@ -48,7 +48,7 @@ Observera följande **viktiga** punkter om på begäran HDInsight-länkad tjäns
 * HDInsight-kluster på begäran skapas under din Azure-prenumeration. Är du kunna se kluster i Azure portal när klustret är igång och körs. 
 * Loggarna för jobb som körs på ett HDInsight-kluster på begäran kopieras till lagringskontot som associerats med HDInsight-kluster. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword som definierats i din länkade tjänstdefinitionen används för att logga in i kluster för djupgående felsökning under livscykeln för klustret. 
 * Du debiteras endast för den tid när HDInsight-klustret är igång och jobb som körs.
-* Skriptåtgärd stöds nu med Azure HDInsight på begäran länkad tjänst.  
+* Du kan använda en **skriptåtgärd** med i Azure HDInsight på begäran länkad tjänst.  
 
 > [!IMPORTANT]
 > Det tar vanligtvis **20 minuter** eller mer att etablera ett Azure HDInsight-kluster på begäran.
@@ -102,28 +102,28 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 | clusterSize                  | Antal worker/data noder i klustret. HDInsight-klustret har skapats med 2 huvudnoder tillsammans med antalet arbetsnoder som du anger för den här egenskapen. Noderna är storlek Standard_D3 med 4 kärnor, så att ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder plus 2\*4 = 8 kärnor för huvudnoder). Se [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) mer information. | Ja      |
 | linkedServiceName            | Länkad Azure Storage-tjänst som ska användas av klustret på begäran för att lagra och bearbeta data. HDInsight-klustret har skapats i samma region som Azure Storage-kontot. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Kontrollera att du har tillräckligt med kärnkvoter i den Azure-regionen som uppfyller de nödvändiga clusterSize. Mer information finns att [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan skapa du inte en på begäran HDInsight-kluster som använder en Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight i ett Azure Data Lake Store, kan du använda en Kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure Data Lake Store. </p> | Ja      |
 | clusterResourceGroup         | HDInsight-klustret har skapats i den här resursgruppen. | Ja      |
-| TimeToLive                   | Tillåtna inaktivitetstiden för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiv efter det att en aktivitet som körs om det finns inga aktiva jobb i klustret. Den minsta tillåtna värdet är 5 minuter (00: 05:00).<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, kvar klustret alive under 5 minuter efter 6 minuter bearbeta aktiviteten körs. Om en annan aktivitet som kör körs med fönstret 6 minuter, bearbetas den av samma kluster.<br/><br/>Det är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en data factory genom att återanvända ett HDInsight-kluster på begäran att skapa ett HDInsight-kluster på begäran.<br/><br/>Om du ställer in timetolive-värdet till 0 tas klustret bort när aktiviteten körningen har slutförts. Å andra sidan om du ställer in ett högt värde för klustret kan vara inaktiv för inloggning för felsökning av vissa syfte, men det kan leda till höga kostnader. Det är därför viktigt att du ställer in lämpligt värde utifrån dina behov.<br/><br/>Om timetolive egenskapens värde är korrekt inställt, kan flera pipelines delar instans av HDInsight-kluster på begäran. | Ja      |
-| clusterType                  | Typ av HDInsight-klustret skapas. Tillåtna värden är ”hadoop” och ”spark”. Om inte anges är standardvärdet hadoop. Enterprise Security Package aktiverat kluster stöds inte för tillfället | Nej       |
+| timetolive                   | Tillåtna inaktivitetstiden för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiv efter det att en aktivitet som körs om det finns inga aktiva jobb i klustret. Den minsta tillåtna värdet är 5 minuter (00: 05:00).<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, kvar klustret alive under 5 minuter efter 6 minuter bearbeta aktiviteten körs. Om en annan aktivitet som kör körs med fönstret 6 minuter, bearbetas den av samma kluster.<br/><br/>Det är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en data factory genom att återanvända ett HDInsight-kluster på begäran att skapa ett HDInsight-kluster på begäran.<br/><br/>Om du ställer in timetolive-värdet till 0 tas klustret bort när aktiviteten körningen har slutförts. Å andra sidan om du ställer in ett högt värde för klustret kan vara inaktiv för inloggning för felsökning av vissa syfte, men det kan leda till höga kostnader. Det är därför viktigt att du ställer in lämpligt värde utifrån dina behov.<br/><br/>Om timetolive egenskapens värde är korrekt inställt, kan flera pipelines delar instans av HDInsight-kluster på begäran. | Ja      |
+| clusterType                  | Typ av HDInsight-klustret skapas. Tillåtna värden är ”hadoop” och ”spark”. Om inte anges är standardvärdet hadoop. Enterprise Security Package aktiverade kluster inte kan skapas på begäran, i stället använda en [befintliga kluster / ta med din egen beräkning](#azure-hdinsight-linked-service). | Nej       |
 | version                      | Versionen av HDInsight-klustret. Om den inte anges används den aktuella HDInsight definierade standardversionen. | Nej       |
 | hostSubscriptionId           | Azure-prenumerations-ID som används för att skapa HDInsight-kluster. Om inte anges använder prenumerations-ID för din Azure-inloggningskontext. | Nej       |
 | clusterNamePrefix           | Prefixet för HDI-klustrets namn, en tidsstämpel läggs automatiskt i slutet av klustrets namn| Nej       |
 | sparkVersion                 | Version av Apache spark om typ av kluster är ”Spark” | Nej       |
 | additionalLinkedServiceNames | Anger ytterligare lagringskonton för HDInsight-länkad tjänst så att Data Factory-tjänsten kan registrera dem för din räkning. Dessa konton måste vara i samma region som HDInsight-kluster som skapas i samma region som lagringskontot som anges av linkedServiceName. | Nej       |
-| osType                       | Typ av operativsystem. Tillåtna värden är: Linux och Windows (för HDInsight-3.3). Standardvärdet är Linux. | Nej       |
+| osType                       | Typ av operativsystem. Tillåtna värden är: Linux och Windows (för HDInsight 3.3 endast). Standardvärdet är Linux. | Nej       |
 | hcatalogLinkedServiceName    | Namnet på Azure SQL länkade tjänst som pekar på HCatalog-databasen. HDInsight-kluster på begäran skapas med hjälp av Azure SQL-databas som metaarkiv. | Nej       |
 | connectVia                   | Integration Runtime som ska användas för att skicka ut aktiviteter till den här länkade HDInsight-tjänsten. För på begäran länkad HDInsight-tjänsten stöder bara Azure Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej       |
 | clusterUserName                   | Användarnamnet för att få åtkomst till klustret. | Nej       |
 | clusterPassword                   | Lösenordet i typen av säker sträng för åtkomst till klustret. | Nej       |
 | clusterSshUserName         | Användarnamnet för SSH fjärransluta till klustrets nod (för Linux). | Nej       |
 | clusterSshPassword         | Lösenordet i typ av säker sträng SSH fjärransluta klustrets nod (för Linux). | Nej       |
+| scriptActions | Ange skript för [HDInsight-kluster anpassningar](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) när du skapar klustret på begäran. <br />För närvarande, Azure Data Factory-användargränssnitt som redigeringsverktyget har stöd för att ange endast 1 skriptåtgärd, men du kan få via den här begränsningen i JSON (ange flera skriptåtgärder i JSON). | Nej |
 
 
 > [!IMPORTANT]
 > HDInsight har stöd för flera Hadoop-klusterversioner som kan distribueras. Varje version alternativ skapar en specifik version av Hortonworks Data Platform (HDP)-distribution och en uppsättning komponenter som ingår i distributionen. Listan över HDInsight-versioner som stöds och ser till att uppdateras för att ge senaste Hadoop-ekosystemet-komponenter och korrigeringar. Kontrollera att du alltid gå till senaste information för [stöds HDInsight version och OS-typ](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) att se till att du använder version som stöds av HDInsight. 
 >
-> 
 > [!IMPORTANT]
-> För närvarande HDInsight länkade tjänster inte stöder HBase, Interactive Query (LLAP Hive), Storm och Enterprise Security aktiverat (domänansluten) kluster. 
+> För närvarande HDInsight länkade tjänster har inte stöd för HBase, Interactive Query (Hive-LLAP), Storm. 
 >
 > 
 
@@ -226,7 +226,7 @@ Du kan ange storleken på huvudnoder, datanoder och zookeeper-noder med följand
 
 | Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
-| Egenskaper för headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är: Standard_D3. Se den **att ange storleken på** information. | Nej       |
+| headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är: Standard_D3. Se den **att ange storleken på** information. | Nej       |
 | dataNodeSize      | Anger storleken på datanod. Standardvärdet är: Standard_D3. | Nej       |
 | zookeeperNodeSize | Anger storleken på noden Zoo sköter. Standardvärdet är: Standard_D3. | Nej       |
 
@@ -240,7 +240,7 @@ Om du vill skapa D4 storlek huvudnoderna och arbetsnoder ange **Standard_D4** so
 "dataNodeSize": "Standard_D4",
 ```
 
-Om du anger ett felaktigt värde för de här egenskaperna, kan du få följande **fel:** gick inte att skapa klustret. Undantag: Unable to complete the cluster create operation. (Det går inte att slutföra åtgärden att skapa ett kluster.) Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Cluster left behind state: 'Error'. (Klustret efterlämnade status: Fel.) Meddelande: 'PreClusterCreationValidationFailure'. När du får det här felet kan du se till att du använder den **cmdlet: en och API: er** namn från tabellen i den [storlekar för virtuella datorer](../virtual-machines/linux/sizes.md) artikeln.        
+Om du anger ett felaktigt värde för de här egenskaperna, kan du få följande **fel:** Det gick inte att skapa kluster. Undantag: Det går inte att slutföra klustret för att skapa. Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Klustret sörjande tillstånd: ”Fel”. Meddelande: 'PreClusterCreationValidationFailure'. När du får det här felet kan du se till att du använder den **cmdlet: en och API: er** namn från tabellen i den [storlekar för virtuella datorer](../virtual-machines/linux/sizes.md) artikeln.        
 
 ## <a name="bring-your-own-compute-environment"></a>Ta med din egen beräkningsmiljö
 Användare kan registrera ett befintligt datormiljö som en länkad tjänst i Data Factory i den här typen av konfiguration. Datormiljön hanteras av användaren och Data Factory-tjänsten används för att köra aktiviteterna.
@@ -251,7 +251,7 @@ Den här typen av konfiguration stöds för följande beräkningsmiljöer:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL DB, Azure SQL DW, SQLServer
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight-länkad tjänst
 Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ett eget HDInsight-kluster med Data Factory.
@@ -284,20 +284,21 @@ Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ett eget HDI
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap           | Beskrivning                              | Krävs |
-| ----------------- | ---------------------------------------- | -------- |
-| typ              | Type-egenskapen ska anges till **HDInsight**. | Ja      |
-| clusterUri        | URI för HDInsight-klustret.        | Ja      |
+| Egenskap           | Beskrivning                                                  | Krävs |
+| ----------------- | ------------------------------------------------------------ | -------- |
+| typ              | Type-egenskapen ska anges till **HDInsight**.            | Ja      |
+| clusterUri        | URI för HDInsight-klustret.                            | Ja      |
 | användarnamn          | Ange namnet på användaren som ska användas för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
-| lösenord          | Ange lösenordet för användarkontot.   | Ja      |
+| lösenord          | Ange lösenordet för användarkontot.                       | Ja      |
 | linkedServiceName | Namnet på den länkade Azure Storage-tjänst som refererar till Azure blob-lagring som används av HDInsight-klustret. <p>För närvarande kan ange du inte en Azure Data Lake Store-länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Azure Data Lake Store från Hive/Pig-skript. </p> | Ja      |
-| connectVia        | Integration Runtime som ska användas för att skicka ut aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller lokal Integration Runtime. Om den inte anges används standard Azure Integration Runtime. | Nej       |
+| isEspEnabled      | Ange ”*SANT*' om HDInsight-klustret är [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction) aktiverat. Standardvärdet är '*FALSKT*'. | Nej       |
+| connectVia        | Integration Runtime som ska användas för att skicka ut aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller lokal Integration Runtime. Om den inte anges används standard Azure Integration Runtime. <br />För Enterprise Security Package (ESP) aktiverat HDInsight klusteranvändning en lokal integration runtime som har åtkomst till klustret eller den ska distribueras i samma virtuella nätverk som ESP HDInsight-kluster. | Nej       |
 
 > [!IMPORTANT]
 > HDInsight har stöd för flera Hadoop-klusterversioner som kan distribueras. Varje version alternativ skapar en specifik version av Hortonworks Data Platform (HDP)-distribution och en uppsättning komponenter som ingår i distributionen. Listan över HDInsight-versioner som stöds och ser till att uppdateras för att ge senaste Hadoop-ekosystemet-komponenter och korrigeringar. Kontrollera att du alltid gå till senaste information för [stöds HDInsight version och OS-typ](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) att se till att du använder version som stöds av HDInsight. 
 >
 > [!IMPORTANT]
-> För närvarande HDInsight länkade tjänster inte stöder HBase, Interactive Query (LLAP Hive), Storm och Enterprise Security aktiverat (domänansluten) kluster. 
+> För närvarande HDInsight länkade tjänster har inte stöd för HBase, Interactive Query (Hive-LLAP), Storm. 
 >
 > 
 

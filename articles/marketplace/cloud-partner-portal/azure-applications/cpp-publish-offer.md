@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262922"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329998"
 ---
 # <a name="publish-azure-application-offer"></a>Publicera erbjudande för Azure-program
 
@@ -41,7 +41,7 @@ I följande tabell listar och beskriver hur publicering och ger en Uppskattad ti
 | Test Drive-verifiering          | < 2 timmar   | (Valfritt) Om en Test Drive finns verifierar Microsoft att den kan distribueras och replikeras.  |
 | Paketering och registrering för lead-generering | < 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system konfigureras och distribueras. |
 |  Utgivaren signering             |  Manuell    | Sista publisher granska och bekräfta innan erbjudandet lanseras. Erbjudandet är nu tillgänglig för förhandsgranskning.  Du kan distribuera ditt erbjudande i de valda prenumerationerna (i erbjudandet information steg) för att kontrollera att den uppfyller dina krav.  När du har kontrollerat erbjudandet, Välj **Go Live** så att ditt erbjudande kan flytta till nästa steg. |
-| Microsoft-granskning                | 7 – 14 dagar * | Microsoft granskar dina Azure-program holistiskt och e-postmeddelande om problem upptäcks.  * Sällan, kan det här steget ta längre tid än 14 dagar, beroende på komplexiteten i programmet och problem som upptäckts.  |
+| Microsoft-granskning                | 7 – 14 dagar | Microsoft granskar dina Azure-program holistiskt och e-postmeddelande om problem upptäcks.  Längden på det här steget beror på hur komplex programmet problem vid och hur snabbt du svara på dem.  |
 | Live                           | < 1 dag | Erbjudandet är publicerat, replikeras till de angivna regionerna och göras tillgängliga för allmänheten. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
  

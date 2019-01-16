@@ -1,236 +1,209 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med KnowBe4 medvetenhet säkerhetsutbildning | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och utbildning för KnowBe4 säkerhet.
+title: 'Självstudier: Azure Active Directory-integrering med KnowBe4 Security Awareness Training | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och KnowBe4 Security Awareness Training.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: b80d2212-cc5f-4adb-836c-570640810c39
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/31/2017
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c27af4e7bc88f24b76310336859740d8795f7cbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 983571daa19a3658b134902ee328af142a3383c3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449281"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065587"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Självstudier: Azure Active Directory-integration med KnowBe4 säkerhetsutbildning medvetenhet
+# <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Självstudier: Azure Active Directory-integrering med KnowBe4 Security Awareness Training
 
-Lär dig hur du integrerar KnowBe4 Security utbildning med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera KnowBe4 Security Awareness Training med Azure Active Directory (Azure AD).
+Integreringen av KnowBe4 Security Awareness Training med Azure AD medför följande fördelar:
 
-Integrera KnowBe4 Security utbildning med Azure AD ger dig följande fördelar:
+* Du kan styra vilka som har tillgång till KnowBe4 Security Awareness Training från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på KnowBe4 Security Awareness Training (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har tillgång till utbildning för KnowBe4 säkerhet.
-- Du kan aktivera användarna att automatiskt få loggat in på KnowBe4 medvetenhet säkerhetsutbildning (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med KnowBe4 Security Awareness Training behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med KnowBe4 säkerhetsutbildning medvetenhet, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En KnowBe4 medvetenhet säkerhetsutbildning enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En KnowBe4 Security Awareness Training-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till KnowBe4 medvetenhet säkerhetsutbildning från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-knowbe4-security-awareness-training-from-the-gallery"></a>Att lägga till KnowBe4 medvetenhet säkerhetsutbildning från galleriet
-För att konfigurera integrering av KnowBe4 utbildning för säkerhet i Azure AD, som du behöver lägga till KnowBe4 medvetenhet säkerhetsutbildning från galleriet i din lista över hanterade SaaS-appar.
+* KnowBe4 Security Awareness Training har stöd för **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till KnowBe4 medvetenhet säkerhetsutbildning från galleriet:**
+* KnowBe4 Security Awareness Training har stöd för **Just-in-time**-användaretablering
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+## <a name="adding-knowbe4-security-awareness-training-from-the-gallery"></a>Lägga till KnowBe4 Security Awareness Training från galleriet
 
-    ![Azure Active Directory-knappen][1]
+För att kunna konfigurera integrering av KnowBe4 Security Awareness Training i Azure AD behöver du lägga till KnowBe4 Security Awareness Training från galleriet i din lista över hanterade SaaS-appar.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+**Utför följande steg för att lägga till KnowBe4 Security Awareness Training från galleriet:**
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Knappen Nytt program][3]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. I sökrutan skriver **KnowBe4 medvetenhet säkerhetsutbildning**väljer **KnowBe4 medvetenhet säkerhetsutbildning** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![KnowBe4 medvetenhet säkerhetsutbildning i resultatlistan](./media/knowbe4-tutorial/tutorial_knowbe4_addfromgallery.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med KnowBe4 medvetenhet säkerhetsutbildning baserat på en testanvändare som kallas ”Britta Simon”.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i KnowBe4 medvetenhet säkerhetsutbildning är till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i KnowBe4 medvetenhet säkerhetsutbildning upprättas.
+4. Skriv **KnowBe4 Security Awareness Training** i sökrutan, välj **KnowBe4 Security Awareness Training** i resultatpanelen och klicka sedan på knappen **Lägg till** för att lägga till programmet.
 
-I KnowBe4 för medvetenhet säkerhetsutbildning tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+     ![KnowBe4 Security Awareness Training i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med utbildning för KnowBe4 säkerhet, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare KnowBe4 medvetenhet säkerhetsutbildning](#create-a-knowbe4-security-awareness-training-test-user)**  – du har en motsvarighet för Britta Simon i KnowBe4 medvetenhet säkerhetsutbildning som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med KnowBe4 Security Awareness Training baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i KnowBe4 Security Awareness Training upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+För att kunna konfigurera och testa enkel inloggning med Azure AD med hjälp av KnowBe4 Security Awareness Training behöver du utföra följande uppgifter:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för KnowBe4 medvetenhet säkerhetsutbildning.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för KnowBe4 Security Awareness Training](#configure-knowbe4-security-awareness-training-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa KnowBe4 Security Awareness Training-testanvändare](#create-knowbe4-security-awareness-training-test-user)** – för att få en motsvarighet till Britta Simon i KnowBe4 Security Awareness Training som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med KnowBe4 medvetenhet säkerhetsutbildning:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **KnowBe4 medvetenhet säkerhetsutbildning** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med hjälp av KnowBe4 Security Awareness Training:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/knowbe4-tutorial/tutorial_knowbe4_samlbase.png)
+1. Välj **Enkel inloggning** på sidan för programintegrering med **KnowBe4 Security Awareness Training** på [Azure-portalen](https://portal.azure.com/).
 
-1. På den **KnowBe4 säkerhetsdomän medvetenhet utbildning och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![KnowBe4 säkerhetsdomän medvetenhet utbildning och URL: er med enkel inloggning för information](./media/knowbe4-tutorial/tutorial_knowbe4_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [KnowBe4 Säkerhetsklient medvetenhet utbildning supportteamet](mailto:support@KnowBe4.com) att hämta det här värdet. 
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    b. I den **identifierare** textrutan skriver strängvärdet: `KnowBe4`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Information om enkel inloggning med KnowBe4 Security Awareness Training-domäner och -URL:er](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE]
-    >Detta är skiftlägeskänsligt
+    > Värdet för inloggnings-URL:en är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta värdet genom att kontakta [supportteamet för KnowBe4 Security Awareness Training-klienten](mailto:support@KnowBe4.com). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Raw)** och spara certifikatfilen på datorn.
+    b. I textrutan **Identifierare (entitets-ID)** anger du strängvärdet: `KnowBe4`
 
-    ![Länk för hämtning av certifikat](./media/knowbe4-tutorial/tutorial_knowbe4_certificate.png) 
+    > [!NOTE]
+    > Värdet är skiftlägeskänsligt.
 
-1. Klicka på **spara** knappen.
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/knowbe4-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-1. På den **KnowBe4 säkerhetskonfiguration medvetenhet utbildning** klickar du på **konfigurera KnowBe4 medvetenhet säkerhetsutbildning** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+6. I avsnittet **Konfigurera KnowBe4 Security Awareness Training** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![KnowBe4 säkerhetskonfiguration medvetenhet utbildning](./media/knowbe4-tutorial/tutorial_knowbe4_configure.png) 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. Att konfigurera enkel inloggning på **KnowBe4 medvetenhet säkerhetsutbildning** sida, som du behöver skicka de hämtade **certifikat (Raw)**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning Tjänst-URL för** till [KnowBe4 Säkerhetsklient medvetenhet utbildning supportteamet](mailto:support@KnowBe4.com).
+    a. Inloggnings-URL
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-knowbe4-security-awareness-training-single-sign-on"></a>Konfigurera KnowBe4 Security Awareness Training för enkel inloggning
+
+För att konfigurera enkel inloggning på **KnowBe4 Security Awareness Training**-sidan behöver du skicka det nedladdade **certifikatet (RAW)** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/knowbe4-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/knowbe4-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/knowbe4-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/knowbe4-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-knowbe4-security-awareness-training-test-user"></a>Skapa en testanvändare KnowBe4 säkerhetsutbildning medvetenhet
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i KnowBe4 Security-utbildning. KnowBe4 medvetenhet säkerhetsutbildning stöder just-in-time-etablering, vilket är som standard aktiverat.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt KnowBe4 säkerhetsutbildning medvetenhet om det inte finns ännu. 
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till KnowBe4 Security Awareness Training.
 
->[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [KnowBe4 medvetenhet säkerhetsutbildning supportteamet](mailto:support@KnowBe4.com).
+1. På Azure-portalen väljer du **Företagsprogram**, väljer **Alla program** och väljer sedan **KnowBe4 Security Awareness Training**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till utbildning för KnowBe4 säkerhet.
+2. Välj **KnowBe4 Security Awareness Training** i listan över program.
 
-![Tilldela rollen][200] 
+    ![KnowBe4 Security Awareness Training-länken i listan över program](common/all-applications.png)
 
-**Om du vill tilldela KnowBe4 medvetenhet säkerhetsutbildning Britta Simon utför du följande steg:**
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Tilldela användare][201] 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I listan med program väljer **KnowBe4 medvetenhet säkerhetsutbildning**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken KnowBe4 medvetenhet säkerhetsutbildning i listan med program](./media/knowbe4-tutorial/tutorial_knowbe4_app.png)  
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Länken ”användare och grupper”][202]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+### <a name="create-knowbe4-security-awareness-training-test-user"></a>Skapa KnowBe4 Security Awareness Training-testanvändare
 
-    ![Fönstret Lägg till tilldelning][203]
+Syftet med det här avsnittet är att skapa en användare kallad Britta Simon i KnowBe4 Security Awareness Training. KnowBe4 Security Awareness Training stöder just-in-time-etablering, som är aktiverat med standardinställningen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas under ett försök att komma åt KnowBe4 Security Awareness Training om det inte finns ännu.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+> [!NOTE]
+> Om du vill skapa en användare manuellt kan du behöva kontakta supportteamet för [KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com).
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-  
-När du klickar på panelen KnowBe4 medvetenhet säkerhetsutbildning i åtkomstpanelen du bör få automatiskt loggat in på programmets KnowBe4 Security-utbildning. 
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på panelen för KnowBe4 Security Awareness Training i åtkomstpanelen bör du loggas in automatiskt på den KnowBe4 Security Awareness Training som du har ställt in enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/knowbe4-tutorial/tutorial_general_01.png
-[2]: ./media/knowbe4-tutorial/tutorial_general_02.png
-[3]: ./media/knowbe4-tutorial/tutorial_general_03.png
-[4]: ./media/knowbe4-tutorial/tutorial_general_04.png
-
-[100]: ./media/knowbe4-tutorial/tutorial_general_100.png
-
-[200]: ./media/knowbe4-tutorial/tutorial_general_200.png
-[201]: ./media/knowbe4-tutorial/tutorial_general_201.png
-[202]: ./media/knowbe4-tutorial/tutorial_general_202.png
-[203]: ./media/knowbe4-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
